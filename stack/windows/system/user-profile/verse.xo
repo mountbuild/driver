@@ -1,0 +1,740 @@
+
+force get-account-picture-kind
+  cause get-object
+    drive aspect, |Windows.System.UserProfile.AccountPictureKind|
+
+force build-advertising-manager
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.AdvertisingManager|
+
+force get-advertising-id
+  start build, field windows-system-userprofile-advertisingmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AdvertisingId|
+
+force set-advertising-id
+  start build, field windows-system-userprofile-advertisingmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AdvertisingId|
+    drive factor, share value
+
+force get-for-user
+  start build, field windows-system-userprofile-advertisingmanager
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force build-advertising-manager-for-user
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.AdvertisingManagerForUser|
+
+force get-advertising-id
+  start build, field windows-system-userprofile-advertisingmanagerforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AdvertisingId|
+
+force set-advertising-id
+  start build, field windows-system-userprofile-advertisingmanagerforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AdvertisingId|
+    drive factor, share value
+
+force get-user
+  start build, field windows-system-userprofile-advertisingmanagerforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-system-userprofile-advertisingmanagerforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-assigned-access-settings
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.AssignedAccessSettings|
+
+force get-default
+  start build, field windows-system-userprofile-assignedaccesssettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-for-user
+  start build, field windows-system-userprofile-assignedaccesssettings
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force get-is-enabled
+  start build, field windows-system-userprofile-assignedaccesssettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsEnabled|
+
+force set-is-enabled
+  start build, field windows-system-userprofile-assignedaccesssettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsEnabled|
+    drive factor, share value
+
+force get-is-single-app-kiosk-mode
+  start build, field windows-system-userprofile-assignedaccesssettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSingleAppKioskMode|
+
+force set-is-single-app-kiosk-mode
+  start build, field windows-system-userprofile-assignedaccesssettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSingleAppKioskMode|
+    drive factor, share value
+
+force get-user
+  start build, field windows-system-userprofile-assignedaccesssettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-system-userprofile-assignedaccesssettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-diagnostics-settings
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.DiagnosticsSettings|
+
+force get-can-use-diagnostics-to-tailor-experiences
+  start build, field windows-system-userprofile-diagnosticssettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanUseDiagnosticsToTailorExperiences|
+
+force set-can-use-diagnostics-to-tailor-experiences
+  start build, field windows-system-userprofile-diagnosticssettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanUseDiagnosticsToTailorExperiences|
+    drive factor, share value
+
+force get-default
+  start build, field windows-system-userprofile-diagnosticssettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-for-user
+  start build, field windows-system-userprofile-diagnosticssettings
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force get-user
+  start build, field windows-system-userprofile-diagnosticssettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-system-userprofile-diagnosticssettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-first-sign-in-settings
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.FirstSignInSettings|
+
+force first
+  start build, field windows-system-userprofile-firstsigninsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |First|
+
+force get-default
+  start build, field windows-system-userprofile-firstsigninsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force has-key
+  start build, field windows-system-userprofile-firstsigninsettings
+  start key, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |HasKey|
+    drive factor, share key
+
+force lookup
+  start build, field windows-system-userprofile-firstsigninsettings
+  start key, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Lookup|
+    drive factor, share key
+
+force get-size
+  start build, field windows-system-userprofile-firstsigninsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-system-userprofile-firstsigninsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force split
+  start build, field windows-system-userprofile-firstsigninsettings
+  start first, field windows-foundation-collections-imapview-system-string
+  start second, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |Split|
+    drive factor, share first
+    drive factor, share second
+
+force build-globalization-preferences
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.GlobalizationPreferences|
+
+force get-calendars
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Calendars|
+
+force set-calendars
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Calendars|
+    drive factor, share value
+
+force get-clocks
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Clocks|
+
+force set-clocks
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Clocks|
+    drive factor, share value
+
+force get-currencies
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Currencies|
+
+force set-currencies
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Currencies|
+    drive factor, share value
+
+force get-for-user
+  start build, field windows-system-userprofile-globalizationpreferences
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force get-home-geographic-region
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HomeGeographicRegion|
+
+force set-home-geographic-region
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HomeGeographicRegion|
+    drive factor, share value
+
+force get-languages
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Languages|
+
+force set-languages
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Languages|
+    drive factor, share value
+
+force try-set-home-geographic-region
+  start build, field windows-system-userprofile-globalizationpreferences
+  start region, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetHomeGeographicRegion|
+    drive factor, share region
+
+force try-set-languages
+  start build, field windows-system-userprofile-globalizationpreferences
+  start language-tags, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetLanguages|
+    drive factor, share language-tags
+
+force get-week-starts-on
+  start build, field windows-system-userprofile-globalizationpreferences
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WeekStartsOn|
+
+force set-week-starts-on
+  start build, field windows-system-userprofile-globalizationpreferences
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WeekStartsOn|
+    drive factor, share value
+
+force build-globalization-preferences-for-user
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.GlobalizationPreferencesForUser|
+
+force get-calendars
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Calendars|
+
+force set-calendars
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Calendars|
+    drive factor, share value
+
+force get-clocks
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Clocks|
+
+force set-clocks
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Clocks|
+    drive factor, share value
+
+force get-currencies
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Currencies|
+
+force set-currencies
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Currencies|
+    drive factor, share value
+
+force get-home-geographic-region
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HomeGeographicRegion|
+
+force set-home-geographic-region
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HomeGeographicRegion|
+    drive factor, share value
+
+force get-languages
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Languages|
+
+force set-languages
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Languages|
+    drive factor, share value
+
+force get-user
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force get-week-starts-on
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WeekStartsOn|
+
+force set-week-starts-on
+  start build, field windows-system-userprofile-globalizationpreferencesforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WeekStartsOn|
+    drive factor, share value
+
+force build-lock-screen
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.LockScreen|
+
+force get-image-stream
+  start build, field windows-system-userprofile-lockscreen
+
+  cause call-method
+    drive object, share build
+    drive method, |GetImageStream|
+
+force get-original-image-file
+  start build, field windows-system-userprofile-lockscreen
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OriginalImageFile|
+
+force set-original-image-file
+  start build, field windows-system-userprofile-lockscreen
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OriginalImageFile|
+    drive factor, share value
+
+force request-set-image-feed-async
+  start build, field windows-system-userprofile-lockscreen
+  start syndication-feed-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestSetImageFeedAsync|
+    drive factor, share syndication-feed-uri
+
+force set-image-file-async
+  start build, field windows-system-userprofile-lockscreen
+  start value, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |SetImageFileAsync|
+    drive factor, share value
+
+force set-image-stream-async
+  start build, field windows-system-userprofile-lockscreen
+  start value, field windows-storage-streams-irandomaccessstream
+
+  cause call-method
+    drive object, share build
+    drive method, |SetImageStreamAsync|
+    drive factor, share value
+
+force try-remove-image-feed
+  start build, field windows-system-userprofile-lockscreen
+
+  cause call-method
+    drive object, share build
+    drive method, |TryRemoveImageFeed|
+
+force get-set-account-picture-result
+  cause get-object
+    drive aspect, |Windows.System.UserProfile.SetAccountPictureResult|
+
+force get-set-image-feed-result
+  cause get-object
+    drive aspect, |Windows.System.UserProfile.SetImageFeedResult|
+
+force build-user-information
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.UserInformation|
+
+force get-account-picture-change-enabled
+  start build, field windows-system-userprofile-userinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AccountPictureChangeEnabled|
+
+force set-account-picture-change-enabled
+  start build, field windows-system-userprofile-userinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AccountPictureChangeEnabled|
+    drive factor, share value
+
+force get-account-picture
+  start build, field windows-system-userprofile-userinformation
+  start kind, field windows-system-userprofile-accountpicturekind
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAccountPicture|
+    drive factor, share kind
+
+force get-display-name-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDisplayNameAsync|
+
+force get-domain-name-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDomainNameAsync|
+
+force get-first-name-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFirstNameAsync|
+
+force get-last-name-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetLastNameAsync|
+
+force get-principal-name-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPrincipalNameAsync|
+
+force get-session-initiation-protocol-uri-async
+  start build, field windows-system-userprofile-userinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSessionInitiationProtocolUriAsync|
+
+force get-name-access-allowed
+  start build, field windows-system-userprofile-userinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NameAccessAllowed|
+
+force set-name-access-allowed
+  start build, field windows-system-userprofile-userinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NameAccessAllowed|
+    drive factor, share value
+
+force set-account-picture-async
+  start build, field windows-system-userprofile-userinformation
+  start image, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAccountPictureAsync|
+    drive factor, share image
+
+force set-account-picture-from-stream-async
+  start build, field windows-system-userprofile-userinformation
+  start image, field windows-storage-streams-irandomaccessstream
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAccountPictureFromStreamAsync|
+    drive factor, share image
+
+force set-account-pictures-async
+  start build, field windows-system-userprofile-userinformation
+  start small-image, field windows-storage-istoragefile
+  start large-image, field windows-storage-istoragefile
+  start video, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAccountPicturesAsync|
+    drive factor, share small-image
+    drive factor, share large-image
+    drive factor, share video
+
+force set-account-pictures-from-streams-async
+  start build, field windows-system-userprofile-userinformation
+  start small-image, field windows-storage-streams-irandomaccessstream
+  start large-image, field windows-storage-streams-irandomaccessstream
+  start video, field windows-storage-streams-irandomaccessstream
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAccountPicturesFromStreamsAsync|
+    drive factor, share small-image
+    drive factor, share large-image
+    drive factor, share video
+
+force build-user-profile-personalization-settings
+  cause invoke-constructor
+    drive constructor, |Windows.System.UserProfile.UserProfilePersonalizationSettings|
+
+force get-current
+  start build, field windows-system-userprofile-userprofilepersonalizationsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Current|
+
+force set-current
+  start build, field windows-system-userprofile-userprofilepersonalizationsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Current|
+    drive factor, share value
+
+force is-supported
+  start build, field windows-system-userprofile-userprofilepersonalizationsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force try-set-lock-screen-image-async
+  start build, field windows-system-userprofile-userprofilepersonalizationsettings
+  start image-file, field windows-storage-storagefile
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetLockScreenImageAsync|
+    drive factor, share image-file
+
+force try-set-wallpaper-image-async
+  start build, field windows-system-userprofile-userprofilepersonalizationsettings
+  start image-file, field windows-storage-storagefile
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetWallpaperImageAsync|
+    drive factor, share image-file

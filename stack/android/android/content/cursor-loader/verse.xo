@@ -1,0 +1,168 @@
+
+force build-cursor-loader
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |CursorLoader|
+    drive factor, share context
+    throw build, field cursor-loader
+
+force build-cursor-loader
+  mount context, field context
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+
+  cause invoke-constructor
+    drive constructor, |CursorLoader|
+    drive factor, share context
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    throw build, field cursor-loader
+
+force cancel-load-in-background
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelLoadInBackground|
+    throw build, field unit
+
+force deliver-result
+  mount build, field cursor-loader
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |deliverResult|
+    drive factor, share cursor
+    throw build, field unit
+
+force dump
+  mount build, field cursor-loader
+  mount prefix, field string
+  mount fd, field file-descriptor
+  mount writer, field print-writer
+  mount args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share prefix
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    throw build, field unit
+
+force get-projection
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getProjection|
+    throw build, field array
+
+force get-selection
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelection|
+    throw build, field string
+
+force get-selection-args
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectionArgs|
+    throw build, field array
+
+force get-sort-order
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getSortOrder|
+    throw build, field string
+
+force get-uri
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getUri|
+    throw build, field uri
+
+force load-in-background
+  mount build, field cursor-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |loadInBackground|
+    throw build, field cursor
+
+force on-canceled
+  mount build, field cursor-loader
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |onCanceled|
+    drive factor, share cursor
+    throw build, field unit
+
+force set-projection
+  mount build, field cursor-loader
+  mount projection, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setProjection|
+    drive factor, share projection
+    throw build, field unit
+
+force set-selection
+  mount build, field cursor-loader
+  mount selection, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelection|
+    drive factor, share selection
+    throw build, field unit
+
+force set-selection-args
+  mount build, field cursor-loader
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectionArgs|
+    drive factor, share selection-args
+    throw build, field unit
+
+force set-sort-order
+  mount build, field cursor-loader
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSortOrder|
+    drive factor, share sort-order
+    throw build, field unit
+
+force set-uri
+  mount build, field cursor-loader
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setUri|
+    drive factor, share uri
+    throw build, field unit

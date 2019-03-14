@@ -1,0 +1,70 @@
+
+force create
+  mount build, field script-intrinsic-convolve5x5
+  mount rs, field render-script
+  mount e, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share rs
+    drive factor, share e
+    raise build, field script-intrinsic-convolve5x5
+
+force for-each
+  mount build, field script-intrinsic-convolve5x5
+  mount aout, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share aout
+    raise build, field unit
+
+force for-each
+  mount build, field script-intrinsic-convolve5x5
+  mount aout, field allocation
+  mount opt, field script-launch-options
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share aout
+    drive factor, share opt
+    raise build, field unit
+
+force get-field-id-input
+  mount build, field script-intrinsic-convolve5x5
+
+  cause call-method
+    drive object, share build
+    drive method, |getFieldID_Input|
+    raise build, field script-field-id
+
+force get-kernel-id
+  mount build, field script-intrinsic-convolve5x5
+
+  cause call-method
+    drive object, share build
+    drive method, |getKernelID|
+    raise build, field script-kernel-id
+
+force set-coefficients
+  mount build, field script-intrinsic-convolve5x5
+  mount v, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setCoefficients|
+    drive factor, share v
+    raise build, field unit
+
+force set-input
+  mount build, field script-intrinsic-convolve5x5
+  mount ain, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share ain
+    raise build, field unit

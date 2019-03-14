@@ -1,0 +1,215 @@
+
+force get-slice-type
+  start build, field slice-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |SLICE_TYPE|
+    throw build, field string
+
+force build-slice-provider
+  start vararg-auto-grant-permissions, field string
+
+  cause invoke-constructor
+    drive constructor, |SliceProvider|
+    drive factor, share vararg-auto-grant-permissions
+    throw build, field slice-provider
+
+force build-slice-provider
+  cause invoke-constructor
+    drive constructor, |SliceProvider|
+    throw build, field slice-provider
+
+force attach-info
+  start build, field slice-provider
+  start context, field context
+  start info, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |attachInfo|
+    drive factor, share context
+    drive factor, share info
+    throw build, field unit
+
+force call
+  start build, field slice-provider
+  start method, field string
+  start arg, field string
+  start extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |call|
+    drive factor, share method
+    drive factor, share arg
+    drive factor, share extras
+    throw build, field bundle
+
+force delete
+  start build, field slice-provider
+  start uri, field uri
+  start selection, field string
+  start selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int
+
+force get-type
+  start build, field slice-provider
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    throw build, field string
+
+force insert
+  start build, field slice-provider
+  start uri, field uri
+  start values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    throw build, field uri
+
+force on-bind-slice
+  start build, field slice-provider
+  start slice-uri, field uri
+  start supported-specs, field mutable-set-slice-spec
+
+  cause call-method
+    drive object, share build
+    drive method, |onBindSlice|
+    drive factor, share slice-uri
+    drive factor, share supported-specs
+    throw build, field slice
+
+force on-create-permission-request
+  start build, field slice-provider
+  start slice-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreatePermissionRequest|
+    drive factor, share slice-uri
+    throw build, field pending-intent
+
+force on-get-slice-descendants
+  start build, field slice-provider
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetSliceDescendants|
+    drive factor, share uri
+    throw build, field mutable-collection
+
+force on-map-intent-to-uri
+  start build, field slice-provider
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onMapIntentToUri|
+    drive factor, share intent
+    throw build, field uri
+
+force on-slice-pinned
+  start build, field slice-provider
+  start slice-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onSlicePinned|
+    drive factor, share slice-uri
+    throw build, field unit
+
+force on-slice-unpinned
+  start build, field slice-provider
+  start slice-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onSliceUnpinned|
+    drive factor, share slice-uri
+    throw build, field unit
+
+force query
+  start build, field slice-provider
+  start uri, field uri
+  start projection, field array-string
+  start selection, field string
+  start selection-args, field array-string
+  start sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    throw build, field cursor
+
+force query
+  start build, field slice-provider
+  start uri, field uri
+  start projection, field array-string
+  start selection, field string
+  start selection-args, field array-string
+  start sort-order, field string
+  start cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    drive factor, share cancellation-signal
+    throw build, field cursor
+
+force query
+  start build, field slice-provider
+  start uri, field uri
+  start projection, field array-string
+  start query-args, field bundle
+  start cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share query-args
+    drive factor, share cancellation-signal
+    throw build, field cursor
+
+force update
+  start build, field slice-provider
+  start uri, field uri
+  start values, field content-values
+  start selection, field string
+  start selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int

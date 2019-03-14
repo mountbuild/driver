@@ -1,0 +1,76 @@
+
+force build-cipher-input-stream
+  start is, field input-stream
+  start c, field cipher
+
+  cause invoke-constructor
+    mount constructor, |CipherInputStream|
+    mount factor, share is
+    mount factor, share c
+    throw build, field cipher-input-stream
+
+force available
+  start build, field cipher-input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |available|
+    throw build, field int
+
+force close
+  start build, field cipher-input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build, field unit
+
+force mark-supported
+  start build, field cipher-input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |markSupported|
+    throw build, field boolean
+
+force read
+  start build, field cipher-input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    throw build, field int
+
+force read
+  start build, field cipher-input-stream
+  start b, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share b
+    throw build, field int
+
+force read
+  start build, field cipher-input-stream
+  start b, field byte-array
+  start off, field int
+  start len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share b
+    mount factor, share off
+    mount factor, share len
+    throw build, field int
+
+force skip
+  start build, field cipher-input-stream
+  start n, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |skip|
+    mount factor, share n
+    throw build, field long

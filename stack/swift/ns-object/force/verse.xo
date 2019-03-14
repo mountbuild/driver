@@ -1,0 +1,1523 @@
+force copy
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |copy|
+    raise build, class any
+
+force mutable-copy
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |mutableCopy|
+    raise build, class any
+
+force method
+  field build, field ns-object
+  field for, field selector
+
+  cause call-method
+    mount object, share build
+    mount method, |method|
+    mount factor
+      brand for
+      share for
+    raise build, class imp
+
+force get-auto-content-accessing-proxy
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |autoContentAccessingProxy|
+    raise build, field any
+
+force set-auto-content-accessing-proxy
+  field build, field ns-object
+  field value, field any
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |autoContentAccessingProxy|
+    mount factor, share value
+
+force perform
+  field build, field ns-object
+  field a, class selector
+  field with, field any
+  field after-delay, field time-interval
+
+  cause call-method
+    mount object, share build
+    mount method, |perform|
+    mount factor, share a
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand after-delay
+      share after-delay
+
+force perform
+  field build, field ns-object
+  field a, class selector
+  field with, field any
+  field after-delay, field time-interval
+  field in-modes, field run-loop-mode
+
+  cause call-method
+    mount object, share build
+    mount method, |perform|
+    mount factor, share a
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand after-delay
+      share after-delay
+    mount factor
+      brand in-modes
+      share in-modes
+
+force perform-selector
+  field build, field ns-object
+  field on-main-thread, field selector
+  field with, field any
+  field wait-until-done, field bool
+
+  cause call-method
+    mount object, share build
+    mount method, |performSelector|
+    mount factor
+      brand on-main-thread
+      share on-main-thread
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand wait-until-done
+      share wait-until-done
+
+force perform-selector
+  field build, field ns-object
+  field on-main-thread, field selector
+  field with, field any
+  field wait-until-done, field bool
+  field modes, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |performSelector|
+    mount factor
+      brand on-main-thread
+      share on-main-thread
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand wait-until-done
+      share wait-until-done
+    mount factor
+      brand modes
+      share modes
+
+force perform
+  field build, field ns-object
+  field a, class selector
+  field on, field thread
+  field with, field any
+  field wait-until-done, field bool
+
+  cause call-method
+    mount object, share build
+    mount method, |perform|
+    mount factor, share a
+    mount factor
+      brand on
+      share on
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand wait-until-done
+      share wait-until-done
+
+force perform
+  field build, field ns-object
+  field a, class selector
+  field on, field thread
+  field with, field any
+  field wait-until-done, field bool
+  field modes, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |perform|
+    mount factor, share a
+    mount factor
+      brand on
+      share on
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand wait-until-done
+      share wait-until-done
+    mount factor
+      brand modes
+      share modes
+
+force perform-selector
+  field build, field ns-object
+  field in-background, field selector
+  field with, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |performSelector|
+    mount factor
+      brand in-background
+      share in-background
+    mount factor
+      brand with
+      share with
+
+force forwarding-target
+  field build, field ns-object
+  field for, field selector
+
+  cause call-method
+    mount object, share build
+    mount method, |forwardingTarget|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force does-not-recognize-selector
+  field build, field ns-object
+  field a, class selector
+
+  cause call-method
+    mount object, share build
+    mount method, |doesNotRecognizeSelector|
+    mount factor, share a
+
+force awake-after
+  field build, field ns-object
+  field using, field ns-coder
+
+  cause call-method
+    mount object, share build
+    mount method, |awakeAfter|
+    mount factor
+      brand using
+      share using
+    raise build, class any
+
+force get-class-for-archiver
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |classForArchiver|
+    raise build, field any-class
+
+force set-class-for-archiver
+  field build, field ns-object
+  field value, field any-class
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |classForArchiver|
+    mount factor, share value
+
+force get-class-for-coder
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |classForCoder|
+    raise build, field any-class
+
+force set-class-for-coder
+  field build, field ns-object
+  field value, field any-class
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |classForCoder|
+    mount factor, share value
+
+force get-class-for-keyed-archiver
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |classForKeyedArchiver|
+    raise build, field any-class
+
+force set-class-for-keyed-archiver
+  field build, field ns-object
+  field value, field any-class
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |classForKeyedArchiver|
+    mount factor, share value
+
+force replacement-object
+  field build, field ns-object
+  field for, field ns-archiver
+
+  cause call-method
+    mount object, share build
+    mount method, |replacementObject|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force replacement-object
+  field build, field ns-object
+  field for, field ns-coder
+
+  cause call-method
+    mount object, share build
+    mount method, |replacementObject|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force replacement-object
+  field build, field ns-object
+  field for, field ns-keyed-archiver
+
+  cause call-method
+    mount object, share build
+    mount method, |replacementObject|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force get-attribute-keys
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |attributeKeys|
+    raise build, field string
+
+force set-attribute-keys
+  field build, field ns-object
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |attributeKeys|
+    mount factor, share value
+
+force get-class-description
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |classDescription|
+    raise build, field ns-class-description
+
+force set-class-description
+  field build, field ns-object
+  field value, field ns-class-description
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |classDescription|
+    mount factor, share value
+
+force inverse
+  field build, field ns-object
+  field for-relationship-key, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |inverse|
+    mount factor
+      brand for-relationship-key
+      share for-relationship-key
+    raise build, class string
+
+force get-to-many-relationship-keys
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |toManyRelationshipKeys|
+    raise build, field string
+
+force set-to-many-relationship-keys
+  field build, field ns-object
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |toManyRelationshipKeys|
+    mount factor, share value
+
+force get-to-one-relationship-keys
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |toOneRelationshipKeys|
+    raise build, field string
+
+force set-to-one-relationship-keys
+  field build, field ns-object
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |toOneRelationshipKeys|
+    mount factor, share value
+
+force get-class-code
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |classCode|
+    raise build, field four-char-code
+
+force set-class-code
+  field build, field ns-object
+  field value, field four-char-code
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |classCode|
+    mount factor, share value
+
+force get-class-name
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |className|
+    raise build, field string
+
+force set-class-name
+  field build, field ns-object
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |className|
+    mount factor, share value
+
+force get-scripting-properties
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |scriptingProperties|
+    raise build, field string
+
+force set-scripting-properties
+  field build, field ns-object
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |scriptingProperties|
+    mount factor, share value
+
+force scripting-value
+  field build, field ns-object
+  field for, field ns-script-object-specifier
+
+  cause call-method
+    mount object, share build
+    mount method, |scriptingValue|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force get-hash-value
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field ns-object
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    mount factor, share value
+
+force get-is-selectable
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isSelectable|
+    raise build, field bool
+
+force set-is-selectable
+  field build, field ns-object
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isSelectable|
+    mount factor, share value
+
+force get-object-specifier
+  field build, field ns-object
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |objectSpecifier|
+    raise build, field ns-script-object-specifier
+
+force set-object-specifier
+  field build, field ns-object
+  field value, field ns-script-object-specifier
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |objectSpecifier|
+    mount factor, share value
+
+force get-class-access-instance-variables-directly
+
+  cause get-aspect
+    mount object, |NSObject|
+    mount aspect, |accessInstanceVariablesDirectly|
+    raise build, field bool
+
+force set-class-access-instance-variables-directly
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSObject|
+    mount aspect, |accessInstanceVariablesDirectly|
+    mount factor, share value
+
+force accepts-preview-panel-control
+  field build, field ns-object
+  field a, class ql-preview-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |acceptsPreviewPanelControl|
+    mount factor, share a
+    raise build, class bool
+
+force action-property
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |actionProperty|
+    raise build, class string
+
+force attempt-recovery
+  field build, field ns-object
+  field from-error, field error
+  field option-index, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |attemptRecovery|
+    mount factor
+      brand from-error
+      share from-error
+    mount factor
+      brand option-index
+      share option-index
+    raise build, class bool
+
+force attempt-recovery
+  field build, field ns-object
+  field from-error, field error
+  field option-index, field int
+  field delegate, field any
+  field did-recover-selector, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |attemptRecovery|
+    mount factor
+      brand from-error
+      share from-error
+    mount factor
+      brand option-index
+      share option-index
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-recover-selector
+      share did-recover-selector
+    mount factor
+      brand context-info
+      share context-info
+
+force authorization-view-created-authorization
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewCreatedAuthorization|
+    mount factor, share a
+
+force authorization-view-did-authorize
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewDidAuthorize|
+    mount factor, share a
+
+force authorization-view-did-deauthorize
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewDidDeauthorize|
+    mount factor, share a
+
+force authorization-view-did-hide
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewDidHide|
+    mount factor, share a
+
+force authorization-view-released-authorization
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewReleasedAuthorization|
+    mount factor, share a
+
+force authorization-view-should-deauthorize
+  field build, field ns-object
+  field a, class sf-authorization-view
+
+  cause call-method
+    mount object, share build
+    mount method, |authorizationViewShouldDeauthorize|
+    mount factor, share a
+    raise build, class int8
+
+force awake-from-nib
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |awakeFromNib|
+
+force begin-preview-panel-control
+  field build, field ns-object
+  field a, class ql-preview-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |beginPreviewPanelControl|
+    mount factor, share a
+
+force candidates
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |candidates|
+    mount factor, share a
+    raise build, class any
+
+force certificate-panel-show-help
+  field build, field ns-object
+  field a, class sf-certificate-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |certificatePanelShowHelp|
+    mount factor, share a
+    raise build, class int8
+
+force choose-identity-panel-show-help
+  field build, field ns-object
+  field a, class sf-choose-identity-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |chooseIdentityPanelShowHelp|
+    mount factor, share a
+    raise build, class int8
+
+force commit-composition
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |commitComposition|
+    mount factor, share a
+
+force composed-string
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |composedString|
+    mount factor, share a
+    raise build, class any
+
+force composition-parameter-view
+  field build, field ns-object
+  field a, class qc-composition-parameter-view
+  field did-change-parameter-with-key, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |compositionParameterView|
+    mount factor, share a
+    mount factor
+      brand did-change-parameter-with-key
+      share did-change-parameter-with-key
+
+force composition-picker-view
+  field build, field ns-object
+  field a, class qc-composition-picker-view
+  field did-select, field qc-composition
+
+  cause call-method
+    mount object, share build
+    mount method, |compositionPickerView|
+    mount factor, share a
+    mount factor
+      brand did-select
+      share did-select
+
+force composition-picker-view-did-start-animating
+  field build, field ns-object
+  field a, class qc-composition-picker-view
+
+  cause call-method
+    mount object, share build
+    mount method, |compositionPickerViewDidStartAnimating|
+    mount factor, share a
+
+force composition-picker-view-will-stop-animating
+  field build, field ns-object
+  field a, class qc-composition-picker-view
+
+  cause call-method
+    mount object, share build
+    mount method, |compositionPickerViewWillStopAnimating|
+    mount factor, share a
+
+force did-command
+  field build, field ns-object
+  field by, field selector
+  field client, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |didCommand|
+    mount factor
+      brand by
+      share by
+    mount factor
+      brand client
+      share client
+    raise build, class bool
+
+force does-contain
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |doesContain|
+    mount factor, share a
+    raise build, class bool
+
+force end-preview-panel-control
+  field build, field ns-object
+  field a, class ql-preview-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |endPreviewPanelControl|
+    mount factor, share a
+
+force exception-handler
+  field build, field ns-object
+  field a, class ns-exception-handler
+  field should-handle, field ns-exception
+  field mask, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |exceptionHandler|
+    mount factor, share a
+    mount factor
+      brand should-handle
+      share should-handle
+    mount factor
+      brand mask
+      share mask
+    raise build, class bool
+
+force exception-handler
+  field build, field ns-object
+  field a, class ns-exception-handler
+  field should-log-exception, field ns-exception
+  field mask, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |exceptionHandler|
+    mount factor, share a
+    mount factor
+      brand should-log-exception
+      share should-log-exception
+    mount factor
+      brand mask
+      share mask
+    raise build, class bool
+
+force file-transfer-services-abort-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesAbortComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force file-transfer-services-connection-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesConnectionComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force file-transfer-services-copy-remote-file-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesCopyRemoteFileComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force file-transfer-services-create-folder-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+  field folder, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesCreateFolderComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+    mount factor
+      brand folder
+      share folder
+
+force file-transfer-services-disconnection-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesDisconnectionComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force file-transfer-services-file-preparation-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesFilePreparationComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force file-transfer-services-path-change-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+  field final-path, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesPathChangeComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+    mount factor
+      brand final-path
+      share final-path
+
+force file-transfer-services-remove-item-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+  field removed-item, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesRemoveItemComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+    mount factor
+      brand removed-item
+      share removed-item
+
+force file-transfer-services-retrieve-folder-listing-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+  field listing, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesRetrieveFolderListingComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+    mount factor
+      brand listing
+      share listing
+
+force file-transfer-services-send-file-complete
+  field build, field ns-object
+  field a, class obex-file-transfer-services
+  field error, field obex-error
+
+  cause call-method
+    mount object, share build
+    mount method, |fileTransferServicesSendFileComplete|
+    mount factor, share a
+    mount factor
+      brand error
+      share error
+
+force handle
+  field build, field ns-object
+  field a, class ns-event
+  field client, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |handle|
+    mount factor, share a
+    mount factor
+      brand client
+      share client
+    raise build, class bool
+
+force hash
+  field build, field ns-object
+  field into, field inout-hasher
+
+  cause call-method
+    mount object, share build
+    mount method, |hash|
+    mount factor
+      brand into
+      share into
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field background-was-right-clicked-with, field ns-event
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand background-was-right-clicked-with
+      share background-was-right-clicked-with
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field cell-was-double-clicked-at, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand cell-was-double-clicked-at
+      share cell-was-double-clicked-at
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field cell-was-right-clicked-at, field int
+  field with, field ns-event
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand cell-was-right-clicked-at
+      share cell-was-right-clicked-at
+    mount factor
+      brand with
+      share with
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field group-at, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand group-at
+      share group-at
+    raise build, class any-hashable-any
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field item-at, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand item-at
+      share item-at
+    raise build, class any
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field move-items-at, field index-set
+  field to, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand move-items-at
+      share move-items-at
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field remove-items-at, field index-set
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand remove-items-at
+      share remove-items-at
+
+force image-browser
+  field build, field ns-object
+  field a, class ik-image-browser-view
+  field write-items-at, field index-set
+  field to, field ns-pasteboard
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowser|
+    mount factor, share a
+    mount factor
+      brand write-items-at
+      share write-items-at
+    mount factor
+      brand to
+      share to
+    raise build, class int
+
+force image-browser-selection-did-change
+  field build, field ns-object
+  field a, class ik-image-browser-view
+
+  cause call-method
+    mount object, share build
+    mount method, |imageBrowserSelectionDidChange|
+    mount factor, share a
+
+force image-representation
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageRepresentation|
+    raise build, class any
+
+force image-representation-type
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageRepresentationType|
+    raise build, class string
+
+force image-subtitle
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageSubtitle|
+    raise build, class string
+
+force image-title
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageTitle|
+    raise build, class string
+
+force image-uid
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageUID|
+    raise build, class string
+
+force image-version
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |imageVersion|
+    raise build, class int
+
+force indices-of-objects
+  field build, field ns-object
+  field by-evaluating-object-specifier, field ns-script-object-specifier
+
+  cause call-method
+    mount object, share build
+    mount method, |indicesOfObjects|
+    mount factor
+      brand by-evaluating-object-specifier
+      share by-evaluating-object-specifier
+    raise build, class ns-number
+
+force input-text
+  field build, field ns-object
+  field a, class string
+  field client, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |inputText|
+    mount factor, share a
+    mount factor
+      brand client
+      share client
+    raise build, class bool
+
+force input-text
+  field build, field ns-object
+  field a, class string
+  field key, field int
+  field modifiers, field int
+  field client, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |inputText|
+    mount factor, share a
+    mount factor
+      brand key
+      share key
+    mount factor
+      brand modifiers
+      share modifiers
+    mount factor
+      brand client
+      share client
+    raise build, class bool
+
+force is-case-insensitive-like
+  field build, field ns-object
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |isCaseInsensitiveLike|
+    mount factor, share a
+    raise build, class bool
+
+force is-equal
+  field build, field ns-object
+  field to, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |isEqual|
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force is-greater-than
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |isGreaterThan|
+    mount factor, share a
+    raise build, class bool
+
+force is-greater-than-or-equal
+  field build, field ns-object
+  field to, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |isGreaterThanOrEqual|
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force is-less-than
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |isLessThan|
+    mount factor, share a
+    raise build, class bool
+
+force is-less-than-or-equal
+  field build, field ns-object
+  field to, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |isLessThanOrEqual|
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force is-like
+  field build, field ns-object
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |isLike|
+    mount factor, share a
+    raise build, class bool
+
+force is-not-equal
+  field build, field ns-object
+  field to, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |isNotEqual|
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force number-of-groups
+  field build, field ns-object
+  field in-image-browser, field ik-image-browser-view
+
+  cause call-method
+    mount object, share build
+    mount method, |numberOfGroups|
+    mount factor
+      brand in-image-browser
+      share in-image-browser
+    raise build, class int
+
+force number-of-items
+  field build, field ns-object
+  field in-image-browser, field ik-image-browser-view
+
+  cause call-method
+    mount object, share build
+    mount method, |numberOfItems|
+    mount factor
+      brand in-image-browser
+      share in-image-browser
+    raise build, class int
+
+force original-string
+  field build, field ns-object
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |originalString|
+    mount factor, share a
+    raise build, class ns-attributed-string
+
+force perform-action
+  field build, field ns-object
+  field for, field ab-person
+  field identifier, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |performAction|
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand identifier
+      share identifier
+
+force prepare-for-interface-builder
+  field build, field ns-object
+
+  cause call-method
+    mount object, share build
+    mount method, |prepareForInterfaceBuilder|
+
+force provide-image-data
+  field build, field ns-object
+  field a, class unsafe-mutable-raw-pointer
+  field bytes-per-row, field int
+  field origin, field int
+  field b, class int
+  field size, field int
+  field c, class int
+  field user-info, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |provideImageData|
+    mount factor, share a
+    mount factor
+      brand bytes-per-row
+      share bytes-per-row
+    mount factor
+      brand origin
+      share origin
+    mount factor, share b
+    mount factor
+      brand size
+      share size
+    mount factor, share c
+    mount factor
+      brand user-info
+      share user-info
+
+force quartz-filter-manager
+  field build, field ns-object
+  field a, class quartz-filter-manager
+  field did-add, field quartz-filter
+
+  cause call-method
+    mount object, share build
+    mount method, |quartzFilterManager|
+    mount factor, share a
+    mount factor
+      brand did-add
+      share did-add
+
+force quartz-filter-manager
+  field build, field ns-object
+  field a, class quartz-filter-manager
+  field did-modify-filter, field quartz-filter
+
+  cause call-method
+    mount object, share build
+    mount method, |quartzFilterManager|
+    mount factor, share a
+    mount factor
+      brand did-modify-filter
+      share did-modify-filter
+
+force quartz-filter-manager
+  field build, field ns-object
+  field a, class quartz-filter-manager
+  field did-remove, field quartz-filter
+
+  cause call-method
+    mount object, share build
+    mount method, |quartzFilterManager|
+    mount factor, share a
+    mount factor
+      brand did-remove
+      share did-remove
+
+force quartz-filter-manager
+  field build, field ns-object
+  field a, class quartz-filter-manager
+  field did-select, field quartz-filter
+
+  cause call-method
+    mount object, share build
+    mount method, |quartzFilterManager|
+    mount factor, share a
+    mount factor
+      brand did-select
+      share did-select
+
+force read-link-quality
+  field build, field ns-object
+  field for-device-complete, field any
+  field device, field io-bluetooth-device
+  field info, field unsafe-mutable-pointer-bluetooth-hci-link-quality-info
+  field error, field io-return
+
+  cause call-method
+    mount object, share build
+    mount method, |readLinkQuality|
+    mount factor
+      brand for-device-complete
+      share for-device-complete
+    mount factor
+      brand device
+      share device
+    mount factor
+      brand info
+      share info
+    mount factor
+      brand error
+      share error
+
+force read-rssi
+  field build, field ns-object
+  field for-device-complete, field any
+  field device, field io-bluetooth-device
+  field info, field unsafe-mutable-pointer-bluetooth-hcirssi-info
+  field error, field io-return
+
+  cause call-method
+    mount object, share build
+    mount method, |readRSSI|
+    mount factor
+      brand for-device-complete
+      share for-device-complete
+    mount factor
+      brand device
+      share device
+    mount factor
+      brand info
+      share info
+    mount factor
+      brand error
+      share error
+
+force save-options
+  field build, field ns-object
+  field a, class ik-save-options
+  field should-show-ut-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |saveOptions|
+    mount factor, share a
+    mount factor
+      brand should-show-ut-type
+      share should-show-ut-type
+    raise build, class bool
+
+force should-enable-action
+  field build, field ns-object
+  field for, field ab-person
+  field identifier, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |shouldEnableAction|
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand identifier
+      share identifier
+    raise build, class bool
+
+force title
+  field build, field ns-object
+  field for, field ab-person
+  field identifier, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |title|
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand identifier
+      share identifier
+    raise build, class string

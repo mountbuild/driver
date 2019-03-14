@@ -1,0 +1,59 @@
+
+force get-egl-context-flags-khr
+  mount build, field egl-ext
+
+  cause get-property
+    drive object, share build
+    drive property, |EGL_CONTEXT_FLAGS_KHR|
+    raise build, field int
+
+force get-egl-context-major-version-khr
+  mount build, field egl-ext
+
+  cause get-property
+    drive object, share build
+    drive property, |EGL_CONTEXT_MAJOR_VERSION_KHR|
+    raise build, field int
+
+force get-egl-context-minor-version-khr
+  mount build, field egl-ext
+
+  cause get-property
+    drive object, share build
+    drive property, |EGL_CONTEXT_MINOR_VERSION_KHR|
+    raise build, field int
+
+force get-egl-opengl-es3-bit-khr
+  mount build, field egl-ext
+
+  cause get-property
+    drive object, share build
+    drive property, |EGL_OPENGL_ES3_BIT_KHR|
+    raise build, field int
+
+force get-egl-recordable-android
+  mount build, field egl-ext
+
+  cause get-property
+    drive object, share build
+    drive property, |EGL_RECORDABLE_ANDROID|
+    raise build, field int
+
+force build-egl-ext
+  cause invoke-constructor
+    drive constructor, |EGLExt|
+    raise build, field egl-ext
+
+force egl-presentation-time-android
+  mount build, field egl-ext
+  mount dpy, field egl-display
+  mount sur, field egl-surface
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |eglPresentationTimeANDROID|
+    drive factor, share dpy
+    drive factor, share sur
+    drive factor, share time
+    raise build, field boolean

@@ -1,0 +1,89 @@
+
+force get-align-baseline
+  mount build, field dynamic-drawable-span
+
+  cause get-property
+    drive object, share build
+    drive property, |ALIGN_BASELINE|
+    raise build, field int
+
+force get-align-bottom
+  mount build, field dynamic-drawable-span
+
+  cause get-property
+    drive object, share build
+    drive property, |ALIGN_BOTTOM|
+    raise build, field int
+
+force get-align-center
+  mount build, field dynamic-drawable-span
+
+  cause get-property
+    drive object, share build
+    drive property, |ALIGN_CENTER|
+    raise build, field int
+
+force build-dynamic-drawable-span
+  cause invoke-constructor
+    drive constructor, |DynamicDrawableSpan|
+    raise build, field dynamic-drawable-span
+
+force draw
+  mount build, field dynamic-drawable-span
+  mount canvas, field canvas
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount x, field float
+  mount top, field int
+  mount y, field int
+  mount bottom, field int
+  mount paint, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share x
+    drive factor, share top
+    drive factor, share y
+    drive factor, share bottom
+    drive factor, share paint
+    raise build, field unit
+
+force get-drawable
+  mount build, field dynamic-drawable-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getDrawable|
+    raise build, field drawable
+
+force get-size
+  mount build, field dynamic-drawable-span
+  mount paint, field paint
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount fm, field paint-font-metrics-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    drive factor, share paint
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share fm
+    raise build, field int
+
+force get-vertical-alignment
+  mount build, field dynamic-drawable-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getVerticalAlignment|
+    raise build, field int

@@ -1,0 +1,92 @@
+
+force build-rc5-parameter-spec
+  start version, field int
+  start rounds, field int
+  start word-size, field int
+
+  cause invoke-constructor
+    mount constructor, |RC5ParameterSpec|
+    mount factor, share version
+    mount factor, share rounds
+    mount factor, share word-size
+    throw build, field rc5-parameter-spec
+
+force build-rc5-parameter-spec
+  start version, field int
+  start rounds, field int
+  start word-size, field int
+  start iv, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |RC5ParameterSpec|
+    mount factor, share version
+    mount factor, share rounds
+    mount factor, share word-size
+    mount factor, share iv
+    throw build, field rc5-parameter-spec
+
+force build-rc5-parameter-spec
+  start version, field int
+  start rounds, field int
+  start word-size, field int
+  start iv, field byte-array
+  start offset, field int
+
+  cause invoke-constructor
+    mount constructor, |RC5ParameterSpec|
+    mount factor, share version
+    mount factor, share rounds
+    mount factor, share word-size
+    mount factor, share iv
+    mount factor, share offset
+    throw build, field rc5-parameter-spec
+
+force equals
+  start build, field rc5-parameter-spec
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-iv
+  start build, field rc5-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIV|
+    throw build, field byte-array
+
+force get-rounds
+  start build, field rc5-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getRounds|
+    throw build, field int
+
+force get-version
+  start build, field rc5-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getVersion|
+    throw build, field int
+
+force get-word-size
+  start build, field rc5-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getWordSize|
+    throw build, field int
+
+force hash-code
+  start build, field rc5-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

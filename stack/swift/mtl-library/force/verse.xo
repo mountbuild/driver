@@ -1,0 +1,95 @@
+force get-function-names
+  field build, field mtl-library
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |functionNames|
+    raise build, field string
+
+force set-function-names
+  field build, field mtl-library
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |functionNames|
+    drive factor, share value
+
+force make-function
+  field build, field mtl-library
+  field name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |makeFunction|
+    drive factor
+      brand name
+      share name
+    raise build, class mtl-function
+
+force make-function
+  field build, field mtl-library
+  field name, field string
+  field constant-values, field mtl-function-constant-values
+
+  cause call-method
+    drive object, share build
+    drive method, |makeFunction|
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand constant-values
+      share constant-values
+    raise build, class mtl-function
+
+force get-device
+  field build, field mtl-library
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |device|
+    raise build, field mtl-device
+
+force set-device
+  field build, field mtl-library
+  field value, field mtl-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |device|
+    drive factor, share value
+
+force get-label
+  field build, field mtl-library
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |label|
+    raise build, field string
+
+force set-label
+  field build, field mtl-library
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |label|
+    drive factor, share value
+
+force get-mtl-library-error-domain
+  field build, field mtl-library
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MTLLibraryErrorDomain|
+    raise build, field string
+
+force set-mtl-library-error-domain
+  field build, field MTLLibrary
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MTLLibraryErrorDomain|
+    drive factor, share value

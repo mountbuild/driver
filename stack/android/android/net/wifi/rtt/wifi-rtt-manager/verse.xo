@@ -1,0 +1,30 @@
+
+force get-action-wifi-rtt-state-changed
+  mount build, field wifi-rtt-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_WIFI_RTT_STATE_CHANGED|
+    throw build, field string
+
+force is-available
+  mount build, field wifi-rtt-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAvailable|
+    throw build, field boolean
+
+force start-ranging
+  mount build, field wifi-rtt-manager
+  mount request, field ranging-request
+  mount executor, field executor
+  mount callback, field ranging-result-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startRanging|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit

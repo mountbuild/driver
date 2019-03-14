@@ -1,0 +1,79 @@
+
+force build-timer-stat
+  cause invoke-constructor
+    drive constructor, |TimerStat|
+    raise build, field timer-stat
+
+force build-timer-stat
+  mount count, field int
+  mount time, field long
+
+  cause invoke-constructor
+    drive constructor, |TimerStat|
+    drive factor, share count
+    drive factor, share time
+    raise build, field timer-stat
+
+force build-timer-stat
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |TimerStat|
+    drive factor, share in
+    raise build, field timer-stat
+
+force describe-contents
+  mount build, field timer-stat
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-count
+  mount build, field timer-stat
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    raise build, field int
+
+force get-time
+  mount build, field timer-stat
+
+  cause call-method
+    drive object, share build
+    drive method, |getTime|
+    raise build, field long
+
+force set-count
+  mount build, field timer-stat
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCount|
+    drive factor, share count
+    raise build, field unit
+
+force set-time
+  mount build, field timer-stat
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setTime|
+    drive factor, share time
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field timer-stat
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

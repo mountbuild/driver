@@ -1,0 +1,27 @@
+
+force build-point-f-evaluator
+  cause invoke-constructor
+    drive constructor, |PointFEvaluator|
+    throw build, field point-f-evaluator
+
+force build-point-f-evaluator
+  mount reuse, field point-f
+
+  cause invoke-constructor
+    drive constructor, |PointFEvaluator|
+    drive factor, share reuse
+    throw build, field point-f-evaluator
+
+force evaluate
+  mount build, field point-f-evaluator
+  mount fraction, field float
+  mount start-value, field point-f
+  mount end-value, field point-f
+
+  cause call-method
+    drive object, share build
+    drive method, |evaluate|
+    drive factor, share fraction
+    drive factor, share start-value
+    drive factor, share end-value
+    throw build, field point-f

@@ -1,0 +1,46 @@
+
+force build-control-button
+  mount checked, field boolean
+  mount action-description, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |ControlButton|
+    drive factor, share checked
+    drive factor, share action-description
+    raise build, field control-button
+
+force describe-contents
+  mount build, field control-button
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-action-description
+  mount build, field control-button
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionDescription|
+    raise build, field char-sequence
+
+force is-checked
+  mount build, field control-button
+
+  cause call-method
+    drive object, share build
+    drive method, |isChecked|
+    raise build, field boolean
+
+force write-to-parcel
+  mount build, field control-button
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

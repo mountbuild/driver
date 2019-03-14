@@ -1,0 +1,247 @@
+
+force get-service-interface
+  mount build, field connection-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force build-connection-service
+  cause invoke-constructor
+    drive constructor, |ConnectionService|
+    throw build, field connection-service
+
+force add-conference
+  mount build, field connection-service
+  mount conference, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |addConference|
+    drive factor, share conference
+    throw build, field unit
+
+force add-existing-connection
+  mount build, field connection-service
+  mount phone-account-handle, field phone-account-handle
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |addExistingConnection|
+    drive factor, share phone-account-handle
+    drive factor, share connection
+    throw build, field unit
+
+force conference-remote-connections
+  mount build, field connection-service
+  mount remote-connection1, field remote-connection
+  mount remote-connection2, field remote-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |conferenceRemoteConnections|
+    drive factor, share remote-connection1
+    drive factor, share remote-connection2
+    throw build, field unit
+
+force connection-service-focus-released
+  mount build, field connection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |connectionServiceFocusReleased|
+    throw build, field unit
+
+force create-remote-incoming-connection
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |createRemoteIncomingConnection|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field remote-connection
+
+force create-remote-outgoing-connection
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |createRemoteOutgoingConnection|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field remote-connection
+
+force get-all-conferences
+  mount build, field connection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllConferences|
+    throw build, field mutable-collection
+
+force get-all-connections
+  mount build, field connection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllConnections|
+    throw build, field mutable-collection
+
+force on-bind
+  mount build, field connection-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-conference
+  mount build, field connection-service
+  mount connection1, field connection
+  mount connection2, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |onConference|
+    drive factor, share connection1
+    drive factor, share connection2
+    throw build, field unit
+
+force on-connection-service-focus-gained
+  mount build, field connection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnectionServiceFocusGained|
+    throw build, field unit
+
+force on-connection-service-focus-lost
+  mount build, field connection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnectionServiceFocusLost|
+    throw build, field unit
+
+force on-create-incoming-connection
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateIncomingConnection|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field connection
+
+force on-create-incoming-connection-failed
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateIncomingConnectionFailed|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field unit
+
+force on-create-incoming-handover-connection
+  mount build, field connection-service
+  mount from-phone-account-handle, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateIncomingHandoverConnection|
+    drive factor, share from-phone-account-handle
+    drive factor, share request
+    throw build, field connection
+
+force on-create-outgoing-connection
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateOutgoingConnection|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field connection
+
+force on-create-outgoing-connection-failed
+  mount build, field connection-service
+  mount connection-manager-phone-account, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateOutgoingConnectionFailed|
+    drive factor, share connection-manager-phone-account
+    drive factor, share request
+    throw build, field unit
+
+force on-create-outgoing-handover-connection
+  mount build, field connection-service
+  mount from-phone-account-handle, field phone-account-handle
+  mount request, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateOutgoingHandoverConnection|
+    drive factor, share from-phone-account-handle
+    drive factor, share request
+    throw build, field connection
+
+force on-handover-failed
+  mount build, field connection-service
+  mount request, field connection-request
+  mount error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onHandoverFailed|
+    drive factor, share request
+    drive factor, share error
+    throw build, field unit
+
+force on-remote-conference-added
+  mount build, field connection-service
+  mount conference, field remote-conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onRemoteConferenceAdded|
+    drive factor, share conference
+    throw build, field unit
+
+force on-remote-existing-connection-added
+  mount build, field connection-service
+  mount connection, field remote-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |onRemoteExistingConnectionAdded|
+    drive factor, share connection
+    throw build, field unit
+
+force on-unbind
+  mount build, field connection-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    throw build, field boolean

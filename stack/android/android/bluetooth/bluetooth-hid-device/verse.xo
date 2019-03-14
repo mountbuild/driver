@@ -1,0 +1,300 @@
+
+force get-action-connection-state-changed
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONNECTION_STATE_CHANGED|
+    throw build, field string
+
+force get-error-rsp-invalid-param
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_INVALID_PARAM|
+    throw build, field byte
+
+force get-error-rsp-invalid-rpt-id
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_INVALID_RPT_ID|
+    throw build, field byte
+
+force get-error-rsp-not-ready
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_NOT_READY|
+    throw build, field byte
+
+force get-error-rsp-success
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_SUCCESS|
+    throw build, field byte
+
+force get-error-rsp-unknown
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_UNKNOWN|
+    throw build, field byte
+
+force get-error-rsp-unsupported-req
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RSP_UNSUPPORTED_REQ|
+    throw build, field byte
+
+force get-protocol-boot-mode
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTOCOL_BOOT_MODE|
+    throw build, field byte
+
+force get-protocol-report-mode
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTOCOL_REPORT_MODE|
+    throw build, field byte
+
+force get-report-type-feature
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_TYPE_FEATURE|
+    throw build, field byte
+
+force get-report-type-input
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_TYPE_INPUT|
+    throw build, field byte
+
+force get-report-type-output
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_TYPE_OUTPUT|
+    throw build, field byte
+
+force get-subclass1-combo
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS1_COMBO|
+    throw build, field byte
+
+force get-subclass1-keyboard
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS1_KEYBOARD|
+    throw build, field byte
+
+force get-subclass1-mouse
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS1_MOUSE|
+    throw build, field byte
+
+force get-subclass1-none
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS1_NONE|
+    throw build, field byte
+
+force get-subclass2-card-reader
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_CARD_READER|
+    throw build, field byte
+
+force get-subclass2-digitizer-tablet
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_DIGITIZER_TABLET|
+    throw build, field byte
+
+force get-subclass2-gamepad
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_GAMEPAD|
+    throw build, field byte
+
+force get-subclass2-joystick
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_JOYSTICK|
+    throw build, field byte
+
+force get-subclass2-remote-control
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_REMOTE_CONTROL|
+    throw build, field byte
+
+force get-subclass2-sensing-device
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_SENSING_DEVICE|
+    throw build, field byte
+
+force get-subclass2-uncategorized
+  mount build, field bluetooth-hid-device
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBCLASS2_UNCATEGORIZED|
+    throw build, field byte
+
+force connect
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share device
+    throw build, field boolean
+
+force disconnect
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnect|
+    drive factor, share device
+    throw build, field boolean
+
+force get-connected-devices
+  mount build, field bluetooth-hid-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedDevices|
+    throw build, field mutable-list
+
+force get-connection-state
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    drive factor, share device
+    throw build, field int
+
+force get-devices-matching-connection-states
+  mount build, field bluetooth-hid-device
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevicesMatchingConnectionStates|
+    drive factor, share states
+    throw build, field mutable-list
+
+force register-app
+  mount build, field bluetooth-hid-device
+  mount sdp, field bluetooth-hid-device-app-sdp-settings
+  mount in-qos, field bluetooth-hid-device-app-qos-settings
+  mount out-qos, field bluetooth-hid-device-app-qos-settings
+  mount executor, field executor
+  mount callback, field bluetooth-hid-device-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerApp|
+    drive factor, share sdp
+    drive factor, share in-qos
+    drive factor, share out-qos
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field boolean
+
+force reply-report
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+  mount type, field byte
+  mount id, field byte
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |replyReport|
+    drive factor, share device
+    drive factor, share type
+    drive factor, share id
+    drive factor, share data
+    throw build, field boolean
+
+force report-error
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+  mount error, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |reportError|
+    drive factor, share device
+    drive factor, share error
+    throw build, field boolean
+
+force send-report
+  mount build, field bluetooth-hid-device
+  mount device, field bluetooth-device
+  mount id, field int
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendReport|
+    drive factor, share device
+    drive factor, share id
+    drive factor, share data
+    throw build, field boolean
+
+force unregister-app
+  mount build, field bluetooth-hid-device
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterApp|
+    throw build, field boolean

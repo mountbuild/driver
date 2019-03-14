@@ -1,0 +1,53 @@
+force get-class-shared
+
+  cause get-aspect
+    mount object, |NEHotspotConfigurationManager|
+    mount aspect, |shared|
+    raise build, field ne-hotspot-configuration-manager
+
+force set-class-shared
+  field value, field ne-hotspot-configuration-manager
+
+  cause set-aspect
+    mount object, |NEHotspotConfigurationManager|
+    mount aspect, |shared|
+    mount factor, share value
+
+force remove-configuration
+  field build, field ne-hotspot-configuration-manager
+  field for-hs20-domain-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |removeConfiguration|
+    mount factor
+      brand for-hs20-domain-name
+      share for-hs20-domain-name
+
+force remove-configuration
+  field build, field ne-hotspot-configuration-manager
+  field for-ssid, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |removeConfiguration|
+    mount factor
+      brand for-ssid
+      share for-ssid
+
+force get-ne-hotspot-configuration-error-domain
+  field build, field ne-hotspot-configuration-manager
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |NEHotspotConfigurationErrorDomain|
+    raise build, field string
+
+force set-ne-hotspot-configuration-error-domain
+  field build, field NEHotspotConfigurationManager
+  field value, field String
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |NEHotspotConfigurationErrorDomain|
+    mount factor, share value

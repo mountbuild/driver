@@ -1,0 +1,139 @@
+
+force get-unknown-cid
+  mount build, field neighboring-cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN_CID|
+    throw build, field int
+
+force get-unknown-rssi
+  mount build, field neighboring-cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN_RSSI|
+    throw build, field int
+
+force build-neighboring-cell-info
+  cause invoke-constructor
+    drive constructor, |NeighboringCellInfo|
+    throw build, field neighboring-cell-info
+
+force build-neighboring-cell-info
+  mount rssi, field int
+  mount cid, field int
+
+  cause invoke-constructor
+    drive constructor, |NeighboringCellInfo|
+    drive factor, share rssi
+    drive factor, share cid
+    throw build, field neighboring-cell-info
+
+force build-neighboring-cell-info
+  mount rssi, field int
+  mount location, field string
+  mount radio-type, field int
+
+  cause invoke-constructor
+    drive constructor, |NeighboringCellInfo|
+    drive factor, share rssi
+    drive factor, share location
+    drive factor, share radio-type
+    throw build, field neighboring-cell-info
+
+force build-neighboring-cell-info
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |NeighboringCellInfo|
+    drive factor, share in
+    throw build, field neighboring-cell-info
+
+force describe-contents
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-cid
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCid|
+    throw build, field int
+
+force get-lac
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLac|
+    throw build, field int
+
+force get-network-type
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkType|
+    throw build, field int
+
+force get-psc
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPsc|
+    throw build, field int
+
+force get-rssi
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getRssi|
+    throw build, field int
+
+force set-cid
+  mount build, field neighboring-cell-info
+  mount cid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCid|
+    drive factor, share cid
+    throw build, field unit
+
+force set-rssi
+  mount build, field neighboring-cell-info
+  mount rssi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRssi|
+    drive factor, share rssi
+    throw build, field unit
+
+force to-string
+  mount build, field neighboring-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field neighboring-cell-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,92 @@
+
+force get-cr-ls
+  mount build, field cert-store
+  mount selector, field crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getCRLs|
+    mount factor, share selector
+    throw build, field mutable-collection
+
+force get-cert-store-parameters
+  mount build, field cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertStoreParameters|
+    throw build, field cert-store-parameters
+
+force get-certificates
+  mount build, field cert-store
+  mount selector, field cert-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertificates|
+    mount factor, share selector
+    throw build, field mutable-collection
+
+force get-default-type
+  mount build, field cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefaultType|
+    throw build, field string
+
+force get-instance
+  mount build, field cert-store
+  mount type, field string
+  mount params, field cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    throw build, field cert-store
+
+force get-instance
+  mount build, field cert-store
+  mount type, field string
+  mount params, field cert-store-parameters
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    mount factor, share provider
+    throw build, field cert-store
+
+force get-instance
+  mount build, field cert-store
+  mount type, field string
+  mount params, field cert-store-parameters
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    mount factor, share provider
+    throw build, field cert-store
+
+force get-provider
+  mount build, field cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force get-type
+  mount build, field cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    throw build, field string

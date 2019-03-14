@@ -1,0 +1,81 @@
+
+force get-in
+  mount build, field fade
+
+  cause get-property
+    drive object, share build
+    drive property, |IN|
+    throw build, field int
+
+force get-out
+  mount build, field fade
+
+  cause get-property
+    drive object, share build
+    drive property, |OUT|
+    throw build, field int
+
+force build-fade
+  cause invoke-constructor
+    drive constructor, |Fade|
+    throw build, field fade
+
+force build-fade
+  mount fading-mode, field int
+
+  cause invoke-constructor
+    drive constructor, |Fade|
+    drive factor, share fading-mode
+    throw build, field fade
+
+force build-fade
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |Fade|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field fade
+
+force capture-start-values
+  mount build, field fade
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureStartValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force on-appear
+  mount build, field fade
+  mount scene-root, field view-group
+  mount view, field view
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppear|
+    drive factor, share scene-root
+    drive factor, share view
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator
+
+force on-disappear
+  mount build, field fade
+  mount scene-root, field view-group
+  mount view, field view
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisappear|
+    drive factor, share scene-root
+    drive factor, share view
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator

@@ -1,0 +1,56 @@
+
+force close
+  mount build, field mbms-group-call-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create
+  mount build, field mbms-group-call-session
+  mount context, field context
+  mount subscription-id, field int
+  mount executor, field executor
+  mount callback, field mbms-group-call-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share subscription-id
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field mbms-group-call-session
+
+force create
+  mount build, field mbms-group-call-session
+  mount context, field context
+  mount executor, field executor
+  mount callback, field mbms-group-call-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field mbms-group-call-session
+
+force start-group-call
+  mount build, field mbms-group-call-session
+  mount tmgi, field long
+  mount sai-list, field mutable-list-int
+  mount frequency-list, field mutable-list-int
+  mount executor, field executor
+  mount callback, field group-call-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startGroupCall|
+    drive factor, share tmgi
+    drive factor, share sai-list
+    drive factor, share frequency-list
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field group-call

@@ -1,0 +1,46 @@
+
+force get-day-count
+  mount build, field date-sorter
+
+  cause get-property
+    drive object, share build
+    drive property, |DAY_COUNT|
+    throw build, field int
+
+force build-date-sorter
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |DateSorter|
+    drive factor, share context
+    throw build, field date-sorter
+
+force get-boundary
+  mount build, field date-sorter
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBoundary|
+    drive factor, share index
+    throw build, field long
+
+force get-index
+  mount build, field date-sorter
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    drive factor, share time
+    throw build, field int
+
+force get-label
+  mount build, field date-sorter
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    drive factor, share index
+    throw build, field string

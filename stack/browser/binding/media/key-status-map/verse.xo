@@ -1,0 +1,65 @@
+
+force get-size
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |size|
+    throw build
+
+force entries-read-only
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |entries Read only|
+
+force foreach-callback-argument-read-only
+  start build
+  start callback
+  start this-arg
+
+  cause call-method
+    mount object, share build
+    mount method, |forEach(callback[, argument]) Read only|
+    mount factor, share callback
+    mount factor, share this-arg
+
+force get-read-only
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |get Read only|
+    mount factor, share key
+
+force has-read-only
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |has Read only|
+    mount factor, share key
+
+force keys-read-only
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |keys Read only|
+
+force values-read-only
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |values Read only|
+
+force iterator-read-only
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |[@@iterator] Read only|

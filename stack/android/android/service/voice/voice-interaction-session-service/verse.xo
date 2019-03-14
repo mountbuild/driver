@@ -1,0 +1,61 @@
+
+force build-voice-interaction-session-service
+  cause invoke-constructor
+    drive constructor, |VoiceInteractionSessionService|
+    raise build, field voice-interaction-session-service
+
+force on-bind
+  mount build, field voice-interaction-session-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-configuration-changed
+  mount build, field voice-interaction-session-service
+  mount new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    raise build, field unit
+
+force on-create
+  mount build, field voice-interaction-session-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-low-memory
+  mount build, field voice-interaction-session-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onLowMemory|
+    raise build, field unit
+
+force on-new-session
+  mount build, field voice-interaction-session-service
+  mount args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onNewSession|
+    drive factor, share args
+    raise build, field voice-interaction-session
+
+force on-trim-memory
+  mount build, field voice-interaction-session-service
+  mount level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrimMemory|
+    drive factor, share level
+    raise build, field unit

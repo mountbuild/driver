@@ -1,0 +1,56 @@
+
+force filter
+  mount build, field login-filter
+  mount source, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount dest, field spanned
+  mount dstart, field int
+  mount dend, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share source
+    drive factor, share start
+    drive factor, share end
+    drive factor, share dest
+    drive factor, share dstart
+    drive factor, share dend
+    raise build, field char-sequence
+
+force is-allowed
+  mount build, field login-filter
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isAllowed|
+    drive factor, share c
+    raise build, field boolean
+
+force on-invalid-character
+  mount build, field login-filter
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |onInvalidCharacter|
+    drive factor, share c
+    raise build, field unit
+
+force on-start
+  mount build, field login-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    raise build, field unit
+
+force on-stop
+  mount build, field login-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |onStop|
+    raise build, field unit

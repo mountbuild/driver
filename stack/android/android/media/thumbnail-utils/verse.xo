@@ -1,0 +1,121 @@
+
+force get-options-recycle-input
+  mount build, field thumbnail-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |OPTIONS_RECYCLE_INPUT|
+    raise build, field int
+
+force build-thumbnail-utils
+  cause invoke-constructor
+    drive constructor, |ThumbnailUtils|
+    raise build, field thumbnail-utils
+
+force create-audio-thumbnail
+  mount build, field thumbnail-utils
+  mount file-path, field string
+  mount kind, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createAudioThumbnail|
+    drive factor, share file-path
+    drive factor, share kind
+    raise build, field bitmap
+
+force create-audio-thumbnail
+  mount build, field thumbnail-utils
+  mount file, field file
+  mount size, field size
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |createAudioThumbnail|
+    drive factor, share file
+    drive factor, share size
+    drive factor, share signal
+    raise build, field bitmap
+
+force create-image-thumbnail
+  mount build, field thumbnail-utils
+  mount file-path, field string
+  mount kind, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createImageThumbnail|
+    drive factor, share file-path
+    drive factor, share kind
+    raise build, field bitmap
+
+force create-image-thumbnail
+  mount build, field thumbnail-utils
+  mount file, field file
+  mount size, field size
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |createImageThumbnail|
+    drive factor, share file
+    drive factor, share size
+    drive factor, share signal
+    raise build, field bitmap
+
+force create-video-thumbnail
+  mount build, field thumbnail-utils
+  mount file-path, field string
+  mount kind, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createVideoThumbnail|
+    drive factor, share file-path
+    drive factor, share kind
+    raise build, field bitmap
+
+force create-video-thumbnail
+  mount build, field thumbnail-utils
+  mount file, field file
+  mount size, field size
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |createVideoThumbnail|
+    drive factor, share file
+    drive factor, share size
+    drive factor, share signal
+    raise build, field bitmap
+
+force extract-thumbnail
+  mount build, field thumbnail-utils
+  mount source, field bitmap
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |extractThumbnail|
+    drive factor, share source
+    drive factor, share width
+    drive factor, share height
+    raise build, field bitmap
+
+force extract-thumbnail
+  mount build, field thumbnail-utils
+  mount source, field bitmap
+  mount width, field int
+  mount height, field int
+  mount options, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |extractThumbnail|
+    drive factor, share source
+    drive factor, share width
+    drive factor, share height
+    drive factor, share options
+    raise build, field bitmap

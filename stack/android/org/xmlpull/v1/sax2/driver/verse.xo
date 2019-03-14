@@ -1,0 +1,371 @@
+
+force get-apache-dynamic-validation-feature
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |APACHE_DYNAMIC_VALIDATION_FEATURE|
+    throw build, field string
+
+force get-apache-schema-validation-feature
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |APACHE_SCHEMA_VALIDATION_FEATURE|
+    throw build, field string
+
+force get-declaration-handler-property
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |DECLARATION_HANDLER_PROPERTY|
+    throw build, field string
+
+force get-lexical-handler-property
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |LEXICAL_HANDLER_PROPERTY|
+    throw build, field string
+
+force get-namespaces-feature
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |NAMESPACES_FEATURE|
+    throw build, field string
+
+force get-namespace-prefixes-feature
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |NAMESPACE_PREFIXES_FEATURE|
+    throw build, field string
+
+force get-validation-feature
+  mount build, field driver
+
+  cause get-property
+    drive object, share build
+    drive property, |VALIDATION_FEATURE|
+    throw build, field string
+
+force build-driver
+  cause invoke-constructor
+    drive constructor, |Driver|
+    throw build, field driver
+
+force build-driver
+  mount pp, field xml-pull-parser
+
+  cause invoke-constructor
+    drive constructor, |Driver|
+    drive factor, share pp
+    throw build, field driver
+
+force get-column-number
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnNumber|
+    throw build, field int
+
+force get-content-handler
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentHandler|
+    throw build, field content-handler
+
+force get-dtd-handler
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getDTDHandler|
+    throw build, field dtd-handler
+
+force get-entity-resolver
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntityResolver|
+    throw build, field entity-resolver
+
+force get-error-handler
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorHandler|
+    throw build, field error-handler
+
+force get-feature
+  mount build, field driver
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeature|
+    drive factor, share name
+    throw build, field boolean
+
+force get-index
+  mount build, field driver
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field int
+
+force get-index
+  mount build, field driver
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    drive factor, share q-name
+    throw build, field int
+
+force get-length
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    throw build, field int
+
+force get-line-number
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force get-local-name
+  mount build, field driver
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalName|
+    drive factor, share index
+    throw build, field string
+
+force get-property
+  mount build, field driver
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share name
+    throw build, field any
+
+force get-public-id
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getPublicId|
+    throw build, field string
+
+force get-q-name
+  mount build, field driver
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getQName|
+    drive factor, share index
+    throw build, field string
+
+force get-system-id
+  mount build, field driver
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemId|
+    throw build, field string
+
+force get-type
+  mount build, field driver
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share index
+    throw build, field string
+
+force get-type
+  mount build, field driver
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field string
+
+force get-type
+  mount build, field driver
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share q-name
+    throw build, field string
+
+force get-uri
+  mount build, field driver
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getURI|
+    drive factor, share index
+    throw build, field string
+
+force get-value
+  mount build, field driver
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share index
+    throw build, field string
+
+force get-value
+  mount build, field driver
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field string
+
+force get-value
+  mount build, field driver
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share q-name
+    throw build, field string
+
+force parse
+  mount build, field driver
+  mount source, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share source
+    throw build, field unit
+
+force parse
+  mount build, field driver
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share system-id
+    throw build, field unit
+
+force parse-sub-tree
+  mount build, field driver
+  mount pp, field xml-pull-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |parseSubTree|
+    drive factor, share pp
+    throw build, field unit
+
+force set-content-handler
+  mount build, field driver
+  mount handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-dtd-handler
+  mount build, field driver
+  mount handler, field dtd-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDTDHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-entity-resolver
+  mount build, field driver
+  mount resolver, field entity-resolver
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntityResolver|
+    drive factor, share resolver
+    throw build, field unit
+
+force set-error-handler
+  mount build, field driver
+  mount handler, field error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-feature
+  mount build, field driver
+  mount name, field string
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFeature|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit
+
+force set-property
+  mount build, field driver
+  mount name, field string
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperty|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit

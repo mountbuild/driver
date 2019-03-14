@@ -1,0 +1,907 @@
+
+force get-pad-after-prefix
+  start build, field decimal-format
+
+  cause get-property
+    drive object, share build
+    drive property, |PAD_AFTER_PREFIX|
+    raise build, field int
+
+force get-pad-after-suffix
+  start build, field decimal-format
+
+  cause get-property
+    drive object, share build
+    drive property, |PAD_AFTER_SUFFIX|
+    raise build, field int
+
+force get-pad-before-prefix
+  start build, field decimal-format
+
+  cause get-property
+    drive object, share build
+    drive property, |PAD_BEFORE_PREFIX|
+    raise build, field int
+
+force get-pad-before-suffix
+  start build, field decimal-format
+
+  cause get-property
+    drive object, share build
+    drive property, |PAD_BEFORE_SUFFIX|
+    raise build, field int
+
+force build-decimal-format
+  cause invoke-constructor
+    drive constructor, |DecimalFormat|
+    raise build, field decimal-format
+
+force build-decimal-format
+  start pattern, field string
+
+  cause invoke-constructor
+    drive constructor, |DecimalFormat|
+    drive factor, share pattern
+    raise build, field decimal-format
+
+force build-decimal-format
+  start pattern, field string
+  start symbols, field decimal-format-symbols
+
+  cause invoke-constructor
+    drive constructor, |DecimalFormat|
+    drive factor, share pattern
+    drive factor, share symbols
+    raise build, field decimal-format
+
+force build-decimal-format
+  start pattern, field string
+  start symbols, field decimal-format-symbols
+  start info-input, field currency-plural-info
+  start style, field int
+
+  cause invoke-constructor
+    drive constructor, |DecimalFormat|
+    drive factor, share pattern
+    drive factor, share symbols
+    drive factor, share info-input
+    drive factor, share style
+    raise build, field decimal-format
+
+force apply-localized-pattern
+  start build, field decimal-format
+  start localized-pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |applyLocalizedPattern|
+    drive factor, share localized-pattern
+    raise build, field unit
+
+force apply-pattern
+  start build, field decimal-format
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |applyPattern|
+    drive factor, share pattern
+    raise build, field unit
+
+force are-significant-digits-used
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |areSignificantDigitsUsed|
+    raise build, field boolean
+
+force clone
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    raise build, field any
+
+force equals
+  start build, field decimal-format
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force format
+  start build, field decimal-format
+  start number, field double
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field long
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field big-integer
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field big-decimal
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field big-decimal
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start curr-amt, field currency-amount
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share curr-amt
+    drive factor, share result
+    drive factor, share field-position
+    raise build, field string-buffer
+
+force format-to-character-iterator
+  start build, field decimal-format
+  start obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |formatToCharacterIterator|
+    drive factor, share obj
+    raise build, field attributed-character-iterator
+
+force get-currency
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrency|
+    raise build, field currency
+
+force get-currency-plural-info
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrencyPluralInfo|
+    raise build, field currency-plural-info
+
+force get-currency-usage
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrencyUsage|
+    raise build, field currency-currency-usage
+
+force get-decimal-format-symbols
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getDecimalFormatSymbols|
+    raise build, field decimal-format-symbols
+
+force get-format-width
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormatWidth|
+    raise build, field int
+
+force get-grouping-size
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroupingSize|
+    raise build, field int
+
+force get-math-context
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMathContext|
+    raise build, field math-context
+
+force get-math-context-icu
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMathContextICU|
+    raise build, field math-context
+
+force get-maximum-fraction-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumFractionDigits|
+    raise build, field int
+
+force get-maximum-integer-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumIntegerDigits|
+    raise build, field int
+
+force get-maximum-significant-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumSignificantDigits|
+    raise build, field int
+
+force get-minimum-exponent-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumExponentDigits|
+    raise build, field byte
+
+force get-minimum-fraction-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumFractionDigits|
+    raise build, field int
+
+force get-minimum-integer-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumIntegerDigits|
+    raise build, field int
+
+force get-minimum-significant-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumSignificantDigits|
+    raise build, field int
+
+force get-multiplier
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getMultiplier|
+    raise build, field int
+
+force get-negative-prefix
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getNegativePrefix|
+    raise build, field string
+
+force get-negative-suffix
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getNegativeSuffix|
+    raise build, field string
+
+force get-pad-character
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getPadCharacter|
+    raise build, field char
+
+force get-pad-position
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getPadPosition|
+    raise build, field int
+
+force get-parse-max-digits
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getParseMaxDigits|
+    raise build, field int
+
+force get-positive-prefix
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getPositivePrefix|
+    raise build, field string
+
+force get-positive-suffix
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getPositiveSuffix|
+    raise build, field string
+
+force get-rounding-increment
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoundingIncrement|
+    raise build, field big-decimal
+
+force get-rounding-mode
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoundingMode|
+    raise build, field int
+
+force get-secondary-grouping-size
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getSecondaryGroupingSize|
+    raise build, field int
+
+force hash-code
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-decimal-pattern-match-required
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isDecimalPatternMatchRequired|
+    raise build, field boolean
+
+force is-decimal-separator-always-shown
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isDecimalSeparatorAlwaysShown|
+    raise build, field boolean
+
+force is-exponent-sign-always-shown
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isExponentSignAlwaysShown|
+    raise build, field boolean
+
+force is-grouping-used
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isGroupingUsed|
+    raise build, field boolean
+
+force is-parse-big-decimal
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isParseBigDecimal|
+    raise build, field boolean
+
+force is-parse-integer-only
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isParseIntegerOnly|
+    raise build, field boolean
+
+force is-parse-strict
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isParseStrict|
+    raise build, field boolean
+
+force is-scientific-notation
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |isScientificNotation|
+    raise build, field boolean
+
+force parse
+  start build, field decimal-format
+  start text, field string
+  start parse-position, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share text
+    drive factor, share parse-position
+    raise build, field number
+
+force parse-currency
+  start build, field decimal-format
+  start text, field char-sequence
+  start parse-position, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parseCurrency|
+    drive factor, share text
+    drive factor, share parse-position
+    raise build, field currency-amount
+
+force set-currency
+  start build, field decimal-format
+  start currency, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrency|
+    drive factor, share currency
+    raise build, field unit
+
+force set-currency-plural-info
+  start build, field decimal-format
+  start new-info, field currency-plural-info
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrencyPluralInfo|
+    drive factor, share new-info
+    raise build, field unit
+
+force set-currency-usage
+  start build, field decimal-format
+  start usage, field currency-currency-usage
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrencyUsage|
+    drive factor, share usage
+    raise build, field unit
+
+force set-decimal-format-symbols
+  start build, field decimal-format
+  start new-symbols, field decimal-format-symbols
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecimalFormatSymbols|
+    drive factor, share new-symbols
+    raise build, field unit
+
+force set-decimal-pattern-match-required
+  start build, field decimal-format
+  start value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecimalPatternMatchRequired|
+    drive factor, share value
+    raise build, field unit
+
+force set-decimal-separator-always-shown
+  start build, field decimal-format
+  start value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecimalSeparatorAlwaysShown|
+    drive factor, share value
+    raise build, field unit
+
+force set-exponent-sign-always-shown
+  start build, field decimal-format
+  start exp-sign-always, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setExponentSignAlwaysShown|
+    drive factor, share exp-sign-always
+    raise build, field unit
+
+force set-format-width
+  start build, field decimal-format
+  start width, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFormatWidth|
+    drive factor, share width
+    raise build, field unit
+
+force set-grouping-size
+  start build, field decimal-format
+  start width, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setGroupingSize|
+    drive factor, share width
+    raise build, field unit
+
+force set-grouping-used
+  start build, field decimal-format
+  start enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setGroupingUsed|
+    drive factor, share enabled
+    raise build, field unit
+
+force set-math-context
+  start build, field decimal-format
+  start math-context, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |setMathContext|
+    drive factor, share math-context
+    raise build, field unit
+
+force set-math-context-icu
+  start build, field decimal-format
+  start math-context-icu, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |setMathContextICU|
+    drive factor, share math-context-icu
+    raise build, field unit
+
+force set-maximum-fraction-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaximumFractionDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-maximum-integer-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaximumIntegerDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-maximum-significant-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaximumSignificantDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-minimum-exponent-digits
+  start build, field decimal-format
+  start min-exp-dig, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumExponentDigits|
+    drive factor, share min-exp-dig
+    raise build, field unit
+
+force set-minimum-fraction-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumFractionDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-minimum-integer-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumIntegerDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-minimum-significant-digits
+  start build, field decimal-format
+  start value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumSignificantDigits|
+    drive factor, share value
+    raise build, field unit
+
+force set-multiplier
+  start build, field decimal-format
+  start multiplier, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMultiplier|
+    drive factor, share multiplier
+    raise build, field unit
+
+force set-negative-prefix
+  start build, field decimal-format
+  start prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setNegativePrefix|
+    drive factor, share prefix
+    raise build, field unit
+
+force set-negative-suffix
+  start build, field decimal-format
+  start suffix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setNegativeSuffix|
+    drive factor, share suffix
+    raise build, field unit
+
+force set-pad-character
+  start build, field decimal-format
+  start pad-char, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |setPadCharacter|
+    drive factor, share pad-char
+    raise build, field unit
+
+force set-pad-position
+  start build, field decimal-format
+  start pad-pos, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPadPosition|
+    drive factor, share pad-pos
+    raise build, field unit
+
+force set-parse-big-decimal
+  start build, field decimal-format
+  start value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setParseBigDecimal|
+    drive factor, share value
+    raise build, field unit
+
+force set-parse-integer-only
+  start build, field decimal-format
+  start parse-integer-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setParseIntegerOnly|
+    drive factor, share parse-integer-only
+    raise build, field unit
+
+force set-parse-max-digits
+  start build, field decimal-format
+  start max-digits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setParseMaxDigits|
+    drive factor, share max-digits
+    raise build, field unit
+
+force set-parse-strict
+  start build, field decimal-format
+  start parse-strict, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setParseStrict|
+    drive factor, share parse-strict
+    raise build, field unit
+
+force set-positive-prefix
+  start build, field decimal-format
+  start prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPositivePrefix|
+    drive factor, share prefix
+    raise build, field unit
+
+force set-positive-suffix
+  start build, field decimal-format
+  start suffix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPositiveSuffix|
+    drive factor, share suffix
+    raise build, field unit
+
+force set-rounding-increment
+  start build, field decimal-format
+  start increment, field big-decimal
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoundingIncrement|
+    drive factor, share increment
+    raise build, field unit
+
+force set-rounding-increment
+  start build, field decimal-format
+  start increment, field big-decimal
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoundingIncrement|
+    drive factor, share increment
+    raise build, field unit
+
+force set-rounding-increment
+  start build, field decimal-format
+  start increment, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoundingIncrement|
+    drive factor, share increment
+    raise build, field unit
+
+force set-rounding-mode
+  start build, field decimal-format
+  start rounding-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoundingMode|
+    drive factor, share rounding-mode
+    raise build, field unit
+
+force set-scientific-notation
+  start build, field decimal-format
+  start use-scientific, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setScientificNotation|
+    drive factor, share use-scientific
+    raise build, field unit
+
+force set-secondary-grouping-size
+  start build, field decimal-format
+  start width, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSecondaryGroupingSize|
+    drive factor, share width
+    raise build, field unit
+
+force set-significant-digits-used
+  start build, field decimal-format
+  start use-significant-digits, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSignificantDigitsUsed|
+    drive factor, share use-significant-digits
+    raise build, field unit
+
+force to-localized-pattern
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toLocalizedPattern|
+    raise build, field string
+
+force to-pattern
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toPattern|
+    raise build, field string
+
+force to-string
+  start build, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

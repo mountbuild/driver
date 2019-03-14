@@ -1,0 +1,278 @@
+
+force get-already-exists
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ALREADY_EXISTS|
+    raise build, field int
+
+force get-error
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    raise build, field int
+
+force get-error-bad-value
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_BAD_VALUE|
+    raise build, field int
+
+force get-error-dead-object
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_DEAD_OBJECT|
+    raise build, field int
+
+force get-error-invalid-operation
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_OPERATION|
+    raise build, field int
+
+force get-error-no-init
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NO_INIT|
+    raise build, field int
+
+force get-error-no-memory
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NO_MEMORY|
+    raise build, field int
+
+force get-measurement-mode-none
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |MEASUREMENT_MODE_NONE|
+    raise build, field int
+
+force get-measurement-mode-peak-rms
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |MEASUREMENT_MODE_PEAK_RMS|
+    raise build, field int
+
+force get-scaling-mode-as-played
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |SCALING_MODE_AS_PLAYED|
+    raise build, field int
+
+force get-scaling-mode-normalized
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |SCALING_MODE_NORMALIZED|
+    raise build, field int
+
+force get-state-enabled
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_ENABLED|
+    raise build, field int
+
+force get-state-initialized
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_INITIALIZED|
+    raise build, field int
+
+force get-state-uninitialized
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_UNINITIALIZED|
+    raise build, field int
+
+force get-success
+  mount build, field visualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |SUCCESS|
+    raise build, field int
+
+force build-visualizer
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |Visualizer|
+    drive factor, share audio-session
+    raise build, field visualizer
+
+force get-capture-size
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getCaptureSize|
+    raise build, field int
+
+force get-capture-size-range
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getCaptureSizeRange|
+    raise build, field int-array
+
+force get-enabled
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnabled|
+    raise build, field boolean
+
+force get-fft
+  mount build, field visualizer
+  mount fft, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getFft|
+    drive factor, share fft
+    raise build, field int
+
+force get-max-capture-rate
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxCaptureRate|
+    raise build, field int
+
+force get-measurement-mode
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeasurementMode|
+    raise build, field int
+
+force get-measurement-peak-rms
+  mount build, field visualizer
+  mount measurement, field visualizer-measurement-peak-rms
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeasurementPeakRms|
+    drive factor, share measurement
+    raise build, field int
+
+force get-sampling-rate
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getSamplingRate|
+    raise build, field int
+
+force get-scaling-mode
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getScalingMode|
+    raise build, field int
+
+force get-wave-form
+  mount build, field visualizer
+  mount waveform, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getWaveForm|
+    drive factor, share waveform
+    raise build, field int
+
+force release
+  mount build, field visualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-capture-size
+  mount build, field visualizer
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCaptureSize|
+    drive factor, share size
+    raise build, field int
+
+force set-data-capture-listener
+  mount build, field visualizer
+  mount listener, field visualizer-on-data-capture-listener
+  mount rate, field int
+  mount waveform, field boolean
+  mount fft, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataCaptureListener|
+    drive factor, share listener
+    drive factor, share rate
+    drive factor, share waveform
+    drive factor, share fft
+    raise build, field int
+
+force set-enabled
+  mount build, field visualizer
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEnabled|
+    drive factor, share enabled
+    raise build, field int
+
+force set-measurement-mode
+  mount build, field visualizer
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMeasurementMode|
+    drive factor, share mode
+    raise build, field int
+
+force set-scaling-mode
+  mount build, field visualizer
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setScalingMode|
+    drive factor, share mode
+    raise build, field int

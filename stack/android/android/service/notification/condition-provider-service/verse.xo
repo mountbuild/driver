@@ -1,0 +1,131 @@
+
+force get-extra-rule-id
+  mount build, field condition-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RULE_ID|
+    raise build, field string
+
+force get-meta-data-configuration-activity
+  mount build, field condition-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_CONFIGURATION_ACTIVITY|
+    raise build, field string
+
+force get-meta-data-rule-instance-limit
+  mount build, field condition-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_RULE_INSTANCE_LIMIT|
+    raise build, field string
+
+force get-meta-data-rule-type
+  mount build, field condition-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_RULE_TYPE|
+    raise build, field string
+
+force get-service-interface
+  mount build, field condition-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-condition-provider-service
+  cause invoke-constructor
+    drive constructor, |ConditionProviderService|
+    raise build, field condition-provider-service
+
+force notify-condition
+  mount build, field condition-provider-service
+  mount condition, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyCondition|
+    drive factor, share condition
+    raise build, field unit
+
+force notify-conditions
+  mount build, field condition-provider-service
+  mount vararg-conditions, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyConditions|
+    drive factor, share vararg-conditions
+    raise build, field unit
+
+force on-bind
+  mount build, field condition-provider-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-connected
+  mount build, field condition-provider-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnected|
+    raise build, field unit
+
+force on-request-conditions
+  mount build, field condition-provider-service
+  mount relevance, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestConditions|
+    drive factor, share relevance
+    raise build, field unit
+
+force on-subscribe
+  mount build, field condition-provider-service
+  mount condition-id, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onSubscribe|
+    drive factor, share condition-id
+    raise build, field unit
+
+force on-unsubscribe
+  mount build, field condition-provider-service
+  mount condition-id, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnsubscribe|
+    drive factor, share condition-id
+    raise build, field unit
+
+force request-rebind
+  mount build, field condition-provider-service
+  mount component-name, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |requestRebind|
+    drive factor, share component-name
+    raise build, field unit
+
+force request-unbind
+  mount build, field condition-provider-service
+
+  cause call-method
+    drive object, share build
+    drive method, |requestUnbind|
+    raise build, field unit

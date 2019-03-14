@@ -1,0 +1,80 @@
+
+force build-resource-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount collapsed-group-layout, field int
+  mount expanded-group-layout, field int
+  mount child-layout, field int
+  mount last-child-layout, field int
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share collapsed-group-layout
+    drive factor, share expanded-group-layout
+    drive factor, share child-layout
+    drive factor, share last-child-layout
+    throw build, field resource-cursor-tree-adapter
+
+force build-resource-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount collapsed-group-layout, field int
+  mount expanded-group-layout, field int
+  mount child-layout, field int
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share collapsed-group-layout
+    drive factor, share expanded-group-layout
+    drive factor, share child-layout
+    throw build, field resource-cursor-tree-adapter
+
+force build-resource-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount group-layout, field int
+  mount child-layout, field int
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share group-layout
+    drive factor, share child-layout
+    throw build, field resource-cursor-tree-adapter
+
+force new-child-view
+  mount build, field resource-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount is-last-child, field boolean
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newChildView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share is-last-child
+    drive factor, share parent
+    throw build, field view
+
+force new-group-view
+  mount build, field resource-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount is-expanded, field boolean
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newGroupView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share is-expanded
+    drive factor, share parent
+    throw build, field view

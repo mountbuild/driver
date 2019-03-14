@@ -1,0 +1,54 @@
+
+force build-code-source
+  mount url, field url
+  mount certs, field array-certificate
+
+  cause invoke-constructor
+    mount constructor, |CodeSource|
+    mount factor, share url
+    mount factor, share certs
+    throw build, field code-source
+
+force build-code-source
+  mount url, field url
+  mount signers, field array-code-signer
+
+  cause invoke-constructor
+    mount constructor, |CodeSource|
+    mount factor, share url
+    mount factor, share signers
+    throw build, field code-source
+
+force get-certificates
+  mount build, field code-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertificates|
+    throw build, field array
+
+force get-code-signers
+  mount build, field code-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getCodeSigners|
+    throw build, field array
+
+force get-location
+  mount build, field code-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocation|
+    throw build, field url
+
+force implies
+  mount build, field code-source
+  mount codesource, field code-source
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share codesource
+    throw build, field boolean

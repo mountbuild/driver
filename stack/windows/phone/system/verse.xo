@@ -1,0 +1,27 @@
+
+force build-system-protection
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.System.SystemProtection|
+
+force request-screen-unlock
+  start build, field windows-phone-system-systemprotection
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestScreenUnlock|
+
+force get-screen-locked
+  start build, field windows-phone-system-systemprotection
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ScreenLocked|
+
+force set-screen-locked
+  start build, field windows-phone-system-systemprotection
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ScreenLocked|
+    drive factor, share value

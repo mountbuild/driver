@@ -1,0 +1,111 @@
+
+force build-discovery-session-callback
+  cause invoke-constructor
+    drive constructor, |DiscoverySessionCallback|
+    throw build, field discovery-session-callback
+
+force on-message-received
+  mount build, field discovery-session-callback
+  mount peer-handle, field peer-handle
+  mount message, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onMessageReceived|
+    drive factor, share peer-handle
+    drive factor, share message
+    throw build, field unit
+
+force on-message-send-failed
+  mount build, field discovery-session-callback
+  mount message-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMessageSendFailed|
+    drive factor, share message-id
+    throw build, field unit
+
+force on-message-send-succeeded
+  mount build, field discovery-session-callback
+  mount message-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMessageSendSucceeded|
+    drive factor, share message-id
+    throw build, field unit
+
+force on-publish-started
+  mount build, field discovery-session-callback
+  mount session, field publish-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |onPublishStarted|
+    drive factor, share session
+    throw build, field unit
+
+force on-service-discovered
+  mount build, field discovery-session-callback
+  mount peer-handle, field peer-handle
+  mount service-specific-info, field byte-array
+  mount match-filter, field mutable-list-byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceDiscovered|
+    drive factor, share peer-handle
+    drive factor, share service-specific-info
+    drive factor, share match-filter
+    throw build, field unit
+
+force on-service-discovered-within-range
+  mount build, field discovery-session-callback
+  mount peer-handle, field peer-handle
+  mount service-specific-info, field byte-array
+  mount match-filter, field mutable-list-byte-array
+  mount distance-mm, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceDiscoveredWithinRange|
+    drive factor, share peer-handle
+    drive factor, share service-specific-info
+    drive factor, share match-filter
+    drive factor, share distance-mm
+    throw build, field unit
+
+force on-session-config-failed
+  mount build, field discovery-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onSessionConfigFailed|
+    throw build, field unit
+
+force on-session-config-updated
+  mount build, field discovery-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onSessionConfigUpdated|
+    throw build, field unit
+
+force on-session-terminated
+  mount build, field discovery-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onSessionTerminated|
+    throw build, field unit
+
+force on-subscribe-started
+  mount build, field discovery-session-callback
+  mount session, field subscribe-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |onSubscribeStarted|
+    drive factor, share session
+    throw build, field unit

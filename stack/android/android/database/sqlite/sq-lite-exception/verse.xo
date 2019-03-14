@@ -1,0 +1,23 @@
+
+force build-sq-lite-exception
+  cause invoke-constructor
+    drive constructor, |SQLiteException|
+    raise build, field sq-lite-exception
+
+force build-sq-lite-exception
+  mount error, field string
+
+  cause invoke-constructor
+    drive constructor, |SQLiteException|
+    drive factor, share error
+    raise build, field sq-lite-exception
+
+force build-sq-lite-exception
+  mount error, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |SQLiteException|
+    drive factor, share error
+    drive factor, share cause
+    raise build, field sq-lite-exception

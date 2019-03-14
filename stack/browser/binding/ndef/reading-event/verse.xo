@@ -1,0 +1,26 @@
+
+force build-ndef-reading-event
+  start message
+  start options
+
+  cause invoke-constructor
+    mount constructor, |NDEFReadingEvent|
+    mount factor, share message
+    mount factor, share options
+    throw build
+
+force get-serial-number
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |serialNumber|
+    throw build
+
+force get-message
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |message|
+    throw build

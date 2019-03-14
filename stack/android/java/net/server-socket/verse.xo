@@ -1,0 +1,207 @@
+
+force build-server-socket
+  cause invoke-constructor
+    drive constructor, |ServerSocket|
+    throw build, field server-socket
+
+force build-server-socket
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |ServerSocket|
+    drive factor, share port
+    throw build, field server-socket
+
+force build-server-socket
+  mount port, field int
+  mount backlog, field int
+
+  cause invoke-constructor
+    drive constructor, |ServerSocket|
+    drive factor, share port
+    drive factor, share backlog
+    throw build, field server-socket
+
+force build-server-socket
+  mount port, field int
+  mount backlog, field int
+  mount bind-addr, field inet-address
+
+  cause invoke-constructor
+    drive constructor, |ServerSocket|
+    drive factor, share port
+    drive factor, share backlog
+    drive factor, share bind-addr
+    throw build, field server-socket
+
+force accept
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |accept|
+    throw build, field socket
+
+force bind
+  mount build, field server-socket
+  mount endpoint, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share endpoint
+    throw build, field unit
+
+force bind
+  mount build, field server-socket
+  mount endpoint, field socket-address
+  mount backlog, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share endpoint
+    drive factor, share backlog
+    throw build, field unit
+
+force close
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-channel
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field server-socket-channel
+
+force get-inet-address
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInetAddress|
+    throw build, field inet-address
+
+force get-local-port
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalPort|
+    throw build, field int
+
+force get-local-socket-address
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalSocketAddress|
+    throw build, field socket-address
+
+force get-receive-buffer-size
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceiveBufferSize|
+    throw build, field int
+
+force get-reuse-address
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReuseAddress|
+    throw build, field boolean
+
+force get-so-timeout
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSoTimeout|
+    throw build, field int
+
+force is-bound
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isBound|
+    throw build, field boolean
+
+force is-closed
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isClosed|
+    throw build, field boolean
+
+force set-performance-preferences
+  mount build, field server-socket
+  mount connection-time, field int
+  mount latency, field int
+  mount bandwidth, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPerformancePreferences|
+    drive factor, share connection-time
+    drive factor, share latency
+    drive factor, share bandwidth
+    throw build, field unit
+
+force set-receive-buffer-size
+  mount build, field server-socket
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReceiveBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-reuse-address
+  mount build, field server-socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReuseAddress|
+    drive factor, share on
+    throw build, field unit
+
+force set-so-timeout
+  mount build, field server-socket
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSoTimeout|
+    drive factor, share timeout
+    throw build, field unit
+
+force set-socket-factory
+  mount build, field server-socket
+  mount fac, field socket-impl-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setSocketFactory|
+    drive factor, share fac
+    throw build, field unit
+
+force to-string
+  mount build, field server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

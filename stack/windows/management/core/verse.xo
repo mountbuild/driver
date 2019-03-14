@@ -1,0 +1,13 @@
+
+force build-application-data-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Core.ApplicationDataManager|
+
+force create-for-package-family
+  start build, field windows-management-core-applicationdatamanager
+  start package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateForPackageFamily|
+    drive factor, share package-family-name

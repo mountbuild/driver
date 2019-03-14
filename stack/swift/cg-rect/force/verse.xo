@@ -1,0 +1,541 @@
+force get-static-infinite
+
+  cause get-aspect
+    drive object, |CGRect|
+    drive aspect, |infinite|
+    raise build, field CGRect
+
+force set-static-infinite
+  field value, field CGRect
+
+  cause set-aspect
+    drive object, |CGRect|
+    drive aspect, |infinite|
+    drive factor, share value
+
+force get-static-null
+
+  cause get-aspect
+    drive object, |CGRect|
+    drive aspect, |null|
+    raise build, field CGRect
+
+force set-static-null
+  field value, field CGRect
+
+  cause set-aspect
+    drive object, |CGRect|
+    drive aspect, |null|
+    drive factor, share value
+
+force get-static-zero
+  cause get aspect
+    drive object, |CGRect|
+    drive aspect, |zero|
+    raise build, class cg-rect
+
+force set static zero
+  field value, field cg-rect
+
+  cause set aspect
+    drive object, |CGRect|
+    drive aspect, |zero|
+    drive factor, share value
+
+force get-origin
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |origin|
+    raise build, field cg-point
+
+force set-origin
+  field build, field cg-rect
+  field value, field cg-point
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |origin|
+    drive factor, share value
+
+force get-size
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |size|
+    raise build, field cg-size
+
+force set-size
+  field build, field cg-rect
+  field value, field cg-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |size|
+    drive factor, share value
+
+force get-height
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |height|
+    raise build, field cg-float
+
+force set-height
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |height|
+    drive factor, share value
+
+force get-width
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |width|
+    raise build, field cg-float
+
+force set-width
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |width|
+    drive factor, share value
+
+force get-min-x
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |minX|
+    raise build, field cg-float
+
+force set-min-x
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |minX|
+    drive factor, share value
+
+force get-mid-x
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |midX|
+    raise build, field cg-float
+
+force set-mid-x
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |midX|
+    drive factor, share value
+
+force get-max-x
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxX|
+    raise build, field cg-float
+
+force set-max-x
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxX|
+    drive factor, share value
+
+force get-min-y
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |minY|
+    raise build, field cg-float
+
+force set-min-y
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |minY|
+    drive factor, share value
+
+force get-mid-y
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |midY|
+    raise build, field cg-float
+
+force set-mid-y
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |midY|
+    drive factor, share value
+
+force get-max-y
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxY|
+    raise build, field cg-float
+
+force set-max-y
+  field build, field cg-rect
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxY|
+    drive factor, share value
+
+force get-standardized
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |standardized|
+    raise build, field cg-rect
+
+force set-standardized
+  field build, field cg-rect
+  field value, field cg-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |standardized|
+    drive factor, share value
+
+force get-integral
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |integral|
+    raise build, field cg-rect
+
+force set-integral
+  field build, field cg-rect
+  field value, field cg-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |integral|
+    drive factor, share value
+
+force applying
+  field build, field cg-rect
+  field a, class cg-affine-transform
+
+  cause call-method
+    drive object, share build
+    drive method, |applying|
+    drive factor, share a
+    raise build, class cg-rect
+
+force inset-by
+  field build, field cg-rect
+  field dx, field cg-float
+  field dy, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |insetBy|
+    drive factor
+      brand dx
+      share dx
+    drive factor
+      brand dy
+      share dy
+    raise build, class cg-rect
+
+force offset-by
+  field build, field cg-rect
+  field dx, field cg-float
+  field dy, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |offsetBy|
+    drive factor
+      brand dx
+      share dx
+    drive factor
+      brand dy
+      share dy
+    raise build, class cg-rect
+
+force union
+  field build, field cg-rect
+  field a, class cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |union|
+    drive factor, share a
+    raise build, class cg-rect
+
+force intersection
+  field build, field cg-rect
+  field a, class cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |intersection|
+    drive factor, share a
+    raise build, class cg-rect
+
+force intersects
+  field build, field cg-rect
+  field a, class cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |intersects|
+    drive factor, share a
+    raise build, class bool
+
+force contains
+  field build, field cg-rect
+  field a, class cg-point
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force contains
+  field build, field cg-rect
+  field a, class cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force get-is-empty
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    raise build, field bool
+
+force set-is-empty
+  field build, field cg-rect
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    drive factor, share value
+
+force get-is-infinite
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isInfinite|
+    raise build, field bool
+
+force set-is-infinite
+  field build, field cg-rect
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isInfinite|
+    drive factor, share value
+
+force get-is-null
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isNull|
+    raise build, field bool
+
+force set-is-null
+  field build, field cg-rect
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isNull|
+    drive factor, share value
+
+force get-dictionary-representation
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dictionaryRepresentation|
+    raise build, field cf-dictionary
+
+force set-dictionary-representation
+  field build, field cg-rect
+  field value, field cf-dictionary
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dictionaryRepresentation|
+    drive factor, share value
+
+force get-debug-description
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field cg-rect
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field cg-rect
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-custom-playground-quick-look
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field cg-rect
+  field value, field playground-quick-look
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    drive factor, share value
+
+force equal-to
+  field build, field cg-rect
+  field a, class cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |equalTo|
+    drive factor, share a
+    raise build, class bool
+
+force get-animatable-data
+  field build, field cg-rect
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |animatableData|
+    raise build, field cg-rect-animatable-data
+
+force set-animatable-data
+  field build, field cg-rect
+  field value, field cg-rect-animatable-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |animatableData|
+    drive factor, share value
+
+force clip
+  field build, field cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |clip|
+
+force encode
+  field build, field cg-rect
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force fill
+  field build, field cg-rect
+  field using, field ns-compositing-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |fill|
+    drive factor
+      brand using
+      share using
+
+force frame
+  field build, field cg-rect
+  field with-width, field cg-float
+  field using, field ns-compositing-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |frame|
+    drive factor
+      brand with-width
+      share with-width
+    drive factor
+      brand using
+      share using
+
+force inset
+  field build, field cg-rect
+  field by, field ui-edge-insets
+
+  cause call-method
+    drive object, share build
+    drive method, |inset|
+    drive factor
+      brand by
+      share by
+    raise build, class cg-rect

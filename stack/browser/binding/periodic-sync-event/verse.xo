@@ -1,0 +1,18 @@
+
+force build-periodic-sync-event
+  start type
+  start periodic-sync-event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |PeriodicSyncEvent|
+    mount factor, share type
+    mount factor, share periodic-sync-event-init-dict
+    throw build
+
+force get-tag
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tag|
+    throw build

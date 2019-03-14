@@ -1,0 +1,441 @@
+force get-is-empty
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    raise build, field bool
+
+force set-is-empty
+  field build, field set
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    drive factor, share value
+
+force get-count
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |count|
+    raise build, field int
+
+force set-count
+  field build, field set
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |count|
+    drive factor, share value
+
+force get-capacity
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |capacity|
+    raise build, field int
+
+force set-capacity
+  field build, field set
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |capacity|
+    drive factor, share value
+
+force contains
+  field build, field set
+  field a, class element
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force update
+  field build, field set
+  field with, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor
+      brand with
+      share with
+    raise build, class element
+
+force reserve-capacity
+  field build, field set
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |reserveCapacity|
+    drive factor, share a
+
+force remove
+  field build, field set
+  field a, class element
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share a
+    raise build, class element
+
+force remove-first
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFirst|
+    raise build, class element
+
+force remove
+  field build, field set
+  field at, field set-element-index
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand at
+      share at
+    raise build, class element
+
+force remove-all
+  field build, field set
+  field keeping-capacity, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor
+      brand keeping-capacity
+      share keeping-capacity
+
+force intersection
+  field build, field set
+  field a, class set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |intersection|
+    drive factor, share a
+    raise build, class set-element
+
+force form-symmetric-difference
+  field build, field set
+  field a, class set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |formSymmetricDifference|
+    drive factor, share a
+
+force subtract
+  field build, field set
+  field a, class set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |subtract|
+    drive factor, share a
+
+force subtracting
+  field build, field set
+  field a, class set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |subtracting|
+    drive factor, share a
+    raise build, class set-element
+
+force is-subset
+  field build, field set
+  field of, field set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isSubset|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force is-strict-subset
+  field build, field set
+  field of, field set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isStrictSubset|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force is-superset
+  field build, field set
+  field of, field set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isSuperset|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force is-strict-superset
+  field build, field set
+  field of, field set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isStrictSuperset|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force is-disjoint
+  field build, field set
+  field with, field set-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isDisjoint|
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force get-first
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |first|
+    raise build, field element
+
+force set-first
+  field build, field set
+  field value, field element
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |first|
+    drive factor, share value
+
+force random-element
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |randomElement|
+    raise build, class element
+
+force first-index
+  field build, field set
+  field of, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |firstIndex|
+    drive factor
+      brand of
+      share of
+    raise build, class set-element-index
+
+force index
+  field build, field set
+  field of, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand of
+      share of
+    raise build, class index
+
+force min
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |min|
+    raise build, class element
+
+force max
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |max|
+    raise build, class element
+
+force sorted
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |sorted|
+    raise build, class element
+
+force shuffled
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |shuffled|
+    raise build, class element
+
+force get-lazy
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    raise build, field lazy-sequence-set-element
+
+force set-lazy
+  field build, field set
+  field value, field lazy-sequence-set-element
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    drive factor, share value
+
+force enumerated
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerated|
+    raise build, class enumerated-sequence-set-element
+
+force make-iterator
+  field build, field set
+
+  cause call-method
+    drive object, share build
+    drive method, |makeIterator|
+    raise build, class set-element-iterator
+
+force get-underestimated-count
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    raise build, field int
+
+force set-underestimated-count
+  field build, field set
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    drive factor, share value
+
+force encode
+  field build, field set
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force hash
+  field build, field set
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force get-description
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field set
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field set
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field set
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-hash-value
+  field build, field set
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field set
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value

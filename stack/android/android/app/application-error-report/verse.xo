@@ -1,0 +1,101 @@
+
+force get-type-anr
+  start build, field application-error-report
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ANR|
+    throw build, field int
+
+force get-type-battery
+  start build, field application-error-report
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BATTERY|
+    throw build, field int
+
+force get-type-crash
+  start build, field application-error-report
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_CRASH|
+    throw build, field int
+
+force get-type-none
+  start build, field application-error-report
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NONE|
+    throw build, field int
+
+force get-type-running-service
+  start build, field application-error-report
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RUNNING_SERVICE|
+    throw build, field int
+
+force build-application-error-report
+  cause invoke-constructor
+    drive constructor, |ApplicationErrorReport|
+    throw build, field application-error-report
+
+force describe-contents
+  start build, field application-error-report
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  start build, field application-error-report
+  start pw, field printer
+  start prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    throw build, field unit
+
+force get-error-report-receiver
+  start build, field application-error-report
+  start context, field context
+  start package-name, field string
+  start app-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorReportReceiver|
+    drive factor, share context
+    drive factor, share package-name
+    drive factor, share app-flags
+    throw build, field component-name
+
+force read-from-parcel
+  start build, field application-error-report
+  start in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share in
+    throw build, field unit
+
+force write-to-parcel
+  start build, field application-error-report
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

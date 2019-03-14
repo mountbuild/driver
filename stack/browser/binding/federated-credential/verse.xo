@@ -1,0 +1,24 @@
+
+force build-federated-credential
+  start init
+
+  cause invoke-constructor
+    mount constructor, |FederatedCredential|
+    mount factor, share init
+    throw build
+
+force get-provider
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |provider|
+    throw build
+
+force get-protocol
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |protocol|
+    throw build

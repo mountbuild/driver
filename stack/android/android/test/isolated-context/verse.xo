@@ -1,0 +1,172 @@
+
+force build-isolated-context
+  mount resolver, field content-resolver
+  mount target-context, field context
+
+  cause invoke-constructor
+    drive constructor, |IsolatedContext|
+    drive factor, share resolver
+    drive factor, share target-context
+    raise build, field isolated-context
+
+force bind-isolated-service
+  mount build, field isolated-context
+  mount service, field intent
+  mount flags, field int
+  mount instance-name, field string
+  mount executor, field executor
+  mount conn, field service-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |bindIsolatedService|
+    drive factor, share service
+    drive factor, share flags
+    drive factor, share instance-name
+    drive factor, share executor
+    drive factor, share conn
+    raise build, field boolean
+
+force bind-service
+  mount build, field isolated-context
+  mount service, field intent
+  mount conn, field service-connection
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bindService|
+    drive factor, share service
+    drive factor, share conn
+    drive factor, share flags
+    raise build, field boolean
+
+force bind-service
+  mount build, field isolated-context
+  mount service, field intent
+  mount flags, field int
+  mount executor, field executor
+  mount conn, field service-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |bindService|
+    drive factor, share service
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share conn
+    raise build, field boolean
+
+force check-uri-permission
+  mount build, field isolated-context
+  mount uri, field uri
+  mount read-permission, field string
+  mount write-permission, field string
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkUriPermission|
+    drive factor, share uri
+    drive factor, share read-permission
+    drive factor, share write-permission
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    raise build, field int
+
+force check-uri-permission
+  mount build, field isolated-context
+  mount uri, field uri
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkUriPermission|
+    drive factor, share uri
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    raise build, field int
+
+force get-and-clear-broadcast-intents
+  mount build, field isolated-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndClearBroadcastIntents|
+    raise build, field mutable-list
+
+force get-content-resolver
+  mount build, field isolated-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentResolver|
+    raise build, field content-resolver
+
+force get-files-dir
+  mount build, field isolated-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilesDir|
+    raise build, field file
+
+force get-system-service
+  mount build, field isolated-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemService|
+    drive factor, share name
+    raise build, field any
+
+force register-receiver
+  mount build, field isolated-context
+  mount receiver, field broadcast-receiver
+  mount filter, field intent-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |registerReceiver|
+    drive factor, share receiver
+    drive factor, share filter
+    raise build, field intent
+
+force send-broadcast
+  mount build, field isolated-context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendBroadcast|
+    drive factor, share intent
+    raise build, field unit
+
+force send-ordered-broadcast
+  mount build, field isolated-context
+  mount intent, field intent
+  mount receiver-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendOrderedBroadcast|
+    drive factor, share intent
+    drive factor, share receiver-permission
+    raise build, field unit
+
+force unregister-receiver
+  mount build, field isolated-context
+  mount receiver, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterReceiver|
+    drive factor, share receiver
+    raise build, field unit

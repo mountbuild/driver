@@ -1,0 +1,102 @@
+
+force get-scope
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |scope|
+    throw build
+
+force get-installing
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |installing|
+    throw build
+
+force get-waiting
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |waiting|
+    throw build
+
+force get-active
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |active|
+    throw build
+
+force get-navigation-preload
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |navigationPreload|
+    throw build
+
+force get-push-manager
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pushManager|
+    throw build
+
+force get-sync
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sync|
+    throw build
+
+force get-index
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |index|
+    throw build
+
+force get-notifications
+  start build
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |getNotifications|
+    mount factor, share options
+    throw build
+
+force show-notification
+  start build
+  start title
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |showNotification|
+    mount factor, share title
+    mount factor, share options
+    throw build
+
+force update
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    throw build
+
+force unregister
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |unregister|
+    throw build

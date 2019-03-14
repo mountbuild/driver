@@ -1,0 +1,24 @@
+
+force build-key-store-builder-parameters
+  start builder, field key-store-builder
+
+  cause invoke-constructor
+    mount constructor, |KeyStoreBuilderParameters|
+    mount factor, share builder
+    throw build, field key-store-builder-parameters
+
+force build-key-store-builder-parameters
+  start parameters, field mutable-list-key-store-builder
+
+  cause invoke-constructor
+    mount constructor, |KeyStoreBuilderParameters|
+    mount factor, share parameters
+    throw build, field key-store-builder-parameters
+
+force get-parameters
+  start build, field key-store-builder-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameters|
+    throw build, field mutable-list

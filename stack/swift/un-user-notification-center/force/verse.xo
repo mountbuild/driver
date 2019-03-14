@@ -1,0 +1,95 @@
+force get-delegate
+  field build, field un-user-notification-center
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field un-user-notification-center-delegate
+
+force set-delegate
+  field build, field un-user-notification-center
+  field value, field un-user-notification-center-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-supports-content-extensions
+  field build, field un-user-notification-center
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportsContentExtensions|
+    raise build, field bool
+
+force set-supports-content-extensions
+  field build, field un-user-notification-center
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportsContentExtensions|
+    drive factor, share value
+
+force set-notification-categories
+  field build, field un-user-notification-center
+  field a, class set-un-notification-category
+
+  cause call-method
+    drive object, share build
+    drive method, |setNotificationCategories|
+    drive factor, share a
+
+force remove-pending-notification-requests
+  field build, field un-user-notification-center
+  field with-identifiers, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removePendingNotificationRequests|
+    drive factor
+      brand with-identifiers
+      share with-identifiers
+
+force remove-all-pending-notification-requests
+  field build, field un-user-notification-center
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllPendingNotificationRequests|
+
+force remove-delivered-notifications
+  field build, field un-user-notification-center
+  field with-identifiers, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDeliveredNotifications|
+    drive factor
+      brand with-identifiers
+      share with-identifiers
+
+force remove-all-delivered-notifications
+  field build, field un-user-notification-center
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllDeliveredNotifications|
+
+force get-un-error-domain
+  field build, field un-user-notification-center
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UNErrorDomain|
+    raise build, field string
+
+force set-un-error-domain
+  field build, field UNUserNotificationCenter
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UNErrorDomain|
+    drive factor, share value

@@ -1,0 +1,181 @@
+
+force get-flag-external-service
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_EXTERNAL_SERVICE|
+    throw build, field int
+
+force get-flag-isolated-process
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_ISOLATED_PROCESS|
+    throw build, field int
+
+force get-flag-single-user
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_SINGLE_USER|
+    throw build, field int
+
+force get-flag-stop-with-task
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_STOP_WITH_TASK|
+    throw build, field int
+
+force get-flag-use-app-zygote
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_USE_APP_ZYGOTE|
+    throw build, field int
+
+force get-foreground-service-type-camera
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_CAMERA|
+    throw build, field int
+
+force get-foreground-service-type-connected-device
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE|
+    throw build, field int
+
+force get-foreground-service-type-data-sync
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_DATA_SYNC|
+    throw build, field int
+
+force get-foreground-service-type-location
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_LOCATION|
+    throw build, field int
+
+force get-foreground-service-type-manifest
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_MANIFEST|
+    throw build, field int
+
+force get-foreground-service-type-media-playback
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK|
+    throw build, field int
+
+force get-foreground-service-type-media-projection
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION|
+    throw build, field int
+
+force get-foreground-service-type-microphone
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_MICROPHONE|
+    throw build, field int
+
+force get-foreground-service-type-none
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_NONE|
+    throw build, field int
+
+force get-foreground-service-type-phone-call
+  mount build, field service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FOREGROUND_SERVICE_TYPE_PHONE_CALL|
+    throw build, field int
+
+force build-service-info
+  cause invoke-constructor
+    drive constructor, |ServiceInfo|
+    throw build, field service-info
+
+force build-service-info
+  mount orig, field service-info
+
+  cause invoke-constructor
+    drive constructor, |ServiceInfo|
+    drive factor, share orig
+    throw build, field service-info
+
+force describe-contents
+  mount build, field service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  mount build, field service-info
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    throw build, field unit
+
+force get-foreground-service-type
+  mount build, field service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getForegroundServiceType|
+    throw build, field int
+
+force to-string
+  mount build, field service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field service-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

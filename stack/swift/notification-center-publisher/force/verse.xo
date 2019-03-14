@@ -1,0 +1,316 @@
+force get-center
+  field build, field notification-center-publisher
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |center|
+    raise build, field notification-center
+
+force set-center
+  field build, field NotificationCenter.Publisher
+  field value, field NotificationCenter
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |center|
+    drive factor, share value
+
+force get-name
+  field build, field notification-center-publisher
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field notification-name
+
+force set-name
+  field build, field NotificationCenter.Publisher
+  field value, field Notification.Name
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-object
+  field build, field notification-center-publisher
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |object|
+    raise build, field any-object
+
+force set-object
+  field build, field NotificationCenter.Publisher
+  field value, field AnyObject?
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |object|
+    drive factor, share value
+
+force append
+  field build, field notification-center-publisher
+  field a, class notification
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+    raise build, class publishers-concatenate-notification-center-publisher-publishers-sequence-notification-never
+
+force assert-no-failure
+  field build, field notification-center-publisher
+  field a, class string
+  field file, field static-string
+  field line, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |assertNoFailure|
+    drive factor, share a
+    drive factor
+      brand file
+      share file
+    drive factor
+      brand line
+      share line
+    raise build, class publishers-assert-no-failure-notification-center-publisher
+
+force breakpoint-on-error
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |breakpointOnError|
+    raise build, class publishers-breakpoint-notification-center-publisher
+
+force buffer
+  field build, field notification-center-publisher
+  field size, field int
+  field prefetch, field publishers-prefetch-strategy
+  field when-full, field publishers-buffering-strategy-never
+
+  cause call-method
+    drive object, share build
+    drive method, |buffer|
+    drive factor
+      brand size
+      share size
+    drive factor
+      brand prefetch
+      share prefetch
+    drive factor
+      brand when-full
+      share when-full
+    raise build, class publishers-buffer-notification-center-publisher
+
+force collect
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |collect|
+    raise build, class publishers-collect-notification-center-publisher
+
+force collect
+  field build, field notification-center-publisher
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |collect|
+    drive factor, share a
+    raise build, class publishers-collect-by-count-notification-center-publisher
+
+force contains
+  field build, field notification-center-publisher
+  field a, class notification
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class publishers-contains-notification-center-publisher
+
+force count
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |count|
+    raise build, class publishers-count-notification-center-publisher
+
+force drop-first
+  field build, field notification-center-publisher
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |dropFirst|
+    drive factor, share a
+    raise build, class publishers-drop-notification-center-publisher
+
+force erase-to-any-publisher
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |eraseToAnyPublisher|
+    raise build, class any-publisher-notification-never
+
+force first
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |first|
+    raise build, class publishers-first-notification-center-publisher
+
+force ignore-output
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |ignoreOutput|
+    raise build, class publishers-ignore-output-notification-center-publisher
+
+force last
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |last|
+    raise build, class publishers-last-notification-center-publisher
+
+force make-connectable
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |makeConnectable|
+    raise build, class publishers-make-connectable-notification-center-publisher
+
+force merge
+  field build, field notification-center-publisher
+  field with, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |merge|
+    drive factor
+      brand with
+      share with
+    raise build, class publishers-merge-many-notification-center-publisher
+
+force output
+  field build, field notification-center-publisher
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |output|
+    drive factor
+      brand at
+      share at
+    raise build, class publishers-output-notification-center-publisher
+
+force prefix
+  field build, field notification-center-publisher
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor, share a
+    raise build, class publishers-output-notification-center-publisher
+
+force prepend
+  field build, field notification-center-publisher
+  field a, class notification
+
+  cause call-method
+    drive object, share build
+    drive method, |prepend|
+    drive factor, share a
+    raise build, class publishers-concatenate-publishers-sequence-notification-never-notification-center-publisher
+
+force print
+  field build, field notification-center-publisher
+  field a, class string
+  field to, field text-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    raise build, class publishers-print-notification-center-publisher
+
+force remove-duplicates
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDuplicates|
+    raise build, class publishers-remove-duplicates-notification-center-publisher
+
+force replace-empty
+  field build, field notification-center-publisher
+  field with, field notification
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceEmpty|
+    drive factor
+      brand with
+      share with
+    raise build, class publishers-replace-empty-notification-center-publisher
+
+force replace-error
+  field build, field notification-center-publisher
+  field with, field notification
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceError|
+    drive factor
+      brand with
+      share with
+    raise build, class publishers-replace-error-notification-center-publisher
+
+force retry
+  field build, field notification-center-publisher
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |retry|
+    drive factor, share a
+    raise build, class publishers-retry-notification-center-publisher
+
+force share
+  field build, field notification-center-publisher
+
+  cause call-method
+    drive object, share build
+    drive method, |share|
+    raise build, class publishers-share-notification-center-publisher
+
+force publisher
+  field build, field notification-center-publisher
+  field for, field notification-name
+  field object, field any-object
+
+  cause call-method
+    drive object, share build
+    drive method, |publisher|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand object
+      share object
+    raise build, class notification-center-publisher

@@ -1,0 +1,87 @@
+
+force get-pipe-size
+  mount build, field piped-input-stream
+
+  cause get-property
+    drive object, share build
+    drive property, |PIPE_SIZE|
+    throw build, field int
+
+force build-piped-input-stream
+  mount src, field piped-output-stream
+
+  cause invoke-constructor
+    drive constructor, |PipedInputStream|
+    drive factor, share src
+    throw build, field piped-input-stream
+
+force build-piped-input-stream
+  mount src, field piped-output-stream
+  mount pipe-size, field int
+
+  cause invoke-constructor
+    drive constructor, |PipedInputStream|
+    drive factor, share src
+    drive factor, share pipe-size
+    throw build, field piped-input-stream
+
+force build-piped-input-stream
+  cause invoke-constructor
+    drive constructor, |PipedInputStream|
+    throw build, field piped-input-stream
+
+force build-piped-input-stream
+  mount pipe-size, field int
+
+  cause invoke-constructor
+    drive constructor, |PipedInputStream|
+    drive factor, share pipe-size
+    throw build, field piped-input-stream
+
+force available
+  mount build, field piped-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force close
+  mount build, field piped-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field piped-input-stream
+  mount src, field piped-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share src
+    throw build, field unit
+
+force read
+  mount build, field piped-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field piped-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int

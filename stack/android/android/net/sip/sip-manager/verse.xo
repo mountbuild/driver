@@ -1,0 +1,252 @@
+
+force get-extra-call-id
+  start build, field sip-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CALL_ID|
+    throw build, field string
+
+force get-extra-offer-sd
+  start build, field sip-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_OFFER_SD|
+    throw build, field string
+
+force get-incoming-call-result-code
+  start build, field sip-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INCOMING_CALL_RESULT_CODE|
+    throw build, field int
+
+force close
+  start build, field sip-manager
+  start local-profile-uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    drive factor, share local-profile-uri
+    throw build, field unit
+
+force create-sip-session
+  start build, field sip-manager
+  start local-profile, field sip-profile
+  start listener, field sip-session-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |createSipSession|
+    drive factor, share local-profile
+    drive factor, share listener
+    throw build, field sip-session
+
+force get-call-id
+  start build, field sip-manager
+  start incoming-call-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallId|
+    drive factor, share incoming-call-intent
+    throw build, field string
+
+force get-offer-session-description
+  start build, field sip-manager
+  start incoming-call-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getOfferSessionDescription|
+    drive factor, share incoming-call-intent
+    throw build, field string
+
+force get-session-for
+  start build, field sip-manager
+  start incoming-call-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionFor|
+    drive factor, share incoming-call-intent
+    throw build, field sip-session
+
+force is-api-supported
+  start build, field sip-manager
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |isApiSupported|
+    drive factor, share context
+    throw build, field boolean
+
+force is-incoming-call-intent
+  start build, field sip-manager
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |isIncomingCallIntent|
+    drive factor, share intent
+    throw build, field boolean
+
+force is-opened
+  start build, field sip-manager
+  start local-profile-uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpened|
+    drive factor, share local-profile-uri
+    throw build, field boolean
+
+force is-registered
+  start build, field sip-manager
+  start local-profile-uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isRegistered|
+    drive factor, share local-profile-uri
+    throw build, field boolean
+
+force is-sip-wifi-only
+  start build, field sip-manager
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |isSipWifiOnly|
+    drive factor, share context
+    throw build, field boolean
+
+force is-voip-supported
+  start build, field sip-manager
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |isVoipSupported|
+    drive factor, share context
+    throw build, field boolean
+
+force make-audio-call
+  start build, field sip-manager
+  start local-profile, field sip-profile
+  start peer-profile, field sip-profile
+  start listener, field sip-audio-call-listener
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeAudioCall|
+    drive factor, share local-profile
+    drive factor, share peer-profile
+    drive factor, share listener
+    drive factor, share timeout
+    throw build, field sip-audio-call
+
+force make-audio-call
+  start build, field sip-manager
+  start local-profile-uri, field string
+  start peer-profile-uri, field string
+  start listener, field sip-audio-call-listener
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeAudioCall|
+    drive factor, share local-profile-uri
+    drive factor, share peer-profile-uri
+    drive factor, share listener
+    drive factor, share timeout
+    throw build, field sip-audio-call
+
+force new-instance
+  start build, field sip-manager
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share context
+    throw build, field sip-manager
+
+force open
+  start build, field sip-manager
+  start local-profile, field sip-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share local-profile
+    throw build, field unit
+
+force open
+  start build, field sip-manager
+  start local-profile, field sip-profile
+  start incoming-call-pending-intent, field pending-intent
+  start listener, field sip-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share local-profile
+    drive factor, share incoming-call-pending-intent
+    drive factor, share listener
+    throw build, field unit
+
+force register
+  start build, field sip-manager
+  start local-profile, field sip-profile
+  start expiry-time, field int
+  start listener, field sip-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |register|
+    drive factor, share local-profile
+    drive factor, share expiry-time
+    drive factor, share listener
+    throw build, field unit
+
+force set-registration-listener
+  start build, field sip-manager
+  start local-profile-uri, field string
+  start listener, field sip-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setRegistrationListener|
+    drive factor, share local-profile-uri
+    drive factor, share listener
+    throw build, field unit
+
+force take-audio-call
+  start build, field sip-manager
+  start incoming-call-intent, field intent
+  start listener, field sip-audio-call-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |takeAudioCall|
+    drive factor, share incoming-call-intent
+    drive factor, share listener
+    throw build, field sip-audio-call
+
+force unregister
+  start build, field sip-manager
+  start local-profile, field sip-profile
+  start listener, field sip-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unregister|
+    drive factor, share local-profile
+    drive factor, share listener
+    throw build, field unit

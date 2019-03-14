@@ -1,0 +1,86 @@
+
+force build-event-stats
+  start stats, field event-stats
+
+  cause invoke-constructor
+    drive constructor, |EventStats|
+    drive factor, share stats
+    throw build, field event-stats
+
+force add
+  start build, field event-stats
+  start right, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share right
+    throw build, field unit
+
+force describe-contents
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-count
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    throw build, field int
+
+force get-event-type
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getEventType|
+    throw build, field int
+
+force get-first-time-stamp
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getFirstTimeStamp|
+    throw build, field long
+
+force get-last-event-time
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getLastEventTime|
+    throw build, field long
+
+force get-last-time-stamp
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getLastTimeStamp|
+    throw build, field long
+
+force get-total-time
+  start build, field event-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalTime|
+    throw build, field long
+
+force write-to-parcel
+  start build, field event-stats
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,104 @@
+
+force build-async-query-handler
+  mount cr, field content-resolver
+
+  cause invoke-constructor
+    drive constructor, |AsyncQueryHandler|
+    drive factor, share cr
+    throw build, field async-query-handler
+
+force cancel-operation
+  mount build, field async-query-handler
+  mount token, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelOperation|
+    drive factor, share token
+    throw build, field unit
+
+force handle-message
+  mount build, field async-query-handler
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |handleMessage|
+    drive factor, share msg
+    throw build, field unit
+
+force start-delete
+  mount build, field async-query-handler
+  mount token, field int
+  mount cookie, field any
+  mount uri, field uri
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |startDelete|
+    drive factor, share token
+    drive factor, share cookie
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field unit
+
+force start-insert
+  mount build, field async-query-handler
+  mount token, field int
+  mount cookie, field any
+  mount uri, field uri
+  mount initial-values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |startInsert|
+    drive factor, share token
+    drive factor, share cookie
+    drive factor, share uri
+    drive factor, share initial-values
+    throw build, field unit
+
+force start-query
+  mount build, field async-query-handler
+  mount token, field int
+  mount cookie, field any
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount order-by, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startQuery|
+    drive factor, share token
+    drive factor, share cookie
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share order-by
+    throw build, field unit
+
+force start-update
+  mount build, field async-query-handler
+  mount token, field int
+  mount cookie, field any
+  mount uri, field uri
+  mount values, field content-values
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |startUpdate|
+    drive factor, share token
+    drive factor, share cookie
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field unit

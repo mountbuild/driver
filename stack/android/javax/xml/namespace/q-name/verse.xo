@@ -1,0 +1,90 @@
+
+force build-q-name
+  start namespace-uri, field string
+  start local-part, field string
+
+  cause invoke-constructor
+    mount constructor, |QName|
+    mount factor, share namespace-uri
+    mount factor, share local-part
+    throw build, field q-name
+
+force build-q-name
+  start namespace-uri, field string
+  start local-part, field string
+  start prefix, field string
+
+  cause invoke-constructor
+    mount constructor, |QName|
+    mount factor, share namespace-uri
+    mount factor, share local-part
+    mount factor, share prefix
+    throw build, field q-name
+
+force build-q-name
+  start local-part, field string
+
+  cause invoke-constructor
+    mount constructor, |QName|
+    mount factor, share local-part
+    throw build, field q-name
+
+force equals
+  start build, field q-name
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-local-part
+  start build, field q-name
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocalPart|
+    throw build, field string
+
+force get-namespace-uri
+  start build, field q-name
+
+  cause call-method
+    mount object, share build
+    mount method, |getNamespaceURI|
+    throw build, field string
+
+force get-prefix
+  start build, field q-name
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrefix|
+    throw build, field string
+
+force hash-code
+  start build, field q-name
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field q-name
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force value-of
+  start build, field q-name
+  start q-name-as-string, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |valueOf|
+    mount factor, share q-name-as-string
+    throw build, field q-name

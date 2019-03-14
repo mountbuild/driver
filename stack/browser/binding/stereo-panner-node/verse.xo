@@ -1,0 +1,18 @@
+
+force build-stereo-panner-node
+  start context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |StereoPannerNode|
+    mount factor, share context
+    mount factor, share options
+    throw build
+
+force get-pan
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pan|
+    throw build

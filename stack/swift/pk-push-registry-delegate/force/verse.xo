@@ -1,0 +1,46 @@
+force push-registry
+  field build, field pk-push-registry-delegate
+  field a, class pk-push-registry
+  field did-update, field pk-push-credentials
+  field for, field pk-push-type
+
+  cause call-method
+    drive object, share build
+    drive method, |pushRegistry|
+    drive factor, share a
+    drive factor
+      brand did-update
+      share did-update
+    drive factor
+      brand for
+      share for
+
+force push-registry
+  field build, field pk-push-registry-delegate
+  field a, class pk-push-registry
+  field did-invalidate-push-token-for, field pk-push-type
+
+  cause call-method
+    drive object, share build
+    drive method, |pushRegistry|
+    drive factor, share a
+    drive factor
+      brand did-invalidate-push-token-for
+      share did-invalidate-push-token-for
+
+force push-registry
+  field build, field pk-push-registry-delegate
+  field a, class pk-push-registry
+  field did-receive-incoming-push-with, field pk-push-payload
+  field for, field pk-push-type
+
+  cause call-method
+    drive object, share build
+    drive method, |pushRegistry|
+    drive factor, share a
+    drive factor
+      brand did-receive-incoming-push-with
+      share did-receive-incoming-push-with
+    drive factor
+      brand for
+      share for

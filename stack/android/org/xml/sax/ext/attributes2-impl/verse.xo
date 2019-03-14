@@ -1,0 +1,139 @@
+
+force build-attributes2-impl
+  cause invoke-constructor
+    drive constructor, |Attributes2Impl|
+    throw build, field attributes2-impl
+
+force build-attributes2-impl
+  mount atts, field attributes
+
+  cause invoke-constructor
+    drive constructor, |Attributes2Impl|
+    drive factor, share atts
+    throw build, field attributes2-impl
+
+force add-attribute
+  mount build, field attributes2-impl
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount type, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addAttribute|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share type
+    drive factor, share value
+    throw build, field unit
+
+force is-declared
+  mount build, field attributes2-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeclared|
+    drive factor, share index
+    throw build, field boolean
+
+force is-declared
+  mount build, field attributes2-impl
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeclared|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field boolean
+
+force is-declared
+  mount build, field attributes2-impl
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeclared|
+    drive factor, share q-name
+    throw build, field boolean
+
+force is-specified
+  mount build, field attributes2-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isSpecified|
+    drive factor, share index
+    throw build, field boolean
+
+force is-specified
+  mount build, field attributes2-impl
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isSpecified|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field boolean
+
+force is-specified
+  mount build, field attributes2-impl
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isSpecified|
+    drive factor, share q-name
+    throw build, field boolean
+
+force remove-attribute
+  mount build, field attributes2-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAttribute|
+    drive factor, share index
+    throw build, field unit
+
+force set-attributes
+  mount build, field attributes2-impl
+  mount atts, field attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttributes|
+    drive factor, share atts
+    throw build, field unit
+
+force set-declared
+  mount build, field attributes2-impl
+  mount index, field int
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDeclared|
+    drive factor, share index
+    drive factor, share value
+    throw build, field unit
+
+force set-specified
+  mount build, field attributes2-impl
+  mount index, field int
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpecified|
+    drive factor, share index
+    drive factor, share value
+    throw build, field unit

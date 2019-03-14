@@ -1,0 +1,106 @@
+
+force build-frame-layout
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |FrameLayout|
+    drive factor, share context
+    throw build, field frame-layout
+
+force build-frame-layout
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |FrameLayout|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field frame-layout
+
+force build-frame-layout
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |FrameLayout|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field frame-layout
+
+force build-frame-layout
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |FrameLayout|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field frame-layout
+
+force generate-layout-params
+  mount build, field frame-layout
+  mount attrs, field attribute-set
+
+  cause call-method
+    drive object, share build
+    drive method, |generateLayoutParams|
+    drive factor, share attrs
+    throw build, field frame-layout-layout-params
+
+force get-accessibility-class-name
+  mount build, field frame-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force get-consider-gone-children-when-measuring
+  mount build, field frame-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getConsiderGoneChildrenWhenMeasuring|
+    throw build, field boolean
+
+force get-measure-all-children
+  mount build, field frame-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeasureAllChildren|
+    throw build, field boolean
+
+force set-foreground-gravity
+  mount build, field frame-layout
+  mount foreground-gravity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setForegroundGravity|
+    drive factor, share foreground-gravity
+    throw build, field unit
+
+force set-measure-all-children
+  mount build, field frame-layout
+  mount measure-all, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setMeasureAllChildren|
+    drive factor, share measure-all
+    throw build, field unit
+
+force should-delay-child-pressed-state
+  mount build, field frame-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldDelayChildPressedState|
+    throw build, field boolean

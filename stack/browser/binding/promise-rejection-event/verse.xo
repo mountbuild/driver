@@ -1,0 +1,26 @@
+
+force build-promise-rejection-event
+  start type
+  start options
+
+  cause invoke-constructor
+    mount constructor, |PromiseRejectionEvent|
+    mount factor, share type
+    mount factor, share options
+    throw build
+
+force get-promise
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |promise|
+    throw build
+
+force get-reason
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |reason|
+    throw build

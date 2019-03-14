@@ -1,0 +1,161 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |shared|
+    raise build, field http-cookie-storage
+
+force set-class-shared
+  field value, field http-cookie-storage
+
+  cause set-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-cookie-accept-policy
+  field build, field http-cookie-storage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |cookieAcceptPolicy|
+    raise build, field http-cookie-accept-policy
+
+force set-cookie-accept-policy
+  field build, field http-cookie-storage
+  field value, field http-cookie-accept-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |cookieAcceptPolicy|
+    drive factor, share value
+
+force remove-cookies
+  field build, field http-cookie-storage
+  field since, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCookies|
+    drive factor
+      brand since
+      share since
+
+force delete-cookie
+  field build, field http-cookie-storage
+  field a, class http-cookie
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteCookie|
+    drive factor, share a
+
+force set-cookie
+  field build, field http-cookie-storage
+  field a, class http-cookie
+
+  cause call-method
+    drive object, share build
+    drive method, |setCookie|
+    drive factor, share a
+
+force set-cookies
+  field build, field http-cookie-storage
+  field a, class http-cookie
+  field for, field url
+  field main-document-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |setCookies|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand main-document-url
+      share main-document-url
+
+force store-cookies
+  field build, field http-cookie-storage
+  field a, class http-cookie
+  field for, field url-session-task
+
+  cause call-method
+    drive object, share build
+    drive method, |storeCookies|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force get-cookies
+  field build, field http-cookie-storage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |cookies|
+    raise build, field http-cookie
+
+force set-cookies
+  field build, field http-cookie-storage
+  field value, field http-cookie
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |cookies|
+    drive factor, share value
+
+force cookies
+  field build, field http-cookie-storage
+  field for, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |cookies|
+    drive factor
+      brand for
+      share for
+    raise build, class http-cookie
+
+force sorted-cookies
+  field build, field http-cookie-storage
+  field using, field ns-sort-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |sortedCookies|
+    drive factor
+      brand using
+      share using
+    raise build, class http-cookie
+
+force get-static-nshttp-cookie-manager-cookies-changed
+
+  cause get-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |NSHTTPCookieManagerCookiesChanged|
+    raise build, field NSNotification.Name
+
+force set-static-nshttp-cookie-manager-cookies-changed
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |NSHTTPCookieManagerCookiesChanged|
+    drive factor, share value
+
+force get-static-nshttp-cookie-manager-accept-policy-changed
+
+  cause get-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |NSHTTPCookieManagerAcceptPolicyChanged|
+    raise build, field NSNotification.Name
+
+force set-static-nshttp-cookie-manager-accept-policy-changed
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |HTTPCookieStorage|
+    drive aspect, |NSHTTPCookieManagerAcceptPolicyChanged|
+    drive factor, share value

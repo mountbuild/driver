@@ -1,0 +1,220 @@
+
+force build-scheduled-thread-pool-executor
+  mount core-pool-size, field int
+
+  cause invoke-constructor
+    drive constructor, |ScheduledThreadPoolExecutor|
+    drive factor, share core-pool-size
+    throw build, field scheduled-thread-pool-executor
+
+force build-scheduled-thread-pool-executor
+  mount core-pool-size, field int
+  mount thread-factory, field thread-factory
+
+  cause invoke-constructor
+    drive constructor, |ScheduledThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share thread-factory
+    throw build, field scheduled-thread-pool-executor
+
+force build-scheduled-thread-pool-executor
+  mount core-pool-size, field int
+  mount handler, field rejected-execution-handler
+
+  cause invoke-constructor
+    drive constructor, |ScheduledThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share handler
+    throw build, field scheduled-thread-pool-executor
+
+force build-scheduled-thread-pool-executor
+  mount core-pool-size, field int
+  mount thread-factory, field thread-factory
+  mount handler, field rejected-execution-handler
+
+  cause invoke-constructor
+    drive constructor, |ScheduledThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share thread-factory
+    drive factor, share handler
+    throw build, field scheduled-thread-pool-executor
+
+force execute
+  mount build, field scheduled-thread-pool-executor
+  mount command, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share command
+    throw build, field unit
+
+force get-continue-existing-periodic-tasks-after-shutdown-policy
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getContinueExistingPeriodicTasksAfterShutdownPolicy|
+    throw build, field boolean
+
+force get-execute-existing-delayed-tasks-after-shutdown-policy
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getExecuteExistingDelayedTasksAfterShutdownPolicy|
+    throw build, field boolean
+
+force get-queue
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueue|
+    throw build, field blocking-queue
+
+force get-remove-on-cancel-policy
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoveOnCancelPolicy|
+    throw build, field boolean
+
+force schedule
+  mount build, field scheduled-thread-pool-executor
+  mount command, field runnable
+  mount delay, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share command
+    drive factor, share delay
+    drive factor, share unit
+    throw build, field scheduled-future
+
+force schedule
+  mount build, field scheduled-thread-pool-executor
+  mount callable, field callable-v
+  mount delay, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share callable
+    drive factor, share delay
+    drive factor, share unit
+    throw build, field scheduled-future
+
+force schedule-at-fixed-rate
+  mount build, field scheduled-thread-pool-executor
+  mount command, field runnable
+  mount initial-delay, field long
+  mount period, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |scheduleAtFixedRate|
+    drive factor, share command
+    drive factor, share initial-delay
+    drive factor, share period
+    drive factor, share unit
+    throw build, field scheduled-future
+
+force schedule-with-fixed-delay
+  mount build, field scheduled-thread-pool-executor
+  mount command, field runnable
+  mount initial-delay, field long
+  mount delay, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |scheduleWithFixedDelay|
+    drive factor, share command
+    drive factor, share initial-delay
+    drive factor, share delay
+    drive factor, share unit
+    throw build, field scheduled-future
+
+force set-continue-existing-periodic-tasks-after-shutdown-policy
+  mount build, field scheduled-thread-pool-executor
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setContinueExistingPeriodicTasksAfterShutdownPolicy|
+    drive factor, share value
+    throw build, field unit
+
+force set-execute-existing-delayed-tasks-after-shutdown-policy
+  mount build, field scheduled-thread-pool-executor
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setExecuteExistingDelayedTasksAfterShutdownPolicy|
+    drive factor, share value
+    throw build, field unit
+
+force set-remove-on-cancel-policy
+  mount build, field scheduled-thread-pool-executor
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setRemoveOnCancelPolicy|
+    drive factor, share value
+    throw build, field unit
+
+force shutdown
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    throw build, field unit
+
+force shutdown-now
+  mount build, field scheduled-thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownNow|
+    throw build, field mutable-list
+
+force submit
+  mount build, field scheduled-thread-pool-executor
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field future
+
+force submit
+  mount build, field scheduled-thread-pool-executor
+  mount task, field runnable
+  mount result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    drive factor, share result
+    throw build, field future
+
+force submit
+  mount build, field scheduled-thread-pool-executor
+  mount task, field callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field future

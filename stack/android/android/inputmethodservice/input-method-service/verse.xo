@@ -1,0 +1,855 @@
+
+force get-back-disposition-adjust-nothing
+  mount build, field input-method-service
+
+  cause get-property
+    drive object, share build
+    drive property, |BACK_DISPOSITION_ADJUST_NOTHING|
+    throw build, field int
+
+force get-back-disposition-default
+  mount build, field input-method-service
+
+  cause get-property
+    drive object, share build
+    drive property, |BACK_DISPOSITION_DEFAULT|
+    throw build, field int
+
+force get-back-disposition-will-dismiss
+  mount build, field input-method-service
+
+  cause get-property
+    drive object, share build
+    drive property, |BACK_DISPOSITION_WILL_DISMISS|
+    throw build, field int
+
+force get-back-disposition-will-not-dismiss
+  mount build, field input-method-service
+
+  cause get-property
+    drive object, share build
+    drive property, |BACK_DISPOSITION_WILL_NOT_DISMISS|
+    throw build, field int
+
+force build-input-method-service
+  cause invoke-constructor
+    drive constructor, |InputMethodService|
+    throw build, field input-method-service
+
+force enable-hardware-acceleration
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |enableHardwareAcceleration|
+    throw build, field boolean
+
+force get-back-disposition
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getBackDisposition|
+    throw build, field int
+
+force get-candidates-hidden-visibility
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCandidatesHiddenVisibility|
+    throw build, field int
+
+force get-current-input-binding
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentInputBinding|
+    throw build, field input-binding
+
+force get-current-input-connection
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentInputConnection|
+    throw build, field input-connection
+
+force get-current-input-editor-info
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentInputEditorInfo|
+    throw build, field editor-info
+
+force get-current-input-started
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentInputStarted|
+    throw build, field boolean
+
+force get-input-method-window-recommended-height
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputMethodWindowRecommendedHeight|
+    throw build, field int
+
+force get-layout-inflater
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getLayoutInflater|
+    throw build, field layout-inflater
+
+force get-max-width
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxWidth|
+    throw build, field int
+
+force get-text-for-ime-action
+  mount build, field input-method-service
+  mount ime-options, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTextForImeAction|
+    drive factor, share ime-options
+    throw build, field char-sequence
+
+force get-window
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getWindow|
+    throw build, field dialog
+
+force hide-status-icon
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |hideStatusIcon|
+    throw build, field unit
+
+force hide-window
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |hideWindow|
+    throw build, field unit
+
+force is-extract-view-shown
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isExtractViewShown|
+    throw build, field boolean
+
+force is-fullscreen-mode
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isFullscreenMode|
+    throw build, field boolean
+
+force is-input-view-shown
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isInputViewShown|
+    throw build, field boolean
+
+force is-show-input-requested
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isShowInputRequested|
+    throw build, field boolean
+
+force on-app-private-command
+  mount build, field input-method-service
+  mount action, field string
+  mount data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppPrivateCommand|
+    drive factor, share action
+    drive factor, share data
+    throw build, field unit
+
+force on-bind-input
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onBindInput|
+    throw build, field unit
+
+force on-compute-insets
+  mount build, field input-method-service
+  mount out-insets, field input-method-service-insets
+
+  cause call-method
+    drive object, share build
+    drive method, |onComputeInsets|
+    drive factor, share out-insets
+    throw build, field unit
+
+force on-configuration-changed
+  mount build, field input-method-service
+  mount new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    throw build, field unit
+
+force on-configure-window
+  mount build, field input-method-service
+  mount win, field window
+  mount is-fullscreen, field boolean
+  mount is-candidates-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigureWindow|
+    drive factor, share win
+    drive factor, share is-fullscreen
+    drive factor, share is-candidates-only
+    throw build, field unit
+
+force on-create
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-create-candidates-view
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateCandidatesView|
+    throw build, field view
+
+force on-create-extract-text-view
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateExtractTextView|
+    throw build, field view
+
+force on-create-inline-suggestions-request
+  mount build, field input-method-service
+  mount ui-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInlineSuggestionsRequest|
+    drive factor, share ui-extras
+    throw build, field inline-suggestions-request
+
+force on-create-input-method-interface
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInputMethodInterface|
+    throw build, field abstract-input-method-service-abstract-input-method-impl
+
+force on-create-input-method-session-interface
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInputMethodSessionInterface|
+    throw build, field abstract-input-method-service-abstract-input-method-session-impl
+
+force on-create-input-view
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInputView|
+    throw build, field view
+
+force on-destroy
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-display-completions
+  mount build, field input-method-service
+  mount completions, field array-completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisplayCompletions|
+    drive factor, share completions
+    throw build, field unit
+
+force on-evaluate-fullscreen-mode
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onEvaluateFullscreenMode|
+    throw build, field boolean
+
+force on-evaluate-input-view-shown
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onEvaluateInputViewShown|
+    throw build, field boolean
+
+force on-extract-text-context-menu-item
+  mount build, field input-method-service
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtractTextContextMenuItem|
+    drive factor, share id
+    throw build, field boolean
+
+force on-extracted-cursor-movement
+  mount build, field input-method-service
+  mount dx, field int
+  mount dy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtractedCursorMovement|
+    drive factor, share dx
+    drive factor, share dy
+    throw build, field unit
+
+force on-extracted-selection-changed
+  mount build, field input-method-service
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtractedSelectionChanged|
+    drive factor, share start
+    drive factor, share end
+    throw build, field unit
+
+force on-extracted-text-clicked
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtractedTextClicked|
+    throw build, field unit
+
+force on-extracting-input-changed
+  mount build, field input-method-service
+  mount ei, field editor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtractingInputChanged|
+    drive factor, share ei
+    throw build, field unit
+
+force on-finish-candidates-view
+  mount build, field input-method-service
+  mount finishing-input, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinishCandidatesView|
+    drive factor, share finishing-input
+    throw build, field unit
+
+force on-finish-input
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinishInput|
+    throw build, field unit
+
+force on-finish-input-view
+  mount build, field input-method-service
+  mount finishing-input, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinishInputView|
+    drive factor, share finishing-input
+    throw build, field unit
+
+force on-generic-motion-event
+  mount build, field input-method-service
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onGenericMotionEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force on-initialize-interface
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onInitializeInterface|
+    throw build, field unit
+
+force on-inline-suggestions-response
+  mount build, field input-method-service
+  mount response, field inline-suggestions-response
+
+  cause call-method
+    drive object, share build
+    drive method, |onInlineSuggestionsResponse|
+    drive factor, share response
+    throw build, field boolean
+
+force on-key-down
+  mount build, field input-method-service
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-key-long-press
+  mount build, field input-method-service
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyLongPress|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-key-multiple
+  mount build, field input-method-service
+  mount key-code, field int
+  mount count, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyMultiple|
+    drive factor, share key-code
+    drive factor, share count
+    drive factor, share event
+    throw build, field boolean
+
+force on-key-up
+  mount build, field input-method-service
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyUp|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-show-input-requested
+  mount build, field input-method-service
+  mount flags, field int
+  mount config-change, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onShowInputRequested|
+    drive factor, share flags
+    drive factor, share config-change
+    throw build, field boolean
+
+force on-start-candidates-view
+  mount build, field input-method-service
+  mount info, field editor-info
+  mount restarting, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartCandidatesView|
+    drive factor, share info
+    drive factor, share restarting
+    throw build, field unit
+
+force on-start-input
+  mount build, field input-method-service
+  mount attribute, field editor-info
+  mount restarting, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartInput|
+    drive factor, share attribute
+    drive factor, share restarting
+    throw build, field unit
+
+force on-start-input-view
+  mount build, field input-method-service
+  mount info, field editor-info
+  mount restarting, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartInputView|
+    drive factor, share info
+    drive factor, share restarting
+    throw build, field unit
+
+force on-trackball-event
+  mount build, field input-method-service
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrackballEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force on-unbind-input
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbindInput|
+    throw build, field unit
+
+force on-update-cursor
+  mount build, field input-method-service
+  mount new-cursor, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateCursor|
+    drive factor, share new-cursor
+    throw build, field unit
+
+force on-update-cursor-anchor-info
+  mount build, field input-method-service
+  mount cursor-anchor-info, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateCursorAnchorInfo|
+    drive factor, share cursor-anchor-info
+    throw build, field unit
+
+force on-update-extracted-text
+  mount build, field input-method-service
+  mount token, field int
+  mount text, field extracted-text
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateExtractedText|
+    drive factor, share token
+    drive factor, share text
+    throw build, field unit
+
+force on-update-extracting-views
+  mount build, field input-method-service
+  mount ei, field editor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateExtractingViews|
+    drive factor, share ei
+    throw build, field unit
+
+force on-update-extracting-visibility
+  mount build, field input-method-service
+  mount ei, field editor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateExtractingVisibility|
+    drive factor, share ei
+    throw build, field unit
+
+force on-update-selection
+  mount build, field input-method-service
+  mount old-sel-start, field int
+  mount old-sel-end, field int
+  mount new-sel-start, field int
+  mount new-sel-end, field int
+  mount candidates-start, field int
+  mount candidates-end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateSelection|
+    drive factor, share old-sel-start
+    drive factor, share old-sel-end
+    drive factor, share new-sel-start
+    drive factor, share new-sel-end
+    drive factor, share candidates-start
+    drive factor, share candidates-end
+    throw build, field unit
+
+force on-view-clicked
+  mount build, field input-method-service
+  mount focus-changed, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onViewClicked|
+    drive factor, share focus-changed
+    throw build, field unit
+
+force on-window-hidden
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onWindowHidden|
+    throw build, field unit
+
+force on-window-shown
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onWindowShown|
+    throw build, field unit
+
+force request-hide-self
+  mount build, field input-method-service
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |requestHideSelf|
+    drive factor, share flags
+    throw build, field unit
+
+force request-show-self
+  mount build, field input-method-service
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |requestShowSelf|
+    drive factor, share flags
+    throw build, field unit
+
+force send-default-editor-action
+  mount build, field input-method-service
+  mount from-enter-key, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDefaultEditorAction|
+    drive factor, share from-enter-key
+    throw build, field boolean
+
+force send-down-up-key-events
+  mount build, field input-method-service
+  mount key-event-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDownUpKeyEvents|
+    drive factor, share key-event-code
+    throw build, field unit
+
+force send-key-char
+  mount build, field input-method-service
+  mount char-code, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeyChar|
+    drive factor, share char-code
+    throw build, field unit
+
+force set-back-disposition
+  mount build, field input-method-service
+  mount disposition, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBackDisposition|
+    drive factor, share disposition
+    throw build, field unit
+
+force set-candidates-view
+  mount build, field input-method-service
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |setCandidatesView|
+    drive factor, share view
+    throw build, field unit
+
+force set-candidates-view-shown
+  mount build, field input-method-service
+  mount shown, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setCandidatesViewShown|
+    drive factor, share shown
+    throw build, field unit
+
+force set-extract-view
+  mount build, field input-method-service
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtractView|
+    drive factor, share view
+    throw build, field unit
+
+force set-extract-view-shown
+  mount build, field input-method-service
+  mount shown, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtractViewShown|
+    drive factor, share shown
+    throw build, field unit
+
+force set-input-view
+  mount build, field input-method-service
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputView|
+    drive factor, share view
+    throw build, field unit
+
+force set-theme
+  mount build, field input-method-service
+  mount theme, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTheme|
+    drive factor, share theme
+    throw build, field unit
+
+force should-offer-switching-to-next-input-method
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldOfferSwitchingToNextInputMethod|
+    throw build, field boolean
+
+force show-status-icon
+  mount build, field input-method-service
+  mount icon-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showStatusIcon|
+    drive factor, share icon-res-id
+    throw build, field unit
+
+force show-window
+  mount build, field input-method-service
+  mount show-input, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |showWindow|
+    drive factor, share show-input
+    throw build, field unit
+
+force switch-input-method
+  mount build, field input-method-service
+  mount id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |switchInputMethod|
+    drive factor, share id
+    throw build, field unit
+
+force switch-input-method
+  mount build, field input-method-service
+  mount id, field string
+  mount subtype, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |switchInputMethod|
+    drive factor, share id
+    drive factor, share subtype
+    throw build, field unit
+
+force switch-to-next-input-method
+  mount build, field input-method-service
+  mount only-current-ime, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToNextInputMethod|
+    drive factor, share only-current-ime
+    throw build, field boolean
+
+force switch-to-previous-input-method
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToPreviousInputMethod|
+    throw build, field boolean
+
+force update-fullscreen-mode
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |updateFullscreenMode|
+    throw build, field unit
+
+force update-input-view-shown
+  mount build, field input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |updateInputViewShown|
+    throw build, field unit

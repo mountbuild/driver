@@ -1,0 +1,185 @@
+
+force build-license-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.LicenseManagement.LicenseManager|
+
+force add-license-async
+  start build, field windows-applicationmodel-store-licensemanagement-licensemanager
+  start license, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLicenseAsync|
+    drive factor, share license
+
+force get-satisfaction-infos-async
+  start build, field windows-applicationmodel-store-licensemanagement-licensemanager
+  start content-ids, field windows-foundation-collections-iiterable-system-string
+  start key-ids, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSatisfactionInfosAsync|
+    drive factor, share content-ids
+    drive factor, share key-ids
+
+force refresh-licenses-async
+  start build, field windows-applicationmodel-store-licensemanagement-licensemanager
+  start refresh-option, field windows-applicationmodel-store-licensemanagement-licenserefreshoption
+
+  cause call-method
+    drive object, share build
+    drive method, |RefreshLicensesAsync|
+    drive factor, share refresh-option
+
+force build-license-satisfaction-info
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo|
+
+force get-is-satisfied
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSatisfied|
+
+force set-is-satisfied
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSatisfied|
+    drive factor, share value
+
+force get-satisfied-by-device
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByDevice|
+
+force set-satisfied-by-device
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByDevice|
+    drive factor, share value
+
+force get-satisfied-by-install-media
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByInstallMedia|
+
+force set-satisfied-by-install-media
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByInstallMedia|
+    drive factor, share value
+
+force get-satisfied-by-open-license
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByOpenLicense|
+
+force set-satisfied-by-open-license
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByOpenLicense|
+    drive factor, share value
+
+force get-satisfied-by-pass
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByPass|
+
+force set-satisfied-by-pass
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByPass|
+    drive factor, share value
+
+force get-satisfied-by-signed-in-user
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedBySignedInUser|
+
+force set-satisfied-by-signed-in-user
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedBySignedInUser|
+    drive factor, share value
+
+force get-satisfied-by-trial
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByTrial|
+
+force set-satisfied-by-trial
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SatisfiedByTrial|
+    drive factor, share value
+
+force build-license-satisfaction-result
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult|
+
+force get-extended-error
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactionresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExtendedError|
+
+force set-extended-error
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactionresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExtendedError|
+    drive factor, share value
+
+force get-license-satisfaction-infos
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactionresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LicenseSatisfactionInfos|
+
+force set-license-satisfaction-infos
+  start build, field windows-applicationmodel-store-licensemanagement-licensesatisfactionresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LicenseSatisfactionInfos|
+    drive factor, share value

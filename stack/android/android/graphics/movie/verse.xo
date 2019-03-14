@@ -1,0 +1,106 @@
+
+force decode-byte-array
+  mount build, field movie
+  mount data, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeByteArray|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share length
+    raise build, field movie
+
+force decode-file
+  mount build, field movie
+  mount path-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFile|
+    drive factor, share path-name
+    raise build, field movie
+
+force decode-stream
+  mount build, field movie
+  mount is, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeStream|
+    drive factor, share is
+    raise build, field movie
+
+force draw
+  mount build, field movie
+  mount canvas, field canvas
+  mount x, field float
+  mount y, field float
+  mount paint, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share x
+    drive factor, share y
+    drive factor, share paint
+    raise build, field unit
+
+force draw
+  mount build, field movie
+  mount canvas, field canvas
+  mount x, field float
+  mount y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share x
+    drive factor, share y
+    raise build, field unit
+
+force duration
+  mount build, field movie
+
+  cause call-method
+    drive object, share build
+    drive method, |duration|
+    raise build, field int
+
+force height
+  mount build, field movie
+
+  cause call-method
+    drive object, share build
+    drive method, |height|
+    raise build, field int
+
+force is-opaque
+  mount build, field movie
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpaque|
+    raise build, field boolean
+
+force set-time
+  mount build, field movie
+  mount relative-milliseconds, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTime|
+    drive factor, share relative-milliseconds
+    raise build, field boolean
+
+force width
+  mount build, field movie
+
+  cause call-method
+    drive object, share build
+    drive method, |width|
+    raise build, field int

@@ -1,0 +1,102 @@
+
+force get-action-can-interact-across-profiles-changed
+  mount build, field cross-profile-apps
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CAN_INTERACT_ACROSS_PROFILES_CHANGED|
+    throw build, field string
+
+force can-interact-across-profiles
+  mount build, field cross-profile-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |canInteractAcrossProfiles|
+    throw build, field boolean
+
+force can-request-interact-across-profiles
+  mount build, field cross-profile-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |canRequestInteractAcrossProfiles|
+    throw build, field boolean
+
+force create-request-interact-across-profiles-intent
+  mount build, field cross-profile-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |createRequestInteractAcrossProfilesIntent|
+    throw build, field intent
+
+force get-profile-switching-icon-drawable
+  mount build, field cross-profile-apps
+  mount user-handle, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfileSwitchingIconDrawable|
+    drive factor, share user-handle
+    throw build, field drawable
+
+force get-profile-switching-label
+  mount build, field cross-profile-apps
+  mount user-handle, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfileSwitchingLabel|
+    drive factor, share user-handle
+    throw build, field char-sequence
+
+force get-target-user-profiles
+  mount build, field cross-profile-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetUserProfiles|
+    throw build, field mutable-list
+
+force start-activity
+  mount build, field cross-profile-apps
+  mount intent, field intent
+  mount target-user, field user-handle
+  mount calling-activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivity|
+    drive factor, share intent
+    drive factor, share target-user
+    drive factor, share calling-activity
+    throw build, field unit
+
+force start-activity
+  mount build, field cross-profile-apps
+  mount intent, field intent
+  mount target-user, field user-handle
+  mount calling-activity, field activity
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivity|
+    drive factor, share intent
+    drive factor, share target-user
+    drive factor, share calling-activity
+    drive factor, share options
+    throw build, field unit
+
+force start-main-activity
+  mount build, field cross-profile-apps
+  mount component, field component-name
+  mount target-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |startMainActivity|
+    drive factor, share component
+    drive factor, share target-user
+    throw build, field unit

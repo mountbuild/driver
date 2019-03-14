@@ -1,0 +1,144 @@
+
+force get-associated-stylesheet
+  start build, field transformer-factory
+  start source, field source
+  start media, field string
+  start title, field string
+  start charset, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getAssociatedStylesheet|
+    mount factor, share source
+    mount factor, share media
+    mount factor, share title
+    mount factor, share charset
+    throw build, field source
+
+force get-attribute
+  start build, field transformer-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getAttribute|
+    mount factor, share name
+    throw build, field any
+
+force get-error-listener
+  start build, field transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorListener|
+    throw build, field error-listener
+
+force get-feature
+  start build, field transformer-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getFeature|
+    mount factor, share name
+    throw build, field boolean
+
+force get-uri-resolver
+  start build, field transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getURIResolver|
+    throw build, field uri-resolver
+
+force new-instance
+  start build, field transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    throw build, field transformer-factory
+
+force new-instance
+  start build, field transformer-factory
+  start factory-class-name, field string
+  start class-loader, field class-loader
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share factory-class-name
+    mount factor, share class-loader
+    throw build, field transformer-factory
+
+force new-templates
+  start build, field transformer-factory
+  start source, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |newTemplates|
+    mount factor, share source
+    throw build, field templates
+
+force new-transformer
+  start build, field transformer-factory
+  start source, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |newTransformer|
+    mount factor, share source
+    throw build, field transformer
+
+force new-transformer
+  start build, field transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newTransformer|
+    throw build, field transformer
+
+force set-attribute
+  start build, field transformer-factory
+  start name, field string
+  start value, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |setAttribute|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-error-listener
+  start build, field transformer-factory
+  start listener, field error-listener
+
+  cause call-method
+    mount object, share build
+    mount method, |setErrorListener|
+    mount factor, share listener
+    throw build, field unit
+
+force set-feature
+  start build, field transformer-factory
+  start name, field string
+  start value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setFeature|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-uri-resolver
+  start build, field transformer-factory
+  start resolver, field uri-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |setURIResolver|
+    mount factor, share resolver
+    throw build, field unit

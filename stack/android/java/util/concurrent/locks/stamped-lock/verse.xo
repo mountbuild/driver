@@ -1,0 +1,227 @@
+
+force build-stamped-lock
+  cause invoke-constructor
+    drive constructor, |StampedLock|
+    throw build, field stamped-lock
+
+force as-read-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |asReadLock|
+    throw build, field lock
+
+force as-read-write-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |asReadWriteLock|
+    throw build, field read-write-lock
+
+force as-write-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |asWriteLock|
+    throw build, field lock
+
+force get-read-lock-count
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |getReadLockCount|
+    throw build, field int
+
+force is-read-locked
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |isReadLocked|
+    throw build, field boolean
+
+force is-write-locked
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |isWriteLocked|
+    throw build, field boolean
+
+force read-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |readLock|
+    throw build, field long
+
+force read-lock-interruptibly
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |readLockInterruptibly|
+    throw build, field long
+
+force to-string
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force try-convert-to-optimistic-read
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |tryConvertToOptimisticRead|
+    drive factor, share stamp
+    throw build, field long
+
+force try-convert-to-read-lock
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |tryConvertToReadLock|
+    drive factor, share stamp
+    throw build, field long
+
+force try-convert-to-write-lock
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |tryConvertToWriteLock|
+    drive factor, share stamp
+    throw build, field long
+
+force try-optimistic-read
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |tryOptimisticRead|
+    throw build, field long
+
+force try-read-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |tryReadLock|
+    throw build, field long
+
+force try-read-lock
+  mount build, field stamped-lock
+  mount time, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |tryReadLock|
+    drive factor, share time
+    drive factor, share unit
+    throw build, field long
+
+force try-unlock-read
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |tryUnlockRead|
+    throw build, field boolean
+
+force try-unlock-write
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |tryUnlockWrite|
+    throw build, field boolean
+
+force try-write-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |tryWriteLock|
+    throw build, field long
+
+force try-write-lock
+  mount build, field stamped-lock
+  mount time, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |tryWriteLock|
+    drive factor, share time
+    drive factor, share unit
+    throw build, field long
+
+force unlock
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |unlock|
+    drive factor, share stamp
+    throw build, field unit
+
+force unlock-read
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockRead|
+    drive factor, share stamp
+    throw build, field unit
+
+force unlock-write
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockWrite|
+    drive factor, share stamp
+    throw build, field unit
+
+force validate
+  mount build, field stamped-lock
+  mount stamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |validate|
+    drive factor, share stamp
+    throw build, field boolean
+
+force write-lock
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |writeLock|
+    throw build, field long
+
+force write-lock-interruptibly
+  mount build, field stamped-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |writeLockInterruptibly|
+    throw build, field long

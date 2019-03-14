@@ -1,0 +1,170 @@
+
+force clone
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force digest
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |digest|
+    throw build, field byte-array
+
+force digest
+  mount build, field message-digest
+  mount buf, field byte-array
+  mount offset, field int
+  mount len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |digest|
+    mount factor, share buf
+    mount factor, share offset
+    mount factor, share len
+    throw build, field int
+
+force digest
+  mount build, field message-digest
+  mount input, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |digest|
+    mount factor, share input
+    throw build, field byte-array
+
+force get-algorithm
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-digest-length
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |getDigestLength|
+    throw build, field int
+
+force get-instance
+  mount build, field message-digest
+  mount algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field message-digest
+
+force get-instance
+  mount build, field message-digest
+  mount algorithm, field string
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field message-digest
+
+force get-instance
+  mount build, field message-digest
+  mount algorithm, field string
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field message-digest
+
+force get-provider
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force is-equal
+  mount build, field message-digest
+  mount digesta, field byte-array
+  mount digestb, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |isEqual|
+    mount factor, share digesta
+    mount factor, share digestb
+    throw build, field boolean
+
+force reset
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |reset|
+    throw build, field unit
+
+force to-string
+  mount build, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force update
+  mount build, field message-digest
+  mount input, field byte
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    throw build, field unit
+
+force update
+  mount build, field message-digest
+  mount input, field byte-array
+  mount offset, field int
+  mount len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    mount factor, share offset
+    mount factor, share len
+    throw build, field unit
+
+force update
+  mount build, field message-digest
+  mount input, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    throw build, field unit
+
+force update
+  mount build, field message-digest
+  mount input, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    throw build, field unit

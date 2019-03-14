@@ -1,0 +1,13 @@
+
+force build-malformed-url-exception
+  cause invoke-constructor
+    drive constructor, |MalformedURLException|
+    throw build, field malformed-url-exception
+
+force build-malformed-url-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |MalformedURLException|
+    drive factor, share msg
+    throw build, field malformed-url-exception

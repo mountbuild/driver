@@ -1,0 +1,86 @@
+
+force get-security-patch-state-false
+  start build, field system-update-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_PATCH_STATE_FALSE|
+    throw build, field int
+
+force get-security-patch-state-true
+  start build, field system-update-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_PATCH_STATE_TRUE|
+    throw build, field int
+
+force get-security-patch-state-unknown
+  start build, field system-update-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_PATCH_STATE_UNKNOWN|
+    throw build, field int
+
+force describe-contents
+  start build, field system-update-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field system-update-info
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-received-time
+  start build, field system-update-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceivedTime|
+    throw build, field long
+
+force get-security-patch-state
+  start build, field system-update-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSecurityPatchState|
+    throw build, field int
+
+force hash-code
+  start build, field system-update-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field system-update-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field system-update-info
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

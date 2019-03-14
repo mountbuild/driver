@@ -1,0 +1,18 @@
+
+force charset-for-name
+  mount build, field charset-provider
+  mount charset-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |charsetForName|
+    mount factor, share charset-name
+    throw build, field charset
+
+force charsets
+  mount build, field charset-provider
+
+  cause call-method
+    mount object, share build
+    mount method, |charsets|
+    throw build, field mutable-iterator

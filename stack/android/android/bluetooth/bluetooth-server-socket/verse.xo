@@ -1,0 +1,42 @@
+
+force accept
+  mount build, field bluetooth-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |accept|
+    throw build, field bluetooth-socket
+
+force accept
+  mount build, field bluetooth-server-socket
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |accept|
+    drive factor, share timeout
+    throw build, field bluetooth-socket
+
+force close
+  mount build, field bluetooth-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-psm
+  mount build, field bluetooth-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getPsm|
+    throw build, field int
+
+force to-string
+  mount build, field bluetooth-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,46 @@
+
+force build-service-device
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Portable.ServiceDevice|
+
+force get-device-selector
+  start build, field windows-devices-portable-servicedevice
+  start service-type, field windows-devices-portable-servicedevicetype
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share service-type
+
+force get-device-selector-from-service-id
+  start build, field windows-devices-portable-servicedevice
+  start service-id, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelectorFromServiceId|
+    drive factor, share service-id
+
+force get-service-device-type
+  cause get-object
+    drive aspect, |Windows.Devices.Portable.ServiceDeviceType|
+
+force build-storage-device
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Portable.StorageDevice|
+
+force from-id
+  start build, field windows-devices-portable-storagedevice
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromId|
+    drive factor, share device-id
+
+force get-device-selector
+  start build, field windows-devices-portable-storagedevice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|

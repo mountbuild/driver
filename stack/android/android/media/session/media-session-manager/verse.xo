@@ -1,0 +1,106 @@
+
+force add-on-active-sessions-changed-listener
+  start build, field media-session-manager
+  start session-listener, field media-session-manager-on-active-sessions-changed-listener
+  start notification-listener, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnActiveSessionsChangedListener|
+    drive factor, share session-listener
+    drive factor, share notification-listener
+    raise build, field unit
+
+force add-on-active-sessions-changed-listener
+  start build, field media-session-manager
+  start session-listener, field media-session-manager-on-active-sessions-changed-listener
+  start notification-listener, field component-name
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnActiveSessionsChangedListener|
+    drive factor, share session-listener
+    drive factor, share notification-listener
+    drive factor, share handler
+    raise build, field unit
+
+force add-on-session2-tokens-changed-listener
+  start build, field media-session-manager
+  start listener, field media-session-manager-on-session2-tokens-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnSession2TokensChangedListener|
+    drive factor, share listener
+    raise build, field unit
+
+force add-on-session2-tokens-changed-listener
+  start build, field media-session-manager
+  start listener, field media-session-manager-on-session2-tokens-changed-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnSession2TokensChangedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force get-active-sessions
+  start build, field media-session-manager
+  start notification-listener, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveSessions|
+    drive factor, share notification-listener
+    raise build, field mutable-list
+
+force get-session2-tokens
+  start build, field media-session-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getSession2Tokens|
+    raise build, field mutable-list
+
+force is-trusted-for-media-control
+  start build, field media-session-manager
+  start user-info, field media-session-manager-remote-user-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isTrustedForMediaControl|
+    drive factor, share user-info
+    raise build, field boolean
+
+force notify-session2-created
+  start build, field media-session-manager
+  start token, field session2-token
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySession2Created|
+    drive factor, share token
+    raise build, field unit
+
+force remove-on-active-sessions-changed-listener
+  start build, field media-session-manager
+  start listener, field media-session-manager-on-active-sessions-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnActiveSessionsChangedListener|
+    drive factor, share listener
+    raise build, field unit
+
+force remove-on-session2-tokens-changed-listener
+  start build, field media-session-manager
+  start listener, field media-session-manager-on-session2-tokens-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnSession2TokensChangedListener|
+    drive factor, share listener
+    raise build, field unit

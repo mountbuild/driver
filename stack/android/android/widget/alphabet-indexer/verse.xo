@@ -1,0 +1,66 @@
+
+force build-alphabet-indexer
+  mount cursor, field cursor
+  mount sorted-column-index, field int
+  mount alphabet, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |AlphabetIndexer|
+    drive factor, share cursor
+    drive factor, share sorted-column-index
+    drive factor, share alphabet
+    throw build, field alphabet-indexer
+
+force get-position-for-section
+  mount build, field alphabet-indexer
+  mount section-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPositionForSection|
+    drive factor, share section-index
+    throw build, field int
+
+force get-section-for-position
+  mount build, field alphabet-indexer
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSectionForPosition|
+    drive factor, share position
+    throw build, field int
+
+force get-sections
+  mount build, field alphabet-indexer
+
+  cause call-method
+    drive object, share build
+    drive method, |getSections|
+    throw build, field array
+
+force on-changed
+  mount build, field alphabet-indexer
+
+  cause call-method
+    drive object, share build
+    drive method, |onChanged|
+    throw build, field unit
+
+force on-invalidated
+  mount build, field alphabet-indexer
+
+  cause call-method
+    drive object, share build
+    drive method, |onInvalidated|
+    throw build, field unit
+
+force set-cursor
+  mount build, field alphabet-indexer
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |setCursor|
+    drive factor, share cursor
+    throw build, field unit

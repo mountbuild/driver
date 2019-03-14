@@ -1,0 +1,57 @@
+
+force build-pattern-path-motion
+  cause invoke-constructor
+    drive constructor, |PatternPathMotion|
+    throw build, field pattern-path-motion
+
+force build-pattern-path-motion
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |PatternPathMotion|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field pattern-path-motion
+
+force build-pattern-path-motion
+  mount pattern-path, field path
+
+  cause invoke-constructor
+    drive constructor, |PatternPathMotion|
+    drive factor, share pattern-path
+    throw build, field pattern-path-motion
+
+force get-path
+  mount build, field pattern-path-motion
+  mount start-x, field float
+  mount start-y, field float
+  mount end-x, field float
+  mount end-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share end-x
+    drive factor, share end-y
+    throw build, field path
+
+force get-pattern-path
+  mount build, field pattern-path-motion
+
+  cause call-method
+    drive object, share build
+    drive method, |getPatternPath|
+    throw build, field path
+
+force set-pattern-path
+  mount build, field pattern-path-motion
+  mount pattern-path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |setPatternPath|
+    drive factor, share pattern-path
+    throw build, field unit

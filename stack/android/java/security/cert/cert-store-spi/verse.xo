@@ -1,0 +1,28 @@
+
+force build-cert-store-spi
+  mount params, field cert-store-parameters
+
+  cause invoke-constructor
+    mount constructor, |CertStoreSpi|
+    mount factor, share params
+    throw build, field cert-store-spi
+
+force engine-get-cr-ls
+  mount build, field cert-store-spi
+  mount selector, field crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCRLs|
+    mount factor, share selector
+    throw build, field mutable-collection
+
+force engine-get-certificates
+  mount build, field cert-store-spi
+  mount selector, field cert-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCertificates|
+    mount factor, share selector
+    throw build, field mutable-collection

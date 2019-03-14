@@ -1,0 +1,28 @@
+
+force build-socket-permission
+  mount host, field string
+  mount action, field string
+
+  cause invoke-constructor
+    drive constructor, |SocketPermission|
+    drive factor, share host
+    drive factor, share action
+    throw build, field socket-permission
+
+force get-actions
+  mount build, field socket-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |getActions|
+    throw build, field string
+
+force implies
+  mount build, field socket-permission
+  mount p, field permission
+
+  cause call-method
+    drive object, share build
+    drive method, |implies|
+    drive factor, share p
+    throw build, field boolean

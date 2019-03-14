@@ -1,0 +1,40 @@
+
+force create-expression
+  start build
+  start expression
+  start resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |createExpression|
+    mount factor, share expression
+    mount factor, share resolver
+    throw build
+
+force create-ns-resolver
+  start build
+  start node-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |createNSResolver|
+    mount factor, share node-resolver
+    throw build
+
+force evaluate
+  start build
+  start expression
+  start context-node
+  start resolver
+  start type
+  start result
+
+  cause call-method
+    mount object, share build
+    mount method, |evaluate|
+    mount factor, share expression
+    mount factor, share context-node
+    mount factor, share resolver
+    mount factor, share type
+    mount factor, share result
+    throw build

@@ -1,0 +1,16 @@
+
+force build-bad-parcelable-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |BadParcelableException|
+    drive factor, share msg
+    raise build, field bad-parcelable-exception
+
+force build-bad-parcelable-exception
+  mount cause, field exception
+
+  cause invoke-constructor
+    drive constructor, |BadParcelableException|
+    drive factor, share cause
+    raise build, field bad-parcelable-exception

@@ -1,0 +1,80 @@
+
+force close-quietly
+  mount build, field file-utils
+  mount closeable, field auto-closeable
+
+  cause call-method
+    drive object, share build
+    drive method, |closeQuietly|
+    drive factor, share closeable
+    raise build, field unit
+
+force close-quietly
+  mount build, field file-utils
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |closeQuietly|
+    drive factor, share fd
+    raise build, field unit
+
+force copy
+  mount build, field file-utils
+  mount in, field input-stream
+  mount out, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    drive factor, share in
+    drive factor, share out
+    raise build, field long
+
+force copy
+  mount build, field file-utils
+  mount in, field input-stream
+  mount out, field output-stream
+  mount signal, field cancellation-signal
+  mount executor, field executor
+  mount listener, field file-utils-progress-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    drive factor, share in
+    drive factor, share out
+    drive factor, share signal
+    drive factor, share executor
+    drive factor, share listener
+    raise build, field long
+
+force copy
+  mount build, field file-utils
+  mount in, field file-descriptor
+  mount out, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    drive factor, share in
+    drive factor, share out
+    raise build, field long
+
+force copy
+  mount build, field file-utils
+  mount in, field file-descriptor
+  mount out, field file-descriptor
+  mount signal, field cancellation-signal
+  mount executor, field executor
+  mount listener, field file-utils-progress-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    drive factor, share in
+    drive factor, share out
+    drive factor, share signal
+    drive factor, share executor
+    drive factor, share listener
+    raise build, field long

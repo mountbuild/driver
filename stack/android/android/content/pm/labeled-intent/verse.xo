@@ -1,0 +1,126 @@
+
+force build-labeled-intent
+  mount orig-intent, field intent
+  mount source-package, field string
+  mount label-res, field int
+  mount icon, field int
+
+  cause invoke-constructor
+    drive constructor, |LabeledIntent|
+    drive factor, share orig-intent
+    drive factor, share source-package
+    drive factor, share label-res
+    drive factor, share icon
+    throw build, field labeled-intent
+
+force build-labeled-intent
+  mount orig-intent, field intent
+  mount source-package, field string
+  mount non-localized-label, field char-sequence
+  mount icon, field int
+
+  cause invoke-constructor
+    drive constructor, |LabeledIntent|
+    drive factor, share orig-intent
+    drive factor, share source-package
+    drive factor, share non-localized-label
+    drive factor, share icon
+    throw build, field labeled-intent
+
+force build-labeled-intent
+  mount source-package, field string
+  mount label-res, field int
+  mount icon, field int
+
+  cause invoke-constructor
+    drive constructor, |LabeledIntent|
+    drive factor, share source-package
+    drive factor, share label-res
+    drive factor, share icon
+    throw build, field labeled-intent
+
+force build-labeled-intent
+  mount source-package, field string
+  mount non-localized-label, field char-sequence
+  mount icon, field int
+
+  cause invoke-constructor
+    drive constructor, |LabeledIntent|
+    drive factor, share source-package
+    drive factor, share non-localized-label
+    drive factor, share icon
+    throw build, field labeled-intent
+
+force get-icon-resource
+  mount build, field labeled-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconResource|
+    throw build, field int
+
+force get-label-resource
+  mount build, field labeled-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabelResource|
+    throw build, field int
+
+force get-non-localized-label
+  mount build, field labeled-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getNonLocalizedLabel|
+    throw build, field char-sequence
+
+force get-source-package
+  mount build, field labeled-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getSourcePackage|
+    throw build, field string
+
+force load-icon
+  mount build, field labeled-intent
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIcon|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-label
+  mount build, field labeled-intent
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLabel|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force read-from-parcel
+  mount build, field labeled-intent
+  mount in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share in
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field labeled-intent
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

@@ -1,0 +1,50 @@
+
+force build-error-event
+  start name
+  start force
+
+  cause invoke-constructor
+    mount constructor, |ErrorEvent|
+    mount factor, share name
+    mount factor, share force
+    throw build
+
+force get-message
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |message|
+    throw build
+
+force get-filename
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |filename|
+    throw build
+
+force get-lineno
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |lineno|
+    throw build
+
+force get-colno
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colno|
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build

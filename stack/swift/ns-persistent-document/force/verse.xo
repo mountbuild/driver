@@ -1,0 +1,98 @@
+force get-managed-object-context
+  field build, field ns-persistent-document
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |managedObjectContext|
+    raise build, field ns-managed-object-context
+
+force set-managed-object-context
+  field build, field ns-persistent-document
+  field value, field ns-managed-object-context
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |managedObjectContext|
+    drive factor, share value
+
+force get-managed-object-model
+  field build, field ns-persistent-document
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |managedObjectModel|
+    raise build, field ns-managed-object-model
+
+force set-managed-object-model
+  field build, field ns-persistent-document
+  field value, field ns-managed-object-model
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |managedObjectModel|
+    drive factor, share value
+
+force persistent-store-type
+  field build, field ns-persistent-document
+  field for-file-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |persistentStoreType|
+    drive factor
+      brand for-file-type
+      share for-file-type
+    raise build, class string
+
+force read
+  field build, field ns-persistent-document
+  field from, field url
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand of-type
+      share of-type
+
+force revert
+  field build, field ns-persistent-document
+  field to-contents-of, field url
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |revert|
+    drive factor
+      brand to-contents-of
+      share to-contents-of
+    drive factor
+      brand of-type
+      share of-type
+
+force write
+  field build, field ns-persistent-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+  field original-contents-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand of-type
+      share of-type
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand original-contents-url
+      share original-contents-url

@@ -1,0 +1,36 @@
+
+force get-desired-size
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |desiredSize|
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build
+
+force enqueue
+  start build
+  start chunk
+
+  cause call-method
+    mount object, share build
+    mount method, |enqueue|
+    mount factor, share chunk
+    throw build
+
+force error
+  start build
+  start e
+
+  cause call-method
+    mount object, share build
+    mount method, |error|
+    mount factor, share e
+    throw build

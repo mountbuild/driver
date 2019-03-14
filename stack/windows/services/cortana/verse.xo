@@ -1,0 +1,249 @@
+
+force build-cortana-actionable-insights
+  cause invoke-constructor
+    drive constructor, |Windows.Services.Cortana.CortanaActionableInsights|
+
+force get-default
+  start build, field windows-services-cortana-cortanaactionableinsights
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-for-user
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force is-available-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+
+  cause call-method
+    drive object, share build
+    drive method, |IsAvailableAsync|
+
+force show-insights-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start datapackage, field windows-applicationmodel-datatransfer-datapackage
+  start options, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsAsync|
+    drive factor, share datapackage
+    drive factor, share options
+
+force show-insights-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start datapackage, field windows-applicationmodel-datatransfer-datapackage
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsAsync|
+    drive factor, share datapackage
+
+force show-insights-for-image-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start image-stream, field windows-storage-streams-irandomaccessstreamreference
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsForImageAsync|
+    drive factor, share image-stream
+
+force show-insights-for-image-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start image-stream, field windows-storage-streams-irandomaccessstreamreference
+  start options, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsForImageAsync|
+    drive factor, share image-stream
+    drive factor, share options
+
+force show-insights-for-text-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsForTextAsync|
+    drive factor, share text
+
+force show-insights-for-text-async
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start text, field system-string
+  start options, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowInsightsForTextAsync|
+    drive factor, share text
+    drive factor, share options
+
+force get-user
+  start build, field windows-services-cortana-cortanaactionableinsights
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-services-cortana-cortanaactionableinsights
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-cortana-actionable-insights-options
+  cause invoke-constructor
+    drive constructor, |Windows.Services.Cortana.CortanaActionableInsightsOptions|
+
+force get-content-source-web-link
+  start build, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContentSourceWebLink|
+
+force set-content-source-web-link
+  start build, field windows-services-cortana-cortanaactionableinsightsoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContentSourceWebLink|
+    drive factor, share value
+
+force ctor
+  start build, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-surrounding-text
+  start build, field windows-services-cortana-cortanaactionableinsightsoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SurroundingText|
+
+force set-surrounding-text
+  start build, field windows-services-cortana-cortanaactionableinsightsoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SurroundingText|
+    drive factor, share value
+
+force get-cortana-permission
+  cause get-object
+    drive aspect, |Windows.Services.Cortana.CortanaPermission|
+
+force get-cortana-permissions-change-result
+  cause get-object
+    drive aspect, |Windows.Services.Cortana.CortanaPermissionsChangeResult|
+
+force build-cortana-permissions-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Services.Cortana.CortanaPermissionsManager|
+
+force are-permissions-granted-async
+  start build, field windows-services-cortana-cortanapermissionsmanager
+  start permissions, field windows-foundation-collections-iiterable-windows-services-cortana-cortanapermission
+
+  cause call-method
+    drive object, share build
+    drive method, |ArePermissionsGrantedAsync|
+    drive factor, share permissions
+
+force get-default
+  start build, field windows-services-cortana-cortanapermissionsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force grant-permissions-async
+  start build, field windows-services-cortana-cortanapermissionsmanager
+  start permissions, field windows-foundation-collections-iiterable-windows-services-cortana-cortanapermission
+
+  cause call-method
+    drive object, share build
+    drive method, |GrantPermissionsAsync|
+    drive factor, share permissions
+
+force is-supported
+  start build, field windows-services-cortana-cortanapermissionsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force revoke-permissions-async
+  start build, field windows-services-cortana-cortanapermissionsmanager
+  start permissions, field windows-foundation-collections-iiterable-windows-services-cortana-cortanapermission
+
+  cause call-method
+    drive object, share build
+    drive method, |RevokePermissionsAsync|
+    drive factor, share permissions
+
+force build-cortana-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Services.Cortana.CortanaSettings|
+
+force get-default
+  start build, field windows-services-cortana-cortanasettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-has-user-consent-to-voice-activation
+  start build, field windows-services-cortana-cortanasettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HasUserConsentToVoiceActivation|
+
+force set-has-user-consent-to-voice-activation
+  start build, field windows-services-cortana-cortanasettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HasUserConsentToVoiceActivation|
+    drive factor, share value
+
+force is-supported
+  start build, field windows-services-cortana-cortanasettings
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force get-is-voice-activation-enabled
+  start build, field windows-services-cortana-cortanasettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsVoiceActivationEnabled|
+
+force set-is-voice-activation-enabled
+  start build, field windows-services-cortana-cortanasettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsVoiceActivationEnabled|
+    drive factor, share value

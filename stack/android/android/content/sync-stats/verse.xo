@@ -1,0 +1,49 @@
+
+force build-sync-stats
+  cause invoke-constructor
+    drive constructor, |SyncStats|
+    throw build, field sync-stats
+
+force build-sync-stats
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |SyncStats|
+    drive factor, share in
+    throw build, field sync-stats
+
+force clear
+  mount build, field sync-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force describe-contents
+  mount build, field sync-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field sync-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field sync-stats
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

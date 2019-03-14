@@ -1,0 +1,46 @@
+
+force build-console-message
+  mount message, field string
+  mount source-id, field string
+  mount line-number, field int
+  mount msg-level, field console-message-message-level
+
+  cause invoke-constructor
+    drive constructor, |ConsoleMessage|
+    drive factor, share message
+    drive factor, share source-id
+    drive factor, share line-number
+    drive factor, share msg-level
+    throw build, field console-message
+
+force line-number
+  mount build, field console-message
+
+  cause call-method
+    drive object, share build
+    drive method, |lineNumber|
+    throw build, field int
+
+force message
+  mount build, field console-message
+
+  cause call-method
+    drive object, share build
+    drive method, |message|
+    throw build, field string
+
+force message-level
+  mount build, field console-message
+
+  cause call-method
+    drive object, share build
+    drive method, |messageLevel|
+    throw build, field console-message-message-level
+
+force source-id
+  mount build, field console-message
+
+  cause call-method
+    drive object, share build
+    drive method, |sourceId|
+    throw build, field string

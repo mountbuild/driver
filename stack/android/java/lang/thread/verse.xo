@@ -1,0 +1,467 @@
+
+force get-max-priority
+  mount build, field thread
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_PRIORITY|
+    throw build, field int
+
+force get-min-priority
+  mount build, field thread
+
+  cause get-property
+    drive object, share build
+    drive property, |MIN_PRIORITY|
+    throw build, field int
+
+force get-norm-priority
+  mount build, field thread
+
+  cause get-property
+    drive object, share build
+    drive property, |NORM_PRIORITY|
+    throw build, field int
+
+force build-thread
+  cause invoke-constructor
+    drive constructor, |Thread|
+    throw build, field thread
+
+force build-thread
+  mount target, field runnable
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share target
+    throw build, field thread
+
+force build-thread
+  mount group, field thread-group
+  mount target, field runnable
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share group
+    drive factor, share target
+    throw build, field thread
+
+force build-thread
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share name
+    throw build, field thread
+
+force build-thread
+  mount group, field thread-group
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share group
+    drive factor, share name
+    throw build, field thread
+
+force build-thread
+  mount target, field runnable
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share target
+    drive factor, share name
+    throw build, field thread
+
+force build-thread
+  mount group, field thread-group
+  mount target, field runnable
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share group
+    drive factor, share target
+    drive factor, share name
+    throw build, field thread
+
+force build-thread
+  mount group, field thread-group
+  mount target, field runnable
+  mount name, field string
+  mount stack-size, field long
+
+  cause invoke-constructor
+    drive constructor, |Thread|
+    drive factor, share group
+    drive factor, share target
+    drive factor, share name
+    drive factor, share stack-size
+    throw build, field thread
+
+force active-count
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |activeCount|
+    throw build, field int
+
+force check-access
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    throw build, field unit
+
+force count-stack-frames
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |countStackFrames|
+    throw build, field int
+
+force current-thread
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |currentThread|
+    throw build, field thread
+
+force destroy
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    throw build, field unit
+
+force dump-stack
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpStack|
+    throw build, field unit
+
+force enumerate
+  mount build, field thread
+  mount tarray, field array-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerate|
+    drive factor, share tarray
+    throw build, field int
+
+force get-all-stack-traces
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllStackTraces|
+    throw build, field mutable-map
+
+force get-context-class-loader
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getContextClassLoader|
+    throw build, field class-loader
+
+force get-default-uncaught-exception-handler
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultUncaughtExceptionHandler|
+    throw build, field thread-uncaught-exception-handler
+
+force get-id
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field long
+
+force get-name
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-priority
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getPriority|
+    throw build, field int
+
+force get-stack-trace
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getStackTrace|
+    throw build, field array
+
+force get-state
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field thread-state
+
+force get-thread-group
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadGroup|
+    throw build, field thread-group
+
+force get-uncaught-exception-handler
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getUncaughtExceptionHandler|
+    throw build, field thread-uncaught-exception-handler
+
+force holds-lock
+  mount build, field thread
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |holdsLock|
+    drive factor, share obj
+    throw build, field boolean
+
+force interrupt
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |interrupt|
+    throw build, field unit
+
+force interrupted
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |interrupted|
+    throw build, field boolean
+
+force is-alive
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |isAlive|
+    throw build, field boolean
+
+force is-daemon
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |isDaemon|
+    throw build, field boolean
+
+force is-interrupted
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |isInterrupted|
+    throw build, field boolean
+
+force join
+  mount build, field thread
+  mount millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    drive factor, share millis
+    throw build, field unit
+
+force join
+  mount build, field thread
+  mount millis, field long
+  mount nanos, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    drive factor, share millis
+    drive factor, share nanos
+    throw build, field unit
+
+force join
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    throw build, field unit
+
+force resume
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    throw build, field unit
+
+force run
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    throw build, field unit
+
+force set-context-class-loader
+  mount build, field thread
+  mount cl, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |setContextClassLoader|
+    drive factor, share cl
+    throw build, field unit
+
+force set-daemon
+  mount build, field thread
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDaemon|
+    drive factor, share on
+    throw build, field unit
+
+force set-default-uncaught-exception-handler
+  mount build, field thread
+  mount eh, field thread-uncaught-exception-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultUncaughtExceptionHandler|
+    drive factor, share eh
+    throw build, field unit
+
+force set-name
+  mount build, field thread
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    throw build, field unit
+
+force set-priority
+  mount build, field thread
+  mount new-priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPriority|
+    drive factor, share new-priority
+    throw build, field unit
+
+force set-uncaught-exception-handler
+  mount build, field thread
+  mount eh, field thread-uncaught-exception-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setUncaughtExceptionHandler|
+    drive factor, share eh
+    throw build, field unit
+
+force sleep
+  mount build, field thread
+  mount millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sleep|
+    drive factor, share millis
+    throw build, field unit
+
+force sleep
+  mount build, field thread
+  mount millis, field long
+  mount nanos, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sleep|
+    drive factor, share millis
+    drive factor, share nanos
+    throw build, field unit
+
+force start
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    throw build, field unit
+
+force stop
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    throw build, field unit
+
+force stop
+  mount build, field thread
+  mount obj, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    drive factor, share obj
+    throw build, field unit
+
+force suspend
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |suspend|
+    throw build, field unit
+
+force to-string
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force yield
+  mount build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |yield|
+    throw build, field unit

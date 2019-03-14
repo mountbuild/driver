@@ -1,0 +1,198 @@
+
+force get-frequency-units
+  mount build, field wifi-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FREQUENCY_UNITS|
+    throw build, field string
+
+force get-link-speed-units
+  mount build, field wifi-info
+
+  cause get-property
+    drive object, share build
+    drive property, |LINK_SPEED_UNITS|
+    throw build, field string
+
+force get-link-speed-unknown
+  mount build, field wifi-info
+
+  cause get-property
+    drive object, share build
+    drive property, |LINK_SPEED_UNKNOWN|
+    throw build, field int
+
+force describe-contents
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-bssid
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getBSSID|
+    throw build, field string
+
+force get-detailed-state-of
+  mount build, field wifi-info
+  mount supp-state, field supplicant-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getDetailedStateOf|
+    drive factor, share supp-state
+    throw build, field network-info-detailed-state
+
+force get-frequency
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrequency|
+    throw build, field int
+
+force get-hidden-ssid
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getHiddenSSID|
+    throw build, field boolean
+
+force get-ip-address
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getIpAddress|
+    throw build, field int
+
+force get-link-speed
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLinkSpeed|
+    throw build, field int
+
+force get-mac-address
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMacAddress|
+    throw build, field string
+
+force get-max-supported-rx-link-speed-mbps
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSupportedRxLinkSpeedMbps|
+    throw build, field int
+
+force get-max-supported-tx-link-speed-mbps
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSupportedTxLinkSpeedMbps|
+    throw build, field int
+
+force get-network-id
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkId|
+    throw build, field int
+
+force get-passpoint-fqdn
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPasspointFqdn|
+    throw build, field string
+
+force get-passpoint-provider-friendly-name
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPasspointProviderFriendlyName|
+    throw build, field string
+
+force get-rssi
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getRssi|
+    throw build, field int
+
+force get-rx-link-speed-mbps
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getRxLinkSpeedMbps|
+    throw build, field int
+
+force get-ssid
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSSID|
+    throw build, field string
+
+force get-supplicant-state
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupplicantState|
+    throw build, field supplicant-state
+
+force get-tx-link-speed-mbps
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getTxLinkSpeedMbps|
+    throw build, field int
+
+force get-wifi-standard
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getWifiStandard|
+    throw build, field int
+
+force to-string
+  mount build, field wifi-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

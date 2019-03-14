@@ -1,0 +1,46 @@
+
+force build-ec-parameter-spec
+  mount curve, field elliptic-curve
+  mount g, field ec-point
+  mount n, field big-integer
+  mount h, field int
+
+  cause invoke-constructor
+    mount constructor, |ECParameterSpec|
+    mount factor, share curve
+    mount factor, share g
+    mount factor, share n
+    mount factor, share h
+    throw build, field ec-parameter-spec
+
+force get-cofactor
+  mount build, field ec-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getCofactor|
+    throw build, field int
+
+force get-curve
+  mount build, field ec-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getCurve|
+    throw build, field elliptic-curve
+
+force get-generator
+  mount build, field ec-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getGenerator|
+    throw build, field ec-point
+
+force get-order
+  mount build, field ec-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getOrder|
+    throw build, field big-integer

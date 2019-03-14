@@ -1,0 +1,83 @@
+
+force build-form-data
+  start form
+
+  cause invoke-constructor
+    mount constructor, |FormData|
+    mount factor, share form
+    throw build
+
+force append
+  start build
+  start name
+  start value
+  start filename
+
+  cause call-method
+    mount object, share build
+    mount method, |append|
+    mount factor, share name
+    mount factor, share value
+    mount factor, share filename
+
+force delete
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |delete|
+
+force entries
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |entries|
+    throw build
+
+force get
+  start build
+  start name
+
+  cause call-method
+    mount object, share build
+    mount method, |get|
+    mount factor, share name
+    throw build
+
+force get-all
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getAll|
+
+force has
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |has|
+
+force keys
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |keys|
+    throw build
+
+force set
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |set|
+
+force values
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |values|
+    throw build

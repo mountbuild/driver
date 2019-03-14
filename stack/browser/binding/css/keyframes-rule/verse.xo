@@ -1,0 +1,52 @@
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build
+
+force set-name
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |name|
+    mount factor, share value
+
+force get-css-rules
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cssRules|
+    throw build
+
+force append-rule
+  start build
+  start rule
+
+  cause call-method
+    mount object, share build
+    mount method, |appendRule|
+    mount factor, share rule
+
+force delete-rule
+  start build
+  start select
+
+  cause call-method
+    mount object, share build
+    mount method, |deleteRule|
+    mount factor, share select
+
+force find-rule
+  start build
+  start select
+
+  cause call-method
+    mount object, share build
+    mount method, |findRule|
+    mount factor, share select

@@ -1,0 +1,106 @@
+
+force build-inet-socket-address
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |InetSocketAddress|
+    drive factor, share port
+    throw build, field inet-socket-address
+
+force build-inet-socket-address
+  mount addr, field inet-address
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |InetSocketAddress|
+    drive factor, share addr
+    drive factor, share port
+    throw build, field inet-socket-address
+
+force build-inet-socket-address
+  mount hostname, field string
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |InetSocketAddress|
+    drive factor, share hostname
+    drive factor, share port
+    throw build, field inet-socket-address
+
+force create-unresolved
+  mount build, field inet-socket-address
+  mount host, field string
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createUnresolved|
+    drive factor, share host
+    drive factor, share port
+    throw build, field inet-socket-address
+
+force equals
+  mount build, field inet-socket-address
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-address
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    throw build, field inet-address
+
+force get-host-name
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getHostName|
+    throw build, field string
+
+force get-host-string
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getHostString|
+    throw build, field string
+
+force get-port
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force hash-code
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-unresolved
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |isUnresolved|
+    throw build, field boolean
+
+force to-string
+  mount build, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,31 @@
+
+force get-service-interface
+  mount build, field off-host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force get-service-meta-data
+  mount build, field off-host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    throw build, field string
+
+force build-off-host-apdu-service
+  cause invoke-constructor
+    drive constructor, |OffHostApduService|
+    throw build, field off-host-apdu-service
+
+force on-bind
+  mount build, field off-host-apdu-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder

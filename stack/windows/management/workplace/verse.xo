@@ -1,0 +1,63 @@
+
+force build-mdm-policy
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Workplace.MdmPolicy|
+
+force get-messaging-sync-policy
+  start build, field windows-management-workplace-mdmpolicy
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMessagingSyncPolicy|
+
+force is-browser-allowed
+  start build, field windows-management-workplace-mdmpolicy
+
+  cause call-method
+    drive object, share build
+    drive method, |IsBrowserAllowed|
+
+force is-camera-allowed
+  start build, field windows-management-workplace-mdmpolicy
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCameraAllowed|
+
+force is-microsoft-account-allowed
+  start build, field windows-management-workplace-mdmpolicy
+
+  cause call-method
+    drive object, share build
+    drive method, |IsMicrosoftAccountAllowed|
+
+force is-store-allowed
+  start build, field windows-management-workplace-mdmpolicy
+
+  cause call-method
+    drive object, share build
+    drive method, |IsStoreAllowed|
+
+force get-messaging-sync-policy
+  cause get-object
+    drive aspect, |Windows.Management.Workplace.MessagingSyncPolicy|
+
+force build-workplace-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Workplace.WorkplaceSettings|
+
+force get-is-microsoft-account-optional
+  start build, field windows-management-workplace-workplacesettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsMicrosoftAccountOptional|
+
+force set-is-microsoft-account-optional
+  start build, field windows-management-workplace-workplacesettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsMicrosoftAccountOptional|
+    drive factor, share value

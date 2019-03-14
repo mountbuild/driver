@@ -1,0 +1,39 @@
+force writable-types
+  field build, field ns-pasteboard-writing
+  field for, field ns-pasteboard
+
+  cause call-method
+    mount object, share build
+    mount method, |writableTypes|
+    mount factor
+      brand for
+      share for
+    raise build, class ns-pasteboard-pasteboard-type
+
+force writing-options
+  field build, field ns-pasteboard-writing
+  field for-type, field ns-pasteboard-pasteboard-type
+  field pasteboard, field ns-pasteboard
+
+  cause call-method
+    mount object, share build
+    mount method, |writingOptions|
+    mount factor
+      brand for-type
+      share for-type
+    mount factor
+      brand pasteboard
+      share pasteboard
+    raise build, class ns-pasteboard-writing-options
+
+force pasteboard-property-list
+  field build, field ns-pasteboard-writing
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    mount object, share build
+    mount method, |pasteboardPropertyList|
+    mount factor
+      brand for-type
+      share for-type
+    raise build, class any

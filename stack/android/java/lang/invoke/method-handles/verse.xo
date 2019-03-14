@@ -1,0 +1,262 @@
+
+force array-element-getter
+  mount build, field method-handles
+  mount array-class, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |arrayElementGetter|
+    drive factor, share array-class
+    throw build, field method-handle
+
+force array-element-setter
+  mount build, field method-handles
+  mount array-class, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |arrayElementSetter|
+    drive factor, share array-class
+    throw build, field method-handle
+
+force catch-exception
+  mount build, field method-handles
+  mount target, field method-handle
+  mount ex-type, field class-out-throwable
+  mount handler, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |catchException|
+    drive factor, share target
+    drive factor, share ex-type
+    drive factor, share handler
+    throw build, field method-handle
+
+force collect-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount pos, field int
+  mount filter, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |collectArguments|
+    drive factor, share target
+    drive factor, share pos
+    drive factor, share filter
+    throw build, field method-handle
+
+force constant
+  mount build, field method-handles
+  mount type, field class
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |constant|
+    drive factor, share type
+    drive factor, share value
+    throw build, field method-handle
+
+force drop-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount pos, field int
+  mount value-types, field mutable-list-class
+
+  cause call-method
+    drive object, share build
+    drive method, |dropArguments|
+    drive factor, share target
+    drive factor, share pos
+    drive factor, share value-types
+    throw build, field method-handle
+
+force drop-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount pos, field int
+  mount vararg-value-types, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |dropArguments|
+    drive factor, share target
+    drive factor, share pos
+    drive factor, share vararg-value-types
+    throw build, field method-handle
+
+force exact-invoker
+  mount build, field method-handles
+  mount type, field method-type
+
+  cause call-method
+    drive object, share build
+    drive method, |exactInvoker|
+    drive factor, share type
+    throw build, field method-handle
+
+force explicit-cast-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount new-type, field method-type
+
+  cause call-method
+    drive object, share build
+    drive method, |explicitCastArguments|
+    drive factor, share target
+    drive factor, share new-type
+    throw build, field method-handle
+
+force filter-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount pos, field int
+  mount vararg-filters, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |filterArguments|
+    drive factor, share target
+    drive factor, share pos
+    drive factor, share vararg-filters
+    throw build, field method-handle
+
+force filter-return-value
+  mount build, field method-handles
+  mount target, field method-handle
+  mount filter, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |filterReturnValue|
+    drive factor, share target
+    drive factor, share filter
+    throw build, field method-handle
+
+force fold-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount combiner, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |foldArguments|
+    drive factor, share target
+    drive factor, share combiner
+    throw build, field method-handle
+
+force guard-with-test
+  mount build, field method-handles
+  mount test, field method-handle
+  mount target, field method-handle
+  mount fallback, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |guardWithTest|
+    drive factor, share test
+    drive factor, share target
+    drive factor, share fallback
+    throw build, field method-handle
+
+force identity
+  mount build, field method-handles
+  mount type, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |identity|
+    drive factor, share type
+    throw build, field method-handle
+
+force insert-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount pos, field int
+  mount vararg-values, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |insertArguments|
+    drive factor, share target
+    drive factor, share pos
+    drive factor, share vararg-values
+    throw build, field method-handle
+
+force invoker
+  mount build, field method-handles
+  mount type, field method-type
+
+  cause call-method
+    drive object, share build
+    drive method, |invoker|
+    drive factor, share type
+    throw build, field method-handle
+
+force lookup
+  mount build, field method-handles
+
+  cause call-method
+    drive object, share build
+    drive method, |lookup|
+    throw build, field method-handles-lookup
+
+force permute-arguments
+  mount build, field method-handles
+  mount target, field method-handle
+  mount new-type, field method-type
+  mount vararg-reorder, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |permuteArguments|
+    drive factor, share target
+    drive factor, share new-type
+    drive factor, share vararg-reorder
+    throw build, field method-handle
+
+force public-lookup
+  mount build, field method-handles
+
+  cause call-method
+    drive object, share build
+    drive method, |publicLookup|
+    throw build, field method-handles-lookup
+
+force reflect-as
+  mount build, field method-handles
+  mount expected, field class-t
+  mount target, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |reflectAs|
+    drive factor, share expected
+    drive factor, share target
+    throw build, field t
+
+force spread-invoker
+  mount build, field method-handles
+  mount type, field method-type
+  mount leading-arg-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |spreadInvoker|
+    drive factor, share type
+    drive factor, share leading-arg-count
+    throw build, field method-handle
+
+force throw-exception
+  mount build, field method-handles
+  mount return-type, field class
+  mount ex-type, field class-out-throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |throwException|
+    drive factor, share return-type
+    drive factor, share ex-type
+    throw build, field method-handle

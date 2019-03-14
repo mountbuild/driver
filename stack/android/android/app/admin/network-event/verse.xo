@@ -1,0 +1,44 @@
+
+force describe-contents
+  start build, field network-event
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-id
+  start build, field network-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field long
+
+force get-package-name
+  start build, field network-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    throw build, field string
+
+force get-timestamp
+  start build, field network-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    throw build, field long
+
+force write-to-parcel
+  start build, field network-event
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

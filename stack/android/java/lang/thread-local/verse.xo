@@ -1,0 +1,41 @@
+
+force build-thread-local
+  cause invoke-constructor
+    drive constructor, |ThreadLocal|
+    throw build, field thread-local
+
+force get
+  mount build, field thread-local
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field t
+
+force remove
+  mount build, field thread-local
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    throw build, field unit
+
+force set
+  mount build, field thread-local
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share value
+    throw build, field unit
+
+force with-initial
+  mount build, field thread-local
+  mount supplier, field supplier-out-s
+
+  cause call-method
+    drive object, share build
+    drive method, |withInitial|
+    drive factor, share supplier
+    throw build, field thread-local

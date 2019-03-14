@@ -1,0 +1,99 @@
+
+force get-database-mode-2-lines
+  mount build, field search-recent-suggestions-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |DATABASE_MODE_2LINES|
+    throw build, field int
+
+force get-database-mode-queries
+  mount build, field search-recent-suggestions-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |DATABASE_MODE_QUERIES|
+    throw build, field int
+
+force build-search-recent-suggestions-provider
+  cause invoke-constructor
+    drive constructor, |SearchRecentSuggestionsProvider|
+    throw build, field search-recent-suggestions-provider
+
+force delete
+  mount build, field search-recent-suggestions-provider
+  mount uri, field uri
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int
+
+force get-type
+  mount build, field search-recent-suggestions-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    throw build, field string
+
+force insert
+  mount build, field search-recent-suggestions-provider
+  mount uri, field uri
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    throw build, field uri
+
+force on-create
+  mount build, field search-recent-suggestions-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field boolean
+
+force query
+  mount build, field search-recent-suggestions-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    throw build, field cursor
+
+force update
+  mount build, field search-recent-suggestions-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int

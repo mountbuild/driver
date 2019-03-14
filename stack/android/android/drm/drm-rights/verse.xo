@@ -1,0 +1,88 @@
+
+force build-drm-rights
+  mount rights-file-path, field string
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmRights|
+    drive factor, share rights-file-path
+    drive factor, share mime-type
+    throw build, field drm-rights
+
+force build-drm-rights
+  mount rights-file-path, field string
+  mount mime-type, field string
+  mount account-id, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmRights|
+    drive factor, share rights-file-path
+    drive factor, share mime-type
+    drive factor, share account-id
+    throw build, field drm-rights
+
+force build-drm-rights
+  mount rights-file-path, field string
+  mount mime-type, field string
+  mount account-id, field string
+  mount subscription-id, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmRights|
+    drive factor, share rights-file-path
+    drive factor, share mime-type
+    drive factor, share account-id
+    drive factor, share subscription-id
+    throw build, field drm-rights
+
+force build-drm-rights
+  mount rights-file, field file
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmRights|
+    drive factor, share rights-file
+    drive factor, share mime-type
+    throw build, field drm-rights
+
+force build-drm-rights
+  mount data, field processed-data
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmRights|
+    drive factor, share data
+    drive factor, share mime-type
+    throw build, field drm-rights
+
+force get-account-id
+  mount build, field drm-rights
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccountId|
+    throw build, field string
+
+force get-data
+  mount build, field drm-rights
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    throw build, field byte-array
+
+force get-mime-type
+  mount build, field drm-rights
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    throw build, field string
+
+force get-subscription-id
+  mount build, field drm-rights
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubscriptionId|
+    throw build, field string

@@ -1,0 +1,55 @@
+
+force build-phone-number-formatting-text-watcher
+  cause invoke-constructor
+    drive constructor, |PhoneNumberFormattingTextWatcher|
+    throw build, field phone-number-formatting-text-watcher
+
+force build-phone-number-formatting-text-watcher
+  mount country-code, field string
+
+  cause invoke-constructor
+    drive constructor, |PhoneNumberFormattingTextWatcher|
+    drive factor, share country-code
+    throw build, field phone-number-formatting-text-watcher
+
+force after-text-changed
+  mount build, field phone-number-formatting-text-watcher
+  mount s, field editable
+
+  cause call-method
+    drive object, share build
+    drive method, |afterTextChanged|
+    drive factor, share s
+    throw build, field unit
+
+force before-text-changed
+  mount build, field phone-number-formatting-text-watcher
+  mount s, field char-sequence
+  mount start, field int
+  mount count, field int
+  mount after, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |beforeTextChanged|
+    drive factor, share s
+    drive factor, share start
+    drive factor, share count
+    drive factor, share after
+    throw build, field unit
+
+force on-text-changed
+  mount build, field phone-number-formatting-text-watcher
+  mount s, field char-sequence
+  mount start, field int
+  mount before, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTextChanged|
+    drive factor, share s
+    drive factor, share start
+    drive factor, share before
+    drive factor, share count
+    throw build, field unit

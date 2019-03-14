@@ -1,0 +1,110 @@
+
+force get-status-busy
+  mount build, field printer-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_BUSY|
+    throw build, field int
+
+force get-status-idle
+  mount build, field printer-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_IDLE|
+    throw build, field int
+
+force get-status-unavailable
+  mount build, field printer-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_UNAVAILABLE|
+    throw build, field int
+
+force describe-contents
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field printer-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-capabilities
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCapabilities|
+    throw build, field printer-capabilities-info
+
+force get-description
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-id
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field printer-id
+
+force get-name
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-status
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatus|
+    throw build, field int
+
+force hash-code
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field printer-info
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

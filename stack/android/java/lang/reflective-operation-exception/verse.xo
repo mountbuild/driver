@@ -1,0 +1,31 @@
+
+force build-reflective-operation-exception
+  cause invoke-constructor
+    drive constructor, |ReflectiveOperationException|
+    throw build, field reflective-operation-exception
+
+force build-reflective-operation-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |ReflectiveOperationException|
+    drive factor, share message
+    throw build, field reflective-operation-exception
+
+force build-reflective-operation-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ReflectiveOperationException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field reflective-operation-exception
+
+force build-reflective-operation-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ReflectiveOperationException|
+    drive factor, share cause
+    throw build, field reflective-operation-exception

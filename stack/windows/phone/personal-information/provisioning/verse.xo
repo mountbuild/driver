@@ -1,0 +1,83 @@
+
+force build-contact-partner-provisioning-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.PersonalInformation.Provisioning.ContactPartnerProvisioningManager|
+
+force associate-network-account-async
+  start build, field windows-phone-personalinformation-provisioning-contactpartnerprovisioningmanager
+  start store, field windows-phone-personalinformation-contactstore
+  start network-name, field system-string
+  start network-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AssociateNetworkAccountAsync|
+    drive factor, share store
+    drive factor, share network-name
+    drive factor, share network-account-id
+
+force associate-social-network-account-async
+  start build, field windows-phone-personalinformation-provisioning-contactpartnerprovisioningmanager
+  start store, field windows-phone-personalinformation-contactstore
+  start network-name, field system-string
+  start network-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AssociateSocialNetworkAccountAsync|
+    drive factor, share store
+    drive factor, share network-name
+    drive factor, share network-account-id
+
+force import-vcard-to-system-async
+  start build, field windows-phone-personalinformation-provisioning-contactpartnerprovisioningmanager
+  start stream, field windows-storage-streams-iinputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |ImportVcardToSystemAsync|
+    drive factor, share stream
+
+force build-message-partner-provisioning-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.PersonalInformation.Provisioning.MessagePartnerProvisioningManager|
+
+force import-mms-to-system-async
+  start build, field windows-phone-personalinformation-provisioning-messagepartnerprovisioningmanager
+  start incoming, field system-boolean
+  start read, field system-boolean
+  start subject, field system-string
+  start sender, field system-string
+  start recipients, field windows-foundation-collections-ivectorview-system-string
+  start delivery-time, field windows-foundation-datetime
+  start attachments, field windows-foundation-collections-ivectorview-windows-foundation-collections-imapview-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ImportMmsToSystemAsync|
+    drive factor, share incoming
+    drive factor, share read
+    drive factor, share subject
+    drive factor, share sender
+    drive factor, share recipients
+    drive factor, share delivery-time
+    drive factor, share attachments
+
+force import-sms-to-system-async
+  start build, field windows-phone-personalinformation-provisioning-messagepartnerprovisioningmanager
+  start incoming, field system-boolean
+  start read, field system-boolean
+  start body, field system-string
+  start sender, field system-string
+  start recipients, field windows-foundation-collections-ivectorview-system-string
+  start delivery-time, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |ImportSmsToSystemAsync|
+    drive factor, share incoming
+    drive factor, share read
+    drive factor, share body
+    drive factor, share sender
+    drive factor, share recipients
+    drive factor, share delivery-time

@@ -1,0 +1,30 @@
+
+force get-status-error
+  mount build, field drm-info-status
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ERROR|
+    throw build, field int
+
+force get-status-ok
+  mount build, field drm-info-status
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_OK|
+    throw build, field int
+
+force build-drm-info-status
+  mount status-code, field int
+  mount info-type, field int
+  mount data, field processed-data
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmInfoStatus|
+    drive factor, share status-code
+    drive factor, share info-type
+    drive factor, share data
+    drive factor, share mime-type
+    throw build, field drm-info-status

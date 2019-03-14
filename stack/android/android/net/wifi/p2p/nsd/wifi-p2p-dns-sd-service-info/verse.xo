@@ -1,0 +1,16 @@
+
+force new-instance
+  mount build, field wifi-p2p-dns-sd-service-info
+  mount instance-name, field string
+  mount service-type, field string
+  mount txt-map, field mutable-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share instance-name
+    drive factor, share service-type
+    drive factor, share txt-map
+    drive factor, share string
+    throw build, field wifi-p2p-dns-sd-service-info

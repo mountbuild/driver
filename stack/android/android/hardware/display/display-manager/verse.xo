@@ -1,0 +1,142 @@
+
+force get-display-category-presentation
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DISPLAY_CATEGORY_PRESENTATION|
+    throw build, field string
+
+force get-virtual-display-flag-auto-mirror
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR|
+    throw build, field int
+
+force get-virtual-display-flag-own-content-only
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY|
+    throw build, field int
+
+force get-virtual-display-flag-presentation
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_DISPLAY_FLAG_PRESENTATION|
+    throw build, field int
+
+force get-virtual-display-flag-public
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_DISPLAY_FLAG_PUBLIC|
+    throw build, field int
+
+force get-virtual-display-flag-secure
+  mount build, field display-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_DISPLAY_FLAG_SECURE|
+    throw build, field int
+
+force create-virtual-display
+  mount build, field display-manager
+  mount name, field string
+  mount width, field int
+  mount height, field int
+  mount density-dpi, field int
+  mount surface, field surface
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createVirtualDisplay|
+    drive factor, share name
+    drive factor, share width
+    drive factor, share height
+    drive factor, share density-dpi
+    drive factor, share surface
+    drive factor, share flags
+    throw build, field virtual-display
+
+force create-virtual-display
+  mount build, field display-manager
+  mount name, field string
+  mount width, field int
+  mount height, field int
+  mount density-dpi, field int
+  mount surface, field surface
+  mount flags, field int
+  mount callback, field virtual-display-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createVirtualDisplay|
+    drive factor, share name
+    drive factor, share width
+    drive factor, share height
+    drive factor, share density-dpi
+    drive factor, share surface
+    drive factor, share flags
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field virtual-display
+
+force get-display
+  mount build, field display-manager
+  mount display-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplay|
+    drive factor, share display-id
+    throw build, field display
+
+force get-displays
+  mount build, field display-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplays|
+    throw build, field array
+
+force get-displays
+  mount build, field display-manager
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplays|
+    drive factor, share category
+    throw build, field array
+
+force register-display-listener
+  mount build, field display-manager
+  mount listener, field display-manager-display-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerDisplayListener|
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field unit
+
+force unregister-display-listener
+  mount build, field display-manager
+  mount listener, field display-manager-display-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterDisplayListener|
+    drive factor, share listener
+    throw build, field unit

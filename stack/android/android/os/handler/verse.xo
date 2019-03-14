@@ -1,0 +1,407 @@
+
+force build-handler
+  cause invoke-constructor
+    drive constructor, |Handler|
+    raise build, field handler
+
+force build-handler
+  mount callback, field handler-callback
+
+  cause invoke-constructor
+    drive constructor, |Handler|
+    drive factor, share callback
+    raise build, field handler
+
+force build-handler
+  mount looper, field looper
+
+  cause invoke-constructor
+    drive constructor, |Handler|
+    drive factor, share looper
+    raise build, field handler
+
+force build-handler
+  mount looper, field looper
+  mount callback, field handler-callback
+
+  cause invoke-constructor
+    drive constructor, |Handler|
+    drive factor, share looper
+    drive factor, share callback
+    raise build, field handler
+
+force create-async
+  mount build, field handler
+  mount looper, field looper
+
+  cause call-method
+    drive object, share build
+    drive method, |createAsync|
+    drive factor, share looper
+    raise build, field handler
+
+force create-async
+  mount build, field handler
+  mount looper, field looper
+  mount callback, field handler-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |createAsync|
+    drive factor, share looper
+    drive factor, share callback
+    raise build, field handler
+
+force dispatch-message
+  mount build, field handler
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchMessage|
+    drive factor, share msg
+    raise build, field unit
+
+force dump
+  mount build, field handler
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    raise build, field unit
+
+force get-looper
+  mount build, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |getLooper|
+    raise build, field looper
+
+force get-message-name
+  mount build, field handler
+  mount message, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageName|
+    drive factor, share message
+    raise build, field string
+
+force handle-message
+  mount build, field handler
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |handleMessage|
+    drive factor, share msg
+    raise build, field unit
+
+force has-callbacks
+  mount build, field handler
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCallbacks|
+    drive factor, share r
+    raise build, field boolean
+
+force has-messages
+  mount build, field handler
+  mount what, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMessages|
+    drive factor, share what
+    raise build, field boolean
+
+force has-messages
+  mount build, field handler
+  mount what, field int
+  mount object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMessages|
+    drive factor, share what
+    drive factor, share object
+    raise build, field boolean
+
+force obtain-message
+  mount build, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |obtainMessage|
+    raise build, field message
+
+force obtain-message
+  mount build, field handler
+  mount what, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |obtainMessage|
+    drive factor, share what
+    raise build, field message
+
+force obtain-message
+  mount build, field handler
+  mount what, field int
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |obtainMessage|
+    drive factor, share what
+    drive factor, share obj
+    raise build, field message
+
+force obtain-message
+  mount build, field handler
+  mount what, field int
+  mount arg1, field int
+  mount arg2, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |obtainMessage|
+    drive factor, share what
+    drive factor, share arg1
+    drive factor, share arg2
+    raise build, field message
+
+force obtain-message
+  mount build, field handler
+  mount what, field int
+  mount arg1, field int
+  mount arg2, field int
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |obtainMessage|
+    drive factor, share what
+    drive factor, share arg1
+    drive factor, share arg2
+    drive factor, share obj
+    raise build, field message
+
+force post
+  mount build, field handler
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |post|
+    drive factor, share r
+    raise build, field boolean
+
+force post-at-front-of-queue
+  mount build, field handler
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |postAtFrontOfQueue|
+    drive factor, share r
+    raise build, field boolean
+
+force post-at-time
+  mount build, field handler
+  mount r, field runnable
+  mount uptime-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |postAtTime|
+    drive factor, share r
+    drive factor, share uptime-millis
+    raise build, field boolean
+
+force post-at-time
+  mount build, field handler
+  mount r, field runnable
+  mount token, field any
+  mount uptime-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |postAtTime|
+    drive factor, share r
+    drive factor, share token
+    drive factor, share uptime-millis
+    raise build, field boolean
+
+force post-delayed
+  mount build, field handler
+  mount r, field runnable
+  mount delay-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |postDelayed|
+    drive factor, share r
+    drive factor, share delay-millis
+    raise build, field boolean
+
+force post-delayed
+  mount build, field handler
+  mount r, field runnable
+  mount token, field any
+  mount delay-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |postDelayed|
+    drive factor, share r
+    drive factor, share token
+    drive factor, share delay-millis
+    raise build, field boolean
+
+force remove-callbacks
+  mount build, field handler
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCallbacks|
+    drive factor, share r
+    raise build, field unit
+
+force remove-callbacks
+  mount build, field handler
+  mount r, field runnable
+  mount token, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCallbacks|
+    drive factor, share r
+    drive factor, share token
+    raise build, field unit
+
+force remove-callbacks-and-messages
+  mount build, field handler
+  mount token, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCallbacksAndMessages|
+    drive factor, share token
+    raise build, field unit
+
+force remove-messages
+  mount build, field handler
+  mount what, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeMessages|
+    drive factor, share what
+    raise build, field unit
+
+force remove-messages
+  mount build, field handler
+  mount what, field int
+  mount object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeMessages|
+    drive factor, share what
+    drive factor, share object
+    raise build, field unit
+
+force send-empty-message
+  mount build, field handler
+  mount what, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEmptyMessage|
+    drive factor, share what
+    raise build, field boolean
+
+force send-empty-message-at-time
+  mount build, field handler
+  mount what, field int
+  mount uptime-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEmptyMessageAtTime|
+    drive factor, share what
+    drive factor, share uptime-millis
+    raise build, field boolean
+
+force send-empty-message-delayed
+  mount build, field handler
+  mount what, field int
+  mount delay-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEmptyMessageDelayed|
+    drive factor, share what
+    drive factor, share delay-millis
+    raise build, field boolean
+
+force send-message
+  mount build, field handler
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessage|
+    drive factor, share msg
+    raise build, field boolean
+
+force send-message-at-front-of-queue
+  mount build, field handler
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessageAtFrontOfQueue|
+    drive factor, share msg
+    raise build, field boolean
+
+force send-message-at-time
+  mount build, field handler
+  mount msg, field message
+  mount uptime-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessageAtTime|
+    drive factor, share msg
+    drive factor, share uptime-millis
+    raise build, field boolean
+
+force send-message-delayed
+  mount build, field handler
+  mount msg, field message
+  mount delay-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessageDelayed|
+    drive factor, share msg
+    drive factor, share delay-millis
+    raise build, field boolean
+
+force to-string
+  mount build, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

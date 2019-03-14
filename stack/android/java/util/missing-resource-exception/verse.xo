@@ -1,0 +1,28 @@
+
+force build-missing-resource-exception
+  mount s, field string
+  mount class-name, field string
+  mount key, field string
+
+  cause invoke-constructor
+    drive constructor, |MissingResourceException|
+    drive factor, share s
+    drive factor, share class-name
+    drive factor, share key
+    throw build, field missing-resource-exception
+
+force get-class-name
+  mount build, field missing-resource-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getClassName|
+    throw build, field string
+
+force get-key
+  mount build, field missing-resource-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field string

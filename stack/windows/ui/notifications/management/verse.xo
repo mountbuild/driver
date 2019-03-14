@@ -1,0 +1,72 @@
+
+force build-user-notification-listener
+  cause invoke-constructor
+    mount constructor, |Windows.UI.Notifications.Management.UserNotificationListener|
+
+force clear-notifications
+  start build, field windows-ui-notifications-management-usernotificationlistener
+
+  cause call-method
+    mount object, share build
+    mount method, |ClearNotifications|
+
+force get-current
+  start build, field windows-ui-notifications-management-usernotificationlistener
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |Current|
+
+force set-current
+  start build, field windows-ui-notifications-management-usernotificationlistener
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |Current|
+    mount factor, share value
+
+force get-access-status
+  start build, field windows-ui-notifications-management-usernotificationlistener
+
+  cause call-method
+    mount object, share build
+    mount method, |GetAccessStatus|
+
+force get-notification
+  start build, field windows-ui-notifications-management-usernotificationlistener
+  start notification-id, field system-uint32
+
+  cause call-method
+    mount object, share build
+    mount method, |GetNotification|
+    mount factor, share notification-id
+
+force get-notifications-async
+  start build, field windows-ui-notifications-management-usernotificationlistener
+  start kinds, field windows-ui-notifications-notificationkinds
+
+  cause call-method
+    mount object, share build
+    mount method, |GetNotificationsAsync|
+    mount factor, share kinds
+
+force remove-notification
+  start build, field windows-ui-notifications-management-usernotificationlistener
+  start notification-id, field system-uint32
+
+  cause call-method
+    mount object, share build
+    mount method, |RemoveNotification|
+    mount factor, share notification-id
+
+force request-access-async
+  start build, field windows-ui-notifications-management-usernotificationlistener
+
+  cause call-method
+    mount object, share build
+    mount method, |RequestAccessAsync|
+
+force get-user-notification-listener-access-status
+  cause get-object
+    mount aspect, |Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus|

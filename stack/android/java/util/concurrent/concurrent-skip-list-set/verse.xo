@@ -1,0 +1,287 @@
+
+force build-concurrent-skip-list-set
+  cause invoke-constructor
+    drive constructor, |ConcurrentSkipListSet|
+    throw build, field concurrent-skip-list-set
+
+force build-concurrent-skip-list-set
+  mount comparator, field comparator-in-e
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentSkipListSet|
+    drive factor, share comparator
+    throw build, field concurrent-skip-list-set
+
+force build-concurrent-skip-list-set
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentSkipListSet|
+    drive factor, share c
+    throw build, field concurrent-skip-list-set
+
+force build-concurrent-skip-list-set
+  mount s, field sorted-set-e
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentSkipListSet|
+    drive factor, share s
+    throw build, field concurrent-skip-list-set
+
+force add
+  mount build, field concurrent-skip-list-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force ceiling
+  mount build, field concurrent-skip-list-set
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |ceiling|
+    drive factor, share e
+    throw build, field e
+
+force clear
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field concurrent-skip-list-set
+
+force comparator
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |comparator|
+    throw build, field comparator
+
+force contains
+  mount build, field concurrent-skip-list-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force descending-iterator
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |descendingIterator|
+    throw build, field mutable-iterator
+
+force descending-set
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |descendingSet|
+    throw build, field navigable-set
+
+force equals
+  mount build, field concurrent-skip-list-set
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force first
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |first|
+    throw build, field e
+
+force floor
+  mount build, field concurrent-skip-list-set
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |floor|
+    drive factor, share e
+    throw build, field e
+
+force head-set
+  mount build, field concurrent-skip-list-set
+  mount to-element, field e
+  mount inclusive, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |headSet|
+    drive factor, share to-element
+    drive factor, share inclusive
+    throw build, field navigable-set
+
+force head-set
+  mount build, field concurrent-skip-list-set
+  mount to-element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |headSet|
+    drive factor, share to-element
+    throw build, field navigable-set
+
+force higher
+  mount build, field concurrent-skip-list-set
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |higher|
+    drive factor, share e
+    throw build, field e
+
+force is-empty
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force last
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |last|
+    throw build, field e
+
+force lower
+  mount build, field concurrent-skip-list-set
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |lower|
+    drive factor, share e
+    throw build, field e
+
+force poll-first
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |pollFirst|
+    throw build, field e
+
+force poll-last
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |pollLast|
+    throw build, field e
+
+force remove
+  mount build, field concurrent-skip-list-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove-all
+  mount build, field concurrent-skip-list-set
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force spliterator
+  mount build, field concurrent-skip-list-set
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force sub-set
+  mount build, field concurrent-skip-list-set
+  mount from-element, field e
+  mount from-inclusive, field boolean
+  mount to-element, field e
+  mount to-inclusive, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |subSet|
+    drive factor, share from-element
+    drive factor, share from-inclusive
+    drive factor, share to-element
+    drive factor, share to-inclusive
+    throw build, field navigable-set
+
+force sub-set
+  mount build, field concurrent-skip-list-set
+  mount from-element, field e
+  mount to-element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |subSet|
+    drive factor, share from-element
+    drive factor, share to-element
+    throw build, field navigable-set
+
+force tail-set
+  mount build, field concurrent-skip-list-set
+  mount from-element, field e
+  mount inclusive, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |tailSet|
+    drive factor, share from-element
+    drive factor, share inclusive
+    throw build, field navigable-set
+
+force tail-set
+  mount build, field concurrent-skip-list-set
+  mount from-element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |tailSet|
+    drive factor, share from-element
+    throw build, field navigable-set

@@ -1,0 +1,46 @@
+
+force create-document
+  start build
+  start namespace-uri
+  start qualified-name-str
+  start document-type
+
+  cause call-method
+    mount object, share build
+    mount method, |createDocument|
+    mount factor, share namespace-uri
+    mount factor, share qualified-name-str
+    mount factor, share document-type
+
+force create-document-type
+  start build
+  start qualified-name-str
+  start public-id
+  start system-id
+
+  cause call-method
+    mount object, share build
+    mount method, |createDocumentType|
+    mount factor, share qualified-name-str
+    mount factor, share public-id
+    mount factor, share system-id
+
+force create-html-document
+  start build
+  start title
+
+  cause call-method
+    mount object, share build
+    mount method, |createHTMLDocument|
+    mount factor, share title
+
+force has-feature
+  start build
+  start feature
+  start version
+
+  cause call-method
+    mount object, share build
+    mount method, |hasFeature|
+    mount factor, share feature
+    mount factor, share version

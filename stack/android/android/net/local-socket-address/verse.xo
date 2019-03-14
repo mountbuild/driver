@@ -1,0 +1,34 @@
+
+force build-local-socket-address
+  start name, field string
+  start namespace, field local-socket-address-namespace
+
+  cause invoke-constructor
+    drive constructor, |LocalSocketAddress|
+    drive factor, share name
+    drive factor, share namespace
+    throw build, field local-socket-address
+
+force build-local-socket-address
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |LocalSocketAddress|
+    drive factor, share name
+    throw build, field local-socket-address
+
+force get-name
+  start build, field local-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-namespace
+  start build, field local-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getNamespace|
+    throw build, field local-socket-address-namespace

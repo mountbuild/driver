@@ -1,0 +1,128 @@
+
+force build-transformer-exception
+  start message, field string
+
+  cause invoke-constructor
+    mount constructor, |TransformerException|
+    mount factor, share message
+    throw build, field transformer-exception
+
+force build-transformer-exception
+  start e, field throwable
+
+  cause invoke-constructor
+    mount constructor, |TransformerException|
+    mount factor, share e
+    throw build, field transformer-exception
+
+force build-transformer-exception
+  start message, field string
+  start e, field throwable
+
+  cause invoke-constructor
+    mount constructor, |TransformerException|
+    mount factor, share message
+    mount factor, share e
+    throw build, field transformer-exception
+
+force build-transformer-exception
+  start message, field string
+  start locator, field source-locator
+
+  cause invoke-constructor
+    mount constructor, |TransformerException|
+    mount factor, share message
+    mount factor, share locator
+    throw build, field transformer-exception
+
+force build-transformer-exception
+  start message, field string
+  start locator, field source-locator
+  start e, field throwable
+
+  cause invoke-constructor
+    mount constructor, |TransformerException|
+    mount factor, share message
+    mount factor, share locator
+    mount factor, share e
+    throw build, field transformer-exception
+
+force get-exception
+  start build, field transformer-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getException|
+    throw build, field throwable
+
+force get-location-as-string
+  start build, field transformer-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocationAsString|
+    throw build, field string
+
+force get-locator
+  start build, field transformer-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocator|
+    throw build, field source-locator
+
+force get-message-and-location
+  start build, field transformer-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getMessageAndLocation|
+    throw build, field string
+
+force init-cause
+  start build, field transformer-exception
+  start cause, field throwable
+
+  cause call-method
+    mount object, share build
+    mount method, |initCause|
+    mount factor, share cause
+    throw build, field throwable
+
+force print-stack-trace
+  start build, field transformer-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    throw build, field unit
+
+force print-stack-trace
+  start build, field transformer-exception
+  start s, field print-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit
+
+force print-stack-trace
+  start build, field transformer-exception
+  start s, field print-writer
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit
+
+force set-locator
+  start build, field transformer-exception
+  start location, field source-locator
+
+  cause call-method
+    mount object, share build
+    mount method, |setLocator|
+    mount factor, share location
+    throw build, field unit

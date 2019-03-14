@@ -1,0 +1,88 @@
+
+force broadcast-session-command
+  start build, field media-session2
+  start command, field session2-command
+  start args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |broadcastSessionCommand|
+    drive factor, share command
+    drive factor, share args
+    raise build, field unit
+
+force cancel-session-command
+  start build, field media-session2
+  start controller, field media-session2-controller-info
+  start token, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelSessionCommand|
+    drive factor, share controller
+    drive factor, share token
+    raise build, field unit
+
+force close
+  start build, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-connected-controllers
+  start build, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedControllers|
+    raise build, field mutable-list
+
+force get-id
+  start build, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field string
+
+force get-token
+  start build, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |getToken|
+    raise build, field session2-token
+
+force is-playback-active
+  start build, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |isPlaybackActive|
+    raise build, field boolean
+
+force send-session-command
+  start build, field media-session2
+  start controller, field media-session2-controller-info
+  start command, field session2-command
+  start args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendSessionCommand|
+    drive factor, share controller
+    drive factor, share command
+    drive factor, share args
+    raise build, field any
+
+force set-playback-active
+  start build, field media-session2
+  start playback-active, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackActive|
+    drive factor, share playback-active
+    raise build, field unit

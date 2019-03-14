@@ -1,0 +1,16 @@
+
+force build-user-principal-not-found-exception
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |UserPrincipalNotFoundException|
+    drive factor, share name
+    throw build, field user-principal-not-found-exception
+
+force get-name
+  mount build, field user-principal-not-found-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string

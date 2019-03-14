@@ -1,0 +1,266 @@
+
+force get-hdmi-display-color-space
+  cause get-object
+    drive aspect, |Windows.Graphics.Display.Core.HdmiDisplayColorSpace|
+
+force get-hdmi-display-hdr-option
+  cause get-object
+    drive aspect, |Windows.Graphics.Display.Core.HdmiDisplayHdrOption|
+
+force build-hdmi-display-information
+  cause invoke-constructor
+    drive constructor, |Windows.Graphics.Display.Core.HdmiDisplayInformation|
+
+force get-current-display-mode
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentDisplayMode|
+
+force get-for-current-view
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentView|
+
+force get-supported-display-modes
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSupportedDisplayModes|
+
+force request-set-current-display-mode-async
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+  start mode, field windows-graphics-display-core-hdmidisplaymode
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestSetCurrentDisplayModeAsync|
+    drive factor, share mode
+
+force request-set-current-display-mode-async
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+  start mode, field windows-graphics-display-core-hdmidisplaymode
+  start hdr-option, field windows-graphics-display-core-hdmidisplayhdroption
+  start hdr-metadata, field windows-graphics-display-core-hdmidisplayhdr2086metadata
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestSetCurrentDisplayModeAsync|
+    drive factor, share mode
+    drive factor, share hdr-option
+    drive factor, share hdr-metadata
+
+force request-set-current-display-mode-async
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+  start mode, field windows-graphics-display-core-hdmidisplaymode
+  start hdr-option, field windows-graphics-display-core-hdmidisplayhdroption
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestSetCurrentDisplayModeAsync|
+    drive factor, share mode
+    drive factor, share hdr-option
+
+force set-default-display-mode-async
+  start build, field windows-graphics-display-core-hdmidisplayinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDefaultDisplayModeAsync|
+
+force build-hdmi-display-mode
+  cause invoke-constructor
+    drive constructor, |Windows.Graphics.Display.Core.HdmiDisplayMode|
+
+force get-bits-per-pixel
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BitsPerPixel|
+
+force set-bits-per-pixel
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BitsPerPixel|
+    drive factor, share value
+
+force get-color-space
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ColorSpace|
+
+force set-color-space
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ColorSpace|
+    drive factor, share value
+
+force get-is2086-metadata-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Is2086MetadataSupported|
+
+force set-is2086-metadata-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Is2086MetadataSupported|
+    drive factor, share value
+
+force get-is-dolby-vision-low-latency-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsDolbyVisionLowLatencySupported|
+
+force set-is-dolby-vision-low-latency-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsDolbyVisionLowLatencySupported|
+    drive factor, share value
+
+force is-equal
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start mode, field windows-graphics-display-core-hdmidisplaymode
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEqual|
+    drive factor, share mode
+
+force get-is-sdr-luminance-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSdrLuminanceSupported|
+
+force set-is-sdr-luminance-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSdrLuminanceSupported|
+    drive factor, share value
+
+force get-is-smpte2084-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSmpte2084Supported|
+
+force set-is-smpte2084-supported
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSmpte2084Supported|
+    drive factor, share value
+
+force get-pixel-encoding
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PixelEncoding|
+
+force set-pixel-encoding
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PixelEncoding|
+    drive factor, share value
+
+force get-refresh-rate
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RefreshRate|
+
+force set-refresh-rate
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RefreshRate|
+    drive factor, share value
+
+force get-resolution-height-in-raw-pixels
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolutionHeightInRawPixels|
+
+force set-resolution-height-in-raw-pixels
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolutionHeightInRawPixels|
+    drive factor, share value
+
+force get-resolution-width-in-raw-pixels
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolutionWidthInRawPixels|
+
+force set-resolution-width-in-raw-pixels
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolutionWidthInRawPixels|
+    drive factor, share value
+
+force get-stereo-enabled
+  start build, field windows-graphics-display-core-hdmidisplaymode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StereoEnabled|
+
+force set-stereo-enabled
+  start build, field windows-graphics-display-core-hdmidisplaymode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StereoEnabled|
+    drive factor, share value
+
+force get-hdmi-display-pixel-encoding
+  cause get-object
+    drive aspect, |Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding|

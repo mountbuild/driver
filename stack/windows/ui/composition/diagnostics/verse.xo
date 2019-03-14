@@ -1,0 +1,75 @@
+
+force build-composition-debug-heat-maps
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps|
+
+force hide
+  mount build, field windows-ui-composition-diagnostics-compositiondebugheatmaps
+  mount subtree, field windows-ui-composition-visual
+
+  cause call-method
+    drive object, share build
+    drive method, |Hide|
+    drive factor, share subtree
+
+force show-memory-usage
+  mount build, field windows-ui-composition-diagnostics-compositiondebugheatmaps
+  mount subtree, field windows-ui-composition-visual
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowMemoryUsage|
+    drive factor, share subtree
+
+force show-overdraw
+  mount build, field windows-ui-composition-diagnostics-compositiondebugheatmaps
+  mount subtree, field windows-ui-composition-visual
+  mount content-kinds, field windows-ui-composition-diagnostics-compositiondebugoverdrawcontentkinds
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowOverdraw|
+    drive factor, share subtree
+    drive factor, share content-kinds
+
+force show-redraw
+  mount build, field windows-ui-composition-diagnostics-compositiondebugheatmaps
+  mount subtree, field windows-ui-composition-visual
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowRedraw|
+    drive factor, share subtree
+
+force get-composition-debug-overdraw-content-kinds
+  cause get-object
+    drive aspect, |Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds|
+
+force build-composition-debug-settings
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Composition.Diagnostics.CompositionDebugSettings|
+
+force get-heat-maps
+  mount build, field windows-ui-composition-diagnostics-compositiondebugsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HeatMaps|
+
+force set-heat-maps
+  mount build, field windows-ui-composition-diagnostics-compositiondebugsettings
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HeatMaps|
+    drive factor, share value
+
+force try-get-settings
+  mount build, field windows-ui-composition-diagnostics-compositiondebugsettings
+  mount compositor, field windows-ui-composition-compositor
+
+  cause call-method
+    drive object, share build
+    drive method, |TryGetSettings|
+    drive factor, share compositor

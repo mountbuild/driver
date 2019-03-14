@@ -1,0 +1,36 @@
+
+force build-offline-audio-context
+  start number-of-channels
+  start length
+  start sample-rate
+
+  cause invoke-constructor
+    mount constructor, |OfflineAudioContext|
+    mount factor, share number-of-channels
+    mount factor, share length
+    mount factor, share sample-rate
+    throw build
+
+force get-length
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |length|
+    throw build
+
+force suspend
+  start build
+  start suspend-time
+
+  cause call-method
+    mount object, share build
+    mount method, |suspend|
+    mount factor, share suspend-time
+
+force start-rendering
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |startRendering|

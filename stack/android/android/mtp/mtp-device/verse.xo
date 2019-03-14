@@ -1,0 +1,242 @@
+
+force build-mtp-device
+  mount device, field usb-device
+
+  cause invoke-constructor
+    drive constructor, |MtpDevice|
+    drive factor, share device
+    raise build, field mtp-device
+
+force close
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force delete-object
+  mount build, field mtp-device
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteObject|
+    drive factor, share object-handle
+    raise build, field boolean
+
+force get-device-id
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceId|
+    raise build, field int
+
+force get-device-info
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceInfo|
+    raise build, field mtp-device-info
+
+force get-device-name
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceName|
+    raise build, field string
+
+force get-object
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount object-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getObject|
+    drive factor, share object-handle
+    drive factor, share object-size
+    raise build, field byte-array
+
+force get-object-handles
+  mount build, field mtp-device
+  mount storage-id, field int
+  mount format, field int
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getObjectHandles|
+    drive factor, share storage-id
+    drive factor, share format
+    drive factor, share object-handle
+    raise build, field int-array
+
+force get-object-info
+  mount build, field mtp-device
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getObjectInfo|
+    drive factor, share object-handle
+    raise build, field mtp-object-info
+
+force get-parent
+  mount build, field mtp-device
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    drive factor, share object-handle
+    raise build, field long
+
+force get-partial-object
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount offset, field long
+  mount size, field long
+  mount buffer, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getPartialObject|
+    drive factor, share object-handle
+    drive factor, share offset
+    drive factor, share size
+    drive factor, share buffer
+    raise build, field long
+
+force get-partial-object64
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount offset, field long
+  mount size, field long
+  mount buffer, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getPartialObject64|
+    drive factor, share object-handle
+    drive factor, share offset
+    drive factor, share size
+    drive factor, share buffer
+    raise build, field long
+
+force get-storage-id
+  mount build, field mtp-device
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageId|
+    drive factor, share object-handle
+    raise build, field long
+
+force get-storage-ids
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageIds|
+    raise build, field int-array
+
+force get-storage-info
+  mount build, field mtp-device
+  mount storage-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageInfo|
+    drive factor, share storage-id
+    raise build, field mtp-storage-info
+
+force get-thumbnail
+  mount build, field mtp-device
+  mount object-handle, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getThumbnail|
+    drive factor, share object-handle
+    raise build, field byte-array
+
+force import-file
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount dest-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |importFile|
+    drive factor, share object-handle
+    drive factor, share dest-path
+    raise build, field boolean
+
+force import-file
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount descriptor, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |importFile|
+    drive factor, share object-handle
+    drive factor, share descriptor
+    raise build, field boolean
+
+force open
+  mount build, field mtp-device
+  mount connection, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share connection
+    raise build, field boolean
+
+force read-event
+  mount build, field mtp-device
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |readEvent|
+    drive factor, share signal
+    raise build, field mtp-event
+
+force send-object
+  mount build, field mtp-device
+  mount object-handle, field int
+  mount size, field long
+  mount descriptor, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |sendObject|
+    drive factor, share object-handle
+    drive factor, share size
+    drive factor, share descriptor
+    raise build, field boolean
+
+force send-object-info
+  mount build, field mtp-device
+  mount info, field mtp-object-info
+
+  cause call-method
+    drive object, share build
+    drive method, |sendObjectInfo|
+    drive factor, share info
+    raise build, field mtp-object-info
+
+force to-string
+  mount build, field mtp-device
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

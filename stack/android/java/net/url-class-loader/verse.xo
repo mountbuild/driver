@@ -1,0 +1,98 @@
+
+force build-url-class-loader
+  mount urls, field array-url
+  mount parent, field class-loader
+
+  cause invoke-constructor
+    drive constructor, |URLClassLoader|
+    drive factor, share urls
+    drive factor, share parent
+    throw build, field url-class-loader
+
+force build-url-class-loader
+  mount urls, field array-url
+
+  cause invoke-constructor
+    drive constructor, |URLClassLoader|
+    drive factor, share urls
+    throw build, field url-class-loader
+
+force build-url-class-loader
+  mount urls, field array-url
+  mount parent, field class-loader
+  mount factory, field url-stream-handler-factory
+
+  cause invoke-constructor
+    drive constructor, |URLClassLoader|
+    drive factor, share urls
+    drive factor, share parent
+    drive factor, share factory
+    throw build, field url-class-loader
+
+force close
+  mount build, field url-class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force find-resource
+  mount build, field url-class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findResource|
+    drive factor, share name
+    throw build, field url
+
+force find-resources
+  mount build, field url-class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findResources|
+    drive factor, share name
+    throw build, field enumeration
+
+force get-resource-as-stream
+  mount build, field url-class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getResourceAsStream|
+    drive factor, share name
+    throw build, field input-stream
+
+force get-ur-ls
+  mount build, field url-class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getURLs|
+    throw build, field array
+
+force new-instance
+  mount build, field url-class-loader
+  mount urls, field array-url
+  mount parent, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share urls
+    drive factor, share parent
+    throw build, field url-class-loader
+
+force new-instance
+  mount build, field url-class-loader
+  mount urls, field array-url
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share urls
+    throw build, field url-class-loader

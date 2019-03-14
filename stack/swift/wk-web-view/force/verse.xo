@@ -1,0 +1,491 @@
+force get-configuration
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |configuration|
+    raise build, field wk-web-view-configuration
+
+force set-configuration
+  field build, field wk-web-view
+  field value, field wk-web-view-configuration
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |configuration|
+    drive factor, share value
+
+force get-scroll-view
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |scrollView|
+    raise build, field ui-scroll-view
+
+force set-scroll-view
+  field build, field wk-web-view
+  field value, field ui-scroll-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |scrollView|
+    drive factor, share value
+
+force get-title
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |title|
+    raise build, field string
+
+force set-title
+  field build, field wk-web-view
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |title|
+    drive factor, share value
+
+force get-url
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |url|
+    raise build, field url
+
+force set-url
+  field build, field wk-web-view
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |url|
+    drive factor, share value
+
+force get-custom-user-agent
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customUserAgent|
+    raise build, field string
+
+force set-custom-user-agent
+  field build, field wk-web-view
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customUserAgent|
+    drive factor, share value
+
+force get-server-trust
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |serverTrust|
+    raise build, field sec-trust
+
+force set-server-trust
+  field build, field wk-web-view
+  field value, field sec-trust
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |serverTrust|
+    drive factor, share value
+
+force get-certificate-chain
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |certificateChain|
+    raise build, field any
+
+force set-certificate-chain
+  field build, field wk-web-view
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |certificateChain|
+    drive factor, share value
+
+force get-navigation-delegate
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |navigationDelegate|
+    raise build, field wk-navigation-delegate
+
+force set-navigation-delegate
+  field build, field wk-web-view
+  field value, field wk-navigation-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |navigationDelegate|
+    drive factor, share value
+
+force get-ui-delegate
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |uiDelegate|
+    raise build, field wkui-delegate
+
+force set-ui-delegate
+  field build, field wk-web-view
+  field value, field wkui-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |uiDelegate|
+    drive factor, share value
+
+force get-estimated-progress
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |estimatedProgress|
+    raise build, field double
+
+force set-estimated-progress
+  field build, field wk-web-view
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |estimatedProgress|
+    drive factor, share value
+
+force get-has-only-secure-content
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasOnlySecureContent|
+    raise build, field bool
+
+force set-has-only-secure-content
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasOnlySecureContent|
+    drive factor, share value
+
+force load-html-string
+  field build, field wk-web-view
+  field a, class string
+  field base-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |loadHTMLString|
+    drive factor, share a
+    drive factor
+      brand base-url
+      share base-url
+    raise build, class wk-navigation
+
+force get-is-loading
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLoading|
+    raise build, field bool
+
+force set-is-loading
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLoading|
+    drive factor, share value
+
+force reload
+  field build, field wk-web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |reload|
+    raise build, class wk-navigation
+
+force reload
+  field build, field wk-web-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |reload|
+    drive factor, share a
+
+force reload-from-origin
+  field build, field wk-web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |reloadFromOrigin|
+    raise build, class wk-navigation
+
+force reload-from-origin
+  field build, field wk-web-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |reloadFromOrigin|
+    drive factor, share a
+
+force stop-loading
+  field build, field wk-web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |stopLoading|
+
+force stop-loading
+  field build, field wk-web-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |stopLoading|
+    drive factor, share a
+
+force load
+  field build, field wk-web-view
+  field a, class data
+  field mime-type, field string
+  field character-encoding-name, field string
+  field base-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share a
+    drive factor
+      brand mime-type
+      share mime-type
+    drive factor
+      brand character-encoding-name
+      share character-encoding-name
+    drive factor
+      brand base-url
+      share base-url
+    raise build, class wk-navigation
+
+force load-file-url
+  field build, field wk-web-view
+  field a, class url
+  field allowing-read-access-to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFileURL|
+    drive factor, share a
+    drive factor
+      brand allowing-read-access-to
+      share allowing-read-access-to
+    raise build, class wk-navigation
+
+force get-allows-magnification
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsMagnification|
+    raise build, field bool
+
+force set-allows-magnification
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsMagnification|
+    drive factor, share value
+
+force get-magnification
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |magnification|
+    raise build, field cg-float
+
+force set-magnification
+  field build, field wk-web-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |magnification|
+    drive factor, share value
+
+force set-magnification
+  field build, field wk-web-view
+  field a, class cg-float
+  field centered-at, field cg-point
+
+  cause call-method
+    drive object, share build
+    drive method, |setMagnification|
+    drive factor, share a
+    drive factor
+      brand centered-at
+      share centered-at
+
+force get-allows-back-forward-navigation-gestures
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsBackForwardNavigationGestures|
+    raise build, field bool
+
+force set-allows-back-forward-navigation-gestures
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsBackForwardNavigationGestures|
+    drive factor, share value
+
+force get-back-forward-list
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |backForwardList|
+    raise build, field wk-back-forward-list
+
+force set-back-forward-list
+  field build, field wk-web-view
+  field value, field wk-back-forward-list
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |backForwardList|
+    drive factor, share value
+
+force get-can-go-back
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canGoBack|
+    raise build, field bool
+
+force set-can-go-back
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canGoBack|
+    drive factor, share value
+
+force get-can-go-forward
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canGoForward|
+    raise build, field bool
+
+force set-can-go-forward
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canGoForward|
+    drive factor, share value
+
+force get-allows-link-preview
+  field build, field wk-web-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsLinkPreview|
+    raise build, field bool
+
+force set-allows-link-preview
+  field build, field wk-web-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsLinkPreview|
+    drive factor, share value
+
+force go-back
+  field build, field wk-web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |goBack|
+    raise build, class wk-navigation
+
+force go-back
+  field build, field wk-web-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |goBack|
+    drive factor, share a
+
+force go-forward
+  field build, field wk-web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |goForward|
+    raise build, class wk-navigation
+
+force go-forward
+  field build, field wk-web-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |goForward|
+    drive factor, share a
+
+force go
+  field build, field wk-web-view
+  field to, field wk-back-forward-list-item
+
+  cause call-method
+    drive object, share build
+    drive method, |go|
+    drive factor
+      brand to
+      share to
+    raise build, class wk-navigation
+
+force load
+  field build, field wk-web-view
+  field a, class url-request
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share a
+    raise build, class wk-navigation

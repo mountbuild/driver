@@ -1,0 +1,62 @@
+
+force get
+  mount build, field altered-char-sequence
+  mount off, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share off
+    raise build, field char
+
+force get-chars
+  mount build, field altered-char-sequence
+  mount start, field int
+  mount end, field int
+  mount dest, field char-array
+  mount off, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChars|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share dest
+    drive factor, share off
+    raise build, field unit
+
+force make
+  mount build, field altered-char-sequence
+  mount source, field char-sequence
+  mount sub, field char-array
+  mount substart, field int
+  mount subend, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |make|
+    drive factor, share source
+    drive factor, share sub
+    drive factor, share substart
+    drive factor, share subend
+    raise build, field altered-char-sequence
+
+force sub-sequence
+  mount build, field altered-char-sequence
+  mount start-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |subSequence|
+    drive factor, share start-index
+    drive factor, share end-index
+    raise build, field char-sequence
+
+force to-string
+  mount build, field altered-char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

@@ -1,0 +1,112 @@
+
+force new-channel
+  mount build, field channels
+  mount in, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |newChannel|
+    mount factor, share in
+    throw build, field readable-byte-channel
+
+force new-channel
+  mount build, field channels
+  mount out, field output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |newChannel|
+    mount factor, share out
+    throw build, field writable-byte-channel
+
+force new-input-stream
+  mount build, field channels
+  mount ch, field readable-byte-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |newInputStream|
+    mount factor, share ch
+    throw build, field input-stream
+
+force new-input-stream
+  mount build, field channels
+  mount ch, field asynchronous-byte-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |newInputStream|
+    mount factor, share ch
+    throw build, field input-stream
+
+force new-output-stream
+  mount build, field channels
+  mount ch, field writable-byte-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |newOutputStream|
+    mount factor, share ch
+    throw build, field output-stream
+
+force new-output-stream
+  mount build, field channels
+  mount ch, field asynchronous-byte-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |newOutputStream|
+    mount factor, share ch
+    throw build, field output-stream
+
+force new-reader
+  mount build, field channels
+  mount ch, field readable-byte-channel
+  mount dec, field charset-decoder
+  mount min-buffer-cap, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newReader|
+    mount factor, share ch
+    mount factor, share dec
+    mount factor, share min-buffer-cap
+    throw build, field reader
+
+force new-reader
+  mount build, field channels
+  mount ch, field readable-byte-channel
+  mount cs-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newReader|
+    mount factor, share ch
+    mount factor, share cs-name
+    throw build, field reader
+
+force new-writer
+  mount build, field channels
+  mount ch, field writable-byte-channel
+  mount enc, field charset-encoder
+  mount min-buffer-cap, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newWriter|
+    mount factor, share ch
+    mount factor, share enc
+    mount factor, share min-buffer-cap
+    throw build, field writer
+
+force new-writer
+  mount build, field channels
+  mount ch, field writable-byte-channel
+  mount cs-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newWriter|
+    mount factor, share ch
+    mount factor, share cs-name
+    throw build, field writer

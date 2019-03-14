@@ -1,0 +1,129 @@
+
+force acquire-pin
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start pin, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AcquirePin|
+    drive factor, share pin
+
+force get-actual-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ActualFrequency|
+
+force set-actual-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ActualFrequency|
+    drive factor, share value
+
+force disable-pin
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start pin, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |DisablePin|
+    drive factor, share pin
+
+force enable-pin
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start pin, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |EnablePin|
+    drive factor, share pin
+
+force get-max-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxFrequency|
+
+force set-max-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxFrequency|
+    drive factor, share value
+
+force get-min-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinFrequency|
+
+force set-min-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinFrequency|
+    drive factor, share value
+
+force get-pin-count
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+
+force set-pin-count
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+    drive factor, share value
+
+force release-pin
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start pin, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |ReleasePin|
+    drive factor, share pin
+
+force set-desired-frequency
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start frequency, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDesiredFrequency|
+    drive factor, share frequency
+
+force set-pulse-parameters
+  start build, field windows-devices-pwm-provider-ipwmcontrollerprovider
+  start pin, field system-int32
+  start duty-cycle, field system-double
+  start invert-polarity, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPulseParameters|
+    drive factor, share pin
+    drive factor, share duty-cycle
+    drive factor, share invert-polarity
+
+force get-controllers
+  start build, field windows-devices-pwm-provider-ipwmprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllers|

@@ -1,0 +1,493 @@
+force set-purgeable-state
+  field build, field mps-image
+  field a, class mps-purgeable-state
+
+  cause call-method
+    drive object, share build
+    drive method, |setPurgeableState|
+    drive factor, share a
+    raise build, class mps-purgeable-state
+
+force read-bytes
+  field build, field mps-image
+  field a, class unsafe-mutable-raw-pointer
+  field data-layout, field mps-data-layout
+  field bytes-per-row, field int
+  field region, field mtl-region
+  field feature-channel-info, field mps-image-read-write-params
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    drive factor
+      brand region
+      share region
+    drive factor
+      brand feature-channel-info
+      share feature-channel-info
+    drive factor
+      brand image-index
+      share image-index
+
+force read-bytes
+  field build, field mps-image
+  field a, class unsafe-mutable-raw-pointer
+  field data-layout, field mps-data-layout
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand image-index
+      share image-index
+
+force write-bytes
+  field build, field mps-image
+  field a, class unsafe-raw-pointer
+  field data-layout, field mps-data-layout
+  field bytes-per-row, field int
+  field region, field mtl-region
+  field feature-channel-info, field mps-image-read-write-params
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    drive factor
+      brand region
+      share region
+    drive factor
+      brand feature-channel-info
+      share feature-channel-info
+    drive factor
+      brand image-index
+      share image-index
+
+force write-bytes
+  field build, field mps-image
+  field a, class unsafe-raw-pointer
+  field data-layout, field mps-data-layout
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand image-index
+      share image-index
+
+force get-device
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |device|
+    raise build, field mtl-device
+
+force set-device
+  field build, field mps-image
+  field value, field mtl-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |device|
+    drive factor, share value
+
+force get-width
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |width|
+    raise build, field int
+
+force set-width
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |width|
+    drive factor, share value
+
+force get-height
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |height|
+    raise build, field int
+
+force set-height
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |height|
+    drive factor, share value
+
+force get-feature-channels
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |featureChannels|
+    raise build, field int
+
+force set-feature-channels
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |featureChannels|
+    drive factor, share value
+
+force get-number-of-images
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfImages|
+    raise build, field int
+
+force set-number-of-images
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfImages|
+    drive factor, share value
+
+force get-texture-type
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |textureType|
+    raise build, field mtl-texture-type
+
+force set-texture-type
+  field build, field mps-image
+  field value, field mtl-texture-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |textureType|
+    drive factor, share value
+
+force get-pixel-format
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pixelFormat|
+    raise build, field mtl-pixel-format
+
+force set-pixel-format
+  field build, field mps-image
+  field value, field mtl-pixel-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pixelFormat|
+    drive factor, share value
+
+force get-precision
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |precision|
+    raise build, field int
+
+force set-precision
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |precision|
+    drive factor, share value
+
+force get-usage
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |usage|
+    raise build, field mtl-texture-usage
+
+force set-usage
+  field build, field mps-image
+  field value, field mtl-texture-usage
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |usage|
+    drive factor, share value
+
+force get-pixel-size
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pixelSize|
+    raise build, field int
+
+force set-pixel-size
+  field build, field mps-image
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pixelSize|
+    drive factor, share value
+
+force get-texture
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |texture|
+    raise build, field mtl-texture
+
+force set-texture
+  field build, field mps-image
+  field value, field mtl-texture
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |texture|
+    drive factor, share value
+
+force get-label
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |label|
+    raise build, field string
+
+force set-label
+  field build, field mps-image
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |label|
+    drive factor, share value
+
+force get-feature-channel-format
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |featureChannelFormat|
+    raise build, field mps-image-feature-channel-format
+
+force set-feature-channel-format
+  field build, field mps-image
+  field value, field mps-image-feature-channel-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |featureChannelFormat|
+    drive factor, share value
+
+force get-parent
+  field build, field mps-image
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |parent|
+    raise build, field mps-image
+
+force set-parent
+  field build, field mps-image
+  field value, field mps-image
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |parent|
+    drive factor, share value
+
+force batch-representation
+  field build, field mps-image
+
+  cause call-method
+    drive object, share build
+    drive method, |batchRepresentation|
+    raise build, class mps-image
+
+force batch-representation
+  field build, field mps-image
+  field with-sub-range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |batchRepresentation|
+    drive factor
+      brand with-sub-range
+      share with-sub-range
+    raise build, class mps-image
+
+force read-bytes
+  field build, field mps-image
+  field a, class unsafe-mutable-raw-pointer
+  field data-layout, field mps-data-layout
+  field bytes-per-row, field int
+  field bytes-per-image, field int
+  field region, field mtl-region
+  field feature-channel-info, field mps-image-read-write-params
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    drive factor
+      brand bytes-per-image
+      share bytes-per-image
+    drive factor
+      brand region
+      share region
+    drive factor
+      brand feature-channel-info
+      share feature-channel-info
+    drive factor
+      brand image-index
+      share image-index
+
+force resource-size
+  field build, field mps-image
+
+  cause call-method
+    drive object, share build
+    drive method, |resourceSize|
+    raise build, class int
+
+force sub-image
+  field build, field mps-image
+  field with-feature-channel-range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |subImage|
+    drive factor
+      brand with-feature-channel-range
+      share with-feature-channel-range
+    raise build, class mps-image
+
+force synchronize
+  field build, field mps-image
+  field on, field mtl-command-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |synchronize|
+    drive factor
+      brand on
+      share on
+
+force write-bytes
+  field build, field mps-image
+  field a, class unsafe-raw-pointer
+  field data-layout, field mps-data-layout
+  field bytes-per-column, field int
+  field bytes-per-row, field int
+  field bytes-per-image, field int
+  field region, field mtl-region
+  field feature-channel-info, field mps-image-read-write-params
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand bytes-per-column
+      share bytes-per-column
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    drive factor
+      brand bytes-per-image
+      share bytes-per-image
+    drive factor
+      brand region
+      share region
+    drive factor
+      brand feature-channel-info
+      share feature-channel-info
+    drive factor
+      brand image-index
+      share image-index
+
+force write-bytes
+  field build, field mps-image
+  field a, class unsafe-raw-pointer
+  field data-layout, field mps-data-layout
+  field bytes-per-row, field int
+  field bytes-per-image, field int
+  field region, field mtl-region
+  field feature-channel-info, field mps-image-read-write-params
+  field image-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share a
+    drive factor
+      brand data-layout
+      share data-layout
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    drive factor
+      brand bytes-per-image
+      share bytes-per-image
+    drive factor
+      brand region
+      share region
+    drive factor
+      brand feature-channel-info
+      share feature-channel-info
+    drive factor
+      brand image-index
+      share image-index

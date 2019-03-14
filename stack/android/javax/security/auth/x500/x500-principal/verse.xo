@@ -1,0 +1,126 @@
+
+force get-canonical
+  start build, field x500-principal
+
+  cause get-property
+    mount object, share build
+    mount property, |CANONICAL|
+    throw build, field string
+
+force get-rfc1779
+  start build, field x500-principal
+
+  cause get-property
+    mount object, share build
+    mount property, |RFC1779|
+    throw build, field string
+
+force get-rfc2253
+  start build, field x500-principal
+
+  cause get-property
+    mount object, share build
+    mount property, |RFC2253|
+    throw build, field string
+
+force build-x500-principal
+  start name, field string
+
+  cause invoke-constructor
+    mount constructor, |X500Principal|
+    mount factor, share name
+    throw build, field x500-principal
+
+force build-x500-principal
+  start name, field string
+  start keyword-map, field mutable-map-string
+  start string, field undefined
+
+  cause invoke-constructor
+    mount constructor, |X500Principal|
+    mount factor, share name
+    mount factor, share keyword-map
+    mount factor, share string
+    throw build, field x500-principal
+
+force build-x500-principal
+  start name, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |X500Principal|
+    mount factor, share name
+    throw build, field x500-principal
+
+force build-x500-principal
+  start is, field input-stream
+
+  cause invoke-constructor
+    mount constructor, |X500Principal|
+    mount factor, share is
+    throw build, field x500-principal
+
+force equals
+  start build, field x500-principal
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-encoded
+  start build, field x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-name
+  start build, field x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string
+
+force get-name
+  start build, field x500-principal
+  start format, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    mount factor, share format
+    throw build, field string
+
+force get-name
+  start build, field x500-principal
+  start format, field string
+  start oid-map, field mutable-map-string
+  start string, field undefined
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    mount factor, share format
+    mount factor, share oid-map
+    mount factor, share string
+    throw build, field string
+
+force hash-code
+  start build, field x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

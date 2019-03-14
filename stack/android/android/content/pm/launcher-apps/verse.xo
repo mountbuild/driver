@@ -1,0 +1,348 @@
+
+force get-action-confirm-pin-appwidget
+  mount build, field launcher-apps
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONFIRM_PIN_APPWIDGET|
+    throw build, field string
+
+force get-action-confirm-pin-shortcut
+  mount build, field launcher-apps
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONFIRM_PIN_SHORTCUT|
+    throw build, field string
+
+force get-extra-pin-item-request
+  mount build, field launcher-apps
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PIN_ITEM_REQUEST|
+    throw build, field string
+
+force get-activity-list
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivityList|
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field mutable-list
+
+force get-all-package-installer-sessions
+  mount build, field launcher-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllPackageInstallerSessions|
+    throw build, field mutable-list
+
+force get-application-info
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount flags, field int
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplicationInfo|
+    drive factor, share package-name
+    drive factor, share flags
+    drive factor, share user
+    throw build, field application-info
+
+force get-pin-item-request
+  mount build, field launcher-apps
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getPinItemRequest|
+    drive factor, share intent
+    throw build, field launcher-apps-pin-item-request
+
+force get-profiles
+  mount build, field launcher-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfiles|
+    throw build, field mutable-list
+
+force get-shortcut-badged-icon-drawable
+  mount build, field launcher-apps
+  mount shortcut, field shortcut-info
+  mount density, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcutBadgedIconDrawable|
+    drive factor, share shortcut
+    drive factor, share density
+    throw build, field drawable
+
+force get-shortcut-config-activity-intent
+  mount build, field launcher-apps
+  mount info, field launcher-activity-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcutConfigActivityIntent|
+    drive factor, share info
+    throw build, field intent-sender
+
+force get-shortcut-config-activity-list
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcutConfigActivityList|
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field mutable-list
+
+force get-shortcut-icon-drawable
+  mount build, field launcher-apps
+  mount shortcut, field shortcut-info
+  mount density, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcutIconDrawable|
+    drive factor, share shortcut
+    drive factor, share density
+    throw build, field drawable
+
+force get-shortcuts
+  mount build, field launcher-apps
+  mount query, field launcher-apps-shortcut-query
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcuts|
+    drive factor, share query
+    drive factor, share user
+    throw build, field mutable-list
+
+force get-suspended-package-launcher-extras
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuspendedPackageLauncherExtras|
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field bundle
+
+force has-shortcut-host-permission
+  mount build, field launcher-apps
+
+  cause call-method
+    drive object, share build
+    drive method, |hasShortcutHostPermission|
+    throw build, field boolean
+
+force is-activity-enabled
+  mount build, field launcher-apps
+  mount component, field component-name
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |isActivityEnabled|
+    drive factor, share component
+    drive factor, share user
+    throw build, field boolean
+
+force is-package-enabled
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |isPackageEnabled|
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field boolean
+
+force pin-shortcuts
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount shortcut-ids, field mutable-list-string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |pinShortcuts|
+    drive factor, share package-name
+    drive factor, share shortcut-ids
+    drive factor, share user
+    throw build, field unit
+
+force register-callback
+  mount build, field launcher-apps
+  mount callback, field launcher-apps-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force register-callback
+  mount build, field launcher-apps
+  mount callback, field launcher-apps-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force register-package-installer-session-callback
+  mount build, field launcher-apps
+  mount executor, field executor
+  mount callback, field package-installer-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerPackageInstallerSessionCallback|
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force resolve-activity
+  mount build, field launcher-apps
+  mount intent, field intent
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveActivity|
+    drive factor, share intent
+    drive factor, share user
+    throw build, field launcher-activity-info
+
+force should-hide-from-suggestions
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldHideFromSuggestions|
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field boolean
+
+force start-app-details-activity
+  mount build, field launcher-apps
+  mount component, field component-name
+  mount user, field user-handle
+  mount source-bounds, field rect
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startAppDetailsActivity|
+    drive factor, share component
+    drive factor, share user
+    drive factor, share source-bounds
+    drive factor, share opts
+    throw build, field unit
+
+force start-main-activity
+  mount build, field launcher-apps
+  mount component, field component-name
+  mount user, field user-handle
+  mount source-bounds, field rect
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startMainActivity|
+    drive factor, share component
+    drive factor, share user
+    drive factor, share source-bounds
+    drive factor, share opts
+    throw build, field unit
+
+force start-package-installer-session-details-activity
+  mount build, field launcher-apps
+  mount session-info, field package-installer-session-info
+  mount source-bounds, field rect
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startPackageInstallerSessionDetailsActivity|
+    drive factor, share session-info
+    drive factor, share source-bounds
+    drive factor, share opts
+    throw build, field unit
+
+force start-shortcut
+  mount build, field launcher-apps
+  mount package-name, field string
+  mount shortcut-id, field string
+  mount source-bounds, field rect
+  mount start-activity-options, field bundle
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |startShortcut|
+    drive factor, share package-name
+    drive factor, share shortcut-id
+    drive factor, share source-bounds
+    drive factor, share start-activity-options
+    drive factor, share user
+    throw build, field unit
+
+force start-shortcut
+  mount build, field launcher-apps
+  mount shortcut, field shortcut-info
+  mount source-bounds, field rect
+  mount start-activity-options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startShortcut|
+    drive factor, share shortcut
+    drive factor, share source-bounds
+    drive factor, share start-activity-options
+    throw build, field unit
+
+force unregister-callback
+  mount build, field launcher-apps
+  mount callback, field launcher-apps-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-package-installer-session-callback
+  mount build, field launcher-apps
+  mount callback, field package-installer-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterPackageInstallerSessionCallback|
+    drive factor, share callback
+    throw build, field unit

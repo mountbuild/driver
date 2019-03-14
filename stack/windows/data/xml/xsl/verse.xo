@@ -1,0 +1,31 @@
+
+force build-xslt-processor
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Xml.Xsl.XsltProcessor|
+
+force transform-to-document
+  start build, field windows-data-xml-xsl-xsltprocessor
+  start input-node, field windows-data-xml-dom-ixmlnode
+
+  cause call-method
+    drive object, share build
+    drive method, |TransformToDocument|
+    drive factor, share input-node
+
+force transform-to-string
+  start build, field windows-data-xml-xsl-xsltprocessor
+  start input-node, field windows-data-xml-dom-ixmlnode
+
+  cause call-method
+    drive object, share build
+    drive method, |TransformToString|
+    drive factor, share input-node
+
+force ctor
+  start build, field windows-data-xml-xsl-xsltprocessor
+  start document, field windows-data-xml-dom-xmldocument
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share document

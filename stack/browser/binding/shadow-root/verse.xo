@@ -1,0 +1,83 @@
+
+force get-delegates-focus
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |delegatesFocus|
+    throw build
+
+force get-host
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |host|
+    throw build
+
+force get-inner-html
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |innerHTML|
+    throw build
+
+force set-inner-html
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |innerHTML|
+    mount factor, share value
+
+force get-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mode|
+    throw build
+
+force get-selection
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getSelection|
+
+force element-from-point
+  start build
+  start x
+  start y
+
+  cause call-method
+    mount object, share build
+    mount method, |elementFromPoint|
+    mount factor, share x
+    mount factor, share y
+    throw build
+
+force elements-from-point
+  start build
+  start x
+  start y
+
+  cause call-method
+    mount object, share build
+    mount method, |elementsFromPoint|
+    mount factor, share x
+    mount factor, share y
+    throw build
+
+force caret-position-from-point
+  start build
+  start x
+  start y
+
+  cause call-method
+    mount object, share build
+    mount method, |caretPositionFromPoint|
+    mount factor, share x
+    mount factor, share y

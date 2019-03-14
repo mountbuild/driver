@@ -1,0 +1,62 @@
+
+force build-seek-bar
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |SeekBar|
+    drive factor, share context
+    throw build, field seek-bar
+
+force build-seek-bar
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |SeekBar|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field seek-bar
+
+force build-seek-bar
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |SeekBar|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field seek-bar
+
+force build-seek-bar
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |SeekBar|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field seek-bar
+
+force get-accessibility-class-name
+  mount build, field seek-bar
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force set-on-seek-bar-change-listener
+  mount build, field seek-bar
+  mount l, field seek-bar-on-seek-bar-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnSeekBarChangeListener|
+    drive factor, share l
+    throw build, field unit

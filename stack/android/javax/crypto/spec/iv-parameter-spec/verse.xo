@@ -1,0 +1,28 @@
+
+force build-iv-parameter-spec
+  start iv, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |IvParameterSpec|
+    mount factor, share iv
+    throw build, field iv-parameter-spec
+
+force build-iv-parameter-spec
+  start iv, field byte-array
+  start offset, field int
+  start len, field int
+
+  cause invoke-constructor
+    mount constructor, |IvParameterSpec|
+    mount factor, share iv
+    mount factor, share offset
+    mount factor, share len
+    throw build, field iv-parameter-spec
+
+force get-iv
+  start build, field iv-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIV|
+    throw build, field byte-array

@@ -1,0 +1,26 @@
+
+force build-media-key-message-event
+  start type-arg
+  start options
+
+  cause invoke-constructor
+    mount constructor, |MediaKeyMessageEvent|
+    mount factor, share type-arg
+    mount factor, share options
+    throw build
+
+force get-message
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |message|
+    throw build
+
+force get-message-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |messageType|
+    throw build

@@ -1,0 +1,32 @@
+
+force build-int-property
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |IntProperty|
+    drive factor, share name
+    throw build, field int-property
+
+force set
+  mount build, field int-property
+  mount object, field t
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share object
+    drive factor, share value
+    throw build, field unit
+
+force set-value
+  mount build, field int-property
+  mount object, field t
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share object
+    drive factor, share value
+    throw build, field unit

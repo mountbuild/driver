@@ -1,0 +1,26 @@
+
+force build-connection-event
+  start con, field pooled-connection
+
+  cause invoke-constructor
+    mount constructor, |ConnectionEvent|
+    mount factor, share con
+    throw build, field connection-event
+
+force build-connection-event
+  start con, field pooled-connection
+  start ex, field sql-exception
+
+  cause invoke-constructor
+    mount constructor, |ConnectionEvent|
+    mount factor, share con
+    mount factor, share ex
+    throw build, field connection-event
+
+force get-sql-exception
+  start build, field connection-event
+
+  cause call-method
+    mount object, share build
+    mount method, |getSQLException|
+    throw build, field sql-exception

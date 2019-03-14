@@ -1,0 +1,101 @@
+
+force build-instrumentation-test-case
+  cause invoke-constructor
+    drive constructor, |InstrumentationTestCase|
+    raise build, field instrumentation-test-case
+
+force get-instrumentation
+  mount build, field instrumentation-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstrumentation|
+    raise build, field instrumentation
+
+force inject-insrumentation
+  mount build, field instrumentation-test-case
+  mount instrumentation, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |injectInsrumentation|
+    drive factor, share instrumentation
+    raise build, field unit
+
+force inject-instrumentation
+  mount build, field instrumentation-test-case
+  mount instrumentation, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |injectInstrumentation|
+    drive factor, share instrumentation
+    raise build, field unit
+
+force launch-activity
+  mount build, field instrumentation-test-case
+  mount pkg, field string
+  mount activity-cls, field class-t
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |launchActivity|
+    drive factor, share pkg
+    drive factor, share activity-cls
+    drive factor, share extras
+    raise build, field t
+
+force launch-activity-with-intent
+  mount build, field instrumentation-test-case
+  mount pkg, field string
+  mount activity-cls, field class-t
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |launchActivityWithIntent|
+    drive factor, share pkg
+    drive factor, share activity-cls
+    drive factor, share intent
+    raise build, field t
+
+force run-test-on-ui-thread
+  mount build, field instrumentation-test-case
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runTestOnUiThread|
+    drive factor, share r
+    raise build, field unit
+
+force send-keys
+  mount build, field instrumentation-test-case
+  mount keys-sequence, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeys|
+    drive factor, share keys-sequence
+    raise build, field unit
+
+force send-keys
+  mount build, field instrumentation-test-case
+  mount vararg-keys, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeys|
+    drive factor, share vararg-keys
+    raise build, field unit
+
+force send-repeated-keys
+  mount build, field instrumentation-test-case
+  mount vararg-keys, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendRepeatedKeys|
+    drive factor, share vararg-keys
+    raise build, field unit

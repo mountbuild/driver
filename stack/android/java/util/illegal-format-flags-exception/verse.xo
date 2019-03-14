@@ -1,0 +1,16 @@
+
+force build-illegal-format-flags-exception
+  mount f, field string
+
+  cause invoke-constructor
+    drive constructor, |IllegalFormatFlagsException|
+    drive factor, share f
+    throw build, field illegal-format-flags-exception
+
+force get-flags
+  mount build, field illegal-format-flags-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFlags|
+    throw build, field string

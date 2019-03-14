@@ -1,0 +1,98 @@
+
+force build-file-input-stream
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |FileInputStream|
+    drive factor, share name
+    throw build, field file-input-stream
+
+force build-file-input-stream
+  mount file, field file
+
+  cause invoke-constructor
+    drive constructor, |FileInputStream|
+    drive factor, share file
+    throw build, field file-input-stream
+
+force build-file-input-stream
+  mount fd-obj, field file-descriptor
+
+  cause invoke-constructor
+    drive constructor, |FileInputStream|
+    drive factor, share fd-obj
+    throw build, field file-input-stream
+
+force available
+  mount build, field file-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force close
+  mount build, field file-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-channel
+  mount build, field file-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field file-channel
+
+force get-fd
+  mount build, field file-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getFD|
+    throw build, field file-descriptor
+
+force read
+  mount build, field file-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field file-input-stream
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    throw build, field int
+
+force read
+  mount build, field file-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force skip
+  mount build, field file-input-stream
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

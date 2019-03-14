@@ -1,0 +1,263 @@
+force get-custom-mirror
+  field build, field unsafe-mutable-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field unsafe-mutable-pointer
+  field value, field mirror
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |customMirror|
+    mount factor, share value
+
+force get-custom-playground-quick-look
+  field build, field unsafe-mutable-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field unsafe-mutable-pointer
+  field value, field playground-quick-look
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |customPlaygroundQuickLook|
+    mount factor, share value
+
+force get-debug-description
+  field build, field unsafe-mutable-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field unsafe-mutable-pointer
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |debugDescription|
+    mount factor, share value
+
+force get-hash-value
+  field build, field unsafe-mutable-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field unsafe-mutable-pointer
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    mount factor, share value
+
+force get-pointee
+  field build, field unsafe-mutable-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pointee|
+    raise build, field pointee
+
+force set-pointee
+  field build, field unsafe-mutable-pointer
+  field value, field pointee
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |pointee|
+    mount factor, share value
+
+force advanced
+  field build, field unsafe-mutable-pointer
+  field by, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |advanced|
+    mount factor
+      brand by
+      share by
+    raise build, class unsafe-mutable-pointer-pointee
+
+force assign
+  field build, field unsafe-mutable-pointer
+  field from, field unsafe-pointer-pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |assign|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand count
+      share count
+
+force assign
+  field build, field unsafe-mutable-pointer
+  field repeating, field pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |assign|
+    mount factor
+      brand repeating
+      share repeating
+    mount factor
+      brand count
+      share count
+
+force deallocate
+  field build, field unsafe-mutable-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |deallocate|
+
+force deinitialize
+  field build, field unsafe-mutable-pointer
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |deinitialize|
+    mount factor
+      brand count
+      share count
+    raise build, class unsafe-mutable-raw-pointer
+
+force distance
+  field build, field unsafe-mutable-pointer
+  field to, field unsafe-mutable-pointer-pointee
+
+  cause call-method
+    mount object, share build
+    mount method, |distance|
+    mount factor
+      brand to
+      share to
+    raise build, class int
+
+force hash
+  field build, field unsafe-mutable-pointer
+  field into, field inout-hasher
+
+  cause call-method
+    mount object, share build
+    mount method, |hash|
+    mount factor
+      brand into
+      share into
+
+force initialize
+  field build, field unsafe-mutable-pointer
+  field from, field unsafe-pointer-pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |initialize|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand count
+      share count
+
+force initialize
+  field build, field unsafe-mutable-pointer
+  field repeating, field pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |initialize|
+    mount factor
+      brand repeating
+      share repeating
+    mount factor
+      brand count
+      share count
+
+force initialize
+  field build, field unsafe-mutable-pointer
+  field to, field pointee
+
+  cause call-method
+    mount object, share build
+    mount method, |initialize|
+    mount factor
+      brand to
+      share to
+
+force move
+  field build, field unsafe-mutable-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |move|
+    raise build, class pointee
+
+force move-assign
+  field build, field unsafe-mutable-pointer
+  field from, field unsafe-mutable-pointer-pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |moveAssign|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand count
+      share count
+
+force move-initialize
+  field build, field unsafe-mutable-pointer
+  field from, field unsafe-mutable-pointer-pointee
+  field count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |moveInitialize|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand count
+      share count
+
+force predecessor
+  field build, field unsafe-mutable-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |predecessor|
+    raise build, class unsafe-mutable-pointer-pointee
+
+force successor
+  field build, field unsafe-mutable-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |successor|
+    raise build, class unsafe-mutable-pointer-pointee

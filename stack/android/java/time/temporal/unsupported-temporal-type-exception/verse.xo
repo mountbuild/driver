@@ -1,0 +1,18 @@
+
+force build-unsupported-temporal-type-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |UnsupportedTemporalTypeException|
+    drive factor, share message
+    throw build, field unsupported-temporal-type-exception
+
+force build-unsupported-temporal-type-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |UnsupportedTemporalTypeException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field unsupported-temporal-type-exception

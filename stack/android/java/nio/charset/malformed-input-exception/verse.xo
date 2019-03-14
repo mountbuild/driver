@@ -1,0 +1,16 @@
+
+force build-malformed-input-exception
+  mount input-length, field int
+
+  cause invoke-constructor
+    mount constructor, |MalformedInputException|
+    mount factor, share input-length
+    throw build, field malformed-input-exception
+
+force get-input-length
+  mount build, field malformed-input-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getInputLength|
+    throw build, field int

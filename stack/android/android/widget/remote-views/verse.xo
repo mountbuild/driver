@@ -1,0 +1,750 @@
+
+force get-extra-shared-element-bounds
+  mount build, field remote-views
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SHARED_ELEMENT_BOUNDS|
+    throw build, field string
+
+force build-remote-views
+  mount package-name, field string
+  mount layout-id, field int
+
+  cause invoke-constructor
+    drive constructor, |RemoteViews|
+    drive factor, share package-name
+    drive factor, share layout-id
+    throw build, field remote-views
+
+force build-remote-views
+  mount landscape, field remote-views
+  mount portrait, field remote-views
+
+  cause invoke-constructor
+    drive constructor, |RemoteViews|
+    drive factor, share landscape
+    drive factor, share portrait
+    throw build, field remote-views
+
+force build-remote-views
+  mount src, field remote-views
+
+  cause invoke-constructor
+    drive constructor, |RemoteViews|
+    drive factor, share src
+    throw build, field remote-views
+
+force build-remote-views
+  mount parcel, field parcel
+
+  cause invoke-constructor
+    drive constructor, |RemoteViews|
+    drive factor, share parcel
+    throw build, field remote-views
+
+force add-view
+  mount build, field remote-views
+  mount view-id, field int
+  mount nested-view, field remote-views
+
+  cause call-method
+    drive object, share build
+    drive method, |addView|
+    drive factor, share view-id
+    drive factor, share nested-view
+    throw build, field unit
+
+force apply
+  mount build, field remote-views
+  mount context, field context
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    drive factor, share context
+    drive factor, share parent
+    throw build, field view
+
+force clone
+  mount build, field remote-views
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field remote-views
+
+force describe-contents
+  mount build, field remote-views
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-layout-id
+  mount build, field remote-views
+
+  cause call-method
+    drive object, share build
+    drive method, |getLayoutId|
+    throw build, field int
+
+force get-package
+  mount build, field remote-views
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackage|
+    throw build, field string
+
+force on-load-class
+  mount build, field remote-views
+  mount clazz, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadClass|
+    drive factor, share clazz
+    throw build, field boolean
+
+force reapply
+  mount build, field remote-views
+  mount context, field context
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |reapply|
+    drive factor, share context
+    drive factor, share v
+    throw build, field unit
+
+force remove-all-views
+  mount build, field remote-views
+  mount view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllViews|
+    drive factor, share view-id
+    throw build, field unit
+
+force set-accessibility-traversal-after
+  mount build, field remote-views
+  mount view-id, field int
+  mount next-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccessibilityTraversalAfter|
+    drive factor, share view-id
+    drive factor, share next-id
+    throw build, field unit
+
+force set-accessibility-traversal-before
+  mount build, field remote-views
+  mount view-id, field int
+  mount next-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccessibilityTraversalBefore|
+    drive factor, share view-id
+    drive factor, share next-id
+    throw build, field unit
+
+force set-bitmap
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |setBitmap|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-boolean
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setBoolean|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-bundle
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setBundle|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-byte
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |setByte|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-char
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |setChar|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-char-sequence
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setCharSequence|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-chronometer
+  mount build, field remote-views
+  mount view-id, field int
+  mount base, field long
+  mount format, field string
+  mount started, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setChronometer|
+    drive factor, share view-id
+    drive factor, share base
+    drive factor, share format
+    drive factor, share started
+    throw build, field unit
+
+force set-chronometer-count-down
+  mount build, field remote-views
+  mount view-id, field int
+  mount is-count-down, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setChronometerCountDown|
+    drive factor, share view-id
+    drive factor, share is-count-down
+    throw build, field unit
+
+force set-content-description
+  mount build, field remote-views
+  mount view-id, field int
+  mount content-description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentDescription|
+    drive factor, share view-id
+    drive factor, share content-description
+    throw build, field unit
+
+force set-displayed-child
+  mount build, field remote-views
+  mount view-id, field int
+  mount child-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDisplayedChild|
+    drive factor, share view-id
+    drive factor, share child-index
+    throw build, field unit
+
+force set-double
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setDouble|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-empty-view
+  mount build, field remote-views
+  mount view-id, field int
+  mount empty-view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEmptyView|
+    drive factor, share view-id
+    drive factor, share empty-view-id
+    throw build, field unit
+
+force set-float
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setFloat|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-icon
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field icon
+
+  cause call-method
+    drive object, share build
+    drive method, |setIcon|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-image-view-bitmap
+  mount build, field remote-views
+  mount view-id, field int
+  mount bitmap, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |setImageViewBitmap|
+    drive factor, share view-id
+    drive factor, share bitmap
+    throw build, field unit
+
+force set-image-view-icon
+  mount build, field remote-views
+  mount view-id, field int
+  mount icon, field icon
+
+  cause call-method
+    drive object, share build
+    drive method, |setImageViewIcon|
+    drive factor, share view-id
+    drive factor, share icon
+    throw build, field unit
+
+force set-image-view-resource
+  mount build, field remote-views
+  mount view-id, field int
+  mount src-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setImageViewResource|
+    drive factor, share view-id
+    drive factor, share src-id
+    throw build, field unit
+
+force set-image-view-uri
+  mount build, field remote-views
+  mount view-id, field int
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setImageViewUri|
+    drive factor, share view-id
+    drive factor, share uri
+    throw build, field unit
+
+force set-int
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInt|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-intent
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setIntent|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-label-for
+  mount build, field remote-views
+  mount view-id, field int
+  mount labeled-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLabelFor|
+    drive factor, share view-id
+    drive factor, share labeled-id
+    throw build, field unit
+
+force set-light-background-layout-id
+  mount build, field remote-views
+  mount layout-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLightBackgroundLayoutId|
+    drive factor, share layout-id
+    throw build, field unit
+
+force set-long
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setLong|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-on-click-fill-in-intent
+  mount build, field remote-views
+  mount view-id, field int
+  mount fill-in-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnClickFillInIntent|
+    drive factor, share view-id
+    drive factor, share fill-in-intent
+    throw build, field unit
+
+force set-on-click-pending-intent
+  mount build, field remote-views
+  mount view-id, field int
+  mount pending-intent, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnClickPendingIntent|
+    drive factor, share view-id
+    drive factor, share pending-intent
+    throw build, field unit
+
+force set-on-click-response
+  mount build, field remote-views
+  mount view-id, field int
+  mount response, field remote-views-remote-response
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnClickResponse|
+    drive factor, share view-id
+    drive factor, share response
+    throw build, field unit
+
+force set-pending-intent-template
+  mount build, field remote-views
+  mount view-id, field int
+  mount pending-intent-template, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setPendingIntentTemplate|
+    drive factor, share view-id
+    drive factor, share pending-intent-template
+    throw build, field unit
+
+force set-progress-bar
+  mount build, field remote-views
+  mount view-id, field int
+  mount max, field int
+  mount progress, field int
+  mount indeterminate, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setProgressBar|
+    drive factor, share view-id
+    drive factor, share max
+    drive factor, share progress
+    drive factor, share indeterminate
+    throw build, field unit
+
+force set-relative-scroll-position
+  mount build, field remote-views
+  mount view-id, field int
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRelativeScrollPosition|
+    drive factor, share view-id
+    drive factor, share offset
+    throw build, field unit
+
+force set-remote-adapter
+  mount build, field remote-views
+  mount app-widget-id, field int
+  mount view-id, field int
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setRemoteAdapter|
+    drive factor, share app-widget-id
+    drive factor, share view-id
+    drive factor, share intent
+    throw build, field unit
+
+force set-remote-adapter
+  mount build, field remote-views
+  mount view-id, field int
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setRemoteAdapter|
+    drive factor, share view-id
+    drive factor, share intent
+    throw build, field unit
+
+force set-scroll-position
+  mount build, field remote-views
+  mount view-id, field int
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setScrollPosition|
+    drive factor, share view-id
+    drive factor, share position
+    throw build, field unit
+
+force set-short
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setShort|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-string
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setString|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-text-color
+  mount build, field remote-views
+  mount view-id, field int
+  mount color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextColor|
+    drive factor, share view-id
+    drive factor, share color
+    throw build, field unit
+
+force set-text-view-compound-drawables
+  mount build, field remote-views
+  mount view-id, field int
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextViewCompoundDrawables|
+    drive factor, share view-id
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    throw build, field unit
+
+force set-text-view-compound-drawables-relative
+  mount build, field remote-views
+  mount view-id, field int
+  mount start, field int
+  mount top, field int
+  mount end, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextViewCompoundDrawablesRelative|
+    drive factor, share view-id
+    drive factor, share start
+    drive factor, share top
+    drive factor, share end
+    drive factor, share bottom
+    throw build, field unit
+
+force set-text-view-text
+  mount build, field remote-views
+  mount view-id, field int
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextViewText|
+    drive factor, share view-id
+    drive factor, share text
+    throw build, field unit
+
+force set-text-view-text-size
+  mount build, field remote-views
+  mount view-id, field int
+  mount units, field int
+  mount size, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextViewTextSize|
+    drive factor, share view-id
+    drive factor, share units
+    drive factor, share size
+    throw build, field unit
+
+force set-uri
+  mount build, field remote-views
+  mount view-id, field int
+  mount method-name, field string
+  mount value, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setUri|
+    drive factor, share view-id
+    drive factor, share method-name
+    drive factor, share value
+    throw build, field unit
+
+force set-view-padding
+  mount build, field remote-views
+  mount view-id, field int
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewPadding|
+    drive factor, share view-id
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    throw build, field unit
+
+force set-view-visibility
+  mount build, field remote-views
+  mount view-id, field int
+  mount visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewVisibility|
+    drive factor, share view-id
+    drive factor, share visibility
+    throw build, field unit
+
+force show-next
+  mount build, field remote-views
+  mount view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showNext|
+    drive factor, share view-id
+    throw build, field unit
+
+force show-previous
+  mount build, field remote-views
+  mount view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showPrevious|
+    drive factor, share view-id
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field remote-views
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

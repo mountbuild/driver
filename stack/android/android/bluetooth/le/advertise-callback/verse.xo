@@ -1,0 +1,65 @@
+
+force get-advertise-failed-already-started
+  mount build, field advertise-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_ALREADY_STARTED|
+    throw build, field int
+
+force get-advertise-failed-data-too-large
+  mount build, field advertise-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_DATA_TOO_LARGE|
+    throw build, field int
+
+force get-advertise-failed-feature-unsupported
+  mount build, field advertise-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_FEATURE_UNSUPPORTED|
+    throw build, field int
+
+force get-advertise-failed-internal-error
+  mount build, field advertise-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_INTERNAL_ERROR|
+    throw build, field int
+
+force get-advertise-failed-too-many-advertisers
+  mount build, field advertise-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_TOO_MANY_ADVERTISERS|
+    throw build, field int
+
+force build-advertise-callback
+  cause invoke-constructor
+    drive constructor, |AdvertiseCallback|
+    throw build, field advertise-callback
+
+force on-start-failure
+  mount build, field advertise-callback
+  mount error-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartFailure|
+    drive factor, share error-code
+    throw build, field unit
+
+force on-start-success
+  mount build, field advertise-callback
+  mount settings-in-effect, field advertise-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartSuccess|
+    drive factor, share settings-in-effect
+    throw build, field unit

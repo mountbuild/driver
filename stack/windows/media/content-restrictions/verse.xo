@@ -1,0 +1,202 @@
+
+force get-content-access-restriction-level
+  cause get-object
+    drive aspect, |Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel|
+
+force build-content-restrictions-browse-policy
+  cause invoke-constructor
+    drive constructor, |Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy|
+
+force get-geographic-region
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |GeographicRegion|
+
+force set-geographic-region
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |GeographicRegion|
+    drive factor, share value
+
+force get-max-browsable-age-rating
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxBrowsableAgeRating|
+
+force set-max-browsable-age-rating
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxBrowsableAgeRating|
+    drive factor, share value
+
+force get-preferred-age-rating
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PreferredAgeRating|
+
+force set-preferred-age-rating
+  start build, field windows-media-contentrestrictions-contentrestrictionsbrowsepolicy
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PreferredAgeRating|
+    drive factor, share value
+
+force get-rated-content-category
+  cause get-object
+    drive aspect, |Windows.Media.ContentRestrictions.RatedContentCategory|
+
+force build-rated-content-description
+  cause invoke-constructor
+    drive constructor, |Windows.Media.ContentRestrictions.RatedContentDescription|
+
+force get-category
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force get-id
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-image
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Image|
+
+force set-image
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Image|
+    drive factor, share value
+
+force ctor
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start id, field system-string
+  start title, field system-string
+  start category, field windows-media-contentrestrictions-ratedcontentcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share id
+    drive factor, share title
+    drive factor, share category
+
+force get-ratings
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ratings|
+
+force set-ratings
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ratings|
+    drive factor, share value
+
+force get-title
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Title|
+
+force set-title
+  start build, field windows-media-contentrestrictions-ratedcontentdescription
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Title|
+    drive factor, share value
+
+force build-rated-content-restrictions
+  cause invoke-constructor
+    drive constructor, |Windows.Media.ContentRestrictions.RatedContentRestrictions|
+
+force get-browse-policy-async
+  start build, field windows-media-contentrestrictions-ratedcontentrestrictions
+
+  cause call-method
+    drive object, share build
+    drive method, |GetBrowsePolicyAsync|
+
+force get-restriction-level-async
+  start build, field windows-media-contentrestrictions-ratedcontentrestrictions
+  start rated-content-description, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause call-method
+    drive object, share build
+    drive method, |GetRestrictionLevelAsync|
+    drive factor, share rated-content-description
+
+force ctor
+  start build, field windows-media-contentrestrictions-ratedcontentrestrictions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ctor
+  start build, field windows-media-contentrestrictions-ratedcontentrestrictions
+  start max-age-rating, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share max-age-rating
+
+force request-content-access-async
+  start build, field windows-media-contentrestrictions-ratedcontentrestrictions
+  start rated-content-description, field windows-media-contentrestrictions-ratedcontentdescription
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestContentAccessAsync|
+    drive factor, share rated-content-description

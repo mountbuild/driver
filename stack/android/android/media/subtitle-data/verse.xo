@@ -1,0 +1,46 @@
+
+force build-subtitle-data
+  mount track-index, field int
+  mount start-time-us, field long
+  mount duration-us, field long
+  mount data, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |SubtitleData|
+    drive factor, share track-index
+    drive factor, share start-time-us
+    drive factor, share duration-us
+    drive factor, share data
+    raise build, field subtitle-data
+
+force get-data
+  mount build, field subtitle-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    raise build, field byte-array
+
+force get-duration-us
+  mount build, field subtitle-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getDurationUs|
+    raise build, field long
+
+force get-start-time-us
+  mount build, field subtitle-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartTimeUs|
+    raise build, field long
+
+force get-track-index
+  mount build, field subtitle-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrackIndex|
+    raise build, field int

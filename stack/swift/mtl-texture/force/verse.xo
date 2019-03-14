@@ -1,0 +1,627 @@
+force replace
+  field build, field mtl-texture
+  field region, field mtl-region
+  field mipmap-level, field int
+  field slice, field int
+  field with-bytes, field unsafe-raw-pointer
+  field bytes-per-row, field int
+  field bytes-per-image, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |replace|
+    mount factor
+      brand region
+      share region
+    mount factor
+      brand mipmap-level
+      share mipmap-level
+    mount factor
+      brand slice
+      share slice
+    mount factor
+      brand with-bytes
+      share with-bytes
+    mount factor
+      brand bytes-per-row
+      share bytes-per-row
+    mount factor
+      brand bytes-per-image
+      share bytes-per-image
+
+force replace
+  field build, field mtl-texture
+  field region, field mtl-region
+  field mipmap-level, field int
+  field with-bytes, field unsafe-raw-pointer
+  field bytes-per-row, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |replace|
+    mount factor
+      brand region
+      share region
+    mount factor
+      brand mipmap-level
+      share mipmap-level
+    mount factor
+      brand with-bytes
+      share with-bytes
+    mount factor
+      brand bytes-per-row
+      share bytes-per-row
+
+force get-bytes
+  field build, field mtl-texture
+  field a, class unsafe-mutable-raw-pointer
+  field bytes-per-row, field int
+  field bytes-per-image, field int
+  field from, field mtl-region
+  field mipmap-level, field int
+  field slice, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getBytes|
+    mount factor, share a
+    mount factor
+      brand bytes-per-row
+      share bytes-per-row
+    mount factor
+      brand bytes-per-image
+      share bytes-per-image
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand mipmap-level
+      share mipmap-level
+    mount factor
+      brand slice
+      share slice
+
+force get-bytes
+  field build, field mtl-texture
+  field a, class unsafe-mutable-raw-pointer
+  field bytes-per-row, field int
+  field from, field mtl-region
+  field mipmap-level, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getBytes|
+    mount factor, share a
+    mount factor
+      brand bytes-per-row
+      share bytes-per-row
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand mipmap-level
+      share mipmap-level
+
+force make-texture-view
+  field build, field mtl-texture
+  field pixel-format, field mtl-pixel-format
+
+  cause call-method
+    mount object, share build
+    mount method, |makeTextureView|
+    mount factor
+      brand pixel-format
+      share pixel-format
+    raise build, class mtl-texture
+
+force make-texture-view
+  field build, field mtl-texture
+  field pixel-format, field mtl-pixel-format
+  field texture-type, field mtl-texture-type
+  field levels, field range-int
+  field slices, field range-int
+
+  cause call-method
+    mount object, share build
+    mount method, |makeTextureView|
+    mount factor
+      brand pixel-format
+      share pixel-format
+    mount factor
+      brand texture-type
+      share texture-type
+    mount factor
+      brand levels
+      share levels
+    mount factor
+      brand slices
+      share slices
+    raise build, class mtl-texture
+
+force make-texture-view
+  field build, field mtl-texture
+  field pixel-format, field mtl-pixel-format
+  field texture-type, field mtl-texture-type
+  field levels, field range-int
+  field slices, field range-int
+  field swizzle, field mtl-texture-swizzle-channels
+
+  cause call-method
+    mount object, share build
+    mount method, |makeTextureView|
+    mount factor
+      brand pixel-format
+      share pixel-format
+    mount factor
+      brand texture-type
+      share texture-type
+    mount factor
+      brand levels
+      share levels
+    mount factor
+      brand slices
+      share slices
+    mount factor
+      brand swizzle
+      share swizzle
+    raise build, class mtl-texture
+
+force get-texture-type
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |textureType|
+    raise build, field mtl-texture-type
+
+force set-texture-type
+  field build, field mtl-texture
+  field value, field mtl-texture-type
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |textureType|
+    mount factor, share value
+
+force get-pixel-format
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pixelFormat|
+    raise build, field mtl-pixel-format
+
+force set-pixel-format
+  field build, field mtl-texture
+  field value, field mtl-pixel-format
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |pixelFormat|
+    mount factor, share value
+
+force get-width
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |width|
+    raise build, field int
+
+force set-width
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |width|
+    mount factor, share value
+
+force get-height
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |height|
+    raise build, field int
+
+force set-height
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |height|
+    mount factor, share value
+
+force get-depth
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |depth|
+    raise build, field int
+
+force set-depth
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |depth|
+    mount factor, share value
+
+force get-mipmap-level-count
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mipmapLevelCount|
+    raise build, field int
+
+force set-mipmap-level-count
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |mipmapLevelCount|
+    mount factor, share value
+
+force get-array-length
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |arrayLength|
+    raise build, field int
+
+force set-array-length
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |arrayLength|
+    mount factor, share value
+
+force get-sample-count
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sampleCount|
+    raise build, field int
+
+force set-sample-count
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |sampleCount|
+    mount factor, share value
+
+force get-is-framebuffer-only
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isFramebufferOnly|
+    raise build, field bool
+
+force set-is-framebuffer-only
+  field build, field mtl-texture
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isFramebufferOnly|
+    mount factor, share value
+
+force get-usage
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |usage|
+    raise build, field mtl-texture-usage
+
+force set-usage
+  field build, field mtl-texture
+  field value, field mtl-texture-usage
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |usage|
+    mount factor, share value
+
+force get-allow-gpu-optimized-contents
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |allowGPUOptimizedContents|
+    raise build, field bool
+
+force set-allow-gpu-optimized-contents
+  field build, field mtl-texture
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |allowGPUOptimizedContents|
+    mount factor, share value
+
+force get-is-shareable
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isShareable|
+    raise build, field bool
+
+force set-is-shareable
+  field build, field mtl-texture
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isShareable|
+    mount factor, share value
+
+force get-swizzle
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |swizzle|
+    raise build, field mtl-texture-swizzle-channels
+
+force set-swizzle
+  field build, field mtl-texture
+  field value, field mtl-texture-swizzle-channels
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |swizzle|
+    mount factor, share value
+
+force get-iosurface
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |iosurface|
+    raise build, field io-surface-ref
+
+force set-iosurface
+  field build, field mtl-texture
+  field value, field io-surface-ref
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |iosurface|
+    mount factor, share value
+
+force get-iosurface-plane
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |iosurfacePlane|
+    raise build, field int
+
+force set-iosurface-plane
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |iosurfacePlane|
+    mount factor, share value
+
+force get-parent
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |parent|
+    raise build, field mtl-texture
+
+force set-parent
+  field build, field mtl-texture
+  field value, field mtl-texture
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |parent|
+    mount factor, share value
+
+force get-parent-relative-level
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |parentRelativeLevel|
+    raise build, field int
+
+force set-parent-relative-level
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |parentRelativeLevel|
+    mount factor, share value
+
+force get-parent-relative-slice
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |parentRelativeSlice|
+    raise build, field int
+
+force set-parent-relative-slice
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |parentRelativeSlice|
+    mount factor, share value
+
+force get-buffer
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |buffer|
+    raise build, field mtl-buffer
+
+force set-buffer
+  field build, field mtl-texture
+  field value, field mtl-buffer
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |buffer|
+    mount factor, share value
+
+force get-buffer-offset
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |bufferOffset|
+    raise build, field int
+
+force set-buffer-offset
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |bufferOffset|
+    mount factor, share value
+
+force get-buffer-bytes-per-row
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |bufferBytesPerRow|
+    raise build, field int
+
+force set-buffer-bytes-per-row
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |bufferBytesPerRow|
+    mount factor, share value
+
+force get-root-resource
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rootResource|
+    raise build, field mtl-resource
+
+force set-root-resource
+  field build, field mtl-texture
+  field value, field mtl-resource
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |rootResource|
+    mount factor, share value
+
+force make-shared-texture-handle
+  field build, field mtl-texture
+
+  cause call-method
+    mount object, share build
+    mount method, |makeSharedTextureHandle|
+    raise build, class mtl-shared-texture-handle
+
+force make-remote-texture-view
+  field build, field mtl-texture
+  field a, class mtl-device
+
+  cause call-method
+    mount object, share build
+    mount method, |makeRemoteTextureView|
+    mount factor, share a
+    raise build, class mtl-texture
+
+force get-remote-storage-texture
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |remoteStorageTexture|
+    raise build, field mtl-texture
+
+force set-remote-storage-texture
+  field build, field mtl-texture
+  field value, field mtl-texture
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |remoteStorageTexture|
+    mount factor, share value
+
+force get-is-sparse
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isSparse|
+    raise build, field bool
+
+force set-is-sparse
+  field build, field mtl-texture
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isSparse|
+    mount factor, share value
+
+force get-first-mipmap-in-tail
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |firstMipmapInTail|
+    raise build, field int
+
+force set-first-mipmap-in-tail
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |firstMipmapInTail|
+    mount factor, share value
+
+force get-tail-size-in-bytes
+  field build, field mtl-texture
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tailSizeInBytes|
+    raise build, field int
+
+force set-tail-size-in-bytes
+  field build, field mtl-texture
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |tailSizeInBytes|
+    mount factor, share value

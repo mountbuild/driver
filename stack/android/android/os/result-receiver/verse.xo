@@ -1,0 +1,40 @@
+
+force build-result-receiver
+  mount handler, field handler
+
+  cause invoke-constructor
+    drive constructor, |ResultReceiver|
+    drive factor, share handler
+    raise build, field result-receiver
+
+force describe-contents
+  mount build, field result-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force send
+  mount build, field result-receiver
+  mount result-code, field int
+  mount result-data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share result-code
+    drive factor, share result-data
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field result-receiver
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

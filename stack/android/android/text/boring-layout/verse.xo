@@ -1,0 +1,346 @@
+
+force build-boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outerwidth, field int
+  mount align, field layout-alignment
+  mount spacing-mult, field float
+  mount spacing-add, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+
+  cause invoke-constructor
+    drive constructor, |BoringLayout|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outerwidth
+    drive factor, share align
+    drive factor, share spacing-mult
+    drive factor, share spacing-add
+    drive factor, share metrics
+    drive factor, share include-pad
+    raise build, field boring-layout
+
+force build-boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outer-width, field int
+  mount align, field layout-alignment
+  mount spacing-mult, field float
+  mount spacing-add, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+  mount ellipsize, field text-utils-truncate-at
+  mount ellipsized-width, field int
+
+  cause invoke-constructor
+    drive constructor, |BoringLayout|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outer-width
+    drive factor, share align
+    drive factor, share spacing-mult
+    drive factor, share spacing-add
+    drive factor, share metrics
+    drive factor, share include-pad
+    drive factor, share ellipsize
+    drive factor, share ellipsized-width
+    raise build, field boring-layout
+
+force draw
+  mount build, field boring-layout
+  mount c, field canvas
+  mount highlight, field path
+  mount highlightpaint, field paint
+  mount cursor-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share c
+    drive factor, share highlight
+    drive factor, share highlightpaint
+    drive factor, share cursor-offset
+    raise build, field unit
+
+force ellipsized
+  mount build, field boring-layout
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ellipsized|
+    drive factor, share start
+    drive factor, share end
+    raise build, field unit
+
+force get-bottom-padding
+  mount build, field boring-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getBottomPadding|
+    raise build, field int
+
+force get-ellipsis-count
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsisCount|
+    drive factor, share line
+    raise build, field int
+
+force get-ellipsis-start
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsisStart|
+    drive factor, share line
+    raise build, field int
+
+force get-ellipsized-width
+  mount build, field boring-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsizedWidth|
+    raise build, field int
+
+force get-height
+  mount build, field boring-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-line-contains-tab
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineContainsTab|
+    drive factor, share line
+    raise build, field boolean
+
+force get-line-count
+  mount build, field boring-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineCount|
+    raise build, field int
+
+force get-line-descent
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineDescent|
+    drive factor, share line
+    raise build, field int
+
+force get-line-directions
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineDirections|
+    drive factor, share line
+    raise build, field layout-directions
+
+force get-line-max
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineMax|
+    drive factor, share line
+    raise build, field float
+
+force get-line-start
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineStart|
+    drive factor, share line
+    raise build, field int
+
+force get-line-top
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineTop|
+    drive factor, share line
+    raise build, field int
+
+force get-line-width
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineWidth|
+    drive factor, share line
+    raise build, field float
+
+force get-paragraph-direction
+  mount build, field boring-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphDirection|
+    drive factor, share line
+    raise build, field int
+
+force get-top-padding
+  mount build, field boring-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getTopPadding|
+    raise build, field int
+
+force is-boring
+  mount build, field boring-layout
+  mount text, field char-sequence
+  mount paint, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |isBoring|
+    drive factor, share text
+    drive factor, share paint
+    raise build, field boring-layout-metrics
+
+force is-boring
+  mount build, field boring-layout
+  mount text, field char-sequence
+  mount paint, field text-paint
+  mount metrics, field boring-layout-metrics
+
+  cause call-method
+    drive object, share build
+    drive method, |isBoring|
+    drive factor, share text
+    drive factor, share paint
+    drive factor, share metrics
+    raise build, field boring-layout-metrics
+
+force make
+  mount build, field boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outer-width, field int
+  mount align, field layout-alignment
+  mount spacing-mult, field float
+  mount spacing-add, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |make|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outer-width
+    drive factor, share align
+    drive factor, share spacing-mult
+    drive factor, share spacing-add
+    drive factor, share metrics
+    drive factor, share include-pad
+    raise build, field boring-layout
+
+force make
+  mount build, field boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outer-width, field int
+  mount align, field layout-alignment
+  mount spacingmult, field float
+  mount spacingadd, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+  mount ellipsize, field text-utils-truncate-at
+  mount ellipsized-width, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |make|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outer-width
+    drive factor, share align
+    drive factor, share spacingmult
+    drive factor, share spacingadd
+    drive factor, share metrics
+    drive factor, share include-pad
+    drive factor, share ellipsize
+    drive factor, share ellipsized-width
+    raise build, field boring-layout
+
+force replace-or-make
+  mount build, field boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outerwidth, field int
+  mount align, field layout-alignment
+  mount spacing-mult, field float
+  mount spacing-add, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceOrMake|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outerwidth
+    drive factor, share align
+    drive factor, share spacing-mult
+    drive factor, share spacing-add
+    drive factor, share metrics
+    drive factor, share include-pad
+    raise build, field boring-layout
+
+force replace-or-make
+  mount build, field boring-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount outer-width, field int
+  mount align, field layout-alignment
+  mount spacing-mult, field float
+  mount spacing-add, field float
+  mount metrics, field boring-layout-metrics
+  mount include-pad, field boolean
+  mount ellipsize, field text-utils-truncate-at
+  mount ellipsized-width, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceOrMake|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share outer-width
+    drive factor, share align
+    drive factor, share spacing-mult
+    drive factor, share spacing-add
+    drive factor, share metrics
+    drive factor, share include-pad
+    drive factor, share ellipsize
+    drive factor, share ellipsized-width
+    raise build, field boring-layout

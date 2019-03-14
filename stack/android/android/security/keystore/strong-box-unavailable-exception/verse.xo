@@ -1,0 +1,31 @@
+
+force build-strong-box-unavailable-exception
+  cause invoke-constructor
+    drive constructor, |StrongBoxUnavailableException|
+    throw build, field strong-box-unavailable-exception
+
+force build-strong-box-unavailable-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |StrongBoxUnavailableException|
+    drive factor, share message
+    throw build, field strong-box-unavailable-exception
+
+force build-strong-box-unavailable-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |StrongBoxUnavailableException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field strong-box-unavailable-exception
+
+force build-strong-box-unavailable-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |StrongBoxUnavailableException|
+    drive factor, share cause
+    throw build, field strong-box-unavailable-exception

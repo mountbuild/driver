@@ -1,0 +1,361 @@
+
+force get-extra-wapi-as-certificate-data
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WAPI_AS_CERTIFICATE_DATA|
+    throw build, field string
+
+force get-extra-wapi-as-certificate-name
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WAPI_AS_CERTIFICATE_NAME|
+    throw build, field string
+
+force get-extra-wapi-user-certificate-data
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WAPI_USER_CERTIFICATE_DATA|
+    throw build, field string
+
+force get-extra-wapi-user-certificate-name
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WAPI_USER_CERTIFICATE_NAME|
+    throw build, field string
+
+force get-wapi-as-certificate
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |WAPI_AS_CERTIFICATE|
+    throw build, field string
+
+force get-wapi-user-certificate
+  mount build, field wifi-enterprise-config
+
+  cause get-property
+    drive object, share build
+    drive property, |WAPI_USER_CERTIFICATE|
+    throw build, field string
+
+force build-wifi-enterprise-config
+  cause invoke-constructor
+    drive constructor, |WifiEnterpriseConfig|
+    throw build, field wifi-enterprise-config
+
+force build-wifi-enterprise-config
+  mount source, field wifi-enterprise-config
+
+  cause invoke-constructor
+    drive constructor, |WifiEnterpriseConfig|
+    drive factor, share source
+    throw build, field wifi-enterprise-config
+
+force describe-contents
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-alt-subject-match
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getAltSubjectMatch|
+    throw build, field string
+
+force get-anonymous-identity
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnonymousIdentity|
+    throw build, field string
+
+force get-ca-certificate
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getCaCertificate|
+    throw build, field x509-certificate
+
+force get-ca-certificates
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getCaCertificates|
+    throw build, field array
+
+force get-client-certificate
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientCertificate|
+    throw build, field x509-certificate
+
+force get-client-certificate-chain
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientCertificateChain|
+    throw build, field array
+
+force get-client-private-key
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientPrivateKey|
+    throw build, field private-key
+
+force get-domain-suffix-match
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getDomainSuffixMatch|
+    throw build, field string
+
+force get-eap-method
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getEapMethod|
+    throw build, field int
+
+force get-identity
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getIdentity|
+    throw build, field string
+
+force get-password
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getPassword|
+    throw build, field string
+
+force get-phase2-method
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhase2Method|
+    throw build, field int
+
+force get-plmn
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getPlmn|
+    throw build, field string
+
+force get-realm
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getRealm|
+    throw build, field string
+
+force get-subject-match
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubjectMatch|
+    throw build, field string
+
+force is-authentication-sim-based
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |isAuthenticationSimBased|
+    throw build, field boolean
+
+force set-alt-subject-match
+  mount build, field wifi-enterprise-config
+  mount alt-subject-match, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAltSubjectMatch|
+    drive factor, share alt-subject-match
+    throw build, field unit
+
+force set-anonymous-identity
+  mount build, field wifi-enterprise-config
+  mount anonymous-identity, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAnonymousIdentity|
+    drive factor, share anonymous-identity
+    throw build, field unit
+
+force set-ca-certificate
+  mount build, field wifi-enterprise-config
+  mount cert, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |setCaCertificate|
+    drive factor, share cert
+    throw build, field unit
+
+force set-ca-certificates
+  mount build, field wifi-enterprise-config
+  mount certs, field array-x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |setCaCertificates|
+    drive factor, share certs
+    throw build, field unit
+
+force set-client-key-entry
+  mount build, field wifi-enterprise-config
+  mount private-key, field private-key
+  mount client-certificate, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |setClientKeyEntry|
+    drive factor, share private-key
+    drive factor, share client-certificate
+    throw build, field unit
+
+force set-client-key-entry-with-certificate-chain
+  mount build, field wifi-enterprise-config
+  mount private-key, field private-key
+  mount client-certificate-chain, field array-x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |setClientKeyEntryWithCertificateChain|
+    drive factor, share private-key
+    drive factor, share client-certificate-chain
+    throw build, field unit
+
+force set-domain-suffix-match
+  mount build, field wifi-enterprise-config
+  mount domain, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDomainSuffixMatch|
+    drive factor, share domain
+    throw build, field unit
+
+force set-eap-method
+  mount build, field wifi-enterprise-config
+  mount eap-method, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEapMethod|
+    drive factor, share eap-method
+    throw build, field unit
+
+force set-identity
+  mount build, field wifi-enterprise-config
+  mount identity, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setIdentity|
+    drive factor, share identity
+    throw build, field unit
+
+force set-password
+  mount build, field wifi-enterprise-config
+  mount password, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPassword|
+    drive factor, share password
+    throw build, field unit
+
+force set-phase2-method
+  mount build, field wifi-enterprise-config
+  mount phase2-method, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPhase2Method|
+    drive factor, share phase2-method
+    throw build, field unit
+
+force set-plmn
+  mount build, field wifi-enterprise-config
+  mount plmn, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlmn|
+    drive factor, share plmn
+    throw build, field unit
+
+force set-realm
+  mount build, field wifi-enterprise-config
+  mount realm, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setRealm|
+    drive factor, share realm
+    throw build, field unit
+
+force set-subject-match
+  mount build, field wifi-enterprise-config
+  mount subject-match, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSubjectMatch|
+    drive factor, share subject-match
+    throw build, field unit
+
+force to-string
+  mount build, field wifi-enterprise-config
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-enterprise-config
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

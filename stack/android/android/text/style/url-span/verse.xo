@@ -1,0 +1,62 @@
+
+force build-url-span
+  mount url, field string
+
+  cause invoke-constructor
+    drive constructor, |URLSpan|
+    drive factor, share url
+    raise build, field url-span
+
+force build-url-span
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |URLSpan|
+    drive factor, share src
+    raise build, field url-span
+
+force describe-contents
+  mount build, field url-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-span-type-id
+  mount build, field url-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force get-url
+  mount build, field url-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getURL|
+    raise build, field string
+
+force on-click
+  mount build, field url-span
+  mount widget, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |onClick|
+    drive factor, share widget
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field url-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,504 @@
+
+force get-hide-implicit-only
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |HIDE_IMPLICIT_ONLY|
+    raise build, field int
+
+force get-hide-not-always
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |HIDE_NOT_ALWAYS|
+    throw build, field int
+
+force get-result-hidden
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_HIDDEN|
+    throw build, field int
+
+force get-result-shown
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_SHOWN|
+    throw build, field int
+
+force get-result-unchanged-hidden
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_UNCHANGED_HIDDEN|
+    throw build, field int
+
+force get-result-unchanged-shown
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_UNCHANGED_SHOWN|
+    throw build, field int
+
+force get-show-forced
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |SHOW_FORCED|
+    throw build, field int
+
+force get-show-implicit
+  mount build, field input-method-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |SHOW_IMPLICIT|
+    throw build, field int
+
+force dispatch-key-event-from-input-method
+  mount build, field input-method-manager
+  mount target-view, field view
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchKeyEventFromInputMethod|
+    drive factor, share target-view
+    drive factor, share event
+    throw build, field unit
+
+force display-completions
+  mount build, field input-method-manager
+  mount view, field view
+  mount completions, field array-completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |displayCompletions|
+    drive factor, share view
+    drive factor, share completions
+    throw build, field unit
+
+force get-current-input-method-subtype
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentInputMethodSubtype|
+    throw build, field input-method-subtype
+
+force get-enabled-input-method-list
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnabledInputMethodList|
+    throw build, field mutable-list
+
+force get-enabled-input-method-subtype-list
+  mount build, field input-method-manager
+  mount imi, field input-method-info
+  mount allows-implicitly-selected-subtypes, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnabledInputMethodSubtypeList|
+    drive factor, share imi
+    drive factor, share allows-implicitly-selected-subtypes
+    throw build, field mutable-list
+
+force get-input-method-list
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputMethodList|
+    throw build, field mutable-list
+
+force get-last-input-method-subtype
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLastInputMethodSubtype|
+    throw build, field input-method-subtype
+
+force get-shortcut-input-methods-and-subtypes
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcutInputMethodsAndSubtypes|
+    throw build, field mutable-map
+
+force hide-soft-input-from-input-method
+  mount build, field input-method-manager
+  mount token, field i-binder
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hideSoftInputFromInputMethod|
+    drive factor, share token
+    drive factor, share flags
+    throw build, field unit
+
+force hide-soft-input-from-window
+  mount build, field input-method-manager
+  mount window-token, field i-binder
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hideSoftInputFromWindow|
+    drive factor, share window-token
+    drive factor, share flags
+    throw build, field boolean
+
+force hide-soft-input-from-window
+  mount build, field input-method-manager
+  mount window-token, field i-binder
+  mount flags, field int
+  mount result-receiver, field result-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |hideSoftInputFromWindow|
+    drive factor, share window-token
+    drive factor, share flags
+    drive factor, share result-receiver
+    throw build, field boolean
+
+force hide-status-icon
+  mount build, field input-method-manager
+  mount ime-token, field i-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |hideStatusIcon|
+    drive factor, share ime-token
+    throw build, field unit
+
+force is-accepting-text
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAcceptingText|
+    throw build, field boolean
+
+force is-active
+  mount build, field input-method-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |isActive|
+    drive factor, share view
+    throw build, field boolean
+
+force is-active
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isActive|
+    throw build, field boolean
+
+force is-fullscreen-mode
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isFullscreenMode|
+    throw build, field boolean
+
+force is-watching-cursor
+  mount build, field input-method-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |isWatchingCursor|
+    drive factor, share view
+    throw build, field boolean
+
+force restart-input
+  mount build, field input-method-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |restartInput|
+    drive factor, share view
+    throw build, field unit
+
+force send-app-private-command
+  mount build, field input-method-manager
+  mount view, field view
+  mount action, field string
+  mount data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAppPrivateCommand|
+    drive factor, share view
+    drive factor, share action
+    drive factor, share data
+    throw build, field unit
+
+force set-additional-input-method-subtypes
+  mount build, field input-method-manager
+  mount imi-id, field string
+  mount subtypes, field array-input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |setAdditionalInputMethodSubtypes|
+    drive factor, share imi-id
+    drive factor, share subtypes
+    throw build, field unit
+
+force set-current-input-method-subtype
+  mount build, field input-method-manager
+  mount subtype, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrentInputMethodSubtype|
+    drive factor, share subtype
+    throw build, field boolean
+
+force set-input-method
+  mount build, field input-method-manager
+  mount token, field i-binder
+  mount id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputMethod|
+    drive factor, share token
+    drive factor, share id
+    throw build, field unit
+
+force set-input-method-and-subtype
+  mount build, field input-method-manager
+  mount token, field i-binder
+  mount id, field string
+  mount subtype, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputMethodAndSubtype|
+    drive factor, share token
+    drive factor, share id
+    drive factor, share subtype
+    throw build, field unit
+
+force should-offer-switching-to-next-input-method
+  mount build, field input-method-manager
+  mount ime-token, field i-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldOfferSwitchingToNextInputMethod|
+    drive factor, share ime-token
+    throw build, field boolean
+
+force show-input-method-and-subtype-enabler
+  mount build, field input-method-manager
+  mount imi-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |showInputMethodAndSubtypeEnabler|
+    drive factor, share imi-id
+    throw build, field unit
+
+force show-input-method-picker
+  mount build, field input-method-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |showInputMethodPicker|
+    throw build, field unit
+
+force show-soft-input
+  mount build, field input-method-manager
+  mount view, field view
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showSoftInput|
+    drive factor, share view
+    drive factor, share flags
+    throw build, field boolean
+
+force show-soft-input
+  mount build, field input-method-manager
+  mount view, field view
+  mount flags, field int
+  mount result-receiver, field result-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |showSoftInput|
+    drive factor, share view
+    drive factor, share flags
+    drive factor, share result-receiver
+    throw build, field boolean
+
+force show-soft-input-from-input-method
+  mount build, field input-method-manager
+  mount token, field i-binder
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showSoftInputFromInputMethod|
+    drive factor, share token
+    drive factor, share flags
+    throw build, field unit
+
+force show-status-icon
+  mount build, field input-method-manager
+  mount ime-token, field i-binder
+  mount package-name, field string
+  mount icon-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showStatusIcon|
+    drive factor, share ime-token
+    drive factor, share package-name
+    drive factor, share icon-id
+    throw build, field unit
+
+force switch-to-last-input-method
+  mount build, field input-method-manager
+  mount ime-token, field i-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToLastInputMethod|
+    drive factor, share ime-token
+    throw build, field boolean
+
+force switch-to-next-input-method
+  mount build, field input-method-manager
+  mount ime-token, field i-binder
+  mount only-current-ime, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToNextInputMethod|
+    drive factor, share ime-token
+    drive factor, share only-current-ime
+    throw build, field boolean
+
+force toggle-soft-input
+  mount build, field input-method-manager
+  mount show-flags, field int
+  mount hide-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toggleSoftInput|
+    drive factor, share show-flags
+    drive factor, share hide-flags
+    throw build, field unit
+
+force toggle-soft-input-from-window
+  mount build, field input-method-manager
+  mount window-token, field i-binder
+  mount show-flags, field int
+  mount hide-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toggleSoftInputFromWindow|
+    drive factor, share window-token
+    drive factor, share show-flags
+    drive factor, share hide-flags
+    throw build, field unit
+
+force update-cursor
+  mount build, field input-method-manager
+  mount view, field view
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |updateCursor|
+    drive factor, share view
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    throw build, field unit
+
+force update-cursor-anchor-info
+  mount build, field input-method-manager
+  mount view, field view
+  mount cursor-anchor-info, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |updateCursorAnchorInfo|
+    drive factor, share view
+    drive factor, share cursor-anchor-info
+    throw build, field unit
+
+force update-extracted-text
+  mount build, field input-method-manager
+  mount view, field view
+  mount token, field int
+  mount text, field extracted-text
+
+  cause call-method
+    drive object, share build
+    drive method, |updateExtractedText|
+    drive factor, share view
+    drive factor, share token
+    drive factor, share text
+    throw build, field unit
+
+force update-selection
+  mount build, field input-method-manager
+  mount view, field view
+  mount sel-start, field int
+  mount sel-end, field int
+  mount candidates-start, field int
+  mount candidates-end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |updateSelection|
+    drive factor, share view
+    drive factor, share sel-start
+    drive factor, share sel-end
+    drive factor, share candidates-start
+    drive factor, share candidates-end
+    throw build, field unit
+
+force view-clicked
+  mount build, field input-method-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewClicked|
+    drive factor, share view
+    throw build, field unit

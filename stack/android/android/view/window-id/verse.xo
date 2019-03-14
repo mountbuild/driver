@@ -1,0 +1,74 @@
+
+force describe-contents
+  mount build, field window-id
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field window-id
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force hash-code
+  mount build, field window-id
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-focused
+  mount build, field window-id
+
+  cause call-method
+    drive object, share build
+    drive method, |isFocused|
+    raise build, field boolean
+
+force register-focus-observer
+  mount build, field window-id
+  mount observer, field window-id-focus-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerFocusObserver|
+    drive factor, share observer
+    raise build, field unit
+
+force to-string
+  mount build, field window-id
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force unregister-focus-observer
+  mount build, field window-id
+  mount observer, field window-id-focus-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterFocusObserver|
+    drive factor, share observer
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field window-id
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

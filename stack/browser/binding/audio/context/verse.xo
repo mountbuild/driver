@@ -1,0 +1,89 @@
+
+force build-audio-context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |AudioContext|
+    mount factor, share options
+    throw build
+
+force get-base-latency
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |baseLatency|
+    throw build
+
+force get-output-latency
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |outputLatency|
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+
+force create-media-element-source
+  start build
+  start my-media-element
+
+  cause call-method
+    mount object, share build
+    mount method, |createMediaElementSource|
+    mount factor, share my-media-element
+
+force create-media-stream-source
+  start build
+  start stream
+
+  cause call-method
+    mount object, share build
+    mount method, |createMediaStreamSource|
+    mount factor, share stream
+    throw build
+
+force create-media-stream-destination
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |createMediaStreamDestination|
+
+force create-media-stream-track-source
+  start build
+  start track
+
+  cause call-method
+    mount object, share build
+    mount method, |createMediaStreamTrackSource|
+    mount factor, share track
+    throw build
+
+force get-output-timestamp
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getOutputTimestamp|
+
+force resume
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |resume|
+    throw build
+
+force suspend
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |suspend|

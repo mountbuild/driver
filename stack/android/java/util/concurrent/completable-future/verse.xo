@@ -1,0 +1,701 @@
+
+force build-completable-future
+  cause invoke-constructor
+    drive constructor, |CompletableFuture|
+    throw build, field completable-future
+
+force accept-either
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount action, field consumer-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptEither|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force accept-either-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount action, field consumer-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptEitherAsync|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force accept-either-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount action, field consumer-in-t
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptEitherAsync|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share executor
+    throw build, field completable-future
+
+force all-of
+  mount build, field completable-future
+  mount vararg-cfs, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |allOf|
+    drive factor, share vararg-cfs
+    throw build, field completable-future
+
+force any-of
+  mount build, field completable-future
+  mount vararg-cfs, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |anyOf|
+    drive factor, share vararg-cfs
+    throw build, field completable-future
+
+force apply-to-either
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount fn, field function-in-t
+  mount u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |applyToEither|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share u
+    throw build, field completable-future
+
+force apply-to-either-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount fn, field function-in-t
+  mount u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |applyToEitherAsync|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share u
+    throw build, field completable-future
+
+force apply-to-either-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-t
+  mount fn, field function-in-t
+  mount u, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |applyToEitherAsync|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share u
+    drive factor, share executor
+    throw build, field completable-future
+
+force cancel
+  mount build, field completable-future
+  mount may-interrupt-if-running, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share may-interrupt-if-running
+    throw build, field boolean
+
+force complete
+  mount build, field completable-future
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |complete|
+    drive factor, share value
+    throw build, field boolean
+
+force complete-exceptionally
+  mount build, field completable-future
+  mount ex, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |completeExceptionally|
+    drive factor, share ex
+    throw build, field boolean
+
+force completed-future
+  mount build, field completable-future
+  mount value, field u
+
+  cause call-method
+    drive object, share build
+    drive method, |completedFuture|
+    drive factor, share value
+    throw build, field completable-future
+
+force exceptionally
+  mount build, field completable-future
+  mount fn, field function-throwable
+  mount out-t, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |exceptionally|
+    drive factor, share fn
+    drive factor, share out-t
+    throw build, field completable-future
+
+force get
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field t
+
+force get
+  mount build, field completable-future
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field t
+
+force get-now
+  mount build, field completable-future
+  mount value-if-absent, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |getNow|
+    drive factor, share value-if-absent
+    throw build, field t
+
+force get-number-of-dependents
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberOfDependents|
+    throw build, field int
+
+force handle
+  mount build, field completable-future
+  mount fn, field bi-function-in-t
+  mount throwable, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |handle|
+    drive factor, share fn
+    drive factor, share throwable
+    drive factor, share out-u
+    throw build, field completable-future
+
+force handle-async
+  mount build, field completable-future
+  mount fn, field bi-function-in-t
+  mount throwable, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |handleAsync|
+    drive factor, share fn
+    drive factor, share throwable
+    drive factor, share out-u
+    throw build, field completable-future
+
+force handle-async
+  mount build, field completable-future
+  mount fn, field bi-function-in-t
+  mount throwable, field undefined
+  mount out-u, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |handleAsync|
+    drive factor, share fn
+    drive factor, share throwable
+    drive factor, share out-u
+    drive factor, share executor
+    throw build, field completable-future
+
+force is-cancelled
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |isCancelled|
+    throw build, field boolean
+
+force is-completed-exceptionally
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |isCompletedExceptionally|
+    throw build, field boolean
+
+force is-done
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |isDone|
+    throw build, field boolean
+
+force join
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    throw build, field t
+
+force obtrude-exception
+  mount build, field completable-future
+  mount ex, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |obtrudeException|
+    drive factor, share ex
+    throw build, field unit
+
+force obtrude-value
+  mount build, field completable-future
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |obtrudeValue|
+    drive factor, share value
+    throw build, field unit
+
+force run-after-both
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterBoth|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force run-after-both-async
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterBothAsync|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force run-after-both-async
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterBothAsync|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share executor
+    throw build, field completable-future
+
+force run-after-either
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterEither|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force run-after-either-async
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterEitherAsync|
+    drive factor, share other
+    drive factor, share action
+    throw build, field completable-future
+
+force run-after-either-async
+  mount build, field completable-future
+  mount other, field completion-stage
+  mount action, field runnable
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |runAfterEitherAsync|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share executor
+    throw build, field completable-future
+
+force run-async
+  mount build, field completable-future
+  mount runnable, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runAsync|
+    drive factor, share runnable
+    throw build, field completable-future
+
+force run-async
+  mount build, field completable-future
+  mount runnable, field runnable
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |runAsync|
+    drive factor, share runnable
+    drive factor, share executor
+    throw build, field completable-future
+
+force supply-async
+  mount build, field completable-future
+  mount supplier, field supplier-u
+
+  cause call-method
+    drive object, share build
+    drive method, |supplyAsync|
+    drive factor, share supplier
+    throw build, field completable-future
+
+force supply-async
+  mount build, field completable-future
+  mount supplier, field supplier-u
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |supplyAsync|
+    drive factor, share supplier
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-accept
+  mount build, field completable-future
+  mount action, field consumer-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAccept|
+    drive factor, share action
+    throw build, field completable-future
+
+force then-accept-async
+  mount build, field completable-future
+  mount action, field consumer-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAcceptAsync|
+    drive factor, share action
+    throw build, field completable-future
+
+force then-accept-async
+  mount build, field completable-future
+  mount action, field consumer-in-t
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAcceptAsync|
+    drive factor, share action
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-accept-both
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount action, field bi-consumer-in-t
+  mount in-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAcceptBoth|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share in-u
+    throw build, field completable-future
+
+force then-accept-both-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount action, field bi-consumer-in-t
+  mount in-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAcceptBothAsync|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share in-u
+    throw build, field completable-future
+
+force then-accept-both-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount action, field bi-consumer-in-t
+  mount in-u, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenAcceptBothAsync|
+    drive factor, share other
+    drive factor, share action
+    drive factor, share in-u
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-apply
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenApply|
+    drive factor, share fn
+    drive factor, share out-u
+    throw build, field completable-future
+
+force then-apply-async
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenApplyAsync|
+    drive factor, share fn
+    drive factor, share out-u
+    throw build, field completable-future
+
+force then-apply-async
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-u, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenApplyAsync|
+    drive factor, share fn
+    drive factor, share out-u
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-combine
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount fn, field bi-function-in-t
+  mount in-u, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenCombine|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share in-u
+    drive factor, share out-v
+    throw build, field completable-future
+
+force then-combine-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount fn, field bi-function-in-t
+  mount in-u, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenCombineAsync|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share in-u
+    drive factor, share out-v
+    throw build, field completable-future
+
+force then-combine-async
+  mount build, field completable-future
+  mount other, field completion-stage-out-u
+  mount fn, field bi-function-in-t
+  mount in-u, field undefined
+  mount out-v, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenCombineAsync|
+    drive factor, share other
+    drive factor, share fn
+    drive factor, share in-u
+    drive factor, share out-v
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-compose
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-completion-stage-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenCompose|
+    drive factor, share fn
+    drive factor, share out-completion-stage-u
+    throw build, field completable-future
+
+force then-compose-async
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-completion-stage-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |thenComposeAsync|
+    drive factor, share fn
+    drive factor, share out-completion-stage-u
+    throw build, field completable-future
+
+force then-compose-async
+  mount build, field completable-future
+  mount fn, field function-in-t
+  mount out-completion-stage-u, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenComposeAsync|
+    drive factor, share fn
+    drive factor, share out-completion-stage-u
+    drive factor, share executor
+    throw build, field completable-future
+
+force then-run
+  mount build, field completable-future
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |thenRun|
+    drive factor, share action
+    throw build, field completable-future
+
+force then-run-async
+  mount build, field completable-future
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |thenRunAsync|
+    drive factor, share action
+    throw build, field completable-future
+
+force then-run-async
+  mount build, field completable-future
+  mount action, field runnable
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |thenRunAsync|
+    drive factor, share action
+    drive factor, share executor
+    throw build, field completable-future
+
+force to-completable-future
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |toCompletableFuture|
+    throw build, field completable-future
+
+force to-string
+  mount build, field completable-future
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force when-complete
+  mount build, field completable-future
+  mount action, field bi-consumer-in-t
+  mount in-throwable, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |whenComplete|
+    drive factor, share action
+    drive factor, share in-throwable
+    throw build, field completable-future
+
+force when-complete-async
+  mount build, field completable-future
+  mount action, field bi-consumer-in-t
+  mount in-throwable, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |whenCompleteAsync|
+    drive factor, share action
+    drive factor, share in-throwable
+    throw build, field completable-future
+
+force when-complete-async
+  mount build, field completable-future
+  mount action, field bi-consumer-in-t
+  mount in-throwable, field undefined
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |whenCompleteAsync|
+    drive factor, share action
+    drive factor, share in-throwable
+    drive factor, share executor
+    throw build, field completable-future

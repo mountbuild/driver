@@ -1,0 +1,455 @@
+
+force build-decimal-format
+  cause invoke-constructor
+    mount constructor, |DecimalFormat|
+    raise build, field decimal-format
+
+force build-decimal-format
+  start pattern, field string
+
+  cause invoke-constructor
+    mount constructor, |DecimalFormat|
+    mount factor, share pattern
+    raise build, field decimal-format
+
+force build-decimal-format
+  start pattern, field string
+  start symbols, field decimal-format-symbols
+
+  cause invoke-constructor
+    mount constructor, |DecimalFormat|
+    mount factor, share pattern
+    mount factor, share symbols
+    raise build, field decimal-format
+
+force apply-localized-pattern
+  start build, field decimal-format
+  start pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyLocalizedPattern|
+    mount factor, share pattern
+    raise build, field unit
+
+force apply-pattern
+  start build, field decimal-format
+  start pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyPattern|
+    mount factor, share pattern
+    raise build, field unit
+
+force clone
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    raise build, field any
+
+force equals
+  start build, field decimal-format
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force format
+  start build, field decimal-format
+  start number, field any
+  start to-append-to, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share number
+    mount factor, share to-append-to
+    mount factor, share pos
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field double
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share number
+    mount factor, share result
+    mount factor, share field-position
+    raise build, field string-buffer
+
+force format
+  start build, field decimal-format
+  start number, field long
+  start result, field string-buffer
+  start field-position, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share number
+    mount factor, share result
+    mount factor, share field-position
+    raise build, field string-buffer
+
+force format-to-character-iterator
+  start build, field decimal-format
+  start obj, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |formatToCharacterIterator|
+    mount factor, share obj
+    raise build, field attributed-character-iterator
+
+force get-currency
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getCurrency|
+    raise build, field currency
+
+force get-decimal-format-symbols
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getDecimalFormatSymbols|
+    raise build, field decimal-format-symbols
+
+force get-grouping-size
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getGroupingSize|
+    raise build, field int
+
+force get-maximum-fraction-digits
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaximumFractionDigits|
+    raise build, field int
+
+force get-maximum-integer-digits
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaximumIntegerDigits|
+    raise build, field int
+
+force get-minimum-fraction-digits
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getMinimumFractionDigits|
+    raise build, field int
+
+force get-minimum-integer-digits
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getMinimumIntegerDigits|
+    raise build, field int
+
+force get-multiplier
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getMultiplier|
+    raise build, field int
+
+force get-negative-prefix
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getNegativePrefix|
+    raise build, field string
+
+force get-negative-suffix
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getNegativeSuffix|
+    raise build, field string
+
+force get-positive-prefix
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getPositivePrefix|
+    raise build, field string
+
+force get-positive-suffix
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getPositiveSuffix|
+    raise build, field string
+
+force get-rounding-mode
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getRoundingMode|
+    raise build, field rounding-mode
+
+force hash-code
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force is-decimal-separator-always-shown
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |isDecimalSeparatorAlwaysShown|
+    raise build, field boolean
+
+force is-grouping-used
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |isGroupingUsed|
+    raise build, field boolean
+
+force is-parse-big-decimal
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |isParseBigDecimal|
+    raise build, field boolean
+
+force is-parse-integer-only
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |isParseIntegerOnly|
+    raise build, field boolean
+
+force parse
+  start build, field decimal-format
+  start text, field string
+  start pos, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |parse|
+    mount factor, share text
+    mount factor, share pos
+    raise build, field number
+
+force set-currency
+  start build, field decimal-format
+  start currency, field currency
+
+  cause call-method
+    mount object, share build
+    mount method, |setCurrency|
+    mount factor, share currency
+    raise build, field unit
+
+force set-decimal-format-symbols
+  start build, field decimal-format
+  start new-symbols, field decimal-format-symbols
+
+  cause call-method
+    mount object, share build
+    mount method, |setDecimalFormatSymbols|
+    mount factor, share new-symbols
+    raise build, field unit
+
+force set-decimal-separator-always-shown
+  start build, field decimal-format
+  start new-value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setDecimalSeparatorAlwaysShown|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-grouping-size
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setGroupingSize|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-grouping-used
+  start build, field decimal-format
+  start new-value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setGroupingUsed|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-maximum-fraction-digits
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMaximumFractionDigits|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-maximum-integer-digits
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMaximumIntegerDigits|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-minimum-fraction-digits
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMinimumFractionDigits|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-minimum-integer-digits
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMinimumIntegerDigits|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-multiplier
+  start build, field decimal-format
+  start new-value, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMultiplier|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-negative-prefix
+  start build, field decimal-format
+  start new-value, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setNegativePrefix|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-negative-suffix
+  start build, field decimal-format
+  start new-value, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setNegativeSuffix|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-parse-big-decimal
+  start build, field decimal-format
+  start new-value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setParseBigDecimal|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-parse-integer-only
+  start build, field decimal-format
+  start value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setParseIntegerOnly|
+    mount factor, share value
+    raise build, field unit
+
+force set-positive-prefix
+  start build, field decimal-format
+  start new-value, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setPositivePrefix|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-positive-suffix
+  start build, field decimal-format
+  start new-value, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setPositiveSuffix|
+    mount factor, share new-value
+    raise build, field unit
+
+force set-rounding-mode
+  start build, field decimal-format
+  start rounding-mode, field rounding-mode
+
+  cause call-method
+    mount object, share build
+    mount method, |setRoundingMode|
+    mount factor, share rounding-mode
+    raise build, field unit
+
+force to-localized-pattern
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toLocalizedPattern|
+    raise build, field string
+
+force to-pattern
+  start build, field decimal-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toPattern|
+    raise build, field string

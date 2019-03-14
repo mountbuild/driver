@@ -1,0 +1,78 @@
+
+force build-ec-field-f2m
+  mount m, field int
+
+  cause invoke-constructor
+    mount constructor, |ECFieldF2m|
+    mount factor, share m
+    throw build, field ec-field-f2m
+
+force build-ec-field-f2m
+  mount m, field int
+  mount rp, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |ECFieldF2m|
+    mount factor, share m
+    mount factor, share rp
+    throw build, field ec-field-f2m
+
+force build-ec-field-f2m
+  mount m, field int
+  mount ks, field int-array
+
+  cause invoke-constructor
+    mount constructor, |ECFieldF2m|
+    mount factor, share m
+    mount factor, share ks
+    throw build, field ec-field-f2m
+
+force equals
+  mount build, field ec-field-f2m
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-field-size
+  mount build, field ec-field-f2m
+
+  cause call-method
+    mount object, share build
+    mount method, |getFieldSize|
+    throw build, field int
+
+force get-m
+  mount build, field ec-field-f2m
+
+  cause call-method
+    mount object, share build
+    mount method, |getM|
+    throw build, field int
+
+force get-mid-terms-of-reduction-polynomial
+  mount build, field ec-field-f2m
+
+  cause call-method
+    mount object, share build
+    mount method, |getMidTermsOfReductionPolynomial|
+    throw build, field int-array
+
+force get-reduction-polynomial
+  mount build, field ec-field-f2m
+
+  cause call-method
+    mount object, share build
+    mount method, |getReductionPolynomial|
+    throw build, field big-integer
+
+force hash-code
+  mount build, field ec-field-f2m
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

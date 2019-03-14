@@ -1,0 +1,25 @@
+
+force build-download-progress-listener
+  cause invoke-constructor
+    drive constructor, |DownloadProgressListener|
+    throw build, field download-progress-listener
+
+force on-progress-updated
+  mount build, field download-progress-listener
+  mount request, field download-request
+  mount file-info, field file-info
+  mount current-download-size, field int
+  mount full-download-size, field int
+  mount current-decoded-size, field int
+  mount full-decoded-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onProgressUpdated|
+    drive factor, share request
+    drive factor, share file-info
+    drive factor, share current-download-size
+    drive factor, share full-download-size
+    drive factor, share current-decoded-size
+    drive factor, share full-decoded-size
+    throw build, field unit

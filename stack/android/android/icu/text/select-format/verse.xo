@@ -1,0 +1,88 @@
+
+force build-select-format
+  start pattern, field string
+
+  cause invoke-constructor
+    drive constructor, |SelectFormat|
+    drive factor, share pattern
+    raise build, field select-format
+
+force apply-pattern
+  start build, field select-format
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |applyPattern|
+    drive factor, share pattern
+    raise build, field unit
+
+force equals
+  start build, field select-format
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force format
+  start build, field select-format
+  start keyword, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share keyword
+    raise build, field string
+
+force format
+  start build, field select-format
+  start keyword, field any
+  start to-append-to, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share keyword
+    drive factor, share to-append-to
+    drive factor, share pos
+    raise build, field string-buffer
+
+force hash-code
+  start build, field select-format
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force parse-object
+  start build, field select-format
+  start source, field string
+  start pos, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parseObject|
+    drive factor, share source
+    drive factor, share pos
+    raise build, field any
+
+force to-pattern
+  start build, field select-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toPattern|
+    raise build, field string
+
+force to-string
+  start build, field select-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

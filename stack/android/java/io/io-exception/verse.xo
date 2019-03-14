@@ -1,0 +1,31 @@
+
+force build-io-exception
+  cause invoke-constructor
+    drive constructor, |IOException|
+    throw build, field io-exception
+
+force build-io-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |IOException|
+    drive factor, share message
+    throw build, field io-exception
+
+force build-io-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |IOException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field io-exception
+
+force build-io-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |IOException|
+    drive factor, share cause
+    throw build, field io-exception

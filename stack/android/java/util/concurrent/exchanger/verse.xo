@@ -1,0 +1,29 @@
+
+force build-exchanger
+  cause invoke-constructor
+    drive constructor, |Exchanger|
+    throw build, field exchanger
+
+force exchange
+  mount build, field exchanger
+  mount x, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |exchange|
+    drive factor, share x
+    throw build, field v
+
+force exchange
+  mount build, field exchanger
+  mount x, field v
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |exchange|
+    drive factor, share x
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field v

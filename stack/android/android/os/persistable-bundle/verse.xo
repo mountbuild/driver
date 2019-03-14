@@ -1,0 +1,107 @@
+
+force build-persistable-bundle
+  cause invoke-constructor
+    drive constructor, |PersistableBundle|
+    raise build, field persistable-bundle
+
+force build-persistable-bundle
+  mount capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |PersistableBundle|
+    drive factor, share capacity
+    raise build, field persistable-bundle
+
+force build-persistable-bundle
+  mount b, field persistable-bundle
+
+  cause invoke-constructor
+    drive constructor, |PersistableBundle|
+    drive factor, share b
+    raise build, field persistable-bundle
+
+force clone
+  mount build, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    raise build, field any
+
+force deep-copy
+  mount build, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |deepCopy|
+    raise build, field persistable-bundle
+
+force describe-contents
+  mount build, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-persistable-bundle
+  mount build, field persistable-bundle
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPersistableBundle|
+    drive factor, share key
+    raise build, field persistable-bundle
+
+force put-persistable-bundle
+  mount build, field persistable-bundle
+  mount key, field string
+  mount value, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |putPersistableBundle|
+    drive factor, share key
+    drive factor, share value
+    raise build, field unit
+
+force read-from-stream
+  mount build, field persistable-bundle
+  mount input-stream, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromStream|
+    drive factor, share input-stream
+    raise build, field persistable-bundle
+
+force to-string
+  mount build, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field persistable-bundle
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit
+
+force write-to-stream
+  mount build, field persistable-bundle
+  mount output-stream, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToStream|
+    drive factor, share output-stream
+    raise build, field unit

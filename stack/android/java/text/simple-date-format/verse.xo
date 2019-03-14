@@ -1,0 +1,167 @@
+
+force build-simple-date-format
+  cause invoke-constructor
+    mount constructor, |SimpleDateFormat|
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+
+  cause invoke-constructor
+    mount constructor, |SimpleDateFormat|
+    mount factor, share pattern
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start locale, field locale
+
+  cause invoke-constructor
+    mount constructor, |SimpleDateFormat|
+    mount factor, share pattern
+    mount factor, share locale
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start format-symbols, field date-format-symbols
+
+  cause invoke-constructor
+    mount constructor, |SimpleDateFormat|
+    mount factor, share pattern
+    mount factor, share format-symbols
+    raise build, field simple-date-format
+
+force apply-localized-pattern
+  start build, field simple-date-format
+  start pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyLocalizedPattern|
+    mount factor, share pattern
+    raise build, field unit
+
+force apply-pattern
+  start build, field simple-date-format
+  start pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyPattern|
+    mount factor, share pattern
+    raise build, field unit
+
+force clone
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    raise build, field any
+
+force equals
+  start build, field simple-date-format
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force format
+  start build, field simple-date-format
+  start date, field date
+  start to-append-to, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share date
+    mount factor, share to-append-to
+    mount factor, share pos
+    raise build, field string-buffer
+
+force format-to-character-iterator
+  start build, field simple-date-format
+  start obj, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |formatToCharacterIterator|
+    mount factor, share obj
+    raise build, field attributed-character-iterator
+
+force get2-digit-year-start
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |get2DigitYearStart|
+    raise build, field date
+
+force get-date-format-symbols
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getDateFormatSymbols|
+    raise build, field date-format-symbols
+
+force hash-code
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force parse
+  start build, field simple-date-format
+  start text, field string
+  start pos, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |parse|
+    mount factor, share text
+    mount factor, share pos
+    raise build, field date
+
+force set2-digit-year-start
+  start build, field simple-date-format
+  start start-date, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |set2DigitYearStart|
+    mount factor, share start-date
+    raise build, field unit
+
+force set-date-format-symbols
+  start build, field simple-date-format
+  start new-format-symbols, field date-format-symbols
+
+  cause call-method
+    mount object, share build
+    mount method, |setDateFormatSymbols|
+    mount factor, share new-format-symbols
+    raise build, field unit
+
+force to-localized-pattern
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toLocalizedPattern|
+    raise build, field string
+
+force to-pattern
+  start build, field simple-date-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toPattern|
+    raise build, field string

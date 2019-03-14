@@ -1,0 +1,19 @@
+
+force build-byte4
+  cause invoke-constructor
+    drive constructor, |Byte4|
+    raise build, field byte4
+
+force build-byte4
+  mount init-x, field byte
+  mount init-y, field byte
+  mount init-z, field byte
+  mount init-w, field byte
+
+  cause invoke-constructor
+    drive constructor, |Byte4|
+    drive factor, share init-x
+    drive factor, share init-y
+    drive factor, share init-z
+    drive factor, share init-w
+    raise build, field byte4

@@ -1,0 +1,50 @@
+
+force build-instrumentation-test-suite
+  mount instr, field instrumentation
+
+  cause invoke-constructor
+    drive constructor, |InstrumentationTestSuite|
+    drive factor, share instr
+    raise build, field instrumentation-test-suite
+
+force build-instrumentation-test-suite
+  mount name, field string
+  mount instr, field instrumentation
+
+  cause invoke-constructor
+    drive constructor, |InstrumentationTestSuite|
+    drive factor, share name
+    drive factor, share instr
+    raise build, field instrumentation-test-suite
+
+force build-instrumentation-test-suite
+  mount the-class, field class-any
+  mount instr, field instrumentation
+
+  cause invoke-constructor
+    drive constructor, |InstrumentationTestSuite|
+    drive factor, share the-class
+    drive factor, share instr
+    raise build, field instrumentation-test-suite
+
+force add-test-suite
+  mount build, field instrumentation-test-suite
+  mount test-class, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |addTestSuite|
+    drive factor, share test-class
+    raise build, field unit
+
+force run-test
+  mount build, field instrumentation-test-suite
+  mount test, field test
+  mount result, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |runTest|
+    drive factor, share test
+    drive factor, share result
+    raise build, field unit

@@ -1,0 +1,297 @@
+
+force build-datagram-socket
+  cause invoke-constructor
+    drive constructor, |DatagramSocket|
+    throw build, field datagram-socket
+
+force build-datagram-socket
+  mount bindaddr, field socket-address
+
+  cause invoke-constructor
+    drive constructor, |DatagramSocket|
+    drive factor, share bindaddr
+    throw build, field datagram-socket
+
+force build-datagram-socket
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |DatagramSocket|
+    drive factor, share port
+    throw build, field datagram-socket
+
+force build-datagram-socket
+  mount port, field int
+  mount laddr, field inet-address
+
+  cause invoke-constructor
+    drive constructor, |DatagramSocket|
+    drive factor, share port
+    drive factor, share laddr
+    throw build, field datagram-socket
+
+force bind
+  mount build, field datagram-socket
+  mount addr, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share addr
+    throw build, field unit
+
+force close
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field datagram-socket
+  mount address, field inet-address
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share address
+    drive factor, share port
+    throw build, field unit
+
+force connect
+  mount build, field datagram-socket
+  mount addr, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share addr
+    throw build, field unit
+
+force disconnect
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnect|
+    throw build, field unit
+
+force get-broadcast
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getBroadcast|
+    throw build, field boolean
+
+force get-channel
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field datagram-channel
+
+force get-inet-address
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInetAddress|
+    throw build, field inet-address
+
+force get-local-address
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalAddress|
+    throw build, field inet-address
+
+force get-local-port
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalPort|
+    throw build, field int
+
+force get-local-socket-address
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalSocketAddress|
+    throw build, field socket-address
+
+force get-port
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-receive-buffer-size
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceiveBufferSize|
+    throw build, field int
+
+force get-remote-socket-address
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteSocketAddress|
+    throw build, field socket-address
+
+force get-reuse-address
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReuseAddress|
+    throw build, field boolean
+
+force get-send-buffer-size
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSendBufferSize|
+    throw build, field int
+
+force get-so-timeout
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSoTimeout|
+    throw build, field int
+
+force get-traffic-class
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrafficClass|
+    throw build, field int
+
+force is-bound
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isBound|
+    throw build, field boolean
+
+force is-closed
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isClosed|
+    throw build, field boolean
+
+force is-connected
+  mount build, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force receive
+  mount build, field datagram-socket
+  mount p, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |receive|
+    drive factor, share p
+    throw build, field unit
+
+force send
+  mount build, field datagram-socket
+  mount p, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share p
+    throw build, field unit
+
+force set-broadcast
+  mount build, field datagram-socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setBroadcast|
+    drive factor, share on
+    throw build, field unit
+
+force set-datagram-socket-impl-factory
+  mount build, field datagram-socket
+  mount fac, field datagram-socket-impl-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setDatagramSocketImplFactory|
+    drive factor, share fac
+    throw build, field unit
+
+force set-receive-buffer-size
+  mount build, field datagram-socket
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReceiveBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-reuse-address
+  mount build, field datagram-socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReuseAddress|
+    drive factor, share on
+    throw build, field unit
+
+force set-send-buffer-size
+  mount build, field datagram-socket
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSendBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-so-timeout
+  mount build, field datagram-socket
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSoTimeout|
+    drive factor, share timeout
+    throw build, field unit
+
+force set-traffic-class
+  mount build, field datagram-socket
+  mount tc, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTrafficClass|
+    drive factor, share tc
+    throw build, field unit

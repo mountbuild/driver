@@ -1,0 +1,211 @@
+
+force build-xml-reader-adapter
+  cause invoke-constructor
+    drive constructor, |XMLReaderAdapter|
+    throw build, field xml-reader-adapter
+
+force build-xml-reader-adapter
+  mount xml-reader, field xml-reader
+
+  cause invoke-constructor
+    drive constructor, |XMLReaderAdapter|
+    drive factor, share xml-reader
+    throw build, field xml-reader-adapter
+
+force characters
+  mount build, field xml-reader-adapter
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |characters|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force end-document
+  mount build, field xml-reader-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |endDocument|
+    throw build, field unit
+
+force end-element
+  mount build, field xml-reader-adapter
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    throw build, field unit
+
+force end-prefix-mapping
+  mount build, field xml-reader-adapter
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endPrefixMapping|
+    drive factor, share prefix
+    throw build, field unit
+
+force ignorable-whitespace
+  mount build, field xml-reader-adapter
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ignorableWhitespace|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force parse
+  mount build, field xml-reader-adapter
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share system-id
+    throw build, field unit
+
+force parse
+  mount build, field xml-reader-adapter
+  mount input, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share input
+    throw build, field unit
+
+force processing-instruction
+  mount build, field xml-reader-adapter
+  mount target, field string
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |processingInstruction|
+    drive factor, share target
+    drive factor, share data
+    throw build, field unit
+
+force set-dtd-handler
+  mount build, field xml-reader-adapter
+  mount handler, field dtd-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDTDHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-document-handler
+  mount build, field xml-reader-adapter
+  mount handler, field document-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDocumentHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-document-locator
+  mount build, field xml-reader-adapter
+  mount locator, field locator
+
+  cause call-method
+    drive object, share build
+    drive method, |setDocumentLocator|
+    drive factor, share locator
+    throw build, field unit
+
+force set-entity-resolver
+  mount build, field xml-reader-adapter
+  mount resolver, field entity-resolver
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntityResolver|
+    drive factor, share resolver
+    throw build, field unit
+
+force set-error-handler
+  mount build, field xml-reader-adapter
+  mount handler, field error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-locale
+  mount build, field xml-reader-adapter
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocale|
+    drive factor, share locale
+    throw build, field unit
+
+force skipped-entity
+  mount build, field xml-reader-adapter
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |skippedEntity|
+    drive factor, share name
+    throw build, field unit
+
+force start-document
+  mount build, field xml-reader-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |startDocument|
+    throw build, field unit
+
+force start-element
+  mount build, field xml-reader-adapter
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount atts, field attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |startElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share atts
+    throw build, field unit
+
+force start-prefix-mapping
+  mount build, field xml-reader-adapter
+  mount prefix, field string
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startPrefixMapping|
+    drive factor, share prefix
+    drive factor, share uri
+    throw build, field unit

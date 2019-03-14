@@ -1,0 +1,44 @@
+
+force get-destination-port-any
+  mount build, field visual-voicemail-sms-filter-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |DESTINATION_PORT_ANY|
+    throw build, field int
+
+force get-destination-port-data-sms
+  mount build, field visual-voicemail-sms-filter-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |DESTINATION_PORT_DATA_SMS|
+    throw build, field int
+
+force describe-contents
+  mount build, field visual-voicemail-sms-filter-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field visual-voicemail-sms-filter-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field visual-voicemail-sms-filter-settings
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

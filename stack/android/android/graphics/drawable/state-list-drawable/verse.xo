@@ -1,0 +1,97 @@
+
+force build-state-list-drawable
+  cause invoke-constructor
+    drive constructor, |StateListDrawable|
+    raise build, field state-list-drawable
+
+force add-state
+  mount build, field state-list-drawable
+  mount state-set, field int-array
+  mount drawable, field drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |addState|
+    drive factor, share state-set
+    drive factor, share drawable
+    raise build, field unit
+
+force apply-theme
+  mount build, field state-list-drawable
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |applyTheme|
+    drive factor, share theme
+    raise build, field unit
+
+force find-state-drawable-index
+  mount build, field state-list-drawable
+  mount state-set, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |findStateDrawableIndex|
+    drive factor, share state-set
+    raise build, field int
+
+force get-state-count
+  mount build, field state-list-drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |getStateCount|
+    raise build, field int
+
+force get-state-drawable
+  mount build, field state-list-drawable
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStateDrawable|
+    drive factor, share index
+    raise build, field drawable
+
+force get-state-set
+  mount build, field state-list-drawable
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStateSet|
+    drive factor, share index
+    raise build, field int-array
+
+force inflate
+  mount build, field state-list-drawable
+  mount r, field resources
+  mount parser, field xml-pull-parser
+  mount attrs, field attribute-set
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share r
+    drive factor, share parser
+    drive factor, share attrs
+    drive factor, share theme
+    raise build, field unit
+
+force is-stateful
+  mount build, field state-list-drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |isStateful|
+    raise build, field boolean
+
+force mutate
+  mount build, field state-list-drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |mutate|
+    raise build, field drawable

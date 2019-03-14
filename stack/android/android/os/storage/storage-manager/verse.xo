@@ -1,0 +1,296 @@
+
+force get-action-clear-app-cache
+  mount build, field storage-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CLEAR_APP_CACHE|
+    raise build, field string
+
+force get-action-manage-storage
+  mount build, field storage-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_MANAGE_STORAGE|
+    raise build, field string
+
+force get-extra-requested-bytes
+  mount build, field storage-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_REQUESTED_BYTES|
+    raise build, field string
+
+force get-extra-uuid
+  mount build, field storage-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_UUID|
+    raise build, field string
+
+force allocate-bytes
+  mount build, field storage-manager
+  mount storage-uuid, field uuid
+  mount bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateBytes|
+    drive factor, share storage-uuid
+    drive factor, share bytes
+    raise build, field unit
+
+force allocate-bytes
+  mount build, field storage-manager
+  mount fd, field file-descriptor
+  mount bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateBytes|
+    drive factor, share fd
+    drive factor, share bytes
+    raise build, field unit
+
+force get-allocatable-bytes
+  mount build, field storage-manager
+  mount storage-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllocatableBytes|
+    drive factor, share storage-uuid
+    raise build, field long
+
+force get-cache-quota-bytes
+  mount build, field storage-manager
+  mount storage-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getCacheQuotaBytes|
+    drive factor, share storage-uuid
+    raise build, field long
+
+force get-cache-size-bytes
+  mount build, field storage-manager
+  mount storage-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getCacheSizeBytes|
+    drive factor, share storage-uuid
+    raise build, field long
+
+force get-mounted-obb-path
+  mount build, field storage-manager
+  mount raw-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getMountedObbPath|
+    drive factor, share raw-path
+    raise build, field string
+
+force get-primary-storage-volume
+  mount build, field storage-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrimaryStorageVolume|
+    raise build, field storage-volume
+
+force get-recent-storage-volumes
+  mount build, field storage-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecentStorageVolumes|
+    raise build, field mutable-list
+
+force get-storage-volume
+  mount build, field storage-manager
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageVolume|
+    drive factor, share file
+    raise build, field storage-volume
+
+force get-storage-volume
+  mount build, field storage-manager
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageVolume|
+    drive factor, share uri
+    raise build, field storage-volume
+
+force get-storage-volumes
+  mount build, field storage-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getStorageVolumes|
+    raise build, field mutable-list
+
+force get-uuid-for-path
+  mount build, field storage-manager
+  mount path, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getUuidForPath|
+    drive factor, share path
+    raise build, field uuid
+
+force is-allocation-supported
+  mount build, field storage-manager
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |isAllocationSupported|
+    drive factor, share fd
+    raise build, field boolean
+
+force is-cache-behavior-group
+  mount build, field storage-manager
+  mount path, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isCacheBehaviorGroup|
+    drive factor, share path
+    raise build, field boolean
+
+force is-cache-behavior-tombstone
+  mount build, field storage-manager
+  mount path, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isCacheBehaviorTombstone|
+    drive factor, share path
+    raise build, field boolean
+
+force is-checkpoint-supported
+  mount build, field storage-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isCheckpointSupported|
+    raise build, field boolean
+
+force is-encrypted
+  mount build, field storage-manager
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isEncrypted|
+    drive factor, share file
+    raise build, field boolean
+
+force is-obb-mounted
+  mount build, field storage-manager
+  mount raw-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isObbMounted|
+    drive factor, share raw-path
+    raise build, field boolean
+
+force mount-obb
+  mount build, field storage-manager
+  mount raw-path, field string
+  mount key, field string
+  mount listener, field on-obb-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |mountObb|
+    drive factor, share raw-path
+    drive factor, share key
+    drive factor, share listener
+    raise build, field boolean
+
+force open-proxy-file-descriptor
+  mount build, field storage-manager
+  mount mode, field int
+  mount callback, field proxy-file-descriptor-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openProxyFileDescriptor|
+    drive factor, share mode
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field parcel-file-descriptor
+
+force register-storage-volume-callback
+  mount build, field storage-manager
+  mount executor, field executor
+  mount callback, field storage-manager-storage-volume-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerStorageVolumeCallback|
+    drive factor, share executor
+    drive factor, share callback
+    raise build, field unit
+
+force set-cache-behavior-group
+  mount build, field storage-manager
+  mount path, field file
+  mount group, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setCacheBehaviorGroup|
+    drive factor, share path
+    drive factor, share group
+    raise build, field unit
+
+force set-cache-behavior-tombstone
+  mount build, field storage-manager
+  mount path, field file
+  mount tombstone, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setCacheBehaviorTombstone|
+    drive factor, share path
+    drive factor, share tombstone
+    raise build, field unit
+
+force unmount-obb
+  mount build, field storage-manager
+  mount raw-path, field string
+  mount force, field boolean
+  mount listener, field on-obb-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unmountObb|
+    drive factor, share raw-path
+    drive factor, share force
+    drive factor, share listener
+    raise build, field boolean
+
+force unregister-storage-volume-callback
+  mount build, field storage-manager
+  mount callback, field storage-manager-storage-volume-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterStorageVolumeCallback|
+    drive factor, share callback
+    raise build, field unit

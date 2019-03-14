@@ -1,0 +1,39 @@
+
+force build-cancellation-signal
+  cause invoke-constructor
+    drive constructor, |CancellationSignal|
+    raise build, field cancellation-signal
+
+force cancel
+  mount build, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    raise build, field unit
+
+force is-canceled
+  mount build, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |isCanceled|
+    raise build, field boolean
+
+force set-on-cancel-listener
+  mount build, field cancellation-signal
+  mount listener, field cancellation-signal-on-cancel-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnCancelListener|
+    drive factor, share listener
+    raise build, field unit
+
+force throw-if-canceled
+  mount build, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |throwIfCanceled|
+    raise build, field unit

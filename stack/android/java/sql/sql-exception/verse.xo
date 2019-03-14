@@ -1,0 +1,121 @@
+
+force build-sql-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    raise build, field sql-exception
+
+force build-sql-exception
+  start reason, field string
+  start sql-state, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    mount factor, share sql-state
+    raise build, field sql-exception
+
+force build-sql-exception
+  start reason, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    raise build, field sql-exception
+
+force build-sql-exception
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    raise build, field sql-exception
+
+force build-sql-exception
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share cause
+    raise build, field sql-exception
+
+force build-sql-exception
+  start reason, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    mount factor, share cause
+    raise build, field sql-exception
+
+force build-sql-exception
+  start reason, field string
+  start sql-state, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share cause
+    raise build, field sql-exception
+
+force build-sql-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share cause
+    raise build, field sql-exception
+
+force get-error-code
+  start build, field sql-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorCode|
+    raise build, field int
+
+force get-next-exception
+  start build, field sql-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getNextException|
+    raise build, field sql-exception
+
+force get-sql-state
+  start build, field sql-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getSQLState|
+    raise build, field string
+
+force iterator
+  start build, field sql-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |iterator|
+    raise build, field mutable-iterator
+
+force set-next-exception
+  start build, field sql-exception
+  start ex, field sql-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |setNextException|
+    mount factor, share ex
+    raise build, field unit

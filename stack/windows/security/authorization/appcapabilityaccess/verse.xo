@@ -1,0 +1,100 @@
+
+force build-app-capability
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authorization.AppCapabilityAccess.AppCapability|
+
+force get-capability-name
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CapabilityName|
+
+force set-capability-name
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CapabilityName|
+    drive factor, share value
+
+force check-access
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+
+  cause call-method
+    drive object, share build
+    drive method, |CheckAccess|
+
+force create
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start capability-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Create|
+    drive factor, share capability-name
+
+force create-with-process-id-for-user
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start user, field windows-system-user
+  start capability-name, field system-string
+  start pid, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateWithProcessIdForUser|
+    drive factor, share user
+    drive factor, share capability-name
+    drive factor, share pid
+
+force request-access-async
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+
+force request-access-for-capabilities-async
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start capability-names, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForCapabilitiesAsync|
+    drive factor, share capability-names
+
+force request-access-for-capabilities-for-user-async
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start user, field windows-system-user
+  start capability-names, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForCapabilitiesForUserAsync|
+    drive factor, share user
+    drive factor, share capability-names
+
+force get-user
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-security-authorization-appcapabilityaccess-appcapability
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-app-capability-access-changed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs|
+
+force get-app-capability-access-status
+  cause get-object
+    drive aspect, |Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus|

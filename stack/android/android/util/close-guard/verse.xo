@@ -1,0 +1,31 @@
+
+force build-close-guard
+  cause invoke-constructor
+    drive constructor, |CloseGuard|
+    throw build, field close-guard
+
+force close
+  mount build, field close-guard
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force open
+  mount build, field close-guard
+  mount close-method-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share close-method-name
+    throw build, field unit
+
+force warn-if-open
+  mount build, field close-guard
+
+  cause call-method
+    drive object, share build
+    drive method, |warnIfOpen|
+    throw build, field unit

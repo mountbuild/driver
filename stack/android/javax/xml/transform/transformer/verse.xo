@@ -1,0 +1,126 @@
+
+force clear-parameters
+  start build, field transformer
+
+  cause call-method
+    mount object, share build
+    mount method, |clearParameters|
+    throw build, field unit
+
+force get-error-listener
+  start build, field transformer
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorListener|
+    throw build, field error-listener
+
+force get-output-properties
+  start build, field transformer
+
+  cause call-method
+    mount object, share build
+    mount method, |getOutputProperties|
+    throw build, field properties
+
+force get-output-property
+  start build, field transformer
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getOutputProperty|
+    mount factor, share name
+    throw build, field string
+
+force get-parameter
+  start build, field transformer
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameter|
+    mount factor, share name
+    throw build, field any
+
+force get-uri-resolver
+  start build, field transformer
+
+  cause call-method
+    mount object, share build
+    mount method, |getURIResolver|
+    throw build, field uri-resolver
+
+force reset
+  start build, field transformer
+
+  cause call-method
+    mount object, share build
+    mount method, |reset|
+    throw build, field unit
+
+force set-error-listener
+  start build, field transformer
+  start listener, field error-listener
+
+  cause call-method
+    mount object, share build
+    mount method, |setErrorListener|
+    mount factor, share listener
+    throw build, field unit
+
+force set-output-properties
+  start build, field transformer
+  start oformat, field properties
+
+  cause call-method
+    mount object, share build
+    mount method, |setOutputProperties|
+    mount factor, share oformat
+    throw build, field unit
+
+force set-output-property
+  start build, field transformer
+  start name, field string
+  start value, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setOutputProperty|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-parameter
+  start build, field transformer
+  start name, field string
+  start value, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |setParameter|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-uri-resolver
+  start build, field transformer
+  start resolver, field uri-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |setURIResolver|
+    mount factor, share resolver
+    throw build, field unit
+
+force transform
+  start build, field transformer
+  start xml-source, field source
+  start output-target, field result
+
+  cause call-method
+    mount object, share build
+    mount method, |transform|
+    mount factor, share xml-source
+    mount factor, share output-target
+    throw build, field unit

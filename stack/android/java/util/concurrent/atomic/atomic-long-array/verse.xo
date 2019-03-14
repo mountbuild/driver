@@ -1,0 +1,222 @@
+
+force build-atomic-long-array
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |AtomicLongArray|
+    drive factor, share length
+    throw build, field atomic-long-array
+
+force build-atomic-long-array
+  mount array, field long-array
+
+  cause invoke-constructor
+    drive constructor, |AtomicLongArray|
+    drive factor, share array
+    throw build, field atomic-long-array
+
+force accumulate-and-get
+  mount build, field atomic-long-array
+  mount i, field int
+  mount x, field long
+  mount accumulator-function, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |accumulateAndGet|
+    drive factor, share i
+    drive factor, share x
+    drive factor, share accumulator-function
+    throw build, field long
+
+force add-and-get
+  mount build, field atomic-long-array
+  mount i, field int
+  mount delta, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |addAndGet|
+    drive factor, share i
+    drive factor, share delta
+    throw build, field long
+
+force compare-and-set
+  mount build, field atomic-long-array
+  mount i, field int
+  mount expect, field long
+  mount update, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSet|
+    drive factor, share i
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean
+
+force decrement-and-get
+  mount build, field atomic-long-array
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decrementAndGet|
+    drive factor, share i
+    throw build, field long
+
+force get
+  mount build, field atomic-long-array
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share i
+    throw build, field long
+
+force get-and-accumulate
+  mount build, field atomic-long-array
+  mount i, field int
+  mount x, field long
+  mount accumulator-function, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndAccumulate|
+    drive factor, share i
+    drive factor, share x
+    drive factor, share accumulator-function
+    throw build, field long
+
+force get-and-add
+  mount build, field atomic-long-array
+  mount i, field int
+  mount delta, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndAdd|
+    drive factor, share i
+    drive factor, share delta
+    throw build, field long
+
+force get-and-decrement
+  mount build, field atomic-long-array
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndDecrement|
+    drive factor, share i
+    throw build, field long
+
+force get-and-increment
+  mount build, field atomic-long-array
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndIncrement|
+    drive factor, share i
+    throw build, field long
+
+force get-and-set
+  mount build, field atomic-long-array
+  mount i, field int
+  mount new-value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndSet|
+    drive factor, share i
+    drive factor, share new-value
+    throw build, field long
+
+force get-and-update
+  mount build, field atomic-long-array
+  mount i, field int
+  mount update-function, field long-unary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndUpdate|
+    drive factor, share i
+    drive factor, share update-function
+    throw build, field long
+
+force increment-and-get
+  mount build, field atomic-long-array
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |incrementAndGet|
+    drive factor, share i
+    throw build, field long
+
+force lazy-set
+  mount build, field atomic-long-array
+  mount i, field int
+  mount new-value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |lazySet|
+    drive factor, share i
+    drive factor, share new-value
+    throw build, field unit
+
+force length
+  mount build, field atomic-long-array
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    throw build, field int
+
+force set
+  mount build, field atomic-long-array
+  mount i, field int
+  mount new-value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share i
+    drive factor, share new-value
+    throw build, field unit
+
+force to-string
+  mount build, field atomic-long-array
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force update-and-get
+  mount build, field atomic-long-array
+  mount i, field int
+  mount update-function, field long-unary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |updateAndGet|
+    drive factor, share i
+    drive factor, share update-function
+    throw build, field long
+
+force weak-compare-and-set
+  mount build, field atomic-long-array
+  mount i, field int
+  mount expect, field long
+  mount update, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |weakCompareAndSet|
+    drive factor, share i
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean

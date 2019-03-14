@@ -1,0 +1,85 @@
+
+force build-password-transformation-method
+  cause invoke-constructor
+    drive constructor, |PasswordTransformationMethod|
+    raise build, field password-transformation-method
+
+force after-text-changed
+  mount build, field password-transformation-method
+  mount s, field editable
+
+  cause call-method
+    drive object, share build
+    drive method, |afterTextChanged|
+    drive factor, share s
+    raise build, field unit
+
+force before-text-changed
+  mount build, field password-transformation-method
+  mount s, field char-sequence
+  mount start, field int
+  mount count, field int
+  mount after, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |beforeTextChanged|
+    drive factor, share s
+    drive factor, share start
+    drive factor, share count
+    drive factor, share after
+    raise build, field unit
+
+force get-instance
+  mount build, field password-transformation-method
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field password-transformation-method
+
+force get-transformation
+  mount build, field password-transformation-method
+  mount source, field char-sequence
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransformation|
+    drive factor, share source
+    drive factor, share view
+    raise build, field char-sequence
+
+force on-focus-changed
+  mount build, field password-transformation-method
+  mount view, field view
+  mount source-text, field char-sequence
+  mount focused, field boolean
+  mount direction, field int
+  mount previously-focused-rect, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |onFocusChanged|
+    drive factor, share view
+    drive factor, share source-text
+    drive factor, share focused
+    drive factor, share direction
+    drive factor, share previously-focused-rect
+    raise build, field unit
+
+force on-text-changed
+  mount build, field password-transformation-method
+  mount s, field char-sequence
+  mount start, field int
+  mount before, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTextChanged|
+    drive factor, share s
+    drive factor, share start
+    drive factor, share before
+    drive factor, share count
+    raise build, field unit

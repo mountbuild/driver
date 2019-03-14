@@ -1,0 +1,75 @@
+
+force get-feature
+  start build, field sax-result
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-sax-result
+  cause invoke-constructor
+    mount constructor, |SAXResult|
+    throw build, field sax-result
+
+force build-sax-result
+  start handler, field content-handler
+
+  cause invoke-constructor
+    mount constructor, |SAXResult|
+    mount factor, share handler
+    throw build, field sax-result
+
+force get-handler
+  start build, field sax-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandler|
+    throw build, field content-handler
+
+force get-lexical-handler
+  start build, field sax-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getLexicalHandler|
+    throw build, field lexical-handler
+
+force get-system-id
+  start build, field sax-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force set-handler
+  start build, field sax-result
+  start handler, field content-handler
+
+  cause call-method
+    mount object, share build
+    mount method, |setHandler|
+    mount factor, share handler
+    throw build, field unit
+
+force set-lexical-handler
+  start build, field sax-result
+  start handler, field lexical-handler
+
+  cause call-method
+    mount object, share build
+    mount method, |setLexicalHandler|
+    mount factor, share handler
+    throw build, field unit
+
+force set-system-id
+  start build, field sax-result
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit

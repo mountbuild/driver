@@ -1,0 +1,13 @@
+
+force build-unknown-service-exception
+  cause invoke-constructor
+    drive constructor, |UnknownServiceException|
+    throw build, field unknown-service-exception
+
+force build-unknown-service-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |UnknownServiceException|
+    drive factor, share msg
+    throw build, field unknown-service-exception

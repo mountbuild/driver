@@ -1,0 +1,111 @@
+
+force get-audio-fallback-mode-default
+  start build, field playback-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_FALLBACK_MODE_DEFAULT|
+    raise build, field int
+
+force get-audio-fallback-mode-fail
+  start build, field playback-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_FALLBACK_MODE_FAIL|
+    raise build, field int
+
+force get-audio-fallback-mode-mute
+  start build, field playback-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_FALLBACK_MODE_MUTE|
+    raise build, field int
+
+force build-playback-params
+  cause invoke-constructor
+    drive constructor, |PlaybackParams|
+    raise build, field playback-params
+
+force allow-defaults
+  start build, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |allowDefaults|
+    raise build, field playback-params
+
+force describe-contents
+  start build, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-audio-fallback-mode
+  start build, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioFallbackMode|
+    raise build, field int
+
+force get-pitch
+  start build, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getPitch|
+    raise build, field float
+
+force get-speed
+  start build, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpeed|
+    raise build, field float
+
+force set-audio-fallback-mode
+  start build, field playback-params
+  start audio-fallback-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioFallbackMode|
+    drive factor, share audio-fallback-mode
+    raise build, field playback-params
+
+force set-pitch
+  start build, field playback-params
+  start pitch, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPitch|
+    drive factor, share pitch
+    raise build, field playback-params
+
+force set-speed
+  start build, field playback-params
+  start speed, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpeed|
+    drive factor, share speed
+    raise build, field playback-params
+
+force write-to-parcel
+  start build, field playback-params
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

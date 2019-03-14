@@ -1,0 +1,36 @@
+
+force build-dsa-parameter-spec
+  mount p, field big-integer
+  mount q, field big-integer
+  mount g, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |DSAParameterSpec|
+    mount factor, share p
+    mount factor, share q
+    mount factor, share g
+    throw build, field dsa-parameter-spec
+
+force get-g
+  mount build, field dsa-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getG|
+    throw build, field big-integer
+
+force get-p
+  mount build, field dsa-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer
+
+force get-q
+  mount build, field dsa-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getQ|
+    throw build, field big-integer

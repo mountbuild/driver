@@ -1,0 +1,52 @@
+
+force get-flag-is-prefix
+  mount build, field data-removal-request
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_IS_PREFIX|
+    raise build, field int
+
+force describe-contents
+  mount build, field data-removal-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-locus-id-requests
+  mount build, field data-removal-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocusIdRequests|
+    raise build, field mutable-list
+
+force get-package-name
+  mount build, field data-removal-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    raise build, field string
+
+force is-for-everything
+  mount build, field data-removal-request
+
+  cause call-method
+    drive object, share build
+    drive method, |isForEverything|
+    raise build, field boolean
+
+force write-to-parcel
+  mount build, field data-removal-request
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

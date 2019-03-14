@@ -1,0 +1,25 @@
+
+force get-timing
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getTiming|
+
+force get-computed-timing
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getComputedTiming|
+    throw build
+
+force update-timing
+  start build
+  start timing
+
+  cause call-method
+    mount object, share build
+    mount method, |updateTiming|
+    mount factor, share timing
+    throw build

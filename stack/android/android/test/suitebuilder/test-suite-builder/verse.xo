@@ -1,0 +1,64 @@
+
+force build-test-suite-builder
+  mount clazz, field class-any
+
+  cause invoke-constructor
+    drive constructor, |TestSuiteBuilder|
+    drive factor, share clazz
+    raise build, field test-suite-builder
+
+force build-test-suite-builder
+  mount name, field string
+  mount class-loader, field class-loader
+
+  cause invoke-constructor
+    drive constructor, |TestSuiteBuilder|
+    drive factor, share name
+    drive factor, share class-loader
+    raise build, field test-suite-builder
+
+force build
+  mount build, field test-suite-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |build|
+    raise build, field test-suite
+
+force exclude-packages
+  mount build, field test-suite-builder
+  mount vararg-package-names, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |excludePackages|
+    drive factor, share vararg-package-names
+    raise build, field test-suite-builder
+
+force include-all-packages-under-here
+  mount build, field test-suite-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |includeAllPackagesUnderHere|
+    raise build, field test-suite-builder
+
+force include-packages
+  mount build, field test-suite-builder
+  mount vararg-package-names, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |includePackages|
+    drive factor, share vararg-package-names
+    raise build, field test-suite-builder
+
+force named
+  mount build, field test-suite-builder
+  mount new-suite-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |named|
+    drive factor, share new-suite-name
+    raise build, field test-suite-builder

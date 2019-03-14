@@ -1,0 +1,74 @@
+
+force build-file-reader
+  cause invoke-constructor
+    mount constructor, |FileReader|
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build
+
+force get-ready-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |readyState|
+    throw build
+
+force get-result
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |result|
+    throw build
+
+force abort
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |abort|
+
+force read-as-array-buffer
+  start build
+  start blob
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsArrayBuffer|
+    mount factor, share blob
+
+force read-as-binary-string
+  start build
+  start blob
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsBinaryString|
+    mount factor, share blob
+
+force read-as-data-url
+  start build
+  start blob
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsDataURL|
+    mount factor, share blob
+
+force read-as-text
+  start build
+  start blob
+  start encoding
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsText|
+    mount factor, share blob
+    mount factor, share encoding

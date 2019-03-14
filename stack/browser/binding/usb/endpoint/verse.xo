@@ -1,0 +1,61 @@
+
+force build-usb-endpoint
+  start endpoint-number
+  start data
+
+  cause invoke-constructor
+    mount constructor, |USBEndpoint|
+    mount factor, share endpoint-number
+    mount factor, share data
+    throw build
+
+force get-endpoint-number
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endpointNumber|
+    throw build
+
+force set-endpoint-number
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |endpointNumber|
+    mount factor, share value
+
+force get-direction
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |direction|
+    throw build
+
+force set-direction
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |direction|
+    mount factor, share value
+
+force get-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |type|
+    throw build
+
+force set-type
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |type|
+    mount factor, share value

@@ -1,0 +1,118 @@
+
+force build-connection-request
+  mount account-handle, field phone-account-handle
+  mount handle, field uri
+  mount extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |ConnectionRequest|
+    drive factor, share account-handle
+    drive factor, share handle
+    drive factor, share extras
+    throw build, field connection-request
+
+force build-connection-request
+  mount account-handle, field phone-account-handle
+  mount handle, field uri
+  mount extras, field bundle
+  mount video-state, field int
+
+  cause invoke-constructor
+    drive constructor, |ConnectionRequest|
+    drive factor, share account-handle
+    drive factor, share handle
+    drive factor, share extras
+    drive factor, share video-state
+    throw build, field connection-request
+
+force describe-contents
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-account-handle
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccountHandle|
+    throw build, field phone-account-handle
+
+force get-address
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    throw build, field uri
+
+force get-extras
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-participants
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getParticipants|
+    throw build, field mutable-list
+
+force get-rtt-text-stream
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getRttTextStream|
+    throw build, field connection-rtt-text-stream
+
+force get-video-state
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoState|
+    throw build, field int
+
+force is-adhoc-conference-call
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |isAdhocConferenceCall|
+    throw build, field boolean
+
+force is-requesting-rtt
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |isRequestingRtt|
+    throw build, field boolean
+
+force to-string
+  mount build, field connection-request
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field connection-request
+  mount destination, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share destination
+    drive factor, share flags
+    throw build, field unit

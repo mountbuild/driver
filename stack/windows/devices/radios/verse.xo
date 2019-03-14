@@ -1,0 +1,103 @@
+
+force build-radio
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Radios.Radio|
+
+force from-id-async
+  start build, field windows-devices-radios-radio
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+
+force get-device-selector
+  start build, field windows-devices-radios-radio
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force get-radios-async
+  start build, field windows-devices-radios-radio
+
+  cause call-method
+    drive object, share build
+    drive method, |GetRadiosAsync|
+
+force get-kind
+  start build, field windows-devices-radios-radio
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-devices-radios-radio
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-name
+  start build, field windows-devices-radios-radio
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-devices-radios-radio
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force request-access-async
+  start build, field windows-devices-radios-radio
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+
+force set-state-async
+  start build, field windows-devices-radios-radio
+  start value, field windows-devices-radios-radiostate
+
+  cause call-method
+    drive object, share build
+    drive method, |SetStateAsync|
+    drive factor, share value
+
+force get-state
+  start build, field windows-devices-radios-radio
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |State|
+
+force set-state
+  start build, field windows-devices-radios-radio
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |State|
+    drive factor, share value
+
+force get-radio-access-status
+  cause get-object
+    drive aspect, |Windows.Devices.Radios.RadioAccessStatus|
+
+force get-radio-kind
+  cause get-object
+    drive aspect, |Windows.Devices.Radios.RadioKind|
+
+force get-radio-state
+  cause get-object
+    drive aspect, |Windows.Devices.Radios.RadioState|

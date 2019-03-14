@@ -1,0 +1,214 @@
+
+force callable
+  mount build, field executors
+  mount task, field runnable
+  mount result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |callable|
+    drive factor, share task
+    drive factor, share result
+    throw build, field callable
+
+force callable
+  mount build, field executors
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |callable|
+    drive factor, share task
+    throw build, field callable
+
+force callable
+  mount build, field executors
+  mount action, field privileged-action
+
+  cause call-method
+    drive object, share build
+    drive method, |callable|
+    drive factor, share action
+    throw build, field callable
+
+force callable
+  mount build, field executors
+  mount action, field privileged-exception-action
+
+  cause call-method
+    drive object, share build
+    drive method, |callable|
+    drive factor, share action
+    throw build, field callable
+
+force default-thread-factory
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |defaultThreadFactory|
+    throw build, field thread-factory
+
+force new-cached-thread-pool
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |newCachedThreadPool|
+    throw build, field executor-service
+
+force new-cached-thread-pool
+  mount build, field executors
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newCachedThreadPool|
+    drive factor, share thread-factory
+    throw build, field executor-service
+
+force new-fixed-thread-pool
+  mount build, field executors
+  mount n-threads, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newFixedThreadPool|
+    drive factor, share n-threads
+    throw build, field executor-service
+
+force new-fixed-thread-pool
+  mount build, field executors
+  mount n-threads, field int
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newFixedThreadPool|
+    drive factor, share n-threads
+    drive factor, share thread-factory
+    throw build, field executor-service
+
+force new-scheduled-thread-pool
+  mount build, field executors
+  mount core-pool-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newScheduledThreadPool|
+    drive factor, share core-pool-size
+    throw build, field scheduled-executor-service
+
+force new-scheduled-thread-pool
+  mount build, field executors
+  mount core-pool-size, field int
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newScheduledThreadPool|
+    drive factor, share core-pool-size
+    drive factor, share thread-factory
+    throw build, field scheduled-executor-service
+
+force new-single-thread-executor
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |newSingleThreadExecutor|
+    throw build, field executor-service
+
+force new-single-thread-executor
+  mount build, field executors
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newSingleThreadExecutor|
+    drive factor, share thread-factory
+    throw build, field executor-service
+
+force new-single-thread-scheduled-executor
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |newSingleThreadScheduledExecutor|
+    throw build, field scheduled-executor-service
+
+force new-single-thread-scheduled-executor
+  mount build, field executors
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newSingleThreadScheduledExecutor|
+    drive factor, share thread-factory
+    throw build, field scheduled-executor-service
+
+force new-work-stealing-pool
+  mount build, field executors
+  mount parallelism, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newWorkStealingPool|
+    drive factor, share parallelism
+    throw build, field executor-service
+
+force new-work-stealing-pool
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |newWorkStealingPool|
+    throw build, field executor-service
+
+force privileged-callable
+  mount build, field executors
+  mount callable, field callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |privilegedCallable|
+    drive factor, share callable
+    throw build, field callable
+
+force privileged-callable-using-current-class-loader
+  mount build, field executors
+  mount callable, field callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |privilegedCallableUsingCurrentClassLoader|
+    drive factor, share callable
+    throw build, field callable
+
+force privileged-thread-factory
+  mount build, field executors
+
+  cause call-method
+    drive object, share build
+    drive method, |privilegedThreadFactory|
+    throw build, field thread-factory
+
+force unconfigurable-executor-service
+  mount build, field executors
+  mount executor, field executor-service
+
+  cause call-method
+    drive object, share build
+    drive method, |unconfigurableExecutorService|
+    drive factor, share executor
+    throw build, field executor-service
+
+force unconfigurable-scheduled-executor-service
+  mount build, field executors
+  mount executor, field scheduled-executor-service
+
+  cause call-method
+    drive object, share build
+    drive method, |unconfigurableScheduledExecutorService|
+    drive factor, share executor
+    throw build, field scheduled-executor-service

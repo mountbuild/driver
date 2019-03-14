@@ -1,0 +1,36 @@
+
+force get-matches
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |matches|
+    throw build
+
+force get-media
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |media|
+    throw build
+
+force add-listener
+  start build
+  start func
+
+  cause call-method
+    mount object, share build
+    mount method, |addListener|
+    mount factor, share func
+    throw build
+
+force remove-listener
+  start build
+  start func
+
+  cause call-method
+    mount object, share build
+    mount method, |removeListener|
+    mount factor, share func
+    throw build

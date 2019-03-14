@@ -1,0 +1,104 @@
+
+force get-default-amplitude
+  mount build, field vibration-effect
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_AMPLITUDE|
+    raise build, field int
+
+force get-effect-click
+  mount build, field vibration-effect
+
+  cause get-property
+    drive object, share build
+    drive property, |EFFECT_CLICK|
+    raise build, field int
+
+force get-effect-double-click
+  mount build, field vibration-effect
+
+  cause get-property
+    drive object, share build
+    drive property, |EFFECT_DOUBLE_CLICK|
+    raise build, field int
+
+force get-effect-heavy-click
+  mount build, field vibration-effect
+
+  cause get-property
+    drive object, share build
+    drive property, |EFFECT_HEAVY_CLICK|
+    raise build, field int
+
+force get-effect-tick
+  mount build, field vibration-effect
+
+  cause get-property
+    drive object, share build
+    drive property, |EFFECT_TICK|
+    raise build, field int
+
+force create-one-shot
+  mount build, field vibration-effect
+  mount milliseconds, field long
+  mount amplitude, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createOneShot|
+    drive factor, share milliseconds
+    drive factor, share amplitude
+    raise build, field vibration-effect
+
+force create-predefined
+  mount build, field vibration-effect
+  mount effect-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createPredefined|
+    drive factor, share effect-id
+    raise build, field vibration-effect
+
+force create-waveform
+  mount build, field vibration-effect
+  mount timings, field long-array
+  mount repeat, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createWaveform|
+    drive factor, share timings
+    drive factor, share repeat
+    raise build, field vibration-effect
+
+force create-waveform
+  mount build, field vibration-effect
+  mount timings, field long-array
+  mount amplitudes, field int-array
+  mount repeat, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createWaveform|
+    drive factor, share timings
+    drive factor, share amplitudes
+    drive factor, share repeat
+    raise build, field vibration-effect
+
+force describe-contents
+  mount build, field vibration-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force start-composition
+  mount build, field vibration-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |startComposition|
+    raise build, field vibration-effect-composition

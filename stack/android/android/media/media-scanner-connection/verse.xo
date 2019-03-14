@@ -1,0 +1,84 @@
+
+force build-media-scanner-connection
+  start context, field context
+  start client, field media-scanner-connection-media-scanner-connection-client
+
+  cause invoke-constructor
+    drive constructor, |MediaScannerConnection|
+    drive factor, share context
+    drive factor, share client
+    raise build, field media-scanner-connection
+
+force connect
+  start build, field media-scanner-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    raise build, field unit
+
+force disconnect
+  start build, field media-scanner-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnect|
+    raise build, field unit
+
+force is-connected
+  start build, field media-scanner-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    raise build, field boolean
+
+force on-service-connected
+  start build, field media-scanner-connection
+  start class-name, field component-name
+  start service, field i-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceConnected|
+    drive factor, share class-name
+    drive factor, share service
+    raise build, field unit
+
+force on-service-disconnected
+  start build, field media-scanner-connection
+  start class-name, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceDisconnected|
+    drive factor, share class-name
+    raise build, field unit
+
+force scan-file
+  start build, field media-scanner-connection
+  start path, field string
+  start mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |scanFile|
+    drive factor, share path
+    drive factor, share mime-type
+    raise build, field unit
+
+force scan-file
+  start build, field media-scanner-connection
+  start context, field context
+  start paths, field array-string
+  start mime-types, field array-string
+  start callback, field media-scanner-connection-on-scan-completed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |scanFile|
+    drive factor, share context
+    drive factor, share paths
+    drive factor, share mime-types
+    drive factor, share callback
+    raise build, field unit

@@ -1,0 +1,163 @@
+
+force build-named-policy
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Policies.NamedPolicy|
+
+force get-policy-from-path
+  start build, field windows-management-policies-namedpolicy
+  start area, field system-string
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPolicyFromPath|
+    drive factor, share area
+    drive factor, share name
+
+force get-policy-from-path-for-user
+  start build, field windows-management-policies-namedpolicy
+  start user, field windows-system-user
+  start area, field system-string
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPolicyFromPathForUser|
+    drive factor, share user
+    drive factor, share area
+    drive factor, share name
+
+force build-named-policy-data
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Policies.NamedPolicyData|
+
+force get-area
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Area|
+
+force set-area
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Area|
+    drive factor, share value
+
+force get-binary
+  start build, field windows-management-policies-namedpolicydata
+
+  cause call-method
+    drive object, share build
+    drive method, |GetBinary|
+
+force get-boolean
+  start build, field windows-management-policies-namedpolicydata
+
+  cause call-method
+    drive object, share build
+    drive method, |GetBoolean|
+
+force get-int32
+  start build, field windows-management-policies-namedpolicydata
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt32|
+
+force get-int64
+  start build, field windows-management-policies-namedpolicydata
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt64|
+
+force get-string
+  start build, field windows-management-policies-namedpolicydata
+
+  cause call-method
+    drive object, share build
+    drive method, |GetString|
+
+force get-is-managed
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsManaged|
+
+force set-is-managed
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsManaged|
+    drive factor, share value
+
+force get-is-user-policy
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsUserPolicy|
+
+force set-is-user-policy
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsUserPolicy|
+    drive factor, share value
+
+force get-kind
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-name
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-user
+  start build, field windows-management-policies-namedpolicydata
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-management-policies-namedpolicydata
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value

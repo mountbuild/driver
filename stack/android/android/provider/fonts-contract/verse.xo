@@ -1,0 +1,46 @@
+
+force build-typeface
+  mount build, field fonts-contract
+  mount context, field context
+  mount cancellation-signal, field cancellation-signal
+  mount fonts, field array-fonts-contract-font-info
+
+  cause call-method
+    drive object, share build
+    drive method, |buildTypeface|
+    drive factor, share context
+    drive factor, share cancellation-signal
+    drive factor, share fonts
+    raise build, field typeface
+
+force fetch-fonts
+  mount build, field fonts-contract
+  mount context, field context
+  mount cancellation-signal, field cancellation-signal
+  mount request, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |fetchFonts|
+    drive factor, share context
+    drive factor, share cancellation-signal
+    drive factor, share request
+    raise build, field fonts-contract-font-family-result
+
+force request-fonts
+  mount build, field fonts-contract
+  mount context, field context
+  mount request, field font-request
+  mount handler, field handler
+  mount cancellation-signal, field cancellation-signal
+  mount callback, field fonts-contract-font-request-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |requestFonts|
+    drive factor, share context
+    drive factor, share request
+    drive factor, share handler
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    raise build, field unit

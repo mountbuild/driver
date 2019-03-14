@@ -1,0 +1,223 @@
+
+force build-random
+  cause invoke-constructor
+    drive constructor, |Random|
+    throw build, field random
+
+force build-random
+  mount seed, field long
+
+  cause invoke-constructor
+    drive constructor, |Random|
+    drive factor, share seed
+    throw build, field random
+
+force doubles
+  mount build, field random
+  mount stream-size, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |doubles|
+    drive factor, share stream-size
+    throw build, field double-stream
+
+force doubles
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |doubles|
+    throw build, field double-stream
+
+force doubles
+  mount build, field random
+  mount stream-size, field long
+  mount random-number-origin, field double
+  mount random-number-bound, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |doubles|
+    drive factor, share stream-size
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field double-stream
+
+force doubles
+  mount build, field random
+  mount random-number-origin, field double
+  mount random-number-bound, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |doubles|
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field double-stream
+
+force ints
+  mount build, field random
+  mount stream-size, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |ints|
+    drive factor, share stream-size
+    throw build, field int-stream
+
+force ints
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |ints|
+    throw build, field int-stream
+
+force ints
+  mount build, field random
+  mount stream-size, field long
+  mount random-number-origin, field int
+  mount random-number-bound, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ints|
+    drive factor, share stream-size
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field int-stream
+
+force ints
+  mount build, field random
+  mount random-number-origin, field int
+  mount random-number-bound, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ints|
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field int-stream
+
+force longs
+  mount build, field random
+  mount stream-size, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |longs|
+    drive factor, share stream-size
+    throw build, field long-stream
+
+force longs
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |longs|
+    throw build, field long-stream
+
+force longs
+  mount build, field random
+  mount stream-size, field long
+  mount random-number-origin, field long
+  mount random-number-bound, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |longs|
+    drive factor, share stream-size
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field long-stream
+
+force longs
+  mount build, field random
+  mount random-number-origin, field long
+  mount random-number-bound, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |longs|
+    drive factor, share random-number-origin
+    drive factor, share random-number-bound
+    throw build, field long-stream
+
+force next-boolean
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextBoolean|
+    throw build, field boolean
+
+force next-bytes
+  mount build, field random
+  mount bytes, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |nextBytes|
+    drive factor, share bytes
+    throw build, field unit
+
+force next-double
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextDouble|
+    throw build, field double
+
+force next-float
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextFloat|
+    throw build, field float
+
+force next-gaussian
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextGaussian|
+    throw build, field double
+
+force next-int
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextInt|
+    throw build, field int
+
+force next-int
+  mount build, field random
+  mount bound, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |nextInt|
+    drive factor, share bound
+    throw build, field int
+
+force next-long
+  mount build, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |nextLong|
+    throw build, field long
+
+force set-seed
+  mount build, field random
+  mount seed, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setSeed|
+    drive factor, share seed
+    throw build, field unit

@@ -1,0 +1,342 @@
+
+force check-access
+  mount build, field file-system-provider
+  mount path, field path
+  mount vararg-modes, field access-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    drive factor, share path
+    drive factor, share vararg-modes
+    throw build, field unit
+
+force copy
+  mount build, field file-system-provider
+  mount source, field path
+  mount target, field path
+  mount vararg-options, field copy-option
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    drive factor, share source
+    drive factor, share target
+    drive factor, share vararg-options
+    throw build, field unit
+
+force create-directory
+  mount build, field file-system-provider
+  mount dir, field path
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    drive object, share build
+    drive method, |createDirectory|
+    drive factor, share dir
+    drive factor, share vararg-attrs
+    throw build, field unit
+
+force create-link
+  mount build, field file-system-provider
+  mount link, field path
+  mount existing, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |createLink|
+    drive factor, share link
+    drive factor, share existing
+    throw build, field unit
+
+force create-symbolic-link
+  mount build, field file-system-provider
+  mount link, field path
+  mount target, field path
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    drive object, share build
+    drive method, |createSymbolicLink|
+    drive factor, share link
+    drive factor, share target
+    drive factor, share vararg-attrs
+    throw build, field unit
+
+force delete
+  mount build, field file-system-provider
+  mount path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share path
+    throw build, field unit
+
+force delete-if-exists
+  mount build, field file-system-provider
+  mount path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteIfExists|
+    drive factor, share path
+    throw build, field boolean
+
+force get-file-attribute-view
+  mount build, field file-system-provider
+  mount path, field path
+  mount type, field class-v
+  mount vararg-options, field link-option
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileAttributeView|
+    drive factor, share path
+    drive factor, share type
+    drive factor, share vararg-options
+    throw build, field v
+
+force get-file-store
+  mount build, field file-system-provider
+  mount path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileStore|
+    drive factor, share path
+    throw build, field file-store
+
+force get-file-system
+  mount build, field file-system-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileSystem|
+    drive factor, share uri
+    throw build, field file-system
+
+force get-path
+  mount build, field file-system-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    drive factor, share uri
+    throw build, field path
+
+force get-scheme
+  mount build, field file-system-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getScheme|
+    throw build, field string
+
+force installed-providers
+  mount build, field file-system-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |installedProviders|
+    throw build, field mutable-list
+
+force is-hidden
+  mount build, field file-system-provider
+  mount path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |isHidden|
+    drive factor, share path
+    throw build, field boolean
+
+force is-same-file
+  mount build, field file-system-provider
+  mount path, field path
+  mount path2, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |isSameFile|
+    drive factor, share path
+    drive factor, share path2
+    throw build, field boolean
+
+force move
+  mount build, field file-system-provider
+  mount source, field path
+  mount target, field path
+  mount vararg-options, field copy-option
+
+  cause call-method
+    drive object, share build
+    drive method, |move|
+    drive factor, share source
+    drive factor, share target
+    drive factor, share vararg-options
+    throw build, field unit
+
+force new-asynchronous-file-channel
+  mount build, field file-system-provider
+  mount path, field path
+  mount options, field mutable-set-out-open-option
+  mount executor, field executor-service
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    drive object, share build
+    drive method, |newAsynchronousFileChannel|
+    drive factor, share path
+    drive factor, share options
+    drive factor, share executor
+    drive factor, share vararg-attrs
+    throw build, field asynchronous-file-channel
+
+force new-byte-channel
+  mount build, field file-system-provider
+  mount path, field path
+  mount options, field mutable-set-out-open-option
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    drive object, share build
+    drive method, |newByteChannel|
+    drive factor, share path
+    drive factor, share options
+    drive factor, share vararg-attrs
+    throw build, field seekable-byte-channel
+
+force new-directory-stream
+  mount build, field file-system-provider
+  mount dir, field path
+  mount filter, field directory-stream-filter-in-path
+
+  cause call-method
+    drive object, share build
+    drive method, |newDirectoryStream|
+    drive factor, share dir
+    drive factor, share filter
+    throw build, field directory-stream
+
+force new-file-channel
+  mount build, field file-system-provider
+  mount path, field path
+  mount options, field mutable-set-out-open-option
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileChannel|
+    drive factor, share path
+    drive factor, share options
+    drive factor, share vararg-attrs
+    throw build, field file-channel
+
+force new-file-system
+  mount build, field file-system-provider
+  mount uri, field uri
+  mount env, field mutable-map-string
+  mount , field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileSystem|
+    drive factor, share uri
+    drive factor, share env
+    drive factor, share
+    throw build, field file-system
+
+force new-file-system
+  mount build, field file-system-provider
+  mount path, field path
+  mount env, field mutable-map-string
+  mount , field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileSystem|
+    drive factor, share path
+    drive factor, share env
+    drive factor, share
+    throw build, field file-system
+
+force new-input-stream
+  mount build, field file-system-provider
+  mount path, field path
+  mount vararg-options, field open-option
+
+  cause call-method
+    drive object, share build
+    drive method, |newInputStream|
+    drive factor, share path
+    drive factor, share vararg-options
+    throw build, field input-stream
+
+force new-output-stream
+  mount build, field file-system-provider
+  mount path, field path
+  mount vararg-options, field open-option
+
+  cause call-method
+    drive object, share build
+    drive method, |newOutputStream|
+    drive factor, share path
+    drive factor, share vararg-options
+    throw build, field output-stream
+
+force read-attributes
+  mount build, field file-system-provider
+  mount path, field path
+  mount type, field class-a
+  mount vararg-options, field link-option
+
+  cause call-method
+    drive object, share build
+    drive method, |readAttributes|
+    drive factor, share path
+    drive factor, share type
+    drive factor, share vararg-options
+    throw build, field a
+
+force read-attributes
+  mount build, field file-system-provider
+  mount path, field path
+  mount attributes, field string
+  mount vararg-options, field link-option
+
+  cause call-method
+    drive object, share build
+    drive method, |readAttributes|
+    drive factor, share path
+    drive factor, share attributes
+    drive factor, share vararg-options
+    throw build, field mutable-map
+
+force read-symbolic-link
+  mount build, field file-system-provider
+  mount link, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |readSymbolicLink|
+    drive factor, share link
+    throw build, field path
+
+force set-attribute
+  mount build, field file-system-provider
+  mount path, field path
+  mount attribute, field string
+  mount value, field any
+  mount vararg-options, field link-option
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttribute|
+    drive factor, share path
+    drive factor, share attribute
+    drive factor, share value
+    drive factor, share vararg-options
+    throw build, field unit

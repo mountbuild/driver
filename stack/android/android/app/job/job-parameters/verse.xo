@@ -1,0 +1,110 @@
+
+force complete-work
+  start build, field job-parameters
+  start work, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |completeWork|
+    drive factor, share work
+    throw build, field unit
+
+force dequeue-work
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |dequeueWork|
+    throw build, field job-work-item
+
+force describe-contents
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-clip-data
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getClipData|
+    throw build, field clip-data
+
+force get-clip-grant-flags
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getClipGrantFlags|
+    throw build, field int
+
+force get-extras
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field persistable-bundle
+
+force get-job-id
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getJobId|
+    throw build, field int
+
+force get-network
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetwork|
+    throw build, field network
+
+force get-transient-extras
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransientExtras|
+    throw build, field bundle
+
+force get-triggered-content-authorities
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getTriggeredContentAuthorities|
+    throw build, field array
+
+force get-triggered-content-uris
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |getTriggeredContentUris|
+    throw build, field array
+
+force is-override-deadline-expired
+  start build, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |isOverrideDeadlineExpired|
+    throw build, field boolean
+
+force write-to-parcel
+  start build, field job-parameters
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,86 @@
+
+force build-token-watcher
+  mount h, field handler
+  mount tag, field string
+
+  cause invoke-constructor
+    drive constructor, |TokenWatcher|
+    drive factor, share h
+    drive factor, share tag
+    raise build, field token-watcher
+
+force acquire
+  mount build, field token-watcher
+  mount token, field i-binder
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |acquire|
+    drive factor, share token
+    drive factor, share tag
+    raise build, field unit
+
+force acquired
+  mount build, field token-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |acquired|
+    raise build, field unit
+
+force cleanup
+  mount build, field token-watcher
+  mount token, field i-binder
+  mount unlink, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |cleanup|
+    drive factor, share token
+    drive factor, share unlink
+    raise build, field unit
+
+force dump
+  mount build, field token-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    raise build, field unit
+
+force dump
+  mount build, field token-watcher
+  mount pw, field print-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    raise build, field unit
+
+force is-acquired
+  mount build, field token-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |isAcquired|
+    raise build, field boolean
+
+force release
+  mount build, field token-watcher
+  mount token, field i-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    drive factor, share token
+    raise build, field unit
+
+force released
+  mount build, field token-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |released|
+    raise build, field unit

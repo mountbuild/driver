@@ -1,0 +1,20 @@
+
+force build-interactive-session
+  cause invoke-constructor
+    drive constructor, |Windows.System.RemoteDesktop.InteractiveSession|
+
+force get-is-remote
+  start build, field windows-system-remotedesktop-interactivesession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsRemote|
+
+force set-is-remote
+  start build, field windows-system-remotedesktop-interactivesession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsRemote|
+    drive factor, share value

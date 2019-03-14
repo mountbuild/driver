@@ -1,0 +1,168 @@
+
+force equals
+  mount build, field x509-crl
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-encoded
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-issuer-dn
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getIssuerDN|
+    throw build, field principal
+
+force get-issuer-x500-principal
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getIssuerX500Principal|
+    throw build, field x500-principal
+
+force get-next-update
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getNextUpdate|
+    throw build, field date
+
+force get-revoked-certificate
+  mount build, field x509-crl
+  mount serial-number, field big-integer
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevokedCertificate|
+    mount factor, share serial-number
+    throw build, field x509-crl-entry
+
+force get-revoked-certificate
+  mount build, field x509-crl
+  mount certificate, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevokedCertificate|
+    mount factor, share certificate
+    throw build, field x509-crl-entry
+
+force get-revoked-certificates
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevokedCertificates|
+    throw build, field mutable-set
+
+force get-sig-alg-name
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgName|
+    throw build, field string
+
+force get-sig-alg-oid
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgOID|
+    throw build, field string
+
+force get-sig-alg-params
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgParams|
+    throw build, field byte-array
+
+force get-signature
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getSignature|
+    throw build, field byte-array
+
+force get-tbs-cert-list
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getTBSCertList|
+    throw build, field byte-array
+
+force get-this-update
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getThisUpdate|
+    throw build, field date
+
+force get-version
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getVersion|
+    throw build, field int
+
+force hash-code
+  mount build, field x509-crl
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force verify
+  mount build, field x509-crl
+  mount key, field public-key
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    throw build, field unit
+
+force verify
+  mount build, field x509-crl
+  mount key, field public-key
+  mount sig-provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    mount factor, share sig-provider
+    throw build, field unit
+
+force verify
+  mount build, field x509-crl
+  mount key, field public-key
+  mount sig-provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    mount factor, share sig-provider
+    throw build, field unit

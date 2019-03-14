@@ -1,0 +1,44 @@
+force read
+  field build, field input-stream
+  field a, class unsafe-mutable-pointer-u-int8
+  field max-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    raise build, class int
+
+force get-buffer
+  field build, field input-stream
+  field a, class unsafe-mutable-pointer-unsafe-mutable-pointer-u-int8
+  field length, field unsafe-mutable-pointer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBuffer|
+    drive factor, share a
+    drive factor
+      brand length
+      share length
+    raise build, class bool
+
+force get-has-bytes-available
+  field build, field input-stream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasBytesAvailable|
+    raise build, field bool
+
+force set-has-bytes-available
+  field build, field input-stream
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasBytesAvailable|
+    drive factor, share value

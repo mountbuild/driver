@@ -1,0 +1,339 @@
+force get-contents
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |contents|
+    raise build, field ic-camera-item
+
+force set-contents
+  field build, field ic-camera-device
+  field value, field ic-camera-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |contents|
+    drive factor, share value
+
+force get-media-files
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mediaFiles|
+    raise build, field ic-camera-item
+
+force set-media-files
+  field build, field ic-camera-device
+  field value, field ic-camera-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mediaFiles|
+    drive factor, share value
+
+force get-content-catalog-percent-completed
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |contentCatalogPercentCompleted|
+    raise build, field int
+
+force set-content-catalog-percent-completed
+  field build, field ic-camera-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |contentCatalogPercentCompleted|
+    drive factor, share value
+
+force files
+  field build, field ic-camera-device
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |files|
+    drive factor
+      brand of-type
+      share of-type
+    raise build, class string
+
+force request-read-data
+  field build, field ic-camera-device
+  field from, field ic-camera-file
+  field at-offset, field off-t
+  field length, field off-t
+  field read-delegate, field any
+  field did-read-data-selector, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |requestReadData|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand at-offset
+      share at-offset
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand read-delegate
+      share read-delegate
+    drive factor
+      brand did-read-data-selector
+      share did-read-data-selector
+    drive factor
+      brand context-info
+      share context-info
+
+force cancel-download
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelDownload|
+
+force get-is-locked
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLocked|
+    raise build, field bool
+
+force set-is-locked
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLocked|
+    drive factor, share value
+
+force request-delete-files
+  field build, field ic-camera-device
+  field a, class ic-camera-item
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDeleteFiles|
+    drive factor, share a
+
+force cancel-delete
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelDelete|
+
+force get-tethered-capture-enabled
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |tetheredCaptureEnabled|
+    raise build, field bool
+
+force set-tethered-capture-enabled
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |tetheredCaptureEnabled|
+    drive factor, share value
+
+force get-ptp-event-handler
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ptpEventHandler|
+    raise build, field data
+
+force set-ptp-event-handler
+  field build, field ic-camera-device
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ptpEventHandler|
+    drive factor, share value
+
+force request-enable-tethering
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |requestEnableTethering|
+
+force request-take-picture
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |requestTakePicture|
+
+force request-send-ptp-command
+  field build, field ic-camera-device
+  field a, class data
+  field out-data, field data
+  field send-command-delegate, field any
+  field did-send-command, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |requestSendPTPCommand|
+    drive factor, share a
+    drive factor
+      brand out-data
+      share out-data
+    drive factor
+      brand send-command-delegate
+      share send-command-delegate
+    drive factor
+      brand did-send-command
+      share did-send-command
+    drive factor
+      brand context-info
+      share context-info
+
+force request-disable-tethering
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDisableTethering|
+
+force get-battery-level-available
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |batteryLevelAvailable|
+    raise build, field bool
+
+force set-battery-level-available
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |batteryLevelAvailable|
+    drive factor, share value
+
+force get-battery-level
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |batteryLevel|
+    raise build, field int
+
+force set-battery-level
+  field build, field ic-camera-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |batteryLevel|
+    drive factor, share value
+
+force get-time-offset
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timeOffset|
+    raise build, field time-interval
+
+force set-time-offset
+  field build, field ic-camera-device
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timeOffset|
+    drive factor, share value
+
+force request-sync-clock
+  field build, field ic-camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |requestSyncClock|
+
+force get-is-access-restricted-apple-device
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAccessRestrictedAppleDevice|
+    raise build, field bool
+
+force set-is-access-restricted-apple-device
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAccessRestrictedAppleDevice|
+    drive factor, share value
+
+force get-i-cloud-photos-enabled
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |iCloudPhotosEnabled|
+    raise build, field bool
+
+force set-i-cloud-photos-enabled
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |iCloudPhotosEnabled|
+    drive factor, share value
+
+force get-mount-point
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mountPoint|
+    raise build, field string
+
+force set-mount-point
+  field build, field ic-camera-device
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mountPoint|
+    drive factor, share value
+
+force get-is-ejectable
+  field build, field ic-camera-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEjectable|
+    raise build, field bool
+
+force set-is-ejectable
+  field build, field ic-camera-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEjectable|
+    drive factor, share value

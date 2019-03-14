@@ -1,0 +1,22 @@
+
+force build-focus-event
+  cause invoke-constructor
+    mount constructor, |FocusEvent|
+    throw build
+
+force get-related-target
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |relatedTarget|
+    throw build
+
+force set-related-target
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |relatedTarget|
+    mount factor, share value

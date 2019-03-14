@@ -1,0 +1,210 @@
+
+force get-constellation-beidou
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_BEIDOU|
+    raise build, field int
+
+force get-constellation-galileo
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_GALILEO|
+    raise build, field int
+
+force get-constellation-glonass
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_GLONASS|
+    raise build, field int
+
+force get-constellation-gps
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_GPS|
+    raise build, field int
+
+force get-constellation-irnss
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_IRNSS|
+    raise build, field int
+
+force get-constellation-qzss
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_QZSS|
+    raise build, field int
+
+force get-constellation-sbas
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_SBAS|
+    raise build, field int
+
+force get-constellation-unknown
+  mount build, field gnss-status
+
+  cause get-property
+    drive object, share build
+    drive property, |CONSTELLATION_UNKNOWN|
+    raise build, field int
+
+force equals
+  mount build, field gnss-status
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-azimuth-degrees
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAzimuthDegrees|
+    drive factor, share satellite-index
+    raise build, field float
+
+force get-baseband-cn0-db-hz
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBasebandCn0DbHz|
+    drive factor, share satellite-index
+    raise build, field float
+
+force get-carrier-frequency-hz
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCarrierFrequencyHz|
+    drive factor, share satellite-index
+    raise build, field float
+
+force get-cn0-db-hz
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCn0DbHz|
+    drive factor, share satellite-index
+    raise build, field float
+
+force get-constellation-type
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getConstellationType|
+    drive factor, share satellite-index
+    raise build, field int
+
+force get-elevation-degrees
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getElevationDegrees|
+    drive factor, share satellite-index
+    raise build, field float
+
+force get-satellite-count
+  mount build, field gnss-status
+
+  cause call-method
+    drive object, share build
+    drive method, |getSatelliteCount|
+    raise build, field int
+
+force get-svid
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSvid|
+    drive factor, share satellite-index
+    raise build, field int
+
+force has-almanac-data
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAlmanacData|
+    drive factor, share satellite-index
+    raise build, field boolean
+
+force has-baseband-cn0-db-hz
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasBasebandCn0DbHz|
+    drive factor, share satellite-index
+    raise build, field boolean
+
+force has-carrier-frequency-hz
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCarrierFrequencyHz|
+    drive factor, share satellite-index
+    raise build, field boolean
+
+force has-ephemeris-data
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasEphemerisData|
+    drive factor, share satellite-index
+    raise build, field boolean
+
+force hash-code
+  mount build, field gnss-status
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force used-in-fix
+  mount build, field gnss-status
+  mount satellite-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |usedInFix|
+    drive factor, share satellite-index
+    raise build, field boolean

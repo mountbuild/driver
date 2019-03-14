@@ -1,0 +1,18 @@
+
+force build-phantom-reference
+  mount referent, field t
+  mount q, field reference-queue-in-t
+
+  cause invoke-constructor
+    drive constructor, |PhantomReference|
+    drive factor, share referent
+    drive factor, share q
+    throw build, field phantom-reference
+
+force get
+  mount build, field phantom-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field t

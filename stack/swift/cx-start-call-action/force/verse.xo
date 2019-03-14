@@ -1,0 +1,61 @@
+force get-is-video
+  field build, field cx-start-call-action
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isVideo|
+    raise build, field bool
+
+force set-is-video
+  field build, field cx-start-call-action
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isVideo|
+    mount factor, share value
+
+force get-contact-identifier
+  field build, field cx-start-call-action
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |contactIdentifier|
+    raise build, field string
+
+force set-contact-identifier
+  field build, field cx-start-call-action
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |contactIdentifier|
+    mount factor, share value
+
+force get-handle
+  field build, field cx-start-call-action
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |handle|
+    raise build, field cx-handle
+
+force set-handle
+  field build, field cx-start-call-action
+  field value, field cx-handle
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |handle|
+    mount factor, share value
+
+force fulfill
+  field build, field cx-start-call-action
+  field with-date-started, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |fulfill|
+    mount factor
+      brand with-date-started
+      share with-date-started

@@ -1,0 +1,31 @@
+
+force build-path-motion
+  cause invoke-constructor
+    drive constructor, |PathMotion|
+    throw build, field path-motion
+
+force build-path-motion
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |PathMotion|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field path-motion
+
+force get-path
+  mount build, field path-motion
+  mount start-x, field float
+  mount start-y, field float
+  mount end-x, field float
+  mount end-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share end-x
+    drive factor, share end-y
+    throw build, field path

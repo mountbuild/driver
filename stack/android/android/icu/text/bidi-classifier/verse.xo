@@ -1,0 +1,36 @@
+
+force build-bidi-classifier
+  start context, field any
+
+  cause invoke-constructor
+    drive constructor, |BidiClassifier|
+    drive factor, share context
+    raise build, field bidi-classifier
+
+force classify
+  start build, field bidi-classifier
+  start c, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |classify|
+    drive factor, share c
+    raise build, field int
+
+force get-context
+  start build, field bidi-classifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getContext|
+    raise build, field any
+
+force set-context
+  start build, field bidi-classifier
+  start context, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setContext|
+    drive factor, share context
+    raise build, field unit

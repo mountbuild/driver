@@ -1,0 +1,26 @@
+
+force build-timed-meta-data
+  start timestamp-us, field long
+  start meta-data, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |TimedMetaData|
+    drive factor, share timestamp-us
+    drive factor, share meta-data
+    raise build, field timed-meta-data
+
+force get-meta-data
+  start build, field timed-meta-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetaData|
+    raise build, field byte-array
+
+force get-timestamp
+  start build, field timed-meta-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    raise build, field long

@@ -1,0 +1,68 @@
+
+force build-pkcs12-attribute
+  mount name, field string
+  mount value, field string
+
+  cause invoke-constructor
+    mount constructor, |PKCS12Attribute|
+    mount factor, share name
+    mount factor, share value
+    throw build, field pkcs12-attribute
+
+force build-pkcs12-attribute
+  mount encoded, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |PKCS12Attribute|
+    mount factor, share encoded
+    throw build, field pkcs12-attribute
+
+force equals
+  mount build, field pkcs12-attribute
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-encoded
+  mount build, field pkcs12-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-name
+  mount build, field pkcs12-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string
+
+force get-value
+  mount build, field pkcs12-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |getValue|
+    throw build, field string
+
+force hash-code
+  mount build, field pkcs12-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field pkcs12-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

@@ -1,0 +1,31 @@
+
+force build-runtime-exception
+  cause invoke-constructor
+    drive constructor, |RuntimeException|
+    throw build, field runtime-exception
+
+force build-runtime-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |RuntimeException|
+    drive factor, share message
+    throw build, field runtime-exception
+
+force build-runtime-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |RuntimeException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field runtime-exception
+
+force build-runtime-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |RuntimeException|
+    drive factor, share cause
+    throw build, field runtime-exception

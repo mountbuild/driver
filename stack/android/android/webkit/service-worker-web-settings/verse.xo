@@ -1,0 +1,77 @@
+
+force build-service-worker-web-settings
+  cause invoke-constructor
+    drive constructor, |ServiceWorkerWebSettings|
+    throw build, field service-worker-web-settings
+
+force get-allow-content-access
+  mount build, field service-worker-web-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowContentAccess|
+    throw build, field boolean
+
+force get-allow-file-access
+  mount build, field service-worker-web-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowFileAccess|
+    throw build, field boolean
+
+force get-block-network-loads
+  mount build, field service-worker-web-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockNetworkLoads|
+    throw build, field boolean
+
+force get-cache-mode
+  mount build, field service-worker-web-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getCacheMode|
+    throw build, field int
+
+force set-allow-content-access
+  mount build, field service-worker-web-settings
+  mount allow, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowContentAccess|
+    drive factor, share allow
+    throw build, field unit
+
+force set-allow-file-access
+  mount build, field service-worker-web-settings
+  mount allow, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowFileAccess|
+    drive factor, share allow
+    throw build, field unit
+
+force set-block-network-loads
+  mount build, field service-worker-web-settings
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setBlockNetworkLoads|
+    drive factor, share flag
+    throw build, field unit
+
+force set-cache-mode
+  mount build, field service-worker-web-settings
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCacheMode|
+    drive factor, share mode
+    throw build, field unit

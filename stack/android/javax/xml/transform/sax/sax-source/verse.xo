@@ -1,0 +1,95 @@
+
+force get-feature
+  start build, field sax-source
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-sax-source
+  cause invoke-constructor
+    mount constructor, |SAXSource|
+    throw build, field sax-source
+
+force build-sax-source
+  start reader, field xml-reader
+  start input-source, field input-source
+
+  cause invoke-constructor
+    mount constructor, |SAXSource|
+    mount factor, share reader
+    mount factor, share input-source
+    throw build, field sax-source
+
+force build-sax-source
+  start input-source, field input-source
+
+  cause invoke-constructor
+    mount constructor, |SAXSource|
+    mount factor, share input-source
+    throw build, field sax-source
+
+force get-input-source
+  start build, field sax-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getInputSource|
+    throw build, field input-source
+
+force get-system-id
+  start build, field sax-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force get-xml-reader
+  start build, field sax-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getXMLReader|
+    throw build, field xml-reader
+
+force set-input-source
+  start build, field sax-source
+  start input-source, field input-source
+
+  cause call-method
+    mount object, share build
+    mount method, |setInputSource|
+    mount factor, share input-source
+    throw build, field unit
+
+force set-system-id
+  start build, field sax-source
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit
+
+force set-xml-reader
+  start build, field sax-source
+  start reader, field xml-reader
+
+  cause call-method
+    mount object, share build
+    mount method, |setXMLReader|
+    mount factor, share reader
+    throw build, field unit
+
+force source-to-input-source
+  start build, field sax-source
+  start source, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |sourceToInputSource|
+    mount factor, share source
+    throw build, field input-source

@@ -1,0 +1,167 @@
+
+force build-delay-queue
+  cause invoke-constructor
+    drive constructor, |DelayQueue|
+    throw build, field delay-queue
+
+force build-delay-queue
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |DelayQueue|
+    drive factor, share c
+    throw build, field delay-queue
+
+force add
+  mount build, field delay-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force clear
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force drain-to
+  mount build, field delay-queue
+  mount c, field mutable-collection-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    throw build, field int
+
+force drain-to
+  mount build, field delay-queue
+  mount c, field mutable-collection-in-e
+  mount max-elements, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    drive factor, share max-elements
+    throw build, field int
+
+force iterator
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force offer
+  mount build, field delay-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    throw build, field boolean
+
+force offer
+  mount build, field delay-queue
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force peek
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force poll
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field e
+
+force poll
+  mount build, field delay-queue
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field e
+
+force put
+  mount build, field delay-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share e
+    throw build, field unit
+
+force remaining-capacity
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |remainingCapacity|
+    throw build, field int
+
+force remove
+  mount build, field delay-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force take
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |take|
+    throw build, field e
+
+force to-array
+  mount build, field delay-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field delay-queue
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array

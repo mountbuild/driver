@@ -1,0 +1,127 @@
+
+force acquire-channel
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start channel, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AcquireChannel|
+    drive factor, share channel
+
+force get-channel-count
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChannelCount|
+
+force set-channel-count
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChannelCount|
+    drive factor, share value
+
+force get-channel-mode
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChannelMode|
+
+force set-channel-mode
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChannelMode|
+    drive factor, share value
+
+force is-channel-mode-supported
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start channel-mode, field windows-devices-adc-provider-provideradcchannelmode
+
+  cause call-method
+    drive object, share build
+    drive method, |IsChannelModeSupported|
+    drive factor, share channel-mode
+
+force get-max-value
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxValue|
+
+force set-max-value
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxValue|
+    drive factor, share value
+
+force get-min-value
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinValue|
+
+force set-min-value
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinValue|
+    drive factor, share value
+
+force read-value
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start channel-number, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadValue|
+    drive factor, share channel-number
+
+force release-channel
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start channel, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |ReleaseChannel|
+    drive factor, share channel
+
+force get-resolution-in-bits
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolutionInBits|
+
+force set-resolution-in-bits
+  start build, field windows-devices-adc-provider-iadccontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolutionInBits|
+    drive factor, share value
+
+force get-controllers
+  start build, field windows-devices-adc-provider-iadcprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllers|
+
+force get-provider-adc-channel-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Adc.Provider.ProviderAdcChannelMode|

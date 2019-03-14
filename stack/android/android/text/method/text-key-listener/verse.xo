@@ -1,0 +1,168 @@
+
+force build-text-key-listener
+  mount cap, field text-key-listener-capitalize
+  mount autotext, field boolean
+
+  cause invoke-constructor
+    drive constructor, |TextKeyListener|
+    drive factor, share cap
+    drive factor, share autotext
+    raise build, field text-key-listener
+
+force clear
+  mount build, field text-key-listener
+  mount e, field editable
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    drive factor, share e
+    raise build, field unit
+
+force get-input-type
+  mount build, field text-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputType|
+    raise build, field int
+
+force get-instance
+  mount build, field text-key-listener
+  mount autotext, field boolean
+  mount cap, field text-key-listener-capitalize
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share autotext
+    drive factor, share cap
+    raise build, field text-key-listener
+
+force get-instance
+  mount build, field text-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field text-key-listener
+
+force on-key-down
+  mount build, field text-key-listener
+  mount view, field view
+  mount content, field editable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean
+
+force on-key-other
+  mount build, field text-key-listener
+  mount view, field view
+  mount content, field editable
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyOther|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share event
+    raise build, field boolean
+
+force on-key-up
+  mount build, field text-key-listener
+  mount view, field view
+  mount content, field editable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyUp|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean
+
+force on-span-added
+  mount build, field text-key-listener
+  mount s, field spannable
+  mount what, field any
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanAdded|
+    drive factor, share s
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    raise build, field unit
+
+force on-span-changed
+  mount build, field text-key-listener
+  mount s, field spannable
+  mount what, field any
+  mount start, field int
+  mount end, field int
+  mount st, field int
+  mount en, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanChanged|
+    drive factor, share s
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    drive factor, share st
+    drive factor, share en
+    raise build, field unit
+
+force on-span-removed
+  mount build, field text-key-listener
+  mount s, field spannable
+  mount what, field any
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanRemoved|
+    drive factor, share s
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    raise build, field unit
+
+force release
+  mount build, field text-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force should-cap
+  mount build, field text-key-listener
+  mount cap, field text-key-listener-capitalize
+  mount cs, field char-sequence
+  mount off, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldCap|
+    drive factor, share cap
+    drive factor, share cs
+    drive factor, share off
+    raise build, field boolean

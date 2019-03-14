@@ -1,0 +1,254 @@
+
+force get-max-id
+  mount build, field color-space
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_ID|
+    raise build, field int
+
+force get-min-id
+  mount build, field color-space
+
+  cause get-property
+    drive object, share build
+    drive property, |MIN_ID|
+    raise build, field int
+
+force adapt
+  mount build, field color-space
+  mount color-space, field color-space
+  mount white-point, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |adapt|
+    drive factor, share color-space
+    drive factor, share white-point
+    raise build, field color-space
+
+force adapt
+  mount build, field color-space
+  mount color-space, field color-space
+  mount white-point, field float-array
+  mount adaptation, field color-space-adaptation
+
+  cause call-method
+    drive object, share build
+    drive method, |adapt|
+    drive factor, share color-space
+    drive factor, share white-point
+    drive factor, share adaptation
+    raise build, field color-space
+
+force connect
+  mount build, field color-space
+  mount source, field color-space
+  mount destination, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share source
+    drive factor, share destination
+    raise build, field color-space-connector
+
+force connect
+  mount build, field color-space
+  mount source, field color-space
+  mount destination, field color-space
+  mount intent, field color-space-render-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share source
+    drive factor, share destination
+    drive factor, share intent
+    raise build, field color-space-connector
+
+force connect
+  mount build, field color-space
+  mount source, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share source
+    raise build, field color-space-connector
+
+force connect
+  mount build, field color-space
+  mount source, field color-space
+  mount intent, field color-space-render-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share source
+    drive factor, share intent
+    raise build, field color-space-connector
+
+force equals
+  mount build, field color-space
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force from-xyz
+  mount build, field color-space
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |fromXyz|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field float-array
+
+force from-xyz
+  mount build, field color-space
+  mount v, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |fromXyz|
+    drive factor, share v
+    raise build, field float-array
+
+force get
+  mount build, field color-space
+  mount name, field color-space-named
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share name
+    raise build, field color-space
+
+force get-component-count
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponentCount|
+    raise build, field int
+
+force get-id
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field int
+
+force get-max-value
+  mount build, field color-space
+  mount component, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxValue|
+    drive factor, share component
+    raise build, field float
+
+force get-min-value
+  mount build, field color-space
+  mount component, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinValue|
+    drive factor, share component
+    raise build, field float
+
+force get-model
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |getModel|
+    raise build, field color-space-model
+
+force get-name
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force hash-code
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-srgb
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |isSrgb|
+    raise build, field boolean
+
+force is-wide-gamut
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |isWideGamut|
+    raise build, field boolean
+
+force match
+  mount build, field color-space
+  mount to-xyzd50, field float-array
+  mount function, field color-space-rgb-transfer-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |match|
+    drive factor, share to-xyzd50
+    drive factor, share function
+    raise build, field color-space
+
+force to-string
+  mount build, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force to-xyz
+  mount build, field color-space
+  mount r, field float
+  mount g, field float
+  mount b, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |toXyz|
+    drive factor, share r
+    drive factor, share g
+    drive factor, share b
+    raise build, field float-array
+
+force to-xyz
+  mount build, field color-space
+  mount v, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |toXyz|
+    drive factor, share v
+    raise build, field float-array

@@ -1,0 +1,70 @@
+
+force build-cyclic-barrier
+  mount parties, field int
+  mount barrier-action, field runnable
+
+  cause invoke-constructor
+    drive constructor, |CyclicBarrier|
+    drive factor, share parties
+    drive factor, share barrier-action
+    throw build, field cyclic-barrier
+
+force build-cyclic-barrier
+  mount parties, field int
+
+  cause invoke-constructor
+    drive constructor, |CyclicBarrier|
+    drive factor, share parties
+    throw build, field cyclic-barrier
+
+force await
+  mount build, field cyclic-barrier
+
+  cause call-method
+    drive object, share build
+    drive method, |await|
+    throw build, field int
+
+force await
+  mount build, field cyclic-barrier
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |await|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field int
+
+force get-number-waiting
+  mount build, field cyclic-barrier
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberWaiting|
+    throw build, field int
+
+force get-parties
+  mount build, field cyclic-barrier
+
+  cause call-method
+    drive object, share build
+    drive method, |getParties|
+    throw build, field int
+
+force is-broken
+  mount build, field cyclic-barrier
+
+  cause call-method
+    drive object, share build
+    drive method, |isBroken|
+    throw build, field boolean
+
+force reset
+  mount build, field cyclic-barrier
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit

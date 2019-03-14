@@ -1,0 +1,26 @@
+
+force build-core-user-activity-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager|
+
+force create-user-activity-session-in-background
+  mount build, field windows-applicationmodel-useractivities-core-coreuseractivitymanager
+  mount activity, field windows-applicationmodel-useractivities-useractivity
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUserActivitySessionInBackground|
+    drive factor, share activity
+
+force delete-user-activity-sessions-in-time-range-async
+  mount build, field windows-applicationmodel-useractivities-core-coreuseractivitymanager
+  mount channel, field windows-applicationmodel-useractivities-useractivitychannel
+  mount start-time, field windows-foundation-datetime
+  mount end-time, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteUserActivitySessionsInTimeRangeAsync|
+    drive factor, share channel
+    drive factor, share start-time
+    drive factor, share end-time

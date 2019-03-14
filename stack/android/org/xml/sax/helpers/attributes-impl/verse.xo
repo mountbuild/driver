@@ -1,0 +1,263 @@
+
+force build-attributes-impl
+  cause invoke-constructor
+    drive constructor, |AttributesImpl|
+    throw build, field attributes-impl
+
+force build-attributes-impl
+  mount atts, field attributes
+
+  cause invoke-constructor
+    drive constructor, |AttributesImpl|
+    drive factor, share atts
+    throw build, field attributes-impl
+
+force add-attribute
+  mount build, field attributes-impl
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount type, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addAttribute|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share type
+    drive factor, share value
+    throw build, field unit
+
+force clear
+  mount build, field attributes-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force get-index
+  mount build, field attributes-impl
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field int
+
+force get-index
+  mount build, field attributes-impl
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    drive factor, share q-name
+    throw build, field int
+
+force get-length
+  mount build, field attributes-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    throw build, field int
+
+force get-local-name
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalName|
+    drive factor, share index
+    throw build, field string
+
+force get-q-name
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getQName|
+    drive factor, share index
+    throw build, field string
+
+force get-type
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share index
+    throw build, field string
+
+force get-type
+  mount build, field attributes-impl
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field string
+
+force get-type
+  mount build, field attributes-impl
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share q-name
+    throw build, field string
+
+force get-uri
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getURI|
+    drive factor, share index
+    throw build, field string
+
+force get-value
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share index
+    throw build, field string
+
+force get-value
+  mount build, field attributes-impl
+  mount uri, field string
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field string
+
+force get-value
+  mount build, field attributes-impl
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share q-name
+    throw build, field string
+
+force remove-attribute
+  mount build, field attributes-impl
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAttribute|
+    drive factor, share index
+    throw build, field unit
+
+force set-attribute
+  mount build, field attributes-impl
+  mount index, field int
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount type, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttribute|
+    drive factor, share index
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share type
+    drive factor, share value
+    throw build, field unit
+
+force set-attributes
+  mount build, field attributes-impl
+  mount atts, field attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttributes|
+    drive factor, share atts
+    throw build, field unit
+
+force set-local-name
+  mount build, field attributes-impl
+  mount index, field int
+  mount local-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocalName|
+    drive factor, share index
+    drive factor, share local-name
+    throw build, field unit
+
+force set-q-name
+  mount build, field attributes-impl
+  mount index, field int
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setQName|
+    drive factor, share index
+    drive factor, share q-name
+    throw build, field unit
+
+force set-type
+  mount build, field attributes-impl
+  mount index, field int
+  mount type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setType|
+    drive factor, share index
+    drive factor, share type
+    throw build, field unit
+
+force set-uri
+  mount build, field attributes-impl
+  mount index, field int
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setURI|
+    drive factor, share index
+    drive factor, share uri
+    throw build, field unit
+
+force set-value
+  mount build, field attributes-impl
+  mount index, field int
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share index
+    drive factor, share value
+    throw build, field unit

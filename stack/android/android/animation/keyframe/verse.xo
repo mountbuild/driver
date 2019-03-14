@@ -1,0 +1,149 @@
+
+force build-keyframe
+  cause invoke-constructor
+    drive constructor, |Keyframe|
+    throw build, field keyframe
+
+force clone
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field keyframe
+
+force get-fraction
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |getFraction|
+    throw build, field float
+
+force get-interpolator
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolator|
+    throw build, field time-interpolator
+
+force get-type
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field class
+
+force get-value
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field any
+
+force has-value
+  mount build, field keyframe
+
+  cause call-method
+    drive object, share build
+    drive method, |hasValue|
+    throw build, field boolean
+
+force of-float
+  mount build, field keyframe
+  mount fraction, field float
+  mount value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |ofFloat|
+    drive factor, share fraction
+    drive factor, share value
+    throw build, field keyframe
+
+force of-float
+  mount build, field keyframe
+  mount fraction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |ofFloat|
+    drive factor, share fraction
+    throw build, field keyframe
+
+force of-int
+  mount build, field keyframe
+  mount fraction, field float
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ofInt|
+    drive factor, share fraction
+    drive factor, share value
+    throw build, field keyframe
+
+force of-int
+  mount build, field keyframe
+  mount fraction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |ofInt|
+    drive factor, share fraction
+    throw build, field keyframe
+
+force of-object
+  mount build, field keyframe
+  mount fraction, field float
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |ofObject|
+    drive factor, share fraction
+    drive factor, share value
+    throw build, field keyframe
+
+force of-object
+  mount build, field keyframe
+  mount fraction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |ofObject|
+    drive factor, share fraction
+    throw build, field keyframe
+
+force set-fraction
+  mount build, field keyframe
+  mount fraction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setFraction|
+    drive factor, share fraction
+    throw build, field unit
+
+force set-interpolator
+  mount build, field keyframe
+  mount interpolator, field time-interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterpolator|
+    drive factor, share interpolator
+    throw build, field unit
+
+force set-value
+  mount build, field keyframe
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    throw build, field unit

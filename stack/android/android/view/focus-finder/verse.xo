@@ -1,0 +1,68 @@
+
+force find-nearest-touchable
+  mount build, field focus-finder
+  mount root, field view-group
+  mount x, field int
+  mount y, field int
+  mount direction, field int
+  mount deltas, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |findNearestTouchable|
+    drive factor, share root
+    drive factor, share x
+    drive factor, share y
+    drive factor, share direction
+    drive factor, share deltas
+    raise build, field view
+
+force find-next-focus
+  mount build, field focus-finder
+  mount root, field view-group
+  mount focused, field view
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findNextFocus|
+    drive factor, share root
+    drive factor, share focused
+    drive factor, share direction
+    raise build, field view
+
+force find-next-focus-from-rect
+  mount build, field focus-finder
+  mount root, field view-group
+  mount focused-rect, field rect
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findNextFocusFromRect|
+    drive factor, share root
+    drive factor, share focused-rect
+    drive factor, share direction
+    raise build, field view
+
+force find-next-keyboard-navigation-cluster
+  mount build, field focus-finder
+  mount root, field view
+  mount current-cluster, field view
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findNextKeyboardNavigationCluster|
+    drive factor, share root
+    drive factor, share current-cluster
+    drive factor, share direction
+    raise build, field view
+
+force get-instance
+  mount build, field focus-finder
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field focus-finder

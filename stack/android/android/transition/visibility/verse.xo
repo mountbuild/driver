@@ -1,0 +1,181 @@
+
+force get-mode-in
+  mount build, field visibility
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_IN|
+    throw build, field int
+
+force get-mode-out
+  mount build, field visibility
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_OUT|
+    throw build, field int
+
+force build-visibility
+  cause invoke-constructor
+    drive constructor, |Visibility|
+    throw build, field visibility
+
+force build-visibility
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |Visibility|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field visibility
+
+force capture-end-values
+  mount build, field visibility
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureEndValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force capture-start-values
+  mount build, field visibility
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureStartValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force create-animator
+  mount build, field visibility
+  mount scene-root, field view-group
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |createAnimator|
+    drive factor, share scene-root
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator
+
+force get-mode
+  mount build, field visibility
+
+  cause call-method
+    drive object, share build
+    drive method, |getMode|
+    throw build, field int
+
+force get-transition-properties
+  mount build, field visibility
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionProperties|
+    throw build, field array
+
+force is-transition-required
+  mount build, field visibility
+  mount start-values, field transition-values
+  mount new-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |isTransitionRequired|
+    drive factor, share start-values
+    drive factor, share new-values
+    throw build, field boolean
+
+force is-visible
+  mount build, field visibility
+  mount values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |isVisible|
+    drive factor, share values
+    throw build, field boolean
+
+force on-appear
+  mount build, field visibility
+  mount scene-root, field view-group
+  mount start-values, field transition-values
+  mount start-visibility, field int
+  mount end-values, field transition-values
+  mount end-visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppear|
+    drive factor, share scene-root
+    drive factor, share start-values
+    drive factor, share start-visibility
+    drive factor, share end-values
+    drive factor, share end-visibility
+    throw build, field animator
+
+force on-appear
+  mount build, field visibility
+  mount scene-root, field view-group
+  mount view, field view
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppear|
+    drive factor, share scene-root
+    drive factor, share view
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator
+
+force on-disappear
+  mount build, field visibility
+  mount scene-root, field view-group
+  mount start-values, field transition-values
+  mount start-visibility, field int
+  mount end-values, field transition-values
+  mount end-visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisappear|
+    drive factor, share scene-root
+    drive factor, share start-values
+    drive factor, share start-visibility
+    drive factor, share end-values
+    drive factor, share end-visibility
+    throw build, field animator
+
+force on-disappear
+  mount build, field visibility
+  mount scene-root, field view-group
+  mount view, field view
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisappear|
+    drive factor, share scene-root
+    drive factor, share view
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator
+
+force set-mode
+  mount build, field visibility
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMode|
+    drive factor, share mode
+    throw build, field unit

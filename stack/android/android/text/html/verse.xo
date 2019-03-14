@@ -1,0 +1,172 @@
+
+force get-from-html-mode-compact
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_MODE_COMPACT|
+    raise build, field int
+
+force get-from-html-mode-legacy
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_MODE_LEGACY|
+    raise build, field int
+
+force get-from-html-option-use-css-colors
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_OPTION_USE_CSS_COLORS|
+    raise build, field int
+
+force get-from-html-separator-line-break-blockquote
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_BLOCKQUOTE|
+    raise build, field int
+
+force get-from-html-separator-line-break-div
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_DIV|
+    raise build, field int
+
+force get-from-html-separator-line-break-heading
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_HEADING|
+    raise build, field int
+
+force get-from-html-separator-line-break-list
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_LIST|
+    raise build, field int
+
+force get-from-html-separator-line-break-list-item
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM|
+    raise build, field int
+
+force get-from-html-separator-line-break-paragraph
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH|
+    raise build, field int
+
+force get-to-html-paragraph-lines-consecutive
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |TO_HTML_PARAGRAPH_LINES_CONSECUTIVE|
+    raise build, field int
+
+force get-to-html-paragraph-lines-individual
+  mount build, field html
+
+  cause get-property
+    drive object, share build
+    drive property, |TO_HTML_PARAGRAPH_LINES_INDIVIDUAL|
+    raise build, field int
+
+force escape-html
+  mount build, field html
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |escapeHtml|
+    drive factor, share text
+    raise build, field string
+
+force from-html
+  mount build, field html
+  mount source, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fromHtml|
+    drive factor, share source
+    raise build, field spanned
+
+force from-html
+  mount build, field html
+  mount source, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fromHtml|
+    drive factor, share source
+    drive factor, share flags
+    raise build, field spanned
+
+force from-html
+  mount build, field html
+  mount source, field string
+  mount image-getter, field html-image-getter
+  mount tag-handler, field html-tag-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |fromHtml|
+    drive factor, share source
+    drive factor, share image-getter
+    drive factor, share tag-handler
+    raise build, field spanned
+
+force from-html
+  mount build, field html
+  mount source, field string
+  mount flags, field int
+  mount image-getter, field html-image-getter
+  mount tag-handler, field html-tag-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |fromHtml|
+    drive factor, share source
+    drive factor, share flags
+    drive factor, share image-getter
+    drive factor, share tag-handler
+    raise build, field spanned
+
+force to-html
+  mount build, field html
+  mount text, field spanned
+
+  cause call-method
+    drive object, share build
+    drive method, |toHtml|
+    drive factor, share text
+    raise build, field string
+
+force to-html
+  mount build, field html
+  mount text, field spanned
+  mount option, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toHtml|
+    drive factor, share text
+    drive factor, share option
+    raise build, field string

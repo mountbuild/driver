@@ -1,0 +1,438 @@
+
+force get-action-report-heap-limit
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_REPORT_HEAP_LIMIT|
+    throw build, field string
+
+force get-lock-task-mode-locked
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCK_TASK_MODE_LOCKED|
+    throw build, field int
+
+force get-lock-task-mode-none
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCK_TASK_MODE_NONE|
+    throw build, field int
+
+force get-lock-task-mode-pinned
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCK_TASK_MODE_PINNED|
+    throw build, field int
+
+force get-meta-home-alternate
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |META_HOME_ALTERNATE|
+    throw build, field string
+
+force get-move-task-no-user-action
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MOVE_TASK_NO_USER_ACTION|
+    throw build, field int
+
+force get-move-task-with-home
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MOVE_TASK_WITH_HOME|
+    throw build, field int
+
+force get-recent-ignore-unavailable
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RECENT_IGNORE_UNAVAILABLE|
+    throw build, field int
+
+force get-recent-with-excluded
+  start build, field activity-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RECENT_WITH_EXCLUDED|
+    throw build, field int
+
+force add-app-task
+  start build, field activity-manager
+  start activity, field activity
+  start intent, field intent
+  start description, field activity-manager-task-description
+  start thumbnail, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |addAppTask|
+    drive factor, share activity
+    drive factor, share intent
+    drive factor, share description
+    drive factor, share thumbnail
+    throw build, field int
+
+force app-not-responding
+  start build, field activity-manager
+  start reason, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |appNotResponding|
+    drive factor, share reason
+    throw build, field unit
+
+force clear-application-user-data
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |clearApplicationUserData|
+    throw build, field boolean
+
+force clear-watch-heap-limit
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |clearWatchHeapLimit|
+    throw build, field unit
+
+force dump-package-state
+  start build, field activity-manager
+  start fd, field file-descriptor
+  start package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpPackageState|
+    drive factor, share fd
+    drive factor, share package-name
+    throw build, field unit
+
+force get-app-task-thumbnail-size
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAppTaskThumbnailSize|
+    throw build, field size
+
+force get-app-tasks
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAppTasks|
+    throw build, field mutable-list
+
+force get-device-configuration-info
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceConfigurationInfo|
+    throw build, field configuration-info
+
+force get-historical-process-exit-reasons
+  start build, field activity-manager
+  start package-name, field string
+  start pid, field int
+  start max-num, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getHistoricalProcessExitReasons|
+    drive factor, share package-name
+    drive factor, share pid
+    drive factor, share max-num
+    throw build, field mutable-list
+
+force get-large-memory-class
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLargeMemoryClass|
+    throw build, field int
+
+force get-launcher-large-icon-density
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLauncherLargeIconDensity|
+    throw build, field int
+
+force get-launcher-large-icon-size
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLauncherLargeIconSize|
+    throw build, field int
+
+force get-lock-task-mode-state
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLockTaskModeState|
+    throw build, field int
+
+force get-memory-class
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getMemoryClass|
+    throw build, field int
+
+force get-memory-info
+  start build, field activity-manager
+  start out-info, field activity-manager-memory-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMemoryInfo|
+    drive factor, share out-info
+    throw build, field unit
+
+force get-my-memory-state
+  start build, field activity-manager
+  start out-state, field activity-manager-running-app-process-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMyMemoryState|
+    drive factor, share out-state
+    throw build, field unit
+
+force get-process-memory-info
+  start build, field activity-manager
+  start pids, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getProcessMemoryInfo|
+    drive factor, share pids
+    throw build, field array
+
+force get-processes-in-error-state
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getProcessesInErrorState|
+    throw build, field mutable-list
+
+force get-recent-tasks
+  start build, field activity-manager
+  start max-num, field int
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecentTasks|
+    drive factor, share max-num
+    drive factor, share flags
+    throw build, field mutable-list
+
+force get-running-app-processes
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getRunningAppProcesses|
+    throw build, field mutable-list
+
+force get-running-service-control-panel
+  start build, field activity-manager
+  start service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getRunningServiceControlPanel|
+    drive factor, share service
+    throw build, field pending-intent
+
+force get-running-services
+  start build, field activity-manager
+  start max-num, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRunningServices|
+    drive factor, share max-num
+    throw build, field mutable-list
+
+force get-running-tasks
+  start build, field activity-manager
+  start max-num, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRunningTasks|
+    drive factor, share max-num
+    throw build, field mutable-list
+
+force is-activity-start-allowed-on-display
+  start build, field activity-manager
+  start context, field context
+  start display-id, field int
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |isActivityStartAllowedOnDisplay|
+    drive factor, share context
+    drive factor, share display-id
+    drive factor, share intent
+    throw build, field boolean
+
+force is-background-restricted
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isBackgroundRestricted|
+    throw build, field boolean
+
+force is-in-lock-task-mode
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isInLockTaskMode|
+    throw build, field boolean
+
+force is-low-memory-kill-report-supported
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isLowMemoryKillReportSupported|
+    throw build, field boolean
+
+force is-low-ram-device
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isLowRamDevice|
+    throw build, field boolean
+
+force is-running-in-test-harness
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isRunningInTestHarness|
+    throw build, field boolean
+
+force is-running-in-user-test-harness
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isRunningInUserTestHarness|
+    throw build, field boolean
+
+force is-user-a-monkey
+  start build, field activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isUserAMonkey|
+    throw build, field boolean
+
+force kill-background-processes
+  start build, field activity-manager
+  start package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |killBackgroundProcesses|
+    drive factor, share package-name
+    throw build, field unit
+
+force move-task-to-front
+  start build, field activity-manager
+  start task-id, field int
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |moveTaskToFront|
+    drive factor, share task-id
+    drive factor, share flags
+    throw build, field unit
+
+force move-task-to-front
+  start build, field activity-manager
+  start task-id, field int
+  start flags, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |moveTaskToFront|
+    drive factor, share task-id
+    drive factor, share flags
+    drive factor, share options
+    throw build, field unit
+
+force restart-package
+  start build, field activity-manager
+  start package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |restartPackage|
+    drive factor, share package-name
+    throw build, field unit
+
+force set-process-state-summary
+  start build, field activity-manager
+  start state, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setProcessStateSummary|
+    drive factor, share state
+    throw build, field unit
+
+force set-vr-thread
+  start build, field activity-manager
+  start tid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVrThread|
+    drive factor, share tid
+    throw build, field unit
+
+force set-watch-heap-limit
+  start build, field activity-manager
+  start pss-size, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setWatchHeapLimit|
+    drive factor, share pss-size
+    throw build, field unit

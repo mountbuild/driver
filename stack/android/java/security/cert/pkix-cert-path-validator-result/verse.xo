@@ -1,0 +1,52 @@
+
+force build-pkix-cert-path-validator-result
+  mount trust-anchor, field trust-anchor
+  mount policy-tree, field policy-node
+  mount subject-public-key, field public-key
+
+  cause invoke-constructor
+    mount constructor, |PKIXCertPathValidatorResult|
+    mount factor, share trust-anchor
+    mount factor, share policy-tree
+    mount factor, share subject-public-key
+    throw build, field pkix-cert-path-validator-result
+
+force clone
+  mount build, field pkix-cert-path-validator-result
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-policy-tree
+  mount build, field pkix-cert-path-validator-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getPolicyTree|
+    throw build, field policy-node
+
+force get-public-key
+  mount build, field pkix-cert-path-validator-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicKey|
+    throw build, field public-key
+
+force get-trust-anchor
+  mount build, field pkix-cert-path-validator-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getTrustAnchor|
+    throw build, field trust-anchor
+
+force to-string
+  mount build, field pkix-cert-path-validator-result
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

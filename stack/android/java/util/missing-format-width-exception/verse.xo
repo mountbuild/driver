@@ -1,0 +1,16 @@
+
+force build-missing-format-width-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |MissingFormatWidthException|
+    drive factor, share s
+    throw build, field missing-format-width-exception
+
+force get-format-specifier
+  mount build, field missing-format-width-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormatSpecifier|
+    throw build, field string

@@ -1,0 +1,143 @@
+
+force build-char-array-writer
+  cause invoke-constructor
+    drive constructor, |CharArrayWriter|
+    throw build, field char-array-writer
+
+force build-char-array-writer
+  mount initial-size, field int
+
+  cause invoke-constructor
+    drive constructor, |CharArrayWriter|
+    drive factor, share initial-size
+    throw build, field char-array-writer
+
+force append
+  mount build, field char-array-writer
+  mount csq, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share csq
+    throw build, field char-array-writer
+
+force append
+  mount build, field char-array-writer
+  mount csq, field char-sequence
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share csq
+    drive factor, share start
+    drive factor, share end
+    throw build, field char-array-writer
+
+force append
+  mount build, field char-array-writer
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share c
+    throw build, field char-array-writer
+
+force close
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force reset
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force size
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field int
+
+force to-char-array
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |toCharArray|
+    throw build, field char-array
+
+force to-string
+  mount build, field char-array-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write
+  mount build, field char-array-writer
+  mount c, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share c
+    throw build, field unit
+
+force write
+  mount build, field char-array-writer
+  mount c, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share c
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write
+  mount build, field char-array-writer
+  mount str, field string
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share str
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write-to
+  mount build, field char-array-writer
+  mount out, field writer
+
+  cause call-method
+    drive object, share build
+    drive method, |writeTo|
+    drive factor, share out
+    throw build, field unit

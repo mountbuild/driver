@@ -1,0 +1,200 @@
+
+force get-action-audio-state-changed
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_AUDIO_STATE_CHANGED|
+    throw build, field string
+
+force get-action-connection-state-changed
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONNECTION_STATE_CHANGED|
+    throw build, field string
+
+force get-action-vendor-specific-headset-event
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_VENDOR_SPECIFIC_HEADSET_EVENT|
+    throw build, field string
+
+force get-at-cmd-type-action
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |AT_CMD_TYPE_ACTION|
+    throw build, field int
+
+force get-at-cmd-type-basic
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |AT_CMD_TYPE_BASIC|
+    throw build, field int
+
+force get-at-cmd-type-read
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |AT_CMD_TYPE_READ|
+    throw build, field int
+
+force get-at-cmd-type-set
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |AT_CMD_TYPE_SET|
+    throw build, field int
+
+force get-at-cmd-type-test
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |AT_CMD_TYPE_TEST|
+    throw build, field int
+
+force get-extra-vendor-specific-headset-event-args
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS|
+    throw build, field string
+
+force get-extra-vendor-specific-headset-event-cmd
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD|
+    throw build, field string
+
+force get-extra-vendor-specific-headset-event-cmd-type
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE|
+    throw build, field string
+
+force get-state-audio-connected
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_AUDIO_CONNECTED|
+    throw build, field int
+
+force get-state-audio-connecting
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_AUDIO_CONNECTING|
+    throw build, field int
+
+force get-state-audio-disconnected
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_AUDIO_DISCONNECTED|
+    throw build, field int
+
+force get-vendor-result-code-command-android
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |VENDOR_RESULT_CODE_COMMAND_ANDROID|
+    throw build, field string
+
+force get-vendor-specific-headset-event-company-id-category
+  mount build, field bluetooth-headset
+
+  cause get-property
+    drive object, share build
+    drive property, |VENDOR_SPECIFIC_HEADSET_EVENT_COMPANY_ID_CATEGORY|
+    throw build, field string
+
+force get-connected-devices
+  mount build, field bluetooth-headset
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedDevices|
+    throw build, field mutable-list
+
+force get-connection-state
+  mount build, field bluetooth-headset
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    drive factor, share device
+    throw build, field int
+
+force get-devices-matching-connection-states
+  mount build, field bluetooth-headset
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevicesMatchingConnectionStates|
+    drive factor, share states
+    throw build, field mutable-list
+
+force is-audio-connected
+  mount build, field bluetooth-headset
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |isAudioConnected|
+    drive factor, share device
+    throw build, field boolean
+
+force send-vendor-specific-result-code
+  mount build, field bluetooth-headset
+  mount device, field bluetooth-device
+  mount command, field string
+  mount arg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendVendorSpecificResultCode|
+    drive factor, share device
+    drive factor, share command
+    drive factor, share arg
+    throw build, field boolean
+
+force start-voice-recognition
+  mount build, field bluetooth-headset
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |startVoiceRecognition|
+    drive factor, share device
+    throw build, field boolean
+
+force stop-voice-recognition
+  mount build, field bluetooth-headset
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |stopVoiceRecognition|
+    drive factor, share device
+    throw build, field boolean

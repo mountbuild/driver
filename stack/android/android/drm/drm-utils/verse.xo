@@ -1,0 +1,15 @@
+
+force build-drm-utils
+  cause invoke-constructor
+    drive constructor, |DrmUtils|
+    throw build, field drm-utils
+
+force get-extended-metadata-parser
+  mount build, field drm-utils
+  mount extended-metadata, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtendedMetadataParser|
+    drive factor, share extended-metadata
+    throw build, field drm-utils-extended-metadata-parser

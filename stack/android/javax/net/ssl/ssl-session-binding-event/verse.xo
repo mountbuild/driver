@@ -1,0 +1,26 @@
+
+force build-ssl-session-binding-event
+  start session, field ssl-session
+  start name, field string
+
+  cause invoke-constructor
+    mount constructor, |SSLSessionBindingEvent|
+    mount factor, share session
+    mount factor, share name
+    throw build, field ssl-session-binding-event
+
+force get-name
+  start build, field ssl-session-binding-event
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string
+
+force get-session
+  start build, field ssl-session-binding-event
+
+  cause call-method
+    mount object, share build
+    mount method, |getSession|
+    throw build, field ssl-session

@@ -1,0 +1,140 @@
+
+force get-page-size
+  mount build, field mifare-ultralight
+
+  cause get-property
+    drive object, share build
+    drive property, |PAGE_SIZE|
+    throw build, field int
+
+force get-type-ultralight
+  mount build, field mifare-ultralight
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ULTRALIGHT|
+    throw build, field int
+
+force get-type-ultralight-c
+  mount build, field mifare-ultralight
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ULTRALIGHT_C|
+    throw build, field int
+
+force get-type-unknown
+  mount build, field mifare-ultralight
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_UNKNOWN|
+    throw build, field int
+
+force close
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    throw build, field unit
+
+force get
+  mount build, field mifare-ultralight
+  mount tag, field tag
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share tag
+    throw build, field mifare-ultralight
+
+force get-max-transceive-length
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxTransceiveLength|
+    throw build, field int
+
+force get-tag
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field tag
+
+force get-timeout
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeout|
+    throw build, field int
+
+force get-type
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force is-connected
+  mount build, field mifare-ultralight
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force read-pages
+  mount build, field mifare-ultralight
+  mount page-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readPages|
+    drive factor, share page-offset
+    throw build, field byte-array
+
+force set-timeout
+  mount build, field mifare-ultralight
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeout|
+    drive factor, share timeout
+    throw build, field unit
+
+force transceive
+  mount build, field mifare-ultralight
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |transceive|
+    drive factor, share data
+    throw build, field byte-array
+
+force write-page
+  mount build, field mifare-ultralight
+  mount page-offset, field int
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |writePage|
+    drive factor, share page-offset
+    drive factor, share data
+    throw build, field unit

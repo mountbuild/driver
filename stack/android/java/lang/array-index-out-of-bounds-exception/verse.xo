@@ -1,0 +1,21 @@
+
+force build-array-index-out-of-bounds-exception
+  cause invoke-constructor
+    drive constructor, |ArrayIndexOutOfBoundsException|
+    throw build, field array-index-out-of-bounds-exception
+
+force build-array-index-out-of-bounds-exception
+  mount index, field int
+
+  cause invoke-constructor
+    drive constructor, |ArrayIndexOutOfBoundsException|
+    drive factor, share index
+    throw build, field array-index-out-of-bounds-exception
+
+force build-array-index-out-of-bounds-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |ArrayIndexOutOfBoundsException|
+    drive factor, share s
+    throw build, field array-index-out-of-bounds-exception

@@ -1,0 +1,27 @@
+
+force build-int-array-evaluator
+  cause invoke-constructor
+    drive constructor, |IntArrayEvaluator|
+    throw build, field int-array-evaluator
+
+force build-int-array-evaluator
+  mount reuse-array, field int-array
+
+  cause invoke-constructor
+    drive constructor, |IntArrayEvaluator|
+    drive factor, share reuse-array
+    throw build, field int-array-evaluator
+
+force evaluate
+  mount build, field int-array-evaluator
+  mount fraction, field float
+  mount start-value, field int-array
+  mount end-value, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |evaluate|
+    drive factor, share fraction
+    drive factor, share start-value
+    drive factor, share end-value
+    throw build, field int-array

@@ -1,0 +1,247 @@
+
+force get-long
+  mount build, field time-zone
+
+  cause get-property
+    drive object, share build
+    drive property, |LONG|
+    throw build, field int
+
+force get-short
+  mount build, field time-zone
+
+  cause get-property
+    drive object, share build
+    drive property, |SHORT|
+    throw build, field int
+
+force build-time-zone
+  cause invoke-constructor
+    drive constructor, |TimeZone|
+    throw build, field time-zone
+
+force clone
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force get-available-i-ds
+  mount build, field time-zone
+  mount raw-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableIDs|
+    drive factor, share raw-offset
+    throw build, field array
+
+force get-available-i-ds
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableIDs|
+    throw build, field array
+
+force get-dst-savings
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getDSTSavings|
+    throw build, field int
+
+force get-default
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field time-zone
+
+force get-display-name
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    throw build, field string
+
+force get-display-name
+  mount build, field time-zone
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share locale
+    throw build, field string
+
+force get-display-name
+  mount build, field time-zone
+  mount daylight, field boolean
+  mount style, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share daylight
+    drive factor, share style
+    throw build, field string
+
+force get-display-name
+  mount build, field time-zone
+  mount daylight-time, field boolean
+  mount style, field int
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share daylight-time
+    drive factor, share style
+    drive factor, share locale
+    throw build, field string
+
+force get-id
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getID|
+    throw build, field string
+
+force get-offset
+  mount build, field time-zone
+  mount era, field int
+  mount year, field int
+  mount month, field int
+  mount day, field int
+  mount day-of-week, field int
+  mount milliseconds, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share era
+    drive factor, share year
+    drive factor, share month
+    drive factor, share day
+    drive factor, share day-of-week
+    drive factor, share milliseconds
+    throw build, field int
+
+force get-offset
+  mount build, field time-zone
+  mount date, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share date
+    throw build, field int
+
+force get-raw-offset
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawOffset|
+    throw build, field int
+
+force get-time-zone
+  mount build, field time-zone
+  mount id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZone|
+    drive factor, share id
+    throw build, field time-zone
+
+force get-time-zone
+  mount build, field time-zone
+  mount zone-id, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZone|
+    drive factor, share zone-id
+    throw build, field time-zone
+
+force has-same-rules
+  mount build, field time-zone
+  mount other, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSameRules|
+    drive factor, share other
+    throw build, field boolean
+
+force in-daylight-time
+  mount build, field time-zone
+  mount date, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |inDaylightTime|
+    drive factor, share date
+    throw build, field boolean
+
+force observes-daylight-time
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |observesDaylightTime|
+    throw build, field boolean
+
+force set-default
+  mount build, field time-zone
+  mount time-zone, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share time-zone
+    throw build, field unit
+
+force set-id
+  mount build, field time-zone
+  mount id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setID|
+    drive factor, share id
+    throw build, field unit
+
+force set-raw-offset
+  mount build, field time-zone
+  mount offset-millis, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRawOffset|
+    drive factor, share offset-millis
+    throw build, field unit
+
+force to-zone-id
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |toZoneId|
+    throw build, field zone-id
+
+force use-daylight-time
+  mount build, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |useDaylightTime|
+    throw build, field boolean

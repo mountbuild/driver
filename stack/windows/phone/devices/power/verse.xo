@@ -1,0 +1,43 @@
+
+force build-battery
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Devices.Power.Battery|
+
+force get-default
+  start build, field windows-phone-devices-power-battery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-remaining-charge-percent
+  start build, field windows-phone-devices-power-battery
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemainingChargePercent|
+
+force set-remaining-charge-percent
+  start build, field windows-phone-devices-power-battery
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemainingChargePercent|
+    drive factor, share value
+
+force get-remaining-discharge-time
+  start build, field windows-phone-devices-power-battery
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemainingDischargeTime|
+
+force set-remaining-discharge-time
+  start build, field windows-phone-devices-power-battery
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemainingDischargeTime|
+    drive factor, share value

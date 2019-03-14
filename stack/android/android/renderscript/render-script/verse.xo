@@ -1,0 +1,182 @@
+
+force get-create-flag-low-latency
+  mount build, field render-script
+
+  cause get-property
+    drive object, share build
+    drive property, |CREATE_FLAG_LOW_LATENCY|
+    raise build, field int
+
+force get-create-flag-low-power
+  mount build, field render-script
+
+  cause get-property
+    drive object, share build
+    drive property, |CREATE_FLAG_LOW_POWER|
+    raise build, field int
+
+force get-create-flag-none
+  mount build, field render-script
+
+  cause get-property
+    drive object, share build
+    drive property, |CREATE_FLAG_NONE|
+    raise build, field int
+
+force context-dump
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |contextDump|
+    raise build, field unit
+
+force create
+  mount build, field render-script
+  mount ctx, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share ctx
+    raise build, field render-script
+
+force create
+  mount build, field render-script
+  mount ctx, field context
+  mount ct, field render-script-context-type
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share ctx
+    drive factor, share ct
+    raise build, field render-script
+
+force create
+  mount build, field render-script
+  mount ctx, field context
+  mount ct, field render-script-context-type
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share ctx
+    drive factor, share ct
+    drive factor, share flags
+    raise build, field render-script
+
+force create-multi-context
+  mount build, field render-script
+  mount ctx, field context
+  mount ct, field render-script-context-type
+  mount flags, field int
+  mount api-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createMultiContext|
+    drive factor, share ctx
+    drive factor, share ct
+    drive factor, share flags
+    drive factor, share api-number
+    raise build, field render-script
+
+force destroy
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    raise build, field unit
+
+force finish
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    raise build, field unit
+
+force get-application-context
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplicationContext|
+    raise build, field context
+
+force get-error-handler
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorHandler|
+    raise build, field render-script-rs-error-handler
+
+force get-message-handler
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageHandler|
+    raise build, field render-script-rs-message-handler
+
+force get-minor-version
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinorVersion|
+    raise build, field long
+
+force release-all-contexts
+  mount build, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseAllContexts|
+    raise build, field unit
+
+force send-message
+  mount build, field render-script
+  mount id, field int
+  mount data, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessage|
+    drive factor, share id
+    drive factor, share data
+    raise build, field unit
+
+force set-error-handler
+  mount build, field render-script
+  mount msg, field render-script-rs-error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorHandler|
+    drive factor, share msg
+    raise build, field unit
+
+force set-message-handler
+  mount build, field render-script
+  mount msg, field render-script-rs-message-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setMessageHandler|
+    drive factor, share msg
+    raise build, field unit
+
+force set-priority
+  mount build, field render-script
+  mount p, field render-script-priority
+
+  cause call-method
+    drive object, share build
+    drive method, |setPriority|
+    drive factor, share p
+    raise build, field unit

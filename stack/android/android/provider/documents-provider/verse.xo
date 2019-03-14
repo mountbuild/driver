@@ -1,0 +1,553 @@
+
+force build-documents-provider
+  cause invoke-constructor
+    drive constructor, |DocumentsProvider|
+    raise build, field documents-provider
+
+force attach-info
+  mount build, field documents-provider
+  mount context, field context
+  mount info, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |attachInfo|
+    drive factor, share context
+    drive factor, share info
+    raise build, field unit
+
+force call
+  mount build, field documents-provider
+  mount method, field string
+  mount arg, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |call|
+    drive factor, share method
+    drive factor, share arg
+    drive factor, share extras
+    raise build, field bundle
+
+force canonicalize
+  mount build, field documents-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |canonicalize|
+    drive factor, share uri
+    raise build, field uri
+
+force copy-document
+  mount build, field documents-provider
+  mount source-document-id, field string
+  mount target-parent-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |copyDocument|
+    drive factor, share source-document-id
+    drive factor, share target-parent-document-id
+    raise build, field string
+
+force create-document
+  mount build, field documents-provider
+  mount parent-document-id, field string
+  mount mime-type, field string
+  mount display-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createDocument|
+    drive factor, share parent-document-id
+    drive factor, share mime-type
+    drive factor, share display-name
+    raise build, field string
+
+force create-web-link-intent
+  mount build, field documents-provider
+  mount document-id, field string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |createWebLinkIntent|
+    drive factor, share document-id
+    drive factor, share options
+    raise build, field intent-sender
+
+force delete
+  mount build, field documents-provider
+  mount uri, field uri
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    raise build, field int
+
+force delete-document
+  mount build, field documents-provider
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteDocument|
+    drive factor, share document-id
+    raise build, field unit
+
+force eject-root
+  mount build, field documents-provider
+  mount root-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |ejectRoot|
+    drive factor, share root-id
+    raise build, field unit
+
+force find-document-path
+  mount build, field documents-provider
+  mount parent-document-id, field string
+  mount child-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findDocumentPath|
+    drive factor, share parent-document-id
+    drive factor, share child-document-id
+    raise build, field documents-contract-path
+
+force get-document-metadata
+  mount build, field documents-provider
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentMetadata|
+    drive factor, share document-id
+    raise build, field bundle
+
+force get-document-stream-types
+  mount build, field documents-provider
+  mount document-id, field string
+  mount mime-type-filter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentStreamTypes|
+    drive factor, share document-id
+    drive factor, share mime-type-filter
+    raise build, field array
+
+force get-document-type
+  mount build, field documents-provider
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentType|
+    drive factor, share document-id
+    raise build, field string
+
+force get-stream-types
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getStreamTypes|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    raise build, field array
+
+force get-type
+  mount build, field documents-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    raise build, field string
+
+force insert
+  mount build, field documents-provider
+  mount uri, field uri
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    raise build, field uri
+
+force is-child-document
+  mount build, field documents-provider
+  mount parent-document-id, field string
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isChildDocument|
+    drive factor, share parent-document-id
+    drive factor, share document-id
+    raise build, field boolean
+
+force move-document
+  mount build, field documents-provider
+  mount source-document-id, field string
+  mount source-parent-document-id, field string
+  mount target-parent-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |moveDocument|
+    drive factor, share source-document-id
+    drive factor, share source-parent-document-id
+    drive factor, share target-parent-document-id
+    raise build, field string
+
+force open-asset-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mode, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openAssetFile|
+    drive factor, share uri
+    drive factor, share mode
+    raise build, field asset-file-descriptor
+
+force open-asset-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mode, field string
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openAssetFile|
+    drive factor, share uri
+    drive factor, share mode
+    drive factor, share signal
+    raise build, field asset-file-descriptor
+
+force open-document
+  mount build, field documents-provider
+  mount document-id, field string
+  mount mode, field string
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openDocument|
+    drive factor, share document-id
+    drive factor, share mode
+    drive factor, share signal
+    raise build, field parcel-file-descriptor
+
+force open-document-thumbnail
+  mount build, field documents-provider
+  mount document-id, field string
+  mount size-hint, field point
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openDocumentThumbnail|
+    drive factor, share document-id
+    drive factor, share size-hint
+    drive factor, share signal
+    raise build, field asset-file-descriptor
+
+force open-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mode, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openFile|
+    drive factor, share uri
+    drive factor, share mode
+    raise build, field parcel-file-descriptor
+
+force open-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mode, field string
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openFile|
+    drive factor, share uri
+    drive factor, share mode
+    drive factor, share signal
+    raise build, field parcel-file-descriptor
+
+force open-typed-asset-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedAssetFile|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    drive factor, share opts
+    raise build, field asset-file-descriptor
+
+force open-typed-asset-file
+  mount build, field documents-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+  mount opts, field bundle
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedAssetFile|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    drive factor, share opts
+    drive factor, share signal
+    raise build, field asset-file-descriptor
+
+force open-typed-document
+  mount build, field documents-provider
+  mount document-id, field string
+  mount mime-type-filter, field string
+  mount opts, field bundle
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedDocument|
+    drive factor, share document-id
+    drive factor, share mime-type-filter
+    drive factor, share opts
+    drive factor, share signal
+    raise build, field asset-file-descriptor
+
+force query
+  mount build, field documents-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    raise build, field cursor
+
+force query
+  mount build, field documents-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+  mount cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    drive factor, share cancellation-signal
+    raise build, field cursor
+
+force query
+  mount build, field documents-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount query-args, field bundle
+  mount cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share query-args
+    drive factor, share cancellation-signal
+    raise build, field cursor
+
+force query-child-documents
+  mount build, field documents-provider
+  mount parent-document-id, field string
+  mount projection, field array-string
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryChildDocuments|
+    drive factor, share parent-document-id
+    drive factor, share projection
+    drive factor, share sort-order
+    raise build, field cursor
+
+force query-child-documents
+  mount build, field documents-provider
+  mount parent-document-id, field string
+  mount projection, field array-string
+  mount query-args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |queryChildDocuments|
+    drive factor, share parent-document-id
+    drive factor, share projection
+    drive factor, share query-args
+    raise build, field cursor
+
+force query-document
+  mount build, field documents-provider
+  mount document-id, field string
+  mount projection, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryDocument|
+    drive factor, share document-id
+    drive factor, share projection
+    raise build, field cursor
+
+force query-recent-documents
+  mount build, field documents-provider
+  mount root-id, field string
+  mount projection, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryRecentDocuments|
+    drive factor, share root-id
+    drive factor, share projection
+    raise build, field cursor
+
+force query-recent-documents
+  mount build, field documents-provider
+  mount root-id, field string
+  mount projection, field array-string
+  mount query-args, field bundle
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |queryRecentDocuments|
+    drive factor, share root-id
+    drive factor, share projection
+    drive factor, share query-args
+    drive factor, share signal
+    raise build, field cursor
+
+force query-roots
+  mount build, field documents-provider
+  mount projection, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryRoots|
+    drive factor, share projection
+    raise build, field cursor
+
+force query-search-documents
+  mount build, field documents-provider
+  mount root-id, field string
+  mount query, field string
+  mount projection, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |querySearchDocuments|
+    drive factor, share root-id
+    drive factor, share query
+    drive factor, share projection
+    raise build, field cursor
+
+force query-search-documents
+  mount build, field documents-provider
+  mount root-id, field string
+  mount projection, field array-string
+  mount query-args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |querySearchDocuments|
+    drive factor, share root-id
+    drive factor, share projection
+    drive factor, share query-args
+    raise build, field cursor
+
+force remove-document
+  mount build, field documents-provider
+  mount document-id, field string
+  mount parent-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDocument|
+    drive factor, share document-id
+    drive factor, share parent-document-id
+    raise build, field unit
+
+force rename-document
+  mount build, field documents-provider
+  mount document-id, field string
+  mount display-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |renameDocument|
+    drive factor, share document-id
+    drive factor, share display-name
+    raise build, field string
+
+force revoke-document-permission
+  mount build, field documents-provider
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |revokeDocumentPermission|
+    drive factor, share document-id
+    raise build, field unit
+
+force update
+  mount build, field documents-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    raise build, field int

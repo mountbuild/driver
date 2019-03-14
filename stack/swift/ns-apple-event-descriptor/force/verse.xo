@@ -1,0 +1,457 @@
+force get-ae-desc
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |aeDesc|
+    raise build, field unsafe-pointer-ae-desc
+
+force set-ae-desc
+  field build, field ns-apple-event-descriptor
+  field value, field unsafe-pointer-ae-desc
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |aeDesc|
+    drive factor, share value
+
+force get-boolean-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |booleanValue|
+    raise build, field bool
+
+force set-boolean-value
+  field build, field ns-apple-event-descriptor
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |booleanValue|
+    drive factor, share value
+
+force coerce
+  field build, field ns-apple-event-descriptor
+  field to-descriptor-type, field desc-type
+
+  cause call-method
+    drive object, share build
+    drive method, |coerce|
+    drive factor
+      brand to-descriptor-type
+      share to-descriptor-type
+    raise build, class ns-apple-event-descriptor
+
+force get-data
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |data|
+    raise build, field data
+
+force set-data
+  field build, field ns-apple-event-descriptor
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |data|
+    drive factor, share value
+
+force get-descriptor-type
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |descriptorType|
+    raise build, field desc-type
+
+force set-descriptor-type
+  field build, field ns-apple-event-descriptor
+  field value, field desc-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |descriptorType|
+    drive factor, share value
+
+force get-enum-code-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enumCodeValue|
+    raise build, field os-type
+
+force set-enum-code-value
+  field build, field ns-apple-event-descriptor
+  field value, field os-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enumCodeValue|
+    drive factor, share value
+
+force get-int32-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |int32Value|
+    raise build, field int32
+
+force set-int32-value
+  field build, field ns-apple-event-descriptor
+  field value, field int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |int32Value|
+    drive factor, share value
+
+force get-number-of-items
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfItems|
+    raise build, field int
+
+force set-number-of-items
+  field build, field ns-apple-event-descriptor
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfItems|
+    drive factor, share value
+
+force get-string-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |stringValue|
+    raise build, field string
+
+force set-string-value
+  field build, field ns-apple-event-descriptor
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |stringValue|
+    drive factor, share value
+
+force get-type-code-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |typeCodeValue|
+    raise build, field os-type
+
+force set-type-code-value
+  field build, field ns-apple-event-descriptor
+  field value, field os-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |typeCodeValue|
+    drive factor, share value
+
+force at-index
+  field build, field ns-apple-event-descriptor
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |atIndex|
+    drive factor, share a
+    raise build, class ns-apple-event-descriptor
+
+force insert
+  field build, field ns-apple-event-descriptor
+  field a, class ns-apple-event-descriptor
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share a
+    drive factor
+      brand at
+      share at
+
+force remove
+  field build, field ns-apple-event-descriptor
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand at
+      share at
+
+force for-keyword
+  field build, field ns-apple-event-descriptor
+  field a, class ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |forKeyword|
+    drive factor, share a
+    raise build, class ns-apple-event-descriptor
+
+force keyword-for-descriptor
+  field build, field ns-apple-event-descriptor
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |keywordForDescriptor|
+    drive factor
+      brand at
+      share at
+    raise build, class ae-keyword
+
+force remove
+  field build, field ns-apple-event-descriptor
+  field with-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand with-keyword
+      share with-keyword
+
+force set-descriptor
+  field build, field ns-apple-event-descriptor
+  field a, class ns-apple-event-descriptor
+  field for-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |setDescriptor|
+    drive factor, share a
+    drive factor
+      brand for-keyword
+      share for-keyword
+
+force attribute-descriptor
+  field build, field ns-apple-event-descriptor
+  field for-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |attributeDescriptor|
+    drive factor
+      brand for-keyword
+      share for-keyword
+    raise build, class ns-apple-event-descriptor
+
+force get-event-class
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |eventClass|
+    raise build, field ae-event-class
+
+force set-event-class
+  field build, field ns-apple-event-descriptor
+  field value, field ae-event-class
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |eventClass|
+    drive factor, share value
+
+force get-event-id
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |eventID|
+    raise build, field ae-event-id
+
+force set-event-id
+  field build, field ns-apple-event-descriptor
+  field value, field ae-event-id
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |eventID|
+    drive factor, share value
+
+force param-descriptor
+  field build, field ns-apple-event-descriptor
+  field for-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |paramDescriptor|
+    drive factor
+      brand for-keyword
+      share for-keyword
+    raise build, class ns-apple-event-descriptor
+
+force remove-param-descriptor
+  field build, field ns-apple-event-descriptor
+  field with-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |removeParamDescriptor|
+    drive factor
+      brand with-keyword
+      share with-keyword
+
+force get-return-id
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |returnID|
+    raise build, field ae-return-id
+
+force set-return-id
+  field build, field ns-apple-event-descriptor
+  field value, field ae-return-id
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |returnID|
+    drive factor, share value
+
+force set-attribute
+  field build, field ns-apple-event-descriptor
+  field a, class ns-apple-event-descriptor
+  field for-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttribute|
+    drive factor, share a
+    drive factor
+      brand for-keyword
+      share for-keyword
+
+force set-param
+  field build, field ns-apple-event-descriptor
+  field a, class ns-apple-event-descriptor
+  field for-keyword, field ae-keyword
+
+  cause call-method
+    drive object, share build
+    drive method, |setParam|
+    drive factor, share a
+    drive factor
+      brand for-keyword
+      share for-keyword
+
+force get-transaction-id
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |transactionID|
+    raise build, field ae-transaction-id
+
+force set-transaction-id
+  field build, field ns-apple-event-descriptor
+  field value, field ae-transaction-id
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |transactionID|
+    drive factor, share value
+
+force get-date-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dateValue|
+    raise build, field date
+
+force set-date-value
+  field build, field ns-apple-event-descriptor
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dateValue|
+    drive factor, share value
+
+force get-double-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |doubleValue|
+    raise build, field double
+
+force set-double-value
+  field build, field ns-apple-event-descriptor
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |doubleValue|
+    drive factor, share value
+
+force get-file-url-value
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fileURLValue|
+    raise build, field url
+
+force set-file-url-value
+  field build, field ns-apple-event-descriptor
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fileURLValue|
+    drive factor, share value
+
+force get-is-record-descriptor
+  field build, field ns-apple-event-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRecordDescriptor|
+    raise build, field bool
+
+force set-is-record-descriptor
+  field build, field ns-apple-event-descriptor
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRecordDescriptor|
+    drive factor, share value
+
+force send-event
+  field build, field ns-apple-event-descriptor
+  field options, field ns-apple-event-descriptor-send-options
+  field timeout, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEvent|
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand timeout
+      share timeout
+    raise build, class ns-apple-event-descriptor

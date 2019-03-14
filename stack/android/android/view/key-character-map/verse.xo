@@ -1,0 +1,272 @@
+
+force get-alpha
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |ALPHA|
+    raise build, field int
+
+force get-built-in-keyboard
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |BUILT_IN_KEYBOARD|
+    raise build, field int
+
+force get-combining-accent
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |COMBINING_ACCENT|
+    raise build, field int
+
+force get-combining-accent-mask
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |COMBINING_ACCENT_MASK|
+    raise build, field int
+
+force get-full
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |FULL|
+    raise build, field int
+
+force get-hex-input
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |HEX_INPUT|
+    raise build, field char
+
+force get-modifier-behavior-chorded
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |MODIFIER_BEHAVIOR_CHORDED|
+    raise build, field int
+
+force get-modifier-behavior-chorded-or-toggled
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |MODIFIER_BEHAVIOR_CHORDED_OR_TOGGLED|
+    raise build, field int
+
+force get-numeric
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |NUMERIC|
+    raise build, field int
+
+force get-picker-dialog-input
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |PICKER_DIALOG_INPUT|
+    raise build, field char
+
+force get-predictive
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |PREDICTIVE|
+    raise build, field int
+
+force get-special-function
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |SPECIAL_FUNCTION|
+    raise build, field int
+
+force get-virtual-keyboard
+  mount build, field key-character-map
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUAL_KEYBOARD|
+    raise build, field int
+
+force describe-contents
+  mount build, field key-character-map
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force device-has-key
+  mount build, field key-character-map
+  mount key-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deviceHasKey|
+    drive factor, share key-code
+    raise build, field boolean
+
+force device-has-keys
+  mount build, field key-character-map
+  mount key-codes, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |deviceHasKeys|
+    drive factor, share key-codes
+    raise build, field boolean-array
+
+force get
+  mount build, field key-character-map
+  mount key-code, field int
+  mount meta-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key-code
+    drive factor, share meta-state
+    raise build, field int
+
+force get-dead-char
+  mount build, field key-character-map
+  mount accent, field int
+  mount c, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeadChar|
+    drive factor, share accent
+    drive factor, share c
+    raise build, field int
+
+force get-display-label
+  mount build, field key-character-map
+  mount key-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayLabel|
+    drive factor, share key-code
+    raise build, field char
+
+force get-events
+  mount build, field key-character-map
+  mount chars, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getEvents|
+    drive factor, share chars
+    raise build, field array
+
+force get-key-data
+  mount build, field key-character-map
+  mount key-code, field int
+  mount results, field key-character-map-key-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyData|
+    drive factor, share key-code
+    drive factor, share results
+    raise build, field boolean
+
+force get-keyboard-type
+  mount build, field key-character-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyboardType|
+    raise build, field int
+
+force get-match
+  mount build, field key-character-map
+  mount key-code, field int
+  mount chars, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getMatch|
+    drive factor, share key-code
+    drive factor, share chars
+    raise build, field char
+
+force get-match
+  mount build, field key-character-map
+  mount key-code, field int
+  mount chars, field char-array
+  mount meta-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMatch|
+    drive factor, share key-code
+    drive factor, share chars
+    drive factor, share meta-state
+    raise build, field char
+
+force get-modifier-behavior
+  mount build, field key-character-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getModifierBehavior|
+    raise build, field int
+
+force get-number
+  mount build, field key-character-map
+  mount key-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumber|
+    drive factor, share key-code
+    raise build, field char
+
+force is-printing-key
+  mount build, field key-character-map
+  mount key-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isPrintingKey|
+    drive factor, share key-code
+    raise build, field boolean
+
+force load
+  mount build, field key-character-map
+  mount device-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share device-id
+    raise build, field key-character-map
+
+force write-to-parcel
+  mount build, field key-character-map
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

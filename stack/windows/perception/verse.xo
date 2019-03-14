@@ -1,0 +1,74 @@
+
+force build-perception-timestamp
+  cause invoke-constructor
+    drive constructor, |Windows.Perception.PerceptionTimestamp|
+
+force get-prediction-amount
+  start build, field windows-perception-perceptiontimestamp
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PredictionAmount|
+
+force set-prediction-amount
+  start build, field windows-perception-perceptiontimestamp
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PredictionAmount|
+    drive factor, share value
+
+force get-system-relative-target-time
+  start build, field windows-perception-perceptiontimestamp
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemRelativeTargetTime|
+
+force set-system-relative-target-time
+  start build, field windows-perception-perceptiontimestamp
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemRelativeTargetTime|
+    drive factor, share value
+
+force get-target-time
+  start build, field windows-perception-perceptiontimestamp
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TargetTime|
+
+force set-target-time
+  start build, field windows-perception-perceptiontimestamp
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TargetTime|
+    drive factor, share value
+
+force build-perception-timestamp-helper
+  cause invoke-constructor
+    drive constructor, |Windows.Perception.PerceptionTimestampHelper|
+
+force from-historical-target-time
+  start build, field windows-perception-perceptiontimestamphelper
+  start target-time, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |FromHistoricalTargetTime|
+    drive factor, share target-time
+
+force from-system-relative-target-time
+  start build, field windows-perception-perceptiontimestamphelper
+  start target-time, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |FromSystemRelativeTargetTime|
+    drive factor, share target-time

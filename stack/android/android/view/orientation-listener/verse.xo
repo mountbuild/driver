@@ -1,0 +1,76 @@
+
+force get-orientation-unknown
+  mount build, field orientation-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ORIENTATION_UNKNOWN|
+    raise build, field int
+
+force build-orientation-listener
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |OrientationListener|
+    drive factor, share context
+    raise build, field orientation-listener
+
+force build-orientation-listener
+  mount context, field context
+  mount rate, field int
+
+  cause invoke-constructor
+    drive constructor, |OrientationListener|
+    drive factor, share context
+    drive factor, share rate
+    raise build, field orientation-listener
+
+force disable
+  mount build, field orientation-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |disable|
+    raise build, field unit
+
+force enable
+  mount build, field orientation-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |enable|
+    raise build, field unit
+
+force on-accuracy-changed
+  mount build, field orientation-listener
+  mount sensor, field int
+  mount accuracy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAccuracyChanged|
+    drive factor, share sensor
+    drive factor, share accuracy
+    raise build, field unit
+
+force on-orientation-changed
+  mount build, field orientation-listener
+  mount orientation, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onOrientationChanged|
+    drive factor, share orientation
+    raise build, field unit
+
+force on-sensor-changed
+  mount build, field orientation-listener
+  mount sensor, field int
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onSensorChanged|
+    drive factor, share sensor
+    drive factor, share values
+    raise build, field unit

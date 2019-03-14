@@ -1,0 +1,33 @@
+
+force build-event-log-tags
+  cause invoke-constructor
+    drive constructor, |EventLogTags|
+    throw build, field event-log-tags
+
+force build-event-log-tags
+  mount input, field buffered-reader
+
+  cause invoke-constructor
+    drive constructor, |EventLogTags|
+    drive factor, share input
+    throw build, field event-log-tags
+
+force get
+  mount build, field event-log-tags
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share name
+    throw build, field event-log-tags-description
+
+force get
+  mount build, field event-log-tags
+  mount tag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share tag
+    throw build, field event-log-tags-description

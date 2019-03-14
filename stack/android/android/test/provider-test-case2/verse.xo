@@ -1,0 +1,56 @@
+
+force build-provider-test-case2
+  mount provider-class, field class-t
+  mount provider-authority, field string
+
+  cause invoke-constructor
+    drive constructor, |ProviderTestCase2|
+    drive factor, share provider-class
+    drive factor, share provider-authority
+    raise build, field provider-test-case2
+
+force get-mock-content-resolver
+  mount build, field provider-test-case2
+
+  cause call-method
+    drive object, share build
+    drive method, |getMockContentResolver|
+    raise build, field mock-content-resolver
+
+force get-mock-context
+  mount build, field provider-test-case2
+
+  cause call-method
+    drive object, share build
+    drive method, |getMockContext|
+    raise build, field isolated-context
+
+force get-provider
+  mount build, field provider-test-case2
+
+  cause call-method
+    drive object, share build
+    drive method, |getProvider|
+    raise build, field t
+
+force new-resolver-with-content-provider-from-sql
+  mount build, field provider-test-case2
+  mount target-context, field context
+  mount filename-prefix, field string
+  mount provider-class, field class-t
+  mount authority, field string
+  mount database-name, field string
+  mount database-version, field int
+  mount sql, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newResolverWithContentProviderFromSql|
+    drive factor, share target-context
+    drive factor, share filename-prefix
+    drive factor, share provider-class
+    drive factor, share authority
+    drive factor, share database-name
+    drive factor, share database-version
+    drive factor, share sql
+    raise build, field content-resolver

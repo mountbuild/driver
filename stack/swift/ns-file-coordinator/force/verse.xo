@@ -1,0 +1,83 @@
+force get-class-file-presenters
+
+  cause get-aspect
+    drive object, |NSFileCoordinator|
+    drive aspect, |filePresenters|
+    raise build, field ns-file-presenter
+
+force set-class-file-presenters
+  field value, field ns-file-presenter
+
+  cause set-aspect
+    drive object, |NSFileCoordinator|
+    drive aspect, |filePresenters|
+    drive factor, share value
+
+force get-purpose-identifier
+  field build, field ns-file-coordinator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |purposeIdentifier|
+    raise build, field string
+
+force set-purpose-identifier
+  field build, field ns-file-coordinator
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |purposeIdentifier|
+    drive factor, share value
+
+force item
+  field build, field ns-file-coordinator
+  field at, field url
+  field will-move-to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand will-move-to
+      share will-move-to
+
+force item
+  field build, field ns-file-coordinator
+  field at, field url
+  field did-move-to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand did-move-to
+      share did-move-to
+
+force cancel
+  field build, field ns-file-coordinator
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+
+force item
+  field build, field ns-file-coordinator
+  field at, field url
+  field did-change-ubiquity-attributes, field set-url-resource-key
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand did-change-ubiquity-attributes
+      share did-change-ubiquity-attributes

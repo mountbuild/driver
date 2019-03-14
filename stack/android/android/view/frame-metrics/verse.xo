@@ -1,0 +1,114 @@
+
+force get-animation-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |ANIMATION_DURATION|
+    raise build, field int
+
+force get-command-issue-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |COMMAND_ISSUE_DURATION|
+    raise build, field int
+
+force get-draw-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |DRAW_DURATION|
+    raise build, field int
+
+force get-first-draw-frame
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |FIRST_DRAW_FRAME|
+    raise build, field int
+
+force get-input-handling-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |INPUT_HANDLING_DURATION|
+    raise build, field int
+
+force get-intended-vsync-timestamp
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |INTENDED_VSYNC_TIMESTAMP|
+    raise build, field int
+
+force get-layout-measure-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |LAYOUT_MEASURE_DURATION|
+    raise build, field int
+
+force get-swap-buffers-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |SWAP_BUFFERS_DURATION|
+    raise build, field int
+
+force get-sync-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_DURATION|
+    raise build, field int
+
+force get-total-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |TOTAL_DURATION|
+    raise build, field int
+
+force get-unknown-delay-duration
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN_DELAY_DURATION|
+    raise build, field int
+
+force get-vsync-timestamp
+  mount build, field frame-metrics
+
+  cause get-property
+    drive object, share build
+    drive property, |VSYNC_TIMESTAMP|
+    raise build, field int
+
+force build-frame-metrics
+  mount other, field frame-metrics
+
+  cause invoke-constructor
+    drive constructor, |FrameMetrics|
+    drive factor, share other
+    raise build, field frame-metrics
+
+force get-metric
+  mount build, field frame-metrics
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetric|
+    drive factor, share id
+    raise build, field long

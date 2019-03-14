@@ -1,0 +1,82 @@
+
+force build-input-content-info
+  mount content-uri, field uri
+  mount description, field clip-description
+
+  cause invoke-constructor
+    drive constructor, |InputContentInfo|
+    drive factor, share content-uri
+    drive factor, share description
+    throw build, field input-content-info
+
+force build-input-content-info
+  mount content-uri, field uri
+  mount description, field clip-description
+  mount link-uri, field uri
+
+  cause invoke-constructor
+    drive constructor, |InputContentInfo|
+    drive factor, share content-uri
+    drive factor, share description
+    drive factor, share link-uri
+    throw build, field input-content-info
+
+force describe-contents
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-content-uri
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentUri|
+    throw build, field uri
+
+force get-description
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field clip-description
+
+force get-link-uri
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLinkUri|
+    throw build, field uri
+
+force release-permission
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |releasePermission|
+    throw build, field unit
+
+force request-permission
+  mount build, field input-content-info
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPermission|
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field input-content-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

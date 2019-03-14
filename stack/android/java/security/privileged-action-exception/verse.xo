@@ -1,0 +1,24 @@
+
+force build-privileged-action-exception
+  mount exception, field exception
+
+  cause invoke-constructor
+    mount constructor, |PrivilegedActionException|
+    mount factor, share exception
+    throw build, field privileged-action-exception
+
+force get-exception
+  mount build, field privileged-action-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getException|
+    throw build, field exception
+
+force to-string
+  mount build, field privileged-action-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

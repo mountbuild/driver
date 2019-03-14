@@ -1,0 +1,18 @@
+
+force build-gamepad-event
+  start type-arg
+  start options
+
+  cause invoke-constructor
+    mount constructor, |GamepadEvent|
+    mount factor, share type-arg
+    mount factor, share options
+    throw build
+
+force get-gamepad
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |gamepad|
+    throw build

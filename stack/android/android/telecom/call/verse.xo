@@ -1,0 +1,504 @@
+
+force get-available-phone-accounts
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |AVAILABLE_PHONE_ACCOUNTS|
+    throw build, field string
+
+force get-extra-last-emergency-callback-time-millis
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS|
+    throw build, field string
+
+force get-extra-silent-ringing-requested
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SILENT_RINGING_REQUESTED|
+    throw build, field string
+
+force get-extra-suggested-phone-accounts
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SUGGESTED_PHONE_ACCOUNTS|
+    throw build, field string
+
+force get-reject-reason-declined
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |REJECT_REASON_DECLINED|
+    throw build, field int
+
+force get-reject-reason-unwanted
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |REJECT_REASON_UNWANTED|
+    throw build, field int
+
+force get-state-active
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_ACTIVE|
+    throw build, field int
+
+force get-state-audio-processing
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_AUDIO_PROCESSING|
+    throw build, field int
+
+force get-state-connecting
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CONNECTING|
+    throw build, field int
+
+force get-state-dialing
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_DIALING|
+    throw build, field int
+
+force get-state-disconnected
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_DISCONNECTED|
+    throw build, field int
+
+force get-state-disconnecting
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_DISCONNECTING|
+    throw build, field int
+
+force get-state-holding
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_HOLDING|
+    throw build, field int
+
+force get-state-new
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_NEW|
+    throw build, field int
+
+force get-state-pulling-call
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_PULLING_CALL|
+    throw build, field int
+
+force get-state-ringing
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_RINGING|
+    throw build, field int
+
+force get-state-select-phone-account
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_SELECT_PHONE_ACCOUNT|
+    throw build, field int
+
+force get-state-simulated-ringing
+  mount build, field call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_SIMULATED_RINGING|
+    throw build, field int
+
+force answer
+  mount build, field call
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |answer|
+    drive factor, share video-state
+    throw build, field unit
+
+force conference
+  mount build, field call
+  mount call-to-conference-with, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |conference|
+    drive factor, share call-to-conference-with
+    throw build, field unit
+
+force deflect
+  mount build, field call
+  mount address, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |deflect|
+    drive factor, share address
+    throw build, field unit
+
+force disconnect
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnect|
+    throw build, field unit
+
+force get-canned-text-responses
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getCannedTextResponses|
+    throw build, field mutable-list
+
+force get-children
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getChildren|
+    throw build, field mutable-list
+
+force get-conferenceable-calls
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getConferenceableCalls|
+    throw build, field mutable-list
+
+force get-details
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getDetails|
+    throw build, field call-details
+
+force get-generic-conference-active-child-call
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getGenericConferenceActiveChildCall|
+    throw build, field call
+
+force get-parent
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field call
+
+force get-remaining-post-dial-sequence
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemainingPostDialSequence|
+    throw build, field string
+
+force get-rtt-call
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getRttCall|
+    throw build, field call-rtt-call
+
+force get-state
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force get-video-call
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoCall|
+    throw build, field in-call-service-video-call
+
+force handover-to
+  mount build, field call
+  mount to-handle, field phone-account-handle
+  mount video-state, field int
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |handoverTo|
+    drive factor, share to-handle
+    drive factor, share video-state
+    drive factor, share extras
+    throw build, field unit
+
+force hold
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |hold|
+    throw build, field unit
+
+force is-rtt-active
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |isRttActive|
+    throw build, field boolean
+
+force merge-conference
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |mergeConference|
+    throw build, field unit
+
+force phone-account-selected
+  mount build, field call
+  mount account-handle, field phone-account-handle
+  mount set-default, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |phoneAccountSelected|
+    drive factor, share account-handle
+    drive factor, share set-default
+    throw build, field unit
+
+force play-dtmf-tone
+  mount build, field call
+  mount digit, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |playDtmfTone|
+    drive factor, share digit
+    throw build, field unit
+
+force post-dial-continue
+  mount build, field call
+  mount proceed, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |postDialContinue|
+    drive factor, share proceed
+    throw build, field unit
+
+force pull-external-call
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |pullExternalCall|
+    throw build, field unit
+
+force put-extras
+  mount build, field call
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |putExtras|
+    drive factor, share extras
+    throw build, field unit
+
+force register-callback
+  mount build, field call
+  mount callback, field call-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force register-callback
+  mount build, field call
+  mount callback, field call-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force reject
+  mount build, field call
+  mount reject-with-message, field boolean
+  mount text-message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |reject|
+    drive factor, share reject-with-message
+    drive factor, share text-message
+    throw build, field unit
+
+force reject
+  mount build, field call
+  mount reject-reason, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |reject|
+    drive factor, share reject-reason
+    throw build, field unit
+
+force remove-extras
+  mount build, field call
+  mount keys, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeExtras|
+    drive factor, share keys
+    throw build, field unit
+
+force remove-extras
+  mount build, field call
+  mount vararg-keys, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeExtras|
+    drive factor, share vararg-keys
+    throw build, field unit
+
+force respond-to-rtt-request
+  mount build, field call
+  mount id, field int
+  mount accept, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |respondToRttRequest|
+    drive factor, share id
+    drive factor, share accept
+    throw build, field unit
+
+force send-call-event
+  mount build, field call
+  mount event, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendCallEvent|
+    drive factor, share event
+    drive factor, share extras
+    throw build, field unit
+
+force send-rtt-request
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |sendRttRequest|
+    throw build, field unit
+
+force split-from-conference
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |splitFromConference|
+    throw build, field unit
+
+force stop-dtmf-tone
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |stopDtmfTone|
+    throw build, field unit
+
+force stop-rtt
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |stopRtt|
+    throw build, field unit
+
+force swap-conference
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |swapConference|
+    throw build, field unit
+
+force to-string
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force unhold
+  mount build, field call
+
+  cause call-method
+    drive object, share build
+    drive method, |unhold|
+    throw build, field unit
+
+force unregister-callback
+  mount build, field call
+  mount callback, field call-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterCallback|
+    drive factor, share callback
+    throw build, field unit

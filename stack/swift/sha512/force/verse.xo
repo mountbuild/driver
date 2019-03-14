@@ -1,0 +1,46 @@
+force get-static-byte-count
+  cause get aspect
+    mount object, |SHA512|
+    mount aspect, |byteCount|
+    raise build, class int
+
+force set static byte-count
+  field value, field int
+
+  cause set aspect
+    mount object, |SHA512|
+    mount aspect, |byteCount|
+    mount factor, share value
+
+force update
+  field build, field sha512
+  field buffer-pointer, field unsafe-raw-buffer-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor
+      brand buffer-pointer
+      share buffer-pointer
+
+force finalize
+  field build, field sha512
+
+  cause call-method
+    mount object, share build
+    mount method, |finalize|
+    raise build, class sha512-digest
+
+force get-static-block-byte-count
+  cause get aspect
+    mount object, |SHA512|
+    mount aspect, |blockByteCount|
+    raise build, class int
+
+force set static block-byte-count
+  field value, field int
+
+  cause set aspect
+    mount object, |SHA512|
+    mount aspect, |blockByteCount|
+    mount factor, share value

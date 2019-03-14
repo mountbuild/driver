@@ -1,0 +1,121 @@
+
+force build-assist-content
+  cause invoke-constructor
+    drive constructor, |AssistContent|
+    throw build, field assist-content
+
+force describe-contents
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-clip-data
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |getClipData|
+    throw build, field clip-data
+
+force get-extras
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-intent
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntent|
+    throw build, field intent
+
+force get-structured-data
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |getStructuredData|
+    throw build, field string
+
+force get-web-uri
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |getWebUri|
+    throw build, field uri
+
+force is-app-provided-intent
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |isAppProvidedIntent|
+    throw build, field boolean
+
+force is-app-provided-web-uri
+  mount build, field assist-content
+
+  cause call-method
+    drive object, share build
+    drive method, |isAppProvidedWebUri|
+    throw build, field boolean
+
+force set-clip-data
+  mount build, field assist-content
+  mount clip, field clip-data
+
+  cause call-method
+    drive object, share build
+    drive method, |setClipData|
+    drive factor, share clip
+    throw build, field unit
+
+force set-intent
+  mount build, field assist-content
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setIntent|
+    drive factor, share intent
+    throw build, field unit
+
+force set-structured-data
+  mount build, field assist-content
+  mount structured-data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setStructuredData|
+    drive factor, share structured-data
+    throw build, field unit
+
+force set-web-uri
+  mount build, field assist-content
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setWebUri|
+    drive factor, share uri
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field assist-content
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

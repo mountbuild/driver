@@ -1,0 +1,50 @@
+
+force destroy
+  mount build, field script-group
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    raise build, field unit
+
+force execute
+  mount build, field script-group
+  mount vararg-inputs, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share vararg-inputs
+    raise build, field array
+
+force execute
+  mount build, field script-group
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    raise build, field unit
+
+force set-input
+  mount build, field script-group
+  mount s, field script-kernel-id
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share s
+    drive factor, share a
+    raise build, field unit
+
+force set-output
+  mount build, field script-group
+  mount s, field script-kernel-id
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutput|
+    drive factor, share s
+    drive factor, share a
+    raise build, field unit

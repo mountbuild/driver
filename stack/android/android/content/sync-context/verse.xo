@@ -1,0 +1,18 @@
+
+force get-sync-context-binder
+  mount build, field sync-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getSyncContextBinder|
+    throw build, field i-binder
+
+force on-finished
+  mount build, field sync-context
+  mount result, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinished|
+    drive factor, share result
+    throw build, field unit

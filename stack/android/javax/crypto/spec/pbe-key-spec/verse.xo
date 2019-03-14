@@ -1,0 +1,74 @@
+
+force build-pbe-key-spec
+  start password, field char-array
+
+  cause invoke-constructor
+    mount constructor, |PBEKeySpec|
+    mount factor, share password
+    throw build, field pbe-key-spec
+
+force build-pbe-key-spec
+  start password, field char-array
+  start salt, field byte-array
+  start iteration-count, field int
+  start key-length, field int
+
+  cause invoke-constructor
+    mount constructor, |PBEKeySpec|
+    mount factor, share password
+    mount factor, share salt
+    mount factor, share iteration-count
+    mount factor, share key-length
+    throw build, field pbe-key-spec
+
+force build-pbe-key-spec
+  start password, field char-array
+  start salt, field byte-array
+  start iteration-count, field int
+
+  cause invoke-constructor
+    mount constructor, |PBEKeySpec|
+    mount factor, share password
+    mount factor, share salt
+    mount factor, share iteration-count
+    throw build, field pbe-key-spec
+
+force clear-password
+  start build, field pbe-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |clearPassword|
+    throw build, field unit
+
+force get-iteration-count
+  start build, field pbe-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIterationCount|
+    throw build, field int
+
+force get-key-length
+  start build, field pbe-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeyLength|
+    throw build, field int
+
+force get-password
+  start build, field pbe-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPassword|
+    throw build, field char-array
+
+force get-salt
+  start build, field pbe-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getSalt|
+    throw build, field byte-array

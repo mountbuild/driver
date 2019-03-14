@@ -1,0 +1,232 @@
+
+force get-audio-restriction-none
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_RESTRICTION_NONE|
+    throw build, field int
+
+force get-audio-restriction-vibration
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_RESTRICTION_VIBRATION|
+    throw build, field int
+
+force get-audio-restriction-vibration-sound
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_RESTRICTION_VIBRATION_SOUND|
+    throw build, field int
+
+force get-template-manual
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_MANUAL|
+    throw build, field int
+
+force get-template-preview
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_PREVIEW|
+    throw build, field int
+
+force get-template-record
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_RECORD|
+    throw build, field int
+
+force get-template-still-capture
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_STILL_CAPTURE|
+    throw build, field int
+
+force get-template-video-snapshot
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_VIDEO_SNAPSHOT|
+    throw build, field int
+
+force get-template-zero-shutter-lag
+  mount build, field camera-device
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPLATE_ZERO_SHUTTER_LAG|
+    throw build, field int
+
+force close
+  mount build, field camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create-capture-request
+  mount build, field camera-device
+  mount template-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createCaptureRequest|
+    drive factor, share template-type
+    throw build, field capture-request-builder
+
+force create-capture-request
+  mount build, field camera-device
+  mount template-type, field int
+  mount physical-camera-id-set, field mutable-set-string
+
+  cause call-method
+    drive object, share build
+    drive method, |createCaptureRequest|
+    drive factor, share template-type
+    drive factor, share physical-camera-id-set
+    throw build, field capture-request-builder
+
+force create-capture-session
+  mount build, field camera-device
+  mount outputs, field mutable-list-surface
+  mount callback, field camera-capture-session-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createCaptureSession|
+    drive factor, share outputs
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force create-capture-session
+  mount build, field camera-device
+  mount config, field session-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |createCaptureSession|
+    drive factor, share config
+    throw build, field unit
+
+force create-capture-session-by-output-configurations
+  mount build, field camera-device
+  mount output-configurations, field mutable-list-output-configuration
+  mount callback, field camera-capture-session-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createCaptureSessionByOutputConfigurations|
+    drive factor, share output-configurations
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force create-constrained-high-speed-capture-session
+  mount build, field camera-device
+  mount outputs, field mutable-list-surface
+  mount callback, field camera-capture-session-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createConstrainedHighSpeedCaptureSession|
+    drive factor, share outputs
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force create-reprocess-capture-request
+  mount build, field camera-device
+  mount input-result, field total-capture-result
+
+  cause call-method
+    drive object, share build
+    drive method, |createReprocessCaptureRequest|
+    drive factor, share input-result
+    throw build, field capture-request-builder
+
+force create-reprocessable-capture-session
+  mount build, field camera-device
+  mount input-config, field input-configuration
+  mount outputs, field mutable-list-surface
+  mount callback, field camera-capture-session-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createReprocessableCaptureSession|
+    drive factor, share input-config
+    drive factor, share outputs
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force create-reprocessable-capture-session-by-configurations
+  mount build, field camera-device
+  mount input-config, field input-configuration
+  mount outputs, field mutable-list-output-configuration
+  mount callback, field camera-capture-session-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createReprocessableCaptureSessionByConfigurations|
+    drive factor, share input-config
+    drive factor, share outputs
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force get-camera-audio-restriction
+  mount build, field camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getCameraAudioRestriction|
+    throw build, field int
+
+force get-id
+  mount build, field camera-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force is-session-configuration-supported
+  mount build, field camera-device
+  mount session-config, field session-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |isSessionConfigurationSupported|
+    drive factor, share session-config
+    throw build, field boolean
+
+force set-camera-audio-restriction
+  mount build, field camera-device
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCameraAudioRestriction|
+    drive factor, share mode
+    throw build, field unit

@@ -1,0 +1,277 @@
+
+force get-start-continuation-mask
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_CONTINUATION_MASK|
+    throw build, field int
+
+force get-start-flag-redelivery
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_FLAG_REDELIVERY|
+    throw build, field int
+
+force get-start-flag-retry
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_FLAG_RETRY|
+    throw build, field int
+
+force get-start-not-sticky
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_NOT_STICKY|
+    throw build, field int
+
+force get-start-redeliver-intent
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_REDELIVER_INTENT|
+    throw build, field int
+
+force get-start-sticky
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_STICKY|
+    throw build, field int
+
+force get-start-sticky-compatibility
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |START_STICKY_COMPATIBILITY|
+    throw build, field int
+
+force get-stop-foreground-detach
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |STOP_FOREGROUND_DETACH|
+    throw build, field int
+
+force get-stop-foreground-remove
+  start build, field service
+
+  cause get-property
+    drive object, share build
+    drive property, |STOP_FOREGROUND_REMOVE|
+    throw build, field int
+
+force build-service
+  cause invoke-constructor
+    drive constructor, |Service|
+    throw build, field service
+
+force get-application
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplication|
+    throw build, field application
+
+force get-foreground-service-type
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |getForegroundServiceType|
+    throw build, field int
+
+force on-bind
+  start build, field service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-configuration-changed
+  start build, field service
+  start new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    throw build, field unit
+
+force on-create
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-destroy
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-low-memory
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |onLowMemory|
+    throw build, field unit
+
+force on-rebind
+  start build, field service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onRebind|
+    drive factor, share intent
+    throw build, field unit
+
+force on-start
+  start build, field service
+  start intent, field intent
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    drive factor, share intent
+    drive factor, share start-id
+    throw build, field unit
+
+force on-start-command
+  start build, field service
+  start intent, field intent
+  start flags, field int
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartCommand|
+    drive factor, share intent
+    drive factor, share flags
+    drive factor, share start-id
+    throw build, field int
+
+force on-task-removed
+  start build, field service
+  start root-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onTaskRemoved|
+    drive factor, share root-intent
+    throw build, field unit
+
+force on-trim-memory
+  start build, field service
+  start level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrimMemory|
+    drive factor, share level
+    throw build, field unit
+
+force on-unbind
+  start build, field service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    throw build, field boolean
+
+force start-foreground
+  start build, field service
+  start id, field int
+  start notification, field notification
+
+  cause call-method
+    drive object, share build
+    drive method, |startForeground|
+    drive factor, share id
+    drive factor, share notification
+    throw build, field unit
+
+force start-foreground
+  start build, field service
+  start id, field int
+  start notification, field notification
+  start foreground-service-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startForeground|
+    drive factor, share id
+    drive factor, share notification
+    drive factor, share foreground-service-type
+    throw build, field unit
+
+force stop-foreground
+  start build, field service
+  start remove-notification, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |stopForeground|
+    drive factor, share remove-notification
+    throw build, field unit
+
+force stop-foreground
+  start build, field service
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stopForeground|
+    drive factor, share flags
+    throw build, field unit
+
+force stop-self
+  start build, field service
+
+  cause call-method
+    drive object, share build
+    drive method, |stopSelf|
+    throw build, field unit
+
+force stop-self
+  start build, field service
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stopSelf|
+    drive factor, share start-id
+    throw build, field unit
+
+force stop-self-result
+  start build, field service
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stopSelfResult|
+    drive factor, share start-id
+    throw build, field boolean

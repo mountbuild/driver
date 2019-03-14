@@ -1,0 +1,58 @@
+
+force get-biometric-error-hw-unavailable
+  mount build, field biometric-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_HW_UNAVAILABLE|
+    throw build, field int
+
+force get-biometric-error-none-enrolled
+  mount build, field biometric-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_NONE_ENROLLED|
+    throw build, field int
+
+force get-biometric-error-no-hardware
+  mount build, field biometric-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_NO_HARDWARE|
+    throw build, field int
+
+force get-biometric-error-security-update-required
+  mount build, field biometric-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED|
+    throw build, field int
+
+force get-biometric-success
+  mount build, field biometric-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_SUCCESS|
+    throw build, field int
+
+force can-authenticate
+  mount build, field biometric-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |canAuthenticate|
+    throw build, field int
+
+force can-authenticate
+  mount build, field biometric-manager
+  mount authenticators, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |canAuthenticate|
+    drive factor, share authenticators
+    throw build, field int

@@ -1,0 +1,169 @@
+
+force get-sync-context-is-stopped
+  mount build, field hardware-renderer
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_CONTEXT_IS_STOPPED|
+    raise build, field int
+
+force get-sync-frame-dropped
+  mount build, field hardware-renderer
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_FRAME_DROPPED|
+    raise build, field int
+
+force get-sync-lost-surface-reward-if-found
+  mount build, field hardware-renderer
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_LOST_SURFACE_REWARD_IF_FOUND|
+    raise build, field int
+
+force get-sync-ok
+  mount build, field hardware-renderer
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_OK|
+    raise build, field int
+
+force get-sync-redraw-requested
+  mount build, field hardware-renderer
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_REDRAW_REQUESTED|
+    raise build, field int
+
+force build-hardware-renderer
+  cause invoke-constructor
+    drive constructor, |HardwareRenderer|
+    raise build, field hardware-renderer
+
+force clear-content
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |clearContent|
+    raise build, field unit
+
+force create-render-request
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |createRenderRequest|
+    raise build, field hardware-renderer-frame-render-request
+
+force destroy
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    raise build, field unit
+
+force is-opaque
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpaque|
+    raise build, field boolean
+
+force notify-frame-pending
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyFramePending|
+    raise build, field unit
+
+force set-content-root
+  mount build, field hardware-renderer
+  mount content, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentRoot|
+    drive factor, share content
+    raise build, field unit
+
+force set-light-source-alpha
+  mount build, field hardware-renderer
+  mount ambient-shadow-alpha, field float
+  mount spot-shadow-alpha, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setLightSourceAlpha|
+    drive factor, share ambient-shadow-alpha
+    drive factor, share spot-shadow-alpha
+    raise build, field unit
+
+force set-light-source-geometry
+  mount build, field hardware-renderer
+  mount light-x, field float
+  mount light-y, field float
+  mount light-z, field float
+  mount light-radius, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setLightSourceGeometry|
+    drive factor, share light-x
+    drive factor, share light-y
+    drive factor, share light-z
+    drive factor, share light-radius
+    raise build, field unit
+
+force set-name
+  mount build, field hardware-renderer
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    raise build, field unit
+
+force set-opaque
+  mount build, field hardware-renderer
+  mount opaque, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setOpaque|
+    drive factor, share opaque
+    raise build, field unit
+
+force set-surface
+  mount build, field hardware-renderer
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setSurface|
+    drive factor, share surface
+    raise build, field unit
+
+force start
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field unit
+
+force stop
+  mount build, field hardware-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit

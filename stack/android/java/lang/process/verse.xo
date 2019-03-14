@@ -1,0 +1,81 @@
+
+force build-process
+  cause invoke-constructor
+    drive constructor, |Process|
+    throw build, field process
+
+force destroy
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    throw build, field unit
+
+force destroy-forcibly
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |destroyForcibly|
+    throw build, field process
+
+force exit-value
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |exitValue|
+    throw build, field int
+
+force get-error-stream
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorStream|
+    throw build, field input-stream
+
+force get-input-stream
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputStream|
+    throw build, field input-stream
+
+force get-output-stream
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputStream|
+    throw build, field output-stream
+
+force is-alive
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |isAlive|
+    throw build, field boolean
+
+force wait-for
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |waitFor|
+    throw build, field int
+
+force wait-for
+  mount build, field process
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |waitFor|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean

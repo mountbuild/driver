@@ -1,0 +1,507 @@
+
+force get-speech-appended-silence
+  cause get-object
+    drive aspect, |Windows.Media.SpeechSynthesis.SpeechAppendedSilence|
+
+force get-speech-punctuation-silence
+  cause get-object
+    drive aspect, |Windows.Media.SpeechSynthesis.SpeechPunctuationSilence|
+
+force build-speech-synthesis-stream
+  cause invoke-constructor
+    drive constructor, |Windows.Media.SpeechSynthesis.SpeechSynthesisStream|
+
+force get-can-read
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanRead|
+
+force set-can-read
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanRead|
+    drive factor, share value
+
+force get-can-write
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanWrite|
+
+force set-can-write
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanWrite|
+    drive factor, share value
+
+force clone-stream
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause call-method
+    drive object, share build
+    drive method, |CloneStream|
+
+force close
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-content-type
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContentType|
+
+force set-content-type
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContentType|
+    drive factor, share value
+
+force flush-async
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause call-method
+    drive object, share build
+    drive method, |FlushAsync|
+
+force get-input-stream-at
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start position, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInputStreamAt|
+    drive factor, share position
+
+force get-output-stream-at
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start position, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |GetOutputStreamAt|
+    drive factor, share position
+
+force get-markers
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Markers|
+
+force set-markers
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Markers|
+    drive factor, share value
+
+force get-position
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Position|
+
+force set-position
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Position|
+    drive factor, share value
+
+force read-async
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start buffer, field windows-storage-streams-ibuffer
+  start count, field system-uint32
+  start options, field windows-storage-streams-inputstreamoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadAsync|
+    drive factor, share buffer
+    drive factor, share count
+    drive factor, share options
+
+force seek
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start position, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |Seek|
+    drive factor, share position
+
+force get-size
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force get-timed-metadata-tracks
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TimedMetadataTracks|
+
+force set-timed-metadata-tracks
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TimedMetadataTracks|
+    drive factor, share value
+
+force write-async
+  start build, field windows-media-speechsynthesis-speechsynthesisstream
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteAsync|
+    drive factor, share buffer
+
+force build-speech-synthesizer
+  cause invoke-constructor
+    drive constructor, |Windows.Media.SpeechSynthesis.SpeechSynthesizer|
+
+force get-all-voices
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AllVoices|
+
+force set-all-voices
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AllVoices|
+    drive factor, share value
+
+force close
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-default-voice
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DefaultVoice|
+
+force set-default-voice
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DefaultVoice|
+    drive factor, share value
+
+force get-options
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Options|
+
+force set-options
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Options|
+    drive factor, share value
+
+force ctor
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force synthesize-ssml-to-stream-async
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start ssml, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SynthesizeSsmlToStreamAsync|
+    drive factor, share ssml
+
+force synthesize-text-to-stream-async
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SynthesizeTextToStreamAsync|
+    drive factor, share text
+
+force try-set-default-voice-async
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start voice, field windows-media-speechsynthesis-voiceinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetDefaultVoiceAsync|
+    drive factor, share voice
+
+force get-voice
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Voice|
+
+force set-voice
+  start build, field windows-media-speechsynthesis-speechsynthesizer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Voice|
+    drive factor, share value
+
+force build-speech-synthesizer-options
+  cause invoke-constructor
+    drive constructor, |Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions|
+
+force get-appended-silence
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppendedSilence|
+
+force set-appended-silence
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppendedSilence|
+    drive factor, share value
+
+force get-audio-pitch
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AudioPitch|
+
+force set-audio-pitch
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AudioPitch|
+    drive factor, share value
+
+force get-audio-volume
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AudioVolume|
+
+force set-audio-volume
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AudioVolume|
+    drive factor, share value
+
+force get-include-sentence-boundary-metadata
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IncludeSentenceBoundaryMetadata|
+
+force set-include-sentence-boundary-metadata
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IncludeSentenceBoundaryMetadata|
+    drive factor, share value
+
+force get-include-word-boundary-metadata
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IncludeWordBoundaryMetadata|
+
+force set-include-word-boundary-metadata
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IncludeWordBoundaryMetadata|
+    drive factor, share value
+
+force get-punctuation-silence
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PunctuationSilence|
+
+force set-punctuation-silence
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PunctuationSilence|
+    drive factor, share value
+
+force get-speaking-rate
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SpeakingRate|
+
+force set-speaking-rate
+  start build, field windows-media-speechsynthesis-speechsynthesizeroptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SpeakingRate|
+    drive factor, share value
+
+force get-voice-gender
+  cause get-object
+    drive aspect, |Windows.Media.SpeechSynthesis.VoiceGender|
+
+force build-voice-information
+  cause invoke-constructor
+    drive constructor, |Windows.Media.SpeechSynthesis.VoiceInformation|
+
+force get-description
+  start build, field windows-media-speechsynthesis-voiceinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-media-speechsynthesis-voiceinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-media-speechsynthesis-voiceinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-media-speechsynthesis-voiceinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-gender
+  start build, field windows-media-speechsynthesis-voiceinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Gender|
+
+force set-gender
+  start build, field windows-media-speechsynthesis-voiceinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Gender|
+    drive factor, share value
+
+force get-id
+  start build, field windows-media-speechsynthesis-voiceinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-media-speechsynthesis-voiceinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-language
+  start build, field windows-media-speechsynthesis-voiceinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Language|
+
+force set-language
+  start build, field windows-media-speechsynthesis-voiceinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Language|
+    drive factor, share value

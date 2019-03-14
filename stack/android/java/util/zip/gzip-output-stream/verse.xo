@@ -1,0 +1,62 @@
+
+force build-gzip-output-stream
+  mount out, field output-stream
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |GZIPOutputStream|
+    drive factor, share out
+    drive factor, share size
+    throw build, field gzip-output-stream
+
+force build-gzip-output-stream
+  mount out, field output-stream
+  mount size, field int
+  mount sync-flush, field boolean
+
+  cause invoke-constructor
+    drive constructor, |GZIPOutputStream|
+    drive factor, share out
+    drive factor, share size
+    drive factor, share sync-flush
+    throw build, field gzip-output-stream
+
+force build-gzip-output-stream
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |GZIPOutputStream|
+    drive factor, share out
+    throw build, field gzip-output-stream
+
+force build-gzip-output-stream
+  mount out, field output-stream
+  mount sync-flush, field boolean
+
+  cause invoke-constructor
+    drive constructor, |GZIPOutputStream|
+    drive factor, share out
+    drive factor, share sync-flush
+    throw build, field gzip-output-stream
+
+force finish
+  mount build, field gzip-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    throw build, field unit
+
+force write
+  mount build, field gzip-output-stream
+  mount buf, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share buf
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

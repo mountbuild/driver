@@ -1,0 +1,182 @@
+
+force get-order-normal
+  mount build, field layout-animation-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |ORDER_NORMAL|
+    raise build, field int
+
+force get-order-random
+  mount build, field layout-animation-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |ORDER_RANDOM|
+    raise build, field int
+
+force get-order-reverse
+  mount build, field layout-animation-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |ORDER_REVERSE|
+    raise build, field int
+
+force build-layout-animation-controller
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |LayoutAnimationController|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field layout-animation-controller
+
+force build-layout-animation-controller
+  mount animation, field animation
+
+  cause invoke-constructor
+    drive constructor, |LayoutAnimationController|
+    drive factor, share animation
+    raise build, field layout-animation-controller
+
+force build-layout-animation-controller
+  mount animation, field animation
+  mount delay, field float
+
+  cause invoke-constructor
+    drive constructor, |LayoutAnimationController|
+    drive factor, share animation
+    drive factor, share delay
+    raise build, field layout-animation-controller
+
+force get-animation
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnimation|
+    raise build, field animation
+
+force get-animation-for-view
+  mount build, field layout-animation-controller
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnimationForView|
+    drive factor, share view
+    raise build, field animation
+
+force get-delay
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getDelay|
+    raise build, field float
+
+force get-interpolator
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolator|
+    raise build, field interpolator
+
+force get-order
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrder|
+    raise build, field int
+
+force is-done
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |isDone|
+    raise build, field boolean
+
+force set-animation
+  mount build, field layout-animation-controller
+  mount context, field context
+  mount resource-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAnimation|
+    drive factor, share context
+    drive factor, share resource-id
+    raise build, field unit
+
+force set-animation
+  mount build, field layout-animation-controller
+  mount animation, field animation
+
+  cause call-method
+    drive object, share build
+    drive method, |setAnimation|
+    drive factor, share animation
+    raise build, field unit
+
+force set-delay
+  mount build, field layout-animation-controller
+  mount delay, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setDelay|
+    drive factor, share delay
+    raise build, field unit
+
+force set-interpolator
+  mount build, field layout-animation-controller
+  mount context, field context
+  mount resource-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterpolator|
+    drive factor, share context
+    drive factor, share resource-id
+    raise build, field unit
+
+force set-interpolator
+  mount build, field layout-animation-controller
+  mount interpolator, field interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterpolator|
+    drive factor, share interpolator
+    raise build, field unit
+
+force set-order
+  mount build, field layout-animation-controller
+  mount order, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrder|
+    drive factor, share order
+    raise build, field unit
+
+force start
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field unit
+
+force will-overlap
+  mount build, field layout-animation-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |willOverlap|
+    raise build, field boolean

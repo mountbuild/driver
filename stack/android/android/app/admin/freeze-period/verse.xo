@@ -1,0 +1,34 @@
+
+force build-freeze-period
+  start start, field month-day
+  start end, field month-day
+
+  cause invoke-constructor
+    drive constructor, |FreezePeriod|
+    drive factor, share start
+    drive factor, share end
+    throw build, field freeze-period
+
+force get-end
+  start build, field freeze-period
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnd|
+    throw build, field month-day
+
+force get-start
+  start build, field freeze-period
+
+  cause call-method
+    drive object, share build
+    drive method, |getStart|
+    throw build, field month-day
+
+force to-string
+  start build, field freeze-period
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

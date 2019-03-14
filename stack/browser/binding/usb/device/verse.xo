@@ -1,0 +1,288 @@
+
+force get-configuration
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |configuration|
+    throw build
+
+force get-configurations
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |configurations|
+    throw build
+
+force get-device-class
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceClass|
+    throw build
+
+force get-device-protocol
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceProtocol|
+    throw build
+
+force get-device-subclass
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceSubclass|
+    throw build
+
+force get-device-version-major
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceVersionMajor|
+    throw build
+
+force get-device-version-minor
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceVersionMinor|
+    throw build
+
+force get-device-version-subminor
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceVersionSubminor|
+    throw build
+
+force get-manufacturer-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |manufacturerName|
+    throw build
+
+force get-opened
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |opened|
+    throw build
+
+force get-product-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |productId|
+    throw build
+
+force get-product-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |productName|
+    throw build
+
+force get-serial-number
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |serialNumber|
+    throw build
+
+force get-usb-version-major
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |usbVersionMajor|
+    throw build
+
+force get-usb-version-minor
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |usbVersionMinor|
+    throw build
+
+force get-usb-version-subminor
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |usbVersionSubminor|
+    throw build
+
+force get-vendor-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |vendorId|
+    throw build
+
+force claim-interface
+  start build
+  start interface-number
+
+  cause call-method
+    mount object, share build
+    mount method, |claimInterface|
+    mount factor, share interface-number
+    throw build
+
+force clear-halt
+  start build
+  start direction
+  start endpoint-number
+
+  cause call-method
+    mount object, share build
+    mount method, |clearHalt|
+    mount factor, share direction
+    mount factor, share endpoint-number
+    throw build
+
+force control-transfer-in
+  start build
+  start setup
+  start length
+
+  cause call-method
+    mount object, share build
+    mount method, |controlTransferIn|
+    mount factor, share setup
+    mount factor, share length
+    throw build
+
+force control-transfer-out
+  start build
+  start setup
+  start data
+
+  cause call-method
+    mount object, share build
+    mount method, |controlTransferOut|
+    mount factor, share setup
+    mount factor, share data
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build
+
+force isochronous-transfer-in
+  start build
+  start endpoint-number
+  start packet-lengths
+
+  cause call-method
+    mount object, share build
+    mount method, |isochronousTransferIn|
+    mount factor, share endpoint-number
+    mount factor, share packet-lengths
+    throw build
+
+force isochronous-transfer-out
+  start build
+  start endpoint-number
+  start data
+  start packet-lengths
+
+  cause call-method
+    mount object, share build
+    mount method, |isochronousTransferOut|
+    mount factor, share endpoint-number
+    mount factor, share data
+    mount factor, share packet-lengths
+    throw build
+
+force open
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    throw build
+
+force release-interface
+  start build
+  start interface-number
+
+  cause call-method
+    mount object, share build
+    mount method, |releaseInterface|
+    mount factor, share interface-number
+    throw build
+
+force reset
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |reset|
+    throw build
+
+force select-alternate-interface
+  start build
+  start interface-number
+  start alternate-setting
+
+  cause call-method
+    mount object, share build
+    mount method, |selectAlternateInterface|
+    mount factor, share interface-number
+    mount factor, share alternate-setting
+    throw build
+
+force select-configuration
+  start build
+  start configuration-value
+
+  cause call-method
+    mount object, share build
+    mount method, |selectConfiguration|
+    mount factor, share configuration-value
+    throw build
+
+force transfer-in
+  start build
+  start endpoint-number
+  start length
+
+  cause call-method
+    mount object, share build
+    mount method, |transferIn|
+    mount factor, share endpoint-number
+    mount factor, share length
+    throw build
+
+force transfer-out
+  start build
+  start endpoint-number
+  start data
+
+  cause call-method
+    mount object, share build
+    mount method, |transferOut|
+    mount factor, share endpoint-number
+    mount factor, share data
+    throw build

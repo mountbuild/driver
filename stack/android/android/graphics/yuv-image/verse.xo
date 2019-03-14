@@ -1,0 +1,70 @@
+
+force build-yuv-image
+  mount yuv, field byte-array
+  mount format, field int
+  mount width, field int
+  mount height, field int
+  mount strides, field int-array
+
+  cause invoke-constructor
+    drive constructor, |YuvImage|
+    drive factor, share yuv
+    drive factor, share format
+    drive factor, share width
+    drive factor, share height
+    drive factor, share strides
+    raise build, field yuv-image
+
+force compress-to-jpeg
+  mount build, field yuv-image
+  mount rectangle, field rect
+  mount quality, field int
+  mount stream, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |compressToJpeg|
+    drive factor, share rectangle
+    drive factor, share quality
+    drive factor, share stream
+    raise build, field boolean
+
+force get-height
+  mount build, field yuv-image
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-strides
+  mount build, field yuv-image
+
+  cause call-method
+    drive object, share build
+    drive method, |getStrides|
+    raise build, field int-array
+
+force get-width
+  mount build, field yuv-image
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    raise build, field int
+
+force get-yuv-data
+  mount build, field yuv-image
+
+  cause call-method
+    drive object, share build
+    drive method, |getYuvData|
+    raise build, field byte-array
+
+force get-yuv-format
+  mount build, field yuv-image
+
+  cause call-method
+    drive object, share build
+    drive method, |getYuvFormat|
+    raise build, field int

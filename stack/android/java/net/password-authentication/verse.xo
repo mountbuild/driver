@@ -1,0 +1,26 @@
+
+force build-password-authentication
+  mount user-name, field string
+  mount password, field char-array
+
+  cause invoke-constructor
+    drive constructor, |PasswordAuthentication|
+    drive factor, share user-name
+    drive factor, share password
+    throw build, field password-authentication
+
+force get-password
+  mount build, field password-authentication
+
+  cause call-method
+    drive object, share build
+    drive method, |getPassword|
+    throw build, field char-array
+
+force get-user-name
+  mount build, field password-authentication
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserName|
+    throw build, field string

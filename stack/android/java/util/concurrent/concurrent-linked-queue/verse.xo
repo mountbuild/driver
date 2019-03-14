@@ -1,0 +1,129 @@
+
+force build-concurrent-linked-queue
+  cause invoke-constructor
+    drive constructor, |ConcurrentLinkedQueue|
+    throw build, field concurrent-linked-queue
+
+force build-concurrent-linked-queue
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentLinkedQueue|
+    drive factor, share c
+    throw build, field concurrent-linked-queue
+
+force add
+  mount build, field concurrent-linked-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force add-all
+  mount build, field concurrent-linked-queue
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force contains
+  mount build, field concurrent-linked-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force is-empty
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force offer
+  mount build, field concurrent-linked-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    throw build, field boolean
+
+force peek
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force poll
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field e
+
+force remove
+  mount build, field concurrent-linked-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force spliterator
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force to-array
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field concurrent-linked-queue
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array
+
+force to-string
+  mount build, field concurrent-linked-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

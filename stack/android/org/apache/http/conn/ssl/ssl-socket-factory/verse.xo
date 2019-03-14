@@ -1,0 +1,152 @@
+
+force get-ssl
+  mount build, field ssl-socket-factory
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL|
+    throw build, field string
+
+force get-sslv2
+  mount build, field ssl-socket-factory
+
+  cause get-property
+    drive object, share build
+    drive property, |SSLV2|
+    throw build, field string
+
+force get-tls
+  mount build, field ssl-socket-factory
+
+  cause get-property
+    drive object, share build
+    drive property, |TLS|
+    throw build, field string
+
+force build-ssl-socket-factory
+  mount algorithm, field string
+  mount keystore, field key-store
+  mount keystore-password, field string
+  mount truststore, field key-store
+  mount random, field secure-random
+  mount name-resolver, field host-name-resolver
+
+  cause invoke-constructor
+    drive constructor, |SSLSocketFactory|
+    drive factor, share algorithm
+    drive factor, share keystore
+    drive factor, share keystore-password
+    drive factor, share truststore
+    drive factor, share random
+    drive factor, share name-resolver
+    throw build, field ssl-socket-factory
+
+force build-ssl-socket-factory
+  mount keystore, field key-store
+  mount keystore-password, field string
+  mount truststore, field key-store
+
+  cause invoke-constructor
+    drive constructor, |SSLSocketFactory|
+    drive factor, share keystore
+    drive factor, share keystore-password
+    drive factor, share truststore
+    throw build, field ssl-socket-factory
+
+force build-ssl-socket-factory
+  mount keystore, field key-store
+  mount keystore-password, field string
+
+  cause invoke-constructor
+    drive constructor, |SSLSocketFactory|
+    drive factor, share keystore
+    drive factor, share keystore-password
+    throw build, field ssl-socket-factory
+
+force build-ssl-socket-factory
+  mount truststore, field key-store
+
+  cause invoke-constructor
+    drive constructor, |SSLSocketFactory|
+    drive factor, share truststore
+    throw build, field ssl-socket-factory
+
+force connect-socket
+  mount build, field ssl-socket-factory
+  mount sock, field socket
+  mount host, field string
+  mount port, field int
+  mount local-address, field inet-address
+  mount local-port, field int
+  mount params, field http-params
+
+  cause call-method
+    drive object, share build
+    drive method, |connectSocket|
+    drive factor, share sock
+    drive factor, share host
+    drive factor, share port
+    drive factor, share local-address
+    drive factor, share local-port
+    drive factor, share params
+    throw build, field socket
+
+force create-socket
+  mount build, field ssl-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    throw build, field socket
+
+force create-socket
+  mount build, field ssl-socket-factory
+  mount socket, field socket
+  mount host, field string
+  mount port, field int
+  mount auto-close, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share socket
+    drive factor, share host
+    drive factor, share port
+    drive factor, share auto-close
+    throw build, field socket
+
+force get-hostname-verifier
+  mount build, field ssl-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |getHostnameVerifier|
+    throw build, field x509-hostname-verifier
+
+force get-socket-factory
+  mount build, field ssl-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |getSocketFactory|
+    throw build, field ssl-socket-factory
+
+force is-secure
+  mount build, field ssl-socket-factory
+  mount sock, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isSecure|
+    drive factor, share sock
+    throw build, field boolean
+
+force set-hostname-verifier
+  mount build, field ssl-socket-factory
+  mount hostname-verifier, field x509-hostname-verifier
+
+  cause call-method
+    drive object, share build
+    drive method, |setHostnameVerifier|
+    drive factor, share hostname-verifier
+    throw build, field unit

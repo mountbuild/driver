@@ -1,0 +1,103 @@
+
+force build-edits
+  cause invoke-constructor
+    drive constructor, |Edits|
+    raise build, field edits
+
+force add-replace
+  start build, field edits
+  start old-length, field int
+  start new-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addReplace|
+    drive factor, share old-length
+    drive factor, share new-length
+    raise build, field unit
+
+force add-unchanged
+  start build, field edits
+  start unchanged-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addUnchanged|
+    drive factor, share unchanged-length
+    raise build, field unit
+
+force get-coarse-changes-iterator
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |getCoarseChangesIterator|
+    raise build, field edits-iterator
+
+force get-coarse-iterator
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |getCoarseIterator|
+    raise build, field edits-iterator
+
+force get-fine-changes-iterator
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |getFineChangesIterator|
+    raise build, field edits-iterator
+
+force get-fine-iterator
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |getFineIterator|
+    raise build, field edits-iterator
+
+force has-changes
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |hasChanges|
+    raise build, field boolean
+
+force length-delta
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |lengthDelta|
+    raise build, field int
+
+force merge-and-append
+  start build, field edits
+  start ab, field edits
+  start bc, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |mergeAndAppend|
+    drive factor, share ab
+    drive factor, share bc
+    raise build, field edits
+
+force number-of-changes
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |numberOfChanges|
+    raise build, field int
+
+force reset
+  start build, field edits
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit

@@ -1,0 +1,31 @@
+
+force build-circular-propagation
+  cause invoke-constructor
+    drive constructor, |CircularPropagation|
+    throw build, field circular-propagation
+
+force get-start-delay
+  mount build, field circular-propagation
+  mount scene-root, field view-group
+  mount transition, field transition
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartDelay|
+    drive factor, share scene-root
+    drive factor, share transition
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field long
+
+force set-propagation-speed
+  mount build, field circular-propagation
+  mount propagation-speed, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPropagationSpeed|
+    drive factor, share propagation-speed
+    throw build, field unit

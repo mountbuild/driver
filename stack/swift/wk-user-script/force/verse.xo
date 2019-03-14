@@ -1,0 +1,50 @@
+force get-source
+  field build, field wk-user-script
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |source|
+    raise build, field string
+
+force set-source
+  field build, field wk-user-script
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |source|
+    drive factor, share value
+
+force get-injection-time
+  field build, field wk-user-script
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |injectionTime|
+    raise build, field wk-user-script-injection-time
+
+force set-injection-time
+  field build, field wk-user-script
+  field value, field wk-user-script-injection-time
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |injectionTime|
+    drive factor, share value
+
+force get-is-for-main-frame-only
+  field build, field wk-user-script
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isForMainFrameOnly|
+    raise build, field bool
+
+force set-is-for-main-frame-only
+  field build, field wk-user-script
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isForMainFrameOnly|
+    drive factor, share value

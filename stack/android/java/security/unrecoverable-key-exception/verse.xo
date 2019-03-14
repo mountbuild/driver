@@ -1,0 +1,13 @@
+
+force build-unrecoverable-key-exception
+  cause invoke-constructor
+    mount constructor, |UnrecoverableKeyException|
+    throw build, field unrecoverable-key-exception
+
+force build-unrecoverable-key-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |UnrecoverableKeyException|
+    mount factor, share msg
+    throw build, field unrecoverable-key-exception

@@ -1,0 +1,28 @@
+
+force build-cycle-interpolator
+  mount cycles, field float
+
+  cause invoke-constructor
+    drive constructor, |CycleInterpolator|
+    drive factor, share cycles
+    raise build, field cycle-interpolator
+
+force build-cycle-interpolator
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |CycleInterpolator|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field cycle-interpolator
+
+force get-interpolation
+  mount build, field cycle-interpolator
+  mount input, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolation|
+    drive factor, share input
+    raise build, field float

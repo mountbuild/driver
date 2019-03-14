@@ -1,0 +1,10 @@
+
+force build-write-aborted-exception
+  mount s, field string
+  mount ex, field exception
+
+  cause invoke-constructor
+    drive constructor, |WriteAbortedException|
+    drive factor, share s
+    drive factor, share ex
+    throw build, field write-aborted-exception

@@ -1,0 +1,46 @@
+
+force build-oaep-parameter-spec
+  start md-name, field string
+  start mgf-name, field string
+  start mgf-spec, field algorithm-parameter-spec
+  start p-src, field p-source
+
+  cause invoke-constructor
+    mount constructor, |OAEPParameterSpec|
+    mount factor, share md-name
+    mount factor, share mgf-name
+    mount factor, share mgf-spec
+    mount factor, share p-src
+    throw build, field oaep-parameter-spec
+
+force get-digest-algorithm
+  start build, field oaep-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getDigestAlgorithm|
+    throw build, field string
+
+force get-mgf-algorithm
+  start build, field oaep-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getMGFAlgorithm|
+    throw build, field string
+
+force get-mgf-parameters
+  start build, field oaep-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getMGFParameters|
+    throw build, field algorithm-parameter-spec
+
+force get-p-source
+  start build, field oaep-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPSource|
+    throw build, field p-source

@@ -1,0 +1,26 @@
+
+force uri-to-stream-async
+  start build, field windows-web-iuritostreamresolver
+  start uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |UriToStreamAsync|
+    drive factor, share uri
+
+force build-web-error
+  cause invoke-constructor
+    drive constructor, |Windows.Web.WebError|
+
+force get-status
+  start build, field windows-web-weberror
+  start hresult, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStatus|
+    drive factor, share hresult
+
+force get-web-error-status
+  cause get-object
+    drive aspect, |Windows.Web.WebErrorStatus|

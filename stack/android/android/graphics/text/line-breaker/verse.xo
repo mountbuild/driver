@@ -1,0 +1,78 @@
+
+force get-break-strategy-balanced
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |BREAK_STRATEGY_BALANCED|
+    raise build, field int
+
+force get-break-strategy-high-quality
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |BREAK_STRATEGY_HIGH_QUALITY|
+    raise build, field int
+
+force get-break-strategy-simple
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |BREAK_STRATEGY_SIMPLE|
+    raise build, field int
+
+force get-hyphenation-frequency-full
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |HYPHENATION_FREQUENCY_FULL|
+    raise build, field int
+
+force get-hyphenation-frequency-none
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |HYPHENATION_FREQUENCY_NONE|
+    raise build, field int
+
+force get-hyphenation-frequency-normal
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |HYPHENATION_FREQUENCY_NORMAL|
+    raise build, field int
+
+force get-justification-mode-inter-word
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |JUSTIFICATION_MODE_INTER_WORD|
+    raise build, field int
+
+force get-justification-mode-none
+  mount build, field line-breaker
+
+  cause get-property
+    drive object, share build
+    drive property, |JUSTIFICATION_MODE_NONE|
+    raise build, field int
+
+force compute-line-breaks
+  mount build, field line-breaker
+  mount measured-para, field measured-text
+  mount constraints, field line-breaker-paragraph-constraints
+  mount line-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |computeLineBreaks|
+    drive factor, share measured-para
+    drive factor, share constraints
+    drive factor, share line-number
+    raise build, field line-breaker-result

@@ -1,0 +1,42 @@
+force prepare
+  field build, field fpui-action-extension-view-controller
+  field for-action, field string
+  field item-identifiers, field ns-file-provider-item-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |prepare|
+    drive factor
+      brand for-action
+      share for-action
+    drive factor
+      brand item-identifiers
+      share item-identifiers
+
+force prepare
+  field build, field fpui-action-extension-view-controller
+  field for-error, field error
+
+  cause call-method
+    drive object, share build
+    drive method, |prepare|
+    drive factor
+      brand for-error
+      share for-error
+
+force get-extension-context
+  field build, field fpui-action-extension-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |extensionContext|
+    raise build, field fpui-action-extension-context
+
+force set-extension-context
+  field build, field fpui-action-extension-view-controller
+  field value, field fpui-action-extension-context
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |extensionContext|
+    drive factor, share value

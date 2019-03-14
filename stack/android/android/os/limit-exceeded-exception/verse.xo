@@ -1,0 +1,13 @@
+
+force build-limit-exceeded-exception
+  cause invoke-constructor
+    drive constructor, |LimitExceededException|
+    raise build, field limit-exceeded-exception
+
+force build-limit-exceeded-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |LimitExceededException|
+    drive factor, share message
+    raise build, field limit-exceeded-exception

@@ -1,0 +1,84 @@
+
+force get-current-direction
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentDirection|
+    throw build
+
+force get-direction
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |direction|
+    throw build
+
+force set-direction
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |direction|
+    mount factor, share value
+
+force get-mid
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mid|
+    throw build
+
+force get-receiver
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |receiver|
+    throw build
+
+force get-sender
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sender|
+    throw build
+
+force get-stopped
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |stopped|
+    throw build
+
+force set-stopped
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |stopped|
+    mount factor, share value
+
+force set-codec-preferences
+  start build
+  start codecs
+
+  cause call-method
+    mount object, share build
+    mount method, |setCodecPreferences|
+    mount factor, share codecs
+    throw build
+
+force stop
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |stop|
+    throw build

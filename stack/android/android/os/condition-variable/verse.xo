@@ -1,0 +1,47 @@
+
+force build-condition-variable
+  cause invoke-constructor
+    drive constructor, |ConditionVariable|
+    raise build, field condition-variable
+
+force build-condition-variable
+  mount state, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ConditionVariable|
+    drive factor, share state
+    raise build, field condition-variable
+
+force block
+  mount build, field condition-variable
+
+  cause call-method
+    drive object, share build
+    drive method, |block|
+    raise build, field unit
+
+force block
+  mount build, field condition-variable
+  mount timeout-ms, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |block|
+    drive factor, share timeout-ms
+    raise build, field boolean
+
+force close
+  mount build, field condition-variable
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force open
+  mount build, field condition-variable
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    raise build, field unit

@@ -1,0 +1,1277 @@
+
+force build-mock-context
+  cause invoke-constructor
+    drive constructor, |MockContext|
+    raise build, field mock-context
+
+force bind-isolated-service
+  mount build, field mock-context
+  mount service, field intent
+  mount flags, field int
+  mount instance-name, field string
+  mount executor, field executor
+  mount conn, field service-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |bindIsolatedService|
+    drive factor, share service
+    drive factor, share flags
+    drive factor, share instance-name
+    drive factor, share executor
+    drive factor, share conn
+    raise build, field boolean
+
+force bind-service
+  mount build, field mock-context
+  mount service, field intent
+  mount conn, field service-connection
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bindService|
+    drive factor, share service
+    drive factor, share conn
+    drive factor, share flags
+    raise build, field boolean
+
+force bind-service
+  mount build, field mock-context
+  mount service, field intent
+  mount flags, field int
+  mount executor, field executor
+  mount conn, field service-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |bindService|
+    drive factor, share service
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share conn
+    raise build, field boolean
+
+force check-calling-or-self-permission
+  mount build, field mock-context
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkCallingOrSelfPermission|
+    drive factor, share permission
+    raise build, field int
+
+force check-calling-or-self-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkCallingOrSelfUriPermission|
+    drive factor, share uri
+    drive factor, share mode-flags
+    raise build, field int
+
+force check-calling-permission
+  mount build, field mock-context
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkCallingPermission|
+    drive factor, share permission
+    raise build, field int
+
+force check-calling-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkCallingUriPermission|
+    drive factor, share uri
+    drive factor, share mode-flags
+    raise build, field int
+
+force check-permission
+  mount build, field mock-context
+  mount permission, field string
+  mount pid, field int
+  mount uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPermission|
+    drive factor, share permission
+    drive factor, share pid
+    drive factor, share uid
+    raise build, field int
+
+force check-self-permission
+  mount build, field mock-context
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkSelfPermission|
+    drive factor, share permission
+    raise build, field int
+
+force check-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkUriPermission|
+    drive factor, share uri
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    raise build, field int
+
+force check-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount read-permission, field string
+  mount write-permission, field string
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkUriPermission|
+    drive factor, share uri
+    drive factor, share read-permission
+    drive factor, share write-permission
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    raise build, field int
+
+force clear-wallpaper
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |clearWallpaper|
+    raise build, field unit
+
+force create-configuration-context
+  mount build, field mock-context
+  mount override-configuration, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |createConfigurationContext|
+    drive factor, share override-configuration
+    raise build, field context
+
+force create-device-protected-storage-context
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |createDeviceProtectedStorageContext|
+    raise build, field context
+
+force create-display-context
+  mount build, field mock-context
+  mount display, field display
+
+  cause call-method
+    drive object, share build
+    drive method, |createDisplayContext|
+    drive factor, share display
+    raise build, field context
+
+force create-package-context
+  mount build, field mock-context
+  mount package-name, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createPackageContext|
+    drive factor, share package-name
+    drive factor, share flags
+    raise build, field context
+
+force create-window-context
+  mount build, field mock-context
+  mount type, field int
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |createWindowContext|
+    drive factor, share type
+    drive factor, share options
+    raise build, field context
+
+force database-list
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |databaseList|
+    raise build, field array
+
+force delete-database
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteDatabase|
+    drive factor, share name
+    raise build, field boolean
+
+force delete-file
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteFile|
+    drive factor, share name
+    raise build, field boolean
+
+force delete-shared-preferences
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteSharedPreferences|
+    drive factor, share name
+    raise build, field boolean
+
+force enforce-calling-or-self-permission
+  mount build, field mock-context
+  mount permission, field string
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceCallingOrSelfPermission|
+    drive factor, share permission
+    drive factor, share message
+    raise build, field unit
+
+force enforce-calling-or-self-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount mode-flags, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceCallingOrSelfUriPermission|
+    drive factor, share uri
+    drive factor, share mode-flags
+    drive factor, share message
+    raise build, field unit
+
+force enforce-calling-permission
+  mount build, field mock-context
+  mount permission, field string
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceCallingPermission|
+    drive factor, share permission
+    drive factor, share message
+    raise build, field unit
+
+force enforce-calling-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount mode-flags, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceCallingUriPermission|
+    drive factor, share uri
+    drive factor, share mode-flags
+    drive factor, share message
+    raise build, field unit
+
+force enforce-permission
+  mount build, field mock-context
+  mount permission, field string
+  mount pid, field int
+  mount uid, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforcePermission|
+    drive factor, share permission
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share message
+    raise build, field unit
+
+force enforce-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceUriPermission|
+    drive factor, share uri
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    drive factor, share message
+    raise build, field unit
+
+force enforce-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount read-permission, field string
+  mount write-permission, field string
+  mount pid, field int
+  mount uid, field int
+  mount mode-flags, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enforceUriPermission|
+    drive factor, share uri
+    drive factor, share read-permission
+    drive factor, share write-permission
+    drive factor, share pid
+    drive factor, share uid
+    drive factor, share mode-flags
+    drive factor, share message
+    raise build, field unit
+
+force file-list
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |fileList|
+    raise build, field array
+
+force get-application-context
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplicationContext|
+    raise build, field context
+
+force get-application-info
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplicationInfo|
+    raise build, field application-info
+
+force get-assets
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getAssets|
+    raise build, field asset-manager
+
+force get-cache-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getCacheDir|
+    raise build, field file
+
+force get-class-loader
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getClassLoader|
+    raise build, field class-loader
+
+force get-code-cache-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodeCacheDir|
+    raise build, field file
+
+force get-content-resolver
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentResolver|
+    raise build, field content-resolver
+
+force get-data-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDataDir|
+    raise build, field file
+
+force get-database-path
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDatabasePath|
+    drive factor, share name
+    raise build, field file
+
+force get-dir
+  mount build, field mock-context
+  mount name, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDir|
+    drive factor, share name
+    drive factor, share mode
+    raise build, field file
+
+force get-display
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplay|
+    raise build, field display
+
+force get-external-cache-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getExternalCacheDir|
+    raise build, field file
+
+force get-external-cache-dirs
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getExternalCacheDirs|
+    raise build, field array
+
+force get-external-files-dir
+  mount build, field mock-context
+  mount type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getExternalFilesDir|
+    drive factor, share type
+    raise build, field file
+
+force get-external-files-dirs
+  mount build, field mock-context
+  mount type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getExternalFilesDirs|
+    drive factor, share type
+    raise build, field array
+
+force get-external-media-dirs
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getExternalMediaDirs|
+    raise build, field array
+
+force get-file-stream-path
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileStreamPath|
+    drive factor, share name
+    raise build, field file
+
+force get-files-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilesDir|
+    raise build, field file
+
+force get-main-executor
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getMainExecutor|
+    raise build, field executor
+
+force get-main-looper
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getMainLooper|
+    raise build, field looper
+
+force get-no-backup-files-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getNoBackupFilesDir|
+    raise build, field file
+
+force get-obb-dir
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getObbDir|
+    raise build, field file
+
+force get-obb-dirs
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getObbDirs|
+    raise build, field array
+
+force get-package-code-path
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageCodePath|
+    raise build, field string
+
+force get-package-manager
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageManager|
+    raise build, field package-manager
+
+force get-package-name
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    raise build, field string
+
+force get-package-resource-path
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageResourcePath|
+    raise build, field string
+
+force get-resources
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getResources|
+    raise build, field resources
+
+force get-shared-preferences
+  mount build, field mock-context
+  mount name, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSharedPreferences|
+    drive factor, share name
+    drive factor, share mode
+    raise build, field shared-preferences
+
+force get-system-service
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemService|
+    drive factor, share name
+    raise build, field any
+
+force get-system-service-name
+  mount build, field mock-context
+  mount service-class, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemServiceName|
+    drive factor, share service-class
+    raise build, field string
+
+force get-theme
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getTheme|
+    raise build, field resources-theme
+
+force get-wallpaper
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getWallpaper|
+    raise build, field drawable
+
+force get-wallpaper-desired-minimum-height
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getWallpaperDesiredMinimumHeight|
+    raise build, field int
+
+force get-wallpaper-desired-minimum-width
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getWallpaperDesiredMinimumWidth|
+    raise build, field int
+
+force grant-uri-permission
+  mount build, field mock-context
+  mount to-package, field string
+  mount uri, field uri
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |grantUriPermission|
+    drive factor, share to-package
+    drive factor, share uri
+    drive factor, share mode-flags
+    raise build, field unit
+
+force is-device-protected-storage
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeviceProtectedStorage|
+    raise build, field boolean
+
+force is-restricted
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |isRestricted|
+    raise build, field boolean
+
+force move-database-from
+  mount build, field mock-context
+  mount source-context, field context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |moveDatabaseFrom|
+    drive factor, share source-context
+    drive factor, share name
+    raise build, field boolean
+
+force move-shared-preferences-from
+  mount build, field mock-context
+  mount source-context, field context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |moveSharedPreferencesFrom|
+    drive factor, share source-context
+    drive factor, share name
+    raise build, field boolean
+
+force open-file-input
+  mount build, field mock-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openFileInput|
+    drive factor, share name
+    raise build, field file-input-stream
+
+force open-file-output
+  mount build, field mock-context
+  mount name, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openFileOutput|
+    drive factor, share name
+    drive factor, share mode
+    raise build, field file-output-stream
+
+force open-or-create-database
+  mount build, field mock-context
+  mount file, field string
+  mount mode, field int
+  mount factory, field sq-lite-database-cursor-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |openOrCreateDatabase|
+    drive factor, share file
+    drive factor, share mode
+    drive factor, share factory
+    raise build, field sq-lite-database
+
+force open-or-create-database
+  mount build, field mock-context
+  mount file, field string
+  mount mode, field int
+  mount factory, field sq-lite-database-cursor-factory
+  mount error-handler, field database-error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openOrCreateDatabase|
+    drive factor, share file
+    drive factor, share mode
+    drive factor, share factory
+    drive factor, share error-handler
+    raise build, field sq-lite-database
+
+force peek-wallpaper
+  mount build, field mock-context
+
+  cause call-method
+    drive object, share build
+    drive method, |peekWallpaper|
+    raise build, field drawable
+
+force register-receiver
+  mount build, field mock-context
+  mount receiver, field broadcast-receiver
+  mount filter, field intent-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |registerReceiver|
+    drive factor, share receiver
+    drive factor, share filter
+    raise build, field intent
+
+force register-receiver
+  mount build, field mock-context
+  mount receiver, field broadcast-receiver
+  mount filter, field intent-filter
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |registerReceiver|
+    drive factor, share receiver
+    drive factor, share filter
+    drive factor, share flags
+    raise build, field intent
+
+force register-receiver
+  mount build, field mock-context
+  mount receiver, field broadcast-receiver
+  mount filter, field intent-filter
+  mount broadcast-permission, field string
+  mount scheduler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerReceiver|
+    drive factor, share receiver
+    drive factor, share filter
+    drive factor, share broadcast-permission
+    drive factor, share scheduler
+    raise build, field intent
+
+force register-receiver
+  mount build, field mock-context
+  mount receiver, field broadcast-receiver
+  mount filter, field intent-filter
+  mount broadcast-permission, field string
+  mount scheduler, field handler
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |registerReceiver|
+    drive factor, share receiver
+    drive factor, share filter
+    drive factor, share broadcast-permission
+    drive factor, share scheduler
+    drive factor, share flags
+    raise build, field intent
+
+force remove-sticky-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |removeStickyBroadcast|
+    drive factor, share intent
+    raise build, field unit
+
+force remove-sticky-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |removeStickyBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    raise build, field unit
+
+force revoke-uri-permission
+  mount build, field mock-context
+  mount uri, field uri
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |revokeUriPermission|
+    drive factor, share uri
+    drive factor, share mode-flags
+    raise build, field unit
+
+force revoke-uri-permission
+  mount build, field mock-context
+  mount target-package, field string
+  mount uri, field uri
+  mount mode-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |revokeUriPermission|
+    drive factor, share target-package
+    drive factor, share uri
+    drive factor, share mode-flags
+    raise build, field unit
+
+force send-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendBroadcast|
+    drive factor, share intent
+    raise build, field unit
+
+force send-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+  mount receiver-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendBroadcast|
+    drive factor, share intent
+    drive factor, share receiver-permission
+    raise build, field unit
+
+force send-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    raise build, field unit
+
+force send-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+  mount receiver-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    drive factor, share receiver-permission
+    raise build, field unit
+
+force send-ordered-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+  mount receiver-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendOrderedBroadcast|
+    drive factor, share intent
+    drive factor, share receiver-permission
+    raise build, field unit
+
+force send-ordered-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+  mount receiver-permission, field string
+  mount result-receiver, field broadcast-receiver
+  mount scheduler, field handler
+  mount initial-code, field int
+  mount initial-data, field string
+  mount initial-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendOrderedBroadcast|
+    drive factor, share intent
+    drive factor, share receiver-permission
+    drive factor, share result-receiver
+    drive factor, share scheduler
+    drive factor, share initial-code
+    drive factor, share initial-data
+    drive factor, share initial-extras
+    raise build, field unit
+
+force send-ordered-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+  mount receiver-permission, field string
+  mount receiver-app-op, field string
+  mount result-receiver, field broadcast-receiver
+  mount scheduler, field handler
+  mount initial-code, field int
+  mount initial-data, field string
+  mount initial-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendOrderedBroadcast|
+    drive factor, share intent
+    drive factor, share receiver-permission
+    drive factor, share receiver-app-op
+    drive factor, share result-receiver
+    drive factor, share scheduler
+    drive factor, share initial-code
+    drive factor, share initial-data
+    drive factor, share initial-extras
+    raise build, field unit
+
+force send-ordered-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+  mount receiver-permission, field string
+  mount result-receiver, field broadcast-receiver
+  mount scheduler, field handler
+  mount initial-code, field int
+  mount initial-data, field string
+  mount initial-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendOrderedBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    drive factor, share receiver-permission
+    drive factor, share result-receiver
+    drive factor, share scheduler
+    drive factor, share initial-code
+    drive factor, share initial-data
+    drive factor, share initial-extras
+    raise build, field unit
+
+force send-sticky-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStickyBroadcast|
+    drive factor, share intent
+    raise build, field unit
+
+force send-sticky-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStickyBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    raise build, field unit
+
+force send-sticky-ordered-broadcast
+  mount build, field mock-context
+  mount intent, field intent
+  mount result-receiver, field broadcast-receiver
+  mount scheduler, field handler
+  mount initial-code, field int
+  mount initial-data, field string
+  mount initial-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStickyOrderedBroadcast|
+    drive factor, share intent
+    drive factor, share result-receiver
+    drive factor, share scheduler
+    drive factor, share initial-code
+    drive factor, share initial-data
+    drive factor, share initial-extras
+    raise build, field unit
+
+force send-sticky-ordered-broadcast-as-user
+  mount build, field mock-context
+  mount intent, field intent
+  mount user, field user-handle
+  mount result-receiver, field broadcast-receiver
+  mount scheduler, field handler
+  mount initial-code, field int
+  mount initial-data, field string
+  mount initial-extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStickyOrderedBroadcastAsUser|
+    drive factor, share intent
+    drive factor, share user
+    drive factor, share result-receiver
+    drive factor, share scheduler
+    drive factor, share initial-code
+    drive factor, share initial-data
+    drive factor, share initial-extras
+    raise build, field unit
+
+force set-theme
+  mount build, field mock-context
+  mount resid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTheme|
+    drive factor, share resid
+    raise build, field unit
+
+force set-wallpaper
+  mount build, field mock-context
+  mount bitmap, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |setWallpaper|
+    drive factor, share bitmap
+    raise build, field unit
+
+force set-wallpaper
+  mount build, field mock-context
+  mount data, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |setWallpaper|
+    drive factor, share data
+    raise build, field unit
+
+force start-activities
+  mount build, field mock-context
+  mount intents, field array-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivities|
+    drive factor, share intents
+    raise build, field unit
+
+force start-activities
+  mount build, field mock-context
+  mount intents, field array-intent
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivities|
+    drive factor, share intents
+    drive factor, share options
+    raise build, field unit
+
+force start-activity
+  mount build, field mock-context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivity|
+    drive factor, share intent
+    raise build, field unit
+
+force start-activity
+  mount build, field mock-context
+  mount intent, field intent
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivity|
+    drive factor, share intent
+    drive factor, share options
+    raise build, field unit
+
+force start-foreground-service
+  mount build, field mock-context
+  mount service, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startForegroundService|
+    drive factor, share service
+    raise build, field component-name
+
+force start-instrumentation
+  mount build, field mock-context
+  mount class-name, field component-name
+  mount profile-file, field string
+  mount arguments, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startInstrumentation|
+    drive factor, share class-name
+    drive factor, share profile-file
+    drive factor, share arguments
+    raise build, field boolean
+
+force start-intent-sender
+  mount build, field mock-context
+  mount intent, field intent-sender
+  mount fill-in-intent, field intent
+  mount flags-mask, field int
+  mount flags-values, field int
+  mount extra-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startIntentSender|
+    drive factor, share intent
+    drive factor, share fill-in-intent
+    drive factor, share flags-mask
+    drive factor, share flags-values
+    drive factor, share extra-flags
+    raise build, field unit
+
+force start-intent-sender
+  mount build, field mock-context
+  mount intent, field intent-sender
+  mount fill-in-intent, field intent
+  mount flags-mask, field int
+  mount flags-values, field int
+  mount extra-flags, field int
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startIntentSender|
+    drive factor, share intent
+    drive factor, share fill-in-intent
+    drive factor, share flags-mask
+    drive factor, share flags-values
+    drive factor, share extra-flags
+    drive factor, share options
+    raise build, field unit
+
+force start-service
+  mount build, field mock-context
+  mount service, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startService|
+    drive factor, share service
+    raise build, field component-name
+
+force stop-service
+  mount build, field mock-context
+  mount service, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |stopService|
+    drive factor, share service
+    raise build, field boolean
+
+force unbind-service
+  mount build, field mock-context
+  mount conn, field service-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |unbindService|
+    drive factor, share conn
+    raise build, field unit
+
+force unregister-receiver
+  mount build, field mock-context
+  mount receiver, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterReceiver|
+    drive factor, share receiver
+    raise build, field unit
+
+force update-service-group
+  mount build, field mock-context
+  mount conn, field service-connection
+  mount group, field int
+  mount importance, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |updateServiceGroup|
+    drive factor, share conn
+    drive factor, share group
+    drive factor, share importance
+    raise build, field unit

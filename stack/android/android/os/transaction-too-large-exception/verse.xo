@@ -1,0 +1,13 @@
+
+force build-transaction-too-large-exception
+  cause invoke-constructor
+    drive constructor, |TransactionTooLargeException|
+    raise build, field transaction-too-large-exception
+
+force build-transaction-too-large-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |TransactionTooLargeException|
+    drive factor, share msg
+    raise build, field transaction-too-large-exception

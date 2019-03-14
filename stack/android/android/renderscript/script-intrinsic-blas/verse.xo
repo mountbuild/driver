@@ -1,0 +1,2192 @@
+
+force get-conj-transpose
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |CONJ_TRANSPOSE|
+    raise build, field int
+
+force get-left
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |LEFT|
+    raise build, field int
+
+force get-lower
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |LOWER|
+    raise build, field int
+
+force get-non-unit
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |NON_UNIT|
+    raise build, field int
+
+force get-no-transpose
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_TRANSPOSE|
+    raise build, field int
+
+force get-right
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |RIGHT|
+    raise build, field int
+
+force get-transpose
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSPOSE|
+    raise build, field int
+
+force get-unit
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |UNIT|
+    raise build, field int
+
+force get-upper
+  mount build, field script-intrinsic-blas
+
+  cause get-property
+    drive object, share build
+    drive property, |UPPER|
+    raise build, field int
+
+force bnnm
+  mount build, field script-intrinsic-blas
+  mount a, field allocation
+  mount a-offset, field int
+  mount b, field allocation
+  mount b-offset, field int
+  mount c, field allocation
+  mount c-offset, field int
+  mount c-mult, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |BNNM|
+    drive factor, share a
+    drive factor, share a-offset
+    drive factor, share b
+    drive factor, share b-offset
+    drive factor, share c
+    drive factor, share c-offset
+    drive factor, share c-mult
+    raise build, field unit
+
+force cgbmv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount kl, field int
+  mount ku, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CGBMV|
+    drive factor, share trans-a
+    drive factor, share kl
+    drive factor, share ku
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force cgemm
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount trans-b, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CGEMM|
+    drive factor, share trans-a
+    drive factor, share trans-b
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force cgemv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CGEMV|
+    drive factor, share trans-a
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force cgerc
+  mount build, field script-intrinsic-blas
+  mount alpha, field float2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CGERC|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force cgeru
+  mount build, field script-intrinsic-blas
+  mount alpha, field float2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CGERU|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force chbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount k, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CHBMV|
+    drive factor, share uplo
+    drive factor, share k
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force chemm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHEMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force chemv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CHEMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force cher
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHER|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share a
+    raise build, field unit
+
+force cher2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHER2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force cher2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHER2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force cherk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHERK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force chpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float2
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CHPMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force chpr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHPR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share ap
+    raise build, field unit
+
+force chpr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CHPR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share ap
+    raise build, field unit
+
+force csymm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CSYMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force csyr2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CSYR2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force csyrk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount beta, field float2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CSYRK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force ctbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTBMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ctbsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTBSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ctpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTPMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ctpsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTPSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ctrmm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CTRMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force ctrmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTRMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ctrsm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field float2
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |CTRSM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force ctrsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |CTRSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dgbmv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount kl, field int
+  mount ku, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DGBMV|
+    drive factor, share trans-a
+    drive factor, share kl
+    drive factor, share ku
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force dgemm
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount trans-b, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DGEMM|
+    drive factor, share trans-a
+    drive factor, share trans-b
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force dgemv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DGEMV|
+    drive factor, share trans-a
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force dger
+  mount build, field script-intrinsic-blas
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DGER|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force dsbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount k, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DSBMV|
+    drive factor, share uplo
+    drive factor, share k
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force dspmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DSPMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force dspr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSPR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share ap
+    raise build, field unit
+
+force dspr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSPR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share ap
+    raise build, field unit
+
+force dsymm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force dsymv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force dsyr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share a
+    raise build, field unit
+
+force dsyr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force dsyr2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYR2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force dsyrk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DSYRK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force dtbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTBMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dtbsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTBSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dtpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTPMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dtpsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTPSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dtrmm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DTRMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force dtrmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTRMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force dtrsm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |DTRSM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force dtrsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |DTRSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force sgbmv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount kl, field int
+  mount ku, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |SGBMV|
+    drive factor, share trans-a
+    drive factor, share kl
+    drive factor, share ku
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force sgemm
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount trans-b, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SGEMM|
+    drive factor, share trans-a
+    drive factor, share trans-b
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force sgemv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |SGEMV|
+    drive factor, share trans-a
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force sger
+  mount build, field script-intrinsic-blas
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SGER|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force ssbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount k, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |SSBMV|
+    drive factor, share uplo
+    drive factor, share k
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force sspmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |SSPMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force sspr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSPR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share ap
+    raise build, field unit
+
+force sspr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSPR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share ap
+    raise build, field unit
+
+force ssymm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force ssymv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field float
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force ssyr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share a
+    raise build, field unit
+
+force ssyr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field float
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force ssyr2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYR2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force ssyrk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount beta, field float
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |SSYRK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force stbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STBMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force stbsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STBSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force stpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STPMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force stpsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STPSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force strmm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |STRMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force strmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STRMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force strsm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field float
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |STRSM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force strsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |STRSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force zgbmv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount kl, field int
+  mount ku, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZGBMV|
+    drive factor, share trans-a
+    drive factor, share kl
+    drive factor, share ku
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force zgemm
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount trans-b, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZGEMM|
+    drive factor, share trans-a
+    drive factor, share trans-b
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zgemv
+  mount build, field script-intrinsic-blas
+  mount trans-a, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZGEMV|
+    drive factor, share trans-a
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force zgerc
+  mount build, field script-intrinsic-blas
+  mount alpha, field double2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZGERC|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force zgeru
+  mount build, field script-intrinsic-blas
+  mount alpha, field double2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZGERU|
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force zhbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount k, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHBMV|
+    drive factor, share uplo
+    drive factor, share k
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force zhemm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHEMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zhemv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHEMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force zher
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHER|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share a
+    raise build, field unit
+
+force zher2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount a, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHER2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share a
+    raise build, field unit
+
+force zher2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHER2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zherk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double
+  mount a, field allocation
+  mount beta, field double
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHERK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zhpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double2
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+  mount beta, field double2
+  mount y, field allocation
+  mount inc-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHPMV|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share beta
+    drive factor, share y
+    drive factor, share inc-y
+    raise build, field unit
+
+force zhpr
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double
+  mount x, field allocation
+  mount inc-x, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHPR|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share ap
+    raise build, field unit
+
+force zhpr2
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount alpha, field double2
+  mount x, field allocation
+  mount inc-x, field int
+  mount y, field allocation
+  mount inc-y, field int
+  mount ap, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZHPR2|
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share x
+    drive factor, share inc-x
+    drive factor, share y
+    drive factor, share inc-y
+    drive factor, share ap
+    raise build, field unit
+
+force zsymm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZSYMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zsyr2-k
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+  mount beta, field double2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZSYR2K|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force zsyrk
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount beta, field double2
+  mount c, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZSYRK|
+    drive factor, share uplo
+    drive factor, share trans
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share beta
+    drive factor, share c
+    raise build, field unit
+
+force ztbmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTBMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ztbsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount k, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTBSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share k
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ztpmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTPMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ztpsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount ap, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTPSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share ap
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ztrmm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTRMM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force ztrmv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTRMV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force ztrsm
+  mount build, field script-intrinsic-blas
+  mount side, field int
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount alpha, field double2
+  mount a, field allocation
+  mount b, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTRSM|
+    drive factor, share side
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share alpha
+    drive factor, share a
+    drive factor, share b
+    raise build, field unit
+
+force ztrsv
+  mount build, field script-intrinsic-blas
+  mount uplo, field int
+  mount trans-a, field int
+  mount diag, field int
+  mount a, field allocation
+  mount x, field allocation
+  mount inc-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ZTRSV|
+    drive factor, share uplo
+    drive factor, share trans-a
+    drive factor, share diag
+    drive factor, share a
+    drive factor, share x
+    drive factor, share inc-x
+    raise build, field unit
+
+force create
+  mount build, field script-intrinsic-blas
+  mount rs, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share rs
+    raise build, field script-intrinsic-blas

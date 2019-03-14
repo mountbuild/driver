@@ -1,0 +1,89 @@
+
+force get-mode-echo-suppression
+  start build, field audio-group
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_ECHO_SUPPRESSION|
+    throw build, field int
+
+force get-mode-muted
+  start build, field audio-group
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_MUTED|
+    throw build, field int
+
+force get-mode-normal
+  start build, field audio-group
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NORMAL|
+    throw build, field int
+
+force get-mode-on-hold
+  start build, field audio-group
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_ON_HOLD|
+    throw build, field int
+
+force build-audio-group
+  cause invoke-constructor
+    drive constructor, |AudioGroup|
+    throw build, field audio-group
+
+force build-audio-group
+  start context, field context
+
+  cause invoke-constructor
+    drive constructor, |AudioGroup|
+    drive factor, share context
+    throw build, field audio-group
+
+force clear
+  start build, field audio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force get-mode
+  start build, field audio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getMode|
+    throw build, field int
+
+force get-streams
+  start build, field audio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getStreams|
+    throw build, field array
+
+force send-dtmf
+  start build, field audio-group
+  start event, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDtmf|
+    drive factor, share event
+    throw build, field unit
+
+force set-mode
+  start build, field audio-group
+  start mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMode|
+    drive factor, share mode
+    throw build, field unit

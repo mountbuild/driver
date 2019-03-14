@@ -1,0 +1,22 @@
+
+force get-print-jobs
+  mount build, field print-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrintJobs|
+    throw build, field mutable-list
+
+force print
+  mount build, field print-manager
+  mount print-job-name, field string
+  mount document-adapter, field print-document-adapter
+  mount attributes, field print-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share print-job-name
+    drive factor, share document-adapter
+    drive factor, share attributes
+    throw build, field print-job

@@ -1,0 +1,71 @@
+
+force get-resource-audio-capture
+  mount build, field permission-request
+
+  cause get-property
+    drive object, share build
+    drive property, |RESOURCE_AUDIO_CAPTURE|
+    throw build, field string
+
+force get-resource-midi-sysex
+  mount build, field permission-request
+
+  cause get-property
+    drive object, share build
+    drive property, |RESOURCE_MIDI_SYSEX|
+    throw build, field string
+
+force get-resource-protected-media-id
+  mount build, field permission-request
+
+  cause get-property
+    drive object, share build
+    drive property, |RESOURCE_PROTECTED_MEDIA_ID|
+    throw build, field string
+
+force get-resource-video-capture
+  mount build, field permission-request
+
+  cause get-property
+    drive object, share build
+    drive property, |RESOURCE_VIDEO_CAPTURE|
+    throw build, field string
+
+force build-permission-request
+  cause invoke-constructor
+    drive constructor, |PermissionRequest|
+    throw build, field permission-request
+
+force deny
+  mount build, field permission-request
+
+  cause call-method
+    drive object, share build
+    drive method, |deny|
+    throw build, field unit
+
+force get-origin
+  mount build, field permission-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrigin|
+    throw build, field uri
+
+force get-resources
+  mount build, field permission-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getResources|
+    throw build, field array
+
+force grant
+  mount build, field permission-request
+  mount resources, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |grant|
+    drive factor, share resources
+    throw build, field unit

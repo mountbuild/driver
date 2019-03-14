@@ -1,0 +1,203 @@
+force get-delegate
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-sound-delegate
+
+force set-delegate
+  field build, field ns-sound
+  field value, field ns-sound-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-name
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field ns-sound-name
+
+force set-name
+  field build, field ns-sound
+  field value, field ns-sound-name
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force set-name
+  field build, field ns-sound
+  field a, class ns-sound-name
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share a
+    raise build, class bool
+
+force get-volume
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |volume|
+    raise build, field float
+
+force set-volume
+  field build, field ns-sound
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |volume|
+    drive factor, share value
+
+force get-current-time
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    raise build, field time-interval
+
+force set-current-time
+  field build, field ns-sound
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    drive factor, share value
+
+force get-loops
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |loops|
+    raise build, field bool
+
+force set-loops
+  field build, field ns-sound
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |loops|
+    drive factor, share value
+
+force get-playback-device-identifier
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |playbackDeviceIdentifier|
+    raise build, field ns-sound-playback-device-identifier
+
+force set-playback-device-identifier
+  field build, field ns-sound
+  field value, field ns-sound-playback-device-identifier
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |playbackDeviceIdentifier|
+    drive factor, share value
+
+force get-class-sound-unfiltered-types
+
+  cause get-aspect
+    drive object, |NSSound|
+    drive aspect, |soundUnfilteredTypes|
+    raise build, field string
+
+force set-class-sound-unfiltered-types
+  field value, field string
+
+  cause set-aspect
+    drive object, |NSSound|
+    drive aspect, |soundUnfilteredTypes|
+    drive factor, share value
+
+force get-duration
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |duration|
+    raise build, field time-interval
+
+force set-duration
+  field build, field ns-sound
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |duration|
+    drive factor, share value
+
+force get-is-playing
+  field build, field ns-sound
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPlaying|
+    raise build, field bool
+
+force set-is-playing
+  field build, field ns-sound
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPlaying|
+    drive factor, share value
+
+force pause
+  field build, field ns-sound
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+    raise build, class bool
+
+force play
+  field build, field ns-sound
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    raise build, class bool
+
+force resume
+  field build, field ns-sound
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    raise build, class bool
+
+force stop
+  field build, field ns-sound
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, class bool
+
+force write
+  field build, field ns-sound
+  field to, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to

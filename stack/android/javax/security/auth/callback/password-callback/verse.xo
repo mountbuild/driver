@@ -1,0 +1,52 @@
+
+force build-password-callback
+  start prompt, field string
+  start echo-on, field boolean
+
+  cause invoke-constructor
+    mount constructor, |PasswordCallback|
+    mount factor, share prompt
+    mount factor, share echo-on
+    throw build, field password-callback
+
+force clear-password
+  start build, field password-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |clearPassword|
+    throw build, field unit
+
+force get-password
+  start build, field password-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getPassword|
+    throw build, field char-array
+
+force get-prompt
+  start build, field password-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrompt|
+    throw build, field string
+
+force is-echo-on
+  start build, field password-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |isEchoOn|
+    throw build, field boolean
+
+force set-password
+  start build, field password-callback
+  start password, field char-array
+
+  cause call-method
+    mount object, share build
+    mount method, |setPassword|
+    mount factor, share password
+    throw build, field unit

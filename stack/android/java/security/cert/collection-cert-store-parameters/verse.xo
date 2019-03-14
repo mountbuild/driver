@@ -1,0 +1,37 @@
+
+force build-collection-cert-store-parameters
+  mount collection, field mutable-collection
+
+  cause invoke-constructor
+    mount constructor, |CollectionCertStoreParameters|
+    mount factor, share collection
+    throw build, field collection-cert-store-parameters
+
+force build-collection-cert-store-parameters
+  cause invoke-constructor
+    mount constructor, |CollectionCertStoreParameters|
+    throw build, field collection-cert-store-parameters
+
+force clone
+  mount build, field collection-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-collection
+  mount build, field collection-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getCollection|
+    throw build, field mutable-collection
+
+force to-string
+  mount build, field collection-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

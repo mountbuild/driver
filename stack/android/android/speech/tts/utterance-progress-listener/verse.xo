@@ -1,0 +1,103 @@
+
+force build-utterance-progress-listener
+  cause invoke-constructor
+    drive constructor, |UtteranceProgressListener|
+    throw build, field utterance-progress-listener
+
+force on-audio-available
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+  mount audio, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onAudioAvailable|
+    drive factor, share utterance-id
+    drive factor, share audio
+    throw build, field unit
+
+force on-begin-synthesis
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+  mount sample-rate-in-hz, field int
+  mount audio-format, field int
+  mount channel-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onBeginSynthesis|
+    drive factor, share utterance-id
+    drive factor, share sample-rate-in-hz
+    drive factor, share audio-format
+    drive factor, share channel-count
+    throw build, field unit
+
+force on-done
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onDone|
+    drive factor, share utterance-id
+    throw build, field unit
+
+force on-error
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share utterance-id
+    throw build, field unit
+
+force on-error
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+  mount error-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share utterance-id
+    drive factor, share error-code
+    throw build, field unit
+
+force on-range-start
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+  mount start, field int
+  mount end, field int
+  mount frame, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onRangeStart|
+    drive factor, share utterance-id
+    drive factor, share start
+    drive factor, share end
+    drive factor, share frame
+    throw build, field unit
+
+force on-start
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    drive factor, share utterance-id
+    throw build, field unit
+
+force on-stop
+  mount build, field utterance-progress-listener
+  mount utterance-id, field string
+  mount interrupted, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onStop|
+    drive factor, share utterance-id
+    drive factor, share interrupted
+    throw build, field unit

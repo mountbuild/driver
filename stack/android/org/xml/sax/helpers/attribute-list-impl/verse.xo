@@ -1,0 +1,113 @@
+
+force build-attribute-list-impl
+  cause invoke-constructor
+    drive constructor, |AttributeListImpl|
+    throw build, field attribute-list-impl
+
+force build-attribute-list-impl
+  mount atts, field attribute-list
+
+  cause invoke-constructor
+    drive constructor, |AttributeListImpl|
+    drive factor, share atts
+    throw build, field attribute-list-impl
+
+force add-attribute
+  mount build, field attribute-list-impl
+  mount name, field string
+  mount type, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addAttribute|
+    drive factor, share name
+    drive factor, share type
+    drive factor, share value
+    throw build, field unit
+
+force clear
+  mount build, field attribute-list-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force get-length
+  mount build, field attribute-list-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    throw build, field int
+
+force get-name
+  mount build, field attribute-list-impl
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    drive factor, share i
+    throw build, field string
+
+force get-type
+  mount build, field attribute-list-impl
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share i
+    throw build, field string
+
+force get-type
+  mount build, field attribute-list-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share name
+    throw build, field string
+
+force get-value
+  mount build, field attribute-list-impl
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share i
+    throw build, field string
+
+force get-value
+  mount build, field attribute-list-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share name
+    throw build, field string
+
+force remove-attribute
+  mount build, field attribute-list-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAttribute|
+    drive factor, share name
+    throw build, field unit
+
+force set-attribute-list
+  mount build, field attribute-list-impl
+  mount atts, field attribute-list
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttributeList|
+    drive factor, share atts
+    throw build, field unit

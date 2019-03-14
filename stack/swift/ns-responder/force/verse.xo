@@ -1,0 +1,726 @@
+force get-accepts-first-responder
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |acceptsFirstResponder|
+    raise build, field bool
+
+force set-accepts-first-responder
+  field build, field ns-responder
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |acceptsFirstResponder|
+    drive factor, share value
+
+force become-first-responder
+  field build, field ns-responder
+
+  cause call-method
+    drive object, share build
+    drive method, |becomeFirstResponder|
+    raise build, class bool
+
+force resign-first-responder
+  field build, field ns-responder
+
+  cause call-method
+    drive object, share build
+    drive method, |resignFirstResponder|
+    raise build, class bool
+
+force validate-proposed-first-responder
+  field build, field ns-responder
+  field a, class ns-responder
+  field for, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |validateProposedFirstResponder|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force get-next-responder
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |nextResponder|
+    raise build, field ns-responder
+
+force set-next-responder
+  field build, field ns-responder
+  field value, field ns-responder
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |nextResponder|
+    drive factor, share value
+
+force mouse-down
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseDown|
+    drive factor
+      brand with
+      share with
+
+force mouse-dragged
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseDragged|
+    drive factor
+      brand with
+      share with
+
+force mouse-up
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseUp|
+    drive factor
+      brand with
+      share with
+
+force mouse-moved
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseMoved|
+    drive factor
+      brand with
+      share with
+
+force mouse-entered
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseEntered|
+    drive factor
+      brand with
+      share with
+
+force mouse-exited
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |mouseExited|
+    drive factor
+      brand with
+      share with
+
+force right-mouse-down
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |rightMouseDown|
+    drive factor
+      brand with
+      share with
+
+force right-mouse-dragged
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |rightMouseDragged|
+    drive factor
+      brand with
+      share with
+
+force right-mouse-up
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |rightMouseUp|
+    drive factor
+      brand with
+      share with
+
+force other-mouse-down
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |otherMouseDown|
+    drive factor
+      brand with
+      share with
+
+force other-mouse-dragged
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |otherMouseDragged|
+    drive factor
+      brand with
+      share with
+
+force other-mouse-up
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |otherMouseUp|
+    drive factor
+      brand with
+      share with
+
+force key-down
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |keyDown|
+    drive factor
+      brand with
+      share with
+
+force key-up
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |keyUp|
+    drive factor
+      brand with
+      share with
+
+force interpret-key-events
+  field build, field ns-responder
+  field a, class ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |interpretKeyEvents|
+    drive factor, share a
+
+force perform-key-equivalent
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |performKeyEquivalent|
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force flush-buffered-key-events
+  field build, field ns-responder
+
+  cause call-method
+    drive object, share build
+    drive method, |flushBufferedKeyEvents|
+
+force pressure-change
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |pressureChange|
+    drive factor
+      brand with
+      share with
+
+force cursor-update
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorUpdate|
+    drive factor
+      brand with
+      share with
+
+force flags-changed
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |flagsChanged|
+    drive factor
+      brand with
+      share with
+
+force tablet-point
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |tabletPoint|
+    drive factor
+      brand with
+      share with
+
+force tablet-proximity
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |tabletProximity|
+    drive factor
+      brand with
+      share with
+
+force help-requested
+  field build, field ns-responder
+  field a, class ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |helpRequested|
+    drive factor, share a
+
+force scroll-wheel
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |scrollWheel|
+    drive factor
+      brand with
+      share with
+
+force quick-look
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |quickLook|
+    drive factor
+      brand with
+      share with
+
+force change-mode
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |changeMode|
+    drive factor
+      brand with
+      share with
+
+force supplemental-target
+  field build, field ns-responder
+  field for-action, field selector
+  field sender, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |supplementalTarget|
+    drive factor
+      brand for-action
+      share for-action
+    drive factor
+      brand sender
+      share sender
+    raise build, class any
+
+force encode-restorable-state
+  field build, field ns-responder
+  field with, field ns-coder
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeRestorableState|
+    drive factor
+      brand with
+      share with
+
+force restore-state
+  field build, field ns-responder
+  field with, field ns-coder
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreState|
+    drive factor
+      brand with
+      share with
+
+force get-class-restorable-state-key-paths
+
+  cause get-aspect
+    drive object, |NSResponder|
+    drive aspect, |restorableStateKeyPaths|
+    raise build, field string
+
+force set-class-restorable-state-key-paths
+  field value, field string
+
+  cause set-aspect
+    drive object, |NSResponder|
+    drive aspect, |restorableStateKeyPaths|
+    drive factor, share value
+
+force invalidate-restorable-state
+  field build, field ns-responder
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidateRestorableState|
+
+force get-user-activity
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userActivity|
+    raise build, field ns-user-activity
+
+force set-user-activity
+  field build, field ns-responder
+  field value, field ns-user-activity
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userActivity|
+    drive factor, share value
+
+force update-user-activity-state
+  field build, field ns-responder
+  field a, class ns-user-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |updateUserActivityState|
+    drive factor, share a
+
+force present-error
+  field build, field ns-responder
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |presentError|
+    drive factor, share a
+    raise build, class bool
+
+force present-error
+  field build, field ns-responder
+  field a, class error
+  field modal-for, field ns-window
+  field delegate, field any
+  field did-present, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |presentError|
+    drive factor, share a
+    drive factor
+      brand modal-for
+      share modal-for
+    drive factor
+      brand delegate
+      share delegate
+    drive factor
+      brand did-present
+      share did-present
+    drive factor
+      brand context-info
+      share context-info
+
+force will-present-error
+  field build, field ns-responder
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |willPresentError|
+    drive factor, share a
+    raise build, class error
+
+force try-to-perform
+  field build, field ns-responder
+  field a, class selector
+  field with, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |tryToPerform|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force get-menu
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |menu|
+    raise build, field ns-menu
+
+force set-menu
+  field build, field ns-responder
+  field value, field ns-menu
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |menu|
+    drive factor, share value
+
+force valid-requestor
+  field build, field ns-responder
+  field for-send-type, field ns-pasteboard-pasteboard-type
+  field return-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |validRequestor|
+    drive factor
+      brand for-send-type
+      share for-send-type
+    drive factor
+      brand return-type
+      share return-type
+    raise build, class any
+
+force get-undo-manager
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |undoManager|
+    raise build, field undo-manager
+
+force set-undo-manager
+  field build, field ns-responder
+  field value, field undo-manager
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |undoManager|
+    drive factor, share value
+
+force should-be-treated-as-ink-event
+  field build, field ns-responder
+  field a, class ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldBeTreatedAsInkEvent|
+    drive factor, share a
+    raise build, class bool
+
+force no-responder
+  field build, field ns-responder
+  field for, field selector
+
+  cause call-method
+    drive object, share build
+    drive method, |noResponder|
+    drive factor
+      brand for
+      share for
+
+force begin-gesture
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |beginGesture|
+    drive factor
+      brand with
+      share with
+
+force end-gesture
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |endGesture|
+    drive factor
+      brand with
+      share with
+
+force magnify
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |magnify|
+    drive factor
+      brand with
+      share with
+
+force rotate
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |rotate|
+    drive factor
+      brand with
+      share with
+
+force swipe
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |swipe|
+    drive factor
+      brand with
+      share with
+
+force touches-began
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |touchesBegan|
+    drive factor
+      brand with
+      share with
+
+force touches-moved
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |touchesMoved|
+    drive factor
+      brand with
+      share with
+
+force touches-cancelled
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |touchesCancelled|
+    drive factor
+      brand with
+      share with
+
+force touches-ended
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |touchesEnded|
+    drive factor
+      brand with
+      share with
+
+force wants-forwarded-scroll-events
+  field build, field ns-responder
+  field for, field ns-event-gesture-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |wantsForwardedScrollEvents|
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force smart-magnify
+  field build, field ns-responder
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |smartMagnify|
+    drive factor
+      brand with
+      share with
+
+force wants-scroll-events-for-swipe-tracking
+  field build, field ns-responder
+  field on, field ns-event-gesture-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |wantsScrollEventsForSwipeTracking|
+    drive factor
+      brand on
+      share on
+    raise build, class bool
+
+force perform-text-finder-action
+  field build, field ns-responder
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |performTextFinderAction|
+    drive factor, share a
+
+force get-touch-bar
+  field build, field ns-responder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |touchBar|
+    raise build, field ns-touch-bar
+
+force set-touch-bar
+  field build, field ns-responder
+  field value, field ns-touch-bar
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |touchBar|
+    drive factor, share value
+
+force make-touch-bar
+  field build, field ns-responder
+
+  cause call-method
+    drive object, share build
+    drive method, |makeTouchBar|
+    raise build, class ns-touch-bar

@@ -1,0 +1,3599 @@
+force prepare-for-reuse
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |prepareForReuse|
+
+force get-superview
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |superview|
+    raise build, field ns-view
+
+force set-superview
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |superview|
+    drive factor, share value
+
+force get-subviews
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |subviews|
+    raise build, field ns-view
+
+force set-subviews
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |subviews|
+    drive factor, share value
+
+force get-window
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |window|
+    raise build, field ns-window
+
+force set-window
+  field build, field ns-view
+  field value, field ns-window
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |window|
+    drive factor, share value
+
+force add-subview
+  field build, field ns-view
+  field a, class ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |addSubview|
+    drive factor, share a
+
+force add-subview
+  field build, field ns-view
+  field a, class ns-view
+  field positioned, field ns-window-ordering-mode
+  field relative-to, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |addSubview|
+    drive factor, share a
+    drive factor
+      brand positioned
+      share positioned
+    drive factor
+      brand relative-to
+      share relative-to
+
+force did-add-subview
+  field build, field ns-view
+  field a, class ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |didAddSubview|
+    drive factor, share a
+
+force remove-from-superview
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFromSuperview|
+
+force remove-from-superview-without-needing-display
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFromSuperviewWithoutNeedingDisplay|
+
+force replace-subview
+  field build, field ns-view
+  field a, class ns-view
+  field with, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceSubview|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+
+force is-descendant
+  field build, field ns-view
+  field of, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |isDescendant|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force get-opaque-ancestor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |opaqueAncestor|
+    raise build, field ns-view
+
+force set-opaque-ancestor
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |opaqueAncestor|
+    drive factor, share value
+
+force ancestor-shared
+  field build, field ns-view
+  field with, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |ancestorShared|
+    drive factor
+      brand with
+      share with
+    raise build, class ns-view
+
+force sort-subviews
+  field build, field ns-view
+  field a, class ns-view
+  field b, class ns-view
+  field c, class unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |sortSubviews|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    raise build, class comparison-result
+
+force view-did-move-to-superview
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidMoveToSuperview|
+
+force view-did-move-to-window
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidMoveToWindow|
+
+force view-will-move
+  field build, field ns-view
+  field to-superview, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillMove|
+    drive factor
+      brand to-superview
+      share to-superview
+
+force view-will-move
+  field build, field ns-view
+  field to-window, field ns-window
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillMove|
+    drive factor
+      brand to-window
+      share to-window
+
+force will-remove-subview
+  field build, field ns-view
+  field a, class ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |willRemoveSubview|
+    drive factor, share a
+
+force get-enclosing-menu-item
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enclosingMenuItem|
+    raise build, field ns-menu-item
+
+force set-enclosing-menu-item
+  field build, field ns-view
+  field value, field ns-menu-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enclosingMenuItem|
+    drive factor, share value
+
+force get-frame
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |frame|
+    raise build, field ns-rect
+
+force set-frame
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |frame|
+    drive factor, share value
+
+force set-frame-origin
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |setFrameOrigin|
+    drive factor, share a
+
+force set-frame-size
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |setFrameSize|
+    drive factor, share a
+
+force get-frame-rotation
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |frameRotation|
+    raise build, field cg-float
+
+force set-frame-rotation
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |frameRotation|
+    drive factor, share value
+
+force get-bounds
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bounds|
+    raise build, field ns-rect
+
+force set-bounds
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bounds|
+    drive factor, share value
+
+force set-bounds-origin
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |setBoundsOrigin|
+    drive factor, share a
+
+force set-bounds-size
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |setBoundsSize|
+    drive factor, share a
+
+force get-bounds-rotation
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |boundsRotation|
+    raise build, field cg-float
+
+force set-bounds-rotation
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |boundsRotation|
+    drive factor, share value
+
+force get-wants-layer
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |wantsLayer|
+    raise build, field bool
+
+force set-wants-layer
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |wantsLayer|
+    drive factor, share value
+
+force get-wants-update-layer
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |wantsUpdateLayer|
+    raise build, field bool
+
+force set-wants-update-layer
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |wantsUpdateLayer|
+    drive factor, share value
+
+force get-layer
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layer|
+    raise build, field ca-layer
+
+force set-layer
+  field build, field ns-view
+  field value, field ca-layer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layer|
+    drive factor, share value
+
+force make-backing-layer
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |makeBackingLayer|
+    raise build, class ca-layer
+
+force get-layer-contents-placement
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layerContentsPlacement|
+    raise build, field ns-view-layer-contents-placement
+
+force set-layer-contents-placement
+  field build, field ns-view
+  field value, field ns-view-layer-contents-placement
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layerContentsPlacement|
+    drive factor, share value
+
+force get-layer-contents-redraw-policy
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layerContentsRedrawPolicy|
+    raise build, field ns-view-layer-contents-redraw-policy
+
+force set-layer-contents-redraw-policy
+  field build, field ns-view
+  field value, field ns-view-layer-contents-redraw-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layerContentsRedrawPolicy|
+    drive factor, share value
+
+force get-can-draw-subviews-into-layer
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canDrawSubviewsIntoLayer|
+    raise build, field bool
+
+force set-can-draw-subviews-into-layer
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canDrawSubviewsIntoLayer|
+    drive factor, share value
+
+force get-layer-uses-core-image-filters
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layerUsesCoreImageFilters|
+    raise build, field bool
+
+force set-layer-uses-core-image-filters
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layerUsesCoreImageFilters|
+    drive factor, share value
+
+force get-alpha-value
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |alphaValue|
+    raise build, field cg-float
+
+force set-alpha-value
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |alphaValue|
+    drive factor, share value
+
+force get-frame-center-rotation
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |frameCenterRotation|
+    raise build, field cg-float
+
+force set-frame-center-rotation
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |frameCenterRotation|
+    drive factor, share value
+
+force get-background-filters
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |backgroundFilters|
+    raise build, field ci-filter
+
+force set-background-filters
+  field build, field ns-view
+  field value, field ci-filter
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |backgroundFilters|
+    drive factor, share value
+
+force get-compositing-filter
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |compositingFilter|
+    raise build, field ci-filter
+
+force set-compositing-filter
+  field build, field ns-view
+  field value, field ci-filter
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |compositingFilter|
+    drive factor, share value
+
+force get-content-filters
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |contentFilters|
+    raise build, field ci-filter
+
+force set-content-filters
+  field build, field ns-view
+  field value, field ci-filter
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |contentFilters|
+    drive factor, share value
+
+force get-shadow
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shadow|
+    raise build, field ns-shadow
+
+force set-shadow
+  field build, field ns-view
+  field value, field ns-shadow
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shadow|
+    drive factor, share value
+
+force update-layer
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |updateLayer|
+
+force draw
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share a
+
+force get-can-draw
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canDraw|
+    raise build, field bool
+
+force set-can-draw
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canDraw|
+    drive factor, share value
+
+force get-can-draw-concurrently
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canDrawConcurrently|
+    raise build, field bool
+
+force set-can-draw-concurrently
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canDrawConcurrently|
+    drive factor, share value
+
+force get-visible-rect
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |visibleRect|
+    raise build, field ns-rect
+
+force set-visible-rect
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |visibleRect|
+    drive factor, share value
+
+force get-rects-being-drawn
+  field build, field ns-view
+  field a, class unsafe-mutable-pointer-unsafe-pointer-ns-rect
+  field count, field unsafe-mutable-pointer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRectsBeingDrawn|
+    drive factor, share a
+    drive factor
+      brand count
+      share count
+
+force needs-to-draw
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |needsToDraw|
+    drive factor, share a
+    raise build, class bool
+
+force get-wants-default-clipping
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |wantsDefaultClipping|
+    raise build, field bool
+
+force set-wants-default-clipping
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |wantsDefaultClipping|
+    drive factor, share value
+
+force bitmap-image-rep-for-caching-display
+  field build, field ns-view
+  field in, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |bitmapImageRepForCachingDisplay|
+    drive factor
+      brand in
+      share in
+    raise build, class ns-bitmap-image-rep
+
+force cache-display
+  field build, field ns-view
+  field in, field ns-rect
+  field to, field ns-bitmap-image-rep
+
+  cause call-method
+    drive object, share build
+    drive method, |cacheDisplay|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand to
+      share to
+
+force print-view
+  field build, field ns-view
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |printView|
+    drive factor, share a
+
+force begin-page
+  field build, field ns-view
+  field in, field ns-rect
+  field at-placement, field ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |beginPage|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand at-placement
+      share at-placement
+
+force data-with-eps
+  field build, field ns-view
+  field inside, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |dataWithEPS|
+    drive factor
+      brand inside
+      share inside
+    raise build, class data
+
+force data-with-pdf
+  field build, field ns-view
+  field inside, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |dataWithPDF|
+    drive factor
+      brand inside
+      share inside
+    raise build, class data
+
+force get-print-job-title
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |printJobTitle|
+    raise build, field string
+
+force set-print-job-title
+  field build, field ns-view
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |printJobTitle|
+    drive factor, share value
+
+force get-page-header
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pageHeader|
+    raise build, field ns-attributed-string
+
+force set-page-header
+  field build, field ns-view
+  field value, field ns-attributed-string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pageHeader|
+    drive factor, share value
+
+force get-page-footer
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pageFooter|
+    raise build, field ns-attributed-string
+
+force set-page-footer
+  field build, field ns-view
+  field value, field ns-attributed-string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pageFooter|
+    drive factor, share value
+
+force write-eps
+  field build, field ns-view
+  field inside, field ns-rect
+  field to, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEPS|
+    drive factor
+      brand inside
+      share inside
+    drive factor
+      brand to
+      share to
+
+force write-pdf
+  field build, field ns-view
+  field inside, field ns-rect
+  field to, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |writePDF|
+    drive factor
+      brand inside
+      share inside
+    drive factor
+      brand to
+      share to
+
+force draw-page-border
+  field build, field ns-view
+  field with, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |drawPageBorder|
+    drive factor
+      brand with
+      share with
+
+force draw-sheet-border
+  field build, field ns-view
+  field with, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |drawSheetBorder|
+    drive factor
+      brand with
+      share with
+
+force get-height-adjust-limit
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |heightAdjustLimit|
+    raise build, field cg-float
+
+force set-height-adjust-limit
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |heightAdjustLimit|
+    drive factor, share value
+
+force get-width-adjust-limit
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |widthAdjustLimit|
+    raise build, field cg-float
+
+force set-width-adjust-limit
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |widthAdjustLimit|
+    drive factor, share value
+
+force adjust-page-width-new
+  field build, field ns-view
+  field a, class unsafe-mutable-pointer-cg-float
+  field left, field cg-float
+  field right, field cg-float
+  field limit, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |adjustPageWidthNew|
+    drive factor, share a
+    drive factor
+      brand left
+      share left
+    drive factor
+      brand right
+      share right
+    drive factor
+      brand limit
+      share limit
+
+force adjust-page-height-new
+  field build, field ns-view
+  field a, class unsafe-mutable-pointer-cg-float
+  field top, field cg-float
+  field bottom, field cg-float
+  field limit, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |adjustPageHeightNew|
+    drive factor, share a
+    drive factor
+      brand top
+      share top
+    drive factor
+      brand bottom
+      share bottom
+    drive factor
+      brand limit
+      share limit
+
+force knows-page-range
+  field build, field ns-view
+  field a, class ns-range-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |knowsPageRange|
+    drive factor, share a
+    raise build, class bool
+
+force rect-for-page
+  field build, field ns-view
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |rectForPage|
+    drive factor, share a
+    raise build, class ns-rect
+
+force location-of-print-rect
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |locationOfPrintRect|
+    drive factor, share a
+    raise build, class ns-point
+
+force set-needs-display
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setNeedsDisplay|
+    drive factor, share a
+
+force get-needs-display
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |needsDisplay|
+    raise build, field bool
+
+force set-needs-display
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |needsDisplay|
+    drive factor, share value
+
+force display
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |display|
+
+force display
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |display|
+    drive factor, share a
+
+force display-ignoring-opacity
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIgnoringOpacity|
+    drive factor, share a
+
+force display-ignoring-opacity
+  field build, field ns-view
+  field a, class ns-rect
+  field in, field ns-graphics-context
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIgnoringOpacity|
+    drive factor, share a
+    drive factor
+      brand in
+      share in
+
+force display-if-needed
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIfNeeded|
+
+force display-if-needed
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIfNeeded|
+    drive factor, share a
+
+force display-if-needed-ignoring-opacity
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIfNeededIgnoringOpacity|
+
+force display-if-needed-ignoring-opacity
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |displayIfNeededIgnoringOpacity|
+    drive factor, share a
+
+force translate-rects-needing-display
+  field build, field ns-view
+  field in, field ns-rect
+  field by, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |translateRectsNeedingDisplay|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand by
+      share by
+
+force get-is-opaque
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isOpaque|
+    raise build, field bool
+
+force set-is-opaque
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isOpaque|
+    drive factor, share value
+
+force view-will-draw
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillDraw|
+
+force backing-aligned-rect
+  field build, field ns-view
+  field a, class ns-rect
+  field options, field alignment-options
+
+  cause call-method
+    drive object, share build
+    drive method, |backingAlignedRect|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+    raise build, class ns-rect
+
+force convert-from-backing
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromBacking|
+    drive factor, share a
+    raise build, class ns-point
+
+force convert-to-backing
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToBacking|
+    drive factor, share a
+    raise build, class ns-point
+
+force convert-from-layer
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromLayer|
+    drive factor, share a
+    raise build, class ns-point
+
+force convert-to-layer
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToLayer|
+    drive factor, share a
+    raise build, class ns-point
+
+force convert-from-backing
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromBacking|
+    drive factor, share a
+    raise build, class ns-rect
+
+force convert-to-backing
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToBacking|
+    drive factor, share a
+    raise build, class ns-rect
+
+force convert-from-layer
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromLayer|
+    drive factor, share a
+    raise build, class ns-rect
+
+force convert-to-layer
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToLayer|
+    drive factor, share a
+    raise build, class ns-rect
+
+force convert-from-backing
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromBacking|
+    drive factor, share a
+    raise build, class ns-size
+
+force convert-to-backing
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToBacking|
+    drive factor, share a
+    raise build, class ns-size
+
+force convert-from-layer
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFromLayer|
+    drive factor, share a
+    raise build, class ns-size
+
+force convert-to-layer
+  field build, field ns-view
+  field a, class ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToLayer|
+    drive factor, share a
+    raise build, class ns-size
+
+force convert
+  field build, field ns-view
+  field a, class ns-point
+  field from, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand from
+      share from
+    raise build, class ns-point
+
+force convert
+  field build, field ns-view
+  field a, class ns-point
+  field to, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    raise build, class ns-point
+
+force convert
+  field build, field ns-view
+  field a, class ns-size
+  field from, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand from
+      share from
+    raise build, class ns-size
+
+force convert
+  field build, field ns-view
+  field a, class ns-size
+  field to, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    raise build, class ns-size
+
+force convert
+  field build, field ns-view
+  field a, class ns-rect
+  field from, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand from
+      share from
+    raise build, class ns-rect
+
+force convert
+  field build, field ns-view
+  field a, class ns-rect
+  field to, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    raise build, class ns-rect
+
+force center-scan-rect
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |centerScanRect|
+    drive factor, share a
+    raise build, class ns-rect
+
+force translate-origin
+  field build, field ns-view
+  field to, field ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |translateOrigin|
+    drive factor
+      brand to
+      share to
+
+force scale-unit-square
+  field build, field ns-view
+  field to, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |scaleUnitSquare|
+    drive factor
+      brand to
+      share to
+
+force rotate
+  field build, field ns-view
+  field by-degrees, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |rotate|
+    drive factor
+      brand by-degrees
+      share by-degrees
+
+force get-is-flipped
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isFlipped|
+    raise build, field bool
+
+force set-is-flipped
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isFlipped|
+    drive factor, share value
+
+force get-is-rotated-from-base
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRotatedFromBase|
+    raise build, field bool
+
+force set-is-rotated-from-base
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRotatedFromBase|
+    drive factor, share value
+
+force get-is-rotated-or-scaled-from-base
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRotatedOrScaledFromBase|
+    raise build, field bool
+
+force set-is-rotated-or-scaled-from-base
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRotatedOrScaledFromBase|
+    drive factor, share value
+
+force get-autoresizes-subviews
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |autoresizesSubviews|
+    raise build, field bool
+
+force set-autoresizes-subviews
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |autoresizesSubviews|
+    drive factor, share value
+
+force get-autoresizing-mask
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |autoresizingMask|
+    raise build, field ns-view-autoresizing-mask
+
+force set-autoresizing-mask
+  field build, field ns-view
+  field value, field ns-view-autoresizing-mask
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |autoresizingMask|
+    drive factor, share value
+
+force resize-subviews
+  field build, field ns-view
+  field with-old-size, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |resizeSubviews|
+    drive factor
+      brand with-old-size
+      share with-old-size
+
+force resize
+  field build, field ns-view
+  field with-old-superview-size, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |resize|
+    drive factor
+      brand with-old-superview-size
+      share with-old-superview-size
+
+force get-bottom-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bottomAnchor|
+    raise build, field ns-layout-y-axis-anchor
+
+force set-bottom-anchor
+  field build, field ns-view
+  field value, field ns-layout-y-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bottomAnchor|
+    drive factor, share value
+
+force get-center-x-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |centerXAnchor|
+    raise build, field ns-layout-x-axis-anchor
+
+force set-center-x-anchor
+  field build, field ns-view
+  field value, field ns-layout-x-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |centerXAnchor|
+    drive factor, share value
+
+force get-center-y-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |centerYAnchor|
+    raise build, field ns-layout-y-axis-anchor
+
+force set-center-y-anchor
+  field build, field ns-view
+  field value, field ns-layout-y-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |centerYAnchor|
+    drive factor, share value
+
+force get-first-baseline-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |firstBaselineAnchor|
+    raise build, field ns-layout-y-axis-anchor
+
+force set-first-baseline-anchor
+  field build, field ns-view
+  field value, field ns-layout-y-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |firstBaselineAnchor|
+    drive factor, share value
+
+force get-height-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |heightAnchor|
+    raise build, field ns-layout-dimension
+
+force set-height-anchor
+  field build, field ns-view
+  field value, field ns-layout-dimension
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |heightAnchor|
+    drive factor, share value
+
+force get-last-baseline-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lastBaselineAnchor|
+    raise build, field ns-layout-y-axis-anchor
+
+force set-last-baseline-anchor
+  field build, field ns-view
+  field value, field ns-layout-y-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lastBaselineAnchor|
+    drive factor, share value
+
+force get-leading-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |leadingAnchor|
+    raise build, field ns-layout-x-axis-anchor
+
+force set-leading-anchor
+  field build, field ns-view
+  field value, field ns-layout-x-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |leadingAnchor|
+    drive factor, share value
+
+force get-left-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |leftAnchor|
+    raise build, field ns-layout-x-axis-anchor
+
+force set-left-anchor
+  field build, field ns-view
+  field value, field ns-layout-x-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |leftAnchor|
+    drive factor, share value
+
+force get-right-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rightAnchor|
+    raise build, field ns-layout-x-axis-anchor
+
+force set-right-anchor
+  field build, field ns-view
+  field value, field ns-layout-x-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rightAnchor|
+    drive factor, share value
+
+force get-top-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |topAnchor|
+    raise build, field ns-layout-y-axis-anchor
+
+force set-top-anchor
+  field build, field ns-view
+  field value, field ns-layout-y-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |topAnchor|
+    drive factor, share value
+
+force get-trailing-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |trailingAnchor|
+    raise build, field ns-layout-x-axis-anchor
+
+force set-trailing-anchor
+  field build, field ns-view
+  field value, field ns-layout-x-axis-anchor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |trailingAnchor|
+    drive factor, share value
+
+force get-width-anchor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |widthAnchor|
+    raise build, field ns-layout-dimension
+
+force set-width-anchor
+  field build, field ns-view
+  field value, field ns-layout-dimension
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |widthAnchor|
+    drive factor, share value
+
+force get-constraints
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |constraints|
+    raise build, field ns-layout-constraint
+
+force set-constraints
+  field build, field ns-view
+  field value, field ns-layout-constraint
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |constraints|
+    drive factor, share value
+
+force add-constraint
+  field build, field ns-view
+  field a, class ns-layout-constraint
+
+  cause call-method
+    drive object, share build
+    drive method, |addConstraint|
+    drive factor, share a
+
+force add-constraints
+  field build, field ns-view
+  field a, class ns-layout-constraint
+
+  cause call-method
+    drive object, share build
+    drive method, |addConstraints|
+    drive factor, share a
+
+force remove-constraint
+  field build, field ns-view
+  field a, class ns-layout-constraint
+
+  cause call-method
+    drive object, share build
+    drive method, |removeConstraint|
+    drive factor, share a
+
+force remove-constraints
+  field build, field ns-view
+  field a, class ns-layout-constraint
+
+  cause call-method
+    drive object, share build
+    drive method, |removeConstraints|
+    drive factor, share a
+
+force add-layout-guide
+  field build, field ns-view
+  field a, class ns-layout-guide
+
+  cause call-method
+    drive object, share build
+    drive method, |addLayoutGuide|
+    drive factor, share a
+
+force get-layout-guides
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layoutGuides|
+    raise build, field ns-layout-guide
+
+force set-layout-guides
+  field build, field ns-view
+  field value, field ns-layout-guide
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layoutGuides|
+    drive factor, share value
+
+force remove-layout-guide
+  field build, field ns-view
+  field a, class ns-layout-guide
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLayoutGuide|
+    drive factor, share a
+
+force get-fitting-size
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fittingSize|
+    raise build, field ns-size
+
+force set-fitting-size
+  field build, field ns-view
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fittingSize|
+    drive factor, share value
+
+force get-intrinsic-content-size
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |intrinsicContentSize|
+    raise build, field ns-size
+
+force set-intrinsic-content-size
+  field build, field ns-view
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |intrinsicContentSize|
+    drive factor, share value
+
+force invalidate-intrinsic-content-size
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidateIntrinsicContentSize|
+
+force content-compression-resistance-priority
+  field build, field ns-view
+  field for, field ns-layout-constraint-orientation
+
+  cause call-method
+    drive object, share build
+    drive method, |contentCompressionResistancePriority|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-layout-constraint-priority
+
+force set-content-compression-resistance-priority
+  field build, field ns-view
+  field a, class ns-layout-constraint-priority
+  field for, field ns-layout-constraint-orientation
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentCompressionResistancePriority|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force content-hugging-priority
+  field build, field ns-view
+  field for, field ns-layout-constraint-orientation
+
+  cause call-method
+    drive object, share build
+    drive method, |contentHuggingPriority|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-layout-constraint-priority
+
+force set-content-hugging-priority
+  field build, field ns-view
+  field a, class ns-layout-constraint-priority
+  field for, field ns-layout-constraint-orientation
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentHuggingPriority|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force alignment-rect
+  field build, field ns-view
+  field for-frame, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |alignmentRect|
+    drive factor
+      brand for-frame
+      share for-frame
+    raise build, class ns-rect
+
+force frame
+  field build, field ns-view
+  field for-alignment-rect, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |frame|
+    drive factor
+      brand for-alignment-rect
+      share for-alignment-rect
+    raise build, class ns-rect
+
+force get-alignment-rect-insets
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |alignmentRectInsets|
+    raise build, field ns-edge-insets
+
+force set-alignment-rect-insets
+  field build, field ns-view
+  field value, field ns-edge-insets
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |alignmentRectInsets|
+    drive factor, share value
+
+force get-baseline-offset-from-bottom
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |baselineOffsetFromBottom|
+    raise build, field cg-float
+
+force set-baseline-offset-from-bottom
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |baselineOffsetFromBottom|
+    drive factor, share value
+
+force get-first-baseline-offset-from-top
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |firstBaselineOffsetFromTop|
+    raise build, field cg-float
+
+force set-first-baseline-offset-from-top
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |firstBaselineOffsetFromTop|
+    drive factor, share value
+
+force get-last-baseline-offset-from-bottom
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lastBaselineOffsetFromBottom|
+    raise build, field cg-float
+
+force set-last-baseline-offset-from-bottom
+  field build, field ns-view
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lastBaselineOffsetFromBottom|
+    drive factor, share value
+
+force get-needs-layout
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |needsLayout|
+    raise build, field bool
+
+force set-needs-layout
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |needsLayout|
+    drive factor, share value
+
+force layout
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |layout|
+
+force layout-subtree-if-needed
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |layoutSubtreeIfNeeded|
+
+force get-needs-update-constraints
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |needsUpdateConstraints|
+    raise build, field bool
+
+force set-needs-update-constraints
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |needsUpdateConstraints|
+    drive factor, share value
+
+force update-constraints
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |updateConstraints|
+
+force update-constraints-for-subtree-if-needed
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |updateConstraintsForSubtreeIfNeeded|
+
+force get-class-requires-constraint-based-layout
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |requiresConstraintBasedLayout|
+    raise build, field bool
+
+force set-class-requires-constraint-based-layout
+  field value, field bool
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |requiresConstraintBasedLayout|
+    drive factor, share value
+
+force get-translates-autoresizing-mask-into-constraints
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |translatesAutoresizingMaskIntoConstraints|
+    raise build, field bool
+
+force set-translates-autoresizing-mask-into-constraints
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |translatesAutoresizingMaskIntoConstraints|
+    drive factor, share value
+
+force constraints-affecting-layout
+  field build, field ns-view
+  field for, field ns-layout-constraint-orientation
+
+  cause call-method
+    drive object, share build
+    drive method, |constraintsAffectingLayout|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-layout-constraint
+
+force get-has-ambiguous-layout
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasAmbiguousLayout|
+    raise build, field bool
+
+force set-has-ambiguous-layout
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasAmbiguousLayout|
+    drive factor, share value
+
+force exercise-ambiguity-in-layout
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |exerciseAmbiguityInLayout|
+
+force lock-focus
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |lockFocus|
+
+force lock-focus-if-can-draw
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |lockFocusIfCanDraw|
+    raise build, class bool
+
+force lock-focus-if-can-draw
+  field build, field ns-view
+  field in, field ns-graphics-context
+
+  cause call-method
+    drive object, share build
+    drive method, |lockFocusIfCanDraw|
+    drive factor
+      brand in
+      share in
+    raise build, class bool
+
+force unlock-focus
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockFocus|
+
+force get-class-focus-view
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |focusView|
+    raise build, field ns-view
+
+force set-class-focus-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |focusView|
+    drive factor, share value
+
+force get-focus-ring-type
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |focusRingType|
+    raise build, field ns-focus-ring-type
+
+force set-focus-ring-type
+  field build, field ns-view
+  field value, field ns-focus-ring-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |focusRingType|
+    drive factor, share value
+
+force get-focus-ring-mask-bounds
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |focusRingMaskBounds|
+    raise build, field ns-rect
+
+force set-focus-ring-mask-bounds
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |focusRingMaskBounds|
+    drive factor, share value
+
+force draw-focus-ring-mask
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |drawFocusRingMask|
+
+force note-focus-ring-mask-changed
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |noteFocusRingMaskChanged|
+
+force set-keyboard-focus-ring-needs-display
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeyboardFocusRingNeedsDisplay|
+    drive factor, share a
+
+force get-class-default-focus-ring-type
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |defaultFocusRingType|
+    raise build, field ns-focus-ring-type
+
+force set-class-default-focus-ring-type
+  field value, field ns-focus-ring-type
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |defaultFocusRingType|
+    drive factor, share value
+
+force get-allows-vibrancy
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsVibrancy|
+    raise build, field bool
+
+force set-allows-vibrancy
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsVibrancy|
+    drive factor, share value
+
+force enter-full-screen-mode
+  field build, field ns-view
+  field a, class ns-screen
+  field with-options, field ns-view-full-screen-mode-option-key
+
+  cause call-method
+    drive object, share build
+    drive method, |enterFullScreenMode|
+    drive factor, share a
+    drive factor
+      brand with-options
+      share with-options
+    raise build, class bool
+
+force exit-full-screen-mode
+  field build, field ns-view
+  field options, field ns-view-full-screen-mode-option-key
+
+  cause call-method
+    drive object, share build
+    drive method, |exitFullScreenMode|
+    drive factor
+      brand options
+      share options
+
+force get-is-in-full-screen-mode
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isInFullScreenMode|
+    raise build, field bool
+
+force set-is-in-full-screen-mode
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isInFullScreenMode|
+    drive factor, share value
+
+force get-is-hidden
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isHidden|
+    raise build, field bool
+
+force set-is-hidden
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isHidden|
+    drive factor, share value
+
+force get-is-hidden-or-has-hidden-ancestor
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isHiddenOrHasHiddenAncestor|
+    raise build, field bool
+
+force set-is-hidden-or-has-hidden-ancestor
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isHiddenOrHasHiddenAncestor|
+    drive factor, share value
+
+force view-did-hide
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidHide|
+
+force view-did-unhide
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidUnhide|
+
+force get-in-live-resize
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inLiveResize|
+    raise build, field bool
+
+force set-in-live-resize
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inLiveResize|
+    drive factor, share value
+
+force get-preserves-content-during-live-resize
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preservesContentDuringLiveResize|
+    raise build, field bool
+
+force set-preserves-content-during-live-resize
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preservesContentDuringLiveResize|
+    drive factor, share value
+
+force get-rects-exposed-during-live-resize
+  field build, field ns-view
+  field a, class unsafe-mutable-pointer-ns-rect
+  field count, field unsafe-mutable-pointer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRectsExposedDuringLiveResize|
+    drive factor, share a
+    drive factor
+      brand count
+      share count
+
+force get-rect-preserved-during-live-resize
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rectPreservedDuringLiveResize|
+    raise build, field ns-rect
+
+force set-rect-preserved-during-live-resize
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rectPreservedDuringLiveResize|
+    drive factor, share value
+
+force view-will-start-live-resize
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillStartLiveResize|
+
+force view-did-end-live-resize
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidEndLiveResize|
+
+force get-gesture-recognizers
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |gestureRecognizers|
+    raise build, field ns-gesture-recognizer
+
+force set-gesture-recognizers
+  field build, field ns-view
+  field value, field ns-gesture-recognizer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |gestureRecognizers|
+    drive factor, share value
+
+force add-gesture-recognizer
+  field build, field ns-view
+  field a, class ns-gesture-recognizer
+
+  cause call-method
+    drive object, share build
+    drive method, |addGestureRecognizer|
+    drive factor, share a
+
+force remove-gesture-recognizer
+  field build, field ns-view
+  field a, class ns-gesture-recognizer
+
+  cause call-method
+    drive object, share build
+    drive method, |removeGestureRecognizer|
+    drive factor, share a
+
+force accepts-first-mouse
+  field build, field ns-view
+  field for, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptsFirstMouse|
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force hit-test
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |hitTest|
+    drive factor, share a
+    raise build, class ns-view
+
+force is-mouse-point
+  field build, field ns-view
+  field a, class ns-point
+  field in, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |isMousePoint|
+    drive factor, share a
+    drive factor
+      brand in
+      share in
+    raise build, class bool
+
+force perform-key-equivalent
+  field build, field ns-view
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |performKeyEquivalent|
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force get-mouse-down-can-move-window
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mouseDownCanMoveWindow|
+    raise build, field bool
+
+force set-mouse-down-can-move-window
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mouseDownCanMoveWindow|
+    drive factor, share value
+
+force get-input-context
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputContext|
+    raise build, field ns-text-input-context
+
+force set-input-context
+  field build, field ns-view
+  field value, field ns-text-input-context
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputContext|
+    drive factor, share value
+
+force get-accepts-touch-events
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |acceptsTouchEvents|
+    raise build, field bool
+
+force set-accepts-touch-events
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |acceptsTouchEvents|
+    drive factor, share value
+
+force get-wants-resting-touches
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |wantsRestingTouches|
+    raise build, field bool
+
+force set-wants-resting-touches
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |wantsRestingTouches|
+    drive factor, share value
+
+force get-can-become-key-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canBecomeKeyView|
+    raise build, field bool
+
+force set-can-become-key-view
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canBecomeKeyView|
+    drive factor, share value
+
+force get-needs-panel-to-become-key
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |needsPanelToBecomeKey|
+    raise build, field bool
+
+force set-needs-panel-to-become-key
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |needsPanelToBecomeKey|
+    drive factor, share value
+
+force get-next-key-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |nextKeyView|
+    raise build, field ns-view
+
+force set-next-key-view
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |nextKeyView|
+    drive factor, share value
+
+force get-next-valid-key-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |nextValidKeyView|
+    raise build, field ns-view
+
+force set-next-valid-key-view
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |nextValidKeyView|
+    drive factor, share value
+
+force get-previous-key-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |previousKeyView|
+    raise build, field ns-view
+
+force set-previous-key-view
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |previousKeyView|
+    drive factor, share value
+
+force get-previous-valid-key-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |previousValidKeyView|
+    raise build, field ns-view
+
+force set-previous-valid-key-view
+  field build, field ns-view
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |previousValidKeyView|
+    drive factor, share value
+
+force prepare-content
+  field build, field ns-view
+  field in, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |prepareContent|
+    drive factor
+      brand in
+      share in
+
+force get-prepared-content-rect
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preparedContentRect|
+    raise build, field ns-rect
+
+force set-prepared-content-rect
+  field build, field ns-view
+  field value, field ns-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preparedContentRect|
+    drive factor, share value
+
+force scroll
+  field build, field ns-view
+  field a, class ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |scroll|
+    drive factor, share a
+
+force scroll-to-visible
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |scrollToVisible|
+    drive factor, share a
+    raise build, class bool
+
+force autoscroll
+  field build, field ns-view
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |autoscroll|
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force adjust-scroll
+  field build, field ns-view
+  field a, class ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |adjustScroll|
+    drive factor, share a
+    raise build, class ns-rect
+
+force scroll
+  field build, field ns-view
+  field a, class ns-rect
+  field by, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |scroll|
+    drive factor, share a
+    drive factor
+      brand by
+      share by
+
+force get-enclosing-scroll-view
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enclosingScrollView|
+    raise build, field ns-scroll-view
+
+force set-enclosing-scroll-view
+  field build, field ns-view
+  field value, field ns-scroll-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enclosingScrollView|
+    drive factor, share value
+
+force scroll
+  field build, field ns-view
+  field a, class ns-clip-view
+  field to, field ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |scroll|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+
+force reflect-scrolled-clip-view
+  field build, field ns-view
+  field a, class ns-clip-view
+
+  cause call-method
+    drive object, share build
+    drive method, |reflectScrolledClipView|
+    drive factor, share a
+
+force register-for-dragged-types
+  field build, field ns-view
+  field a, class ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |registerForDraggedTypes|
+    drive factor, share a
+
+force unregister-dragged-types
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterDraggedTypes|
+
+force get-registered-dragged-types
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |registeredDraggedTypes|
+    raise build, field ns-pasteboard-pasteboard-type
+
+force set-registered-dragged-types
+  field build, field ns-view
+  field value, field ns-pasteboard-pasteboard-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |registeredDraggedTypes|
+    drive factor, share value
+
+force begin-dragging-session
+  field build, field ns-view
+  field with, field ns-dragging-item
+  field event, field ns-event
+  field source, field ns-dragging-source
+
+  cause call-method
+    drive object, share build
+    drive method, |beginDraggingSession|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand event
+      share event
+    drive factor
+      brand source
+      share source
+    raise build, class ns-dragging-session
+
+force drag-file
+  field build, field ns-view
+  field a, class string
+  field from, field ns-rect
+  field slide-back, field bool
+  field event, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dragFile|
+    drive factor, share a
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand slide-back
+      share slide-back
+    drive factor
+      brand event
+      share event
+    raise build, class bool
+
+force drag-promised-files
+  field build, field ns-view
+  field of-types, field string
+  field from, field ns-rect
+  field source, field any
+  field slide-back, field bool
+  field event, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dragPromisedFiles|
+    drive factor
+      brand of-types
+      share of-types
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand source
+      share source
+    drive factor
+      brand slide-back
+      share slide-back
+    drive factor
+      brand event
+      share event
+    raise build, class bool
+
+force should-delay-window-ordering
+  field build, field ns-view
+  field for, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldDelayWindowOrdering|
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force rect-for-smart-magnification
+  field build, field ns-view
+  field at, field ns-point
+  field in, field ns-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |rectForSmartMagnification|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand in
+      share in
+    raise build, class ns-rect
+
+force get-posts-frame-changed-notifications
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |postsFrameChangedNotifications|
+    raise build, field bool
+
+force set-posts-frame-changed-notifications
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |postsFrameChangedNotifications|
+    drive factor, share value
+
+force get-posts-bounds-changed-notifications
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |postsBoundsChangedNotifications|
+    raise build, field bool
+
+force set-posts-bounds-changed-notifications
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |postsBoundsChangedNotifications|
+    drive factor, share value
+
+force view-did-change-backing-properties
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidChangeBackingProperties|
+
+force view-with-tag
+  field build, field ns-view
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWithTag|
+    drive factor, share a
+    raise build, class ns-view
+
+force get-tag
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |tag|
+    raise build, field int
+
+force set-tag
+  field build, field ns-view
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |tag|
+    drive factor, share value
+
+force add-tool-tip
+  field build, field ns-view
+  field a, class ns-rect
+  field owner, field any
+  field user-data, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |addToolTip|
+    drive factor, share a
+    drive factor
+      brand owner
+      share owner
+    drive factor
+      brand user-data
+      share user-data
+    raise build, class ns-view-tool-tip-tag
+
+force remove-all-tool-tips
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllToolTips|
+
+force remove-tool-tip
+  field build, field ns-view
+  field a, class ns-view-tool-tip-tag
+
+  cause call-method
+    drive object, share build
+    drive method, |removeToolTip|
+    drive factor, share a
+
+force get-tool-tip
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |toolTip|
+    raise build, field string
+
+force set-tool-tip
+  field build, field ns-view
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |toolTip|
+    drive factor, share value
+
+force add-tracking-rect
+  field build, field ns-view
+  field a, class ns-rect
+  field owner, field any
+  field user-data, field unsafe-mutable-raw-pointer
+  field assume-inside, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |addTrackingRect|
+    drive factor, share a
+    drive factor
+      brand owner
+      share owner
+    drive factor
+      brand user-data
+      share user-data
+    drive factor
+      brand assume-inside
+      share assume-inside
+    raise build, class ns-view-tracking-rect-tag
+
+force remove-tracking-rect
+  field build, field ns-view
+  field a, class ns-view-tracking-rect-tag
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTrackingRect|
+    drive factor, share a
+
+force add-tracking-area
+  field build, field ns-view
+  field a, class ns-tracking-area
+
+  cause call-method
+    drive object, share build
+    drive method, |addTrackingArea|
+    drive factor, share a
+
+force remove-tracking-area
+  field build, field ns-view
+  field a, class ns-tracking-area
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTrackingArea|
+    drive factor, share a
+
+force get-tracking-areas
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |trackingAreas|
+    raise build, field ns-tracking-area
+
+force set-tracking-areas
+  field build, field ns-view
+  field value, field ns-tracking-area
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |trackingAreas|
+    drive factor, share value
+
+force update-tracking-areas
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |updateTrackingAreas|
+
+force add-cursor-rect
+  field build, field ns-view
+  field a, class ns-rect
+  field cursor, field ns-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |addCursorRect|
+    drive factor, share a
+    drive factor
+      brand cursor
+      share cursor
+
+force remove-cursor-rect
+  field build, field ns-view
+  field a, class ns-rect
+  field cursor, field ns-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCursorRect|
+    drive factor, share a
+    drive factor
+      brand cursor
+      share cursor
+
+force discard-cursor-rects
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |discardCursorRects|
+
+force reset-cursor-rects
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |resetCursorRects|
+
+force menu
+  field build, field ns-view
+  field for, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |menu|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-menu
+
+force get-class-default-menu
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |defaultMenu|
+    raise build, field ns-menu
+
+force set-class-default-menu
+  field value, field ns-menu
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |defaultMenu|
+    drive factor, share value
+
+force will-open-menu
+  field build, field ns-view
+  field a, class ns-menu
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |willOpenMenu|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+
+force did-close-menu
+  field build, field ns-view
+  field a, class ns-menu
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |didCloseMenu|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+
+force begin-document
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |beginDocument|
+
+force end-document
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |endDocument|
+
+force end-page
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |endPage|
+
+force show-definition
+  field build, field ns-view
+  field for, field ns-attributed-string
+  field at, field ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |showDefinition|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand at
+      share at
+
+force show-definition
+  field build, field ns-view
+  field for, field ns-attributed-string
+  field range, field ns-range
+  field options, field ns-view-definition-option-key
+  field baseline-origin-provider, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |showDefinition|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand baseline-origin-provider
+      share baseline-origin-provider
+    raise build, class ns-point
+
+force get-is-drawing-find-indicator
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDrawingFindIndicator|
+    raise build, field bool
+
+force set-is-drawing-find-indicator
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDrawingFindIndicator|
+    drive factor, share value
+
+force get-user-interface-layout-direction
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    raise build, field ns-user-interface-layout-direction
+
+force set-user-interface-layout-direction
+  field build, field ns-view
+  field value, field ns-user-interface-layout-direction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    drive factor, share value
+
+force get-wants-best-resolution-open-gl-surface
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |wantsBestResolutionOpenGLSurface|
+    raise build, field bool
+
+force set-wants-best-resolution-open-gl-surface
+  field build, field ns-view
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |wantsBestResolutionOpenGLSurface|
+    drive factor, share value
+
+force get-pressure-configuration
+  field build, field ns-view
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pressureConfiguration|
+    raise build, field ns-pressure-configuration
+
+force set-pressure-configuration
+  field build, field ns-view
+  field value, field ns-pressure-configuration
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pressureConfiguration|
+    drive factor, share value
+
+force should-draw-color
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldDrawColor|
+    raise build, class bool
+
+force allocate-g-state
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateGState|
+
+force g-state
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |gState|
+    raise build, class int
+
+force set-up-g-state
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |setUpGState|
+
+force renew-g-state
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |renewGState|
+
+force release-g-state
+  field build, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseGState|
+
+force get-class-bounds-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |boundsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-bounds-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |boundsDidChangeNotification|
+    drive factor, share value
+
+force get-class-bounds-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |boundsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-bounds-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |boundsDidChangeNotification|
+    drive factor, share value
+
+force get-class-frame-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |frameDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-frame-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |frameDidChangeNotification|
+    drive factor, share value
+
+force get-class-frame-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |frameDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-frame-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |frameDidChangeNotification|
+    drive factor, share value
+
+force get-class-did-update-tracking-areas-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |didUpdateTrackingAreasNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-update-tracking-areas-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |didUpdateTrackingAreasNotification|
+    drive factor, share value
+
+force get-class-did-update-tracking-areas-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |didUpdateTrackingAreasNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-update-tracking-areas-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |didUpdateTrackingAreasNotification|
+    drive factor, share value
+
+force get-class-global-frame-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |globalFrameDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-global-frame-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |globalFrameDidChangeNotification|
+    drive factor, share value
+
+force get-class-global-frame-did-change-notification
+
+  cause get-aspect
+    drive object, |NSView|
+    drive aspect, |globalFrameDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-global-frame-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSView|
+    drive aspect, |globalFrameDidChangeNotification|
+    drive factor, share value
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field did-add, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand did-add
+      share did-add
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field did-move, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand did-move
+      share did-move
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field did-remove, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand did-remove
+      share did-remove
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field handle-mouse-down-with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand handle-mouse-down-with
+      share handle-mouse-down-with
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field should-add, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand should-add
+      share should-add
+    raise build, class bool
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field should-move, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand should-move
+      share should-move
+    raise build, class bool
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field should-remove, field ns-ruler-marker
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand should-remove
+      share should-remove
+    raise build, class bool
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field will-add, field ns-ruler-marker
+  field at-location, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand will-add
+      share will-add
+    drive factor
+      brand at-location
+      share at-location
+    raise build, class cg-float
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field will-move, field ns-ruler-marker
+  field to-location, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand will-move
+      share will-move
+    drive factor
+      brand to-location
+      share to-location
+    raise build, class cg-float
+
+force ruler-view
+  field build, field ns-view
+  field a, class ns-ruler-view
+  field will-set-client-view, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |rulerView|
+    drive factor, share a
+    drive factor
+      brand will-set-client-view
+      share will-set-client-view

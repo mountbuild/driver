@@ -1,0 +1,26 @@
+
+force build-soft-reference
+  mount referent, field t
+
+  cause invoke-constructor
+    drive constructor, |SoftReference|
+    drive factor, share referent
+    throw build, field soft-reference
+
+force build-soft-reference
+  mount referent, field t
+  mount q, field reference-queue-in-t
+
+  cause invoke-constructor
+    drive constructor, |SoftReference|
+    drive factor, share referent
+    drive factor, share q
+    throw build, field soft-reference
+
+force get
+  mount build, field soft-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field t

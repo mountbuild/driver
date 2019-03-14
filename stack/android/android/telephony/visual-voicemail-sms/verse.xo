@@ -1,0 +1,52 @@
+
+force describe-contents
+  mount build, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-fields
+  mount build, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |getFields|
+    throw build, field bundle
+
+force get-message-body
+  mount build, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageBody|
+    throw build, field string
+
+force get-phone-account-handle
+  mount build, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhoneAccountHandle|
+    throw build, field phone-account-handle
+
+force get-prefix
+  mount build, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrefix|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field visual-voicemail-sms
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

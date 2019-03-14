@@ -1,0 +1,136 @@
+force get-video-gravity
+  field build, field av-capture-video-preview-layer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |videoGravity|
+    raise build, field av-layer-video-gravity
+
+force set-video-gravity
+  field build, field av-capture-video-preview-layer
+  field value, field av-layer-video-gravity
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |videoGravity|
+    drive factor, share value
+
+force get-is-previewing
+  field build, field av-capture-video-preview-layer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPreviewing|
+    raise build, field bool
+
+force set-is-previewing
+  field build, field av-capture-video-preview-layer
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPreviewing|
+    drive factor, share value
+
+force get-session
+  field build, field av-capture-video-preview-layer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |session|
+    raise build, field av-capture-session
+
+force set-session
+  field build, field av-capture-video-preview-layer
+  field value, field av-capture-session
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |session|
+    drive factor, share value
+
+force get-connection
+  field build, field av-capture-video-preview-layer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |connection|
+    raise build, field av-capture-connection
+
+force set-connection
+  field build, field av-capture-video-preview-layer
+  field value, field av-capture-connection
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |connection|
+    drive factor, share value
+
+force set-session-with-no-connection
+  field build, field av-capture-video-preview-layer
+  field a, class av-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |setSessionWithNoConnection|
+    drive factor, share a
+
+force capture-device-point-converted
+  field build, field av-capture-video-preview-layer
+  field from-layer-point, field cg-point
+
+  cause call-method
+    drive object, share build
+    drive method, |captureDevicePointConverted|
+    drive factor
+      brand from-layer-point
+      share from-layer-point
+    raise build, class cg-point
+
+force layer-point-converted
+  field build, field av-capture-video-preview-layer
+  field from-capture-device-point, field cg-point
+
+  cause call-method
+    drive object, share build
+    drive method, |layerPointConverted|
+    drive factor
+      brand from-capture-device-point
+      share from-capture-device-point
+    raise build, class cg-point
+
+force layer-rect-converted
+  field build, field av-capture-video-preview-layer
+  field from-metadata-output-rect, field cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |layerRectConverted|
+    drive factor
+      brand from-metadata-output-rect
+      share from-metadata-output-rect
+    raise build, class cg-rect
+
+force metadata-output-rect-converted
+  field build, field av-capture-video-preview-layer
+  field from-layer-rect, field cg-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |metadataOutputRectConverted|
+    drive factor
+      brand from-layer-rect
+      share from-layer-rect
+    raise build, class cg-rect
+
+force transformed-metadata-object
+  field build, field av-capture-video-preview-layer
+  field for, field av-metadata-object
+
+  cause call-method
+    drive object, share build
+    drive method, |transformedMetadataObject|
+    drive factor
+      brand for
+      share for
+    raise build, class av-metadata-object

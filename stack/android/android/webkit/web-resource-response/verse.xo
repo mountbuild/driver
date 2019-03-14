@@ -1,0 +1,134 @@
+
+force build-web-resource-response
+  mount mime-type, field string
+  mount encoding, field string
+  mount data, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |WebResourceResponse|
+    drive factor, share mime-type
+    drive factor, share encoding
+    drive factor, share data
+    throw build, field web-resource-response
+
+force build-web-resource-response
+  mount mime-type, field string
+  mount encoding, field string
+  mount status-code, field int
+  mount reason-phrase, field string
+  mount response-headers, field mutable-map-string
+  mount string, field undefined
+  mount data, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |WebResourceResponse|
+    drive factor, share mime-type
+    drive factor, share encoding
+    drive factor, share status-code
+    drive factor, share reason-phrase
+    drive factor, share response-headers
+    drive factor, share string
+    drive factor, share data
+    throw build, field web-resource-response
+
+force get-data
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    throw build, field input-stream
+
+force get-encoding
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncoding|
+    throw build, field string
+
+force get-mime-type
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    throw build, field string
+
+force get-reason-phrase
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getReasonPhrase|
+    throw build, field string
+
+force get-response-headers
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getResponseHeaders|
+    throw build, field mutable-map
+
+force get-status-code
+  mount build, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatusCode|
+    throw build, field int
+
+force set-data
+  mount build, field web-resource-response
+  mount data, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |setData|
+    drive factor, share data
+    throw build, field unit
+
+force set-encoding
+  mount build, field web-resource-response
+  mount encoding, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setEncoding|
+    drive factor, share encoding
+    throw build, field unit
+
+force set-mime-type
+  mount build, field web-resource-response
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setMimeType|
+    drive factor, share mime-type
+    throw build, field unit
+
+force set-response-headers
+  mount build, field web-resource-response
+  mount headers, field mutable-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |setResponseHeaders|
+    drive factor, share headers
+    drive factor, share string
+    throw build, field unit
+
+force set-status-code-and-reason-phrase
+  mount build, field web-resource-response
+  mount status-code, field int
+  mount reason-phrase, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setStatusCodeAndReasonPhrase|
+    drive factor, share status-code
+    drive factor, share reason-phrase
+    throw build, field unit

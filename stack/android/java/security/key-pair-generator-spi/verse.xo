@@ -1,0 +1,37 @@
+
+force build-key-pair-generator-spi
+  cause invoke-constructor
+    mount constructor, |KeyPairGeneratorSpi|
+    throw build, field key-pair-generator-spi
+
+force generate-key-pair
+  mount build, field key-pair-generator-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |generateKeyPair|
+    throw build, field key-pair
+
+force initialize
+  mount build, field key-pair-generator-spi
+  mount keysize, field int
+  mount random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |initialize|
+    mount factor, share keysize
+    mount factor, share random
+    throw build, field unit
+
+force initialize
+  mount build, field key-pair-generator-spi
+  mount params, field algorithm-parameter-spec
+  mount random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |initialize|
+    mount factor, share params
+    mount factor, share random
+    throw build, field unit

@@ -1,0 +1,18 @@
+
+force build-custom-event
+  start type-arg
+  start custom-event-init
+
+  cause invoke-constructor
+    mount constructor, |CustomEvent|
+    mount factor, share type-arg
+    mount factor, share custom-event-init
+    throw build
+
+force get-detail
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |detail|
+    throw build

@@ -1,0 +1,337 @@
+
+force build-web-chrome-client
+  cause invoke-constructor
+    drive constructor, |WebChromeClient|
+    throw build, field web-chrome-client
+
+force get-default-video-poster
+  mount build, field web-chrome-client
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultVideoPoster|
+    throw build, field bitmap
+
+force get-video-loading-progress-view
+  mount build, field web-chrome-client
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoLoadingProgressView|
+    throw build, field view
+
+force get-visited-history
+  mount build, field web-chrome-client
+  mount callback, field value-callback-array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |getVisitedHistory|
+    drive factor, share callback
+    throw build, field unit
+
+force on-close-window
+  mount build, field web-chrome-client
+  mount window, field web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onCloseWindow|
+    drive factor, share window
+    throw build, field unit
+
+force on-console-message
+  mount build, field web-chrome-client
+  mount message, field string
+  mount line-number, field int
+  mount source-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onConsoleMessage|
+    drive factor, share message
+    drive factor, share line-number
+    drive factor, share source-id
+    throw build, field unit
+
+force on-console-message
+  mount build, field web-chrome-client
+  mount console-message, field console-message
+
+  cause call-method
+    drive object, share build
+    drive method, |onConsoleMessage|
+    drive factor, share console-message
+    throw build, field boolean
+
+force on-create-window
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount is-dialog, field boolean
+  mount is-user-gesture, field boolean
+  mount result-msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateWindow|
+    drive factor, share view
+    drive factor, share is-dialog
+    drive factor, share is-user-gesture
+    drive factor, share result-msg
+    throw build, field boolean
+
+force on-exceeded-database-quota
+  mount build, field web-chrome-client
+  mount url, field string
+  mount database-identifier, field string
+  mount quota, field long
+  mount estimated-database-size, field long
+  mount total-quota, field long
+  mount quota-updater, field web-storage-quota-updater
+
+  cause call-method
+    drive object, share build
+    drive method, |onExceededDatabaseQuota|
+    drive factor, share url
+    drive factor, share database-identifier
+    drive factor, share quota
+    drive factor, share estimated-database-size
+    drive factor, share total-quota
+    drive factor, share quota-updater
+    throw build, field unit
+
+force on-geolocation-permissions-hide-prompt
+  mount build, field web-chrome-client
+
+  cause call-method
+    drive object, share build
+    drive method, |onGeolocationPermissionsHidePrompt|
+    throw build, field unit
+
+force on-geolocation-permissions-show-prompt
+  mount build, field web-chrome-client
+  mount origin, field string
+  mount callback, field geolocation-permissions-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onGeolocationPermissionsShowPrompt|
+    drive factor, share origin
+    drive factor, share callback
+    throw build, field unit
+
+force on-hide-custom-view
+  mount build, field web-chrome-client
+
+  cause call-method
+    drive object, share build
+    drive method, |onHideCustomView|
+    throw build, field unit
+
+force on-js-alert
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount url, field string
+  mount message, field string
+  mount result, field js-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onJsAlert|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share message
+    drive factor, share result
+    throw build, field boolean
+
+force on-js-before-unload
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount url, field string
+  mount message, field string
+  mount result, field js-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onJsBeforeUnload|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share message
+    drive factor, share result
+    throw build, field boolean
+
+force on-js-confirm
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount url, field string
+  mount message, field string
+  mount result, field js-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onJsConfirm|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share message
+    drive factor, share result
+    throw build, field boolean
+
+force on-js-prompt
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount url, field string
+  mount message, field string
+  mount default-value, field string
+  mount result, field js-prompt-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onJsPrompt|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share message
+    drive factor, share default-value
+    drive factor, share result
+    throw build, field boolean
+
+force on-js-timeout
+  mount build, field web-chrome-client
+
+  cause call-method
+    drive object, share build
+    drive method, |onJsTimeout|
+    throw build, field boolean
+
+force on-permission-request
+  mount build, field web-chrome-client
+  mount request, field permission-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onPermissionRequest|
+    drive factor, share request
+    throw build, field unit
+
+force on-permission-request-canceled
+  mount build, field web-chrome-client
+  mount request, field permission-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onPermissionRequestCanceled|
+    drive factor, share request
+    throw build, field unit
+
+force on-progress-changed
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount new-progress, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onProgressChanged|
+    drive factor, share view
+    drive factor, share new-progress
+    throw build, field unit
+
+force on-reached-max-app-cache-size
+  mount build, field web-chrome-client
+  mount required-storage, field long
+  mount quota, field long
+  mount quota-updater, field web-storage-quota-updater
+
+  cause call-method
+    drive object, share build
+    drive method, |onReachedMaxAppCacheSize|
+    drive factor, share required-storage
+    drive factor, share quota
+    drive factor, share quota-updater
+    throw build, field unit
+
+force on-received-icon
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount icon, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedIcon|
+    drive factor, share view
+    drive factor, share icon
+    throw build, field unit
+
+force on-received-title
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount title, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedTitle|
+    drive factor, share view
+    drive factor, share title
+    throw build, field unit
+
+force on-received-touch-icon-url
+  mount build, field web-chrome-client
+  mount view, field web-view
+  mount url, field string
+  mount precomposed, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedTouchIconUrl|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share precomposed
+    throw build, field unit
+
+force on-request-focus
+  mount build, field web-chrome-client
+  mount view, field web-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestFocus|
+    drive factor, share view
+    throw build, field unit
+
+force on-show-custom-view
+  mount build, field web-chrome-client
+  mount view, field view
+  mount callback, field web-chrome-client-custom-view-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onShowCustomView|
+    drive factor, share view
+    drive factor, share callback
+    throw build, field unit
+
+force on-show-custom-view
+  mount build, field web-chrome-client
+  mount view, field view
+  mount requested-orientation, field int
+  mount callback, field web-chrome-client-custom-view-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onShowCustomView|
+    drive factor, share view
+    drive factor, share requested-orientation
+    drive factor, share callback
+    throw build, field unit
+
+force on-show-file-chooser
+  mount build, field web-chrome-client
+  mount web-view, field web-view
+  mount file-path-callback, field value-callback-array-uri
+  mount file-chooser-params, field web-chrome-client-file-chooser-params
+
+  cause call-method
+    drive object, share build
+    drive method, |onShowFileChooser|
+    drive factor, share web-view
+    drive factor, share file-path-callback
+    drive factor, share file-chooser-params
+    throw build, field boolean

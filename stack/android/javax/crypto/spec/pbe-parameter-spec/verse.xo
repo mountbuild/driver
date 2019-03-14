@@ -1,0 +1,46 @@
+
+force build-pbe-parameter-spec
+  start salt, field byte-array
+  start iteration-count, field int
+
+  cause invoke-constructor
+    mount constructor, |PBEParameterSpec|
+    mount factor, share salt
+    mount factor, share iteration-count
+    throw build, field pbe-parameter-spec
+
+force build-pbe-parameter-spec
+  start salt, field byte-array
+  start iteration-count, field int
+  start param-spec, field algorithm-parameter-spec
+
+  cause invoke-constructor
+    mount constructor, |PBEParameterSpec|
+    mount factor, share salt
+    mount factor, share iteration-count
+    mount factor, share param-spec
+    throw build, field pbe-parameter-spec
+
+force get-iteration-count
+  start build, field pbe-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIterationCount|
+    throw build, field int
+
+force get-parameter-spec
+  start build, field pbe-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameterSpec|
+    throw build, field algorithm-parameter-spec
+
+force get-salt
+  start build, field pbe-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getSalt|
+    throw build, field byte-array

@@ -1,0 +1,117 @@
+
+force build-digits-key-listener
+  cause invoke-constructor
+    drive constructor, |DigitsKeyListener|
+    raise build, field digits-key-listener
+
+force build-digits-key-listener
+  mount sign, field boolean
+  mount decimal, field boolean
+
+  cause invoke-constructor
+    drive constructor, |DigitsKeyListener|
+    drive factor, share sign
+    drive factor, share decimal
+    raise build, field digits-key-listener
+
+force build-digits-key-listener
+  mount locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |DigitsKeyListener|
+    drive factor, share locale
+    raise build, field digits-key-listener
+
+force build-digits-key-listener
+  mount locale, field locale
+  mount sign, field boolean
+  mount decimal, field boolean
+
+  cause invoke-constructor
+    drive constructor, |DigitsKeyListener|
+    drive factor, share locale
+    drive factor, share sign
+    drive factor, share decimal
+    raise build, field digits-key-listener
+
+force filter
+  mount build, field digits-key-listener
+  mount source, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount dest, field spanned
+  mount dstart, field int
+  mount dend, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share source
+    drive factor, share start
+    drive factor, share end
+    drive factor, share dest
+    drive factor, share dstart
+    drive factor, share dend
+    raise build, field char-sequence
+
+force get-input-type
+  mount build, field digits-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputType|
+    raise build, field int
+
+force get-instance
+  mount build, field digits-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field digits-key-listener
+
+force get-instance
+  mount build, field digits-key-listener
+  mount sign, field boolean
+  mount decimal, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share sign
+    drive factor, share decimal
+    raise build, field digits-key-listener
+
+force get-instance
+  mount build, field digits-key-listener
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field digits-key-listener
+
+force get-instance
+  mount build, field digits-key-listener
+  mount locale, field locale
+  mount sign, field boolean
+  mount decimal, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    drive factor, share sign
+    drive factor, share decimal
+    raise build, field digits-key-listener
+
+force get-instance
+  mount build, field digits-key-listener
+  mount accepted, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share accepted
+    raise build, field digits-key-listener

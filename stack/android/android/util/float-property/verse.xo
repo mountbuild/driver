@@ -1,0 +1,32 @@
+
+force build-float-property
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |FloatProperty|
+    drive factor, share name
+    throw build, field float-property
+
+force set
+  mount build, field float-property
+  mount object, field t
+  mount value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share object
+    drive factor, share value
+    throw build, field unit
+
+force set-value
+  mount build, field float-property
+  mount object, field t
+  mount value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share object
+    drive factor, share value
+    throw build, field unit

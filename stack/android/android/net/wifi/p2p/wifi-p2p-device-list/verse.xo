@@ -1,0 +1,59 @@
+
+force build-wifi-p2p-device-list
+  cause invoke-constructor
+    drive constructor, |WifiP2pDeviceList|
+    throw build, field wifi-p2p-device-list
+
+force build-wifi-p2p-device-list
+  mount source, field wifi-p2p-device-list
+
+  cause invoke-constructor
+    drive constructor, |WifiP2pDeviceList|
+    drive factor, share source
+    throw build, field wifi-p2p-device-list
+
+force describe-contents
+  mount build, field wifi-p2p-device-list
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get
+  mount build, field wifi-p2p-device-list
+  mount device-address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share device-address
+    throw build, field wifi-p2p-device
+
+force get-device-list
+  mount build, field wifi-p2p-device-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceList|
+    throw build, field mutable-collection
+
+force to-string
+  mount build, field wifi-p2p-device-list
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-p2p-device-list
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

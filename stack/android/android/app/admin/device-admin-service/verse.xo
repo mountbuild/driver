@@ -1,0 +1,15 @@
+
+force build-device-admin-service
+  cause invoke-constructor
+    drive constructor, |DeviceAdminService|
+    throw build, field device-admin-service
+
+force on-bind
+  start build, field device-admin-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder

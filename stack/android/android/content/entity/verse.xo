@@ -1,0 +1,44 @@
+
+force build-entity
+  mount values, field content-values
+
+  cause invoke-constructor
+    drive constructor, |Entity|
+    drive factor, share values
+    throw build, field entity
+
+force add-sub-value
+  mount build, field entity
+  mount uri, field uri
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |addSubValue|
+    drive factor, share uri
+    drive factor, share values
+    throw build, field unit
+
+force get-entity-values
+  mount build, field entity
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntityValues|
+    throw build, field content-values
+
+force get-sub-values
+  mount build, field entity
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubValues|
+    throw build, field array-list
+
+force to-string
+  mount build, field entity
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,44 @@
+
+force build-private-credential-permission
+  start name, field string
+  start actions, field string
+
+  cause invoke-constructor
+    mount constructor, |PrivateCredentialPermission|
+    mount factor, share name
+    mount factor, share actions
+    throw build, field private-credential-permission
+
+force get-actions
+  start build, field private-credential-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getActions|
+    throw build, field string
+
+force get-credential-class
+  start build, field private-credential-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getCredentialClass|
+    throw build, field string
+
+force get-principals
+  start build, field private-credential-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrincipals|
+    throw build, field array
+
+force implies
+  start build, field private-credential-permission
+  start p, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share p
+    throw build, field boolean

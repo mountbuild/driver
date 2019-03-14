@@ -1,0 +1,38 @@
+
+force build-errno-exception
+  mount function-name, field string
+  mount errno, field int
+
+  cause invoke-constructor
+    drive constructor, |ErrnoException|
+    drive factor, share function-name
+    drive factor, share errno
+    raise build, field errno-exception
+
+force build-errno-exception
+  mount function-name, field string
+  mount errno, field int
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ErrnoException|
+    drive factor, share function-name
+    drive factor, share errno
+    drive factor, share cause
+    raise build, field errno-exception
+
+force rethrow-as-io-exception
+  mount build, field errno-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |rethrowAsIOException|
+    raise build, field io-exception
+
+force rethrow-as-socket-exception
+  mount build, field errno-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |rethrowAsSocketException|
+    raise build, field socket-exception

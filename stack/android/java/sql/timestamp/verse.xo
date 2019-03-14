@@ -1,0 +1,150 @@
+
+force build-timestamp
+  start year, field int
+  start month, field int
+  start date, field int
+  start hour, field int
+  start minute, field int
+  start second, field int
+  start nano, field int
+
+  cause invoke-constructor
+    mount constructor, |Timestamp|
+    mount factor, share year
+    mount factor, share month
+    mount factor, share date
+    mount factor, share hour
+    mount factor, share minute
+    mount factor, share second
+    mount factor, share nano
+    raise build, field timestamp
+
+force build-timestamp
+  start time, field long
+
+  cause invoke-constructor
+    mount constructor, |Timestamp|
+    mount factor, share time
+    raise build, field timestamp
+
+force after
+  start build, field timestamp
+  start ts, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |after|
+    mount factor, share ts
+    raise build, field boolean
+
+force before
+  start build, field timestamp
+  start ts, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |before|
+    mount factor, share ts
+    raise build, field boolean
+
+force compare-to
+  start build, field timestamp
+  start ts, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |compareTo|
+    mount factor, share ts
+    raise build, field int
+
+force compare-to
+  start build, field timestamp
+  start other, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |compareTo|
+    mount factor, share other
+    raise build, field int
+
+force equals
+  start build, field timestamp
+  start ts, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share ts
+    raise build, field boolean
+
+force equals
+  start build, field timestamp
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force get-nanos
+  start build, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |getNanos|
+    raise build, field int
+
+force get-time
+  start build, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |getTime|
+    raise build, field long
+
+force hash-code
+  start build, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force set-nanos
+  start build, field timestamp
+  start n, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setNanos|
+    mount factor, share n
+    raise build, field unit
+
+force set-time
+  start build, field timestamp
+  start time, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |setTime|
+    mount factor, share time
+    raise build, field unit
+
+force to-string
+  start build, field timestamp
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string
+
+force value-of
+  start build, field timestamp
+  start s, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |valueOf|
+    mount factor, share s
+    raise build, field timestamp

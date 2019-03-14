@@ -1,0 +1,112 @@
+
+force get-volume-control-absolute
+  start build, field volume-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |VOLUME_CONTROL_ABSOLUTE|
+    raise build, field int
+
+force get-volume-control-fixed
+  start build, field volume-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |VOLUME_CONTROL_FIXED|
+    raise build, field int
+
+force get-volume-control-relative
+  start build, field volume-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |VOLUME_CONTROL_RELATIVE|
+    raise build, field int
+
+force build-volume-provider
+  start volume-control, field int
+  start max-volume, field int
+  start current-volume, field int
+
+  cause invoke-constructor
+    drive constructor, |VolumeProvider|
+    drive factor, share volume-control
+    drive factor, share max-volume
+    drive factor, share current-volume
+    raise build, field volume-provider
+
+force build-volume-provider
+  start volume-control, field int
+  start max-volume, field int
+  start current-volume, field int
+  start volume-control-id, field string
+
+  cause invoke-constructor
+    drive constructor, |VolumeProvider|
+    drive factor, share volume-control
+    drive factor, share max-volume
+    drive factor, share current-volume
+    drive factor, share volume-control-id
+    raise build, field volume-provider
+
+force get-current-volume
+  start build, field volume-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentVolume|
+    raise build, field int
+
+force get-max-volume
+  start build, field volume-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxVolume|
+    raise build, field int
+
+force get-volume-control
+  start build, field volume-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolumeControl|
+    raise build, field int
+
+force get-volume-control-id
+  start build, field volume-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolumeControlId|
+    raise build, field string
+
+force on-adjust-volume
+  start build, field volume-provider
+  start direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdjustVolume|
+    drive factor, share direction
+    raise build, field unit
+
+force on-set-volume-to
+  start build, field volume-provider
+  start volume, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSetVolumeTo|
+    drive factor, share volume
+    raise build, field unit
+
+force set-current-volume
+  start build, field volume-provider
+  start current-volume, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrentVolume|
+    drive factor, share current-volume
+    raise build, field unit

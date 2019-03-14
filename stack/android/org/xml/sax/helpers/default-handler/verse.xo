@@ -1,0 +1,205 @@
+
+force build-default-handler
+  cause invoke-constructor
+    drive constructor, |DefaultHandler|
+    throw build, field default-handler
+
+force characters
+  mount build, field default-handler
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |characters|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force end-document
+  mount build, field default-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |endDocument|
+    throw build, field unit
+
+force end-element
+  mount build, field default-handler
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    throw build, field unit
+
+force end-prefix-mapping
+  mount build, field default-handler
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endPrefixMapping|
+    drive factor, share prefix
+    throw build, field unit
+
+force error
+  mount build, field default-handler
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |error|
+    drive factor, share e
+    throw build, field unit
+
+force fatal-error
+  mount build, field default-handler
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |fatalError|
+    drive factor, share e
+    throw build, field unit
+
+force ignorable-whitespace
+  mount build, field default-handler
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ignorableWhitespace|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force notation-decl
+  mount build, field default-handler
+  mount name, field string
+  mount public-id, field string
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |notationDecl|
+    drive factor, share name
+    drive factor, share public-id
+    drive factor, share system-id
+    throw build, field unit
+
+force processing-instruction
+  mount build, field default-handler
+  mount target, field string
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |processingInstruction|
+    drive factor, share target
+    drive factor, share data
+    throw build, field unit
+
+force resolve-entity
+  mount build, field default-handler
+  mount public-id, field string
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveEntity|
+    drive factor, share public-id
+    drive factor, share system-id
+    throw build, field input-source
+
+force set-document-locator
+  mount build, field default-handler
+  mount locator, field locator
+
+  cause call-method
+    drive object, share build
+    drive method, |setDocumentLocator|
+    drive factor, share locator
+    throw build, field unit
+
+force skipped-entity
+  mount build, field default-handler
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |skippedEntity|
+    drive factor, share name
+    throw build, field unit
+
+force start-document
+  mount build, field default-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startDocument|
+    throw build, field unit
+
+force start-element
+  mount build, field default-handler
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount attributes, field attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |startElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share attributes
+    throw build, field unit
+
+force start-prefix-mapping
+  mount build, field default-handler
+  mount prefix, field string
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startPrefixMapping|
+    drive factor, share prefix
+    drive factor, share uri
+    throw build, field unit
+
+force unparsed-entity-decl
+  mount build, field default-handler
+  mount name, field string
+  mount public-id, field string
+  mount system-id, field string
+  mount notation-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unparsedEntityDecl|
+    drive factor, share name
+    drive factor, share public-id
+    drive factor, share system-id
+    drive factor, share notation-name
+    throw build, field unit
+
+force warning
+  mount build, field default-handler
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |warning|
+    drive factor, share e
+    throw build, field unit

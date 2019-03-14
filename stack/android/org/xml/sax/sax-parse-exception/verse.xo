@@ -1,0 +1,88 @@
+
+force build-sax-parse-exception
+  mount message, field string
+  mount locator, field locator
+
+  cause invoke-constructor
+    drive constructor, |SAXParseException|
+    drive factor, share message
+    drive factor, share locator
+    throw build, field sax-parse-exception
+
+force build-sax-parse-exception
+  mount message, field string
+  mount locator, field locator
+  mount e, field exception
+
+  cause invoke-constructor
+    drive constructor, |SAXParseException|
+    drive factor, share message
+    drive factor, share locator
+    drive factor, share e
+    throw build, field sax-parse-exception
+
+force build-sax-parse-exception
+  mount message, field string
+  mount public-id, field string
+  mount system-id, field string
+  mount line-number, field int
+  mount column-number, field int
+
+  cause invoke-constructor
+    drive constructor, |SAXParseException|
+    drive factor, share message
+    drive factor, share public-id
+    drive factor, share system-id
+    drive factor, share line-number
+    drive factor, share column-number
+    throw build, field sax-parse-exception
+
+force build-sax-parse-exception
+  mount message, field string
+  mount public-id, field string
+  mount system-id, field string
+  mount line-number, field int
+  mount column-number, field int
+  mount e, field exception
+
+  cause invoke-constructor
+    drive constructor, |SAXParseException|
+    drive factor, share message
+    drive factor, share public-id
+    drive factor, share system-id
+    drive factor, share line-number
+    drive factor, share column-number
+    drive factor, share e
+    throw build, field sax-parse-exception
+
+force get-column-number
+  mount build, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnNumber|
+    throw build, field int
+
+force get-line-number
+  mount build, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force get-public-id
+  mount build, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getPublicId|
+    throw build, field string
+
+force get-system-id
+  mount build, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemId|
+    throw build, field string

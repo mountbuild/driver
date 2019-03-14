@@ -1,0 +1,79 @@
+
+force get-result-failure
+  start build, field job-scheduler
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_FAILURE|
+    throw build, field int
+
+force get-result-success
+  start build, field job-scheduler
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_SUCCESS|
+    throw build, field int
+
+force build-job-scheduler
+  cause invoke-constructor
+    drive constructor, |JobScheduler|
+    throw build, field job-scheduler
+
+force cancel
+  start build, field job-scheduler
+  start job-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share job-id
+    throw build, field unit
+
+force cancel-all
+  start build, field job-scheduler
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelAll|
+    throw build, field unit
+
+force enqueue
+  start build, field job-scheduler
+  start job, field job-info
+  start work, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |enqueue|
+    drive factor, share job
+    drive factor, share work
+    throw build, field int
+
+force get-all-pending-jobs
+  start build, field job-scheduler
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllPendingJobs|
+    throw build, field mutable-list
+
+force get-pending-job
+  start build, field job-scheduler
+  start job-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPendingJob|
+    drive factor, share job-id
+    throw build, field job-info
+
+force schedule
+  start build, field job-scheduler
+  start job, field job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share job
+    throw build, field int

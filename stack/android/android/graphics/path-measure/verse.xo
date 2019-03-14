@@ -1,0 +1,111 @@
+
+force get-position-matrix-flag
+  mount build, field path-measure
+
+  cause get-property
+    drive object, share build
+    drive property, |POSITION_MATRIX_FLAG|
+    raise build, field int
+
+force get-tangent-matrix-flag
+  mount build, field path-measure
+
+  cause get-property
+    drive object, share build
+    drive property, |TANGENT_MATRIX_FLAG|
+    raise build, field int
+
+force build-path-measure
+  cause invoke-constructor
+    drive constructor, |PathMeasure|
+    raise build, field path-measure
+
+force build-path-measure
+  mount path, field path
+  mount force-closed, field boolean
+
+  cause invoke-constructor
+    drive constructor, |PathMeasure|
+    drive factor, share path
+    drive factor, share force-closed
+    raise build, field path-measure
+
+force get-length
+  mount build, field path-measure
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    raise build, field float
+
+force get-matrix
+  mount build, field path-measure
+  mount distance, field float
+  mount matrix, field matrix
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMatrix|
+    drive factor, share distance
+    drive factor, share matrix
+    drive factor, share flags
+    raise build, field boolean
+
+force get-pos-tan
+  mount build, field path-measure
+  mount distance, field float
+  mount pos, field float-array
+  mount tan, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getPosTan|
+    drive factor, share distance
+    drive factor, share pos
+    drive factor, share tan
+    raise build, field boolean
+
+force get-segment
+  mount build, field path-measure
+  mount start-d, field float
+  mount stop-d, field float
+  mount dst, field path
+  mount start-with-move-to, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getSegment|
+    drive factor, share start-d
+    drive factor, share stop-d
+    drive factor, share dst
+    drive factor, share start-with-move-to
+    raise build, field boolean
+
+force is-closed
+  mount build, field path-measure
+
+  cause call-method
+    drive object, share build
+    drive method, |isClosed|
+    raise build, field boolean
+
+force next-contour
+  mount build, field path-measure
+
+  cause call-method
+    drive object, share build
+    drive method, |nextContour|
+    raise build, field boolean
+
+force set-path
+  mount build, field path-measure
+  mount path, field path
+  mount force-closed, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPath|
+    drive factor, share path
+    drive factor, share force-closed
+    raise build, field unit

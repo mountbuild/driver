@@ -1,0 +1,59 @@
+
+force build-abstract-input-method-service
+  cause invoke-constructor
+    drive constructor, |AbstractInputMethodService|
+    throw build, field abstract-input-method-service
+
+force get-key-dispatcher-state
+  mount build, field abstract-input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyDispatcherState|
+    throw build, field key-event-dispatcher-state
+
+force on-bind
+  mount build, field abstract-input-method-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-create-input-method-interface
+  mount build, field abstract-input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInputMethodInterface|
+    throw build, field abstract-input-method-service-abstract-input-method-impl
+
+force on-create-input-method-session-interface
+  mount build, field abstract-input-method-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateInputMethodSessionInterface|
+    throw build, field abstract-input-method-service-abstract-input-method-session-impl
+
+force on-generic-motion-event
+  mount build, field abstract-input-method-service
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onGenericMotionEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force on-trackball-event
+  mount build, field abstract-input-method-service
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrackballEvent|
+    drive factor, share event
+    throw build, field boolean

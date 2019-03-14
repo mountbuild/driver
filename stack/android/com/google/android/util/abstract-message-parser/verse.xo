@@ -1,0 +1,98 @@
+
+force get-music-note
+  start build, field abstract-message-parser
+
+  cause get-property
+    drive object, share build
+    drive property, |musicNote|
+    throw build, field string
+
+force build-abstract-message-parser
+  start text, field string
+
+  cause invoke-constructor
+    drive constructor, |AbstractMessageParser|
+    drive factor, share text
+    throw build, field abstract-message-parser
+
+force build-abstract-message-parser
+  start text, field string
+  start parse-smilies, field boolean
+  start parse-acronyms, field boolean
+  start parse-formatting, field boolean
+  start parse-urls, field boolean
+  start parse-music, field boolean
+  start parse-me-text, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AbstractMessageParser|
+    drive factor, share text
+    drive factor, share parse-smilies
+    drive factor, share parse-acronyms
+    drive factor, share parse-formatting
+    drive factor, share parse-urls
+    drive factor, share parse-music
+    drive factor, share parse-me-text
+    throw build, field abstract-message-parser
+
+force get-part
+  start build, field abstract-message-parser
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPart|
+    drive factor, share index
+    throw build, field abstract-message-parser-part
+
+force get-part-count
+  start build, field abstract-message-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |getPartCount|
+    throw build, field int
+
+force get-parts
+  start build, field abstract-message-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |getParts|
+    throw build, field mutable-list
+
+force get-raw-text
+  start build, field abstract-message-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawText|
+    throw build, field string
+
+force parse
+  start build, field abstract-message-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    throw build, field unit
+
+force to-html
+  start build, field abstract-message-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |toHtml|
+    throw build, field string
+
+force token-for-url
+  start build, field abstract-message-parser
+  start url, field string
+  start text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |tokenForUrl|
+    drive factor, share url
+    drive factor, share text
+    throw build, field abstract-message-parser-token

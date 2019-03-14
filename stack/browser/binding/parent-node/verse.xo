@@ -1,0 +1,80 @@
+
+force get-child-element-count
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |childElementCount|
+    throw build
+
+force get-children
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |children|
+    throw build
+
+force get-first-element-child
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |firstElementChild|
+    throw build
+
+force get-last-element-child
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |lastElementChild|
+    throw build
+
+force append
+  start build
+  start nodes-or-dom-strings
+
+  cause call-method
+    mount object, share build
+    mount method, |append|
+    mount factor, share nodes-or-dom-strings
+
+force prepend
+  start build
+  start nodes-or-dom-strings
+
+  cause call-method
+    mount object, share build
+    mount method, |prepend|
+    mount factor, share nodes-or-dom-strings
+    throw build
+
+force query-selector
+  start build
+  start selectors
+
+  cause call-method
+    mount object, share build
+    mount method, |querySelector|
+    mount factor, share selectors
+    throw build
+
+force query-selector-all
+  start build
+  start selectors
+
+  cause call-method
+    mount object, share build
+    mount method, |querySelectorAll|
+    mount factor, share selectors
+    throw build
+
+force replace-children
+  start build
+  start nodes-or-dom-strings
+
+  cause call-method
+    mount object, share build
+    mount method, |replaceChildren|
+    mount factor, share nodes-or-dom-strings

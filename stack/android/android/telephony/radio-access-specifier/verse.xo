@@ -1,0 +1,74 @@
+
+force build-radio-access-specifier
+  mount ran, field int
+  mount bands, field int-array
+  mount channels, field int-array
+
+  cause invoke-constructor
+    drive constructor, |RadioAccessSpecifier|
+    drive factor, share ran
+    drive factor, share bands
+    drive factor, share channels
+    throw build, field radio-access-specifier
+
+force describe-contents
+  mount build, field radio-access-specifier
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field radio-access-specifier
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-bands
+  mount build, field radio-access-specifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getBands|
+    throw build, field int-array
+
+force get-channels
+  mount build, field radio-access-specifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannels|
+    throw build, field int-array
+
+force get-radio-access-network
+  mount build, field radio-access-specifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getRadioAccessNetwork|
+    throw build, field int
+
+force hash-code
+  mount build, field radio-access-specifier
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field radio-access-specifier
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,1723 @@
+force get-length
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |length|
+    raise build, field int
+
+force set-length
+  field build, field ns-string
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |length|
+    drive factor, share value
+
+force length-of-bytes
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |lengthOfBytes|
+    drive factor
+      brand using
+      share using
+    raise build, class int
+
+force maximum-length-of-bytes
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |maximumLengthOfBytes|
+    drive factor
+      brand using
+      share using
+    raise build, class int
+
+force character
+  field build, field ns-string
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |character|
+    drive factor
+      brand at
+      share at
+    raise build, class unichar
+
+force get-characters
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-unichar
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacters|
+    drive factor, share a
+    drive factor
+      brand range
+      share range
+
+force get-bytes
+  field build, field ns-string
+  field a, class unsafe-mutable-raw-pointer
+  field max-length, field int
+  field used-length, field unsafe-mutable-pointer-int
+  field encoding, field u-int
+  field options, field ns-string-encoding-conversion-options
+  field range, field ns-range
+  field remaining, field ns-range-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    drive factor
+      brand used-length
+      share used-length
+    drive factor
+      brand encoding
+      share encoding
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand remaining
+      share remaining
+    raise build, class bool
+
+force c-string
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |cString|
+    drive factor
+      brand using
+      share using
+    raise build, class unsafe-pointer-int8
+
+force get-c-string
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int8
+  field max-length, field int
+  field encoding, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCString|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    drive factor
+      brand encoding
+      share encoding
+    raise build, class bool
+
+force get-utf8-string
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |utf8String|
+    raise build, field unsafe-pointer-int8
+
+force set-utf8-string
+  field build, field ns-string
+  field value, field unsafe-pointer-int8
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |utf8String|
+    drive factor, share value
+
+force case-insensitive-compare
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |caseInsensitiveCompare|
+    drive factor, share a
+    raise build, class comparison-result
+
+force localized-case-insensitive-compare
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedCaseInsensitiveCompare|
+    drive factor, share a
+    raise build, class comparison-result
+
+force compare
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    raise build, class comparison-result
+
+force localized-compare
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedCompare|
+    drive factor, share a
+    raise build, class comparison-result
+
+force compare
+  field build, field ns-string
+  field a, class string
+  field options, field ns-string-compare-options
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+    raise build, class comparison-result
+
+force compare
+  field build, field ns-string
+  field a, class string
+  field options, field ns-string-compare-options
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    raise build, class comparison-result
+
+force compare
+  field build, field ns-string
+  field a, class string
+  field options, field ns-string-compare-options
+  field range, field ns-range
+  field locale, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand locale
+      share locale
+    raise build, class comparison-result
+
+force localized-standard-compare
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedStandardCompare|
+    drive factor, share a
+    raise build, class comparison-result
+
+force has-prefix
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasPrefix|
+    drive factor, share a
+    raise build, class bool
+
+force has-suffix
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSuffix|
+    drive factor, share a
+    raise build, class bool
+
+force is-equal
+  field build, field ns-string
+  field to, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isEqual|
+    drive factor
+      brand to
+      share to
+    raise build, class bool
+
+force get-hash
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hash|
+    raise build, field int
+
+force set-hash
+  field build, field ns-string
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hash|
+    drive factor, share value
+
+force appending-format
+  field build, field ns-string
+  field a, class ns-string
+  field b, class c-var-arg
+
+  cause call-method
+    drive object, share build
+    drive method, |appendingFormat|
+    drive factor, share a
+    drive factor, share b
+    raise build, class ns-string
+
+force appending
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |appending|
+    drive factor, share a
+    raise build, class string
+
+force padding
+  field build, field ns-string
+  field to-length, field int
+  field with-pad, field string
+  field starting-at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |padding|
+    drive factor
+      brand to-length
+      share to-length
+    drive factor
+      brand with-pad
+      share with-pad
+    drive factor
+      brand starting-at
+      share starting-at
+    raise build, class string
+
+force get-lowercased
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lowercased|
+    raise build, field string
+
+force set-lowercased
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lowercased|
+    drive factor, share value
+
+force get-localized-lowercase
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |localizedLowercase|
+    raise build, field string
+
+force set-localized-lowercase
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |localizedLowercase|
+    drive factor, share value
+
+force lowercased
+  field build, field ns-string
+  field with, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |lowercased|
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force get-uppercased
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |uppercased|
+    raise build, field string
+
+force set-uppercased
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |uppercased|
+    drive factor, share value
+
+force get-localized-uppercase
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |localizedUppercase|
+    raise build, field string
+
+force set-localized-uppercase
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |localizedUppercase|
+    drive factor, share value
+
+force uppercased
+  field build, field ns-string
+  field with, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |uppercased|
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force get-capitalized
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |capitalized|
+    raise build, field string
+
+force set-capitalized
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |capitalized|
+    drive factor, share value
+
+force get-localized-capitalized
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |localizedCapitalized|
+    raise build, field string
+
+force set-localized-capitalized
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |localizedCapitalized|
+    drive factor, share value
+
+force capitalized
+  field build, field ns-string
+  field with, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |capitalized|
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force components
+  field build, field ns-string
+  field separated-by, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |components|
+    drive factor
+      brand separated-by
+      share separated-by
+    raise build, class string
+
+force components
+  field build, field ns-string
+  field separated-by, field character-set
+
+  cause call-method
+    drive object, share build
+    drive method, |components|
+    drive factor
+      brand separated-by
+      share separated-by
+    raise build, class string
+
+force trimming-characters
+  field build, field ns-string
+  field in, field character-set
+
+  cause call-method
+    drive object, share build
+    drive method, |trimmingCharacters|
+    drive factor
+      brand in
+      share in
+    raise build, class string
+
+force substring
+  field build, field ns-string
+  field from, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |substring|
+    drive factor
+      brand from
+      share from
+    raise build, class string
+
+force substring
+  field build, field ns-string
+  field with, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |substring|
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force substring
+  field build, field ns-string
+  field to, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |substring|
+    drive factor
+      brand to
+      share to
+    raise build, class string
+
+force get-decomposed-string-with-canonical-mapping
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |decomposedStringWithCanonicalMapping|
+    raise build, field string
+
+force set-decomposed-string-with-canonical-mapping
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |decomposedStringWithCanonicalMapping|
+    drive factor, share value
+
+force get-decomposed-string-with-compatibility-mapping
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |decomposedStringWithCompatibilityMapping|
+    raise build, field string
+
+force set-decomposed-string-with-compatibility-mapping
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |decomposedStringWithCompatibilityMapping|
+    drive factor, share value
+
+force get-precomposed-string-with-canonical-mapping
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |precomposedStringWithCanonicalMapping|
+    raise build, field string
+
+force set-precomposed-string-with-canonical-mapping
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |precomposedStringWithCanonicalMapping|
+    drive factor, share value
+
+force get-precomposed-string-with-compatibility-mapping
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |precomposedStringWithCompatibilityMapping|
+    raise build, field string
+
+force set-precomposed-string-with-compatibility-mapping
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |precomposedStringWithCompatibilityMapping|
+    drive factor, share value
+
+force folding
+  field build, field ns-string
+  field options, field ns-string-compare-options
+  field locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |folding|
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand locale
+      share locale
+    raise build, class string
+
+force applying-transform
+  field build, field ns-string
+  field a, class string-transform
+  field reverse, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |applyingTransform|
+    drive factor, share a
+    drive factor
+      brand reverse
+      share reverse
+    raise build, class string
+
+force contains
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force localized-case-insensitive-contains
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedCaseInsensitiveContains|
+    drive factor, share a
+    raise build, class bool
+
+force localized-standard-contains
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedStandardContains|
+    drive factor, share a
+    raise build, class bool
+
+force range-of-character
+  field build, field ns-string
+  field from, field character-set
+
+  cause call-method
+    drive object, share build
+    drive method, |rangeOfCharacter|
+    drive factor
+      brand from
+      share from
+    raise build, class ns-range
+
+force range-of-character
+  field build, field ns-string
+  field from, field character-set
+  field options, field ns-string-compare-options
+
+  cause call-method
+    drive object, share build
+    drive method, |rangeOfCharacter|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand options
+      share options
+    raise build, class ns-range
+
+force range-of-character
+  field build, field ns-string
+  field from, field character-set
+  field options, field ns-string-compare-options
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |rangeOfCharacter|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    raise build, class ns-range
+
+force range
+  field build, field ns-string
+  field of, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    raise build, class ns-range
+
+force range
+  field build, field ns-string
+  field of, field string
+  field options, field ns-string-compare-options
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand options
+      share options
+    raise build, class ns-range
+
+force range
+  field build, field ns-string
+  field of, field string
+  field options, field ns-string-compare-options
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    raise build, class ns-range
+
+force range
+  field build, field ns-string
+  field of, field string
+  field options, field ns-string-compare-options
+  field range, field ns-range
+  field locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand locale
+      share locale
+    raise build, class ns-range
+
+force localized-standard-range
+  field build, field ns-string
+  field of, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedStandardRange|
+    drive factor
+      brand of
+      share of
+    raise build, class ns-range
+
+force replacing-occurrences
+  field build, field ns-string
+  field of, field string
+  field with, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replacingOccurrences|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force replacing-occurrences
+  field build, field ns-string
+  field of, field string
+  field with, field string
+  field options, field ns-string-compare-options
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |replacingOccurrences|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand range
+      share range
+    raise build, class string
+
+force replacing-characters
+  field build, field ns-string
+  field in, field ns-range
+  field with, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replacingCharacters|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force common-prefix
+  field build, field ns-string
+  field with, field string
+  field options, field ns-string-compare-options
+
+  cause call-method
+    drive object, share build
+    drive method, |commonPrefix|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand options
+      share options
+    raise build, class string
+
+force linguistic-tags
+  field build, field ns-string
+  field in, field ns-range
+  field scheme, field ns-linguistic-tag-scheme
+  field options, field ns-linguistic-tagger-options
+  field orthography, field ns-orthography
+  field token-ranges, field autoreleasing-unsafe-mutable-pointer-ns-array
+
+  cause call-method
+    drive object, share build
+    drive method, |linguisticTags|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand scheme
+      share scheme
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand orthography
+      share orthography
+    drive factor
+      brand token-ranges
+      share token-ranges
+    raise build, class ns-linguistic-tag
+
+force get-line-start
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int
+  field end, field unsafe-mutable-pointer-int
+  field contents-end, field unsafe-mutable-pointer-int
+  field for, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineStart|
+    drive factor, share a
+    drive factor
+      brand end
+      share end
+    drive factor
+      brand contents-end
+      share contents-end
+    drive factor
+      brand for
+      share for
+
+force line-range
+  field build, field ns-string
+  field for, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |lineRange|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-range
+
+force get-paragraph-start
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int
+  field end, field unsafe-mutable-pointer-int
+  field contents-end, field unsafe-mutable-pointer-int
+  field for, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphStart|
+    drive factor, share a
+    drive factor
+      brand end
+      share end
+    drive factor
+      brand contents-end
+      share contents-end
+    drive factor
+      brand for
+      share for
+
+force paragraph-range
+  field build, field ns-string
+  field for, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |paragraphRange|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-range
+
+force range-of-composed-character-sequence
+  field build, field ns-string
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |rangeOfComposedCharacterSequence|
+    drive factor
+      brand at
+      share at
+    raise build, class ns-range
+
+force range-of-composed-character-sequences
+  field build, field ns-string
+  field for, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |rangeOfComposedCharacterSequences|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-range
+
+force write
+  field build, field ns-string
+  field to-file, field string
+  field atomically, field bool
+  field encoding, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to-file
+      share to-file
+    drive factor
+      brand atomically
+      share atomically
+    drive factor
+      brand encoding
+      share encoding
+
+force write
+  field build, field ns-string
+  field to, field url
+  field atomically, field bool
+  field encoding, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand atomically
+      share atomically
+    drive factor
+      brand encoding
+      share encoding
+
+force property-list
+  field build, field ns-string
+
+  cause call-method
+    drive object, share build
+    drive method, |propertyList|
+    raise build, class any
+
+force property-list-from-strings-file-format
+  field build, field ns-string
+
+  cause call-method
+    drive object, share build
+    drive method, |propertyListFromStringsFileFormat|
+    raise build, class any-hashable-any
+
+force variant-fitting-presentation-width
+  field build, field ns-string
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |variantFittingPresentationWidth|
+    drive factor, share a
+    raise build, class string
+
+force get-double-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |doubleValue|
+    raise build, field double
+
+force set-double-value
+  field build, field ns-string
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |doubleValue|
+    drive factor, share value
+
+force get-float-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |floatValue|
+    raise build, field float
+
+force set-float-value
+  field build, field ns-string
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |floatValue|
+    drive factor, share value
+
+force get-int-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |intValue|
+    raise build, field int32
+
+force set-int-value
+  field build, field ns-string
+  field value, field int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |intValue|
+    drive factor, share value
+
+force get-integer-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |integerValue|
+    raise build, field int
+
+force set-integer-value
+  field build, field ns-string
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |integerValue|
+    drive factor, share value
+
+force get-long-long-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |longLongValue|
+    raise build, field int64
+
+force set-long-long-value
+  field build, field ns-string
+  field value, field int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |longLongValue|
+    drive factor, share value
+
+force get-bool-value
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |boolValue|
+    raise build, field bool
+
+force set-bool-value
+  field build, field ns-string
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |boolValue|
+    drive factor, share value
+
+force get-class-available-string-encodings
+
+  cause get-aspect
+    drive object, |NSString|
+    drive aspect, |availableStringEncodings|
+    raise build, field unsafe-pointer-u-int
+
+force set-class-available-string-encodings
+  field value, field unsafe-pointer-u-int
+
+  cause set-aspect
+    drive object, |NSString|
+    drive aspect, |availableStringEncodings|
+    drive factor, share value
+
+force get-class-default-c-string-encoding
+
+  cause get-aspect
+    drive object, |NSString|
+    drive aspect, |defaultCStringEncoding|
+    raise build, field u-int
+
+force set-class-default-c-string-encoding
+  field value, field u-int
+
+  cause set-aspect
+    drive object, |NSString|
+    drive aspect, |defaultCStringEncoding|
+    drive factor, share value
+
+force can-be-converted
+  field build, field ns-string
+  field to, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |canBeConverted|
+    drive factor
+      brand to
+      share to
+    raise build, class bool
+
+force data
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |data|
+    drive factor
+      brand using
+      share using
+    raise build, class data
+
+force data
+  field build, field ns-string
+  field using, field u-int
+  field allow-lossy-conversion, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |data|
+    drive factor
+      brand using
+      share using
+    drive factor
+      brand allow-lossy-conversion
+      share allow-lossy-conversion
+    raise build, class data
+
+force get-description
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-fastest-encoding
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fastestEncoding|
+    raise build, field u-int
+
+force set-fastest-encoding
+  field build, field ns-string
+  field value, field u-int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fastestEncoding|
+    drive factor, share value
+
+force get-smallest-encoding
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |smallestEncoding|
+    raise build, field u-int
+
+force set-smallest-encoding
+  field build, field ns-string
+  field value, field u-int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |smallestEncoding|
+    drive factor, share value
+
+force get-path-components
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pathComponents|
+    raise build, field string
+
+force set-path-components
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pathComponents|
+    drive factor, share value
+
+force complete-path
+  field build, field ns-string
+  field into, field autoreleasing-unsafe-mutable-pointer-ns-string
+  field case-sensitive, field bool
+  field matches-into, field autoreleasing-unsafe-mutable-pointer-ns-array
+  field filter-types, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |completePath|
+    drive factor
+      brand into
+      share into
+    drive factor
+      brand case-sensitive
+      share case-sensitive
+    drive factor
+      brand matches-into
+      share matches-into
+    drive factor
+      brand filter-types
+      share filter-types
+    raise build, class int
+
+force get-file-system-representation
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fileSystemRepresentation|
+    raise build, field unsafe-pointer-int8
+
+force set-file-system-representation
+  field build, field ns-string
+  field value, field unsafe-pointer-int8
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fileSystemRepresentation|
+    drive factor, share value
+
+force get-file-system-representation
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int8
+  field max-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileSystemRepresentation|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    raise build, class bool
+
+force get-is-absolute-path
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAbsolutePath|
+    raise build, field bool
+
+force set-is-absolute-path
+  field build, field ns-string
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAbsolutePath|
+    drive factor, share value
+
+force get-last-path-component
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lastPathComponent|
+    raise build, field string
+
+force set-last-path-component
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lastPathComponent|
+    drive factor, share value
+
+force get-path-extension
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pathExtension|
+    raise build, field string
+
+force set-path-extension
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pathExtension|
+    drive factor, share value
+
+force get-abbreviating-with-tilde-in-path
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |abbreviatingWithTildeInPath|
+    raise build, field string
+
+force set-abbreviating-with-tilde-in-path
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |abbreviatingWithTildeInPath|
+    drive factor, share value
+
+force appending-path-component
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |appendingPathComponent|
+    drive factor, share a
+    raise build, class string
+
+force appending-path-extension
+  field build, field ns-string
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |appendingPathExtension|
+    drive factor, share a
+    raise build, class string
+
+force get-deleting-last-path-component
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deletingLastPathComponent|
+    raise build, field string
+
+force set-deleting-last-path-component
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deletingLastPathComponent|
+    drive factor, share value
+
+force get-deleting-path-extension
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deletingPathExtension|
+    raise build, field string
+
+force set-deleting-path-extension
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deletingPathExtension|
+    drive factor, share value
+
+force get-expanding-tilde-in-path
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |expandingTildeInPath|
+    raise build, field string
+
+force set-expanding-tilde-in-path
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |expandingTildeInPath|
+    drive factor, share value
+
+force get-resolving-symlinks-in-path
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |resolvingSymlinksInPath|
+    raise build, field string
+
+force set-resolving-symlinks-in-path
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |resolvingSymlinksInPath|
+    drive factor, share value
+
+force get-standardizing-path
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |standardizingPath|
+    raise build, field string
+
+force set-standardizing-path
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |standardizingPath|
+    drive factor, share value
+
+force strings
+  field build, field ns-string
+  field by-appending-paths, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |strings|
+    drive factor
+      brand by-appending-paths
+      share by-appending-paths
+    raise build, class string
+
+force adding-percent-encoding
+  field build, field ns-string
+  field with-allowed-characters, field character-set
+
+  cause call-method
+    drive object, share build
+    drive method, |addingPercentEncoding|
+    drive factor
+      brand with-allowed-characters
+      share with-allowed-characters
+    raise build, class string
+
+force get-removing-percent-encoding
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |removingPercentEncoding|
+    raise build, field string
+
+force set-removing-percent-encoding
+  field build, field ns-string
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |removingPercentEncoding|
+    drive factor, share value
+
+force write
+  field build, field ns-string
+  field to-file, field string
+  field atomically, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to-file
+      share to-file
+    drive factor
+      brand atomically
+      share atomically
+    raise build, class bool
+
+force write
+  field build, field ns-string
+  field to, field url
+  field atomically, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand atomically
+      share atomically
+    raise build, class bool
+
+force get-characters
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-unichar
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacters|
+    drive factor, share a
+
+force c-string
+  field build, field ns-string
+
+  cause call-method
+    drive object, share build
+    drive method, |cString|
+    raise build, class unsafe-pointer-int8
+
+force lossy-c-string
+  field build, field ns-string
+
+  cause call-method
+    drive object, share build
+    drive method, |lossyCString|
+    raise build, class unsafe-pointer-int8
+
+force c-string-length
+  field build, field ns-string
+
+  cause call-method
+    drive object, share build
+    drive method, |cStringLength|
+    raise build, class int
+
+force get-c-string
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |getCString|
+    drive factor, share a
+
+force get-c-string
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int8
+  field max-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCString|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+
+force get-c-string
+  field build, field ns-string
+  field a, class unsafe-mutable-pointer-int8
+  field max-length, field int
+  field range, field ns-range
+  field remaining, field ns-range-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |getCString|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand remaining
+      share remaining
+
+force adding-percent-escapes
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |addingPercentEscapes|
+    drive factor
+      brand using
+      share using
+    raise build, class string
+
+force replacing-percent-escapes
+  field build, field ns-string
+  field using, field u-int
+
+  cause call-method
+    drive object, share build
+    drive method, |replacingPercentEscapes|
+    drive factor
+      brand using
+      share using
+    raise build, class string
+
+force get-custom-playground-quick-look
+  field build, field ns-string
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field ns-string
+  field value, field playground-quick-look
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    drive factor, share value

@@ -1,0 +1,110 @@
+
+force build-zoom-controls
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ZoomControls|
+    drive factor, share context
+    throw build, field zoom-controls
+
+force build-zoom-controls
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ZoomControls|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field zoom-controls
+
+force get-accessibility-class-name
+  mount build, field zoom-controls
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force has-focus
+  mount build, field zoom-controls
+
+  cause call-method
+    drive object, share build
+    drive method, |hasFocus|
+    throw build, field boolean
+
+force hide
+  mount build, field zoom-controls
+
+  cause call-method
+    drive object, share build
+    drive method, |hide|
+    throw build, field unit
+
+force on-touch-event
+  mount build, field zoom-controls
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force set-is-zoom-in-enabled
+  mount build, field zoom-controls
+  mount is-enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIsZoomInEnabled|
+    drive factor, share is-enabled
+    throw build, field unit
+
+force set-is-zoom-out-enabled
+  mount build, field zoom-controls
+  mount is-enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIsZoomOutEnabled|
+    drive factor, share is-enabled
+    throw build, field unit
+
+force set-on-zoom-in-click-listener
+  mount build, field zoom-controls
+  mount listener, field view-on-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnZoomInClickListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-on-zoom-out-click-listener
+  mount build, field zoom-controls
+  mount listener, field view-on-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnZoomOutClickListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-zoom-speed
+  mount build, field zoom-controls
+  mount speed, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setZoomSpeed|
+    drive factor, share speed
+    throw build, field unit
+
+force show
+  mount build, field zoom-controls
+
+  cause call-method
+    drive object, share build
+    drive method, |show|
+    throw build, field unit

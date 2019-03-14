@@ -1,0 +1,163 @@
+
+force get-resize-both
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESIZE_BOTH|
+    throw build, field int
+
+force get-resize-horizontal
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESIZE_HORIZONTAL|
+    throw build, field int
+
+force get-resize-none
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESIZE_NONE|
+    throw build, field int
+
+force get-resize-vertical
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESIZE_VERTICAL|
+    throw build, field int
+
+force get-widget-category-home-screen
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |WIDGET_CATEGORY_HOME_SCREEN|
+    throw build, field int
+
+force get-widget-category-keyguard
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |WIDGET_CATEGORY_KEYGUARD|
+    throw build, field int
+
+force get-widget-category-searchbox
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |WIDGET_CATEGORY_SEARCHBOX|
+    throw build, field int
+
+force get-widget-feature-hide-from-picker
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |WIDGET_FEATURE_HIDE_FROM_PICKER|
+    throw build, field int
+
+force get-widget-feature-reconfigurable
+  mount build, field app-widget-provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |WIDGET_FEATURE_RECONFIGURABLE|
+    throw build, field int
+
+force build-app-widget-provider-info
+  cause invoke-constructor
+    drive constructor, |AppWidgetProviderInfo|
+    throw build, field app-widget-provider-info
+
+force build-app-widget-provider-info
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |AppWidgetProviderInfo|
+    drive factor, share in
+    throw build, field app-widget-provider-info
+
+force clone
+  mount build, field app-widget-provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field app-widget-provider-info
+
+force describe-contents
+  mount build, field app-widget-provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-profile
+  mount build, field app-widget-provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfile|
+    throw build, field user-handle
+
+force load-icon
+  mount build, field app-widget-provider-info
+  mount context, field context
+  mount density, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIcon|
+    drive factor, share context
+    drive factor, share density
+    throw build, field drawable
+
+force load-label
+  mount build, field app-widget-provider-info
+  mount package-manager, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLabel|
+    drive factor, share package-manager
+    throw build, field string
+
+force load-preview-image
+  mount build, field app-widget-provider-info
+  mount context, field context
+  mount density, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadPreviewImage|
+    drive factor, share context
+    drive factor, share density
+    throw build, field drawable
+
+force to-string
+  mount build, field app-widget-provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field app-widget-provider-info
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,61 @@
+
+force build-x509-extended-trust-manager
+  cause invoke-constructor
+    mount constructor, |X509ExtendedTrustManager|
+    throw build, field x509-extended-trust-manager
+
+force check-client-trusted
+  start build, field x509-extended-trust-manager
+  start chain, field array-x509-certificate
+  start auth-type, field string
+  start socket, field socket
+
+  cause call-method
+    mount object, share build
+    mount method, |checkClientTrusted|
+    mount factor, share chain
+    mount factor, share auth-type
+    mount factor, share socket
+    throw build, field unit
+
+force check-client-trusted
+  start build, field x509-extended-trust-manager
+  start chain, field array-x509-certificate
+  start auth-type, field string
+  start engine, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |checkClientTrusted|
+    mount factor, share chain
+    mount factor, share auth-type
+    mount factor, share engine
+    throw build, field unit
+
+force check-server-trusted
+  start build, field x509-extended-trust-manager
+  start chain, field array-x509-certificate
+  start auth-type, field string
+  start socket, field socket
+
+  cause call-method
+    mount object, share build
+    mount method, |checkServerTrusted|
+    mount factor, share chain
+    mount factor, share auth-type
+    mount factor, share socket
+    throw build, field unit
+
+force check-server-trusted
+  start build, field x509-extended-trust-manager
+  start chain, field array-x509-certificate
+  start auth-type, field string
+  start engine, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |checkServerTrusted|
+    mount factor, share chain
+    mount factor, share auth-type
+    mount factor, share engine
+    throw build, field unit

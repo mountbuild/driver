@@ -1,0 +1,92 @@
+
+force get-advertise-flags
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdvertiseFlags|
+    throw build, field int
+
+force get-bytes
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    throw build, field byte-array
+
+force get-device-name
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceName|
+    throw build, field string
+
+force get-manufacturer-specific-data
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getManufacturerSpecificData|
+    throw build, field sparse-array
+
+force get-manufacturer-specific-data
+  mount build, field scan-record
+  mount manufacturer-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getManufacturerSpecificData|
+    drive factor, share manufacturer-id
+    throw build, field byte-array
+
+force get-service-data
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceData|
+    throw build, field mutable-map
+
+force get-service-data
+  mount build, field scan-record
+  mount service-data-uuid, field parcel-uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceData|
+    drive factor, share service-data-uuid
+    throw build, field byte-array
+
+force get-service-solicitation-uuids
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceSolicitationUuids|
+    throw build, field mutable-list
+
+force get-service-uuids
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceUuids|
+    throw build, field mutable-list
+
+force get-tx-power-level
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getTxPowerLevel|
+    throw build, field int
+
+force to-string
+  mount build, field scan-record
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,666 @@
+
+force build-game-controller-factory-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Custom.GameControllerFactoryManager|
+
+force register-custom-factory-for-gip-interface
+  mount build, field windows-gaming-input-custom-gamecontrollerfactorymanager
+  mount factory, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount interface-id, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterCustomFactoryForGipInterface|
+    drive factor, share factory
+    drive factor, share interface-id
+
+force register-custom-factory-for-hardware-id
+  mount build, field windows-gaming-input-custom-gamecontrollerfactorymanager
+  mount factory, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount hardware-vendor-id, field system-uint16
+  mount hardware-product-id, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterCustomFactoryForHardwareId|
+    drive factor, share factory
+    drive factor, share hardware-vendor-id
+    drive factor, share hardware-product-id
+
+force register-custom-factory-for-xusb-type
+  mount build, field windows-gaming-input-custom-gamecontrollerfactorymanager
+  mount factory, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount xusb-type, field windows-gaming-input-custom-xusbdevicetype
+  mount xusb-subtype, field windows-gaming-input-custom-xusbdevicesubtype
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterCustomFactoryForXusbType|
+    drive factor, share factory
+    drive factor, share xusb-type
+    drive factor, share xusb-subtype
+
+force try-get-factory-controller-from-game-controller
+  mount build, field windows-gaming-input-custom-gamecontrollerfactorymanager
+  mount factory, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount game-controller, field windows-gaming-input-igamecontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |TryGetFactoryControllerFromGameController|
+    drive factor, share factory
+    drive factor, share game-controller
+
+force build-gip-firmware-update-result
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Custom.GipFirmwareUpdateResult|
+
+force get-extended-error-code
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExtendedErrorCode|
+
+force set-extended-error-code
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExtendedErrorCode|
+    drive factor, share value
+
+force get-final-component-id
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FinalComponentId|
+
+force set-final-component-id
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FinalComponentId|
+    drive factor, share value
+
+force get-status
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  mount build, field windows-gaming-input-custom-gipfirmwareupdateresult
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-gip-firmware-update-status
+  cause get-object
+    drive aspect, |Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus|
+
+force build-gip-game-controller-provider
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Custom.GipGameControllerProvider|
+
+force get-firmware-version-info
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+
+force set-firmware-version-info
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+    drive factor, share value
+
+force get-hardware-product-id
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+
+force set-hardware-product-id
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+    drive factor, share value
+
+force get-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+
+force set-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+    drive factor, share value
+
+force get-hardware-version-info
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+
+force set-hardware-version-info
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+    drive factor, share value
+
+force get-is-connected
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+
+force set-is-connected
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+    drive factor, share value
+
+force send-message
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount message-class, field windows-gaming-input-custom-gipmessageclass
+  mount message-id, field system-byte
+  mount message-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |SendMessage|
+    drive factor, share message-class
+    drive factor, share message-id
+    drive factor, share message-buffer
+
+force send-receive-message
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount message-class, field windows-gaming-input-custom-gipmessageclass
+  mount message-id, field system-byte
+  mount request-message-buffer, field system-byte
+  mount response-message-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |SendReceiveMessage|
+    drive factor, share message-class
+    drive factor, share message-id
+    drive factor, share request-message-buffer
+    drive factor, share response-message-buffer
+
+force update-firmware-async
+  mount build, field windows-gaming-input-custom-gipgamecontrollerprovider
+  mount firmware-image, field windows-storage-streams-iinputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateFirmwareAsync|
+    drive factor, share firmware-image
+
+force get-gip-message-class
+  cause get-object
+    drive aspect, |Windows.Gaming.Input.Custom.GipMessageClass|
+
+force build-hid-game-controller-provider
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Custom.HidGameControllerProvider|
+
+force get-firmware-version-info
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+
+force set-firmware-version-info
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+    drive factor, share value
+
+force get-feature-report
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount report-id, field system-byte
+  mount report-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFeatureReport|
+    drive factor, share report-id
+    drive factor, share report-buffer
+
+force get-hardware-product-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+
+force set-hardware-product-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+    drive factor, share value
+
+force get-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+
+force set-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+    drive factor, share value
+
+force get-hardware-version-info
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+
+force set-hardware-version-info
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+    drive factor, share value
+
+force get-is-connected
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+
+force set-is-connected
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+    drive factor, share value
+
+force send-feature-report
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount report-id, field system-byte
+  mount report-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |SendFeatureReport|
+    drive factor, share report-id
+    drive factor, share report-buffer
+
+force send-output-report
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount report-id, field system-byte
+  mount report-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |SendOutputReport|
+    drive factor, share report-id
+    drive factor, share report-buffer
+
+force get-usage-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UsageId|
+
+force set-usage-id
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UsageId|
+    drive factor, share value
+
+force get-usage-page
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UsagePage|
+
+force set-usage-page
+  mount build, field windows-gaming-input-custom-hidgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UsagePage|
+    drive factor, share value
+
+force create-game-controller
+  mount build, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount provider, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateGameController|
+    drive factor, share provider
+
+force on-game-controller-added
+  mount build, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount value, field windows-gaming-input-igamecontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |OnGameControllerAdded|
+    drive factor, share value
+
+force on-game-controller-removed
+  mount build, field windows-gaming-input-custom-icustomgamecontrollerfactory
+  mount value, field windows-gaming-input-igamecontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |OnGameControllerRemoved|
+    drive factor, share value
+
+force on-input-resumed
+  mount build, field windows-gaming-input-custom-igamecontrollerinputsink
+  mount timestamp, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |OnInputResumed|
+    drive factor, share timestamp
+
+force on-input-suspended
+  mount build, field windows-gaming-input-custom-igamecontrollerinputsink
+  mount timestamp, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |OnInputSuspended|
+    drive factor, share timestamp
+
+force get-firmware-version-info
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+
+force set-firmware-version-info
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+    drive factor, share value
+
+force get-hardware-product-id
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+
+force set-hardware-product-id
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+    drive factor, share value
+
+force get-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+
+force set-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+    drive factor, share value
+
+force get-hardware-version-info
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+
+force set-hardware-version-info
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+    drive factor, share value
+
+force get-is-connected
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+
+force set-is-connected
+  mount build, field windows-gaming-input-custom-igamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+    drive factor, share value
+
+force on-key-received
+  mount build, field windows-gaming-input-custom-igipgamecontrollerinputsink
+  mount timestamp, field system-uint64
+  mount key-code, field system-byte
+  mount is-pressed, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |OnKeyReceived|
+    drive factor, share timestamp
+    drive factor, share key-code
+    drive factor, share is-pressed
+
+force on-message-received
+  mount build, field windows-gaming-input-custom-igipgamecontrollerinputsink
+  mount timestamp, field system-uint64
+  mount message-class, field windows-gaming-input-custom-gipmessageclass
+  mount message-id, field system-byte
+  mount sequence-id, field system-byte
+  mount message-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |OnMessageReceived|
+    drive factor, share timestamp
+    drive factor, share message-class
+    drive factor, share message-id
+    drive factor, share sequence-id
+    drive factor, share message-buffer
+
+force on-input-report-received
+  mount build, field windows-gaming-input-custom-ihidgamecontrollerinputsink
+  mount timestamp, field system-uint64
+  mount report-id, field system-byte
+  mount report-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |OnInputReportReceived|
+    drive factor, share timestamp
+    drive factor, share report-id
+    drive factor, share report-buffer
+
+force on-input-received
+  mount build, field windows-gaming-input-custom-ixusbgamecontrollerinputsink
+  mount timestamp, field system-uint64
+  mount report-id, field system-byte
+  mount input-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |OnInputReceived|
+    drive factor, share timestamp
+    drive factor, share report-id
+    drive factor, share input-buffer
+
+force get-xusb-device-subtype
+  cause get-object
+    drive aspect, |Windows.Gaming.Input.Custom.XusbDeviceSubtype|
+
+force get-xusb-device-type
+  cause get-object
+    drive aspect, |Windows.Gaming.Input.Custom.XusbDeviceType|
+
+force build-xusb-game-controller-provider
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Custom.XusbGameControllerProvider|
+
+force get-firmware-version-info
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+
+force set-firmware-version-info
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirmwareVersionInfo|
+    drive factor, share value
+
+force get-hardware-product-id
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+
+force set-hardware-product-id
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareProductId|
+    drive factor, share value
+
+force get-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+
+force set-hardware-vendor-id
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVendorId|
+    drive factor, share value
+
+force get-hardware-version-info
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+
+force set-hardware-version-info
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareVersionInfo|
+    drive factor, share value
+
+force get-is-connected
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+
+force set-is-connected
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsConnected|
+    drive factor, share value
+
+force set-vibration
+  mount build, field windows-gaming-input-custom-xusbgamecontrollerprovider
+  mount low-frequency-motor-speed, field system-double
+  mount high-frequency-motor-speed, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |SetVibration|
+    drive factor, share low-frequency-motor-speed
+    drive factor, share high-frequency-motor-speed

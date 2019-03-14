@@ -1,0 +1,162 @@
+
+force build-locale-list
+  mount vararg-list, field locale
+
+  cause invoke-constructor
+    drive constructor, |LocaleList|
+    drive factor, share vararg-list
+    raise build, field locale-list
+
+force describe-contents
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field locale-list
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force for-language-tags
+  mount build, field locale-list
+  mount list, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |forLanguageTags|
+    drive factor, share list
+    raise build, field locale-list
+
+force get
+  mount build, field locale-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share index
+    raise build, field locale
+
+force get-adjusted-default
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdjustedDefault|
+    raise build, field locale-list
+
+force get-default
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    raise build, field locale-list
+
+force get-empty-locale-list
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getEmptyLocaleList|
+    raise build, field locale-list
+
+force get-first-match
+  mount build, field locale-list
+  mount supported-locales, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFirstMatch|
+    drive factor, share supported-locales
+    raise build, field locale
+
+force hash-code
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force index-of
+  mount build, field locale-list
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share locale
+    raise build, field int
+
+force is-empty
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    raise build, field boolean
+
+force is-pseudo-locale
+  mount build, field locale-list
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |isPseudoLocale|
+    drive factor, share locale
+    raise build, field boolean
+
+force set-default
+  mount build, field locale-list
+  mount locales, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share locales
+    raise build, field unit
+
+force size
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    raise build, field int
+
+force to-language-tags
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |toLanguageTags|
+    raise build, field string
+
+force to-string
+  mount build, field locale-list
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field locale-list
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    raise build, field unit

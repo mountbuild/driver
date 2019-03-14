@@ -1,0 +1,160 @@
+
+force build-network-info
+  start type, field int
+  start subtype, field int
+  start type-name, field string
+  start subtype-name, field string
+
+  cause invoke-constructor
+    drive constructor, |NetworkInfo|
+    drive factor, share type
+    drive factor, share subtype
+    drive factor, share type-name
+    drive factor, share subtype-name
+    throw build, field network-info
+
+force describe-contents
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-detailed-state
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDetailedState|
+    throw build, field network-info-detailed-state
+
+force get-extra-info
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtraInfo|
+    throw build, field string
+
+force get-reason
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field string
+
+force get-state
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field network-info-state
+
+force get-subtype
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubtype|
+    throw build, field int
+
+force get-subtype-name
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubtypeName|
+    throw build, field string
+
+force get-type
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force get-type-name
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getTypeName|
+    throw build, field string
+
+force is-available
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isAvailable|
+    throw build, field boolean
+
+force is-connected
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force is-connected-or-connecting
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnectedOrConnecting|
+    throw build, field boolean
+
+force is-failover
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isFailover|
+    throw build, field boolean
+
+force is-roaming
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isRoaming|
+    throw build, field boolean
+
+force set-detailed-state
+  start build, field network-info
+  start detailed-state, field network-info-detailed-state
+  start reason, field string
+  start extra-info, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDetailedState|
+    drive factor, share detailed-state
+    drive factor, share reason
+    drive factor, share extra-info
+    throw build, field unit
+
+force to-string
+  start build, field network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field network-info
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

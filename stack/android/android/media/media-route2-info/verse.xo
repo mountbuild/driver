@@ -1,0 +1,222 @@
+
+force get-connection-state-connected
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_STATE_CONNECTED|
+    raise build, field int
+
+force get-connection-state-connecting
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_STATE_CONNECTING|
+    raise build, field int
+
+force get-connection-state-disconnected
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_STATE_DISCONNECTED|
+    raise build, field int
+
+force get-feature-live-audio
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FEATURE_LIVE_AUDIO|
+    raise build, field string
+
+force get-feature-live-video
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FEATURE_LIVE_VIDEO|
+    raise build, field string
+
+force get-feature-remote-audio-playback
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FEATURE_REMOTE_AUDIO_PLAYBACK|
+    raise build, field string
+
+force get-feature-remote-playback
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FEATURE_REMOTE_PLAYBACK|
+    raise build, field string
+
+force get-feature-remote-video-playback
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FEATURE_REMOTE_VIDEO_PLAYBACK|
+    raise build, field string
+
+force get-playback-volume-fixed
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYBACK_VOLUME_FIXED|
+    raise build, field int
+
+force get-playback-volume-variable
+  start build, field media-route2-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYBACK_VOLUME_VARIABLE|
+    raise build, field int
+
+force describe-contents
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  start build, field media-route2-info
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-client-package-name
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientPackageName|
+    raise build, field string
+
+force get-connection-state
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    raise build, field int
+
+force get-description
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    raise build, field char-sequence
+
+force get-extras
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    raise build, field bundle
+
+force get-features
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeatures|
+    raise build, field mutable-list
+
+force get-icon-uri
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconUri|
+    raise build, field uri
+
+force get-id
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field string
+
+force get-name
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field char-sequence
+
+force get-volume
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolume|
+    raise build, field int
+
+force get-volume-handling
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolumeHandling|
+    raise build, field int
+
+force get-volume-max
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolumeMax|
+    raise build, field int
+
+force hash-code
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-system-route
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isSystemRoute|
+    raise build, field boolean
+
+force to-string
+  start build, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  start build, field media-route2-info
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

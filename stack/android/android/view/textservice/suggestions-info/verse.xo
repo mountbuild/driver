@@ -1,0 +1,130 @@
+
+force get-result-attr-has-recommended-suggestions
+  mount build, field suggestions-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ATTR_HAS_RECOMMENDED_SUGGESTIONS|
+    raise build, field int
+
+force get-result-attr-in-the-dictionary
+  mount build, field suggestions-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ATTR_IN_THE_DICTIONARY|
+    raise build, field int
+
+force get-result-attr-looks-like-typo
+  mount build, field suggestions-info
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ATTR_LOOKS_LIKE_TYPO|
+    raise build, field int
+
+force build-suggestions-info
+  mount suggestions-attributes, field int
+  mount suggestions, field array-string
+
+  cause invoke-constructor
+    drive constructor, |SuggestionsInfo|
+    drive factor, share suggestions-attributes
+    drive factor, share suggestions
+    raise build, field suggestions-info
+
+force build-suggestions-info
+  mount suggestions-attributes, field int
+  mount suggestions, field array-string
+  mount cookie, field int
+  mount sequence, field int
+
+  cause invoke-constructor
+    drive constructor, |SuggestionsInfo|
+    drive factor, share suggestions-attributes
+    drive factor, share suggestions
+    drive factor, share cookie
+    drive factor, share sequence
+    raise build, field suggestions-info
+
+force build-suggestions-info
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |SuggestionsInfo|
+    drive factor, share source
+    raise build, field suggestions-info
+
+force describe-contents
+  mount build, field suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-cookie
+  mount build, field suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCookie|
+    raise build, field int
+
+force get-sequence
+  mount build, field suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSequence|
+    raise build, field int
+
+force get-suggestion-at
+  mount build, field suggestions-info
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestionAt|
+    drive factor, share i
+    raise build, field string
+
+force get-suggestions-attributes
+  mount build, field suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestionsAttributes|
+    raise build, field int
+
+force get-suggestions-count
+  mount build, field suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestionsCount|
+    raise build, field int
+
+force set-cookie-and-sequence
+  mount build, field suggestions-info
+  mount cookie, field int
+  mount sequence, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCookieAndSequence|
+    drive factor, share cookie
+    drive factor, share sequence
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field suggestions-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

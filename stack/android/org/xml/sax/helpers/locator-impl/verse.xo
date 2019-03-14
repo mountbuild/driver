@@ -1,0 +1,85 @@
+
+force build-locator-impl
+  cause invoke-constructor
+    drive constructor, |LocatorImpl|
+    throw build, field locator-impl
+
+force build-locator-impl
+  mount locator, field locator
+
+  cause invoke-constructor
+    drive constructor, |LocatorImpl|
+    drive factor, share locator
+    throw build, field locator-impl
+
+force get-column-number
+  mount build, field locator-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnNumber|
+    throw build, field int
+
+force get-line-number
+  mount build, field locator-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force get-public-id
+  mount build, field locator-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getPublicId|
+    throw build, field string
+
+force get-system-id
+  mount build, field locator-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemId|
+    throw build, field string
+
+force set-column-number
+  mount build, field locator-impl
+  mount column-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setColumnNumber|
+    drive factor, share column-number
+    throw build, field unit
+
+force set-line-number
+  mount build, field locator-impl
+  mount line-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLineNumber|
+    drive factor, share line-number
+    throw build, field unit
+
+force set-public-id
+  mount build, field locator-impl
+  mount public-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPublicId|
+    drive factor, share public-id
+    throw build, field unit
+
+force set-system-id
+  mount build, field locator-impl
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSystemId|
+    drive factor, share system-id
+    throw build, field unit

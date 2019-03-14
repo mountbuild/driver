@@ -1,0 +1,46 @@
+
+force build-invalid-path-exception
+  mount input, field string
+  mount reason, field string
+  mount index, field int
+
+  cause invoke-constructor
+    drive constructor, |InvalidPathException|
+    drive factor, share input
+    drive factor, share reason
+    drive factor, share index
+    throw build, field invalid-path-exception
+
+force build-invalid-path-exception
+  mount input, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |InvalidPathException|
+    drive factor, share input
+    drive factor, share reason
+    throw build, field invalid-path-exception
+
+force get-index
+  mount build, field invalid-path-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    throw build, field int
+
+force get-input
+  mount build, field invalid-path-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getInput|
+    throw build, field string
+
+force get-reason
+  mount build, field invalid-path-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field string

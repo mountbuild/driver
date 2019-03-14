@@ -1,0 +1,18 @@
+
+force get-file
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getFile|
+    throw build
+
+force create-writable
+  start build
+  start file-system-create-writable-options
+
+  cause call-method
+    mount object, share build
+    mount method, |createWritable|
+    mount factor, share file-system-create-writable-options
+    throw build

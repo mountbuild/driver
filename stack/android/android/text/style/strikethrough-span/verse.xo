@@ -1,0 +1,51 @@
+
+force build-strikethrough-span
+  cause invoke-constructor
+    drive constructor, |StrikethroughSpan|
+    raise build, field strikethrough-span
+
+force build-strikethrough-span
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |StrikethroughSpan|
+    drive factor, share src
+    raise build, field strikethrough-span
+
+force describe-contents
+  mount build, field strikethrough-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-span-type-id
+  mount build, field strikethrough-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force update-draw-state
+  mount build, field strikethrough-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share ds
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field strikethrough-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

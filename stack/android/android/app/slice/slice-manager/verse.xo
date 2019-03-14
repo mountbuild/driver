@@ -1,0 +1,138 @@
+
+force get-category-slice
+  start build, field slice-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |CATEGORY_SLICE|
+    throw build, field string
+
+force get-slice-metadata-key
+  start build, field slice-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |SLICE_METADATA_KEY|
+    throw build, field string
+
+force bind-slice
+  start build, field slice-manager
+  start uri, field uri
+  start supported-specs, field mutable-set-slice-spec
+
+  cause call-method
+    drive object, share build
+    drive method, |bindSlice|
+    drive factor, share uri
+    drive factor, share supported-specs
+    throw build, field slice
+
+force bind-slice
+  start build, field slice-manager
+  start intent, field intent
+  start supported-specs, field mutable-set-slice-spec
+
+  cause call-method
+    drive object, share build
+    drive method, |bindSlice|
+    drive factor, share intent
+    drive factor, share supported-specs
+    throw build, field slice
+
+force check-slice-permission
+  start build, field slice-manager
+  start uri, field uri
+  start pid, field int
+  start uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkSlicePermission|
+    drive factor, share uri
+    drive factor, share pid
+    drive factor, share uid
+    throw build, field int
+
+force get-pinned-slices
+  start build, field slice-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPinnedSlices|
+    throw build, field mutable-list
+
+force get-pinned-specs
+  start build, field slice-manager
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getPinnedSpecs|
+    drive factor, share uri
+    throw build, field mutable-set
+
+force get-slice-descendants
+  start build, field slice-manager
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getSliceDescendants|
+    drive factor, share uri
+    throw build, field mutable-collection
+
+force grant-slice-permission
+  start build, field slice-manager
+  start to-package, field string
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |grantSlicePermission|
+    drive factor, share to-package
+    drive factor, share uri
+    throw build, field unit
+
+force map-intent-to-uri
+  start build, field slice-manager
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |mapIntentToUri|
+    drive factor, share intent
+    throw build, field uri
+
+force pin-slice
+  start build, field slice-manager
+  start uri, field uri
+  start specs, field mutable-set-slice-spec
+
+  cause call-method
+    drive object, share build
+    drive method, |pinSlice|
+    drive factor, share uri
+    drive factor, share specs
+    throw build, field unit
+
+force revoke-slice-permission
+  start build, field slice-manager
+  start to-package, field string
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |revokeSlicePermission|
+    drive factor, share to-package
+    drive factor, share uri
+    throw build, field unit
+
+force unpin-slice
+  start build, field slice-manager
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |unpinSlice|
+    drive factor, share uri
+    throw build, field unit

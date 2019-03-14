@@ -1,0 +1,19 @@
+
+fetch ../../../javascript/binding
+  fetch /string
+    catch field string
+
+field http2-server-options
+  start private-key, field string
+  start public-certificate, field string
+
+force create-secure-server
+  start http2
+  start options, field http2-server-options
+  start handler, share handler
+
+  cause call-method
+    mount object, share http2
+    mount method, |createSecureServer|
+    mount factor, share options
+    mount factor, share handler

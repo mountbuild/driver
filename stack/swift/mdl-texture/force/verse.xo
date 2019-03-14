@@ -1,0 +1,250 @@
+force write
+  field build, field mdl-texture
+  field to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    raise build, class bool
+
+force write
+  field build, field mdl-texture
+  field to, field url
+  field type, field cf-string
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand type
+      share type
+    raise build, class bool
+
+force image-from-texture
+  field build, field mdl-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |imageFromTexture|
+    raise build, class unmanaged-cg-image
+
+force texel-data-with-top-left-origin
+  field build, field mdl-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |texelDataWithTopLeftOrigin|
+    raise build, class data
+
+force texel-data-with-bottom-left-origin
+  field build, field mdl-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |texelDataWithBottomLeftOrigin|
+    raise build, class data
+
+force texel-data-with-top-left-origin
+  field build, field mdl-texture
+  field at-mip-level, field int
+  field create, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |texelDataWithTopLeftOrigin|
+    drive factor
+      brand at-mip-level
+      share at-mip-level
+    drive factor
+      brand create
+      share create
+    raise build, class data
+
+force texel-data-with-bottom-left-origin
+  field build, field mdl-texture
+  field at-mip-level, field int
+  field create, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |texelDataWithBottomLeftOrigin|
+    drive factor
+      brand at-mip-level
+      share at-mip-level
+    drive factor
+      brand create
+      share create
+    raise build, class data
+
+force get-dimensions
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dimensions|
+    raise build, field vector-int2
+
+force set-dimensions
+  field build, field mdl-texture
+  field value, field vector-int2
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dimensions|
+    drive factor, share value
+
+force get-row-stride
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rowStride|
+    raise build, field int
+
+force set-row-stride
+  field build, field mdl-texture
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rowStride|
+    drive factor, share value
+
+force get-channel-count
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |channelCount|
+    raise build, field int
+
+force set-channel-count
+  field build, field mdl-texture
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |channelCount|
+    drive factor, share value
+
+force get-channel-encoding
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |channelEncoding|
+    raise build, field mdl-texture-channel-encoding
+
+force set-channel-encoding
+  field build, field mdl-texture
+  field value, field mdl-texture-channel-encoding
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |channelEncoding|
+    drive factor, share value
+
+force get-is-cube
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isCube|
+    raise build, field bool
+
+force set-is-cube
+  field build, field mdl-texture
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isCube|
+    drive factor, share value
+
+force get-mip-level-count
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mipLevelCount|
+    raise build, field int
+
+force set-mip-level-count
+  field build, field mdl-texture
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mipLevelCount|
+    drive factor, share value
+
+force get-has-alpha-values
+  field build, field mdl-texture
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasAlphaValues|
+    raise build, field bool
+
+force set-has-alpha-values
+  field build, field mdl-texture
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasAlphaValues|
+    drive factor, share value
+
+force image-from-texture
+  field build, field mdl-texture
+  field at-level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |imageFromTexture|
+    drive factor
+      brand at-level
+      share at-level
+    raise build, class unmanaged-cg-image
+
+force write
+  field build, field mdl-texture
+  field to, field url
+  field level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand level
+      share level
+    raise build, class bool
+
+force write
+  field build, field mdl-texture
+  field to, field url
+  field type, field cf-string
+  field level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand type
+      share type
+    drive factor
+      brand level
+      share level
+    raise build, class bool

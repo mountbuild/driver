@@ -1,0 +1,395 @@
+
+force build-component-load-failed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.ComponentLoadFailedEventArgs|
+
+force get-completion
+  start build, field windows-media-protection-componentloadfailedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completion|
+
+force set-completion
+  start build, field windows-media-protection-componentloadfailedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completion|
+    drive factor, share value
+
+force get-information
+  start build, field windows-media-protection-componentloadfailedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Information|
+
+force set-information
+  start build, field windows-media-protection-componentloadfailedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Information|
+    drive factor, share value
+
+force build-component-renewal
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.ComponentRenewal|
+
+force renew-system-components-async
+  start build, field windows-media-protection-componentrenewal
+  start information, field windows-media-protection-revocationandrenewalinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |RenewSystemComponentsAsync|
+    drive factor, share information
+
+force get-graphics-trust-status
+  cause get-object
+    drive aspect, |Windows.Media.Protection.GraphicsTrustStatus|
+
+force get-hdcp-protection
+  cause get-object
+    drive aspect, |Windows.Media.Protection.HdcpProtection|
+
+force build-hdcp-session
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.HdcpSession|
+
+force close
+  start build, field windows-media-protection-hdcpsession
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-effective-protection
+  start build, field windows-media-protection-hdcpsession
+
+  cause call-method
+    drive object, share build
+    drive method, |GetEffectiveProtection|
+
+force ctor
+  start build, field windows-media-protection-hdcpsession
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force is-effective-protection-at-least
+  start build, field windows-media-protection-hdcpsession
+  start protection, field windows-media-protection-hdcpprotection
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEffectiveProtectionAtLeast|
+    drive factor, share protection
+
+force set-desired-min-protection-async
+  start build, field windows-media-protection-hdcpsession
+  start protection, field windows-media-protection-hdcpprotection
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDesiredMinProtectionAsync|
+    drive factor, share protection
+
+force get-hdcp-set-protection-result
+  cause get-object
+    drive aspect, |Windows.Media.Protection.HdcpSetProtectionResult|
+
+force get-protection-system
+  start build, field windows-media-protection-imediaprotectionservicerequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProtectionSystem|
+
+force set-protection-system
+  start build, field windows-media-protection-imediaprotectionservicerequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProtectionSystem|
+    drive factor, share value
+
+force get-type
+  start build, field windows-media-protection-imediaprotectionservicerequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-media-protection-imediaprotectionservicerequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force build-media-protection-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.MediaProtectionManager|
+
+force ctor
+  start build, field windows-media-protection-mediaprotectionmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-properties
+  start build, field windows-media-protection-mediaprotectionmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  start build, field windows-media-protection-mediaprotectionmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force build-media-protection-p-m-p-server
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.MediaProtectionPMPServer|
+
+force ctor
+  start build, field windows-media-protection-mediaprotectionpmpserver
+  start p-properties, field windows-foundation-collections-ipropertyset
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share p-properties
+
+force get-properties
+  start build, field windows-media-protection-mediaprotectionpmpserver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  start build, field windows-media-protection-mediaprotectionpmpserver
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force build-media-protection-service-completion
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.MediaProtectionServiceCompletion|
+
+force complete
+  start build, field windows-media-protection-mediaprotectionservicecompletion
+  start success, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |Complete|
+    drive factor, share success
+
+force build-protection-capabilities
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.ProtectionCapabilities|
+
+force is-type-supported
+  start build, field windows-media-protection-protectioncapabilities
+  start type, field system-string
+  start key-system, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsTypeSupported|
+    drive factor, share type
+    drive factor, share key-system
+
+force ctor
+  start build, field windows-media-protection-protectioncapabilities
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-protection-capability-result
+  cause get-object
+    drive aspect, |Windows.Media.Protection.ProtectionCapabilityResult|
+
+force get-renewal-status
+  cause get-object
+    drive aspect, |Windows.Media.Protection.RenewalStatus|
+
+force build-revocation-and-renewal-information
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.RevocationAndRenewalInformation|
+
+force get-items
+  start build, field windows-media-protection-revocationandrenewalinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Items|
+
+force set-items
+  start build, field windows-media-protection-revocationandrenewalinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Items|
+    drive factor, share value
+
+force build-revocation-and-renewal-item
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.RevocationAndRenewalItem|
+
+force get-header-hash
+  start build, field windows-media-protection-revocationandrenewalitem
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HeaderHash|
+
+force set-header-hash
+  start build, field windows-media-protection-revocationandrenewalitem
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HeaderHash|
+    drive factor, share value
+
+force get-name
+  start build, field windows-media-protection-revocationandrenewalitem
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-media-protection-revocationandrenewalitem
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-public-key-hash
+  start build, field windows-media-protection-revocationandrenewalitem
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PublicKeyHash|
+
+force set-public-key-hash
+  start build, field windows-media-protection-revocationandrenewalitem
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PublicKeyHash|
+    drive factor, share value
+
+force get-reasons
+  start build, field windows-media-protection-revocationandrenewalitem
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Reasons|
+
+force set-reasons
+  start build, field windows-media-protection-revocationandrenewalitem
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Reasons|
+    drive factor, share value
+
+force get-renewal-id
+  start build, field windows-media-protection-revocationandrenewalitem
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RenewalId|
+
+force set-renewal-id
+  start build, field windows-media-protection-revocationandrenewalitem
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RenewalId|
+    drive factor, share value
+
+force get-revocation-and-renewal-reasons
+  cause get-object
+    drive aspect, |Windows.Media.Protection.RevocationAndRenewalReasons|
+
+force build-service-requested-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Protection.ServiceRequestedEventArgs|
+
+force get-completion
+  start build, field windows-media-protection-servicerequestedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completion|
+
+force set-completion
+  start build, field windows-media-protection-servicerequestedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completion|
+    drive factor, share value
+
+force get-media-playback-item
+  start build, field windows-media-protection-servicerequestedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MediaPlaybackItem|
+
+force set-media-playback-item
+  start build, field windows-media-protection-servicerequestedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MediaPlaybackItem|
+    drive factor, share value
+
+force get-request
+  start build, field windows-media-protection-servicerequestedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Request|
+
+force set-request
+  start build, field windows-media-protection-servicerequestedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Request|
+    drive factor, share value

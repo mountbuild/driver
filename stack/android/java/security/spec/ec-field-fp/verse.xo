@@ -1,0 +1,42 @@
+
+force build-ec-field-fp
+  mount p, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |ECFieldFp|
+    mount factor, share p
+    throw build, field ec-field-fp
+
+force equals
+  mount build, field ec-field-fp
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-field-size
+  mount build, field ec-field-fp
+
+  cause call-method
+    mount object, share build
+    mount method, |getFieldSize|
+    throw build, field int
+
+force get-p
+  mount build, field ec-field-fp
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer
+
+force hash-code
+  mount build, field ec-field-fp
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

@@ -1,0 +1,142 @@
+force get-delegate
+  field build, field cb-peripheral-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field cb-peripheral-manager-delegate
+
+force set-delegate
+  field build, field cb-peripheral-manager
+  field value, field cb-peripheral-manager-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force add
+  field build, field cb-peripheral-manager
+  field a, class cb-mutable-service
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share a
+
+force remove
+  field build, field cb-peripheral-manager
+  field a, class cb-mutable-service
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share a
+
+force remove-all-services
+  field build, field cb-peripheral-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllServices|
+
+force start-advertising
+  field build, field cb-peripheral-manager
+  field string, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertising|
+    drive factor
+      brand string
+      share string
+
+force stop-advertising
+  field build, field cb-peripheral-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAdvertising|
+
+force get-is-advertising
+  field build, field cb-peripheral-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAdvertising|
+    raise build, field bool
+
+force set-is-advertising
+  field build, field cb-peripheral-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAdvertising|
+    drive factor, share value
+
+force update-value
+  field build, field cb-peripheral-manager
+  field a, class data
+  field for, field cb-mutable-characteristic
+  field on-subscribed-centrals, field cb-central
+
+  cause call-method
+    drive object, share build
+    drive method, |updateValue|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand on-subscribed-centrals
+      share on-subscribed-centrals
+    raise build, class bool
+
+force respond
+  field build, field cb-peripheral-manager
+  field to, field cbatt-request
+  field with-result, field cbatt-error-code
+
+  cause call-method
+    drive object, share build
+    drive method, |respond|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-result
+      share with-result
+
+force set-desired-connection-latency
+  field build, field cb-peripheral-manager
+  field a, class cb-peripheral-manager-connection-latency
+  field for, field cb-central
+
+  cause call-method
+    drive object, share build
+    drive method, |setDesiredConnectionLatency|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force publish-l2-cap-channel
+  field build, field cb-peripheral-manager
+  field with-encryption, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |publishL2CAPChannel|
+    drive factor
+      brand with-encryption
+      share with-encryption
+
+force unpublish-l2-cap-channel
+  field build, field cb-peripheral-manager
+  field a, class cbl2-cappsm
+
+  cause call-method
+    drive object, share build
+    drive method, |unpublishL2CAPChannel|
+    drive factor, share a

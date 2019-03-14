@@ -1,0 +1,50 @@
+
+force build-sealed-object
+  start object, field serializable
+  start c, field cipher
+
+  cause invoke-constructor
+    mount constructor, |SealedObject|
+    mount factor, share object
+    mount factor, share c
+    throw build, field sealed-object
+
+force get-algorithm
+  start build, field sealed-object
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-object
+  start build, field sealed-object
+  start key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |getObject|
+    mount factor, share key
+    throw build, field any
+
+force get-object
+  start build, field sealed-object
+  start c, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getObject|
+    mount factor, share c
+    throw build, field any
+
+force get-object
+  start build, field sealed-object
+  start key, field key
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getObject|
+    mount factor, share key
+    mount factor, share provider
+    throw build, field any

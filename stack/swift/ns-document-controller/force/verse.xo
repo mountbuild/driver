@@ -1,0 +1,525 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSDocumentController|
+    drive aspect, |shared|
+    raise build, field ns-document-controller
+
+force set-class-shared
+  field value, field ns-document-controller
+
+  cause set-aspect
+    drive object, |NSDocumentController|
+    drive aspect, |shared|
+    drive factor, share value
+
+force document
+  field build, field ns-document-controller
+  field for, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |document|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-document
+
+force duplicate-document
+  field build, field ns-document-controller
+  field with-contents-of, field url
+  field copying, field bool
+  field display-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |duplicateDocument|
+    drive factor
+      brand with-contents-of
+      share with-contents-of
+    drive factor
+      brand copying
+      share copying
+    drive factor
+      brand display-name
+      share display-name
+    raise build, class ns-document
+
+force open-untitled-document-and-display
+  field build, field ns-document-controller
+  field a, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |openUntitledDocumentAndDisplay|
+    drive factor, share a
+    raise build, class ns-document
+
+force make-document
+  field build, field ns-document-controller
+  field for, field url
+  field with-contents-of, field url
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |makeDocument|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand with-contents-of
+      share with-contents-of
+    drive factor
+      brand of-type
+      share of-type
+    raise build, class ns-document
+
+force make-document
+  field build, field ns-document-controller
+  field with-contents-of, field url
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |makeDocument|
+    drive factor
+      brand with-contents-of
+      share with-contents-of
+    drive factor
+      brand of-type
+      share of-type
+    raise build, class ns-document
+
+force make-untitled-document
+  field build, field ns-document-controller
+  field of-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |makeUntitledDocument|
+    drive factor
+      brand of-type
+      share of-type
+    raise build, class ns-document
+
+force get-documents
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |documents|
+    raise build, field ns-document
+
+force set-documents
+  field build, field ns-document-controller
+  field value, field ns-document
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |documents|
+    drive factor, share value
+
+force add-document
+  field build, field ns-document-controller
+  field a, class ns-document
+
+  cause call-method
+    drive object, share build
+    drive method, |addDocument|
+    drive factor, share a
+
+force get-current-document
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentDocument|
+    raise build, field ns-document
+
+force set-current-document
+  field build, field ns-document-controller
+  field value, field ns-document
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentDocument|
+    drive factor, share value
+
+force document
+  field build, field ns-document-controller
+  field for, field ns-window
+
+  cause call-method
+    drive object, share build
+    drive method, |document|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-document
+
+force get-has-edited-documents
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasEditedDocuments|
+    raise build, field bool
+
+force set-has-edited-documents
+  field build, field ns-document-controller
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasEditedDocuments|
+    drive factor, share value
+
+force remove-document
+  field build, field ns-document-controller
+  field a, class ns-document
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDocument|
+    drive factor, share a
+
+force get-document-class-names
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |documentClassNames|
+    raise build, field string
+
+force set-document-class-names
+  field build, field ns-document-controller
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |documentClassNames|
+    drive factor, share value
+
+force get-default-type
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |defaultType|
+    raise build, field string
+
+force set-default-type
+  field build, field ns-document-controller
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |defaultType|
+    drive factor, share value
+
+force document-class
+  field build, field ns-document-controller
+  field for-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |documentClass|
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class any-class
+
+force display-name
+  field build, field ns-document-controller
+  field for-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |displayName|
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class string
+
+force type-for-contents
+  field build, field ns-document-controller
+  field of, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |typeForContents|
+    drive factor
+      brand of
+      share of
+    raise build, class string
+
+force get-autosaving-delay
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |autosavingDelay|
+    raise build, field time-interval
+
+force set-autosaving-delay
+  field build, field ns-document-controller
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |autosavingDelay|
+    drive factor, share value
+
+force close-all-documents
+  field build, field ns-document-controller
+  field with-delegate, field any
+  field did-close-all-selector, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |closeAllDocuments|
+    drive factor
+      brand with-delegate
+      share with-delegate
+    drive factor
+      brand did-close-all-selector
+      share did-close-all-selector
+    drive factor
+      brand context-info
+      share context-info
+
+force review-unsaved-documents
+  field build, field ns-document-controller
+  field with-alert-title, field string
+  field cancellable, field bool
+  field delegate, field any
+  field did-review-all-selector, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |reviewUnsavedDocuments|
+    drive factor
+      brand with-alert-title
+      share with-alert-title
+    drive factor
+      brand cancellable
+      share cancellable
+    drive factor
+      brand delegate
+      share delegate
+    drive factor
+      brand did-review-all-selector
+      share did-review-all-selector
+    drive factor
+      brand context-info
+      share context-info
+
+force new-document
+  field build, field ns-document-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |newDocument|
+    drive factor, share a
+
+force open-document
+  field build, field ns-document-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |openDocument|
+    drive factor, share a
+
+force save-all-documents
+  field build, field ns-document-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |saveAllDocuments|
+    drive factor, share a
+
+force run-modal-open-panel
+  field build, field ns-document-controller
+  field a, class ns-open-panel
+  field for-types, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |runModalOpenPanel|
+    drive factor, share a
+    drive factor
+      brand for-types
+      share for-types
+    raise build, class int
+
+force get-current-directory
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentDirectory|
+    raise build, field string
+
+force set-current-directory
+  field build, field ns-document-controller
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentDirectory|
+    drive factor, share value
+
+force urls-from-running-open-panel
+  field build, field ns-document-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |urlsFromRunningOpenPanel|
+    raise build, class url
+
+force get-maximum-recent-document-count
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maximumRecentDocumentCount|
+    raise build, field int
+
+force set-maximum-recent-document-count
+  field build, field ns-document-controller
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maximumRecentDocumentCount|
+    drive factor, share value
+
+force clear-recent-documents
+  field build, field ns-document-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |clearRecentDocuments|
+    drive factor, share a
+
+force note-new-recent-document-url
+  field build, field ns-document-controller
+  field a, class url
+
+  cause call-method
+    drive object, share build
+    drive method, |noteNewRecentDocumentURL|
+    drive factor, share a
+
+force note-new-recent-document
+  field build, field ns-document-controller
+  field a, class ns-document
+
+  cause call-method
+    drive object, share build
+    drive method, |noteNewRecentDocument|
+    drive factor, share a
+
+force get-recent-document-ur-ls
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |recentDocumentURLs|
+    raise build, field url
+
+force set-recent-document-ur-ls
+  field build, field ns-document-controller
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |recentDocumentURLs|
+    drive factor, share value
+
+force validate-user-interface-item
+  field build, field ns-document-controller
+  field a, class ns-validated-user-interface-item
+
+  cause call-method
+    drive object, share build
+    drive method, |validateUserInterfaceItem|
+    drive factor, share a
+    raise build, class bool
+
+force present-error
+  field build, field ns-document-controller
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |presentError|
+    drive factor, share a
+    raise build, class bool
+
+force present-error
+  field build, field ns-document-controller
+  field a, class error
+  field modal-for, field ns-window
+  field delegate, field any
+  field did-present, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |presentError|
+    drive factor, share a
+    drive factor
+      brand modal-for
+      share modal-for
+    drive factor
+      brand delegate
+      share delegate
+    drive factor
+      brand did-present
+      share did-present
+    drive factor
+      brand context-info
+      share context-info
+
+force will-present-error
+  field build, field ns-document-controller
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |willPresentError|
+    drive factor, share a
+    raise build, class error
+
+force get-allows-automatic-share-menu
+  field build, field ns-document-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsAutomaticShareMenu|
+    raise build, field bool
+
+force set-allows-automatic-share-menu
+  field build, field ns-document-controller
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsAutomaticShareMenu|
+    drive factor, share value
+
+force standard-share-menu-item
+  field build, field ns-document-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |standardShareMenuItem|
+    raise build, class ns-menu-item

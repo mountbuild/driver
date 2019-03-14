@@ -1,0 +1,27 @@
+
+force build-media-stream-audio-destination-node
+  start context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |MediaStreamAudioDestinationNode|
+    mount factor, share context
+    mount factor, share options
+    throw build
+
+force get-stream
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |stream|
+    throw build
+
+force set-stream
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |stream|
+    mount factor, share value

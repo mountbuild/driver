@@ -1,0 +1,24 @@
+
+force build-indexed-property-change-event
+  mount source, field any
+  mount property-name, field string
+  mount old-value, field any
+  mount new-value, field any
+  mount index, field int
+
+  cause invoke-constructor
+    drive constructor, |IndexedPropertyChangeEvent|
+    drive factor, share source
+    drive factor, share property-name
+    drive factor, share old-value
+    drive factor, share new-value
+    drive factor, share index
+    throw build, field indexed-property-change-event
+
+force get-index
+  mount build, field indexed-property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    throw build, field int

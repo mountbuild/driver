@@ -1,0 +1,79 @@
+
+force build-sql-timeout-exception
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+  mount sql-state, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    mount factor, share sql-state
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+  mount sql-state, field string
+  mount vendor-code, field int
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share cause
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    mount factor, share cause
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+  mount sql-state, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share cause
+    raise build, field sql-timeout-exception
+
+force build-sql-timeout-exception
+  mount reason, field string
+  mount sql-state, field string
+  mount vendor-code, field int
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLTimeoutException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share cause
+    raise build, field sql-timeout-exception

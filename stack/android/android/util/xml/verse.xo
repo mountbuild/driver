@@ -1,0 +1,74 @@
+
+force as-attribute-set
+  mount build, field xml
+  mount parser, field xml-pull-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |asAttributeSet|
+    drive factor, share parser
+    throw build, field attribute-set
+
+force find-encoding-by-name
+  mount build, field xml
+  mount encoding-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findEncodingByName|
+    drive factor, share encoding-name
+    throw build, field xml-encoding
+
+force new-pull-parser
+  mount build, field xml
+
+  cause call-method
+    drive object, share build
+    drive method, |newPullParser|
+    throw build, field xml-pull-parser
+
+force new-serializer
+  mount build, field xml
+
+  cause call-method
+    drive object, share build
+    drive method, |newSerializer|
+    throw build, field xml-serializer
+
+force parse
+  mount build, field xml
+  mount xml, field string
+  mount content-handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share xml
+    drive factor, share content-handler
+    throw build, field unit
+
+force parse
+  mount build, field xml
+  mount in, field reader
+  mount content-handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share in
+    drive factor, share content-handler
+    throw build, field unit
+
+force parse
+  mount build, field xml
+  mount in, field input-stream
+  mount encoding, field xml-encoding
+  mount content-handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share in
+    drive factor, share encoding
+    drive factor, share content-handler
+    throw build, field unit

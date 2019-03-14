@@ -1,0 +1,153 @@
+
+force build-color-matrix
+  cause invoke-constructor
+    drive constructor, |ColorMatrix|
+    raise build, field color-matrix
+
+force build-color-matrix
+  mount src, field float-array
+
+  cause invoke-constructor
+    drive constructor, |ColorMatrix|
+    drive factor, share src
+    raise build, field color-matrix
+
+force build-color-matrix
+  mount src, field color-matrix
+
+  cause invoke-constructor
+    drive constructor, |ColorMatrix|
+    drive factor, share src
+    raise build, field color-matrix
+
+force equals
+  mount build, field color-matrix
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-array
+  mount build, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |getArray|
+    raise build, field float-array
+
+force post-concat
+  mount build, field color-matrix
+  mount postmatrix, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |postConcat|
+    drive factor, share postmatrix
+    raise build, field unit
+
+force pre-concat
+  mount build, field color-matrix
+  mount prematrix, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |preConcat|
+    drive factor, share prematrix
+    raise build, field unit
+
+force reset
+  mount build, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force set
+  mount build, field color-matrix
+  mount src, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share src
+    raise build, field unit
+
+force set
+  mount build, field color-matrix
+  mount src, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share src
+    raise build, field unit
+
+force set-concat
+  mount build, field color-matrix
+  mount mat-a, field color-matrix
+  mount mat-b, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |setConcat|
+    drive factor, share mat-a
+    drive factor, share mat-b
+    raise build, field unit
+
+force set-rgb2-yuv
+  mount build, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |setRGB2YUV|
+    raise build, field unit
+
+force set-rotate
+  mount build, field color-matrix
+  mount axis, field int
+  mount degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotate|
+    drive factor, share axis
+    drive factor, share degrees
+    raise build, field unit
+
+force set-saturation
+  mount build, field color-matrix
+  mount sat, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSaturation|
+    drive factor, share sat
+    raise build, field unit
+
+force set-scale
+  mount build, field color-matrix
+  mount r-scale, field float
+  mount g-scale, field float
+  mount b-scale, field float
+  mount a-scale, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setScale|
+    drive factor, share r-scale
+    drive factor, share g-scale
+    drive factor, share b-scale
+    drive factor, share a-scale
+    raise build, field unit
+
+force set-yuv2-rgb
+  mount build, field color-matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |setYUV2RGB|
+    raise build, field unit

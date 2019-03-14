@@ -1,0 +1,148 @@
+
+force get-mifare-classic
+  mount build, field ndef
+
+  cause get-property
+    drive object, share build
+    drive property, |MIFARE_CLASSIC|
+    throw build, field string
+
+force get-nfc-forum-type-1
+  mount build, field ndef
+
+  cause get-property
+    drive object, share build
+    drive property, |NFC_FORUM_TYPE_1|
+    throw build, field string
+
+force get-nfc-forum-type-2
+  mount build, field ndef
+
+  cause get-property
+    drive object, share build
+    drive property, |NFC_FORUM_TYPE_2|
+    throw build, field string
+
+force get-nfc-forum-type-3
+  mount build, field ndef
+
+  cause get-property
+    drive object, share build
+    drive property, |NFC_FORUM_TYPE_3|
+    throw build, field string
+
+force get-nfc-forum-type-4
+  mount build, field ndef
+
+  cause get-property
+    drive object, share build
+    drive property, |NFC_FORUM_TYPE_4|
+    throw build, field string
+
+force can-make-read-only
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |canMakeReadOnly|
+    throw build, field boolean
+
+force close
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    throw build, field unit
+
+force get
+  mount build, field ndef
+  mount tag, field tag
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share tag
+    throw build, field ndef
+
+force get-cached-ndef-message
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |getCachedNdefMessage|
+    throw build, field ndef-message
+
+force get-max-size
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSize|
+    throw build, field int
+
+force get-ndef-message
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |getNdefMessage|
+    throw build, field ndef-message
+
+force get-tag
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field tag
+
+force get-type
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field string
+
+force is-connected
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force is-writable
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |isWritable|
+    throw build, field boolean
+
+force make-read-only
+  mount build, field ndef
+
+  cause call-method
+    drive object, share build
+    drive method, |makeReadOnly|
+    throw build, field boolean
+
+force write-ndef-message
+  mount build, field ndef
+  mount msg, field ndef-message
+
+  cause call-method
+    drive object, share build
+    drive method, |writeNdefMessage|
+    drive factor, share msg
+    throw build, field unit

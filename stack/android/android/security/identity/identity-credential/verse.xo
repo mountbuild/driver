@@ -1,0 +1,114 @@
+
+force create-ephemeral-key-pair
+  mount build, field identity-credential
+
+  cause call-method
+    drive object, share build
+    drive method, |createEphemeralKeyPair|
+    throw build, field key-pair
+
+force decrypt-message-from-reader
+  mount build, field identity-credential
+  mount message-ciphertext, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |decryptMessageFromReader|
+    drive factor, share message-ciphertext
+    throw build, field byte-array
+
+force encrypt-message-to-reader
+  mount build, field identity-credential
+  mount message-plaintext, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |encryptMessageToReader|
+    drive factor, share message-plaintext
+    throw build, field byte-array
+
+force get-auth-keys-needing-certification
+  mount build, field identity-credential
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthKeysNeedingCertification|
+    throw build, field mutable-collection
+
+force get-authentication-data-usage-count
+  mount build, field identity-credential
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthenticationDataUsageCount|
+    throw build, field int-array
+
+force get-credential-key-certificate-chain
+  mount build, field identity-credential
+
+  cause call-method
+    drive object, share build
+    drive method, |getCredentialKeyCertificateChain|
+    throw build, field mutable-collection
+
+force get-entries
+  mount build, field identity-credential
+  mount request-message, field byte-array
+  mount entries-to-request, field mutable-map-string
+  mount mutable-collection-string, field undefined
+  mount session-transcript, field byte-array
+  mount reader-signature, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntries|
+    drive factor, share request-message
+    drive factor, share entries-to-request
+    drive factor, share mutable-collection-string
+    drive factor, share session-transcript
+    drive factor, share reader-signature
+    throw build, field result-data
+
+force set-allow-using-exhausted-keys
+  mount build, field identity-credential
+  mount allow-using-exhausted-keys, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowUsingExhaustedKeys|
+    drive factor, share allow-using-exhausted-keys
+    throw build, field unit
+
+force set-available-authentication-keys
+  mount build, field identity-credential
+  mount key-count, field int
+  mount max-uses-per-key, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAvailableAuthenticationKeys|
+    drive factor, share key-count
+    drive factor, share max-uses-per-key
+    throw build, field unit
+
+force set-reader-ephemeral-public-key
+  mount build, field identity-credential
+  mount reader-ephemeral-public-key, field public-key
+
+  cause call-method
+    drive object, share build
+    drive method, |setReaderEphemeralPublicKey|
+    drive factor, share reader-ephemeral-public-key
+    throw build, field unit
+
+force store-static-authentication-data
+  mount build, field identity-credential
+  mount authentication-key, field x509-certificate
+  mount static-auth-data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |storeStaticAuthenticationData|
+    drive factor, share authentication-key
+    drive factor, share static-auth-data
+    throw build, field unit

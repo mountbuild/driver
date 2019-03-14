@@ -1,0 +1,37 @@
+
+force build-filter
+  cause invoke-constructor
+    drive constructor, |Filter|
+    throw build, field filter
+
+force convert-result-to-string
+  mount build, field filter
+  mount result-value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |convertResultToString|
+    drive factor, share result-value
+    throw build, field char-sequence
+
+force filter
+  mount build, field filter
+  mount constraint, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share constraint
+    throw build, field unit
+
+force filter
+  mount build, field filter
+  mount constraint, field char-sequence
+  mount listener, field filter-filter-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share constraint
+    drive factor, share listener
+    throw build, field unit

@@ -1,0 +1,41 @@
+
+force get-device-pixel-ratio
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |devicePixelRatio|
+    throw build
+
+force set-device-pixel-ratio
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |devicePixelRatio|
+    mount factor, share value
+
+force register-paint
+  start build
+  start name
+  start class
+
+  cause call-method
+    mount object, share build
+    mount method, |registerPaint|
+    mount factor, share name
+    mount factor, share class
+    throw build
+
+force add-module
+  start build
+  start module-url
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |addModule|
+    mount factor, share module-url
+    mount factor, share options
+    throw build

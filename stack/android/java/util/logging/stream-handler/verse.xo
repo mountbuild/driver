@@ -1,0 +1,61 @@
+
+force build-stream-handler
+  cause invoke-constructor
+    drive constructor, |StreamHandler|
+    throw build, field stream-handler
+
+force build-stream-handler
+  mount out, field output-stream
+  mount formatter, field formatter
+
+  cause invoke-constructor
+    drive constructor, |StreamHandler|
+    drive factor, share out
+    drive factor, share formatter
+    throw build, field stream-handler
+
+force close
+  mount build, field stream-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field stream-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force is-loggable
+  mount build, field stream-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |isLoggable|
+    drive factor, share record
+    throw build, field boolean
+
+force publish
+  mount build, field stream-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share record
+    throw build, field unit
+
+force set-encoding
+  mount build, field stream-handler
+  mount encoding, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setEncoding|
+    drive factor, share encoding
+    throw build, field unit

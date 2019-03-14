@@ -1,0 +1,31 @@
+
+force build-general-security-exception
+  cause invoke-constructor
+    mount constructor, |GeneralSecurityException|
+    throw build, field general-security-exception
+
+force build-general-security-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |GeneralSecurityException|
+    mount factor, share msg
+    throw build, field general-security-exception
+
+force build-general-security-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |GeneralSecurityException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field general-security-exception
+
+force build-general-security-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |GeneralSecurityException|
+    mount factor, share cause
+    throw build, field general-security-exception

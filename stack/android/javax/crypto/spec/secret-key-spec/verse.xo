@@ -1,0 +1,66 @@
+
+force build-secret-key-spec
+  start key, field byte-array
+  start algorithm, field string
+
+  cause invoke-constructor
+    mount constructor, |SecretKeySpec|
+    mount factor, share key
+    mount factor, share algorithm
+    throw build, field secret-key-spec
+
+force build-secret-key-spec
+  start key, field byte-array
+  start offset, field int
+  start len, field int
+  start algorithm, field string
+
+  cause invoke-constructor
+    mount constructor, |SecretKeySpec|
+    mount factor, share key
+    mount factor, share offset
+    mount factor, share len
+    mount factor, share algorithm
+    throw build, field secret-key-spec
+
+force equals
+  start build, field secret-key-spec
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-algorithm
+  start build, field secret-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-encoded
+  start build, field secret-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-format
+  start build, field secret-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getFormat|
+    throw build, field string
+
+force hash-code
+  start build, field secret-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

@@ -1,0 +1,67 @@
+
+force build-file-handler
+  cause invoke-constructor
+    drive constructor, |FileHandler|
+    throw build, field file-handler
+
+force build-file-handler
+  mount pattern, field string
+
+  cause invoke-constructor
+    drive constructor, |FileHandler|
+    drive factor, share pattern
+    throw build, field file-handler
+
+force build-file-handler
+  mount pattern, field string
+  mount append, field boolean
+
+  cause invoke-constructor
+    drive constructor, |FileHandler|
+    drive factor, share pattern
+    drive factor, share append
+    throw build, field file-handler
+
+force build-file-handler
+  mount pattern, field string
+  mount limit, field int
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |FileHandler|
+    drive factor, share pattern
+    drive factor, share limit
+    drive factor, share count
+    throw build, field file-handler
+
+force build-file-handler
+  mount pattern, field string
+  mount limit, field int
+  mount count, field int
+  mount append, field boolean
+
+  cause invoke-constructor
+    drive constructor, |FileHandler|
+    drive factor, share pattern
+    drive factor, share limit
+    drive factor, share count
+    drive factor, share append
+    throw build, field file-handler
+
+force close
+  mount build, field file-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force publish
+  mount build, field file-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share record
+    throw build, field unit

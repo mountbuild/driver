@@ -1,0 +1,33 @@
+force get-call-observer
+  field build, field cx-call-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |callObserver|
+    raise build, field cx-call-observer
+
+force set-call-observer
+  field build, field cx-call-controller
+  field value, field cx-call-observer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |callObserver|
+    drive factor, share value
+
+force get-cx-error-domain-request-transaction
+  field build, field cx-call-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomainRequestTransaction|
+    raise build, field string
+
+force set-cx-error-domain-request-transaction
+  field build, field CXCallController
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomainRequestTransaction|
+    drive factor, share value

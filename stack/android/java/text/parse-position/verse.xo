@@ -1,0 +1,70 @@
+
+force build-parse-position
+  start index, field int
+
+  cause invoke-constructor
+    mount constructor, |ParsePosition|
+    mount factor, share index
+    raise build, field parse-position
+
+force equals
+  start build, field parse-position
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force get-error-index
+  start build, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorIndex|
+    raise build, field int
+
+force get-index
+  start build, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getIndex|
+    raise build, field int
+
+force hash-code
+  start build, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force set-error-index
+  start build, field parse-position
+  start ei, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setErrorIndex|
+    mount factor, share ei
+    raise build, field unit
+
+force set-index
+  start build, field parse-position
+  start index, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setIndex|
+    mount factor, share index
+    raise build, field unit
+
+force to-string
+  start build, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string

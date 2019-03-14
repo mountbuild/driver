@@ -1,0 +1,87 @@
+
+force build-platform-telemetry-client
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient|
+
+force register
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryclient
+  start id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Register|
+    drive factor, share id
+
+force register
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryclient
+  start id, field system-string
+  start settings, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |Register|
+    drive factor, share id
+    drive factor, share settings
+
+force build-platform-telemetry-registration-result
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult|
+
+force get-status
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-platform-telemetry-registration-settings
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings|
+
+force ctor
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-storage-size
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StorageSize|
+
+force set-storage-size
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StorageSize|
+    drive factor, share value
+
+force get-upload-quota-size
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UploadQuotaSize|
+
+force set-upload-quota-size
+  start build, field windows-system-diagnostics-telemetry-platformtelemetryregistrationsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UploadQuotaSize|
+    drive factor, share value

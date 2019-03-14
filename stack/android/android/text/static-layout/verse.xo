@@ -1,0 +1,194 @@
+
+force build-static-layout
+  mount source, field char-sequence
+  mount paint, field text-paint
+  mount width, field int
+  mount align, field layout-alignment
+  mount spacingmult, field float
+  mount spacingadd, field float
+  mount includepad, field boolean
+
+  cause invoke-constructor
+    drive constructor, |StaticLayout|
+    drive factor, share source
+    drive factor, share paint
+    drive factor, share width
+    drive factor, share align
+    drive factor, share spacingmult
+    drive factor, share spacingadd
+    drive factor, share includepad
+    raise build, field static-layout
+
+force build-static-layout
+  mount source, field char-sequence
+  mount bufstart, field int
+  mount bufend, field int
+  mount paint, field text-paint
+  mount outerwidth, field int
+  mount align, field layout-alignment
+  mount spacingmult, field float
+  mount spacingadd, field float
+  mount includepad, field boolean
+
+  cause invoke-constructor
+    drive constructor, |StaticLayout|
+    drive factor, share source
+    drive factor, share bufstart
+    drive factor, share bufend
+    drive factor, share paint
+    drive factor, share outerwidth
+    drive factor, share align
+    drive factor, share spacingmult
+    drive factor, share spacingadd
+    drive factor, share includepad
+    raise build, field static-layout
+
+force build-static-layout
+  mount source, field char-sequence
+  mount bufstart, field int
+  mount bufend, field int
+  mount paint, field text-paint
+  mount outerwidth, field int
+  mount align, field layout-alignment
+  mount spacingmult, field float
+  mount spacingadd, field float
+  mount includepad, field boolean
+  mount ellipsize, field text-utils-truncate-at
+  mount ellipsized-width, field int
+
+  cause invoke-constructor
+    drive constructor, |StaticLayout|
+    drive factor, share source
+    drive factor, share bufstart
+    drive factor, share bufend
+    drive factor, share paint
+    drive factor, share outerwidth
+    drive factor, share align
+    drive factor, share spacingmult
+    drive factor, share spacingadd
+    drive factor, share includepad
+    drive factor, share ellipsize
+    drive factor, share ellipsized-width
+    raise build, field static-layout
+
+force get-bottom-padding
+  mount build, field static-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getBottomPadding|
+    raise build, field int
+
+force get-ellipsis-count
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsisCount|
+    drive factor, share line
+    raise build, field int
+
+force get-ellipsis-start
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsisStart|
+    drive factor, share line
+    raise build, field int
+
+force get-ellipsized-width
+  mount build, field static-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getEllipsizedWidth|
+    raise build, field int
+
+force get-line-contains-tab
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineContainsTab|
+    drive factor, share line
+    raise build, field boolean
+
+force get-line-count
+  mount build, field static-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineCount|
+    raise build, field int
+
+force get-line-descent
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineDescent|
+    drive factor, share line
+    raise build, field int
+
+force get-line-directions
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineDirections|
+    drive factor, share line
+    raise build, field layout-directions
+
+force get-line-for-vertical
+  mount build, field static-layout
+  mount vertical, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineForVertical|
+    drive factor, share vertical
+    raise build, field int
+
+force get-line-start
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineStart|
+    drive factor, share line
+    raise build, field int
+
+force get-line-top
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineTop|
+    drive factor, share line
+    raise build, field int
+
+force get-paragraph-direction
+  mount build, field static-layout
+  mount line, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphDirection|
+    drive factor, share line
+    raise build, field int
+
+force get-top-padding
+  mount build, field static-layout
+
+  cause call-method
+    drive object, share build
+    drive method, |getTopPadding|
+    raise build, field int

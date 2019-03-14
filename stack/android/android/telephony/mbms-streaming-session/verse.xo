@@ -1,0 +1,62 @@
+
+force close
+  mount build, field mbms-streaming-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create
+  mount build, field mbms-streaming-session
+  mount context, field context
+  mount executor, field executor
+  mount subscription-id, field int
+  mount callback, field mbms-streaming-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share subscription-id
+    drive factor, share callback
+    throw build, field mbms-streaming-session
+
+force create
+  mount build, field mbms-streaming-session
+  mount context, field context
+  mount executor, field executor
+  mount callback, field mbms-streaming-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field mbms-streaming-session
+
+force request-update-streaming-services
+  mount build, field mbms-streaming-session
+  mount service-class-list, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |requestUpdateStreamingServices|
+    drive factor, share service-class-list
+    throw build, field unit
+
+force start-streaming
+  mount build, field mbms-streaming-session
+  mount service-info, field streaming-service-info
+  mount executor, field executor
+  mount callback, field streaming-service-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startStreaming|
+    drive factor, share service-info
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field streaming-service

@@ -1,0 +1,37 @@
+
+force build-bluetooth-health-callback
+  cause invoke-constructor
+    drive constructor, |BluetoothHealthCallback|
+    throw build, field bluetooth-health-callback
+
+force on-health-app-configuration-status-change
+  mount build, field bluetooth-health-callback
+  mount config, field bluetooth-health-app-configuration
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onHealthAppConfigurationStatusChange|
+    drive factor, share config
+    drive factor, share status
+    throw build, field unit
+
+force on-health-channel-state-change
+  mount build, field bluetooth-health-callback
+  mount config, field bluetooth-health-app-configuration
+  mount device, field bluetooth-device
+  mount prev-state, field int
+  mount new-state, field int
+  mount fd, field parcel-file-descriptor
+  mount channel-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onHealthChannelStateChange|
+    drive factor, share config
+    drive factor, share device
+    drive factor, share prev-state
+    drive factor, share new-state
+    drive factor, share fd
+    drive factor, share channel-id
+    throw build, field unit

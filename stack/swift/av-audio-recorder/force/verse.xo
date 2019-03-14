@@ -1,0 +1,261 @@
+force prepare-to-record
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |prepareToRecord|
+    raise build, class bool
+
+force record
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |record|
+    raise build, class bool
+
+force record
+  field build, field av-audio-recorder
+  field at-time, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |record|
+    drive factor
+      brand at-time
+      share at-time
+    raise build, class bool
+
+force record
+  field build, field av-audio-recorder
+  field for-duration, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |record|
+    drive factor
+      brand for-duration
+      share for-duration
+    raise build, class bool
+
+force record
+  field build, field av-audio-recorder
+  field at-time, field time-interval
+  field for-duration, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |record|
+    drive factor
+      brand at-time
+      share at-time
+    drive factor
+      brand for-duration
+      share for-duration
+    raise build, class bool
+
+force pause
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+
+force stop
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+
+force get-delegate
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field av-audio-recorder-delegate
+
+force set-delegate
+  field build, field av-audio-recorder
+  field value, field av-audio-recorder-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force delete-recording
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteRecording|
+    raise build, class bool
+
+force get-is-recording
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRecording|
+    raise build, field bool
+
+force set-is-recording
+  field build, field av-audio-recorder
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRecording|
+    drive factor, share value
+
+force get-url
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |url|
+    raise build, field url
+
+force set-url
+  field build, field av-audio-recorder
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |url|
+    drive factor, share value
+
+force get-channel-assignments
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |channelAssignments|
+    raise build, field av-audio-session-channel-description
+
+force set-channel-assignments
+  field build, field av-audio-recorder
+  field value, field av-audio-session-channel-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |channelAssignments|
+    drive factor, share value
+
+force get-current-time
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    raise build, field time-interval
+
+force set-current-time
+  field build, field av-audio-recorder
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    drive factor, share value
+
+force get-device-current-time
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deviceCurrentTime|
+    raise build, field time-interval
+
+force set-device-current-time
+  field build, field av-audio-recorder
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deviceCurrentTime|
+    drive factor, share value
+
+force get-settings
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |settings|
+    raise build, field string
+
+force set-settings
+  field build, field av-audio-recorder
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |settings|
+    drive factor, share value
+
+force get-format
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |format|
+    raise build, field av-audio-format
+
+force set-format
+  field build, field av-audio-recorder
+  field value, field av-audio-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |format|
+    drive factor, share value
+
+force get-is-metering-enabled
+  field build, field av-audio-recorder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMeteringEnabled|
+    raise build, field bool
+
+force set-is-metering-enabled
+  field build, field av-audio-recorder
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMeteringEnabled|
+    drive factor, share value
+
+force update-meters
+  field build, field av-audio-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |updateMeters|
+
+force peak-power
+  field build, field av-audio-recorder
+  field for-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |peakPower|
+    drive factor
+      brand for-channel
+      share for-channel
+    raise build, class float
+
+force average-power
+  field build, field av-audio-recorder
+  field for-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |averagePower|
+    drive factor
+      brand for-channel
+      share for-channel
+    raise build, class float

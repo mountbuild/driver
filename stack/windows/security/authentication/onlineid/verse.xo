@@ -1,0 +1,674 @@
+
+force get-credential-prompt-type
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.OnlineId.CredentialPromptType|
+
+force build-online-id-authenticator
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator|
+
+force get-application-id
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ApplicationId|
+
+force set-application-id
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ApplicationId|
+    drive factor, share value
+
+force get-authenticated-safe-customer-id
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AuthenticatedSafeCustomerId|
+
+force set-authenticated-safe-customer-id
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AuthenticatedSafeCustomerId|
+    drive factor, share value
+
+force authenticate-user-async
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+  start request, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateUserAsync|
+    drive factor, share request
+
+force authenticate-user-async
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+  start requests, field windows-foundation-collections-iiterable-windows-security-authentication-onlineid-onlineidserviceticketrequest
+  start credential-prompt-type, field windows-security-authentication-onlineid-credentialprompttype
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateUserAsync|
+    drive factor, share requests
+    drive factor, share credential-prompt-type
+
+force get-can-sign-out
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanSignOut|
+
+force set-can-sign-out
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanSignOut|
+    drive factor, share value
+
+force ctor
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force sign-out-user-async
+  start build, field windows-security-authentication-onlineid-onlineidauthenticator
+
+  cause call-method
+    drive object, share build
+    drive method, |SignOutUserAsync|
+
+force build-online-id-service-ticket
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket|
+
+force get-error-code
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+
+force set-error-code
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+    drive factor, share value
+
+force get-request
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Request|
+
+force set-request
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Request|
+    drive factor, share value
+
+force get-value
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-security-authentication-onlineid-onlineidserviceticket
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force build-online-id-service-ticket-request
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest|
+
+force ctor
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+  start service, field system-string
+  start policy, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share service
+    drive factor, share policy
+
+force ctor
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+  start service, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share service
+
+force get-policy
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Policy|
+
+force set-policy
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Policy|
+    drive factor, share value
+
+force get-service
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Service|
+
+force set-service
+  start build, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Service|
+    drive factor, share value
+
+force build-online-id-system-authenticator
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticator|
+
+force get-default
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Default|
+
+force set-default
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Default|
+    drive factor, share value
+
+force get-for-user
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticator
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force build-online-id-system-authenticator-for-user
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser|
+
+force get-application-id
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticatorforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ApplicationId|
+
+force set-application-id
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticatorforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ApplicationId|
+    drive factor, share value
+
+force get-ticket-async
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticatorforuser
+  start request, field windows-security-authentication-onlineid-onlineidserviceticketrequest
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTicketAsync|
+    drive factor, share request
+
+force get-user
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticatorforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-security-authentication-onlineid-onlineidsystemauthenticatorforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-online-id-system-identity
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity|
+
+force get-id
+  start build, field windows-security-authentication-onlineid-onlineidsystemidentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-security-authentication-onlineid-onlineidsystemidentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-ticket
+  start build, field windows-security-authentication-onlineid-onlineidsystemidentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ticket|
+
+force set-ticket
+  start build, field windows-security-authentication-onlineid-onlineidsystemidentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ticket|
+    drive factor, share value
+
+force build-online-id-system-ticket-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult|
+
+force get-extended-error
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExtendedError|
+
+force set-extended-error
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExtendedError|
+    drive factor, share value
+
+force get-identity
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identity|
+
+force set-identity
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identity|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-authentication-onlineid-onlineidsystemticketresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-online-id-system-ticket-status
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus|
+
+force build-sign-out-user-operation
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.SignOutUserOperation|
+
+force cancel
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause call-method
+    drive object, share build
+    drive method, |Cancel|
+
+force close
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-completed
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-error-code
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+
+force set-error-code
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+    drive factor, share value
+
+force get-results
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-id
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-authentication-onlineid-signoutuseroperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-user-authentication-operation
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.UserAuthenticationOperation|
+
+force cancel
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause call-method
+    drive object, share build
+    drive method, |Cancel|
+
+force close
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-completed
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-error-code
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+
+force set-error-code
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+    drive factor, share value
+
+force get-results
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-id
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-authentication-onlineid-userauthenticationoperation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-user-identity
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.OnlineId.UserIdentity|
+
+force get-first-name
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirstName|
+
+force set-first-name
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirstName|
+    drive factor, share value
+
+force get-id
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-is-beta-account
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsBetaAccount|
+
+force set-is-beta-account
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsBetaAccount|
+    drive factor, share value
+
+force get-is-confirmed-p-c
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsConfirmedPC|
+
+force set-is-confirmed-p-c
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsConfirmedPC|
+    drive factor, share value
+
+force get-last-name
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LastName|
+
+force set-last-name
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LastName|
+    drive factor, share value
+
+force get-safe-customer-id
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SafeCustomerId|
+
+force set-safe-customer-id
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SafeCustomerId|
+    drive factor, share value
+
+force get-sign-in-name
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SignInName|
+
+force set-sign-in-name
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SignInName|
+    drive factor, share value
+
+force get-tickets
+  start build, field windows-security-authentication-onlineid-useridentity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Tickets|
+
+force set-tickets
+  start build, field windows-security-authentication-onlineid-useridentity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Tickets|
+    drive factor, share value

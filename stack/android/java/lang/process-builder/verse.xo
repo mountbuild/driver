@@ -1,0 +1,188 @@
+
+force build-process-builder
+  mount command, field mutable-list-string
+
+  cause invoke-constructor
+    drive constructor, |ProcessBuilder|
+    drive factor, share command
+    throw build, field process-builder
+
+force build-process-builder
+  mount vararg-command, field string
+
+  cause invoke-constructor
+    drive constructor, |ProcessBuilder|
+    drive factor, share vararg-command
+    throw build, field process-builder
+
+force command
+  mount build, field process-builder
+  mount command, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |command|
+    drive factor, share command
+    throw build, field process-builder
+
+force command
+  mount build, field process-builder
+  mount vararg-command, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |command|
+    drive factor, share vararg-command
+    throw build, field process-builder
+
+force command
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |command|
+    throw build, field mutable-list
+
+force directory
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |directory|
+    throw build, field file
+
+force directory
+  mount build, field process-builder
+  mount directory, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |directory|
+    drive factor, share directory
+    throw build, field process-builder
+
+force environment
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |environment|
+    throw build, field mutable-map
+
+force inherit-io
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |inheritIO|
+    throw build, field process-builder
+
+force redirect-error
+  mount build, field process-builder
+  mount destination, field process-builder-redirect
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectError|
+    drive factor, share destination
+    throw build, field process-builder
+
+force redirect-error
+  mount build, field process-builder
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectError|
+    drive factor, share file
+    throw build, field process-builder
+
+force redirect-error
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectError|
+    throw build, field process-builder-redirect
+
+force redirect-error-stream
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectErrorStream|
+    throw build, field boolean
+
+force redirect-error-stream
+  mount build, field process-builder
+  mount redirect-error-stream, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectErrorStream|
+    drive factor, share redirect-error-stream
+    throw build, field process-builder
+
+force redirect-input
+  mount build, field process-builder
+  mount source, field process-builder-redirect
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectInput|
+    drive factor, share source
+    throw build, field process-builder
+
+force redirect-input
+  mount build, field process-builder
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectInput|
+    drive factor, share file
+    throw build, field process-builder
+
+force redirect-input
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectInput|
+    throw build, field process-builder-redirect
+
+force redirect-output
+  mount build, field process-builder
+  mount destination, field process-builder-redirect
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectOutput|
+    drive factor, share destination
+    throw build, field process-builder
+
+force redirect-output
+  mount build, field process-builder
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectOutput|
+    drive factor, share file
+    throw build, field process-builder
+
+force redirect-output
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectOutput|
+    throw build, field process-builder-redirect
+
+force start
+  mount build, field process-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    throw build, field process

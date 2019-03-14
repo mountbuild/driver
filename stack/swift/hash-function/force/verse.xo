@@ -1,0 +1,32 @@
+force update
+  field build, field hash-function
+  field buffer-pointer, field unsafe-raw-buffer-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor
+      brand buffer-pointer
+      share buffer-pointer
+
+force finalize
+  field build, field hash-function
+
+  cause call-method
+    drive object, share build
+    drive method, |finalize|
+    raise build, class self-digest
+
+force get-static-block-byte-count
+  cause get aspect
+    drive object, |HashFunction|
+    drive aspect, |blockByteCount|
+    raise build, class int
+
+force set static block-byte-count
+  field value, field int
+
+  cause set aspect
+    drive object, |HashFunction|
+    drive aspect, |blockByteCount|
+    drive factor, share value

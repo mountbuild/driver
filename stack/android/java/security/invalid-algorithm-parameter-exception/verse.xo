@@ -1,0 +1,31 @@
+
+force build-invalid-algorithm-parameter-exception
+  cause invoke-constructor
+    mount constructor, |InvalidAlgorithmParameterException|
+    throw build, field invalid-algorithm-parameter-exception
+
+force build-invalid-algorithm-parameter-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |InvalidAlgorithmParameterException|
+    mount factor, share msg
+    throw build, field invalid-algorithm-parameter-exception
+
+force build-invalid-algorithm-parameter-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |InvalidAlgorithmParameterException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field invalid-algorithm-parameter-exception
+
+force build-invalid-algorithm-parameter-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |InvalidAlgorithmParameterException|
+    mount factor, share cause
+    throw build, field invalid-algorithm-parameter-exception

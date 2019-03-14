@@ -1,0 +1,64 @@
+
+force build-pss-parameter-spec
+  mount md-name, field string
+  mount mgf-name, field string
+  mount mgf-spec, field algorithm-parameter-spec
+  mount salt-len, field int
+  mount trailer-field, field int
+
+  cause invoke-constructor
+    mount constructor, |PSSParameterSpec|
+    mount factor, share md-name
+    mount factor, share mgf-name
+    mount factor, share mgf-spec
+    mount factor, share salt-len
+    mount factor, share trailer-field
+    throw build, field pss-parameter-spec
+
+force build-pss-parameter-spec
+  mount salt-len, field int
+
+  cause invoke-constructor
+    mount constructor, |PSSParameterSpec|
+    mount factor, share salt-len
+    throw build, field pss-parameter-spec
+
+force get-digest-algorithm
+  mount build, field pss-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getDigestAlgorithm|
+    throw build, field string
+
+force get-mgf-algorithm
+  mount build, field pss-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getMGFAlgorithm|
+    throw build, field string
+
+force get-mgf-parameters
+  mount build, field pss-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getMGFParameters|
+    throw build, field algorithm-parameter-spec
+
+force get-salt-length
+  mount build, field pss-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getSaltLength|
+    throw build, field int
+
+force get-trailer-field
+  mount build, field pss-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getTrailerField|
+    throw build, field int

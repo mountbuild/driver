@@ -1,0 +1,114 @@
+
+force build-notification-channel-group
+  mount id, field string
+  mount name, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |NotificationChannelGroup|
+    drive factor, share id
+    drive factor, share name
+    throw build, field notification-channel-group
+
+force clone
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field notification-channel-group
+
+force describe-contents
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field notification-channel-group
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-channels
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannels|
+    throw build, field mutable-list
+
+force get-description
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-id
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force get-name
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field char-sequence
+
+force hash-code
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-blocked
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |isBlocked|
+    throw build, field boolean
+
+force set-description
+  mount build, field notification-channel-group
+  mount description, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDescription|
+    drive factor, share description
+    throw build, field unit
+
+force to-string
+  mount build, field notification-channel-group
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field notification-channel-group
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

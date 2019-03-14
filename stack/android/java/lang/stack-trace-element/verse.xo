@@ -1,0 +1,80 @@
+
+force build-stack-trace-element
+  mount declaring-class, field string
+  mount method-name, field string
+  mount file-name, field string
+  mount line-number, field int
+
+  cause invoke-constructor
+    drive constructor, |StackTraceElement|
+    drive factor, share declaring-class
+    drive factor, share method-name
+    drive factor, share file-name
+    drive factor, share line-number
+    throw build, field stack-trace-element
+
+force equals
+  mount build, field stack-trace-element
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-class-name
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |getClassName|
+    throw build, field string
+
+force get-file-name
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileName|
+    throw build, field string
+
+force get-line-number
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force get-method-name
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |getMethodName|
+    throw build, field string
+
+force hash-code
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-native-method
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |isNativeMethod|
+    throw build, field boolean
+
+force to-string
+  mount build, field stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

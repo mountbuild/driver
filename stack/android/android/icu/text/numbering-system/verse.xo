@@ -1,0 +1,107 @@
+
+force build-numbering-system
+  cause invoke-constructor
+    drive constructor, |NumberingSystem|
+    raise build, field numbering-system
+
+force get-available-names
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableNames|
+    raise build, field array
+
+force get-description
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    raise build, field string
+
+force get-instance
+  mount build, field numbering-system
+  mount radix-in, field int
+  mount is-algorithmic-in, field boolean
+  mount desc-in, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share radix-in
+    drive factor, share is-algorithmic-in
+    drive factor, share desc-in
+    raise build, field numbering-system
+
+force get-instance
+  mount build, field numbering-system
+  mount in-locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share in-locale
+    raise build, field numbering-system
+
+force get-instance
+  mount build, field numbering-system
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field numbering-system
+
+force get-instance
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field numbering-system
+
+force get-instance-by-name
+  mount build, field numbering-system
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstanceByName|
+    drive factor, share name
+    raise build, field numbering-system
+
+force get-name
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force get-radix
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |getRadix|
+    raise build, field int
+
+force is-algorithmic
+  mount build, field numbering-system
+
+  cause call-method
+    drive object, share build
+    drive method, |isAlgorithmic|
+    raise build, field boolean
+
+force is-valid-digit-string
+  mount build, field numbering-system
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isValidDigitString|
+    drive factor, share str
+    raise build, field boolean

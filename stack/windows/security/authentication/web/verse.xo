@@ -1,0 +1,154 @@
+
+force get-token-binding-key-type
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Web.TokenBindingKeyType|
+
+force build-web-authentication-broker
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Web.WebAuthenticationBroker|
+
+force authenticate-and-continue
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start request-uri, field windows-foundation-uri
+  start callback-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateAndContinue|
+    drive factor, share request-uri
+    drive factor, share callback-uri
+
+force authenticate-and-continue
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start request-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateAndContinue|
+    drive factor, share request-uri
+
+force authenticate-and-continue
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start request-uri, field windows-foundation-uri
+  start callback-uri, field windows-foundation-uri
+  start continuation-data, field windows-foundation-collections-valueset
+  start options, field windows-security-authentication-web-webauthenticationoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateAndContinue|
+    drive factor, share request-uri
+    drive factor, share callback-uri
+    drive factor, share continuation-data
+    drive factor, share options
+
+force authenticate-async
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start options, field windows-security-authentication-web-webauthenticationoptions
+  start request-uri, field windows-foundation-uri
+  start callback-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateAsync|
+    drive factor, share options
+    drive factor, share request-uri
+    drive factor, share callback-uri
+
+force authenticate-async
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start options, field windows-security-authentication-web-webauthenticationoptions
+  start request-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateAsync|
+    drive factor, share options
+    drive factor, share request-uri
+
+force authenticate-silently-async
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start request-uri, field windows-foundation-uri
+  start options, field windows-security-authentication-web-webauthenticationoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateSilentlyAsync|
+    drive factor, share request-uri
+    drive factor, share options
+
+force authenticate-silently-async
+  start build, field windows-security-authentication-web-webauthenticationbroker
+  start request-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AuthenticateSilentlyAsync|
+    drive factor, share request-uri
+
+force get-current-application-callback-uri
+  start build, field windows-security-authentication-web-webauthenticationbroker
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentApplicationCallbackUri|
+
+force get-web-authentication-options
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Web.WebAuthenticationOptions|
+
+force build-web-authentication-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Web.WebAuthenticationResult|
+
+force get-response-data
+  start build, field windows-security-authentication-web-webauthenticationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResponseData|
+
+force set-response-data
+  start build, field windows-security-authentication-web-webauthenticationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResponseData|
+    drive factor, share value
+
+force get-response-error-detail
+  start build, field windows-security-authentication-web-webauthenticationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResponseErrorDetail|
+
+force set-response-error-detail
+  start build, field windows-security-authentication-web-webauthenticationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResponseErrorDetail|
+    drive factor, share value
+
+force get-response-status
+  start build, field windows-security-authentication-web-webauthenticationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResponseStatus|
+
+force set-response-status
+  start build, field windows-security-authentication-web-webauthenticationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResponseStatus|
+    drive factor, share value
+
+force get-web-authentication-status
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Web.WebAuthenticationStatus|

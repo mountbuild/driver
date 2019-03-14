@@ -1,0 +1,48 @@
+
+force build-pair
+  mount first, field f
+  mount second, field s
+
+  cause invoke-constructor
+    drive constructor, |Pair|
+    drive factor, share first
+    drive factor, share second
+    throw build, field pair
+
+force create
+  mount build, field pair
+  mount a, field a
+  mount b, field b
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share a
+    drive factor, share b
+    throw build, field pair
+
+force equals
+  mount build, field pair
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field pair
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field pair
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

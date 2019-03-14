@@ -1,0 +1,145 @@
+
+force get-standard-gap-width
+  mount build, field bullet-span
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDARD_GAP_WIDTH|
+    raise build, field int
+
+force build-bullet-span
+  cause invoke-constructor
+    drive constructor, |BulletSpan|
+    raise build, field bullet-span
+
+force build-bullet-span
+  mount gap-width, field int
+
+  cause invoke-constructor
+    drive constructor, |BulletSpan|
+    drive factor, share gap-width
+    raise build, field bullet-span
+
+force build-bullet-span
+  mount gap-width, field int
+  mount color, field int
+
+  cause invoke-constructor
+    drive constructor, |BulletSpan|
+    drive factor, share gap-width
+    drive factor, share color
+    raise build, field bullet-span
+
+force build-bullet-span
+  mount gap-width, field int
+  mount color, field int
+  mount bullet-radius, field int
+
+  cause invoke-constructor
+    drive constructor, |BulletSpan|
+    drive factor, share gap-width
+    drive factor, share color
+    drive factor, share bullet-radius
+    raise build, field bullet-span
+
+force build-bullet-span
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |BulletSpan|
+    drive factor, share src
+    raise build, field bullet-span
+
+force describe-contents
+  mount build, field bullet-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force draw-leading-margin
+  mount build, field bullet-span
+  mount canvas, field canvas
+  mount paint, field paint
+  mount x, field int
+  mount dir, field int
+  mount top, field int
+  mount baseline, field int
+  mount bottom, field int
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount first, field boolean
+  mount layout, field layout
+
+  cause call-method
+    drive object, share build
+    drive method, |drawLeadingMargin|
+    drive factor, share canvas
+    drive factor, share paint
+    drive factor, share x
+    drive factor, share dir
+    drive factor, share top
+    drive factor, share baseline
+    drive factor, share bottom
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share first
+    drive factor, share layout
+    raise build, field unit
+
+force get-bullet-radius
+  mount build, field bullet-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getBulletRadius|
+    raise build, field int
+
+force get-color
+  mount build, field bullet-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getColor|
+    raise build, field int
+
+force get-gap-width
+  mount build, field bullet-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getGapWidth|
+    raise build, field int
+
+force get-leading-margin
+  mount build, field bullet-span
+  mount first, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeadingMargin|
+    drive factor, share first
+    raise build, field int
+
+force get-span-type-id
+  mount build, field bullet-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field bullet-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

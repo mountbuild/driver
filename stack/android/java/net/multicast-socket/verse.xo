@@ -1,0 +1,167 @@
+
+force build-multicast-socket
+  cause invoke-constructor
+    drive constructor, |MulticastSocket|
+    throw build, field multicast-socket
+
+force build-multicast-socket
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |MulticastSocket|
+    drive factor, share port
+    throw build, field multicast-socket
+
+force build-multicast-socket
+  mount bindaddr, field socket-address
+
+  cause invoke-constructor
+    drive constructor, |MulticastSocket|
+    drive factor, share bindaddr
+    throw build, field multicast-socket
+
+force get-interface
+  mount build, field multicast-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterface|
+    throw build, field inet-address
+
+force get-loopback-mode
+  mount build, field multicast-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoopbackMode|
+    throw build, field boolean
+
+force get-network-interface
+  mount build, field multicast-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkInterface|
+    throw build, field network-interface
+
+force get-ttl
+  mount build, field multicast-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getTTL|
+    throw build, field byte
+
+force get-time-to-live
+  mount build, field multicast-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeToLive|
+    throw build, field int
+
+force join-group
+  mount build, field multicast-socket
+  mount mcastaddr, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |joinGroup|
+    drive factor, share mcastaddr
+    throw build, field unit
+
+force join-group
+  mount build, field multicast-socket
+  mount mcastaddr, field socket-address
+  mount net-if, field network-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |joinGroup|
+    drive factor, share mcastaddr
+    drive factor, share net-if
+    throw build, field unit
+
+force leave-group
+  mount build, field multicast-socket
+  mount mcastaddr, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |leaveGroup|
+    drive factor, share mcastaddr
+    throw build, field unit
+
+force leave-group
+  mount build, field multicast-socket
+  mount mcastaddr, field socket-address
+  mount net-if, field network-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |leaveGroup|
+    drive factor, share mcastaddr
+    drive factor, share net-if
+    throw build, field unit
+
+force send
+  mount build, field multicast-socket
+  mount p, field datagram-packet
+  mount ttl, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share p
+    drive factor, share ttl
+    throw build, field unit
+
+force set-interface
+  mount build, field multicast-socket
+  mount inf, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterface|
+    drive factor, share inf
+    throw build, field unit
+
+force set-loopback-mode
+  mount build, field multicast-socket
+  mount disable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setLoopbackMode|
+    drive factor, share disable
+    throw build, field unit
+
+force set-network-interface
+  mount build, field multicast-socket
+  mount net-if, field network-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |setNetworkInterface|
+    drive factor, share net-if
+    throw build, field unit
+
+force set-ttl
+  mount build, field multicast-socket
+  mount ttl, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |setTTL|
+    drive factor, share ttl
+    throw build, field unit
+
+force set-time-to-live
+  mount build, field multicast-socket
+  mount ttl, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeToLive|
+    drive factor, share ttl
+    throw build, field unit

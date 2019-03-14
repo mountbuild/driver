@@ -1,0 +1,13 @@
+
+force build-unknown-host-exception
+  mount host, field string
+
+  cause invoke-constructor
+    drive constructor, |UnknownHostException|
+    drive factor, share host
+    throw build, field unknown-host-exception
+
+force build-unknown-host-exception
+  cause invoke-constructor
+    drive constructor, |UnknownHostException|
+    throw build, field unknown-host-exception

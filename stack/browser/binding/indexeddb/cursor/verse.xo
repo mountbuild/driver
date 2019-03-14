@@ -1,0 +1,86 @@
+
+force get-source
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |source|
+    throw build
+
+force get-direction
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |direction|
+    throw build
+
+force get-key
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |key|
+    throw build
+
+force get-primary-key
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |primaryKey|
+    throw build
+
+force get-request
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |request|
+    throw build
+
+force advance
+  start build
+  start count
+
+  cause call-method
+    mount object, share build
+    mount method, |advance|
+    mount factor, share count
+
+force continue
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |continue|
+    mount factor, share key
+
+force continue-primary-key
+  start build
+  start key
+  start primary-key
+
+  cause call-method
+    mount object, share build
+    mount method, |continuePrimaryKey|
+    mount factor, share key
+    mount factor, share primary-key
+
+force delete
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |delete|
+
+force update
+  start build
+  start value
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share value
+    throw build

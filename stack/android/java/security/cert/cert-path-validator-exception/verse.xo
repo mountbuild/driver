@@ -1,0 +1,85 @@
+
+force build-cert-path-validator-exception
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    throw build, field cert-path-validator-exception
+
+force build-cert-path-validator-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    mount factor, share msg
+    throw build, field cert-path-validator-exception
+
+force build-cert-path-validator-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    mount factor, share cause
+    throw build, field cert-path-validator-exception
+
+force build-cert-path-validator-exception
+  mount msg, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    mount factor, share msg
+    mount factor, share cause
+    throw build, field cert-path-validator-exception
+
+force build-cert-path-validator-exception
+  mount msg, field string
+  mount cause, field throwable
+  mount cert-path, field cert-path
+  mount index, field int
+
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    mount factor, share msg
+    mount factor, share cause
+    mount factor, share cert-path
+    mount factor, share index
+    throw build, field cert-path-validator-exception
+
+force build-cert-path-validator-exception
+  mount msg, field string
+  mount cause, field throwable
+  mount cert-path, field cert-path
+  mount index, field int
+  mount reason, field cert-path-validator-exception-reason
+
+  cause invoke-constructor
+    mount constructor, |CertPathValidatorException|
+    mount factor, share msg
+    mount factor, share cause
+    mount factor, share cert-path
+    mount factor, share index
+    mount factor, share reason
+    throw build, field cert-path-validator-exception
+
+force get-cert-path
+  mount build, field cert-path-validator-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertPath|
+    throw build, field cert-path
+
+force get-index
+  mount build, field cert-path-validator-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getIndex|
+    throw build, field int
+
+force get-reason
+  mount build, field cert-path-validator-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getReason|
+    throw build, field cert-path-validator-exception-reason

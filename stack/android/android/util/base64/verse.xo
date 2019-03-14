@@ -1,0 +1,144 @@
+
+force get-crlf
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |CRLF|
+    throw build, field int
+
+force get-default
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT|
+    throw build, field int
+
+force get-no-close
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_CLOSE|
+    throw build, field int
+
+force get-no-padding
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_PADDING|
+    throw build, field int
+
+force get-no-wrap
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_WRAP|
+    throw build, field int
+
+force get-url-safe
+  mount build, field base64
+
+  cause get-property
+    drive object, share build
+    drive property, |URL_SAFE|
+    throw build, field int
+
+force decode
+  mount build, field base64
+  mount str, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decode|
+    drive factor, share str
+    drive factor, share flags
+    throw build, field byte-array
+
+force decode
+  mount build, field base64
+  mount input, field byte-array
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decode|
+    drive factor, share input
+    drive factor, share flags
+    throw build, field byte-array
+
+force decode
+  mount build, field base64
+  mount input, field byte-array
+  mount offset, field int
+  mount len, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decode|
+    drive factor, share input
+    drive factor, share offset
+    drive factor, share len
+    drive factor, share flags
+    throw build, field byte-array
+
+force encode
+  mount build, field base64
+  mount input, field byte-array
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share input
+    drive factor, share flags
+    throw build, field byte-array
+
+force encode
+  mount build, field base64
+  mount input, field byte-array
+  mount offset, field int
+  mount len, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share input
+    drive factor, share offset
+    drive factor, share len
+    drive factor, share flags
+    throw build, field byte-array
+
+force encode-to-string
+  mount build, field base64
+  mount input, field byte-array
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeToString|
+    drive factor, share input
+    drive factor, share flags
+    throw build, field string
+
+force encode-to-string
+  mount build, field base64
+  mount input, field byte-array
+  mount offset, field int
+  mount len, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeToString|
+    drive factor, share input
+    drive factor, share offset
+    drive factor, share len
+    drive factor, share flags
+    throw build, field string

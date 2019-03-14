@@ -1,0 +1,86 @@
+
+force build-drm-info
+  mount info-type, field int
+  mount data, field byte-array
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmInfo|
+    drive factor, share info-type
+    drive factor, share data
+    drive factor, share mime-type
+    throw build, field drm-info
+
+force build-drm-info
+  mount info-type, field int
+  mount path, field string
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmInfo|
+    drive factor, share info-type
+    drive factor, share path
+    drive factor, share mime-type
+    throw build, field drm-info
+
+force get
+  mount build, field drm-info
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field any
+
+force get-data
+  mount build, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    throw build, field byte-array
+
+force get-info-type
+  mount build, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInfoType|
+    throw build, field int
+
+force get-mime-type
+  mount build, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    throw build, field string
+
+force iterator
+  mount build, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force key-iterator
+  mount build, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |keyIterator|
+    throw build, field mutable-iterator
+
+force put
+  mount build, field drm-info
+  mount key, field string
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit

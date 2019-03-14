@@ -1,0 +1,16 @@
+
+force build-ec-gen-parameter-spec
+  mount std-name, field string
+
+  cause invoke-constructor
+    mount constructor, |ECGenParameterSpec|
+    mount factor, share std-name
+    throw build, field ec-gen-parameter-spec
+
+force get-name
+  mount build, field ec-gen-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string

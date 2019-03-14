@@ -1,0 +1,100 @@
+
+force empty
+  mount build, field optional-int
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    throw build, field optional-int
+
+force equals
+  mount build, field optional-int
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-as-int
+  mount build, field optional-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAsInt|
+    throw build, field int
+
+force hash-code
+  mount build, field optional-int
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force if-present
+  mount build, field optional-int
+  mount consumer, field int-consumer
+
+  cause call-method
+    drive object, share build
+    drive method, |ifPresent|
+    drive factor, share consumer
+    throw build, field unit
+
+force is-present
+  mount build, field optional-int
+
+  cause call-method
+    drive object, share build
+    drive method, |isPresent|
+    throw build, field boolean
+
+force of
+  mount build, field optional-int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share value
+    throw build, field optional-int
+
+force or-else
+  mount build, field optional-int
+  mount other, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |orElse|
+    drive factor, share other
+    throw build, field int
+
+force or-else-get
+  mount build, field optional-int
+  mount other, field int-supplier
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseGet|
+    drive factor, share other
+    throw build, field int
+
+force or-else-throw
+  mount build, field optional-int
+  mount exception-supplier, field supplier-x
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseThrow|
+    drive factor, share exception-supplier
+    throw build, field int
+
+force to-string
+  mount build, field optional-int
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

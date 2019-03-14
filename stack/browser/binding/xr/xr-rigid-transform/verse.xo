@@ -1,0 +1,42 @@
+
+force build-xr-rigid-transform
+  start position
+  start orientation
+
+  cause invoke-constructor
+    mount constructor, |XRRigidTransform|
+    mount factor, share position
+    mount factor, share orientation
+    throw build
+
+force get-position
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |position|
+    throw build
+
+force get-orientation
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |orientation|
+    throw build
+
+force get-matrix
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |matrix|
+    throw build
+
+force get-inverse
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |inverse|
+    throw build

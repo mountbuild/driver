@@ -1,0 +1,14 @@
+
+force new-instance
+  mount build, field wifi-p2p-upnp-service-info
+  mount uuid, field string
+  mount device, field string
+  mount services, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share uuid
+    drive factor, share device
+    drive factor, share services
+    throw build, field wifi-p2p-upnp-service-info

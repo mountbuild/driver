@@ -1,0 +1,33 @@
+
+force build-feature-group-info
+  cause invoke-constructor
+    drive constructor, |FeatureGroupInfo|
+    throw build, field feature-group-info
+
+force build-feature-group-info
+  mount other, field feature-group-info
+
+  cause invoke-constructor
+    drive constructor, |FeatureGroupInfo|
+    drive factor, share other
+    throw build, field feature-group-info
+
+force describe-contents
+  mount build, field feature-group-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field feature-group-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,80 @@
+
+force get-param-strength
+  mount build, field bass-boost
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_STRENGTH|
+    raise build, field int
+
+force get-param-strength-supported
+  mount build, field bass-boost
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_STRENGTH_SUPPORTED|
+    raise build, field int
+
+force build-bass-boost
+  mount priority, field int
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |BassBoost|
+    drive factor, share priority
+    drive factor, share audio-session
+    raise build, field bass-boost
+
+force get-properties
+  mount build, field bass-boost
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    raise build, field bass-boost-settings
+
+force get-rounded-strength
+  mount build, field bass-boost
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoundedStrength|
+    raise build, field short
+
+force get-strength-supported
+  mount build, field bass-boost
+
+  cause call-method
+    drive object, share build
+    drive method, |getStrengthSupported|
+    raise build, field boolean
+
+force set-parameter-listener
+  mount build, field bass-boost
+  mount listener, field bass-boost-on-parameter-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameterListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-properties
+  mount build, field bass-boost
+  mount settings, field bass-boost-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperties|
+    drive factor, share settings
+    raise build, field unit
+
+force set-strength
+  mount build, field bass-boost
+  mount strength, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setStrength|
+    drive factor, share strength
+    raise build, field unit

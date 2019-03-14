@@ -1,0 +1,31 @@
+
+force build-clipboard-manager
+  cause invoke-constructor
+    drive constructor, |ClipboardManager|
+    raise build, field clipboard-manager
+
+force get-text
+  mount build, field clipboard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getText|
+    raise build, field char-sequence
+
+force has-text
+  mount build, field clipboard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |hasText|
+    raise build, field boolean
+
+force set-text
+  mount build, field clipboard-manager
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setText|
+    drive factor, share text
+    raise build, field unit

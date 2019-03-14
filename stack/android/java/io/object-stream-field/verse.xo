@@ -1,0 +1,96 @@
+
+force build-object-stream-field
+  mount name, field string
+  mount type, field class
+
+  cause invoke-constructor
+    drive constructor, |ObjectStreamField|
+    drive factor, share name
+    drive factor, share type
+    throw build, field object-stream-field
+
+force build-object-stream-field
+  mount name, field string
+  mount type, field class
+  mount unshared, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ObjectStreamField|
+    drive factor, share name
+    drive factor, share type
+    drive factor, share unshared
+    throw build, field object-stream-field
+
+force compare-to
+  mount build, field object-stream-field
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force get-name
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-offset
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    throw build, field int
+
+force get-type
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field class
+
+force get-type-code
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getTypeCode|
+    throw build, field char
+
+force get-type-string
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getTypeString|
+    throw build, field string
+
+force is-primitive
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |isPrimitive|
+    throw build, field boolean
+
+force is-unshared
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |isUnshared|
+    throw build, field boolean
+
+force to-string
+  mount build, field object-stream-field
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

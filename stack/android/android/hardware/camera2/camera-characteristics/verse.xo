@@ -1,0 +1,76 @@
+
+force get
+  mount build, field camera-characteristics
+  mount key, field camera-characteristics-key-t
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field t
+
+force get-available-capture-request-keys
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableCaptureRequestKeys|
+    throw build, field mutable-list
+
+force get-available-capture-result-keys
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableCaptureResultKeys|
+    throw build, field mutable-list
+
+force get-available-physical-camera-request-keys
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailablePhysicalCameraRequestKeys|
+    throw build, field mutable-list
+
+force get-available-session-keys
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableSessionKeys|
+    throw build, field mutable-list
+
+force get-keys
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeys|
+    throw build, field mutable-list
+
+force get-keys-needing-permission
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeysNeedingPermission|
+    throw build, field mutable-list
+
+force get-physical-camera-ids
+  mount build, field camera-characteristics
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhysicalCameraIds|
+    throw build, field mutable-set
+
+force get-recommended-stream-configuration-map
+  mount build, field camera-characteristics
+  mount usecase, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecommendedStreamConfigurationMap|
+    drive factor, share usecase
+    throw build, field recommended-stream-configuration-map

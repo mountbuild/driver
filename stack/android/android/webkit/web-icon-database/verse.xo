@@ -1,0 +1,71 @@
+
+force build-web-icon-database
+  cause invoke-constructor
+    drive constructor, |WebIconDatabase|
+    throw build, field web-icon-database
+
+force close
+  mount build, field web-icon-database
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-instance
+  mount build, field web-icon-database
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    throw build, field web-icon-database
+
+force open
+  mount build, field web-icon-database
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share path
+    throw build, field unit
+
+force release-icon-for-page-url
+  mount build, field web-icon-database
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseIconForPageUrl|
+    drive factor, share url
+    throw build, field unit
+
+force remove-all-icons
+  mount build, field web-icon-database
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllIcons|
+    throw build, field unit
+
+force request-icon-for-page-url
+  mount build, field web-icon-database
+  mount url, field string
+  mount listener, field web-icon-database-icon-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestIconForPageUrl|
+    drive factor, share url
+    drive factor, share listener
+    throw build, field unit
+
+force retain-icon-for-page-url
+  mount build, field web-icon-database
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |retainIconForPageUrl|
+    drive factor, share url
+    throw build, field unit

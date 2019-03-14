@@ -1,0 +1,164 @@
+
+force get-confidence-scores
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIDENCE_SCORES|
+    throw build, field string
+
+force get-error-audio
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_AUDIO|
+    throw build, field int
+
+force get-error-client
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_CLIENT|
+    throw build, field int
+
+force get-error-insufficient-permissions
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INSUFFICIENT_PERMISSIONS|
+    throw build, field int
+
+force get-error-network
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NETWORK|
+    throw build, field int
+
+force get-error-network-timeout
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NETWORK_TIMEOUT|
+    throw build, field int
+
+force get-error-no-match
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NO_MATCH|
+    throw build, field int
+
+force get-error-recognizer-busy
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_RECOGNIZER_BUSY|
+    throw build, field int
+
+force get-error-server
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SERVER|
+    throw build, field int
+
+force get-error-speech-timeout
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SPEECH_TIMEOUT|
+    throw build, field int
+
+force get-results-recognition
+  mount build, field speech-recognizer
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULTS_RECOGNITION|
+    throw build, field string
+
+force cancel
+  mount build, field speech-recognizer
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field unit
+
+force create-speech-recognizer
+  mount build, field speech-recognizer
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |createSpeechRecognizer|
+    drive factor, share context
+    throw build, field speech-recognizer
+
+force create-speech-recognizer
+  mount build, field speech-recognizer
+  mount context, field context
+  mount service-component, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |createSpeechRecognizer|
+    drive factor, share context
+    drive factor, share service-component
+    throw build, field speech-recognizer
+
+force destroy
+  mount build, field speech-recognizer
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    throw build, field unit
+
+force is-recognition-available
+  mount build, field speech-recognizer
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |isRecognitionAvailable|
+    drive factor, share context
+    throw build, field boolean
+
+force set-recognition-listener
+  mount build, field speech-recognizer
+  mount listener, field recognition-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setRecognitionListener|
+    drive factor, share listener
+    throw build, field unit
+
+force start-listening
+  mount build, field speech-recognizer
+  mount recognizer-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startListening|
+    drive factor, share recognizer-intent
+    throw build, field unit
+
+force stop-listening
+  mount build, field speech-recognizer
+
+  cause call-method
+    drive object, share build
+    drive method, |stopListening|
+    throw build, field unit

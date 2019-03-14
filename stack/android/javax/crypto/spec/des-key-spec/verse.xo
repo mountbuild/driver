@@ -1,0 +1,58 @@
+
+force get-des-key-len
+  start build, field des-key-spec
+
+  cause get-property
+    mount object, share build
+    mount property, |DES_KEY_LEN|
+    throw build, field int
+
+force build-des-key-spec
+  start key, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |DESKeySpec|
+    mount factor, share key
+    throw build, field des-key-spec
+
+force build-des-key-spec
+  start key, field byte-array
+  start offset, field int
+
+  cause invoke-constructor
+    mount constructor, |DESKeySpec|
+    mount factor, share key
+    mount factor, share offset
+    throw build, field des-key-spec
+
+force get-key
+  start build, field des-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getKey|
+    throw build, field byte-array
+
+force is-parity-adjusted
+  start build, field des-key-spec
+  start key, field byte-array
+  start offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |isParityAdjusted|
+    mount factor, share key
+    mount factor, share offset
+    throw build, field boolean
+
+force is-weak
+  start build, field des-key-spec
+  start key, field byte-array
+  start offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |isWeak|
+    mount factor, share key
+    mount factor, share offset
+    throw build, field boolean

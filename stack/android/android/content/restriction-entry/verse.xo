@@ -1,0 +1,404 @@
+
+force get-type-boolean
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BOOLEAN|
+    throw build, field int
+
+force get-type-bundle
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BUNDLE|
+    throw build, field int
+
+force get-type-bundle-array
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BUNDLE_ARRAY|
+    throw build, field int
+
+force get-type-choice
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_CHOICE|
+    throw build, field int
+
+force get-type-integer
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_INTEGER|
+    throw build, field int
+
+force get-type-multi-select
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_MULTI_SELECT|
+    throw build, field int
+
+force get-type-null
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NULL|
+    throw build, field int
+
+force get-type-string
+  mount build, field restriction-entry
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_STRING|
+    throw build, field int
+
+force build-restriction-entry
+  mount type, field int
+  mount key, field string
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share type
+    drive factor, share key
+    throw build, field restriction-entry
+
+force build-restriction-entry
+  mount key, field string
+  mount selected-string, field string
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share key
+    drive factor, share selected-string
+    throw build, field restriction-entry
+
+force build-restriction-entry
+  mount key, field string
+  mount selected-state, field boolean
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share key
+    drive factor, share selected-state
+    throw build, field restriction-entry
+
+force build-restriction-entry
+  mount key, field string
+  mount selected-strings, field array-string
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share key
+    drive factor, share selected-strings
+    throw build, field restriction-entry
+
+force build-restriction-entry
+  mount key, field string
+  mount selected-int, field int
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share key
+    drive factor, share selected-int
+    throw build, field restriction-entry
+
+force build-restriction-entry
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |RestrictionEntry|
+    drive factor, share in
+    throw build, field restriction-entry
+
+force create-bundle-array-entry
+  mount build, field restriction-entry
+  mount key, field string
+  mount restriction-entries, field array-restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |createBundleArrayEntry|
+    drive factor, share key
+    drive factor, share restriction-entries
+    throw build, field restriction-entry
+
+force create-bundle-entry
+  mount build, field restriction-entry
+  mount key, field string
+  mount restriction-entries, field array-restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |createBundleEntry|
+    drive factor, share key
+    drive factor, share restriction-entries
+    throw build, field restriction-entry
+
+force describe-contents
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field restriction-entry
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-all-selected-strings
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllSelectedStrings|
+    throw build, field array
+
+force get-choice-entries
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getChoiceEntries|
+    throw build, field array
+
+force get-choice-values
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getChoiceValues|
+    throw build, field array
+
+force get-description
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-int-value
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntValue|
+    throw build, field int
+
+force get-key
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field string
+
+force get-restrictions
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getRestrictions|
+    throw build, field array
+
+force get-selected-state
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedState|
+    throw build, field boolean
+
+force get-selected-string
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedString|
+    throw build, field string
+
+force get-title
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getTitle|
+    throw build, field string
+
+force get-type
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force hash-code
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force set-all-selected-strings
+  mount build, field restriction-entry
+  mount all-selected-strings, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllSelectedStrings|
+    drive factor, share all-selected-strings
+    throw build, field unit
+
+force set-choice-entries
+  mount build, field restriction-entry
+  mount choice-entries, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setChoiceEntries|
+    drive factor, share choice-entries
+    throw build, field unit
+
+force set-choice-entries
+  mount build, field restriction-entry
+  mount context, field context
+  mount string-array-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setChoiceEntries|
+    drive factor, share context
+    drive factor, share string-array-res-id
+    throw build, field unit
+
+force set-choice-values
+  mount build, field restriction-entry
+  mount choice-values, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setChoiceValues|
+    drive factor, share choice-values
+    throw build, field unit
+
+force set-choice-values
+  mount build, field restriction-entry
+  mount context, field context
+  mount string-array-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setChoiceValues|
+    drive factor, share context
+    drive factor, share string-array-res-id
+    throw build, field unit
+
+force set-description
+  mount build, field restriction-entry
+  mount description, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDescription|
+    drive factor, share description
+    throw build, field unit
+
+force set-int-value
+  mount build, field restriction-entry
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setIntValue|
+    drive factor, share value
+    throw build, field unit
+
+force set-restrictions
+  mount build, field restriction-entry
+  mount restrictions, field array-restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |setRestrictions|
+    drive factor, share restrictions
+    throw build, field unit
+
+force set-selected-state
+  mount build, field restriction-entry
+  mount state, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedState|
+    drive factor, share state
+    throw build, field unit
+
+force set-selected-string
+  mount build, field restriction-entry
+  mount selected-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedString|
+    drive factor, share selected-string
+    throw build, field unit
+
+force set-title
+  mount build, field restriction-entry
+  mount title, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setTitle|
+    drive factor, share title
+    throw build, field unit
+
+force set-type
+  mount build, field restriction-entry
+  mount type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setType|
+    drive factor, share type
+    throw build, field unit
+
+force to-string
+  mount build, field restriction-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field restriction-entry
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

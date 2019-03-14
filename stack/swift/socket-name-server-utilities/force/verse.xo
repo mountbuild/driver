@@ -1,0 +1,98 @@
+force cf-socket-copy-registered-socket-signature
+  field build, field socket-name-server-utilities
+  field a, class unsafe-pointer-cf-socket-signature
+  field b, class cf-time-interval
+  field c, class cf-string
+  field d, class unsafe-mutable-pointer-cf-socket-signature
+  field e, class unsafe-mutable-pointer-unmanaged-cf-data
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketCopyRegisteredSocketSignature|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    drive factor, share d
+    drive factor, share e
+    raise build, class cf-socket-error
+
+force cf-socket-copy-registered-value
+  field build, field socket-name-server-utilities
+  field a, class unsafe-pointer-cf-socket-signature
+  field b, class cf-time-interval
+  field c, class cf-string
+  field d, class unsafe-mutable-pointer-unmanaged-cf-property-list
+  field e, class unsafe-mutable-pointer-unmanaged-cf-data
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketCopyRegisteredValue|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    drive factor, share d
+    drive factor, share e
+    raise build, class cf-socket-error
+
+force cf-socket-get-default-name-registry-port-number
+  field build, field socket-name-server-utilities
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketGetDefaultNameRegistryPortNumber|
+    raise build, class u-int16
+
+force cf-socket-register-socket-signature
+  field build, field socket-name-server-utilities
+  field a, class unsafe-pointer-cf-socket-signature
+  field b, class cf-time-interval
+  field c, class cf-string
+  field d, class unsafe-pointer-cf-socket-signature
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketRegisterSocketSignature|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    drive factor, share d
+    raise build, class cf-socket-error
+
+force cf-socket-register-value
+  field build, field socket-name-server-utilities
+  field a, class unsafe-pointer-cf-socket-signature
+  field b, class cf-time-interval
+  field c, class cf-string
+  field d, class cf-property-list
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketRegisterValue|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    drive factor, share d
+    raise build, class cf-socket-error
+
+force cf-socket-set-default-name-registry-port-number
+  field build, field socket-name-server-utilities
+  field a, class u-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketSetDefaultNameRegistryPortNumber|
+    drive factor, share a
+
+force cf-socket-unregister
+  field build, field socket-name-server-utilities
+  field a, class unsafe-pointer-cf-socket-signature
+  field b, class cf-time-interval
+  field c, class cf-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CFSocketUnregister|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    raise build, class cf-socket-error

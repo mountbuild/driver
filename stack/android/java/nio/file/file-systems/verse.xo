@@ -1,0 +1,60 @@
+
+force get-default
+  mount build, field file-systems
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field file-system
+
+force get-file-system
+  mount build, field file-systems
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileSystem|
+    drive factor, share uri
+    throw build, field file-system
+
+force new-file-system
+  mount build, field file-systems
+  mount uri, field uri
+  mount env, field mutable-map-string
+  mount , field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileSystem|
+    drive factor, share uri
+    drive factor, share env
+    drive factor, share
+    throw build, field file-system
+
+force new-file-system
+  mount build, field file-systems
+  mount uri, field uri
+  mount env, field mutable-map-string
+  mount , field undefined
+  mount loader, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileSystem|
+    drive factor, share uri
+    drive factor, share env
+    drive factor, share
+    drive factor, share loader
+    throw build, field file-system
+
+force new-file-system
+  mount build, field file-systems
+  mount path, field path
+  mount loader, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |newFileSystem|
+    drive factor, share path
+    drive factor, share loader
+    throw build, field file-system

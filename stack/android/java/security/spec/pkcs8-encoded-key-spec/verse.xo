@@ -1,0 +1,24 @@
+
+force build-pkcs8-encoded-key-spec
+  mount encoded-key, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |PKCS8EncodedKeySpec|
+    mount factor, share encoded-key
+    throw build, field pkcs8-encoded-key-spec
+
+force get-encoded
+  mount build, field pkcs8-encoded-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-format
+  mount build, field pkcs8-encoded-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getFormat|
+    throw build, field string

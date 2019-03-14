@@ -1,0 +1,127 @@
+
+force build-atomic-reference
+  mount initial-value, field v
+
+  cause invoke-constructor
+    drive constructor, |AtomicReference|
+    drive factor, share initial-value
+    throw build, field atomic-reference
+
+force build-atomic-reference
+  cause invoke-constructor
+    drive constructor, |AtomicReference|
+    throw build, field atomic-reference
+
+force accumulate-and-get
+  mount build, field atomic-reference
+  mount x, field v
+  mount accumulator-function, field binary-operator-v
+
+  cause call-method
+    drive object, share build
+    drive method, |accumulateAndGet|
+    drive factor, share x
+    drive factor, share accumulator-function
+    throw build, field v
+
+force compare-and-set
+  mount build, field atomic-reference
+  mount expect, field v
+  mount update, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSet|
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean
+
+force get
+  mount build, field atomic-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field v
+
+force get-and-accumulate
+  mount build, field atomic-reference
+  mount x, field v
+  mount accumulator-function, field binary-operator-v
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndAccumulate|
+    drive factor, share x
+    drive factor, share accumulator-function
+    throw build, field v
+
+force get-and-set
+  mount build, field atomic-reference
+  mount new-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndSet|
+    drive factor, share new-value
+    throw build, field v
+
+force get-and-update
+  mount build, field atomic-reference
+  mount update-function, field unary-operator-v
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndUpdate|
+    drive factor, share update-function
+    throw build, field v
+
+force lazy-set
+  mount build, field atomic-reference
+  mount new-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |lazySet|
+    drive factor, share new-value
+    throw build, field unit
+
+force set
+  mount build, field atomic-reference
+  mount new-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share new-value
+    throw build, field unit
+
+force to-string
+  mount build, field atomic-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force update-and-get
+  mount build, field atomic-reference
+  mount update-function, field unary-operator-v
+
+  cause call-method
+    drive object, share build
+    drive method, |updateAndGet|
+    drive factor, share update-function
+    throw build, field v
+
+force weak-compare-and-set
+  mount build, field atomic-reference
+  mount expect, field v
+  mount update, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |weakCompareAndSet|
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean

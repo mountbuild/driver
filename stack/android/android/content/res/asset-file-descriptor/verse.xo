@@ -1,0 +1,134 @@
+
+force get-unknown-length
+  mount build, field asset-file-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN_LENGTH|
+    throw build, field long
+
+force build-asset-file-descriptor
+  mount fd, field parcel-file-descriptor
+  mount start-offset, field long
+  mount length, field long
+
+  cause invoke-constructor
+    drive constructor, |AssetFileDescriptor|
+    drive factor, share fd
+    drive factor, share start-offset
+    drive factor, share length
+    throw build, field asset-file-descriptor
+
+force build-asset-file-descriptor
+  mount fd, field parcel-file-descriptor
+  mount start-offset, field long
+  mount length, field long
+  mount extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |AssetFileDescriptor|
+    drive factor, share fd
+    drive factor, share start-offset
+    drive factor, share length
+    drive factor, share extras
+    throw build, field asset-file-descriptor
+
+force close
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create-input-stream
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |createInputStream|
+    throw build, field file-input-stream
+
+force create-output-stream
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |createOutputStream|
+    throw build, field file-output-stream
+
+force describe-contents
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-declared-length
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaredLength|
+    throw build, field long
+
+force get-extras
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-file-descriptor
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileDescriptor|
+    throw build, field file-descriptor
+
+force get-length
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    throw build, field long
+
+force get-parcel-file-descriptor
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getParcelFileDescriptor|
+    throw build, field parcel-file-descriptor
+
+force get-start-offset
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartOffset|
+    throw build, field long
+
+force to-string
+  mount build, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field asset-file-descriptor
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

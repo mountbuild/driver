@@ -1,0 +1,135 @@
+
+force get-report-key-name-class
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_NAME_CLASS|
+    raise build, field string
+
+force get-report-key-name-test
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_NAME_TEST|
+    raise build, field string
+
+force get-report-key-num-current
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_NUM_CURRENT|
+    raise build, field string
+
+force get-report-key-num-total
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_NUM_TOTAL|
+    raise build, field string
+
+force get-report-key-stack
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_STACK|
+    raise build, field string
+
+force get-report-value-id
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_VALUE_ID|
+    raise build, field string
+
+force get-report-value-result-error
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_VALUE_RESULT_ERROR|
+    raise build, field int
+
+force get-report-value-result-failure
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_VALUE_RESULT_FAILURE|
+    raise build, field int
+
+force get-report-value-result-ok
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_VALUE_RESULT_OK|
+    raise build, field int
+
+force get-report-value-result-start
+  mount build, field instrumentation-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_VALUE_RESULT_START|
+    raise build, field int
+
+force build-instrumentation-test-runner
+  cause invoke-constructor
+    drive constructor, |InstrumentationTestRunner|
+    raise build, field instrumentation-test-runner
+
+force get-all-tests
+  mount build, field instrumentation-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllTests|
+    raise build, field test-suite
+
+force get-arguments
+  mount build, field instrumentation-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getArguments|
+    raise build, field bundle
+
+force get-loader
+  mount build, field instrumentation-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoader|
+    raise build, field class-loader
+
+force get-test-suite
+  mount build, field instrumentation-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getTestSuite|
+    raise build, field test-suite
+
+force on-create
+  mount build, field instrumentation-test-runner
+  mount arguments, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    drive factor, share arguments
+    raise build, field unit
+
+force on-start
+  mount build, field instrumentation-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    raise build, field unit

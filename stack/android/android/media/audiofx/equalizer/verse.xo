@@ -1,0 +1,222 @@
+
+force get-param-band-freq-range
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_BAND_FREQ_RANGE|
+    raise build, field int
+
+force get-param-band-level
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_BAND_LEVEL|
+    raise build, field int
+
+force get-param-center-freq
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_CENTER_FREQ|
+    raise build, field int
+
+force get-param-current-preset
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_CURRENT_PRESET|
+    raise build, field int
+
+force get-param-get-band
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_GET_BAND|
+    raise build, field int
+
+force get-param-get-num-of-presets
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_GET_NUM_OF_PRESETS|
+    raise build, field int
+
+force get-param-get-preset-name
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_GET_PRESET_NAME|
+    raise build, field int
+
+force get-param-level-range
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_LEVEL_RANGE|
+    raise build, field int
+
+force get-param-num-bands
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_NUM_BANDS|
+    raise build, field int
+
+force get-param-string-size-max
+  mount build, field equalizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_STRING_SIZE_MAX|
+    raise build, field int
+
+force build-equalizer
+  mount priority, field int
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |Equalizer|
+    drive factor, share priority
+    drive factor, share audio-session
+    raise build, field equalizer
+
+force get-band
+  mount build, field equalizer
+  mount frequency, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBand|
+    drive factor, share frequency
+    raise build, field short
+
+force get-band-freq-range
+  mount build, field equalizer
+  mount band, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |getBandFreqRange|
+    drive factor, share band
+    raise build, field int-array
+
+force get-band-level
+  mount build, field equalizer
+  mount band, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |getBandLevel|
+    drive factor, share band
+    raise build, field short
+
+force get-band-level-range
+  mount build, field equalizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getBandLevelRange|
+    raise build, field short-array
+
+force get-center-freq
+  mount build, field equalizer
+  mount band, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |getCenterFreq|
+    drive factor, share band
+    raise build, field int
+
+force get-current-preset
+  mount build, field equalizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentPreset|
+    raise build, field short
+
+force get-number-of-bands
+  mount build, field equalizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberOfBands|
+    raise build, field short
+
+force get-number-of-presets
+  mount build, field equalizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberOfPresets|
+    raise build, field short
+
+force get-preset-name
+  mount build, field equalizer
+  mount preset, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |getPresetName|
+    drive factor, share preset
+    raise build, field string
+
+force get-properties
+  mount build, field equalizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    raise build, field equalizer-settings
+
+force set-band-level
+  mount build, field equalizer
+  mount band, field short
+  mount level, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setBandLevel|
+    drive factor, share band
+    drive factor, share level
+    raise build, field unit
+
+force set-parameter-listener
+  mount build, field equalizer
+  mount listener, field equalizer-on-parameter-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameterListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-properties
+  mount build, field equalizer
+  mount settings, field equalizer-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperties|
+    drive factor, share settings
+    raise build, field unit
+
+force use-preset
+  mount build, field equalizer
+  mount preset, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |usePreset|
+    drive factor, share preset
+    raise build, field unit

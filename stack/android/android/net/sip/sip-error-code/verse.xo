@@ -1,0 +1,114 @@
+
+force get-client-error
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |CLIENT_ERROR|
+    throw build, field int
+
+force get-cross-domain-authentication
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |CROSS_DOMAIN_AUTHENTICATION|
+    throw build, field int
+
+force get-data-connection-lost
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_CONNECTION_LOST|
+    throw build, field int
+
+force get-invalid-credentials
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_CREDENTIALS|
+    throw build, field int
+
+force get-invalid-remote-uri
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_REMOTE_URI|
+    throw build, field int
+
+force get-in-progress
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |IN_PROGRESS|
+    throw build, field int
+
+force get-no-error
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_ERROR|
+    throw build, field int
+
+force get-peer-not-reachable
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |PEER_NOT_REACHABLE|
+    throw build, field int
+
+force get-server-error
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVER_ERROR|
+    throw build, field int
+
+force get-server-unreachable
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVER_UNREACHABLE|
+    throw build, field int
+
+force get-socket-error
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |SOCKET_ERROR|
+    throw build, field int
+
+force get-time-out
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |TIME_OUT|
+    throw build, field int
+
+force get-transaction-terminted
+  start build, field sip-error-code
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSACTION_TERMINTED|
+    throw build, field int
+
+force to-string
+  start build, field sip-error-code
+  start error-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share error-code
+    throw build, field string

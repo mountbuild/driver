@@ -1,0 +1,58 @@
+
+force build-handler-thread
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |HandlerThread|
+    drive factor, share name
+    raise build, field handler-thread
+
+force build-handler-thread
+  mount name, field string
+  mount priority, field int
+
+  cause invoke-constructor
+    drive constructor, |HandlerThread|
+    drive factor, share name
+    drive factor, share priority
+    raise build, field handler-thread
+
+force get-looper
+  mount build, field handler-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getLooper|
+    raise build, field looper
+
+force get-thread-id
+  mount build, field handler-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadId|
+    raise build, field int
+
+force quit
+  mount build, field handler-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |quit|
+    raise build, field boolean
+
+force quit-safely
+  mount build, field handler-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |quitSafely|
+    raise build, field boolean
+
+force run
+  mount build, field handler-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    raise build, field unit

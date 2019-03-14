@@ -1,0 +1,275 @@
+
+force get-pop-back-stack-inclusive
+  mount build, field fragment-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |POP_BACK_STACK_INCLUSIVE|
+    throw build, field int
+
+force build-fragment-manager
+  cause invoke-constructor
+    drive constructor, |FragmentManager|
+    throw build, field fragment-manager
+
+force add-on-back-stack-changed-listener
+  mount build, field fragment-manager
+  mount listener, field fragment-manager-on-back-stack-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnBackStackChangedListener|
+    drive factor, share listener
+    throw build, field unit
+
+force begin-transaction
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |beginTransaction|
+    throw build, field fragment-transaction
+
+force dump
+  mount build, field fragment-manager
+  mount prefix, field string
+  mount fd, field file-descriptor
+  mount writer, field print-writer
+  mount args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share prefix
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    throw build, field unit
+
+force enable-debug-logging
+  mount build, field fragment-manager
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enableDebugLogging|
+    drive factor, share enabled
+    throw build, field unit
+
+force execute-pending-transactions
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |executePendingTransactions|
+    throw build, field boolean
+
+force find-fragment-by-id
+  mount build, field fragment-manager
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findFragmentById|
+    drive factor, share id
+    throw build, field fragment
+
+force find-fragment-by-tag
+  mount build, field fragment-manager
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findFragmentByTag|
+    drive factor, share tag
+    throw build, field fragment
+
+force get-back-stack-entry-at
+  mount build, field fragment-manager
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBackStackEntryAt|
+    drive factor, share index
+    throw build, field fragment-manager-back-stack-entry
+
+force get-back-stack-entry-count
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getBackStackEntryCount|
+    throw build, field int
+
+force get-fragment
+  mount build, field fragment-manager
+  mount bundle, field bundle
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFragment|
+    drive factor, share bundle
+    drive factor, share key
+    throw build, field fragment
+
+force get-fragments
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getFragments|
+    throw build, field mutable-list
+
+force get-primary-navigation-fragment
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrimaryNavigationFragment|
+    throw build, field fragment
+
+force invalidate-options-menu
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidateOptionsMenu|
+    throw build, field unit
+
+force is-destroyed
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isDestroyed|
+    throw build, field boolean
+
+force is-state-saved
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isStateSaved|
+    throw build, field boolean
+
+force pop-back-stack
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStack|
+    throw build, field unit
+
+force pop-back-stack
+  mount build, field fragment-manager
+  mount name, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStack|
+    drive factor, share name
+    drive factor, share flags
+    throw build, field unit
+
+force pop-back-stack
+  mount build, field fragment-manager
+  mount id, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStack|
+    drive factor, share id
+    drive factor, share flags
+    throw build, field unit
+
+force pop-back-stack-immediate
+  mount build, field fragment-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStackImmediate|
+    throw build, field boolean
+
+force pop-back-stack-immediate
+  mount build, field fragment-manager
+  mount name, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStackImmediate|
+    drive factor, share name
+    drive factor, share flags
+    throw build, field boolean
+
+force pop-back-stack-immediate
+  mount build, field fragment-manager
+  mount id, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |popBackStackImmediate|
+    drive factor, share id
+    drive factor, share flags
+    throw build, field boolean
+
+force put-fragment
+  mount build, field fragment-manager
+  mount bundle, field bundle
+  mount key, field string
+  mount fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |putFragment|
+    drive factor, share bundle
+    drive factor, share key
+    drive factor, share fragment
+    throw build, field unit
+
+force register-fragment-lifecycle-callbacks
+  mount build, field fragment-manager
+  mount cb, field fragment-manager-fragment-lifecycle-callbacks
+  mount recursive, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |registerFragmentLifecycleCallbacks|
+    drive factor, share cb
+    drive factor, share recursive
+    throw build, field unit
+
+force remove-on-back-stack-changed-listener
+  mount build, field fragment-manager
+  mount listener, field fragment-manager-on-back-stack-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnBackStackChangedListener|
+    drive factor, share listener
+    throw build, field unit
+
+force save-fragment-instance-state
+  mount build, field fragment-manager
+  mount f, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |saveFragmentInstanceState|
+    drive factor, share f
+    throw build, field fragment-saved-state
+
+force unregister-fragment-lifecycle-callbacks
+  mount build, field fragment-manager
+  mount cb, field fragment-manager-fragment-lifecycle-callbacks
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterFragmentLifecycleCallbacks|
+    drive factor, share cb
+    throw build, field unit

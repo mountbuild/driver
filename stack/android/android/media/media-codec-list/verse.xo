@@ -1,0 +1,70 @@
+
+force get-all-codecs
+  start build, field media-codec-list
+
+  cause get-property
+    drive object, share build
+    drive property, |ALL_CODECS|
+    raise build, field int
+
+force get-regular-codecs
+  start build, field media-codec-list
+
+  cause get-property
+    drive object, share build
+    drive property, |REGULAR_CODECS|
+    raise build, field int
+
+force build-media-codec-list
+  start kind, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaCodecList|
+    drive factor, share kind
+    raise build, field media-codec-list
+
+force find-decoder-for-format
+  start build, field media-codec-list
+  start format, field media-format
+
+  cause call-method
+    drive object, share build
+    drive method, |findDecoderForFormat|
+    drive factor, share format
+    raise build, field string
+
+force find-encoder-for-format
+  start build, field media-codec-list
+  start format, field media-format
+
+  cause call-method
+    drive object, share build
+    drive method, |findEncoderForFormat|
+    drive factor, share format
+    raise build, field string
+
+force get-codec-count
+  start build, field media-codec-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodecCount|
+    raise build, field int
+
+force get-codec-info-at
+  start build, field media-codec-list
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodecInfoAt|
+    drive factor, share index
+    raise build, field media-codec-info
+
+force get-codec-infos
+  start build, field media-codec-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodecInfos|
+    raise build, field array

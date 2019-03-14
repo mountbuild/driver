@@ -1,0 +1,65 @@
+
+force get-signal-strength-unavailable
+  mount build, field streaming-service-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |SIGNAL_STRENGTH_UNAVAILABLE|
+    throw build, field int
+
+force build-streaming-service-callback
+  cause invoke-constructor
+    drive constructor, |StreamingServiceCallback|
+    throw build, field streaming-service-callback
+
+force on-broadcast-signal-strength-updated
+  mount build, field streaming-service-callback
+  mount signal-strength, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onBroadcastSignalStrengthUpdated|
+    drive factor, share signal-strength
+    throw build, field unit
+
+force on-error
+  mount build, field streaming-service-callback
+  mount error-code, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share error-code
+    drive factor, share message
+    throw build, field unit
+
+force on-media-description-updated
+  mount build, field streaming-service-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onMediaDescriptionUpdated|
+    throw build, field unit
+
+force on-stream-method-updated
+  mount build, field streaming-service-callback
+  mount method-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStreamMethodUpdated|
+    drive factor, share method-type
+    throw build, field unit
+
+force on-stream-state-updated
+  mount build, field streaming-service-callback
+  mount state, field int
+  mount reason, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStreamStateUpdated|
+    drive factor, share state
+    drive factor, share reason
+    throw build, field unit

@@ -1,0 +1,48 @@
+
+force build-timing-logger
+  mount tag, field string
+  mount label, field string
+
+  cause invoke-constructor
+    drive constructor, |TimingLogger|
+    drive factor, share tag
+    drive factor, share label
+    throw build, field timing-logger
+
+force add-split
+  mount build, field timing-logger
+  mount split-label, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addSplit|
+    drive factor, share split-label
+    throw build, field unit
+
+force dump-to-log
+  mount build, field timing-logger
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpToLog|
+    throw build, field unit
+
+force reset
+  mount build, field timing-logger
+  mount tag, field string
+  mount label, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    drive factor, share tag
+    drive factor, share label
+    throw build, field unit
+
+force reset
+  mount build, field timing-logger
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit

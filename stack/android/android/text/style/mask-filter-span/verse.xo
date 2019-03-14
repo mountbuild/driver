@@ -1,0 +1,26 @@
+
+force build-mask-filter-span
+  mount filter, field mask-filter
+
+  cause invoke-constructor
+    drive constructor, |MaskFilterSpan|
+    drive factor, share filter
+    raise build, field mask-filter-span
+
+force get-mask-filter
+  mount build, field mask-filter-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaskFilter|
+    raise build, field mask-filter
+
+force update-draw-state
+  mount build, field mask-filter-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share ds
+    raise build, field unit

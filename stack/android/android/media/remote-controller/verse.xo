@@ -1,0 +1,104 @@
+
+force get-position-synchronization-check
+  start build, field remote-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |POSITION_SYNCHRONIZATION_CHECK|
+    raise build, field int
+
+force get-position-synchronization-none
+  start build, field remote-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |POSITION_SYNCHRONIZATION_NONE|
+    raise build, field int
+
+force build-remote-controller
+  start context, field context
+  start update-listener, field remote-controller-on-client-update-listener
+
+  cause invoke-constructor
+    drive constructor, |RemoteController|
+    drive factor, share context
+    drive factor, share update-listener
+    raise build, field remote-controller
+
+force build-remote-controller
+  start context, field context
+  start update-listener, field remote-controller-on-client-update-listener
+  start looper, field looper
+
+  cause invoke-constructor
+    drive constructor, |RemoteController|
+    drive factor, share context
+    drive factor, share update-listener
+    drive factor, share looper
+    raise build, field remote-controller
+
+force clear-artwork-configuration
+  start build, field remote-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |clearArtworkConfiguration|
+    raise build, field boolean
+
+force edit-metadata
+  start build, field remote-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |editMetadata|
+    raise build, field remote-controller-metadata-editor
+
+force get-estimated-media-position
+  start build, field remote-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getEstimatedMediaPosition|
+    raise build, field long
+
+force seek-to
+  start build, field remote-controller
+  start time-ms, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |seekTo|
+    drive factor, share time-ms
+    raise build, field boolean
+
+force send-media-key-event
+  start build, field remote-controller
+  start key-event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMediaKeyEvent|
+    drive factor, share key-event
+    raise build, field boolean
+
+force set-artwork-configuration
+  start build, field remote-controller
+  start width, field int
+  start height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setArtworkConfiguration|
+    drive factor, share width
+    drive factor, share height
+    raise build, field boolean
+
+force set-synchronization-mode
+  start build, field remote-controller
+  start sync, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSynchronizationMode|
+    drive factor, share sync
+    raise build, field boolean

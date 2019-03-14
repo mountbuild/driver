@@ -1,0 +1,472 @@
+
+force build-big-integer
+  mount num-bits, field int
+  mount random, field random
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share num-bits
+    drive factor, share random
+    throw build, field big-integer
+
+force build-big-integer
+  mount bit-length, field int
+  mount certainty, field int
+  mount random, field random
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share bit-length
+    drive factor, share certainty
+    drive factor, share random
+    throw build, field big-integer
+
+force build-big-integer
+  mount value, field string
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share value
+    throw build, field big-integer
+
+force build-big-integer
+  mount value, field string
+  mount radix, field int
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share value
+    drive factor, share radix
+    throw build, field big-integer
+
+force build-big-integer
+  mount signum, field int
+  mount magnitude, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share signum
+    drive factor, share magnitude
+    throw build, field big-integer
+
+force build-big-integer
+  mount value, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |BigInteger|
+    drive factor, share value
+    throw build, field big-integer
+
+force abs
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |abs|
+    throw build, field big-integer
+
+force add
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share value
+    throw build, field big-integer
+
+force and
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |and|
+    drive factor, share value
+    throw build, field big-integer
+
+force and-not
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |andNot|
+    drive factor, share value
+    throw build, field big-integer
+
+force bit-count
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |bitCount|
+    throw build, field int
+
+force bit-length
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |bitLength|
+    throw build, field int
+
+force clear-bit
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |clearBit|
+    drive factor, share n
+    throw build, field big-integer
+
+force compare-to
+  mount build, field big-integer
+  mount other, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force divide
+  mount build, field big-integer
+  mount divisor, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |divide|
+    drive factor, share divisor
+    throw build, field big-integer
+
+force divide-and-remainder
+  mount build, field big-integer
+  mount divisor, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |divideAndRemainder|
+    drive factor, share divisor
+    throw build, field array
+
+force equals
+  mount build, field big-integer
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force flip-bit
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |flipBit|
+    drive factor, share n
+    throw build, field big-integer
+
+force gcd
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |gcd|
+    drive factor, share value
+    throw build, field big-integer
+
+force get-lowest-set-bit
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |getLowestSetBit|
+    throw build, field int
+
+force hash-code
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-probable-prime
+  mount build, field big-integer
+  mount certainty, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isProbablePrime|
+    drive factor, share certainty
+    throw build, field boolean
+
+force max
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |max|
+    drive factor, share value
+    throw build, field big-integer
+
+force min
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |min|
+    drive factor, share value
+    throw build, field big-integer
+
+force mod
+  mount build, field big-integer
+  mount m, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |mod|
+    drive factor, share m
+    throw build, field big-integer
+
+force mod-inverse
+  mount build, field big-integer
+  mount m, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |modInverse|
+    drive factor, share m
+    throw build, field big-integer
+
+force mod-pow
+  mount build, field big-integer
+  mount exponent, field big-integer
+  mount modulus, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |modPow|
+    drive factor, share exponent
+    drive factor, share modulus
+    throw build, field big-integer
+
+force multiply
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |multiply|
+    drive factor, share value
+    throw build, field big-integer
+
+force negate
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |negate|
+    throw build, field big-integer
+
+force next-probable-prime
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |nextProbablePrime|
+    throw build, field big-integer
+
+force not
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |not|
+    throw build, field big-integer
+
+force or
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |or|
+    drive factor, share value
+    throw build, field big-integer
+
+force pow
+  mount build, field big-integer
+  mount exp, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |pow|
+    drive factor, share exp
+    throw build, field big-integer
+
+force probable-prime
+  mount build, field big-integer
+  mount bit-length, field int
+  mount random, field random
+
+  cause call-method
+    drive object, share build
+    drive method, |probablePrime|
+    drive factor, share bit-length
+    drive factor, share random
+    throw build, field big-integer
+
+force remainder
+  mount build, field big-integer
+  mount divisor, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |remainder|
+    drive factor, share divisor
+    throw build, field big-integer
+
+force set-bit
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBit|
+    drive factor, share n
+    throw build, field big-integer
+
+force shift-left
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |shiftLeft|
+    drive factor, share n
+    throw build, field big-integer
+
+force shift-right
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |shiftRight|
+    drive factor, share n
+    throw build, field big-integer
+
+force signum
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |signum|
+    throw build, field int
+
+force subtract
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |subtract|
+    drive factor, share value
+    throw build, field big-integer
+
+force test-bit
+  mount build, field big-integer
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |testBit|
+    drive factor, share n
+    throw build, field boolean
+
+force to-byte-array
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toByteArray|
+    throw build, field byte-array
+
+force to-double
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toDouble|
+    throw build, field double
+
+force to-float
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toFloat|
+    throw build, field float
+
+force to-int
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toInt|
+    throw build, field int
+
+force to-long
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toLong|
+    throw build, field long
+
+force to-string
+  mount build, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-string
+  mount build, field big-integer
+  mount radix, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share radix
+    throw build, field string
+
+force value-of
+  mount build, field big-integer
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share value
+    throw build, field big-integer
+
+force xor
+  mount build, field big-integer
+  mount value, field big-integer
+
+  cause call-method
+    drive object, share build
+    drive method, |xor|
+    drive factor, share value
+    throw build, field big-integer

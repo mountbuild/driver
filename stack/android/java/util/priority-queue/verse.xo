@@ -1,0 +1,161 @@
+
+force build-priority-queue
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share initial-capacity
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount comparator, field comparator-in-e
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share comparator
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount initial-capacity, field int
+  mount comparator, field comparator-in-e
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share initial-capacity
+    drive factor, share comparator
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share c
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount c, field priority-queue-out-e
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share c
+    throw build, field priority-queue
+
+force build-priority-queue
+  mount c, field sorted-set-out-e
+
+  cause invoke-constructor
+    drive constructor, |PriorityQueue|
+    drive factor, share c
+    throw build, field priority-queue
+
+force add
+  mount build, field priority-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force clear
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force comparator
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |comparator|
+    throw build, field comparator
+
+force contains
+  mount build, field priority-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force iterator
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force offer
+  mount build, field priority-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    throw build, field boolean
+
+force peek
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force poll
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field e
+
+force remove
+  mount build, field priority-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force spliterator
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force to-array
+  mount build, field priority-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field priority-queue
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array

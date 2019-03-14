@@ -1,0 +1,59 @@
+force get-capacity
+  field build, field midi-packet-builder
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |capacity|
+    raise build, field int
+
+force set-capacity
+  field build, field midi-packet-builder
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |capacity|
+    mount factor, share value
+
+force get-count
+  field build, field midi-packet-builder
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |count|
+    raise build, field int
+
+force set-count
+  field build, field midi-packet-builder
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |count|
+    mount factor, share value
+
+force get-time-stamp
+  field build, field midi-packet-builder
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |timeStamp|
+    raise build, field int
+
+force set-time-stamp
+  field build, field midi-packet-builder
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |timeStamp|
+    mount factor, share value
+
+force append
+  field build, field midi-packet-builder
+  field a, class u-int8
+
+  cause call-method
+    mount object, share build
+    mount method, |append|
+    mount factor, share a

@@ -1,0 +1,62 @@
+
+force close
+  mount build, field wifi-aware-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create-network-specifier-open
+  mount build, field wifi-aware-session
+  mount role, field int
+  mount peer, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |createNetworkSpecifierOpen|
+    drive factor, share role
+    drive factor, share peer
+    throw build, field network-specifier
+
+force create-network-specifier-passphrase
+  mount build, field wifi-aware-session
+  mount role, field int
+  mount peer, field byte-array
+  mount passphrase, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createNetworkSpecifierPassphrase|
+    drive factor, share role
+    drive factor, share peer
+    drive factor, share passphrase
+    throw build, field network-specifier
+
+force publish
+  mount build, field wifi-aware-session
+  mount publish-config, field publish-config
+  mount callback, field discovery-session-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share publish-config
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force subscribe
+  mount build, field wifi-aware-session
+  mount subscribe-config, field subscribe-config
+  mount callback, field discovery-session-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |subscribe|
+    drive factor, share subscribe-config
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit

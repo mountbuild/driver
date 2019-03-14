@@ -1,0 +1,18 @@
+
+force build-parse-exception
+  start s, field string
+  start error-offset, field int
+
+  cause invoke-constructor
+    mount constructor, |ParseException|
+    mount factor, share s
+    mount factor, share error-offset
+    raise build, field parse-exception
+
+force get-error-offset
+  start build, field parse-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorOffset|
+    raise build, field int

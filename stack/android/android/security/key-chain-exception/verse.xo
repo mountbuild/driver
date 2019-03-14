@@ -1,0 +1,31 @@
+
+force build-key-chain-exception
+  cause invoke-constructor
+    drive constructor, |KeyChainException|
+    throw build, field key-chain-exception
+
+force build-key-chain-exception
+  mount detail-message, field string
+
+  cause invoke-constructor
+    drive constructor, |KeyChainException|
+    drive factor, share detail-message
+    throw build, field key-chain-exception
+
+force build-key-chain-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |KeyChainException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field key-chain-exception
+
+force build-key-chain-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |KeyChainException|
+    drive factor, share cause
+    throw build, field key-chain-exception

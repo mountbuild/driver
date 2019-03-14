@@ -1,0 +1,106 @@
+
+force get-alt-quotation-end
+  mount build, field locale-data
+
+  cause get-property
+    drive object, share build
+    drive property, |ALT_QUOTATION_END|
+    raise build, field int
+
+force get-alt-quotation-start
+  mount build, field locale-data
+
+  cause get-property
+    drive object, share build
+    drive property, |ALT_QUOTATION_START|
+    raise build, field int
+
+force get-quotation-end
+  mount build, field locale-data
+
+  cause get-property
+    drive object, share build
+    drive property, |QUOTATION_END|
+    raise build, field int
+
+force get-quotation-start
+  mount build, field locale-data
+
+  cause get-property
+    drive object, share build
+    drive property, |QUOTATION_START|
+    raise build, field int
+
+force get-cldr-version
+  mount build, field locale-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getCLDRVersion|
+    raise build, field version-info
+
+force get-delimiter
+  mount build, field locale-data
+  mount type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDelimiter|
+    drive factor, share type
+    raise build, field string
+
+force get-instance
+  mount build, field locale-data
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field locale-data
+
+force get-instance
+  mount build, field locale-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field locale-data
+
+force get-measurement-system
+  mount build, field locale-data
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeasurementSystem|
+    drive factor, share locale
+    raise build, field locale-data-measurement-system
+
+force get-no-substitute
+  mount build, field locale-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getNoSubstitute|
+    raise build, field boolean
+
+force get-paper-size
+  mount build, field locale-data
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getPaperSize|
+    drive factor, share locale
+    raise build, field locale-data-paper-size
+
+force set-no-substitute
+  mount build, field locale-data
+  mount setting, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setNoSubstitute|
+    drive factor, share setting
+    raise build, field unit

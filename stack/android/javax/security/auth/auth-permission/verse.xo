@@ -1,0 +1,18 @@
+
+force build-auth-permission
+  start name, field string
+
+  cause invoke-constructor
+    mount constructor, |AuthPermission|
+    mount factor, share name
+    throw build, field auth-permission
+
+force build-auth-permission
+  start name, field string
+  start actions, field string
+
+  cause invoke-constructor
+    mount constructor, |AuthPermission|
+    mount factor, share name
+    mount factor, share actions
+    throw build, field auth-permission

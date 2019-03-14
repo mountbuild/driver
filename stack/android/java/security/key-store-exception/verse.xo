@@ -1,0 +1,31 @@
+
+force build-key-store-exception
+  cause invoke-constructor
+    mount constructor, |KeyStoreException|
+    throw build, field key-store-exception
+
+force build-key-store-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |KeyStoreException|
+    mount factor, share msg
+    throw build, field key-store-exception
+
+force build-key-store-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |KeyStoreException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field key-store-exception
+
+force build-key-store-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |KeyStoreException|
+    mount factor, share cause
+    throw build, field key-store-exception

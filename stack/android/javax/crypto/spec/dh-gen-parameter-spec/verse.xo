@@ -1,0 +1,26 @@
+
+force build-dh-gen-parameter-spec
+  start prime-size, field int
+  start exponent-size, field int
+
+  cause invoke-constructor
+    mount constructor, |DHGenParameterSpec|
+    mount factor, share prime-size
+    mount factor, share exponent-size
+    throw build, field dh-gen-parameter-spec
+
+force get-exponent-size
+  start build, field dh-gen-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getExponentSize|
+    throw build, field int
+
+force get-prime-size
+  start build, field dh-gen-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrimeSize|
+    throw build, field int

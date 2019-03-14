@@ -1,0 +1,140 @@
+
+force build-month-display-helper
+  mount year, field int
+  mount month, field int
+  mount week-start-day, field int
+
+  cause invoke-constructor
+    drive constructor, |MonthDisplayHelper|
+    drive factor, share year
+    drive factor, share month
+    drive factor, share week-start-day
+    throw build, field month-display-helper
+
+force build-month-display-helper
+  mount year, field int
+  mount month, field int
+
+  cause invoke-constructor
+    drive constructor, |MonthDisplayHelper|
+    drive factor, share year
+    drive factor, share month
+    throw build, field month-display-helper
+
+force get-column-of
+  mount build, field month-display-helper
+  mount day, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnOf|
+    drive factor, share day
+    throw build, field int
+
+force get-day-at
+  mount build, field month-display-helper
+  mount row, field int
+  mount column, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDayAt|
+    drive factor, share row
+    drive factor, share column
+    throw build, field int
+
+force get-digits-for-row
+  mount build, field month-display-helper
+  mount row, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDigitsForRow|
+    drive factor, share row
+    throw build, field int-array
+
+force get-first-day-of-month
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getFirstDayOfMonth|
+    throw build, field int
+
+force get-month
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getMonth|
+    throw build, field int
+
+force get-number-of-days-in-month
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberOfDaysInMonth|
+    throw build, field int
+
+force get-offset
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    throw build, field int
+
+force get-row-of
+  mount build, field month-display-helper
+  mount day, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRowOf|
+    drive factor, share day
+    throw build, field int
+
+force get-week-start-day
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getWeekStartDay|
+    throw build, field int
+
+force get-year
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getYear|
+    throw build, field int
+
+force is-within-current-month
+  mount build, field month-display-helper
+  mount row, field int
+  mount column, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isWithinCurrentMonth|
+    drive factor, share row
+    drive factor, share column
+    throw build, field boolean
+
+force next-month
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |nextMonth|
+    throw build, field unit
+
+force previous-month
+  mount build, field month-display-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |previousMonth|
+    throw build, field unit

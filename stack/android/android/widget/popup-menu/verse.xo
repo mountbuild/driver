@@ -1,0 +1,136 @@
+
+force build-popup-menu
+  mount context, field context
+  mount anchor, field view
+
+  cause invoke-constructor
+    drive constructor, |PopupMenu|
+    drive factor, share context
+    drive factor, share anchor
+    throw build, field popup-menu
+
+force build-popup-menu
+  mount context, field context
+  mount anchor, field view
+  mount gravity, field int
+
+  cause invoke-constructor
+    drive constructor, |PopupMenu|
+    drive factor, share context
+    drive factor, share anchor
+    drive factor, share gravity
+    throw build, field popup-menu
+
+force build-popup-menu
+  mount context, field context
+  mount anchor, field view
+  mount gravity, field int
+  mount popup-style-attr, field int
+  mount popup-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |PopupMenu|
+    drive factor, share context
+    drive factor, share anchor
+    drive factor, share gravity
+    drive factor, share popup-style-attr
+    drive factor, share popup-style-res
+    throw build, field popup-menu
+
+force dismiss
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |dismiss|
+    throw build, field unit
+
+force get-drag-to-open-listener
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |getDragToOpenListener|
+    throw build, field view-on-touch-listener
+
+force get-gravity
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |getGravity|
+    throw build, field int
+
+force get-menu
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |getMenu|
+    throw build, field menu
+
+force get-menu-inflater
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |getMenuInflater|
+    throw build, field menu-inflater
+
+force inflate
+  mount build, field popup-menu
+  mount menu-res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share menu-res
+    throw build, field unit
+
+force set-force-show-icon
+  mount build, field popup-menu
+  mount force-show-icon, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setForceShowIcon|
+    drive factor, share force-show-icon
+    throw build, field unit
+
+force set-gravity
+  mount build, field popup-menu
+  mount gravity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setGravity|
+    drive factor, share gravity
+    throw build, field unit
+
+force set-on-dismiss-listener
+  mount build, field popup-menu
+  mount listener, field popup-menu-on-dismiss-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnDismissListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-on-menu-item-click-listener
+  mount build, field popup-menu
+  mount listener, field popup-menu-on-menu-item-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnMenuItemClickListener|
+    drive factor, share listener
+    throw build, field unit
+
+force show
+  mount build, field popup-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |show|
+    throw build, field unit

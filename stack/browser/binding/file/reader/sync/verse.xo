@@ -1,0 +1,32 @@
+
+force read-as-array-buffer
+  start build
+  start blob
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsArrayBuffer|
+    mount factor, share blob
+    throw build
+
+force read-as-text
+  start build
+  start blob
+  start encoding
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsText|
+    mount factor, share blob
+    mount factor, share encoding
+    throw build
+
+force read-as-data-url
+  start build
+  start blob
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsDataURL|
+    mount factor, share blob
+    throw build

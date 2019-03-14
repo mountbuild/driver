@@ -1,0 +1,96 @@
+
+force get-minimum-gain-factor
+  mount build, field lens-shading-map
+
+  cause get-property
+    drive object, share build
+    drive property, |MINIMUM_GAIN_FACTOR|
+    throw build, field float
+
+force copy-gain-factors
+  mount build, field lens-shading-map
+  mount destination, field float-array
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyGainFactors|
+    drive factor, share destination
+    drive factor, share offset
+    throw build, field unit
+
+force equals
+  mount build, field lens-shading-map
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-column-count
+  mount build, field lens-shading-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnCount|
+    throw build, field int
+
+force get-gain-factor
+  mount build, field lens-shading-map
+  mount color-channel, field int
+  mount column, field int
+  mount row, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getGainFactor|
+    drive factor, share color-channel
+    drive factor, share column
+    drive factor, share row
+    throw build, field float
+
+force get-gain-factor-count
+  mount build, field lens-shading-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getGainFactorCount|
+    throw build, field int
+
+force get-gain-factor-vector
+  mount build, field lens-shading-map
+  mount column, field int
+  mount row, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getGainFactorVector|
+    drive factor, share column
+    drive factor, share row
+    throw build, field rggb-channel-vector
+
+force get-row-count
+  mount build, field lens-shading-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getRowCount|
+    throw build, field int
+
+force hash-code
+  mount build, field lens-shading-map
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field lens-shading-map
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

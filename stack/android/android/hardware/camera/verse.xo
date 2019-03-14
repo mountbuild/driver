@@ -1,0 +1,346 @@
+
+force get-action-new-picture
+  mount build, field camera
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_NEW_PICTURE|
+    throw build, field string
+
+force get-action-new-video
+  mount build, field camera
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_NEW_VIDEO|
+    throw build, field string
+
+force get-camera-error-evicted
+  mount build, field camera
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_ERROR_EVICTED|
+    throw build, field int
+
+force get-camera-error-server-died
+  mount build, field camera
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_ERROR_SERVER_DIED|
+    throw build, field int
+
+force get-camera-error-unknown
+  mount build, field camera
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_ERROR_UNKNOWN|
+    throw build, field int
+
+force add-callback-buffer
+  mount build, field camera
+  mount callback-buffer, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |addCallbackBuffer|
+    drive factor, share callback-buffer
+    throw build, field unit
+
+force auto-focus
+  mount build, field camera
+  mount cb, field camera-auto-focus-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |autoFocus|
+    drive factor, share cb
+    throw build, field unit
+
+force cancel-auto-focus
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelAutoFocus|
+    throw build, field unit
+
+force enable-shutter-sound
+  mount build, field camera
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enableShutterSound|
+    drive factor, share enabled
+    throw build, field boolean
+
+force get-camera-info
+  mount build, field camera
+  mount camera-id, field int
+  mount camera-info, field camera-camera-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCameraInfo|
+    drive factor, share camera-id
+    drive factor, share camera-info
+    throw build, field unit
+
+force get-number-of-cameras
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberOfCameras|
+    throw build, field int
+
+force get-parameters
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |getParameters|
+    throw build, field camera-parameters
+
+force lock
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |lock|
+    throw build, field unit
+
+force open
+  mount build, field camera
+  mount camera-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share camera-id
+    throw build, field camera
+
+force open
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    throw build, field camera
+
+force reconnect
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |reconnect|
+    throw build, field unit
+
+force release
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force set-auto-focus-move-callback
+  mount build, field camera
+  mount cb, field camera-auto-focus-move-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setAutoFocusMoveCallback|
+    drive factor, share cb
+    throw build, field unit
+
+force set-display-orientation
+  mount build, field camera
+  mount degrees, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDisplayOrientation|
+    drive factor, share degrees
+    throw build, field unit
+
+force set-error-callback
+  mount build, field camera
+  mount cb, field camera-error-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorCallback|
+    drive factor, share cb
+    throw build, field unit
+
+force set-face-detection-listener
+  mount build, field camera
+  mount listener, field camera-face-detection-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setFaceDetectionListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-one-shot-preview-callback
+  mount build, field camera
+  mount cb, field camera-preview-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setOneShotPreviewCallback|
+    drive factor, share cb
+    throw build, field unit
+
+force set-parameters
+  mount build, field camera
+  mount params, field camera-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameters|
+    drive factor, share params
+    throw build, field unit
+
+force set-preview-callback
+  mount build, field camera
+  mount cb, field camera-preview-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreviewCallback|
+    drive factor, share cb
+    throw build, field unit
+
+force set-preview-callback-with-buffer
+  mount build, field camera
+  mount cb, field camera-preview-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreviewCallbackWithBuffer|
+    drive factor, share cb
+    throw build, field unit
+
+force set-preview-display
+  mount build, field camera
+  mount holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreviewDisplay|
+    drive factor, share holder
+    throw build, field unit
+
+force set-preview-texture
+  mount build, field camera
+  mount surface-texture, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreviewTexture|
+    drive factor, share surface-texture
+    throw build, field unit
+
+force set-zoom-change-listener
+  mount build, field camera
+  mount listener, field camera-on-zoom-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setZoomChangeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force start-face-detection
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |startFaceDetection|
+    throw build, field unit
+
+force start-preview
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |startPreview|
+    throw build, field unit
+
+force start-smooth-zoom
+  mount build, field camera
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startSmoothZoom|
+    drive factor, share value
+    throw build, field unit
+
+force stop-face-detection
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |stopFaceDetection|
+    throw build, field unit
+
+force stop-preview
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |stopPreview|
+    throw build, field unit
+
+force stop-smooth-zoom
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |stopSmoothZoom|
+    throw build, field unit
+
+force take-picture
+  mount build, field camera
+  mount shutter, field camera-shutter-callback
+  mount raw, field camera-picture-callback
+  mount jpeg, field camera-picture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |takePicture|
+    drive factor, share shutter
+    drive factor, share raw
+    drive factor, share jpeg
+    throw build, field unit
+
+force take-picture
+  mount build, field camera
+  mount shutter, field camera-shutter-callback
+  mount raw, field camera-picture-callback
+  mount postview, field camera-picture-callback
+  mount jpeg, field camera-picture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |takePicture|
+    drive factor, share shutter
+    drive factor, share raw
+    drive factor, share postview
+    drive factor, share jpeg
+    throw build, field unit
+
+force unlock
+  mount build, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |unlock|
+    throw build, field unit

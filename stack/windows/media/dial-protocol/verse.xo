@@ -1,0 +1,387 @@
+
+force build-dial-app
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialApp|
+
+force get-app-name
+  start build, field windows-media-dialprotocol-dialapp
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppName|
+
+force set-app-name
+  start build, field windows-media-dialprotocol-dialapp
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppName|
+    drive factor, share value
+
+force get-app-state-async
+  start build, field windows-media-dialprotocol-dialapp
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAppStateAsync|
+
+force request-launch-async
+  start build, field windows-media-dialprotocol-dialapp
+  start app-argument, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestLaunchAsync|
+    drive factor, share app-argument
+
+force stop-async
+  start build, field windows-media-dialprotocol-dialapp
+
+  cause call-method
+    drive object, share build
+    drive method, |StopAsync|
+
+force get-dial-app-launch-result
+  cause get-object
+    drive aspect, |Windows.Media.DialProtocol.DialAppLaunchResult|
+
+force get-dial-app-state
+  cause get-object
+    drive aspect, |Windows.Media.DialProtocol.DialAppState|
+
+force build-dial-app-state-details
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialAppStateDetails|
+
+force get-full-xml
+  start build, field windows-media-dialprotocol-dialappstatedetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FullXml|
+
+force set-full-xml
+  start build, field windows-media-dialprotocol-dialappstatedetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FullXml|
+    drive factor, share value
+
+force get-state
+  start build, field windows-media-dialprotocol-dialappstatedetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |State|
+
+force set-state
+  start build, field windows-media-dialprotocol-dialappstatedetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |State|
+    drive factor, share value
+
+force get-dial-app-stop-result
+  cause get-object
+    drive aspect, |Windows.Media.DialProtocol.DialAppStopResult|
+
+force build-dial-device
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialDevice|
+
+force device-info-supports-dial-async
+  start build, field windows-media-dialprotocol-dialdevice
+  start device, field windows-devices-enumeration-deviceinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |DeviceInfoSupportsDialAsync|
+    drive factor, share device
+
+force get-friendly-name
+  start build, field windows-media-dialprotocol-dialdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FriendlyName|
+
+force set-friendly-name
+  start build, field windows-media-dialprotocol-dialdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FriendlyName|
+    drive factor, share value
+
+force from-id-async
+  start build, field windows-media-dialprotocol-dialdevice
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share value
+
+force get-device-selector
+  start build, field windows-media-dialprotocol-dialdevice
+  start app-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share app-name
+
+force get-dial-app
+  start build, field windows-media-dialprotocol-dialdevice
+  start app-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDialApp|
+    drive factor, share app-name
+
+force get-id
+  start build, field windows-media-dialprotocol-dialdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-media-dialprotocol-dialdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-thumbnail
+  start build, field windows-media-dialprotocol-dialdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Thumbnail|
+
+force set-thumbnail
+  start build, field windows-media-dialprotocol-dialdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Thumbnail|
+    drive factor, share value
+
+force get-dial-device-display-status
+  cause get-object
+    drive aspect, |Windows.Media.DialProtocol.DialDeviceDisplayStatus|
+
+force build-dial-device-picker
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialDevicePicker|
+
+force get-appearance
+  start build, field windows-media-dialprotocol-dialdevicepicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Appearance|
+
+force set-appearance
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Appearance|
+    drive factor, share value
+
+force ctor
+  start build, field windows-media-dialprotocol-dialdevicepicker
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-filter
+  start build, field windows-media-dialprotocol-dialdevicepicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Filter|
+
+force set-filter
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Filter|
+    drive factor, share value
+
+force hide
+  start build, field windows-media-dialprotocol-dialdevicepicker
+
+  cause call-method
+    drive object, share build
+    drive method, |Hide|
+
+force pick-single-dial-device-async
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+
+  cause call-method
+    drive object, share build
+    drive method, |PickSingleDialDeviceAsync|
+    drive factor, share selection
+    drive factor, share preferred-placement
+
+force pick-single-dial-device-async
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start selection, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |PickSingleDialDeviceAsync|
+    drive factor, share selection
+
+force set-display-status
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start device, field windows-media-dialprotocol-dialdevice
+  start status, field windows-media-dialprotocol-dialdevicedisplaystatus
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDisplayStatus|
+    drive factor, share device
+    drive factor, share status
+
+force show
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+
+  cause call-method
+    drive object, share build
+    drive method, |Show|
+    drive factor, share selection
+    drive factor, share preferred-placement
+
+force show
+  start build, field windows-media-dialprotocol-dialdevicepicker
+  start selection, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |Show|
+    drive factor, share selection
+
+force build-dial-device-picker-filter
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialDevicePickerFilter|
+
+force get-supported-app-names
+  start build, field windows-media-dialprotocol-dialdevicepickerfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SupportedAppNames|
+
+force set-supported-app-names
+  start build, field windows-media-dialprotocol-dialdevicepickerfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SupportedAppNames|
+    drive factor, share value
+
+force build-dial-device-selected-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialDeviceSelectedEventArgs|
+
+force get-selected-dial-device
+  start build, field windows-media-dialprotocol-dialdeviceselectedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SelectedDialDevice|
+
+force set-selected-dial-device
+  start build, field windows-media-dialprotocol-dialdeviceselectedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SelectedDialDevice|
+    drive factor, share value
+
+force build-dial-disconnect-button-clicked-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs|
+
+force get-device
+  start build, field windows-media-dialprotocol-dialdisconnectbuttonclickedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Device|
+
+force set-device
+  start build, field windows-media-dialprotocol-dialdisconnectbuttonclickedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Device|
+    drive factor, share value
+
+force build-dial-receiver-app
+  cause invoke-constructor
+    drive constructor, |Windows.Media.DialProtocol.DialReceiverApp|
+
+force get-current
+  start build, field windows-media-dialprotocol-dialreceiverapp
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Current|
+
+force set-current
+  start build, field windows-media-dialprotocol-dialreceiverapp
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Current|
+    drive factor, share value
+
+force get-additional-data-async
+  start build, field windows-media-dialprotocol-dialreceiverapp
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAdditionalDataAsync|
+
+force get-unique-device-name-async
+  start build, field windows-media-dialprotocol-dialreceiverapp
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUniqueDeviceNameAsync|
+
+force set-additional-data-async
+  start build, field windows-media-dialprotocol-dialreceiverapp
+  start additional-data, field windows-foundation-collections-iiterable-windows-foundation-collections-ikeyvaluepair-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAdditionalDataAsync|
+    drive factor, share additional-data

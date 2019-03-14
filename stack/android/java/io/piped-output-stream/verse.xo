@@ -1,0 +1,63 @@
+
+force build-piped-output-stream
+  mount snk, field piped-input-stream
+
+  cause invoke-constructor
+    drive constructor, |PipedOutputStream|
+    drive factor, share snk
+    throw build, field piped-output-stream
+
+force build-piped-output-stream
+  cause invoke-constructor
+    drive constructor, |PipedOutputStream|
+    throw build, field piped-output-stream
+
+force close
+  mount build, field piped-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field piped-output-stream
+  mount snk, field piped-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share snk
+    throw build, field unit
+
+force flush
+  mount build, field piped-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force write
+  mount build, field piped-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field piped-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

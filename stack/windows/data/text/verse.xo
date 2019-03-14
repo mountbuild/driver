@@ -1,0 +1,758 @@
+
+force get-alternate-normalization-format
+  cause get-object
+    drive aspect, |Windows.Data.Text.AlternateNormalizationFormat|
+
+force build-alternate-word-form
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.AlternateWordForm|
+
+force get-alternate-text
+  start build, field windows-data-text-alternatewordform
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlternateText|
+
+force set-alternate-text
+  start build, field windows-data-text-alternatewordform
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlternateText|
+    drive factor, share value
+
+force get-normalization-format
+  start build, field windows-data-text-alternatewordform
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NormalizationFormat|
+
+force set-normalization-format
+  start build, field windows-data-text-alternatewordform
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NormalizationFormat|
+    drive factor, share value
+
+force get-source-text-segment
+  start build, field windows-data-text-alternatewordform
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+
+force set-source-text-segment
+  start build, field windows-data-text-alternatewordform
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+    drive factor, share value
+
+force build-selectable-word-segment
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.SelectableWordSegment|
+
+force get-source-text-segment
+  start build, field windows-data-text-selectablewordsegment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+
+force set-source-text-segment
+  start build, field windows-data-text-selectablewordsegment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+    drive factor, share value
+
+force get-text
+  start build, field windows-data-text-selectablewordsegment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-data-text-selectablewordsegment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force build-selectable-words-segmenter
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.SelectableWordsSegmenter|
+
+force get-token-at
+  start build, field windows-data-text-selectablewordssegmenter
+  start text, field system-string
+  start start-index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTokenAt|
+    drive factor, share text
+    drive factor, share start-index
+
+force get-tokens
+  start build, field windows-data-text-selectablewordssegmenter
+  start text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTokens|
+    drive factor, share text
+
+force get-resolved-language
+  start build, field windows-data-text-selectablewordssegmenter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+
+force set-resolved-language
+  start build, field windows-data-text-selectablewordssegmenter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+    drive factor, share value
+
+force ctor
+  start build, field windows-data-text-selectablewordssegmenter
+  start language, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share language
+
+force tokenize
+  start build, field windows-data-text-selectablewordssegmenter
+  start text, field system-string
+  start start-index, field system-uint32
+  start handler, field windows-data-text-selectablewordsegmentstokenizinghandler
+
+  cause call-method
+    drive object, share build
+    drive method, |Tokenize|
+    drive factor, share text
+    drive factor, share start-index
+    drive factor, share handler
+
+force build-semantic-text-query
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.SemanticTextQuery|
+
+force find
+  start build, field windows-data-text-semantictextquery
+  start content, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Find|
+    drive factor, share content
+
+force find-in-property
+  start build, field windows-data-text-semantictextquery
+  start property-content, field system-string
+  start property-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindInProperty|
+    drive factor, share property-content
+    drive factor, share property-name
+
+force ctor
+  start build, field windows-data-text-semantictextquery
+  start aqs-filter, field system-string
+  start filter-language, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share aqs-filter
+    drive factor, share filter-language
+
+force ctor
+  start build, field windows-data-text-semantictextquery
+  start aqs-filter, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share aqs-filter
+
+force build-text-conversion-generator
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.TextConversionGenerator|
+
+force get-candidates-async
+  start build, field windows-data-text-textconversiongenerator
+  start input, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCandidatesAsync|
+    drive factor, share input
+
+force get-candidates-async
+  start build, field windows-data-text-textconversiongenerator
+  start input, field system-string
+  start max-candidates, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCandidatesAsync|
+    drive factor, share input
+    drive factor, share max-candidates
+
+force get-language-available-but-not-installed
+  start build, field windows-data-text-textconversiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+
+force set-language-available-but-not-installed
+  start build, field windows-data-text-textconversiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+    drive factor, share value
+
+force get-resolved-language
+  start build, field windows-data-text-textconversiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+
+force set-resolved-language
+  start build, field windows-data-text-textconversiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+    drive factor, share value
+
+force ctor
+  start build, field windows-data-text-textconversiongenerator
+  start language-tag, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share language-tag
+
+force build-text-phoneme
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.TextPhoneme|
+
+force get-display-text
+  start build, field windows-data-text-textphoneme
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+
+force set-display-text
+  start build, field windows-data-text-textphoneme
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+    drive factor, share value
+
+force get-reading-text
+  start build, field windows-data-text-textphoneme
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ReadingText|
+
+force set-reading-text
+  start build, field windows-data-text-textphoneme
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ReadingText|
+    drive factor, share value
+
+force build-text-prediction-generator
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.TextPredictionGenerator|
+
+force get-candidates-async
+  start build, field windows-data-text-textpredictiongenerator
+  start input, field system-string
+  start max-candidates, field system-uint32
+  start prediction-options, field windows-data-text-textpredictionoptions
+  start previous-strings, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCandidatesAsync|
+    drive factor, share input
+    drive factor, share max-candidates
+    drive factor, share prediction-options
+    drive factor, share previous-strings
+
+force get-candidates-async
+  start build, field windows-data-text-textpredictiongenerator
+  start input, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCandidatesAsync|
+    drive factor, share input
+
+force get-candidates-async
+  start build, field windows-data-text-textpredictiongenerator
+  start input, field system-string
+  start max-candidates, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCandidatesAsync|
+    drive factor, share input
+    drive factor, share max-candidates
+
+force get-next-word-candidates-async
+  start build, field windows-data-text-textpredictiongenerator
+  start max-candidates, field system-uint32
+  start previous-strings, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetNextWordCandidatesAsync|
+    drive factor, share max-candidates
+    drive factor, share previous-strings
+
+force get-input-scope
+  start build, field windows-data-text-textpredictiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InputScope|
+
+force set-input-scope
+  start build, field windows-data-text-textpredictiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InputScope|
+    drive factor, share value
+
+force get-language-available-but-not-installed
+  start build, field windows-data-text-textpredictiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+
+force set-language-available-but-not-installed
+  start build, field windows-data-text-textpredictiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+    drive factor, share value
+
+force get-resolved-language
+  start build, field windows-data-text-textpredictiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+
+force set-resolved-language
+  start build, field windows-data-text-textpredictiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+    drive factor, share value
+
+force ctor
+  start build, field windows-data-text-textpredictiongenerator
+  start language-tag, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share language-tag
+
+force get-text-prediction-options
+  cause get-object
+    drive aspect, |Windows.Data.Text.TextPredictionOptions|
+
+force build-text-reverse-conversion-generator
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.TextReverseConversionGenerator|
+
+force convert-back-async
+  start build, field windows-data-text-textreverseconversiongenerator
+  start input, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertBackAsync|
+    drive factor, share input
+
+force get-phonemes-async
+  start build, field windows-data-text-textreverseconversiongenerator
+  start input, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPhonemesAsync|
+    drive factor, share input
+
+force get-language-available-but-not-installed
+  start build, field windows-data-text-textreverseconversiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+
+force set-language-available-but-not-installed
+  start build, field windows-data-text-textreverseconversiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LanguageAvailableButNotInstalled|
+    drive factor, share value
+
+force get-resolved-language
+  start build, field windows-data-text-textreverseconversiongenerator
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+
+force set-resolved-language
+  start build, field windows-data-text-textreverseconversiongenerator
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+    drive factor, share value
+
+force ctor
+  start build, field windows-data-text-textreverseconversiongenerator
+  start language-tag, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share language-tag
+
+force build-unicode-characters
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.UnicodeCharacters|
+
+force get-codepoint-from-surrogate-pair
+  start build, field windows-data-text-unicodecharacters
+  start high-surrogate, field system-uint32
+  start low-surrogate, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCodepointFromSurrogatePair|
+    drive factor, share high-surrogate
+    drive factor, share low-surrogate
+
+force get-general-category
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetGeneralCategory|
+    drive factor, share codepoint
+
+force get-numeric-type
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetNumericType|
+    drive factor, share codepoint
+
+force get-surrogate-pair-from-codepoint
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+  start high-surrogate, field system-char
+  start low-surrogate, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSurrogatePairFromCodepoint|
+    drive factor, share codepoint
+    drive factor, share high-surrogate
+    drive factor, share low-surrogate
+
+force is-alphabetic
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsAlphabetic|
+    drive factor, share codepoint
+
+force is-cased
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCased|
+    drive factor, share codepoint
+
+force is-grapheme-base
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsGraphemeBase|
+    drive factor, share codepoint
+
+force is-grapheme-extend
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsGraphemeExtend|
+    drive factor, share codepoint
+
+force is-high-surrogate
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsHighSurrogate|
+    drive factor, share codepoint
+
+force is-id-continue
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsIdContinue|
+    drive factor, share codepoint
+
+force is-id-start
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsIdStart|
+    drive factor, share codepoint
+
+force is-lowercase
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsLowercase|
+    drive factor, share codepoint
+
+force is-low-surrogate
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsLowSurrogate|
+    drive factor, share codepoint
+
+force is-noncharacter
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsNoncharacter|
+    drive factor, share codepoint
+
+force is-supplementary
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupplementary|
+    drive factor, share codepoint
+
+force is-uppercase
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsUppercase|
+    drive factor, share codepoint
+
+force is-whitespace
+  start build, field windows-data-text-unicodecharacters
+  start codepoint, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IsWhitespace|
+    drive factor, share codepoint
+
+force get-unicode-general-category
+  cause get-object
+    drive aspect, |Windows.Data.Text.UnicodeGeneralCategory|
+
+force get-unicode-numeric-type
+  cause get-object
+    drive aspect, |Windows.Data.Text.UnicodeNumericType|
+
+force build-word-segment
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.WordSegment|
+
+force get-alternate-forms
+  start build, field windows-data-text-wordsegment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlternateForms|
+
+force set-alternate-forms
+  start build, field windows-data-text-wordsegment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlternateForms|
+    drive factor, share value
+
+force get-source-text-segment
+  start build, field windows-data-text-wordsegment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+
+force set-source-text-segment
+  start build, field windows-data-text-wordsegment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceTextSegment|
+    drive factor, share value
+
+force get-text
+  start build, field windows-data-text-wordsegment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-data-text-wordsegment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force build-words-segmenter
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Text.WordsSegmenter|
+
+force get-token-at
+  start build, field windows-data-text-wordssegmenter
+  start text, field system-string
+  start start-index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTokenAt|
+    drive factor, share text
+    drive factor, share start-index
+
+force get-tokens
+  start build, field windows-data-text-wordssegmenter
+  start text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTokens|
+    drive factor, share text
+
+force get-resolved-language
+  start build, field windows-data-text-wordssegmenter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+
+force set-resolved-language
+  start build, field windows-data-text-wordssegmenter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolvedLanguage|
+    drive factor, share value
+
+force tokenize
+  start build, field windows-data-text-wordssegmenter
+  start text, field system-string
+  start start-index, field system-uint32
+  start handler, field windows-data-text-wordsegmentstokenizinghandler
+
+  cause call-method
+    drive object, share build
+    drive method, |Tokenize|
+    drive factor, share text
+    drive factor, share start-index
+    drive factor, share handler
+
+force ctor
+  start build, field windows-data-text-wordssegmenter
+  start language, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share language

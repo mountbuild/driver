@@ -1,0 +1,110 @@
+
+force build-app-widget-host
+  mount context, field context
+  mount host-id, field int
+
+  cause invoke-constructor
+    drive constructor, |AppWidgetHost|
+    drive factor, share context
+    drive factor, share host-id
+    throw build, field app-widget-host
+
+force allocate-app-widget-id
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateAppWidgetId|
+    throw build, field int
+
+force create-view
+  mount build, field app-widget-host
+  mount context, field context
+  mount app-widget-id, field int
+  mount app-widget, field app-widget-provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |createView|
+    drive factor, share context
+    drive factor, share app-widget-id
+    drive factor, share app-widget
+    throw build, field app-widget-host-view
+
+force delete-all-hosts
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteAllHosts|
+    throw build, field unit
+
+force delete-app-widget-id
+  mount build, field app-widget-host
+  mount app-widget-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteAppWidgetId|
+    drive factor, share app-widget-id
+    throw build, field unit
+
+force delete-host
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteHost|
+    throw build, field unit
+
+force get-app-widget-ids
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getAppWidgetIds|
+    throw build, field int-array
+
+force on-app-widget-removed
+  mount build, field app-widget-host
+  mount app-widget-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppWidgetRemoved|
+    drive factor, share app-widget-id
+    throw build, field unit
+
+force start-app-widget-configure-activity-for-result
+  mount build, field app-widget-host
+  mount activity, field activity
+  mount app-widget-id, field int
+  mount intent-flags, field int
+  mount request-code, field int
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startAppWidgetConfigureActivityForResult|
+    drive factor, share activity
+    drive factor, share app-widget-id
+    drive factor, share intent-flags
+    drive factor, share request-code
+    drive factor, share options
+    throw build, field unit
+
+force start-listening
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |startListening|
+    throw build, field unit
+
+force stop-listening
+  mount build, field app-widget-host
+
+  cause call-method
+    drive object, share build
+    drive method, |stopListening|
+    throw build, field unit

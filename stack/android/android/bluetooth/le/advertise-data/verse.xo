@@ -1,0 +1,68 @@
+
+force describe-contents
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-include-device-name
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncludeDeviceName|
+    throw build, field boolean
+
+force get-include-tx-power-level
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncludeTxPowerLevel|
+    throw build, field boolean
+
+force get-manufacturer-specific-data
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getManufacturerSpecificData|
+    throw build, field sparse-array
+
+force get-service-data
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceData|
+    throw build, field mutable-map
+
+force get-service-uuids
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceUuids|
+    throw build, field mutable-list
+
+force to-string
+  mount build, field advertise-data
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field advertise-data
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

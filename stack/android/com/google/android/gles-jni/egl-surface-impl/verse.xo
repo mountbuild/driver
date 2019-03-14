@@ -1,0 +1,31 @@
+
+force build-egl-surface-impl
+  cause invoke-constructor
+    drive constructor, |EGLSurfaceImpl|
+    throw build, field egl-surface-impl
+
+force build-egl-surface-impl
+  start surface, field long
+
+  cause invoke-constructor
+    drive constructor, |EGLSurfaceImpl|
+    drive factor, share surface
+    throw build, field egl-surface-impl
+
+force equals
+  start build, field egl-surface-impl
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  start build, field egl-surface-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int

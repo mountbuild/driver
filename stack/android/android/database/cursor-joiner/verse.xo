@@ -1,0 +1,46 @@
+
+force build-cursor-joiner
+  mount cursor-left, field cursor
+  mount column-names-left, field array-string
+  mount cursor-right, field cursor
+  mount column-names-right, field array-string
+
+  cause invoke-constructor
+    drive constructor, |CursorJoiner|
+    drive factor, share cursor-left
+    drive factor, share column-names-left
+    drive factor, share cursor-right
+    drive factor, share column-names-right
+    raise build, field cursor-joiner
+
+force has-next
+  mount build, field cursor-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |hasNext|
+    raise build, field boolean
+
+force iterator
+  mount build, field cursor-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    raise build, field mutable-iterator
+
+force next
+  mount build, field cursor-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    raise build, field cursor-joiner-result
+
+force remove
+  mount build, field cursor-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    raise build, field unit

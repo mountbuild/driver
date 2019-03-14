@@ -1,0 +1,469 @@
+force become-current
+  field build, field progress
+  field with-pending-unit-count, field int64
+
+  cause call-method
+    mount object, share build
+    mount method, |becomeCurrent|
+    mount factor
+      brand with-pending-unit-count
+      share with-pending-unit-count
+
+force add-child
+  field build, field progress
+  field a, class progress
+  field with-pending-unit-count, field int64
+
+  cause call-method
+    mount object, share build
+    mount method, |addChild|
+    mount factor, share a
+    mount factor
+      brand with-pending-unit-count
+      share with-pending-unit-count
+
+force resign-current
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |resignCurrent|
+
+force get-total-unit-count
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |totalUnitCount|
+    raise build, field int64
+
+force set-total-unit-count
+  field build, field progress
+  field value, field int64
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |totalUnitCount|
+    mount factor, share value
+
+force get-completed-unit-count
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |completedUnitCount|
+    raise build, field int64
+
+force set-completed-unit-count
+  field build, field progress
+  field value, field int64
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |completedUnitCount|
+    mount factor, share value
+
+force get-localized-description
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedDescription|
+    raise build, field string
+
+force set-localized-description
+  field build, field progress
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedDescription|
+    mount factor, share value
+
+force get-localized-additional-description
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedAdditionalDescription|
+    raise build, field string
+
+force set-localized-additional-description
+  field build, field progress
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedAdditionalDescription|
+    mount factor, share value
+
+force get-fraction-completed
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fractionCompleted|
+    raise build, field double
+
+force set-fraction-completed
+  field build, field progress
+  field value, field double
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fractionCompleted|
+    mount factor, share value
+
+force get-is-cancellable
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isCancellable|
+    raise build, field bool
+
+force set-is-cancellable
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isCancellable|
+    mount factor, share value
+
+force get-is-cancelled
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isCancelled|
+    raise build, field bool
+
+force set-is-cancelled
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isCancelled|
+    mount factor, share value
+
+force cancel
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |cancel|
+
+force get-cancellation-handler
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cancellationHandler|
+    raise build, field
+
+force set-cancellation-handler
+  field build, field progress
+  field value, field
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |cancellationHandler|
+    mount factor, share value
+
+force get-is-pausable
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isPausable|
+    raise build, field bool
+
+force set-is-pausable
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isPausable|
+    mount factor, share value
+
+force get-is-paused
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isPaused|
+    raise build, field bool
+
+force set-is-paused
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isPaused|
+    mount factor, share value
+
+force pause
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |pause|
+
+force get-pausing-handler
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pausingHandler|
+    raise build, field
+
+force set-pausing-handler
+  field build, field progress
+  field value, field
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |pausingHandler|
+    mount factor, share value
+
+force resume
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |resume|
+
+force get-resuming-handler
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |resumingHandler|
+    raise build, field
+
+force set-resuming-handler
+  field build, field progress
+  field value, field
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |resumingHandler|
+    mount factor, share value
+
+force get-is-indeterminate
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isIndeterminate|
+    raise build, field bool
+
+force set-is-indeterminate
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isIndeterminate|
+    mount factor, share value
+
+force get-kind
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |kind|
+    raise build, field progress-kind
+
+force set-kind
+  field build, field progress
+  field value, field progress-kind
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |kind|
+    mount factor, share value
+
+force set-user-info-object
+  field build, field progress
+  field a, class any
+  field for-key, field progress-user-info-key
+
+  cause call-method
+    mount object, share build
+    mount method, |setUserInfoObject|
+    mount factor, share a
+    mount factor
+      brand for-key
+      share for-key
+
+force get-user-info
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |userInfo|
+    raise build, field progress-user-info-key
+
+force set-user-info
+  field build, field progress
+  field value, field progress-user-info-key
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |userInfo|
+    mount factor, share value
+
+force get-estimated-time-remaining
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |estimatedTimeRemaining|
+    raise build, field time-interval
+
+force set-estimated-time-remaining
+  field build, field progress
+  field value, field time-interval
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |estimatedTimeRemaining|
+    mount factor, share value
+
+force get-file-completed-count
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileCompletedCount|
+    raise build, field int
+
+force set-file-completed-count
+  field build, field progress
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileCompletedCount|
+    mount factor, share value
+
+force get-file-operation-kind
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileOperationKind|
+    raise build, field progress-file-operation-kind
+
+force set-file-operation-kind
+  field build, field progress
+  field value, field progress-file-operation-kind
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileOperationKind|
+    mount factor, share value
+
+force get-file-total-count
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileTotalCount|
+    raise build, field int
+
+force set-file-total-count
+  field build, field progress
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileTotalCount|
+    mount factor, share value
+
+force get-file-url
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileURL|
+    raise build, field url
+
+force set-file-url
+  field build, field progress
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileURL|
+    mount factor, share value
+
+force get-is-finished
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isFinished|
+    raise build, field bool
+
+force set-is-finished
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isFinished|
+    mount factor, share value
+
+force get-is-old
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isOld|
+    raise build, field bool
+
+force set-is-old
+  field build, field progress
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isOld|
+    mount factor, share value
+
+force get-throughput
+  field build, field progress
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |throughput|
+    raise build, field int
+
+force set-throughput
+  field build, field progress
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |throughput|
+    mount factor, share value
+
+force publish
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |publish|
+
+force unpublish
+  field build, field progress
+
+  cause call-method
+    mount object, share build
+    mount method, |unpublish|

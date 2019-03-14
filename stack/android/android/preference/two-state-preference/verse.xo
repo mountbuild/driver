@@ -1,0 +1,144 @@
+
+force build-two-state-preference
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |TwoStatePreference|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field two-state-preference
+
+force build-two-state-preference
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |TwoStatePreference|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field two-state-preference
+
+force build-two-state-preference
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TwoStatePreference|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field two-state-preference
+
+force build-two-state-preference
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |TwoStatePreference|
+    drive factor, share context
+    throw build, field two-state-preference
+
+force get-disable-dependents-state
+  mount build, field two-state-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisableDependentsState|
+    throw build, field boolean
+
+force get-summary-off
+  mount build, field two-state-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getSummaryOff|
+    throw build, field char-sequence
+
+force get-summary-on
+  mount build, field two-state-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getSummaryOn|
+    throw build, field char-sequence
+
+force is-checked
+  mount build, field two-state-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |isChecked|
+    throw build, field boolean
+
+force set-checked
+  mount build, field two-state-preference
+  mount checked, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setChecked|
+    drive factor, share checked
+    throw build, field unit
+
+force set-disable-dependents-state
+  mount build, field two-state-preference
+  mount disable-dependents-state, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDisableDependentsState|
+    drive factor, share disable-dependents-state
+    throw build, field unit
+
+force set-summary-off
+  mount build, field two-state-preference
+  mount summary, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setSummaryOff|
+    drive factor, share summary
+    throw build, field unit
+
+force set-summary-off
+  mount build, field two-state-preference
+  mount summary-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSummaryOff|
+    drive factor, share summary-res-id
+    throw build, field unit
+
+force set-summary-on
+  mount build, field two-state-preference
+  mount summary, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setSummaryOn|
+    drive factor, share summary
+    throw build, field unit
+
+force set-summary-on
+  mount build, field two-state-preference
+  mount summary-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSummaryOn|
+    drive factor, share summary-res-id
+    throw build, field unit
+
+force should-disable-dependents
+  mount build, field two-state-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldDisableDependents|
+    throw build, field boolean

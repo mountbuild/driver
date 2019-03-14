@@ -1,0 +1,95 @@
+
+force get-service-controls
+  mount build, field controls-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_CONTROLS|
+    raise build, field string
+
+force get-tag
+  mount build, field controls-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |TAG|
+    raise build, field string
+
+force build-controls-provider-service
+  cause invoke-constructor
+    drive constructor, |ControlsProviderService|
+    raise build, field controls-provider-service
+
+force create-publisher-for
+  mount build, field controls-provider-service
+  mount control-ids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |createPublisherFor|
+    drive factor, share control-ids
+    raise build, field flow-publisher
+
+force create-publisher-for-all-available
+  mount build, field controls-provider-service
+
+  cause call-method
+    drive object, share build
+    drive method, |createPublisherForAllAvailable|
+    raise build, field flow-publisher
+
+force create-publisher-for-suggested
+  mount build, field controls-provider-service
+
+  cause call-method
+    drive object, share build
+    drive method, |createPublisherForSuggested|
+    raise build, field flow-publisher
+
+force on-bind
+  mount build, field controls-provider-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-unbind
+  mount build, field controls-provider-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    raise build, field boolean
+
+force perform-control-action
+  mount build, field controls-provider-service
+  mount control-id, field string
+  mount action, field control-action
+  mount consumer, field consumer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |performControlAction|
+    drive factor, share control-id
+    drive factor, share action
+    drive factor, share consumer
+    raise build, field unit
+
+force request-add-control
+  mount build, field controls-provider-service
+  mount context, field context
+  mount component-name, field component-name
+  mount control, field control
+
+  cause call-method
+    drive object, share build
+    drive method, |requestAddControl|
+    drive factor, share context
+    drive factor, share component-name
+    drive factor, share control
+    raise build, field unit

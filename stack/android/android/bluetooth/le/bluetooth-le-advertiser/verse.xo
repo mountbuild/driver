@@ -1,0 +1,142 @@
+
+force start-advertising
+  mount build, field bluetooth-le-advertiser
+  mount settings, field advertise-settings
+  mount advertise-data, field advertise-data
+  mount callback, field advertise-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertising|
+    drive factor, share settings
+    drive factor, share advertise-data
+    drive factor, share callback
+    throw build, field unit
+
+force start-advertising
+  mount build, field bluetooth-le-advertiser
+  mount settings, field advertise-settings
+  mount advertise-data, field advertise-data
+  mount scan-response, field advertise-data
+  mount callback, field advertise-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertising|
+    drive factor, share settings
+    drive factor, share advertise-data
+    drive factor, share scan-response
+    drive factor, share callback
+    throw build, field unit
+
+force start-advertising-set
+  mount build, field bluetooth-le-advertiser
+  mount parameters, field advertising-set-parameters
+  mount advertise-data, field advertise-data
+  mount scan-response, field advertise-data
+  mount periodic-parameters, field periodic-advertising-parameters
+  mount periodic-data, field advertise-data
+  mount callback, field advertising-set-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertisingSet|
+    drive factor, share parameters
+    drive factor, share advertise-data
+    drive factor, share scan-response
+    drive factor, share periodic-parameters
+    drive factor, share periodic-data
+    drive factor, share callback
+    throw build, field unit
+
+force start-advertising-set
+  mount build, field bluetooth-le-advertiser
+  mount parameters, field advertising-set-parameters
+  mount advertise-data, field advertise-data
+  mount scan-response, field advertise-data
+  mount periodic-parameters, field periodic-advertising-parameters
+  mount periodic-data, field advertise-data
+  mount callback, field advertising-set-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertisingSet|
+    drive factor, share parameters
+    drive factor, share advertise-data
+    drive factor, share scan-response
+    drive factor, share periodic-parameters
+    drive factor, share periodic-data
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force start-advertising-set
+  mount build, field bluetooth-le-advertiser
+  mount parameters, field advertising-set-parameters
+  mount advertise-data, field advertise-data
+  mount scan-response, field advertise-data
+  mount periodic-parameters, field periodic-advertising-parameters
+  mount periodic-data, field advertise-data
+  mount duration, field int
+  mount max-extended-advertising-events, field int
+  mount callback, field advertising-set-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertisingSet|
+    drive factor, share parameters
+    drive factor, share advertise-data
+    drive factor, share scan-response
+    drive factor, share periodic-parameters
+    drive factor, share periodic-data
+    drive factor, share duration
+    drive factor, share max-extended-advertising-events
+    drive factor, share callback
+    throw build, field unit
+
+force start-advertising-set
+  mount build, field bluetooth-le-advertiser
+  mount parameters, field advertising-set-parameters
+  mount advertise-data, field advertise-data
+  mount scan-response, field advertise-data
+  mount periodic-parameters, field periodic-advertising-parameters
+  mount periodic-data, field advertise-data
+  mount duration, field int
+  mount max-extended-advertising-events, field int
+  mount callback, field advertising-set-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startAdvertisingSet|
+    drive factor, share parameters
+    drive factor, share advertise-data
+    drive factor, share scan-response
+    drive factor, share periodic-parameters
+    drive factor, share periodic-data
+    drive factor, share duration
+    drive factor, share max-extended-advertising-events
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force stop-advertising
+  mount build, field bluetooth-le-advertiser
+  mount callback, field advertise-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAdvertising|
+    drive factor, share callback
+    throw build, field unit
+
+force stop-advertising-set
+  mount build, field bluetooth-le-advertiser
+  mount callback, field advertising-set-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAdvertisingSet|
+    drive factor, share callback
+    throw build, field unit

@@ -1,0 +1,70 @@
+
+force allow-thread-disk-reads
+  mount build, field strict-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |allowThreadDiskReads|
+    raise build, field strict-mode-thread-policy
+
+force allow-thread-disk-writes
+  mount build, field strict-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |allowThreadDiskWrites|
+    raise build, field strict-mode-thread-policy
+
+force enable-defaults
+  mount build, field strict-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |enableDefaults|
+    raise build, field unit
+
+force get-thread-policy
+  mount build, field strict-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadPolicy|
+    raise build, field strict-mode-thread-policy
+
+force get-vm-policy
+  mount build, field strict-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |getVmPolicy|
+    raise build, field strict-mode-vm-policy
+
+force note-slow-call
+  mount build, field strict-mode
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |noteSlowCall|
+    drive factor, share name
+    raise build, field unit
+
+force set-thread-policy
+  mount build, field strict-mode
+  mount policy, field strict-mode-thread-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |setThreadPolicy|
+    drive factor, share policy
+    raise build, field unit
+
+force set-vm-policy
+  mount build, field strict-mode
+  mount policy, field strict-mode-vm-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |setVmPolicy|
+    drive factor, share policy
+    raise build, field unit

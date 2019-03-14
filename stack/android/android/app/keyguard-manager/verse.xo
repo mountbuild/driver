@@ -1,0 +1,84 @@
+
+force create-confirm-device-credential-intent
+  start build, field keyguard-manager
+  start title, field char-sequence
+  start description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |createConfirmDeviceCredentialIntent|
+    drive factor, share title
+    drive factor, share description
+    throw build, field intent
+
+force exit-keyguard-securely
+  start build, field keyguard-manager
+  start callback, field keyguard-manager-on-keyguard-exit-result
+
+  cause call-method
+    drive object, share build
+    drive method, |exitKeyguardSecurely|
+    drive factor, share callback
+    throw build, field unit
+
+force in-keyguard-restricted-input-mode
+  start build, field keyguard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |inKeyguardRestrictedInputMode|
+    throw build, field boolean
+
+force is-device-locked
+  start build, field keyguard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeviceLocked|
+    throw build, field boolean
+
+force is-device-secure
+  start build, field keyguard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeviceSecure|
+    throw build, field boolean
+
+force is-keyguard-locked
+  start build, field keyguard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isKeyguardLocked|
+    throw build, field boolean
+
+force is-keyguard-secure
+  start build, field keyguard-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isKeyguardSecure|
+    throw build, field boolean
+
+force new-keyguard-lock
+  start build, field keyguard-manager
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newKeyguardLock|
+    drive factor, share tag
+    throw build, field keyguard-manager-keyguard-lock
+
+force request-dismiss-keyguard
+  start build, field keyguard-manager
+  start activity, field activity
+  start callback, field keyguard-manager-keyguard-dismiss-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDismissKeyguard|
+    drive factor, share activity
+    drive factor, share callback
+    throw build, field unit

@@ -1,0 +1,348 @@
+
+force begin-handshake
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |beginHandshake|
+    throw build, field unit
+
+force close-inbound
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |closeInbound|
+    throw build, field unit
+
+force close-outbound
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |closeOutbound|
+    throw build, field unit
+
+force get-application-protocol
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getApplicationProtocol|
+    throw build, field string
+
+force get-delegated-task
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getDelegatedTask|
+    throw build, field runnable
+
+force get-enable-session-creation
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getEnableSessionCreation|
+    throw build, field boolean
+
+force get-enabled-cipher-suites
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getEnabledCipherSuites|
+    throw build, field array
+
+force get-enabled-protocols
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getEnabledProtocols|
+    throw build, field array
+
+force get-handshake-application-protocol
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandshakeApplicationProtocol|
+    throw build, field string
+
+force get-handshake-application-protocol-selector
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandshakeApplicationProtocolSelector|
+    throw build, field bi-function
+
+force get-handshake-session
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandshakeSession|
+    throw build, field ssl-session
+
+force get-handshake-status
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandshakeStatus|
+    throw build, field ssl-engine-result-handshake-status
+
+force get-need-client-auth
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getNeedClientAuth|
+    throw build, field boolean
+
+force get-peer-host
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getPeerHost|
+    throw build, field string
+
+force get-peer-port
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getPeerPort|
+    throw build, field int
+
+force get-ssl-parameters
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getSSLParameters|
+    throw build, field ssl-parameters
+
+force get-session
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getSession|
+    throw build, field ssl-session
+
+force get-supported-cipher-suites
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedCipherSuites|
+    throw build, field array
+
+force get-supported-protocols
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedProtocols|
+    throw build, field array
+
+force get-use-client-mode
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getUseClientMode|
+    throw build, field boolean
+
+force get-want-client-auth
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |getWantClientAuth|
+    throw build, field boolean
+
+force is-inbound-done
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |isInboundDone|
+    throw build, field boolean
+
+force is-outbound-done
+  start build, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |isOutboundDone|
+    throw build, field boolean
+
+force set-enable-session-creation
+  start build, field ssl-engine
+  start flag, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setEnableSessionCreation|
+    mount factor, share flag
+    throw build, field unit
+
+force set-enabled-cipher-suites
+  start build, field ssl-engine
+  start suites, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setEnabledCipherSuites|
+    mount factor, share suites
+    throw build, field unit
+
+force set-enabled-protocols
+  start build, field ssl-engine
+  start protocols, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setEnabledProtocols|
+    mount factor, share protocols
+    throw build, field unit
+
+force set-handshake-application-protocol-selector
+  start build, field ssl-engine
+  start selector, field bi-function-ssl-engine
+  start mutable-list-string, field undefined
+  start string, field undefined
+
+  cause call-method
+    mount object, share build
+    mount method, |setHandshakeApplicationProtocolSelector|
+    mount factor, share selector
+    mount factor, share mutable-list-string
+    mount factor, share string
+    throw build, field unit
+
+force set-need-client-auth
+  start build, field ssl-engine
+  start need, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setNeedClientAuth|
+    mount factor, share need
+    throw build, field unit
+
+force set-ssl-parameters
+  start build, field ssl-engine
+  start params, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |setSSLParameters|
+    mount factor, share params
+    throw build, field unit
+
+force set-use-client-mode
+  start build, field ssl-engine
+  start mode, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setUseClientMode|
+    mount factor, share mode
+    throw build, field unit
+
+force set-want-client-auth
+  start build, field ssl-engine
+  start want, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setWantClientAuth|
+    mount factor, share want
+    throw build, field unit
+
+force unwrap
+  start build, field ssl-engine
+  start src, field byte-buffer
+  start dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |unwrap|
+    mount factor, share src
+    mount factor, share dst
+    throw build, field ssl-engine-result
+
+force unwrap
+  start build, field ssl-engine
+  start src, field byte-buffer
+  start dsts, field array-byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |unwrap|
+    mount factor, share src
+    mount factor, share dsts
+    throw build, field ssl-engine-result
+
+force unwrap
+  start build, field ssl-engine
+  start src, field byte-buffer
+  start dsts, field array-byte-buffer
+  start offset, field int
+  start length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |unwrap|
+    mount factor, share src
+    mount factor, share dsts
+    mount factor, share offset
+    mount factor, share length
+    throw build, field ssl-engine-result
+
+force wrap
+  start build, field ssl-engine
+  start src, field byte-buffer
+  start dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |wrap|
+    mount factor, share src
+    mount factor, share dst
+    throw build, field ssl-engine-result
+
+force wrap
+  start build, field ssl-engine
+  start srcs, field array-byte-buffer
+  start dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |wrap|
+    mount factor, share srcs
+    mount factor, share dst
+    throw build, field ssl-engine-result
+
+force wrap
+  start build, field ssl-engine
+  start srcs, field array-byte-buffer
+  start offset, field int
+  start length, field int
+  start dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |wrap|
+    mount factor, share srcs
+    mount factor, share offset
+    mount factor, share length
+    mount factor, share dst
+    throw build, field ssl-engine-result

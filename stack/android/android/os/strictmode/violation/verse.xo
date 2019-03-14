@@ -1,0 +1,36 @@
+
+force fill-in-stack-trace
+  mount build, field violation
+
+  cause call-method
+    drive object, share build
+    drive method, |fillInStackTrace|
+    raise build, field throwable
+
+force hash-code
+  mount build, field violation
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force init-cause
+  mount build, field violation
+  mount cause, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |initCause|
+    drive factor, share cause
+    raise build, field throwable
+
+force set-stack-trace
+  mount build, field violation
+  mount stack-trace, field array-stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |setStackTrace|
+    drive factor, share stack-trace
+    raise build, field unit

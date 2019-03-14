@@ -1,0 +1,54 @@
+
+force build-se-service
+  mount context, field context
+  mount executor, field executor
+  mount listener, field se-service-on-connected-listener
+
+  cause invoke-constructor
+    drive constructor, |SEService|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share listener
+    raise build, field se-service
+
+force get-readers
+  mount build, field se-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getReaders|
+    raise build, field array
+
+force get-uicc-reader
+  mount build, field se-service
+  mount slot-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getUiccReader|
+    drive factor, share slot-number
+    raise build, field reader
+
+force get-version
+  mount build, field se-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getVersion|
+    raise build, field string
+
+force is-connected
+  mount build, field se-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    raise build, field boolean
+
+force shutdown
+  mount build, field se-service
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    raise build, field unit

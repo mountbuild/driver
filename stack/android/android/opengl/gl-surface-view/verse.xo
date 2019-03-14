@@ -1,0 +1,286 @@
+
+force get-debug-check-gl-error
+  mount build, field gl-surface-view
+
+  cause get-property
+    drive object, share build
+    drive property, |DEBUG_CHECK_GL_ERROR|
+    raise build, field int
+
+force get-debug-log-gl-calls
+  mount build, field gl-surface-view
+
+  cause get-property
+    drive object, share build
+    drive property, |DEBUG_LOG_GL_CALLS|
+    raise build, field int
+
+force get-rendermode-continuously
+  mount build, field gl-surface-view
+
+  cause get-property
+    drive object, share build
+    drive property, |RENDERMODE_CONTINUOUSLY|
+    raise build, field int
+
+force get-rendermode-when-dirty
+  mount build, field gl-surface-view
+
+  cause get-property
+    drive object, share build
+    drive property, |RENDERMODE_WHEN_DIRTY|
+    raise build, field int
+
+force build-gl-surface-view
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |GLSurfaceView|
+    drive factor, share context
+    raise build, field gl-surface-view
+
+force build-gl-surface-view
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |GLSurfaceView|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field gl-surface-view
+
+force get-debug-flags
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getDebugFlags|
+    raise build, field int
+
+force get-preserve-egl-context-on-pause
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreserveEGLContextOnPause|
+    raise build, field boolean
+
+force get-render-mode
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getRenderMode|
+    raise build, field int
+
+force on-pause
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onPause|
+    raise build, field unit
+
+force on-resume
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onResume|
+    raise build, field unit
+
+force queue-event
+  mount build, field gl-surface-view
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |queueEvent|
+    drive factor, share r
+    raise build, field unit
+
+force request-render
+  mount build, field gl-surface-view
+
+  cause call-method
+    drive object, share build
+    drive method, |requestRender|
+    raise build, field unit
+
+force set-debug-flags
+  mount build, field gl-surface-view
+  mount debug-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDebugFlags|
+    drive factor, share debug-flags
+    raise build, field unit
+
+force set-egl-config-chooser
+  mount build, field gl-surface-view
+  mount config-chooser, field gl-surface-view-egl-config-chooser
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLConfigChooser|
+    drive factor, share config-chooser
+    raise build, field unit
+
+force set-egl-config-chooser
+  mount build, field gl-surface-view
+  mount need-depth, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLConfigChooser|
+    drive factor, share need-depth
+    raise build, field unit
+
+force set-egl-config-chooser
+  mount build, field gl-surface-view
+  mount red-size, field int
+  mount green-size, field int
+  mount blue-size, field int
+  mount alpha-size, field int
+  mount depth-size, field int
+  mount stencil-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLConfigChooser|
+    drive factor, share red-size
+    drive factor, share green-size
+    drive factor, share blue-size
+    drive factor, share alpha-size
+    drive factor, share depth-size
+    drive factor, share stencil-size
+    raise build, field unit
+
+force set-egl-context-client-version
+  mount build, field gl-surface-view
+  mount version, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLContextClientVersion|
+    drive factor, share version
+    raise build, field unit
+
+force set-egl-context-factory
+  mount build, field gl-surface-view
+  mount factory, field gl-surface-view-egl-context-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLContextFactory|
+    drive factor, share factory
+    raise build, field unit
+
+force set-egl-window-surface-factory
+  mount build, field gl-surface-view
+  mount factory, field gl-surface-view-egl-window-surface-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setEGLWindowSurfaceFactory|
+    drive factor, share factory
+    raise build, field unit
+
+force set-gl-wrapper
+  mount build, field gl-surface-view
+  mount gl-wrapper, field gl-surface-view-gl-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |setGLWrapper|
+    drive factor, share gl-wrapper
+    raise build, field unit
+
+force set-preserve-egl-context-on-pause
+  mount build, field gl-surface-view
+  mount preserve-on-pause, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreserveEGLContextOnPause|
+    drive factor, share preserve-on-pause
+    raise build, field unit
+
+force set-render-mode
+  mount build, field gl-surface-view
+  mount render-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRenderMode|
+    drive factor, share render-mode
+    raise build, field unit
+
+force set-renderer
+  mount build, field gl-surface-view
+  mount renderer, field gl-surface-view-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |setRenderer|
+    drive factor, share renderer
+    raise build, field unit
+
+force surface-changed
+  mount build, field gl-surface-view
+  mount holder, field surface-holder
+  mount format, field int
+  mount w, field int
+  mount h, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceChanged|
+    drive factor, share holder
+    drive factor, share format
+    drive factor, share w
+    drive factor, share h
+    raise build, field unit
+
+force surface-created
+  mount build, field gl-surface-view
+  mount holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceCreated|
+    drive factor, share holder
+    raise build, field unit
+
+force surface-destroyed
+  mount build, field gl-surface-view
+  mount holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceDestroyed|
+    drive factor, share holder
+    raise build, field unit
+
+force surface-redraw-needed
+  mount build, field gl-surface-view
+  mount holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceRedrawNeeded|
+    drive factor, share holder
+    raise build, field unit
+
+force surface-redraw-needed-async
+  mount build, field gl-surface-view
+  mount holder, field surface-holder
+  mount finish-drawing, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceRedrawNeededAsync|
+    drive factor, share holder
+    drive factor, share finish-drawing
+    raise build, field unit

@@ -1,0 +1,54 @@
+
+force get-initial-scroll-x
+  mount build, field touch
+  mount widget, field text-view
+  mount buffer, field spannable
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitialScrollX|
+    drive factor, share widget
+    drive factor, share buffer
+    raise build, field int
+
+force get-initial-scroll-y
+  mount build, field touch
+  mount widget, field text-view
+  mount buffer, field spannable
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitialScrollY|
+    drive factor, share widget
+    drive factor, share buffer
+    raise build, field int
+
+force on-touch-event
+  mount build, field touch
+  mount widget, field text-view
+  mount buffer, field spannable
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share widget
+    drive factor, share buffer
+    drive factor, share event
+    raise build, field boolean
+
+force scroll-to
+  mount build, field touch
+  mount widget, field text-view
+  mount layout, field layout
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |scrollTo|
+    drive factor, share widget
+    drive factor, share layout
+    drive factor, share x
+    drive factor, share y
+    raise build, field unit

@@ -1,0 +1,1268 @@
+
+force accept
+  mount build, field os
+  mount fd, field file-descriptor
+  mount peer-address, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |accept|
+    drive factor, share fd
+    drive factor, share peer-address
+    raise build, field file-descriptor
+
+force access
+  mount build, field os
+  mount path, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |access|
+    drive factor, share path
+    drive factor, share mode
+    raise build, field boolean
+
+force bind
+  mount build, field os
+  mount fd, field file-descriptor
+  mount address, field inet-address
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share fd
+    drive factor, share address
+    drive factor, share port
+    raise build, field unit
+
+force bind
+  mount build, field os
+  mount fd, field file-descriptor
+  mount address, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share fd
+    drive factor, share address
+    raise build, field unit
+
+force chmod
+  mount build, field os
+  mount path, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |chmod|
+    drive factor, share path
+    drive factor, share mode
+    raise build, field unit
+
+force chown
+  mount build, field os
+  mount path, field string
+  mount uid, field int
+  mount gid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |chown|
+    drive factor, share path
+    drive factor, share uid
+    drive factor, share gid
+    raise build, field unit
+
+force close
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    drive factor, share fd
+    raise build, field unit
+
+force connect
+  mount build, field os
+  mount fd, field file-descriptor
+  mount address, field inet-address
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share fd
+    drive factor, share address
+    drive factor, share port
+    raise build, field unit
+
+force connect
+  mount build, field os
+  mount fd, field file-descriptor
+  mount address, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share fd
+    drive factor, share address
+    raise build, field unit
+
+force dup
+  mount build, field os
+  mount old-fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |dup|
+    drive factor, share old-fd
+    raise build, field file-descriptor
+
+force dup2
+  mount build, field os
+  mount old-fd, field file-descriptor
+  mount new-fd, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |dup2|
+    drive factor, share old-fd
+    drive factor, share new-fd
+    raise build, field file-descriptor
+
+force environ
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |environ|
+    raise build, field array
+
+force execv
+  mount build, field os
+  mount filename, field string
+  mount argv, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |execv|
+    drive factor, share filename
+    drive factor, share argv
+    raise build, field unit
+
+force execve
+  mount build, field os
+  mount filename, field string
+  mount argv, field array-string
+  mount envp, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |execve|
+    drive factor, share filename
+    drive factor, share argv
+    drive factor, share envp
+    raise build, field unit
+
+force fchmod
+  mount build, field os
+  mount fd, field file-descriptor
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fchmod|
+    drive factor, share fd
+    drive factor, share mode
+    raise build, field unit
+
+force fchown
+  mount build, field os
+  mount fd, field file-descriptor
+  mount uid, field int
+  mount gid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fchown|
+    drive factor, share fd
+    drive factor, share uid
+    drive factor, share gid
+    raise build, field unit
+
+force fcntl-int
+  mount build, field os
+  mount fd, field file-descriptor
+  mount cmd, field int
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fcntlInt|
+    drive factor, share fd
+    drive factor, share cmd
+    drive factor, share arg
+    raise build, field int
+
+force fdatasync
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |fdatasync|
+    drive factor, share fd
+    raise build, field unit
+
+force fstat
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |fstat|
+    drive factor, share fd
+    raise build, field struct-stat
+
+force fstatvfs
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |fstatvfs|
+    drive factor, share fd
+    raise build, field struct-stat-vfs
+
+force fsync
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |fsync|
+    drive factor, share fd
+    raise build, field unit
+
+force ftruncate
+  mount build, field os
+  mount fd, field file-descriptor
+  mount length, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |ftruncate|
+    drive factor, share fd
+    drive factor, share length
+    raise build, field unit
+
+force gai-strerror
+  mount build, field os
+  mount error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |gai_strerror|
+    drive factor, share error
+    raise build, field string
+
+force getegid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |getegid|
+    raise build, field int
+
+force getenv
+  mount build, field os
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getenv|
+    drive factor, share name
+    raise build, field string
+
+force geteuid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |geteuid|
+    raise build, field int
+
+force getgid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |getgid|
+    raise build, field int
+
+force getpeername
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getpeername|
+    drive factor, share fd
+    raise build, field socket-address
+
+force getpid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |getpid|
+    raise build, field int
+
+force getppid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |getppid|
+    raise build, field int
+
+force getsockname
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getsockname|
+    drive factor, share fd
+    raise build, field socket-address
+
+force getsockopt-timeval
+  mount build, field os
+  mount fd, field file-descriptor
+  mount level, field int
+  mount option, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getsockoptTimeval|
+    drive factor, share fd
+    drive factor, share level
+    drive factor, share option
+    raise build, field struct-timeval
+
+force gettid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |gettid|
+    raise build, field int
+
+force getuid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |getuid|
+    raise build, field int
+
+force getxattr
+  mount build, field os
+  mount path, field string
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getxattr|
+    drive factor, share path
+    drive factor, share name
+    raise build, field byte-array
+
+force if-indextoname
+  mount build, field os
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |if_indextoname|
+    drive factor, share index
+    raise build, field string
+
+force if-nametoindex
+  mount build, field os
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |if_nametoindex|
+    drive factor, share name
+    raise build, field int
+
+force inet-pton
+  mount build, field os
+  mount family, field int
+  mount address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |inet_pton|
+    drive factor, share family
+    drive factor, share address
+    raise build, field inet-address
+
+force isatty
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |isatty|
+    drive factor, share fd
+    raise build, field boolean
+
+force kill
+  mount build, field os
+  mount pid, field int
+  mount signal, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |kill|
+    drive factor, share pid
+    drive factor, share signal
+    raise build, field unit
+
+force lchown
+  mount build, field os
+  mount path, field string
+  mount uid, field int
+  mount gid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |lchown|
+    drive factor, share path
+    drive factor, share uid
+    drive factor, share gid
+    raise build, field unit
+
+force link
+  mount build, field os
+  mount old-path, field string
+  mount new-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |link|
+    drive factor, share old-path
+    drive factor, share new-path
+    raise build, field unit
+
+force listen
+  mount build, field os
+  mount fd, field file-descriptor
+  mount backlog, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |listen|
+    drive factor, share fd
+    drive factor, share backlog
+    raise build, field unit
+
+force listxattr
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |listxattr|
+    drive factor, share path
+    raise build, field array
+
+force lseek
+  mount build, field os
+  mount fd, field file-descriptor
+  mount offset, field long
+  mount whence, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |lseek|
+    drive factor, share fd
+    drive factor, share offset
+    drive factor, share whence
+    raise build, field long
+
+force lstat
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |lstat|
+    drive factor, share path
+    raise build, field struct-stat
+
+force memfd-create
+  mount build, field os
+  mount name, field string
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |memfd_create|
+    drive factor, share name
+    drive factor, share flags
+    raise build, field file-descriptor
+
+force mincore
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+  mount vector, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |mincore|
+    drive factor, share address
+    drive factor, share byte-count
+    drive factor, share vector
+    raise build, field unit
+
+force mkdir
+  mount build, field os
+  mount path, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mkdir|
+    drive factor, share path
+    drive factor, share mode
+    raise build, field unit
+
+force mkfifo
+  mount build, field os
+  mount path, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mkfifo|
+    drive factor, share path
+    drive factor, share mode
+    raise build, field unit
+
+force mlock
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |mlock|
+    drive factor, share address
+    drive factor, share byte-count
+    raise build, field unit
+
+force mmap
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+  mount prot, field int
+  mount flags, field int
+  mount fd, field file-descriptor
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |mmap|
+    drive factor, share address
+    drive factor, share byte-count
+    drive factor, share prot
+    drive factor, share flags
+    drive factor, share fd
+    drive factor, share offset
+    raise build, field long
+
+force msync
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |msync|
+    drive factor, share address
+    drive factor, share byte-count
+    drive factor, share flags
+    raise build, field unit
+
+force munlock
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |munlock|
+    drive factor, share address
+    drive factor, share byte-count
+    raise build, field unit
+
+force munmap
+  mount build, field os
+  mount address, field long
+  mount byte-count, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |munmap|
+    drive factor, share address
+    drive factor, share byte-count
+    raise build, field unit
+
+force open
+  mount build, field os
+  mount path, field string
+  mount flags, field int
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share path
+    drive factor, share flags
+    drive factor, share mode
+    raise build, field file-descriptor
+
+force pipe
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |pipe|
+    raise build, field array
+
+force poll
+  mount build, field os
+  mount fds, field array-struct-pollfd
+  mount timeout-ms, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    drive factor, share fds
+    drive factor, share timeout-ms
+    raise build, field int
+
+force posix-fallocate
+  mount build, field os
+  mount fd, field file-descriptor
+  mount offset, field long
+  mount length, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |posix_fallocate|
+    drive factor, share fd
+    drive factor, share offset
+    drive factor, share length
+    raise build, field unit
+
+force prctl
+  mount build, field os
+  mount option, field int
+  mount arg2, field long
+  mount arg3, field long
+  mount arg4, field long
+  mount arg5, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |prctl|
+    drive factor, share option
+    drive factor, share arg2
+    drive factor, share arg3
+    drive factor, share arg4
+    drive factor, share arg5
+    raise build, field int
+
+force pread
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |pread|
+    drive factor, share fd
+    drive factor, share buffer
+    drive factor, share offset
+    raise build, field int
+
+force pread
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |pread|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    drive factor, share offset
+    raise build, field int
+
+force pwrite
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |pwrite|
+    drive factor, share fd
+    drive factor, share buffer
+    drive factor, share offset
+    raise build, field int
+
+force pwrite
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |pwrite|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    drive factor, share offset
+    raise build, field int
+
+force read
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share fd
+    drive factor, share buffer
+    raise build, field int
+
+force read
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    raise build, field int
+
+force readlink
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |readlink|
+    drive factor, share path
+    raise build, field string
+
+force readv
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffers, field array-any
+  mount offsets, field int-array
+  mount byte-counts, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |readv|
+    drive factor, share fd
+    drive factor, share buffers
+    drive factor, share offsets
+    drive factor, share byte-counts
+    raise build, field int
+
+force recvfrom
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+  mount flags, field int
+  mount src-address, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |recvfrom|
+    drive factor, share fd
+    drive factor, share buffer
+    drive factor, share flags
+    drive factor, share src-address
+    raise build, field int
+
+force recvfrom
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+  mount flags, field int
+  mount src-address, field inet-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |recvfrom|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    drive factor, share flags
+    drive factor, share src-address
+    raise build, field int
+
+force remove
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share path
+    raise build, field unit
+
+force removexattr
+  mount build, field os
+  mount path, field string
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removexattr|
+    drive factor, share path
+    drive factor, share name
+    raise build, field unit
+
+force rename
+  mount build, field os
+  mount old-path, field string
+  mount new-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |rename|
+    drive factor, share old-path
+    drive factor, share new-path
+    raise build, field unit
+
+force sendfile
+  mount build, field os
+  mount out-fd, field file-descriptor
+  mount in-fd, field file-descriptor
+  mount offset, field int64-ref
+  mount byte-count, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sendfile|
+    drive factor, share out-fd
+    drive factor, share in-fd
+    drive factor, share offset
+    drive factor, share byte-count
+    raise build, field long
+
+force sendto
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+  mount flags, field int
+  mount inet-address, field inet-address
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendto|
+    drive factor, share fd
+    drive factor, share buffer
+    drive factor, share flags
+    drive factor, share inet-address
+    drive factor, share port
+    raise build, field int
+
+force sendto
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+  mount flags, field int
+  mount inet-address, field inet-address
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendto|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    drive factor, share flags
+    drive factor, share inet-address
+    drive factor, share port
+    raise build, field int
+
+force sendto
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+  mount flags, field int
+  mount address, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |sendto|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    drive factor, share flags
+    drive factor, share address
+    raise build, field int
+
+force setegid
+  mount build, field os
+  mount egid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setegid|
+    drive factor, share egid
+    raise build, field unit
+
+force setenv
+  mount build, field os
+  mount name, field string
+  mount value, field string
+  mount overwrite, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setenv|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share overwrite
+    raise build, field unit
+
+force seteuid
+  mount build, field os
+  mount euid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |seteuid|
+    drive factor, share euid
+    raise build, field unit
+
+force setgid
+  mount build, field os
+  mount gid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setgid|
+    drive factor, share gid
+    raise build, field unit
+
+force setsid
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |setsid|
+    raise build, field int
+
+force setsockopt-int
+  mount build, field os
+  mount fd, field file-descriptor
+  mount level, field int
+  mount option, field int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setsockoptInt|
+    drive factor, share fd
+    drive factor, share level
+    drive factor, share option
+    drive factor, share value
+    raise build, field unit
+
+force setsockopt-timeval
+  mount build, field os
+  mount fd, field file-descriptor
+  mount level, field int
+  mount option, field int
+  mount value, field struct-timeval
+
+  cause call-method
+    drive object, share build
+    drive method, |setsockoptTimeval|
+    drive factor, share fd
+    drive factor, share level
+    drive factor, share option
+    drive factor, share value
+    raise build, field unit
+
+force setuid
+  mount build, field os
+  mount uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setuid|
+    drive factor, share uid
+    raise build, field unit
+
+force setxattr
+  mount build, field os
+  mount path, field string
+  mount name, field string
+  mount value, field byte-array
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setxattr|
+    drive factor, share path
+    drive factor, share name
+    drive factor, share value
+    drive factor, share flags
+    raise build, field unit
+
+force shutdown
+  mount build, field os
+  mount fd, field file-descriptor
+  mount how, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    drive factor, share fd
+    drive factor, share how
+    raise build, field unit
+
+force socket
+  mount build, field os
+  mount domain, field int
+  mount type, field int
+  mount protocol, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |socket|
+    drive factor, share domain
+    drive factor, share type
+    drive factor, share protocol
+    raise build, field file-descriptor
+
+force socketpair
+  mount build, field os
+  mount domain, field int
+  mount type, field int
+  mount protocol, field int
+  mount fd1, field file-descriptor
+  mount fd2, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |socketpair|
+    drive factor, share domain
+    drive factor, share type
+    drive factor, share protocol
+    drive factor, share fd1
+    drive factor, share fd2
+    raise build, field unit
+
+force stat
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |stat|
+    drive factor, share path
+    raise build, field struct-stat
+
+force statvfs
+  mount build, field os
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |statvfs|
+    drive factor, share path
+    raise build, field struct-stat-vfs
+
+force strerror
+  mount build, field os
+  mount errno, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |strerror|
+    drive factor, share errno
+    raise build, field string
+
+force strsignal
+  mount build, field os
+  mount signal, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |strsignal|
+    drive factor, share signal
+    raise build, field string
+
+force symlink
+  mount build, field os
+  mount old-path, field string
+  mount new-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |symlink|
+    drive factor, share old-path
+    drive factor, share new-path
+    raise build, field unit
+
+force sysconf
+  mount build, field os
+  mount name, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sysconf|
+    drive factor, share name
+    raise build, field long
+
+force tcdrain
+  mount build, field os
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |tcdrain|
+    drive factor, share fd
+    raise build, field unit
+
+force tcsendbreak
+  mount build, field os
+  mount fd, field file-descriptor
+  mount duration, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |tcsendbreak|
+    drive factor, share fd
+    drive factor, share duration
+    raise build, field unit
+
+force umask
+  mount build, field os
+  mount mask, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |umask|
+    drive factor, share mask
+    raise build, field int
+
+force uname
+  mount build, field os
+
+  cause call-method
+    drive object, share build
+    drive method, |uname|
+    raise build, field struct-utsname
+
+force unsetenv
+  mount build, field os
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unsetenv|
+    drive factor, share name
+    raise build, field unit
+
+force write
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffer, field byte-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share fd
+    drive factor, share buffer
+    raise build, field int
+
+force write
+  mount build, field os
+  mount fd, field file-descriptor
+  mount bytes, field byte-array
+  mount byte-offset, field int
+  mount byte-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share fd
+    drive factor, share bytes
+    drive factor, share byte-offset
+    drive factor, share byte-count
+    raise build, field int
+
+force writev
+  mount build, field os
+  mount fd, field file-descriptor
+  mount buffers, field array-any
+  mount offsets, field int-array
+  mount byte-counts, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |writev|
+    drive factor, share fd
+    drive factor, share buffers
+    drive factor, share offsets
+    drive factor, share byte-counts
+    raise build, field int

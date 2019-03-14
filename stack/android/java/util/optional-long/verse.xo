@@ -1,0 +1,100 @@
+
+force empty
+  mount build, field optional-long
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    throw build, field optional-long
+
+force equals
+  mount build, field optional-long
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-as-long
+  mount build, field optional-long
+
+  cause call-method
+    drive object, share build
+    drive method, |getAsLong|
+    throw build, field long
+
+force hash-code
+  mount build, field optional-long
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force if-present
+  mount build, field optional-long
+  mount consumer, field long-consumer
+
+  cause call-method
+    drive object, share build
+    drive method, |ifPresent|
+    drive factor, share consumer
+    throw build, field unit
+
+force is-present
+  mount build, field optional-long
+
+  cause call-method
+    drive object, share build
+    drive method, |isPresent|
+    throw build, field boolean
+
+force of
+  mount build, field optional-long
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share value
+    throw build, field optional-long
+
+force or-else
+  mount build, field optional-long
+  mount other, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |orElse|
+    drive factor, share other
+    throw build, field long
+
+force or-else-get
+  mount build, field optional-long
+  mount other, field long-supplier
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseGet|
+    drive factor, share other
+    throw build, field long
+
+force or-else-throw
+  mount build, field optional-long
+  mount exception-supplier, field supplier-x
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseThrow|
+    drive factor, share exception-supplier
+    throw build, field long
+
+force to-string
+  mount build, field optional-long
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

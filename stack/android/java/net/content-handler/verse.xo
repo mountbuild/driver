@@ -1,0 +1,27 @@
+
+force build-content-handler
+  cause invoke-constructor
+    drive constructor, |ContentHandler|
+    throw build, field content-handler
+
+force get-content
+  mount build, field content-handler
+  mount urlc, field url-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |getContent|
+    drive factor, share urlc
+    throw build, field any
+
+force get-content
+  mount build, field content-handler
+  mount urlc, field url-connection
+  mount classes, field array-class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |getContent|
+    drive factor, share urlc
+    drive factor, share classes
+    throw build, field any

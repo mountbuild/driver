@@ -1,0 +1,182 @@
+force get-requires-secure-coding
+  field build, field ns-keyed-unarchiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |requiresSecureCoding|
+    raise build, field bool
+
+force set-requires-secure-coding
+  field build, field ns-keyed-unarchiver
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |requiresSecureCoding|
+    drive factor, share value
+
+force contains-value
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class bool
+
+force decode-bool
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeBool|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class bool
+
+force decode-bytes
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+  field returned-length, field unsafe-mutable-pointer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeBytes|
+    drive factor
+      brand for-key
+      share for-key
+    drive factor
+      brand returned-length
+      share returned-length
+    raise build, class unsafe-pointer-u-int8
+
+force decode-double
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeDouble|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class double
+
+force decode-float
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFloat|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class float
+
+force decode-int32
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeInt32|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class int32
+
+force decode-int64
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeInt64|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class int64
+
+force decode-object
+  field build, field ns-keyed-unarchiver
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeObject|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class any
+
+force finish-decoding
+  field build, field ns-keyed-unarchiver
+
+  cause call-method
+    drive object, share build
+    drive method, |finishDecoding|
+
+force get-decoding-failure-policy
+  field build, field ns-keyed-unarchiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |decodingFailurePolicy|
+    raise build, field ns-coder-decoding-failure-policy
+
+force set-decoding-failure-policy
+  field build, field ns-keyed-unarchiver
+  field value, field ns-coder-decoding-failure-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |decodingFailurePolicy|
+    drive factor, share value
+
+force get-delegate
+  field build, field ns-keyed-unarchiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-keyed-unarchiver-delegate
+
+force set-delegate
+  field build, field ns-keyed-unarchiver
+  field value, field ns-keyed-unarchiver-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force set-class
+  field build, field ns-keyed-unarchiver
+  field a, class any-class
+  field for-class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setClass|
+    drive factor, share a
+    drive factor
+      brand for-class-name
+      share for-class-name
+
+force class
+  field build, field ns-keyed-unarchiver
+  field for-class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |class|
+    drive factor
+      brand for-class-name
+      share for-class-name
+    raise build, class any-class

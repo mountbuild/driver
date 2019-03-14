@@ -1,0 +1,70 @@
+
+force build-intersection-observer
+  start callback
+  start options
+
+  cause invoke-constructor
+    mount constructor, |IntersectionObserver|
+    mount factor, share callback
+    mount factor, share options
+    throw build
+
+force get-root
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |root|
+    throw build
+
+force get-root-margin
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rootMargin|
+    throw build
+
+force get-thresholds
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |thresholds|
+    throw build
+
+force disconnect
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |disconnect|
+    throw build
+
+force observe
+  start build
+  start target-element
+
+  cause call-method
+    mount object, share build
+    mount method, |observe|
+    mount factor, share target-element
+    throw build
+
+force take-records
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |takeRecords|
+    throw build
+
+force unobserve
+  start build
+  start target
+
+  cause call-method
+    mount object, share build
+    mount method, |unobserve|
+    mount factor, share target
+    throw build

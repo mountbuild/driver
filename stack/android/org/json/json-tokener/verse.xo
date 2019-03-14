@@ -1,0 +1,146 @@
+
+force build-json-tokener
+  mount in, field string
+
+  cause invoke-constructor
+    drive constructor, |JSONTokener|
+    drive factor, share in
+    throw build, field json-tokener
+
+force back
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |back|
+    throw build, field unit
+
+force dehexchar
+  mount build, field json-tokener
+  mount hex, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |dehexchar|
+    drive factor, share hex
+    throw build, field int
+
+force more
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |more|
+    throw build, field boolean
+
+force next
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    throw build, field char
+
+force next
+  mount build, field json-tokener
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    drive factor, share c
+    throw build, field char
+
+force next
+  mount build, field json-tokener
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    drive factor, share length
+    throw build, field string
+
+force next-clean
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |nextClean|
+    throw build, field char
+
+force next-string
+  mount build, field json-tokener
+  mount quote, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |nextString|
+    drive factor, share quote
+    throw build, field string
+
+force next-to
+  mount build, field json-tokener
+  mount excluded, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |nextTo|
+    drive factor, share excluded
+    throw build, field string
+
+force next-to
+  mount build, field json-tokener
+  mount excluded, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |nextTo|
+    drive factor, share excluded
+    throw build, field string
+
+force next-value
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |nextValue|
+    throw build, field any
+
+force skip-past
+  mount build, field json-tokener
+  mount thru, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |skipPast|
+    drive factor, share thru
+    throw build, field unit
+
+force skip-to
+  mount build, field json-tokener
+  mount to, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |skipTo|
+    drive factor, share to
+    throw build, field char
+
+force syntax-error
+  mount build, field json-tokener
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |syntaxError|
+    drive factor, share message
+    throw build, field json-exception
+
+force to-string
+  mount build, field json-tokener
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

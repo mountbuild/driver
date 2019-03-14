@@ -1,0 +1,478 @@
+
+force build-file
+  mount pathname, field string
+
+  cause invoke-constructor
+    drive constructor, |File|
+    drive factor, share pathname
+    throw build, field file
+
+force build-file
+  mount parent, field string
+  mount child, field string
+
+  cause invoke-constructor
+    drive constructor, |File|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field file
+
+force build-file
+  mount parent, field file
+  mount child, field string
+
+  cause invoke-constructor
+    drive constructor, |File|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field file
+
+force build-file
+  mount uri, field uri
+
+  cause invoke-constructor
+    drive constructor, |File|
+    drive factor, share uri
+    throw build, field file
+
+force can-execute
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |canExecute|
+    throw build, field boolean
+
+force can-read
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |canRead|
+    throw build, field boolean
+
+force can-write
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |canWrite|
+    throw build, field boolean
+
+force compare-to
+  mount build, field file
+  mount other, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force create-new-file
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |createNewFile|
+    throw build, field boolean
+
+force create-temp-file
+  mount build, field file
+  mount prefix, field string
+  mount suffix, field string
+  mount directory, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |createTempFile|
+    drive factor, share prefix
+    drive factor, share suffix
+    drive factor, share directory
+    throw build, field file
+
+force create-temp-file
+  mount build, field file
+  mount prefix, field string
+  mount suffix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createTempFile|
+    drive factor, share prefix
+    drive factor, share suffix
+    throw build, field file
+
+force delete
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    throw build, field boolean
+
+force delete-on-exit
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteOnExit|
+    throw build, field unit
+
+force equals
+  mount build, field file
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force exists
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |exists|
+    throw build, field boolean
+
+force get-absolute-file
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getAbsoluteFile|
+    throw build, field file
+
+force get-absolute-path
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getAbsolutePath|
+    throw build, field string
+
+force get-canonical-file
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getCanonicalFile|
+    throw build, field file
+
+force get-canonical-path
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getCanonicalPath|
+    throw build, field string
+
+force get-free-space
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreeSpace|
+    throw build, field long
+
+force get-name
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-parent
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field string
+
+force get-parent-file
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getParentFile|
+    throw build, field file
+
+force get-path
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    throw build, field string
+
+force get-total-space
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalSpace|
+    throw build, field long
+
+force get-usable-space
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |getUsableSpace|
+    throw build, field long
+
+force hash-code
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-absolute
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isAbsolute|
+    throw build, field boolean
+
+force is-directory
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isDirectory|
+    throw build, field boolean
+
+force is-file
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isFile|
+    throw build, field boolean
+
+force is-hidden
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |isHidden|
+    throw build, field boolean
+
+force last-modified
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |lastModified|
+    throw build, field long
+
+force length
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    throw build, field long
+
+force list
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    throw build, field array
+
+force list
+  mount build, field file
+  mount filter, field filename-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    drive factor, share filter
+    throw build, field array
+
+force list-files
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |listFiles|
+    throw build, field array
+
+force list-files
+  mount build, field file
+  mount filter, field filename-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |listFiles|
+    drive factor, share filter
+    throw build, field array
+
+force list-files
+  mount build, field file
+  mount filter, field file-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |listFiles|
+    drive factor, share filter
+    throw build, field array
+
+force list-roots
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |listRoots|
+    throw build, field array
+
+force mkdir
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |mkdir|
+    throw build, field boolean
+
+force mkdirs
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |mkdirs|
+    throw build, field boolean
+
+force rename-to
+  mount build, field file
+  mount dest, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |renameTo|
+    drive factor, share dest
+    throw build, field boolean
+
+force set-executable
+  mount build, field file
+  mount executable, field boolean
+  mount owner-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setExecutable|
+    drive factor, share executable
+    drive factor, share owner-only
+    throw build, field boolean
+
+force set-executable
+  mount build, field file
+  mount executable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setExecutable|
+    drive factor, share executable
+    throw build, field boolean
+
+force set-last-modified
+  mount build, field file
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setLastModified|
+    drive factor, share time
+    throw build, field boolean
+
+force set-read-only
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |setReadOnly|
+    throw build, field boolean
+
+force set-readable
+  mount build, field file
+  mount readable, field boolean
+  mount owner-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReadable|
+    drive factor, share readable
+    drive factor, share owner-only
+    throw build, field boolean
+
+force set-readable
+  mount build, field file
+  mount readable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReadable|
+    drive factor, share readable
+    throw build, field boolean
+
+force set-writable
+  mount build, field file
+  mount writable, field boolean
+  mount owner-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setWritable|
+    drive factor, share writable
+    drive factor, share owner-only
+    throw build, field boolean
+
+force set-writable
+  mount build, field file
+  mount writable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setWritable|
+    drive factor, share writable
+    throw build, field boolean
+
+force to-path
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |toPath|
+    throw build, field path
+
+force to-string
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-uri
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |toURI|
+    throw build, field uri
+
+force to-url
+  mount build, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |toURL|
+    throw build, field url

@@ -1,0 +1,101 @@
+
+force build-manifest
+  cause invoke-constructor
+    drive constructor, |Manifest|
+    throw build, field manifest
+
+force build-manifest
+  mount is, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |Manifest|
+    drive factor, share is
+    throw build, field manifest
+
+force build-manifest
+  mount man, field manifest
+
+  cause invoke-constructor
+    drive constructor, |Manifest|
+    drive factor, share man
+    throw build, field manifest
+
+force clear
+  mount build, field manifest
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field manifest
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force equals
+  mount build, field manifest
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-attributes
+  mount build, field manifest
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttributes|
+    drive factor, share name
+    throw build, field attributes
+
+force get-entries
+  mount build, field manifest
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntries|
+    throw build, field mutable-map
+
+force get-main-attributes
+  mount build, field manifest
+
+  cause call-method
+    drive object, share build
+    drive method, |getMainAttributes|
+    throw build, field attributes
+
+force hash-code
+  mount build, field manifest
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force read
+  mount build, field manifest
+  mount is, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share is
+    throw build, field unit
+
+force write
+  mount build, field manifest
+  mount out, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share out
+    throw build, field unit

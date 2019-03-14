@@ -1,0 +1,82 @@
+
+force get-blocker
+  mount build, field lock-support
+  mount t, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlocker|
+    drive factor, share t
+    throw build, field any
+
+force park
+  mount build, field lock-support
+  mount blocker, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |park|
+    drive factor, share blocker
+    throw build, field unit
+
+force park
+  mount build, field lock-support
+
+  cause call-method
+    drive object, share build
+    drive method, |park|
+    throw build, field unit
+
+force park-nanos
+  mount build, field lock-support
+  mount blocker, field any
+  mount nanos, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |parkNanos|
+    drive factor, share blocker
+    drive factor, share nanos
+    throw build, field unit
+
+force park-nanos
+  mount build, field lock-support
+  mount nanos, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |parkNanos|
+    drive factor, share nanos
+    throw build, field unit
+
+force park-until
+  mount build, field lock-support
+  mount blocker, field any
+  mount deadline, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |parkUntil|
+    drive factor, share blocker
+    drive factor, share deadline
+    throw build, field unit
+
+force park-until
+  mount build, field lock-support
+  mount deadline, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |parkUntil|
+    drive factor, share deadline
+    throw build, field unit
+
+force unpark
+  mount build, field lock-support
+  mount thread, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |unpark|
+    drive factor, share thread
+    throw build, field unit

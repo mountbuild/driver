@@ -1,0 +1,859 @@
+
+force get-cached-file-options
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.CachedFileOptions|
+
+force get-cached-file-target
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.CachedFileTarget|
+
+force build-cached-file-updater
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.CachedFileUpdater|
+
+force set-update-information
+  start build, field windows-storage-provider-cachedfileupdater
+  start file, field windows-storage-istoragefile
+  start content-id, field system-string
+  start read-mode, field windows-storage-provider-readactivationmode
+  start write-mode, field windows-storage-provider-writeactivationmode
+  start options, field windows-storage-provider-cachedfileoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |SetUpdateInformation|
+    drive factor, share file
+    drive factor, share content-id
+    drive factor, share read-mode
+    drive factor, share write-mode
+    drive factor, share options
+
+force build-cached-file-updater-u-i
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.CachedFileUpdaterUI|
+
+force get-deferral
+  start build, field windows-storage-provider-cachedfileupdaterui
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-title
+  start build, field windows-storage-provider-cachedfileupdaterui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Title|
+
+force set-title
+  start build, field windows-storage-provider-cachedfileupdaterui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Title|
+    drive factor, share value
+
+force get-u-i-status
+  start build, field windows-storage-provider-cachedfileupdaterui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UIStatus|
+
+force set-u-i-status
+  start build, field windows-storage-provider-cachedfileupdaterui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UIStatus|
+    drive factor, share value
+
+force get-update-request
+  start build, field windows-storage-provider-cachedfileupdaterui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UpdateRequest|
+
+force set-update-request
+  start build, field windows-storage-provider-cachedfileupdaterui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UpdateRequest|
+    drive factor, share value
+
+force get-update-target
+  start build, field windows-storage-provider-cachedfileupdaterui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UpdateTarget|
+
+force set-update-target
+  start build, field windows-storage-provider-cachedfileupdaterui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UpdateTarget|
+    drive factor, share value
+
+force build-file-update-request
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.FileUpdateRequest|
+
+force get-content-id
+  start build, field windows-storage-provider-fileupdaterequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContentId|
+
+force set-content-id
+  start build, field windows-storage-provider-fileupdaterequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContentId|
+    drive factor, share value
+
+force get-file
+  start build, field windows-storage-provider-fileupdaterequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |File|
+
+force set-file
+  start build, field windows-storage-provider-fileupdaterequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |File|
+    drive factor, share value
+
+force get-deferral
+  start build, field windows-storage-provider-fileupdaterequest
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-status
+  start build, field windows-storage-provider-fileupdaterequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-storage-provider-fileupdaterequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force update-local-file
+  start build, field windows-storage-provider-fileupdaterequest
+  start value, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateLocalFile|
+    drive factor, share value
+
+force get-user-input-needed-message
+  start build, field windows-storage-provider-fileupdaterequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserInputNeededMessage|
+
+force set-user-input-needed-message
+  start build, field windows-storage-provider-fileupdaterequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserInputNeededMessage|
+    drive factor, share value
+
+force build-file-update-request-deferral
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.FileUpdateRequestDeferral|
+
+force complete
+  start build, field windows-storage-provider-fileupdaterequestdeferral
+
+  cause call-method
+    drive object, share build
+    drive method, |Complete|
+
+force build-file-update-requested-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.FileUpdateRequestedEventArgs|
+
+force get-request
+  start build, field windows-storage-provider-fileupdaterequestedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Request|
+
+force set-request
+  start build, field windows-storage-provider-fileupdaterequestedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Request|
+    drive factor, share value
+
+force get-file-update-status
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.FileUpdateStatus|
+
+force get-item-properties
+  start build, field windows-storage-provider-istorageprovideritempropertysource
+  start item-path, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemProperties|
+    drive factor, share item-path
+
+force is-property-supported
+  start build, field windows-storage-provider-istorageproviderpropertycapabilities
+  start property-canonical-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsPropertySupported|
+    drive factor, share property-canonical-name
+
+force get-content-info-for-path
+  start build, field windows-storage-provider-istorageproviderurisource
+  start path, field system-string
+  start result, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContentInfoForPath|
+    drive factor, share path
+    drive factor, share result
+
+force get-path-for-content-uri
+  start build, field windows-storage-provider-istorageproviderurisource
+  start content-uri, field system-string
+  start result, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPathForContentUri|
+    drive factor, share content-uri
+    drive factor, share result
+
+force get-read-activation-mode
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.ReadActivationMode|
+
+force build-storage-provider-get-content-info-for-path-result
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult|
+
+force get-content-id
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContentId|
+
+force set-content-id
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContentId|
+    drive factor, share value
+
+force get-content-uri
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContentUri|
+
+force set-content-uri
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContentUri|
+    drive factor, share value
+
+force get-status
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-provider-storageprovidergetcontentinfoforpathresult
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-storage-provider-get-path-for-content-uri-result
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderGetPathForContentUriResult|
+
+force get-path
+  start build, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Path|
+
+force set-path
+  start build, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Path|
+    drive factor, share value
+
+force get-status
+  start build, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-provider-storageprovidergetpathforcontenturiresult
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-storage-provider-hardlink-policy
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderHardlinkPolicy|
+
+force get-storage-provider-hydration-policy
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderHydrationPolicy|
+
+force get-storage-provider-hydration-policy-modifier
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderHydrationPolicyModifier|
+
+force get-storage-provider-in-sync-policy
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderInSyncPolicy|
+
+force build-storage-provider-item-properties
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderItemProperties|
+
+force set-async
+  start build, field windows-storage-provider-storageprovideritemproperties
+  start item, field windows-storage-istorageitem
+  start item-properties, field windows-foundation-collections-iiterable-windows-storage-provider-storageprovideritemproperty
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAsync|
+    drive factor, share item
+    drive factor, share item-properties
+
+force build-storage-provider-item-property
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderItemProperty|
+
+force get-icon-resource
+  start build, field windows-storage-provider-storageprovideritemproperty
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IconResource|
+
+force set-icon-resource
+  start build, field windows-storage-provider-storageprovideritemproperty
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IconResource|
+    drive factor, share value
+
+force get-id
+  start build, field windows-storage-provider-storageprovideritemproperty
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-storage-provider-storageprovideritemproperty
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-provider-storageprovideritemproperty
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-value
+  start build, field windows-storage-provider-storageprovideritemproperty
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-storage-provider-storageprovideritemproperty
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force build-storage-provider-item-property-definition
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderItemPropertyDefinition|
+
+force get-display-name-resource
+  start build, field windows-storage-provider-storageprovideritempropertydefinition
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayNameResource|
+
+force set-display-name-resource
+  start build, field windows-storage-provider-storageprovideritempropertydefinition
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayNameResource|
+    drive factor, share value
+
+force get-id
+  start build, field windows-storage-provider-storageprovideritempropertydefinition
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-storage-provider-storageprovideritempropertydefinition
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-provider-storageprovideritempropertydefinition
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-storage-provider-population-policy
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderPopulationPolicy|
+
+force get-storage-provider-protection-mode
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderProtectionMode|
+
+force build-storage-provider-sync-root-info
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderSyncRootInfo|
+
+force get-allow-pinning
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AllowPinning|
+
+force set-allow-pinning
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AllowPinning|
+    drive factor, share value
+
+force get-context
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Context|
+
+force set-context
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Context|
+    drive factor, share value
+
+force get-display-name-resource
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayNameResource|
+
+force set-display-name-resource
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayNameResource|
+    drive factor, share value
+
+force get-hardlink-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardlinkPolicy|
+
+force set-hardlink-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardlinkPolicy|
+    drive factor, share value
+
+force get-hydration-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HydrationPolicy|
+
+force set-hydration-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HydrationPolicy|
+    drive factor, share value
+
+force get-hydration-policy-modifier
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HydrationPolicyModifier|
+
+force set-hydration-policy-modifier
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HydrationPolicyModifier|
+    drive factor, share value
+
+force get-icon-resource
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IconResource|
+
+force set-icon-resource
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IconResource|
+    drive factor, share value
+
+force get-id
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-in-sync-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InSyncPolicy|
+
+force set-in-sync-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InSyncPolicy|
+    drive factor, share value
+
+force get-path
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Path|
+
+force set-path
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Path|
+    drive factor, share value
+
+force get-population-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PopulationPolicy|
+
+force set-population-policy
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PopulationPolicy|
+    drive factor, share value
+
+force get-protection-mode
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProtectionMode|
+
+force set-protection-mode
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProtectionMode|
+    drive factor, share value
+
+force get-provider-id
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProviderId|
+
+force set-provider-id
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProviderId|
+    drive factor, share value
+
+force get-recycle-bin-uri
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RecycleBinUri|
+
+force set-recycle-bin-uri
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RecycleBinUri|
+    drive factor, share value
+
+force get-show-siblings-as-group
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ShowSiblingsAsGroup|
+
+force set-show-siblings-as-group
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ShowSiblingsAsGroup|
+    drive factor, share value
+
+force get-storage-provider-item-property-definitions
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StorageProviderItemPropertyDefinitions|
+
+force set-storage-provider-item-property-definitions
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StorageProviderItemPropertyDefinitions|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-version
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Version|
+
+force set-version
+  start build, field windows-storage-provider-storageprovidersyncrootinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Version|
+    drive factor, share value
+
+force build-storage-provider-sync-root-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Provider.StorageProviderSyncRootManager|
+
+force get-current-sync-roots
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentSyncRoots|
+
+force get-sync-root-information-for-folder
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+  start folder, field windows-storage-istoragefolder
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSyncRootInformationForFolder|
+    drive factor, share folder
+
+force get-sync-root-information-for-id
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+  start id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSyncRootInformationForId|
+    drive factor, share id
+
+force is-supported
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force register
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+  start sync-root-information, field windows-storage-provider-storageprovidersyncrootinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |Register|
+    drive factor, share sync-root-information
+
+force unregister
+  start build, field windows-storage-provider-storageprovidersyncrootmanager
+  start id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Unregister|
+    drive factor, share id
+
+force get-storage-provider-uri-source-status
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.StorageProviderUriSourceStatus|
+
+force get-u-i-status
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.UIStatus|
+
+force get-write-activation-mode
+  cause get-object
+    drive aspect, |Windows.Storage.Provider.WriteActivationMode|

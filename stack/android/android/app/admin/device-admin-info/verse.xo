@@ -1,0 +1,220 @@
+
+force get-uses-encrypted-storage
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_ENCRYPTED_STORAGE|
+    throw build, field int
+
+force get-uses-policy-disable-camera
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_DISABLE_CAMERA|
+    throw build, field int
+
+force get-uses-policy-disable-keyguard-features
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_DISABLE_KEYGUARD_FEATURES|
+    throw build, field int
+
+force get-uses-policy-expire-password
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_EXPIRE_PASSWORD|
+    throw build, field int
+
+force get-uses-policy-force-lock
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_FORCE_LOCK|
+    throw build, field int
+
+force get-uses-policy-limit-password
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_LIMIT_PASSWORD|
+    throw build, field int
+
+force get-uses-policy-reset-password
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_RESET_PASSWORD|
+    throw build, field int
+
+force get-uses-policy-watch-login
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_WATCH_LOGIN|
+    throw build, field int
+
+force get-uses-policy-wipe-data
+  start build, field device-admin-info
+
+  cause get-property
+    drive object, share build
+    drive property, |USES_POLICY_WIPE_DATA|
+    throw build, field int
+
+force build-device-admin-info
+  start context, field context
+  start resolve-info, field resolve-info
+
+  cause invoke-constructor
+    drive constructor, |DeviceAdminInfo|
+    drive factor, share context
+    drive factor, share resolve-info
+    throw build, field device-admin-info
+
+force describe-contents
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  start build, field device-admin-info
+  start pw, field printer
+  start prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    throw build, field unit
+
+force get-activity-info
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivityInfo|
+    throw build, field activity-info
+
+force get-component
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponent|
+    throw build, field component-name
+
+force get-package-name
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    throw build, field string
+
+force get-receiver-name
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceiverName|
+    throw build, field string
+
+force get-tag-for-policy
+  start build, field device-admin-info
+  start policy-ident, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTagForPolicy|
+    drive factor, share policy-ident
+    throw build, field string
+
+force is-visible
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isVisible|
+    throw build, field boolean
+
+force load-description
+  start build, field device-admin-info
+  start pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadDescription|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force load-icon
+  start build, field device-admin-info
+  start pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIcon|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-label
+  start build, field device-admin-info
+  start pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLabel|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force supports-transfer-ownership
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsTransferOwnership|
+    throw build, field boolean
+
+force to-string
+  start build, field device-admin-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force uses-policy
+  start build, field device-admin-info
+  start policy-ident, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |usesPolicy|
+    drive factor, share policy-ident
+    throw build, field boolean
+
+force write-to-parcel
+  start build, field device-admin-info
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

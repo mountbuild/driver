@@ -1,0 +1,97 @@
+
+force build-sql-warning
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    raise build, field sql-warning
+
+force build-sql-warning
+  start reason, field string
+  start sql-state, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    mount factor, share sql-state
+    raise build, field sql-warning
+
+force build-sql-warning
+  start reason, field string
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    raise build, field sql-warning
+
+force build-sql-warning
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    raise build, field sql-warning
+
+force build-sql-warning
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share cause
+    raise build, field sql-warning
+
+force build-sql-warning
+  start reason, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    mount factor, share cause
+    raise build, field sql-warning
+
+force build-sql-warning
+  start reason, field string
+  start sql-state, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share cause
+    raise build, field sql-warning
+
+force build-sql-warning
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLWarning|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share cause
+    raise build, field sql-warning
+
+force get-next-warning
+  start build, field sql-warning
+
+  cause call-method
+    mount object, share build
+    mount method, |getNextWarning|
+    raise build, field sql-warning
+
+force set-next-warning
+  start build, field sql-warning
+  start w, field sql-warning
+
+  cause call-method
+    mount object, share build
+    mount method, |setNextWarning|
+    mount factor, share w
+    raise build, field unit

@@ -1,0 +1,80 @@
+
+force build-job-work-item
+  start intent, field intent
+
+  cause invoke-constructor
+    drive constructor, |JobWorkItem|
+    drive factor, share intent
+    throw build, field job-work-item
+
+force build-job-work-item
+  start intent, field intent
+  start download-bytes, field long
+  start upload-bytes, field long
+
+  cause invoke-constructor
+    drive constructor, |JobWorkItem|
+    drive factor, share intent
+    drive factor, share download-bytes
+    drive factor, share upload-bytes
+    throw build, field job-work-item
+
+force describe-contents
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-delivery-count
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeliveryCount|
+    throw build, field int
+
+force get-estimated-network-download-bytes
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |getEstimatedNetworkDownloadBytes|
+    throw build, field long
+
+force get-estimated-network-upload-bytes
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |getEstimatedNetworkUploadBytes|
+    throw build, field long
+
+force get-intent
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntent|
+    throw build, field intent
+
+force to-string
+  start build, field job-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field job-work-item
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,18 @@
+
+force build-media-stream-track-event
+  start type
+  start track
+
+  cause invoke-constructor
+    mount constructor, |MediaStreamTrackEvent|
+    mount factor, share type
+    mount factor, share track
+    throw build
+
+force get-track
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |track|
+    throw build

@@ -1,0 +1,29 @@
+
+force build-exception-in-initializer-error
+  cause invoke-constructor
+    drive constructor, |ExceptionInInitializerError|
+    throw build, field exception-in-initializer-error
+
+force build-exception-in-initializer-error
+  mount thrown, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ExceptionInInitializerError|
+    drive factor, share thrown
+    throw build, field exception-in-initializer-error
+
+force build-exception-in-initializer-error
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |ExceptionInInitializerError|
+    drive factor, share s
+    throw build, field exception-in-initializer-error
+
+force get-exception
+  mount build, field exception-in-initializer-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getException|
+    throw build, field throwable

@@ -1,0 +1,24 @@
+
+force build-file-reader
+  mount file-name, field string
+
+  cause invoke-constructor
+    drive constructor, |FileReader|
+    drive factor, share file-name
+    throw build, field file-reader
+
+force build-file-reader
+  mount file, field file
+
+  cause invoke-constructor
+    drive constructor, |FileReader|
+    drive factor, share file
+    throw build, field file-reader
+
+force build-file-reader
+  mount fd, field file-descriptor
+
+  cause invoke-constructor
+    drive constructor, |FileReader|
+    drive factor, share fd
+    throw build, field file-reader

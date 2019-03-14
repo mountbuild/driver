@@ -1,0 +1,79 @@
+
+force build-memory-handler
+  cause invoke-constructor
+    drive constructor, |MemoryHandler|
+    throw build, field memory-handler
+
+force build-memory-handler
+  mount target, field handler
+  mount size, field int
+  mount push-level, field level
+
+  cause invoke-constructor
+    drive constructor, |MemoryHandler|
+    drive factor, share target
+    drive factor, share size
+    drive factor, share push-level
+    throw build, field memory-handler
+
+force close
+  mount build, field memory-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field memory-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force get-push-level
+  mount build, field memory-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |getPushLevel|
+    throw build, field level
+
+force is-loggable
+  mount build, field memory-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |isLoggable|
+    drive factor, share record
+    throw build, field boolean
+
+force publish
+  mount build, field memory-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share record
+    throw build, field unit
+
+force push
+  mount build, field memory-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |push|
+    throw build, field unit
+
+force set-push-level
+  mount build, field memory-handler
+  mount new-level, field level
+
+  cause call-method
+    drive object, share build
+    drive method, |setPushLevel|
+    drive factor, share new-level
+    throw build, field unit

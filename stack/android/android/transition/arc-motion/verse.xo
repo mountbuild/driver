@@ -1,0 +1,85 @@
+
+force build-arc-motion
+  cause invoke-constructor
+    drive constructor, |ArcMotion|
+    throw build, field arc-motion
+
+force build-arc-motion
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ArcMotion|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field arc-motion
+
+force get-maximum-angle
+  mount build, field arc-motion
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumAngle|
+    throw build, field float
+
+force get-minimum-horizontal-angle
+  mount build, field arc-motion
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumHorizontalAngle|
+    throw build, field float
+
+force get-minimum-vertical-angle
+  mount build, field arc-motion
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinimumVerticalAngle|
+    throw build, field float
+
+force get-path
+  mount build, field arc-motion
+  mount start-x, field float
+  mount start-y, field float
+  mount end-x, field float
+  mount end-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share end-x
+    drive factor, share end-y
+    throw build, field path
+
+force set-maximum-angle
+  mount build, field arc-motion
+  mount angle-in-degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaximumAngle|
+    drive factor, share angle-in-degrees
+    throw build, field unit
+
+force set-minimum-horizontal-angle
+  mount build, field arc-motion
+  mount angle-in-degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumHorizontalAngle|
+    drive factor, share angle-in-degrees
+    throw build, field unit
+
+force set-minimum-vertical-angle
+  mount build, field arc-motion
+  mount angle-in-degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumVerticalAngle|
+    drive factor, share angle-in-degrees
+    throw build, field unit

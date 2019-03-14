@@ -1,0 +1,405 @@
+
+force get-extra-no-headers
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_NO_HEADERS|
+    throw build, field string
+
+force get-extra-show-fragment
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SHOW_FRAGMENT|
+    throw build, field string
+
+force get-extra-show-fragment-arguments
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SHOW_FRAGMENT_ARGUMENTS|
+    throw build, field string
+
+force get-extra-show-fragment-short-title
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SHOW_FRAGMENT_SHORT_TITLE|
+    throw build, field string
+
+force get-extra-show-fragment-title
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SHOW_FRAGMENT_TITLE|
+    throw build, field string
+
+force get-header-id-undefined
+  mount build, field preference-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |HEADER_ID_UNDEFINED|
+    throw build, field long
+
+force build-preference-activity
+  cause invoke-constructor
+    drive constructor, |PreferenceActivity|
+    throw build, field preference-activity
+
+force add-preferences-from-intent
+  mount build, field preference-activity
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |addPreferencesFromIntent|
+    drive factor, share intent
+    throw build, field unit
+
+force add-preferences-from-resource
+  mount build, field preference-activity
+  mount preferences-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addPreferencesFromResource|
+    drive factor, share preferences-res-id
+    throw build, field unit
+
+force find-preference
+  mount build, field preference-activity
+  mount key, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |findPreference|
+    drive factor, share key
+    throw build, field preference
+
+force finish-preference-panel
+  mount build, field preference-activity
+  mount caller, field fragment
+  mount result-code, field int
+  mount result-data, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |finishPreferencePanel|
+    drive factor, share caller
+    drive factor, share result-code
+    drive factor, share result-data
+    throw build, field unit
+
+force get-preference-manager
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferenceManager|
+    throw build, field preference-manager
+
+force get-preference-screen
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferenceScreen|
+    throw build, field preference-screen
+
+force has-headers
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |hasHeaders|
+    throw build, field boolean
+
+force invalidate-headers
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidateHeaders|
+    throw build, field unit
+
+force is-multi-pane
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |isMultiPane|
+    throw build, field boolean
+
+force load-headers-from-resource
+  mount build, field preference-activity
+  mount resid, field int
+  mount target, field mutable-list-preference-activity-header
+
+  cause call-method
+    drive object, share build
+    drive method, |loadHeadersFromResource|
+    drive factor, share resid
+    drive factor, share target
+    throw build, field unit
+
+force on-back-pressed
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onBackPressed|
+    throw build, field unit
+
+force on-build-headers
+  mount build, field preference-activity
+  mount target, field mutable-list-preference-activity-header
+
+  cause call-method
+    drive object, share build
+    drive method, |onBuildHeaders|
+    drive factor, share target
+    throw build, field unit
+
+force on-build-start-fragment-intent
+  mount build, field preference-activity
+  mount fragment-name, field string
+  mount args, field bundle
+  mount title-res, field int
+  mount short-title-res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onBuildStartFragmentIntent|
+    drive factor, share fragment-name
+    drive factor, share args
+    drive factor, share title-res
+    drive factor, share short-title-res
+    throw build, field intent
+
+force on-content-changed
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onContentChanged|
+    throw build, field unit
+
+force on-get-initial-header
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetInitialHeader|
+    throw build, field preference-activity-header
+
+force on-get-new-header
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetNewHeader|
+    throw build, field preference-activity-header
+
+force on-header-click
+  mount build, field preference-activity
+  mount header, field preference-activity-header
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onHeaderClick|
+    drive factor, share header
+    drive factor, share position
+    throw build, field unit
+
+force on-is-hiding-headers
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onIsHidingHeaders|
+    throw build, field boolean
+
+force on-is-multi-pane
+  mount build, field preference-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onIsMultiPane|
+    throw build, field boolean
+
+force on-options-item-selected
+  mount build, field preference-activity
+  mount item, field menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |onOptionsItemSelected|
+    drive factor, share item
+    throw build, field boolean
+
+force on-preference-start-fragment
+  mount build, field preference-activity
+  mount caller, field preference-fragment
+  mount pref, field preference
+
+  cause call-method
+    drive object, share build
+    drive method, |onPreferenceStartFragment|
+    drive factor, share caller
+    drive factor, share pref
+    throw build, field boolean
+
+force on-preference-tree-click
+  mount build, field preference-activity
+  mount preference-screen, field preference-screen
+  mount preference, field preference
+
+  cause call-method
+    drive object, share build
+    drive method, |onPreferenceTreeClick|
+    drive factor, share preference-screen
+    drive factor, share preference
+    throw build, field boolean
+
+force set-list-footer
+  mount build, field preference-activity
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |setListFooter|
+    drive factor, share view
+    throw build, field unit
+
+force set-parent-title
+  mount build, field preference-activity
+  mount title, field char-sequence
+  mount short-title, field char-sequence
+  mount listener, field view-on-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParentTitle|
+    drive factor, share title
+    drive factor, share short-title
+    drive factor, share listener
+    throw build, field unit
+
+force set-preference-screen
+  mount build, field preference-activity
+  mount preference-screen, field preference-screen
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferenceScreen|
+    drive factor, share preference-screen
+    throw build, field unit
+
+force show-bread-crumbs
+  mount build, field preference-activity
+  mount title, field char-sequence
+  mount short-title, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |showBreadCrumbs|
+    drive factor, share title
+    drive factor, share short-title
+    throw build, field unit
+
+force start-preference-fragment
+  mount build, field preference-activity
+  mount fragment, field fragment
+  mount push, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |startPreferenceFragment|
+    drive factor, share fragment
+    drive factor, share push
+    throw build, field unit
+
+force start-preference-panel
+  mount build, field preference-activity
+  mount fragment-class, field string
+  mount args, field bundle
+  mount title-res, field int
+  mount title-text, field char-sequence
+  mount result-to, field fragment
+  mount result-request-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startPreferencePanel|
+    drive factor, share fragment-class
+    drive factor, share args
+    drive factor, share title-res
+    drive factor, share title-text
+    drive factor, share result-to
+    drive factor, share result-request-code
+    throw build, field unit
+
+force start-with-fragment
+  mount build, field preference-activity
+  mount fragment-name, field string
+  mount args, field bundle
+  mount result-to, field fragment
+  mount result-request-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startWithFragment|
+    drive factor, share fragment-name
+    drive factor, share args
+    drive factor, share result-to
+    drive factor, share result-request-code
+    throw build, field unit
+
+force start-with-fragment
+  mount build, field preference-activity
+  mount fragment-name, field string
+  mount args, field bundle
+  mount result-to, field fragment
+  mount result-request-code, field int
+  mount title-res, field int
+  mount short-title-res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startWithFragment|
+    drive factor, share fragment-name
+    drive factor, share args
+    drive factor, share result-to
+    drive factor, share result-request-code
+    drive factor, share title-res
+    drive factor, share short-title-res
+    throw build, field unit
+
+force switch-to-header
+  mount build, field preference-activity
+  mount fragment-name, field string
+  mount args, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToHeader|
+    drive factor, share fragment-name
+    drive factor, share args
+    throw build, field unit
+
+force switch-to-header
+  mount build, field preference-activity
+  mount header, field preference-activity-header
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToHeader|
+    drive factor, share header
+    throw build, field unit

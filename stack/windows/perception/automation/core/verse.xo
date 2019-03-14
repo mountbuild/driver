@@ -1,0 +1,13 @@
+
+force build-core-perception-automation
+  cause invoke-constructor
+    drive constructor, |Windows.Perception.Automation.Core.CorePerceptionAutomation|
+
+force set-activation-factory-provider
+  start build, field windows-perception-automation-core-coreperceptionautomation
+  start provider, field windows-foundation-igetactivationfactory
+
+  cause call-method
+    drive object, share build
+    drive method, |SetActivationFactoryProvider|
+    drive factor, share provider

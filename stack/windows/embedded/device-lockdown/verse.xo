@@ -1,0 +1,56 @@
+
+force build-device-lockdown-profile
+  cause invoke-constructor
+    drive constructor, |Windows.Embedded.DeviceLockdown.DeviceLockdownProfile|
+
+force apply-lockdown-profile-async
+  start build, field windows-embedded-devicelockdown-devicelockdownprofile
+  start profile-i-d, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |ApplyLockdownProfileAsync|
+    drive factor, share profile-i-d
+
+force get-current-lockdown-profile
+  start build, field windows-embedded-devicelockdown-devicelockdownprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentLockdownProfile|
+
+force get-lockdown-profile-information
+  start build, field windows-embedded-devicelockdown-devicelockdownprofile
+  start profile-i-d, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |GetLockdownProfileInformation|
+    drive factor, share profile-i-d
+
+force get-supported-lockdown-profiles
+  start build, field windows-embedded-devicelockdown-devicelockdownprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSupportedLockdownProfiles|
+
+force build-device-lockdown-profile-information
+  cause invoke-constructor
+    drive constructor, |Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation|
+
+force get-name
+  start build, field windows-embedded-devicelockdown-devicelockdownprofileinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-embedded-devicelockdown-devicelockdownprofileinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value

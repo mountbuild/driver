@@ -1,0 +1,219 @@
+
+force get-suite-methodname
+  start build, field base-test-runner
+
+  cause get-property
+    drive object, share build
+    drive property, |SUITE_METHODNAME|
+    throw build, field string
+
+force build-base-test-runner
+  cause invoke-constructor
+    drive constructor, |BaseTestRunner|
+    throw build, field base-test-runner
+
+force add-error
+  start build, field base-test-runner
+  start test, field test
+  start t, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |addError|
+    drive factor, share test
+    drive factor, share t
+    throw build, field unit
+
+force add-failure
+  start build, field base-test-runner
+  start test, field test
+  start t, field assertion-failed-error
+
+  cause call-method
+    drive object, share build
+    drive method, |addFailure|
+    drive factor, share test
+    drive factor, share t
+    throw build, field unit
+
+force elapsed-time-as-string
+  start build, field base-test-runner
+  start run-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |elapsedTimeAsString|
+    drive factor, share run-time
+    throw build, field string
+
+force end-test
+  start build, field base-test-runner
+  start test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |endTest|
+    drive factor, share test
+    throw build, field unit
+
+force extract-class-name
+  start build, field base-test-runner
+  start class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |extractClassName|
+    drive factor, share class-name
+    throw build, field string
+
+force get-filtered-trace
+  start build, field base-test-runner
+  start t, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilteredTrace|
+    drive factor, share t
+    throw build, field string
+
+force get-filtered-trace
+  start build, field base-test-runner
+  start stack, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilteredTrace|
+    drive factor, share stack
+    throw build, field string
+
+force get-loader
+  start build, field base-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoader|
+    throw build, field test-suite-loader
+
+force get-preference
+  start build, field base-test-runner
+  start key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreference|
+    drive factor, share key
+    throw build, field string
+
+force get-preference
+  start build, field base-test-runner
+  start key, field string
+  start dflt, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreference|
+    drive factor, share key
+    drive factor, share dflt
+    throw build, field int
+
+force get-test
+  start build, field base-test-runner
+  start suite-class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTest|
+    drive factor, share suite-class-name
+    throw build, field test
+
+force in-va-java
+  start build, field base-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |inVAJava|
+    throw build, field boolean
+
+force save-preferences
+  start build, field base-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |savePreferences|
+    throw build, field unit
+
+force set-loading
+  start build, field base-test-runner
+  start enable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setLoading|
+    drive factor, share enable
+    throw build, field unit
+
+force set-preference
+  start build, field base-test-runner
+  start key, field string
+  start value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreference|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit
+
+force start-test
+  start build, field base-test-runner
+  start test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |startTest|
+    drive factor, share test
+    throw build, field unit
+
+force test-ended
+  start build, field base-test-runner
+  start test-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |testEnded|
+    drive factor, share test-name
+    throw build, field unit
+
+force test-failed
+  start build, field base-test-runner
+  start status, field int
+  start test, field test
+  start t, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |testFailed|
+    drive factor, share status
+    drive factor, share test
+    drive factor, share t
+    throw build, field unit
+
+force test-started
+  start build, field base-test-runner
+  start test-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |testStarted|
+    drive factor, share test-name
+    throw build, field unit
+
+force truncate
+  start build, field base-test-runner
+  start s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |truncate|
+    drive factor, share s
+    throw build, field string

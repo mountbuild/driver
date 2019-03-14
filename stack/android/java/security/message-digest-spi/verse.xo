@@ -1,0 +1,13 @@
+
+force build-message-digest-spi
+  cause invoke-constructor
+    mount constructor, |MessageDigestSpi|
+    throw build, field message-digest-spi
+
+force clone
+  mount build, field message-digest-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any

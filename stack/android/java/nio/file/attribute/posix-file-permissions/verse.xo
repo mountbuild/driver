@@ -1,0 +1,30 @@
+
+force as-file-attribute
+  mount build, field posix-file-permissions
+  mount perms, field mutable-set-posix-file-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |asFileAttribute|
+    drive factor, share perms
+    throw build, field file-attribute
+
+force from-string
+  mount build, field posix-file-permissions
+  mount perms, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fromString|
+    drive factor, share perms
+    throw build, field mutable-set
+
+force to-string
+  mount build, field posix-file-permissions
+  mount perms, field mutable-set-posix-file-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share perms
+    throw build, field string

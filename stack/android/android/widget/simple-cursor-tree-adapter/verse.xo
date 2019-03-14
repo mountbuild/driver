@@ -1,0 +1,102 @@
+
+force build-simple-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount collapsed-group-layout, field int
+  mount expanded-group-layout, field int
+  mount group-from, field array-string
+  mount group-to, field int-array
+  mount child-layout, field int
+  mount last-child-layout, field int
+  mount child-from, field array-string
+  mount child-to, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SimpleCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share collapsed-group-layout
+    drive factor, share expanded-group-layout
+    drive factor, share group-from
+    drive factor, share group-to
+    drive factor, share child-layout
+    drive factor, share last-child-layout
+    drive factor, share child-from
+    drive factor, share child-to
+    throw build, field simple-cursor-tree-adapter
+
+force build-simple-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount collapsed-group-layout, field int
+  mount expanded-group-layout, field int
+  mount group-from, field array-string
+  mount group-to, field int-array
+  mount child-layout, field int
+  mount child-from, field array-string
+  mount child-to, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SimpleCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share collapsed-group-layout
+    drive factor, share expanded-group-layout
+    drive factor, share group-from
+    drive factor, share group-to
+    drive factor, share child-layout
+    drive factor, share child-from
+    drive factor, share child-to
+    throw build, field simple-cursor-tree-adapter
+
+force build-simple-cursor-tree-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount group-layout, field int
+  mount group-from, field array-string
+  mount group-to, field int-array
+  mount child-layout, field int
+  mount child-from, field array-string
+  mount child-to, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SimpleCursorTreeAdapter|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share group-layout
+    drive factor, share group-from
+    drive factor, share group-to
+    drive factor, share child-layout
+    drive factor, share child-from
+    drive factor, share child-to
+    throw build, field simple-cursor-tree-adapter
+
+force get-view-binder
+  mount build, field simple-cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getViewBinder|
+    throw build, field simple-cursor-tree-adapter-view-binder
+
+force set-view-binder
+  mount build, field simple-cursor-tree-adapter
+  mount view-binder, field simple-cursor-tree-adapter-view-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewBinder|
+    drive factor, share view-binder
+    throw build, field unit
+
+force set-view-text
+  mount build, field simple-cursor-tree-adapter
+  mount v, field text-view
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewText|
+    drive factor, share v
+    drive factor, share text
+    throw build, field unit

@@ -1,0 +1,253 @@
+
+force get-base-uri
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |baseURI|
+    throw build
+
+force get-child-nodes
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |childNodes|
+    throw build
+
+force get-first-child
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |firstChild|
+    throw build
+
+force get-is-connected
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isConnected|
+    throw build
+
+force get-last-child
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |lastChild|
+    throw build
+
+force get-next-sibling
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |nextSibling|
+    throw build
+
+force get-node-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |nodeName|
+    throw build
+
+force get-node-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |nodeType|
+    throw build
+
+force get-node-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |nodeValue|
+    throw build
+
+force set-node-value
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |nodeValue|
+    mount factor, share value
+
+force get-owner-document
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ownerDocument|
+    throw build
+
+force get-parent-node
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |parentNode|
+    throw build
+
+force get-parent-element
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |parentElement|
+    throw build
+
+force get-previous-sibling
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |previousSibling|
+    throw build
+
+force get-text-content
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |textContent|
+    throw build
+
+force set-text-content
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |textContent|
+    mount factor, share value
+
+force append-child-child-node
+  start build
+  start a-child
+
+  cause call-method
+    mount object, share build
+    mount method, |appendChild(childNode)|
+    mount factor, share a-child
+
+force clone-node
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |cloneNode|
+
+force compare-document-position
+  start build
+  start other-node
+
+  cause call-method
+    mount object, share build
+    mount method, |compareDocumentPosition|
+    mount factor, share other-node
+    throw build
+
+force contains
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |contains|
+
+force get-root-node
+  start build
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |getRootNode|
+    mount factor, share options
+
+force has-child-nodes
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |hasChildNodes|
+    throw build
+
+force insert-before
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |insertBefore|
+    throw build
+
+force is-default-namespace
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |isDefaultNamespace|
+    throw build
+
+force is-equal-node
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |isEqualNode|
+
+force is-same-node
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |isSameNode|
+
+force lookup-prefix
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |lookupPrefix|
+
+force lookup-namespace-uri
+  start build
+  start prefix
+
+  cause call-method
+    mount object, share build
+    mount method, |lookupNamespaceURI|
+    mount factor, share prefix
+    throw build
+
+force normalize
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |normalize|
+
+force remove-child
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |removeChild|
+
+force replace-child
+  start build
+  start new-child
+  start old-child
+
+  cause call-method
+    mount object, share build
+    mount method, |replaceChild|
+    mount factor, share new-child
+    mount factor, share old-child
+    throw build

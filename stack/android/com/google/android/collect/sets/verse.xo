@@ -1,0 +1,59 @@
+
+force build-sets
+  cause invoke-constructor
+    drive constructor, |Sets|
+    throw build, field sets
+
+force new-array-set
+  start build, field sets
+
+  cause call-method
+    drive object, share build
+    drive method, |newArraySet|
+    throw build, field array-set
+
+force new-array-set
+  start build, field sets
+  start vararg-elements, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |newArraySet|
+    drive factor, share vararg-elements
+    throw build, field array-set
+
+force new-hash-set
+  start build, field sets
+
+  cause call-method
+    drive object, share build
+    drive method, |newHashSet|
+    throw build, field hash-set
+
+force new-hash-set
+  start build, field sets
+  start vararg-elements, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |newHashSet|
+    drive factor, share vararg-elements
+    throw build, field hash-set
+
+force new-sorted-set
+  start build, field sets
+
+  cause call-method
+    drive object, share build
+    drive method, |newSortedSet|
+    throw build, field sorted-set
+
+force new-sorted-set
+  start build, field sets
+  start vararg-elements, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |newSortedSet|
+    drive factor, share vararg-elements
+    throw build, field sorted-set

@@ -1,0 +1,116 @@
+
+force get-priority-high
+  mount build, field available-network-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HIGH|
+    throw build, field int
+
+force get-priority-low
+  mount build, field available-network-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_LOW|
+    throw build, field int
+
+force get-priority-med
+  mount build, field available-network-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_MED|
+    throw build, field int
+
+force build-available-network-info
+  mount sub-id, field int
+  mount priority, field int
+  mount mcc-mncs, field mutable-list-string
+  mount bands, field mutable-list-int
+
+  cause invoke-constructor
+    drive constructor, |AvailableNetworkInfo|
+    drive factor, share sub-id
+    drive factor, share priority
+    drive factor, share mcc-mncs
+    drive factor, share bands
+    throw build, field available-network-info
+
+force describe-contents
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field available-network-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-bands
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getBands|
+    throw build, field mutable-list
+
+force get-mcc-mncs
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMccMncs|
+    throw build, field mutable-list
+
+force get-priority
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPriority|
+    throw build, field int
+
+force get-sub-id
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubId|
+    throw build, field int
+
+force hash-code
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field available-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field available-network-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

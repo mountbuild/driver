@@ -1,0 +1,76 @@
+
+force build-elliptic-curve
+  mount field, field ec-field
+  mount a, field big-integer
+  mount b, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |EllipticCurve|
+    mount factor, share field
+    mount factor, share a
+    mount factor, share b
+    throw build, field elliptic-curve
+
+force build-elliptic-curve
+  mount field, field ec-field
+  mount a, field big-integer
+  mount b, field big-integer
+  mount seed, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |EllipticCurve|
+    mount factor, share field
+    mount factor, share a
+    mount factor, share b
+    mount factor, share seed
+    throw build, field elliptic-curve
+
+force equals
+  mount build, field elliptic-curve
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-a
+  mount build, field elliptic-curve
+
+  cause call-method
+    mount object, share build
+    mount method, |getA|
+    throw build, field big-integer
+
+force get-b
+  mount build, field elliptic-curve
+
+  cause call-method
+    mount object, share build
+    mount method, |getB|
+    throw build, field big-integer
+
+force get-field
+  mount build, field elliptic-curve
+
+  cause call-method
+    mount object, share build
+    mount method, |getField|
+    throw build, field ec-field
+
+force get-seed
+  mount build, field elliptic-curve
+
+  cause call-method
+    mount object, share build
+    mount method, |getSeed|
+    throw build, field byte-array
+
+force hash-code
+  mount build, field elliptic-curve
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

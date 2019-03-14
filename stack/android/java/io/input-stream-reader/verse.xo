@@ -1,0 +1,84 @@
+
+force build-input-stream-reader
+  mount in, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |InputStreamReader|
+    drive factor, share in
+    throw build, field input-stream-reader
+
+force build-input-stream-reader
+  mount in, field input-stream
+  mount charset-name, field string
+
+  cause invoke-constructor
+    drive constructor, |InputStreamReader|
+    drive factor, share in
+    drive factor, share charset-name
+    throw build, field input-stream-reader
+
+force build-input-stream-reader
+  mount in, field input-stream
+  mount cs, field charset
+
+  cause invoke-constructor
+    drive constructor, |InputStreamReader|
+    drive factor, share in
+    drive factor, share cs
+    throw build, field input-stream-reader
+
+force build-input-stream-reader
+  mount in, field input-stream
+  mount dec, field charset-decoder
+
+  cause invoke-constructor
+    drive constructor, |InputStreamReader|
+    drive factor, share in
+    drive factor, share dec
+    throw build, field input-stream-reader
+
+force close
+  mount build, field input-stream-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-encoding
+  mount build, field input-stream-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncoding|
+    throw build, field string
+
+force read
+  mount build, field input-stream-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field input-stream-reader
+  mount cbuf, field char-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share cbuf
+    drive factor, share offset
+    drive factor, share length
+    throw build, field int
+
+force ready
+  mount build, field input-stream-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |ready|
+    throw build, field boolean

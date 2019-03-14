@@ -1,0 +1,85 @@
+
+force build-abstract-executor-service
+  cause invoke-constructor
+    drive constructor, |AbstractExecutorService|
+    throw build, field abstract-executor-service
+
+force invoke-all
+  mount build, field abstract-executor-service
+  mount tasks, field mutable-collection-out-callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share tasks
+    throw build, field mutable-list
+
+force invoke-all
+  mount build, field abstract-executor-service
+  mount tasks, field mutable-collection-out-callable-t
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share tasks
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field mutable-list
+
+force invoke-any
+  mount build, field abstract-executor-service
+  mount tasks, field mutable-collection-out-callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAny|
+    drive factor, share tasks
+    throw build, field t
+
+force invoke-any
+  mount build, field abstract-executor-service
+  mount tasks, field mutable-collection-out-callable-t
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAny|
+    drive factor, share tasks
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field t
+
+force submit
+  mount build, field abstract-executor-service
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field future
+
+force submit
+  mount build, field abstract-executor-service
+  mount task, field runnable
+  mount result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    drive factor, share result
+    throw build, field future
+
+force submit
+  mount build, field abstract-executor-service
+  mount task, field callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field future

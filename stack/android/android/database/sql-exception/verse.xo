@@ -1,0 +1,23 @@
+
+force build-sql-exception
+  cause invoke-constructor
+    drive constructor, |SQLException|
+    raise build, field sql-exception
+
+force build-sql-exception
+  mount error, field string
+
+  cause invoke-constructor
+    drive constructor, |SQLException|
+    drive factor, share error
+    raise build, field sql-exception
+
+force build-sql-exception
+  mount error, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |SQLException|
+    drive factor, share error
+    drive factor, share cause
+    raise build, field sql-exception

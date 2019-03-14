@@ -1,0 +1,39 @@
+
+force build-date-key-listener
+  cause invoke-constructor
+    drive constructor, |DateKeyListener|
+    raise build, field date-key-listener
+
+force build-date-key-listener
+  mount locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |DateKeyListener|
+    drive factor, share locale
+    raise build, field date-key-listener
+
+force get-input-type
+  mount build, field date-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputType|
+    raise build, field int
+
+force get-instance
+  mount build, field date-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field date-key-listener
+
+force get-instance
+  mount build, field date-key-listener
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field date-key-listener

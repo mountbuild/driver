@@ -1,0 +1,103 @@
+
+force get-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |context|
+    throw build
+
+force get-number-of-inputs
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |numberOfInputs|
+    throw build
+
+force get-number-of-outputs
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |numberOfOutputs|
+    throw build
+
+force get-channel-count
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |channelCount|
+    throw build
+
+force set-channel-count
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |channelCount|
+    mount factor, share value
+
+force get-channel-count-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |channelCountMode|
+    throw build
+
+force set-channel-count-mode
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |channelCountMode|
+    mount factor, share value
+
+force get-channel-interpretation
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |channelInterpretation|
+    throw build
+
+force set-channel-interpretation
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |channelInterpretation|
+    mount factor, share value
+
+force connect
+  start build
+  start destination
+  start output-index
+  start input-index
+
+  cause call-method
+    mount object, share build
+    mount method, |connect|
+    mount factor, share destination
+    mount factor, share output-index
+    mount factor, share input-index
+    throw build
+
+force disconnect
+  start build
+  start destination
+  start output
+  start input
+
+  cause call-method
+    mount object, share build
+    mount method, |disconnect|
+    mount factor, share destination
+    mount factor, share output
+    mount factor, share input
+    throw build

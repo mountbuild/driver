@@ -1,0 +1,89 @@
+
+force build-context-theme-wrapper
+  cause invoke-constructor
+    drive constructor, |ContextThemeWrapper|
+    raise build, field context-theme-wrapper
+
+force build-context-theme-wrapper
+  mount base, field context
+  mount theme-res-id, field int
+
+  cause invoke-constructor
+    drive constructor, |ContextThemeWrapper|
+    drive factor, share base
+    drive factor, share theme-res-id
+    raise build, field context-theme-wrapper
+
+force build-context-theme-wrapper
+  mount base, field context
+  mount theme, field resources-theme
+
+  cause invoke-constructor
+    drive constructor, |ContextThemeWrapper|
+    drive factor, share base
+    drive factor, share theme
+    raise build, field context-theme-wrapper
+
+force apply-override-configuration
+  mount build, field context-theme-wrapper
+  mount override-configuration, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |applyOverrideConfiguration|
+    drive factor, share override-configuration
+    raise build, field unit
+
+force get-assets
+  mount build, field context-theme-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |getAssets|
+    raise build, field asset-manager
+
+force get-resources
+  mount build, field context-theme-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |getResources|
+    raise build, field resources
+
+force get-system-service
+  mount build, field context-theme-wrapper
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemService|
+    drive factor, share name
+    raise build, field any
+
+force get-theme
+  mount build, field context-theme-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |getTheme|
+    raise build, field resources-theme
+
+force set-theme
+  mount build, field context-theme-wrapper
+  mount resid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTheme|
+    drive factor, share resid
+    raise build, field unit
+
+force set-theme
+  mount build, field context-theme-wrapper
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |setTheme|
+    drive factor, share theme
+    raise build, field unit

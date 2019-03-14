@@ -1,0 +1,36 @@
+
+force build-euicc-info
+  mount os-version, field string
+
+  cause invoke-constructor
+    drive constructor, |EuiccInfo|
+    drive factor, share os-version
+    throw build, field euicc-info
+
+force describe-contents
+  mount build, field euicc-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-os-version
+  mount build, field euicc-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getOsVersion|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field euicc-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

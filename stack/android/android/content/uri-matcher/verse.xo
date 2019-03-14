@@ -1,0 +1,40 @@
+
+force get-no-match
+  mount build, field uri-matcher
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_MATCH|
+    throw build, field int
+
+force build-uri-matcher
+  mount code, field int
+
+  cause invoke-constructor
+    drive constructor, |UriMatcher|
+    drive factor, share code
+    throw build, field uri-matcher
+
+force add-uri
+  mount build, field uri-matcher
+  mount authority, field string
+  mount path, field string
+  mount code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addURI|
+    drive factor, share authority
+    drive factor, share path
+    drive factor, share code
+    throw build, field unit
+
+force match
+  mount build, field uri-matcher
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |match|
+    drive factor, share uri
+    throw build, field int

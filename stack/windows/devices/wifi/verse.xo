@@ -1,0 +1,449 @@
+
+force get-wi-fi-access-status
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiAccessStatus|
+
+force build-wi-fi-adapter
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.WiFi.WiFiAdapter|
+
+force connect-async
+  start build, field windows-devices-wifi-wifiadapter
+  start available-network, field windows-devices-wifi-wifiavailablenetwork
+  start reconnection-kind, field windows-devices-wifi-wifireconnectionkind
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectAsync|
+    drive factor, share available-network
+    drive factor, share reconnection-kind
+
+force connect-async
+  start build, field windows-devices-wifi-wifiadapter
+  start available-network, field windows-devices-wifi-wifiavailablenetwork
+  start reconnection-kind, field windows-devices-wifi-wifireconnectionkind
+  start password-credential, field windows-security-credentials-passwordcredential
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectAsync|
+    drive factor, share available-network
+    drive factor, share reconnection-kind
+    drive factor, share password-credential
+
+force connect-async
+  start build, field windows-devices-wifi-wifiadapter
+  start available-network, field windows-devices-wifi-wifiavailablenetwork
+  start reconnection-kind, field windows-devices-wifi-wifireconnectionkind
+  start password-credential, field windows-security-credentials-passwordcredential
+  start ssid, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectAsync|
+    drive factor, share available-network
+    drive factor, share reconnection-kind
+    drive factor, share password-credential
+    drive factor, share ssid
+
+force connect-async
+  start build, field windows-devices-wifi-wifiadapter
+  start available-network, field windows-devices-wifi-wifiavailablenetwork
+  start reconnection-kind, field windows-devices-wifi-wifireconnectionkind
+  start password-credential, field windows-security-credentials-passwordcredential
+  start ssid, field system-string
+  start connection-method, field windows-devices-wifi-wificonnectionmethod
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectAsync|
+    drive factor, share available-network
+    drive factor, share reconnection-kind
+    drive factor, share password-credential
+    drive factor, share ssid
+    drive factor, share connection-method
+
+force disconnect
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause call-method
+    drive object, share build
+    drive method, |Disconnect|
+
+force find-all-adapters-async
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAllAdaptersAsync|
+
+force from-id-async
+  start build, field windows-devices-wifi-wifiadapter
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+
+force get-device-selector
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force get-wps-configuration-async
+  start build, field windows-devices-wifi-wifiadapter
+  start available-network, field windows-devices-wifi-wifiavailablenetwork
+
+  cause call-method
+    drive object, share build
+    drive method, |GetWpsConfigurationAsync|
+    drive factor, share available-network
+
+force get-network-adapter
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NetworkAdapter|
+
+force set-network-adapter
+  start build, field windows-devices-wifi-wifiadapter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NetworkAdapter|
+    drive factor, share value
+
+force get-network-report
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NetworkReport|
+
+force set-network-report
+  start build, field windows-devices-wifi-wifiadapter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NetworkReport|
+    drive factor, share value
+
+force request-access-async
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+
+force scan-async
+  start build, field windows-devices-wifi-wifiadapter
+
+  cause call-method
+    drive object, share build
+    drive method, |ScanAsync|
+
+force build-wi-fi-available-network
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.WiFi.WiFiAvailableNetwork|
+
+force get-beacon-interval
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BeaconInterval|
+
+force set-beacon-interval
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BeaconInterval|
+    drive factor, share value
+
+force get-bssid
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bssid|
+
+force set-bssid
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bssid|
+    drive factor, share value
+
+force get-channel-center-frequency-in-kilohertz
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChannelCenterFrequencyInKilohertz|
+
+force set-channel-center-frequency-in-kilohertz
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChannelCenterFrequencyInKilohertz|
+    drive factor, share value
+
+force get-is-wi-fi-direct
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsWiFiDirect|
+
+force set-is-wi-fi-direct
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsWiFiDirect|
+    drive factor, share value
+
+force get-network-kind
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NetworkKind|
+
+force set-network-kind
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NetworkKind|
+    drive factor, share value
+
+force get-network-rssi-in-decibel-milliwatts
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NetworkRssiInDecibelMilliwatts|
+
+force set-network-rssi-in-decibel-milliwatts
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NetworkRssiInDecibelMilliwatts|
+    drive factor, share value
+
+force get-phy-kind
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PhyKind|
+
+force set-phy-kind
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PhyKind|
+    drive factor, share value
+
+force get-security-settings
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SecuritySettings|
+
+force set-security-settings
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SecuritySettings|
+    drive factor, share value
+
+force get-signal-bars
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SignalBars|
+
+force set-signal-bars
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SignalBars|
+    drive factor, share value
+
+force get-ssid
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ssid|
+
+force set-ssid
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ssid|
+    drive factor, share value
+
+force get-uptime
+  start build, field windows-devices-wifi-wifiavailablenetwork
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Uptime|
+
+force set-uptime
+  start build, field windows-devices-wifi-wifiavailablenetwork
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Uptime|
+    drive factor, share value
+
+force get-wi-fi-connection-method
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiConnectionMethod|
+
+force build-wi-fi-connection-result
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.WiFi.WiFiConnectionResult|
+
+force get-connection-status
+  start build, field windows-devices-wifi-wificonnectionresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+
+force set-connection-status
+  start build, field windows-devices-wifi-wificonnectionresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+    drive factor, share value
+
+force get-wi-fi-connection-status
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiConnectionStatus|
+
+force get-wi-fi-network-kind
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiNetworkKind|
+
+force build-wi-fi-network-report
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.WiFi.WiFiNetworkReport|
+
+force get-available-networks
+  start build, field windows-devices-wifi-wifinetworkreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AvailableNetworks|
+
+force set-available-networks
+  start build, field windows-devices-wifi-wifinetworkreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AvailableNetworks|
+    drive factor, share value
+
+force get-timestamp
+  start build, field windows-devices-wifi-wifinetworkreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Timestamp|
+
+force set-timestamp
+  start build, field windows-devices-wifi-wifinetworkreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Timestamp|
+    drive factor, share value
+
+force get-wi-fi-phy-kind
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiPhyKind|
+
+force get-wi-fi-reconnection-kind
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiReconnectionKind|
+
+force build-wi-fi-wps-configuration-result
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.WiFi.WiFiWpsConfigurationResult|
+
+force get-status
+  start build, field windows-devices-wifi-wifiwpsconfigurationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-devices-wifi-wifiwpsconfigurationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-supported-wps-kinds
+  start build, field windows-devices-wifi-wifiwpsconfigurationresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SupportedWpsKinds|
+
+force set-supported-wps-kinds
+  start build, field windows-devices-wifi-wifiwpsconfigurationresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SupportedWpsKinds|
+    drive factor, share value
+
+force get-wi-fi-wps-configuration-status
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiWpsConfigurationStatus|
+
+force get-wi-fi-wps-kind
+  cause get-object
+    drive aspect, |Windows.Devices.WiFi.WiFiWpsKind|

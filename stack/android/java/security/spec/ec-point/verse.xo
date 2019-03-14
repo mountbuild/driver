@@ -1,0 +1,44 @@
+
+force build-ec-point
+  mount x, field big-integer
+  mount y, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |ECPoint|
+    mount factor, share x
+    mount factor, share y
+    throw build, field ec-point
+
+force equals
+  mount build, field ec-point
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-affine-x
+  mount build, field ec-point
+
+  cause call-method
+    mount object, share build
+    mount method, |getAffineX|
+    throw build, field big-integer
+
+force get-affine-y
+  mount build, field ec-point
+
+  cause call-method
+    mount object, share build
+    mount method, |getAffineY|
+    throw build, field big-integer
+
+force hash-code
+  mount build, field ec-point
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

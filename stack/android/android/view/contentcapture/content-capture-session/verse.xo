@@ -1,0 +1,156 @@
+
+force create-content-capture-session
+  mount build, field content-capture-session
+  mount context, field content-capture-context
+
+  cause call-method
+    drive object, share build
+    drive method, |createContentCaptureSession|
+    drive factor, share context
+    raise build, field content-capture-session
+
+force destroy
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    raise build, field unit
+
+force get-content-capture-context
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentCaptureContext|
+    raise build, field content-capture-context
+
+force get-content-capture-session-id
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentCaptureSessionId|
+    raise build, field content-capture-session-id
+
+force new-autofill-id
+  mount build, field content-capture-session
+  mount host-id, field autofill-id
+  mount virtual-child-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |newAutofillId|
+    drive factor, share host-id
+    drive factor, share virtual-child-id
+    raise build, field autofill-id
+
+force new-view-structure
+  mount build, field content-capture-session
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |newViewStructure|
+    drive factor, share view
+    raise build, field view-structure
+
+force new-virtual-view-structure
+  mount build, field content-capture-session
+  mount parent-id, field autofill-id
+  mount virtual-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |newVirtualViewStructure|
+    drive factor, share parent-id
+    drive factor, share virtual-id
+    raise build, field view-structure
+
+force notify-session-paused
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySessionPaused|
+    raise build, field unit
+
+force notify-session-resumed
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySessionResumed|
+    raise build, field unit
+
+force notify-view-appeared
+  mount build, field content-capture-session
+  mount node, field view-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewAppeared|
+    drive factor, share node
+    raise build, field unit
+
+force notify-view-disappeared
+  mount build, field content-capture-session
+  mount id, field autofill-id
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewDisappeared|
+    drive factor, share id
+    raise build, field unit
+
+force notify-view-insets-changed
+  mount build, field content-capture-session
+  mount view-insets, field insets
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewInsetsChanged|
+    drive factor, share view-insets
+    raise build, field unit
+
+force notify-view-text-changed
+  mount build, field content-capture-session
+  mount id, field autofill-id
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewTextChanged|
+    drive factor, share id
+    drive factor, share text
+    raise build, field unit
+
+force notify-views-disappeared
+  mount build, field content-capture-session
+  mount host-id, field autofill-id
+  mount virtual-ids, field long-array
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewsDisappeared|
+    drive factor, share host-id
+    drive factor, share virtual-ids
+    raise build, field unit
+
+force set-content-capture-context
+  mount build, field content-capture-session
+  mount context, field content-capture-context
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentCaptureContext|
+    drive factor, share context
+    raise build, field unit
+
+force to-string
+  mount build, field content-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

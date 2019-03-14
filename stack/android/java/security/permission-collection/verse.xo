@@ -1,0 +1,49 @@
+
+force build-permission-collection
+  cause invoke-constructor
+    mount constructor, |PermissionCollection|
+    throw build, field permission-collection
+
+force add
+  mount build, field permission-collection
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |add|
+    mount factor, share permission
+    throw build, field unit
+
+force elements
+  mount build, field permission-collection
+
+  cause call-method
+    mount object, share build
+    mount method, |elements|
+    throw build, field enumeration
+
+force implies
+  mount build, field permission-collection
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share permission
+    throw build, field boolean
+
+force is-read-only
+  mount build, field permission-collection
+
+  cause call-method
+    mount object, share build
+    mount method, |isReadOnly|
+    throw build, field boolean
+
+force set-read-only
+  mount build, field permission-collection
+
+  cause call-method
+    mount object, share build
+    mount method, |setReadOnly|
+    throw build, field unit

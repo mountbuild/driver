@@ -1,0 +1,73 @@
+
+force get-extra-text-changed-type
+  mount build, field easy-edit-span
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_TEXT_CHANGED_TYPE|
+    raise build, field string
+
+force get-text-deleted
+  mount build, field easy-edit-span
+
+  cause get-property
+    drive object, share build
+    drive property, |TEXT_DELETED|
+    raise build, field int
+
+force get-text-modified
+  mount build, field easy-edit-span
+
+  cause get-property
+    drive object, share build
+    drive property, |TEXT_MODIFIED|
+    raise build, field int
+
+force build-easy-edit-span
+  cause invoke-constructor
+    drive constructor, |EasyEditSpan|
+    raise build, field easy-edit-span
+
+force build-easy-edit-span
+  mount pending-intent, field pending-intent
+
+  cause invoke-constructor
+    drive constructor, |EasyEditSpan|
+    drive factor, share pending-intent
+    raise build, field easy-edit-span
+
+force build-easy-edit-span
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |EasyEditSpan|
+    drive factor, share source
+    raise build, field easy-edit-span
+
+force describe-contents
+  mount build, field easy-edit-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-span-type-id
+  mount build, field easy-edit-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field easy-edit-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,26 @@
+
+force build-command-action
+  mount template-id, field string
+  mount challenge-value, field string
+
+  cause invoke-constructor
+    drive constructor, |CommandAction|
+    drive factor, share template-id
+    drive factor, share challenge-value
+    raise build, field command-action
+
+force build-command-action
+  mount template-id, field string
+
+  cause invoke-constructor
+    drive constructor, |CommandAction|
+    drive factor, share template-id
+    raise build, field command-action
+
+force get-action-type
+  mount build, field command-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionType|
+    raise build, field int

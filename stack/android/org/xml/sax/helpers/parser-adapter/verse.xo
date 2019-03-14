@@ -1,0 +1,237 @@
+
+force build-parser-adapter
+  cause invoke-constructor
+    drive constructor, |ParserAdapter|
+    throw build, field parser-adapter
+
+force build-parser-adapter
+  mount parser, field parser
+
+  cause invoke-constructor
+    drive constructor, |ParserAdapter|
+    drive factor, share parser
+    throw build, field parser-adapter
+
+force characters
+  mount build, field parser-adapter
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |characters|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force end-document
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |endDocument|
+    throw build, field unit
+
+force end-element
+  mount build, field parser-adapter
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endElement|
+    drive factor, share q-name
+    throw build, field unit
+
+force get-content-handler
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentHandler|
+    throw build, field content-handler
+
+force get-dtd-handler
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getDTDHandler|
+    throw build, field dtd-handler
+
+force get-entity-resolver
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntityResolver|
+    throw build, field entity-resolver
+
+force get-error-handler
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorHandler|
+    throw build, field error-handler
+
+force get-feature
+  mount build, field parser-adapter
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeature|
+    drive factor, share name
+    throw build, field boolean
+
+force get-property
+  mount build, field parser-adapter
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share name
+    throw build, field any
+
+force ignorable-whitespace
+  mount build, field parser-adapter
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ignorableWhitespace|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force parse
+  mount build, field parser-adapter
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share system-id
+    throw build, field unit
+
+force parse
+  mount build, field parser-adapter
+  mount input, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share input
+    throw build, field unit
+
+force processing-instruction
+  mount build, field parser-adapter
+  mount target, field string
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |processingInstruction|
+    drive factor, share target
+    drive factor, share data
+    throw build, field unit
+
+force set-content-handler
+  mount build, field parser-adapter
+  mount handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-dtd-handler
+  mount build, field parser-adapter
+  mount handler, field dtd-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDTDHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-document-locator
+  mount build, field parser-adapter
+  mount locator, field locator
+
+  cause call-method
+    drive object, share build
+    drive method, |setDocumentLocator|
+    drive factor, share locator
+    throw build, field unit
+
+force set-entity-resolver
+  mount build, field parser-adapter
+  mount resolver, field entity-resolver
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntityResolver|
+    drive factor, share resolver
+    throw build, field unit
+
+force set-error-handler
+  mount build, field parser-adapter
+  mount handler, field error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-feature
+  mount build, field parser-adapter
+  mount name, field string
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFeature|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit
+
+force set-property
+  mount build, field parser-adapter
+  mount name, field string
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperty|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit
+
+force start-document
+  mount build, field parser-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |startDocument|
+    throw build, field unit
+
+force start-element
+  mount build, field parser-adapter
+  mount q-name, field string
+  mount q-atts, field attribute-list
+
+  cause call-method
+    drive object, share build
+    drive method, |startElement|
+    drive factor, share q-name
+    drive factor, share q-atts
+    throw build, field unit

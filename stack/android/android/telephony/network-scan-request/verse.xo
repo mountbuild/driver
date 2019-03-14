@@ -1,0 +1,130 @@
+
+force get-scan-type-one-shot
+  mount build, field network-scan-request
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_TYPE_ONE_SHOT|
+    throw build, field int
+
+force get-scan-type-periodic
+  mount build, field network-scan-request
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_TYPE_PERIODIC|
+    throw build, field int
+
+force build-network-scan-request
+  mount scan-type, field int
+  mount specifiers, field array-radio-access-specifier
+  mount search-periodicity, field int
+  mount max-search-time, field int
+  mount incremental-results, field boolean
+  mount incremental-results-periodicity, field int
+  mount mcc-mncs, field array-list-string
+
+  cause invoke-constructor
+    drive constructor, |NetworkScanRequest|
+    drive factor, share scan-type
+    drive factor, share specifiers
+    drive factor, share search-periodicity
+    drive factor, share max-search-time
+    drive factor, share incremental-results
+    drive factor, share incremental-results-periodicity
+    drive factor, share mcc-mncs
+    throw build, field network-scan-request
+
+force describe-contents
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field network-scan-request
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-incremental-results
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncrementalResults|
+    throw build, field boolean
+
+force get-incremental-results-periodicity
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncrementalResultsPeriodicity|
+    throw build, field int
+
+force get-max-search-time
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSearchTime|
+    throw build, field int
+
+force get-plmns
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getPlmns|
+    throw build, field array-list
+
+force get-scan-type
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getScanType|
+    throw build, field int
+
+force get-search-periodicity
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getSearchPeriodicity|
+    throw build, field int
+
+force get-specifiers
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpecifiers|
+    throw build, field array
+
+force hash-code
+  mount build, field network-scan-request
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field network-scan-request
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

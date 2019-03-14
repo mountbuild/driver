@@ -1,0 +1,72 @@
+
+force get-default-share-history-file-name
+  mount build, field share-action-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_SHARE_HISTORY_FILE_NAME|
+    throw build, field string
+
+force build-share-action-provider
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ShareActionProvider|
+    drive factor, share context
+    throw build, field share-action-provider
+
+force has-sub-menu
+  mount build, field share-action-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSubMenu|
+    throw build, field boolean
+
+force on-create-action-view
+  mount build, field share-action-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateActionView|
+    throw build, field view
+
+force on-prepare-sub-menu
+  mount build, field share-action-provider
+  mount sub-menu, field sub-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |onPrepareSubMenu|
+    drive factor, share sub-menu
+    throw build, field unit
+
+force set-on-share-target-selected-listener
+  mount build, field share-action-provider
+  mount listener, field share-action-provider-on-share-target-selected-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnShareTargetSelectedListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-share-history-file-name
+  mount build, field share-action-provider
+  mount share-history-file, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setShareHistoryFileName|
+    drive factor, share share-history-file
+    throw build, field unit
+
+force set-share-intent
+  mount build, field share-action-provider
+  mount share-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setShareIntent|
+    drive factor, share share-intent
+    throw build, field unit

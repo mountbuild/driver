@@ -1,0 +1,26 @@
+
+force build-json-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |JSONException|
+    drive factor, share s
+    throw build, field json-exception
+
+force build-json-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |JSONException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field json-exception
+
+force build-json-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |JSONException|
+    drive factor, share cause
+    throw build, field json-exception

@@ -1,0 +1,87 @@
+
+force build-package-item-info
+  cause invoke-constructor
+    drive constructor, |PackageItemInfo|
+    throw build, field package-item-info
+
+force build-package-item-info
+  mount orig, field package-item-info
+
+  cause invoke-constructor
+    drive constructor, |PackageItemInfo|
+    drive factor, share orig
+    throw build, field package-item-info
+
+force load-banner
+  mount build, field package-item-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadBanner|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-icon
+  mount build, field package-item-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIcon|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-label
+  mount build, field package-item-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLabel|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force load-logo
+  mount build, field package-item-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLogo|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-unbadged-icon
+  mount build, field package-item-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadUnbadgedIcon|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-xml-meta-data
+  mount build, field package-item-info
+  mount pm, field package-manager
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |loadXmlMetaData|
+    drive factor, share pm
+    drive factor, share name
+    throw build, field xml-resource-parser
+
+force write-to-parcel
+  mount build, field package-item-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

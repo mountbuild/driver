@@ -1,0 +1,100 @@
+
+force build-synthesis-request
+  mount text, field string
+  mount params, field bundle
+
+  cause invoke-constructor
+    drive constructor, |SynthesisRequest|
+    drive factor, share text
+    drive factor, share params
+    throw build, field synthesis-request
+
+force build-synthesis-request
+  mount text, field char-sequence
+  mount params, field bundle
+
+  cause invoke-constructor
+    drive constructor, |SynthesisRequest|
+    drive factor, share text
+    drive factor, share params
+    throw build, field synthesis-request
+
+force get-caller-uid
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallerUid|
+    throw build, field int
+
+force get-char-sequence-text
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharSequenceText|
+    throw build, field char-sequence
+
+force get-country
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCountry|
+    throw build, field string
+
+force get-language
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getLanguage|
+    throw build, field string
+
+force get-params
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getParams|
+    throw build, field bundle
+
+force get-pitch
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getPitch|
+    throw build, field int
+
+force get-speech-rate
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpeechRate|
+    throw build, field int
+
+force get-text
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getText|
+    throw build, field string
+
+force get-variant
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getVariant|
+    throw build, field string
+
+force get-voice-name
+  mount build, field synthesis-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getVoiceName|
+    throw build, field string

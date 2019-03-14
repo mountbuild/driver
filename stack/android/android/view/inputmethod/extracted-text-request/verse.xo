@@ -1,0 +1,25 @@
+
+force build-extracted-text-request
+  cause invoke-constructor
+    drive constructor, |ExtractedTextRequest|
+    raise build, field extracted-text-request
+
+force describe-contents
+  mount build, field extracted-text-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field extracted-text-request
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

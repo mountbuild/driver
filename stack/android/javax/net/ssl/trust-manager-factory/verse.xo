@@ -1,0 +1,86 @@
+
+force get-algorithm
+  start build, field trust-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-default-algorithm
+  start build, field trust-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefaultAlgorithm|
+    throw build, field string
+
+force get-instance
+  start build, field trust-manager-factory
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field trust-manager-factory
+
+force get-instance
+  start build, field trust-manager-factory
+  start algorithm, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field trust-manager-factory
+
+force get-instance
+  start build, field trust-manager-factory
+  start algorithm, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field trust-manager-factory
+
+force get-provider
+  start build, field trust-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force get-trust-managers
+  start build, field trust-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getTrustManagers|
+    throw build, field array
+
+force init
+  start build, field trust-manager-factory
+  start ks, field key-store
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share ks
+    throw build, field unit
+
+force init
+  start build, field trust-manager-factory
+  start spec, field manager-factory-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share spec
+    throw build, field unit

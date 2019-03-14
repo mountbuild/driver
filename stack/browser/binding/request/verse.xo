@@ -1,0 +1,114 @@
+
+force build-request
+  start input
+  start init
+
+  cause invoke-constructor
+    mount constructor, |Request|
+    mount factor, share input
+    mount factor, share init
+    throw build
+
+force get-cache
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cache|
+    throw build
+
+force get-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |context|
+    throw build
+
+force get-credentials
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |credentials|
+    throw build
+
+force get-destination
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |destination|
+    throw build
+
+force get-headers
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |headers|
+    throw build
+
+force get-integrity
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |integrity|
+    throw build
+
+force get-method
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |method|
+    throw build
+
+force get-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mode|
+    throw build
+
+force get-redirect
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |redirect|
+    throw build
+
+force get-referrer
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |referrer|
+    throw build
+
+force get-referrer-policy
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |referrerPolicy|
+    throw build
+
+force get-url
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |url|
+    throw build
+
+force clone
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build

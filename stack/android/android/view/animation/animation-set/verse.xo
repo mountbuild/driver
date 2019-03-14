@@ -1,0 +1,192 @@
+
+force build-animation-set
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |AnimationSet|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field animation-set
+
+force build-animation-set
+  mount share-interpolator, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AnimationSet|
+    drive factor, share share-interpolator
+    raise build, field animation-set
+
+force add-animation
+  mount build, field animation-set
+  mount a, field animation
+
+  cause call-method
+    drive object, share build
+    drive method, |addAnimation|
+    drive factor, share a
+    raise build, field unit
+
+force compute-duration-hint
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |computeDurationHint|
+    raise build, field long
+
+force get-animations
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnimations|
+    raise build, field mutable-list
+
+force get-duration
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuration|
+    raise build, field long
+
+force get-start-time
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartTime|
+    raise build, field long
+
+force get-transformation
+  mount build, field animation-set
+  mount current-time, field long
+  mount t, field transformation
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransformation|
+    drive factor, share current-time
+    drive factor, share t
+    raise build, field boolean
+
+force initialize
+  mount build, field animation-set
+  mount width, field int
+  mount height, field int
+  mount parent-width, field int
+  mount parent-height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |initialize|
+    drive factor, share width
+    drive factor, share height
+    drive factor, share parent-width
+    drive factor, share parent-height
+    raise build, field unit
+
+force reset
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force restrict-duration
+  mount build, field animation-set
+  mount duration-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |restrictDuration|
+    drive factor, share duration-millis
+    raise build, field unit
+
+force scale-current-duration
+  mount build, field animation-set
+  mount scale, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |scaleCurrentDuration|
+    drive factor, share scale
+    raise build, field unit
+
+force set-duration
+  mount build, field animation-set
+  mount duration-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setDuration|
+    drive factor, share duration-millis
+    raise build, field unit
+
+force set-fill-after
+  mount build, field animation-set
+  mount fill-after, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFillAfter|
+    drive factor, share fill-after
+    raise build, field unit
+
+force set-fill-before
+  mount build, field animation-set
+  mount fill-before, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFillBefore|
+    drive factor, share fill-before
+    raise build, field unit
+
+force set-repeat-mode
+  mount build, field animation-set
+  mount repeat-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeatMode|
+    drive factor, share repeat-mode
+    raise build, field unit
+
+force set-start-offset
+  mount build, field animation-set
+  mount start-offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartOffset|
+    drive factor, share start-offset
+    raise build, field unit
+
+force set-start-time
+  mount build, field animation-set
+  mount start-time-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartTime|
+    drive factor, share start-time-millis
+    raise build, field unit
+
+force will-change-bounds
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |willChangeBounds|
+    raise build, field boolean
+
+force will-change-transformation-matrix
+  mount build, field animation-set
+
+  cause call-method
+    drive object, share build
+    drive method, |willChangeTransformationMatrix|
+    raise build, field boolean

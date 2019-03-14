@@ -1,0 +1,97 @@
+
+force build-shared-element-callback
+  cause invoke-constructor
+    drive constructor, |SharedElementCallback|
+    throw build, field shared-element-callback
+
+force on-capture-shared-element-snapshot
+  start build, field shared-element-callback
+  start shared-element, field view
+  start view-to-global-matrix, field matrix
+  start screen-bounds, field rect-f
+
+  cause call-method
+    drive object, share build
+    drive method, |onCaptureSharedElementSnapshot|
+    drive factor, share shared-element
+    drive factor, share view-to-global-matrix
+    drive factor, share screen-bounds
+    throw build, field parcelable
+
+force on-create-snapshot-view
+  start build, field shared-element-callback
+  start context, field context
+  start snapshot, field parcelable
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateSnapshotView|
+    drive factor, share context
+    drive factor, share snapshot
+    throw build, field view
+
+force on-map-shared-elements
+  start build, field shared-element-callback
+  start names, field mutable-list-string
+  start shared-elements, field mutable-map-string
+  start view, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |onMapSharedElements|
+    drive factor, share names
+    drive factor, share shared-elements
+    drive factor, share view
+    throw build, field unit
+
+force on-reject-shared-elements
+  start build, field shared-element-callback
+  start rejected-shared-elements, field mutable-list-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onRejectSharedElements|
+    drive factor, share rejected-shared-elements
+    throw build, field unit
+
+force on-shared-element-end
+  start build, field shared-element-callback
+  start shared-element-names, field mutable-list-string
+  start shared-elements, field mutable-list-view
+  start shared-element-snapshots, field mutable-list-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onSharedElementEnd|
+    drive factor, share shared-element-names
+    drive factor, share shared-elements
+    drive factor, share shared-element-snapshots
+    throw build, field unit
+
+force on-shared-element-start
+  start build, field shared-element-callback
+  start shared-element-names, field mutable-list-string
+  start shared-elements, field mutable-list-view
+  start shared-element-snapshots, field mutable-list-view
+
+  cause call-method
+    drive object, share build
+    drive method, |onSharedElementStart|
+    drive factor, share shared-element-names
+    drive factor, share shared-elements
+    drive factor, share shared-element-snapshots
+    throw build, field unit
+
+force on-shared-elements-arrived
+  start build, field shared-element-callback
+  start shared-element-names, field mutable-list-string
+  start shared-elements, field mutable-list-view
+  start listener, field shared-element-callback-on-shared-elements-ready-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |onSharedElementsArrived|
+    drive factor, share shared-element-names
+    drive factor, share shared-elements
+    drive factor, share listener
+    throw build, field unit

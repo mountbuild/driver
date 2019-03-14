@@ -1,0 +1,47 @@
+
+force build-content-observable
+  cause invoke-constructor
+    drive constructor, |ContentObservable|
+    raise build, field content-observable
+
+force dispatch-change
+  mount build, field content-observable
+  mount self-change, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchChange|
+    drive factor, share self-change
+    raise build, field unit
+
+force dispatch-change
+  mount build, field content-observable
+  mount self-change, field boolean
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchChange|
+    drive factor, share self-change
+    drive factor, share uri
+    raise build, field unit
+
+force notify-change
+  mount build, field content-observable
+  mount self-change, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChange|
+    drive factor, share self-change
+    raise build, field unit
+
+force register-observer
+  mount build, field content-observable
+  mount observer, field content-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerObserver|
+    drive factor, share observer
+    raise build, field unit

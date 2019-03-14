@@ -1,0 +1,128 @@
+
+force build-surface-texture
+  mount tex-name, field int
+
+  cause invoke-constructor
+    drive constructor, |SurfaceTexture|
+    drive factor, share tex-name
+    raise build, field surface-texture
+
+force build-surface-texture
+  mount tex-name, field int
+  mount single-buffer-mode, field boolean
+
+  cause invoke-constructor
+    drive constructor, |SurfaceTexture|
+    drive factor, share tex-name
+    drive factor, share single-buffer-mode
+    raise build, field surface-texture
+
+force build-surface-texture
+  mount single-buffer-mode, field boolean
+
+  cause invoke-constructor
+    drive constructor, |SurfaceTexture|
+    drive factor, share single-buffer-mode
+    raise build, field surface-texture
+
+force attach-to-gl-context
+  mount build, field surface-texture
+  mount tex-name, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |attachToGLContext|
+    drive factor, share tex-name
+    raise build, field unit
+
+force detach-from-gl-context
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |detachFromGLContext|
+    raise build, field unit
+
+force get-timestamp
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    raise build, field long
+
+force get-transform-matrix
+  mount build, field surface-texture
+  mount mtx, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransformMatrix|
+    drive factor, share mtx
+    raise build, field unit
+
+force is-released
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |isReleased|
+    raise build, field boolean
+
+force release
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force release-tex-image
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseTexImage|
+    raise build, field unit
+
+force set-default-buffer-size
+  mount build, field surface-texture
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultBufferSize|
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit
+
+force set-on-frame-available-listener
+  mount build, field surface-texture
+  mount listener, field surface-texture-on-frame-available-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnFrameAvailableListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-on-frame-available-listener
+  mount build, field surface-texture
+  mount listener, field surface-texture-on-frame-available-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnFrameAvailableListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force update-tex-image
+  mount build, field surface-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |updateTexImage|
+    raise build, field unit

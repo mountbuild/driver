@@ -1,0 +1,343 @@
+
+force build-array-list
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |ArrayList|
+    drive factor, share initial-capacity
+    throw build, field array-list
+
+force build-array-list
+  cause invoke-constructor
+    drive constructor, |ArrayList|
+    throw build, field array-list
+
+force build-array-list
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |ArrayList|
+    drive factor, share c
+    throw build, field array-list
+
+force add
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force add
+  mount build, field array-list
+  mount index, field int
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share index
+    drive factor, share element
+    throw build, field unit
+
+force add-all
+  mount build, field array-list
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force add-all
+  mount build, field array-list
+  mount index, field int
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share index
+    drive factor, share elements
+    throw build, field boolean
+
+force clear
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force contains
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force contains
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force ensure-capacity
+  mount build, field array-list
+  mount min-capacity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ensureCapacity|
+    drive factor, share min-capacity
+    throw build, field unit
+
+force for-each
+  mount build, field array-list
+  mount action, field consumer-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share action
+    throw build, field unit
+
+force get
+  mount build, field array-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share index
+    throw build, field e
+
+force index-of
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share element
+    throw build, field int
+
+force index-of
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share element
+    throw build, field int
+
+force is-empty
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force last-index-of
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share element
+    throw build, field int
+
+force last-index-of
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share element
+    throw build, field int
+
+force list-iterator
+  mount build, field array-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |listIterator|
+    drive factor, share index
+    throw build, field mutable-list-iterator
+
+force list-iterator
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |listIterator|
+    throw build, field mutable-list-iterator
+
+force remove
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove
+  mount build, field array-list
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove-all
+  mount build, field array-list
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force remove-at
+  mount build, field array-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAt|
+    drive factor, share index
+    throw build, field e
+
+force remove-if
+  mount build, field array-list
+  mount filter, field predicate-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeIf|
+    drive factor, share filter
+    throw build, field boolean
+
+force replace-all
+  mount build, field array-list
+  mount operator, field unary-operator-e
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceAll|
+    drive factor, share operator
+    throw build, field unit
+
+force retain-all
+  mount build, field array-list
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |retainAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force set
+  mount build, field array-list
+  mount index, field int
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share index
+    drive factor, share element
+    throw build, field e
+
+force sort
+  mount build, field array-list
+  mount c, field comparator-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |sort|
+    drive factor, share c
+    throw build, field unit
+
+force spliterator
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force sub-list
+  mount build, field array-list
+  mount from-index, field int
+  mount to-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |subList|
+    drive factor, share from-index
+    drive factor, share to-index
+    throw build, field mutable-list
+
+force to-array
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field array-list
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array
+
+force trim-to-size
+  mount build, field array-list
+
+  cause call-method
+    drive object, share build
+    drive method, |trimToSize|
+    throw build, field unit

@@ -1,0 +1,70 @@
+
+force build-package-stats
+  mount pkg-name, field string
+
+  cause invoke-constructor
+    drive constructor, |PackageStats|
+    drive factor, share pkg-name
+    throw build, field package-stats
+
+force build-package-stats
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |PackageStats|
+    drive factor, share source
+    throw build, field package-stats
+
+force build-package-stats
+  mount p-stats, field package-stats
+
+  cause invoke-constructor
+    drive constructor, |PackageStats|
+    drive factor, share p-stats
+    throw build, field package-stats
+
+force describe-contents
+  mount build, field package-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field package-stats
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field package-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field package-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field package-stats
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

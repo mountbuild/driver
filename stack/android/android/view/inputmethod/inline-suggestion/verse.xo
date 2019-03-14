@@ -1,0 +1,70 @@
+
+force describe-contents
+  mount build, field inline-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field inline-suggestion
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-info
+  mount build, field inline-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |getInfo|
+    raise build, field inline-suggestion-info
+
+force hash-code
+  mount build, field inline-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force inflate
+  mount build, field inline-suggestion
+  mount context, field context
+  mount size, field size
+  mount callback-executor, field executor
+  mount callback, field consumer-inline-content-view
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share context
+    drive factor, share size
+    drive factor, share callback-executor
+    drive factor, share callback
+    raise build, field unit
+
+force to-string
+  mount build, field inline-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field inline-suggestion
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

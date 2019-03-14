@@ -1,0 +1,94 @@
+
+force create-with-sha256
+  start build, field blob-handle
+  start digest, field byte-array
+  start label, field char-sequence
+  start expiry-time-millis, field long
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createWithSha256|
+    drive factor, share digest
+    drive factor, share label
+    drive factor, share expiry-time-millis
+    drive factor, share tag
+    throw build, field blob-handle
+
+force describe-contents
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field blob-handle
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-expiry-time-millis
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getExpiryTimeMillis|
+    throw build, field long
+
+force get-label
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force get-sha256-digest
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getSha256Digest|
+    throw build, field byte-array
+
+force get-tag
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field string
+
+force hash-code
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field blob-handle
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

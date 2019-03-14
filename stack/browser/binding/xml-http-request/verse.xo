@@ -1,0 +1,229 @@
+
+force build-xml-http-request
+  cause invoke-constructor
+    mount constructor, |XMLHttpRequest|
+    throw build
+
+force get-onreadystatechange
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |onreadystatechange|
+    throw build
+
+force set-onreadystatechange
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |onreadystatechange|
+    mount factor, share value
+
+force get-ready-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |readyState|
+    throw build
+
+force get-response
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |response|
+    throw build
+
+force get-response-text
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |responseText|
+    throw build
+
+force get-response-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |responseType|
+    throw build
+
+force set-response-type
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |responseType|
+    mount factor, share value
+
+force get-response-url
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |responseURL|
+    throw build
+
+force get-response-xml
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |responseXML|
+    throw build
+
+force get-status
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |status|
+    throw build
+
+force get-status-text
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |statusText|
+    throw build
+
+force get-timeout
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |timeout|
+    throw build
+
+force set-timeout
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |timeout|
+    mount factor, share value
+
+force get-ontimeout
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ontimeout|
+    throw build
+
+force set-ontimeout
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |ontimeout|
+    mount factor, share value
+
+force get-upload
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |upload|
+    throw build
+
+force get-with-credentials
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |withCredentials|
+    throw build
+
+force set-with-credentials
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |withCredentials|
+    mount factor, share value
+
+force abort
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |abort|
+    throw build
+
+force get-all-response-headers
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getAllResponseHeaders|
+    throw build
+
+force get-response-header
+  start build
+  start header-name
+
+  cause call-method
+    mount object, share build
+    mount method, |getResponseHeader|
+    mount factor, share header-name
+    throw build
+
+force open
+  start build
+  start method
+  start url
+  start async
+  start user
+  start password
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share method
+    mount factor, share url
+    mount factor, share async
+    mount factor, share user
+    mount factor, share password
+
+force override-mime-type
+  start build
+  start mime-type
+
+  cause call-method
+    mount object, share build
+    mount method, |overrideMimeType|
+    mount factor, share mime-type
+    throw build
+
+force send
+  start build
+  start body
+
+  cause call-method
+    mount object, share build
+    mount method, |send|
+    mount factor, share body
+    throw build
+
+force set-request-header
+  start build
+  start header
+  start value
+
+  cause call-method
+    mount object, share build
+    mount method, |setRequestHeader|
+    mount factor, share header
+    mount factor, share value
+    throw build

@@ -1,0 +1,30 @@
+
+force register
+  start build
+  start tag
+  start background-sync-options
+
+  cause call-method
+    mount object, share build
+    mount method, |register|
+    mount factor, share tag
+    mount factor, share background-sync-options
+    throw build
+
+force get-tags
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getTags|
+    throw build
+
+force unregister
+  start build
+  start tag
+
+  cause call-method
+    mount object, share build
+    mount method, |unregister|
+    mount factor, share tag
+    throw build

@@ -1,0 +1,251 @@
+force cancel-request
+  field build, field ns-extension-context
+  field with-error, field error
+
+  cause call-method
+    mount object, share build
+    mount method, |cancelRequest|
+    mount factor
+      brand with-error
+      share with-error
+
+force get-widget-largest-available-display-mode
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |widgetLargestAvailableDisplayMode|
+    raise build, field nc-widget-display-mode
+
+force set-widget-largest-available-display-mode
+  field build, field ns-extension-context
+  field value, field nc-widget-display-mode
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |widgetLargestAvailableDisplayMode|
+    mount factor, share value
+
+force get-widget-active-display-mode
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |widgetActiveDisplayMode|
+    raise build, field nc-widget-display-mode
+
+force set-widget-active-display-mode
+  field build, field ns-extension-context
+  field value, field nc-widget-display-mode
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |widgetActiveDisplayMode|
+    mount factor, share value
+
+force widget-maximum-size
+  field build, field ns-extension-context
+  field for, field nc-widget-display-mode
+
+  cause call-method
+    mount object, share build
+    mount method, |widgetMaximumSize|
+    mount factor
+      brand for
+      share for
+    raise build, class cg-size
+
+force get-input-items
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |inputItems|
+    raise build, field any
+
+force set-input-items
+  field build, field ns-extension-context
+  field value, field any
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |inputItems|
+    mount factor, share value
+
+force media-playing-started
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |mediaPlayingStarted|
+
+force media-playing-paused
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |mediaPlayingPaused|
+
+force get-intent
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |intent|
+    raise build, field in-intent
+
+force set-intent
+  field build, field ns-extension-context
+  field value, field in-intent
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |intent|
+    mount factor, share value
+
+force get-hosted-view-minimum-allowed-size
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hostedViewMinimumAllowedSize|
+    raise build, field cg-size
+
+force set-hosted-view-minimum-allowed-size
+  field build, field ns-extension-context
+  field value, field cg-size
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hostedViewMinimumAllowedSize|
+    mount factor, share value
+
+force get-hosted-view-maximum-allowed-size
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hostedViewMaximumAllowedSize|
+    raise build, field cg-size
+
+force set-hosted-view-maximum-allowed-size
+  field build, field ns-extension-context
+  field value, field cg-size
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hostedViewMaximumAllowedSize|
+    mount factor, share value
+
+force interface-parameters-description
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |interfaceParametersDescription|
+    raise build, class string
+
+force get-static-ns-extension-host-did-become-active
+
+  cause get-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostDidBecomeActive|
+    raise build, field NSNotification.Name
+
+force set-static-ns-extension-host-did-become-active
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostDidBecomeActive|
+    mount factor, share value
+
+force get-static-ns-extension-host-will-resign-active
+
+  cause get-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostWillResignActive|
+    raise build, field NSNotification.Name
+
+force set-static-ns-extension-host-will-resign-active
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostWillResignActive|
+    mount factor, share value
+
+force get-static-ns-extension-host-did-enter-background
+
+  cause get-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostDidEnterBackground|
+    raise build, field NSNotification.Name
+
+force set-static-ns-extension-host-did-enter-background
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostDidEnterBackground|
+    mount factor, share value
+
+force get-static-ns-extension-host-will-enter-foreground
+
+  cause get-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostWillEnterForeground|
+    raise build, field NSNotification.Name
+
+force set-static-ns-extension-host-will-enter-foreground
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    mount object, |NSExtensionContext|
+    mount aspect, |NSExtensionHostWillEnterForeground|
+    mount factor, share value
+
+force get-notification-actions
+  field build, field ns-extension-context
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |notificationActions|
+    raise build, field un-notification-action
+
+force set-notification-actions
+  field build, field ns-extension-context
+  field value, field un-notification-action
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |notificationActions|
+    mount factor, share value
+
+force complete-request
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |completeRequest|
+
+force complete-request
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |completeRequest|
+
+force dismiss-notification-content-extension
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |dismissNotificationContentExtension|
+
+force perform-notification-default-action
+  field build, field ns-extension-context
+
+  cause call-method
+    mount object, share build
+    mount method, |performNotificationDefaultAction|

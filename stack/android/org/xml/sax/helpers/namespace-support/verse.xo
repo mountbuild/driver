@@ -1,0 +1,135 @@
+
+force get-nsdecl
+  mount build, field namespace-support
+
+  cause get-property
+    drive object, share build
+    drive property, |NSDECL|
+    throw build, field string
+
+force get-xmlns
+  mount build, field namespace-support
+
+  cause get-property
+    drive object, share build
+    drive property, |XMLNS|
+    throw build, field string
+
+force build-namespace-support
+  cause invoke-constructor
+    drive constructor, |NamespaceSupport|
+    throw build, field namespace-support
+
+force declare-prefix
+  mount build, field namespace-support
+  mount prefix, field string
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |declarePrefix|
+    drive factor, share prefix
+    drive factor, share uri
+    throw build, field boolean
+
+force get-declared-prefixes
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaredPrefixes|
+    throw build, field enumeration
+
+force get-prefix
+  mount build, field namespace-support
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrefix|
+    drive factor, share uri
+    throw build, field string
+
+force get-prefixes
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrefixes|
+    throw build, field enumeration
+
+force get-prefixes
+  mount build, field namespace-support
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrefixes|
+    drive factor, share uri
+    throw build, field enumeration
+
+force get-uri
+  mount build, field namespace-support
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getURI|
+    drive factor, share prefix
+    throw build, field string
+
+force is-namespace-decl-uris
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |isNamespaceDeclUris|
+    throw build, field boolean
+
+force pop-context
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |popContext|
+    throw build, field unit
+
+force process-name
+  mount build, field namespace-support
+  mount q-name, field string
+  mount parts, field array-string
+  mount is-attribute, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |processName|
+    drive factor, share q-name
+    drive factor, share parts
+    drive factor, share is-attribute
+    throw build, field array
+
+force push-context
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |pushContext|
+    throw build, field unit
+
+force reset
+  mount build, field namespace-support
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force set-namespace-decl-uris
+  mount build, field namespace-support
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setNamespaceDeclUris|
+    drive factor, share value
+    throw build, field unit

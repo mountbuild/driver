@@ -1,0 +1,248 @@
+
+force get-tnf-absolute-uri
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_ABSOLUTE_URI|
+    throw build, field short
+
+force get-tnf-empty
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_EMPTY|
+    throw build, field short
+
+force get-tnf-external-type
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_EXTERNAL_TYPE|
+    throw build, field short
+
+force get-tnf-mime-media
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_MIME_MEDIA|
+    throw build, field short
+
+force get-tnf-unchanged
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_UNCHANGED|
+    throw build, field short
+
+force get-tnf-unknown
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_UNKNOWN|
+    throw build, field short
+
+force get-tnf-well-known
+  mount build, field ndef-record
+
+  cause get-property
+    drive object, share build
+    drive property, |TNF_WELL_KNOWN|
+    throw build, field short
+
+force build-ndef-record
+  mount tnf, field short
+  mount type, field byte-array
+  mount id, field byte-array
+  mount payload, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |NdefRecord|
+    drive factor, share tnf
+    drive factor, share type
+    drive factor, share id
+    drive factor, share payload
+    throw build, field ndef-record
+
+force build-ndef-record
+  mount data, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |NdefRecord|
+    drive factor, share data
+    throw build, field ndef-record
+
+force create-application-record
+  mount build, field ndef-record
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createApplicationRecord|
+    drive factor, share package-name
+    throw build, field ndef-record
+
+force create-external
+  mount build, field ndef-record
+  mount domain, field string
+  mount type, field string
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |createExternal|
+    drive factor, share domain
+    drive factor, share type
+    drive factor, share data
+    throw build, field ndef-record
+
+force create-mime
+  mount build, field ndef-record
+  mount mime-type, field string
+  mount mime-data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |createMime|
+    drive factor, share mime-type
+    drive factor, share mime-data
+    throw build, field ndef-record
+
+force create-text-record
+  mount build, field ndef-record
+  mount language-code, field string
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createTextRecord|
+    drive factor, share language-code
+    drive factor, share text
+    throw build, field ndef-record
+
+force create-uri
+  mount build, field ndef-record
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |createUri|
+    drive factor, share uri
+    throw build, field ndef-record
+
+force create-uri
+  mount build, field ndef-record
+  mount uri-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createUri|
+    drive factor, share uri-string
+    throw build, field ndef-record
+
+force describe-contents
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field ndef-record
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-id
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field byte-array
+
+force get-payload
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getPayload|
+    throw build, field byte-array
+
+force get-tnf
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getTnf|
+    throw build, field short
+
+force get-type
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field byte-array
+
+force hash-code
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-byte-array
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |toByteArray|
+    throw build, field byte-array
+
+force to-mime-type
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |toMimeType|
+    throw build, field string
+
+force to-string
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-uri
+  mount build, field ndef-record
+
+  cause call-method
+    drive object, share build
+    drive method, |toUri|
+    throw build, field uri
+
+force write-to-parcel
+  mount build, field ndef-record
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

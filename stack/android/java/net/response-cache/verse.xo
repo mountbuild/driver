@@ -1,0 +1,51 @@
+
+force build-response-cache
+  cause invoke-constructor
+    drive constructor, |ResponseCache|
+    throw build, field response-cache
+
+force get
+  mount build, field response-cache
+  mount uri, field uri
+  mount rqst-method, field string
+  mount rqst-headers, field mutable-map-string
+  mount mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share uri
+    drive factor, share rqst-method
+    drive factor, share rqst-headers
+    drive factor, share mutable-list-string
+    throw build, field cache-response
+
+force get-default
+  mount build, field response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field response-cache
+
+force put
+  mount build, field response-cache
+  mount uri, field uri
+  mount conn, field url-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share uri
+    drive factor, share conn
+    throw build, field cache-request
+
+force set-default
+  mount build, field response-cache
+  mount response-cache, field response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share response-cache
+    throw build, field unit

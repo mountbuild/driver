@@ -1,0 +1,148 @@
+
+force build-range
+  mount lower, field t
+  mount upper, field t
+
+  cause invoke-constructor
+    drive constructor, |Range|
+    drive factor, share lower
+    drive factor, share upper
+    throw build, field range
+
+force clamp
+  mount build, field range
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |clamp|
+    drive factor, share value
+    throw build, field t
+
+force contains
+  mount build, field range
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share value
+    throw build, field boolean
+
+force contains
+  mount build, field range
+  mount range, field range-t
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share range
+    throw build, field boolean
+
+force create
+  mount build, field range
+  mount lower, field t
+  mount upper, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share lower
+    drive factor, share upper
+    throw build, field range
+
+force equals
+  mount build, field range
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force extend
+  mount build, field range
+  mount range, field range-t
+
+  cause call-method
+    drive object, share build
+    drive method, |extend|
+    drive factor, share range
+    throw build, field range
+
+force extend
+  mount build, field range
+  mount lower, field t
+  mount upper, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |extend|
+    drive factor, share lower
+    drive factor, share upper
+    throw build, field range
+
+force extend
+  mount build, field range
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |extend|
+    drive factor, share value
+    throw build, field range
+
+force get-lower
+  mount build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |getLower|
+    throw build, field t
+
+force get-upper
+  mount build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |getUpper|
+    throw build, field t
+
+force hash-code
+  mount build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force intersect
+  mount build, field range
+  mount range, field range-t
+
+  cause call-method
+    drive object, share build
+    drive method, |intersect|
+    drive factor, share range
+    throw build, field range
+
+force intersect
+  mount build, field range
+  mount lower, field t
+  mount upper, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |intersect|
+    drive factor, share lower
+    drive factor, share upper
+    throw build, field range
+
+force to-string
+  mount build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

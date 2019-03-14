@@ -1,0 +1,357 @@
+force get-is-regular-file
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRegularFile|
+    raise build, field bool
+
+force set-is-regular-file
+  field build, field file-wrapper
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRegularFile|
+    drive factor, share value
+
+force get-is-directory
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDirectory|
+    raise build, field bool
+
+force set-is-directory
+  field build, field file-wrapper
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDirectory|
+    drive factor, share value
+
+force get-is-symbolic-link
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isSymbolicLink|
+    raise build, field bool
+
+force set-is-symbolic-link
+  field build, field file-wrapper
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isSymbolicLink|
+    drive factor, share value
+
+force get-file-wrappers
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fileWrappers|
+    raise build, field string
+
+force set-file-wrappers
+  field build, field file-wrapper
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fileWrappers|
+    drive factor, share value
+
+force add-file-wrapper
+  field build, field file-wrapper
+  field a, class file-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |addFileWrapper|
+    drive factor, share a
+    raise build, class string
+
+force remove-file-wrapper
+  field build, field file-wrapper
+  field a, class file-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFileWrapper|
+    drive factor, share a
+
+force add-file
+  field build, field file-wrapper
+  field with-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addFile|
+    drive factor
+      brand with-path
+      share with-path
+    raise build, class string
+
+force add-regular-file
+  field build, field file-wrapper
+  field with-contents, field data
+  field preferred-filename, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addRegularFile|
+    drive factor
+      brand with-contents
+      share with-contents
+    drive factor
+      brand preferred-filename
+      share preferred-filename
+    raise build, class string
+
+force add-symbolic-link
+  field build, field file-wrapper
+  field with-destination, field string
+  field preferred-filename, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addSymbolicLink|
+    drive factor
+      brand with-destination
+      share with-destination
+    drive factor
+      brand preferred-filename
+      share preferred-filename
+    raise build, class string
+
+force key-for-child-file-wrapper
+  field build, field file-wrapper
+  field a, class file-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |keyForChildFileWrapper|
+    drive factor, share a
+    raise build, class string
+
+force symbolic-link-destination
+  field build, field file-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |symbolicLinkDestination|
+    raise build, class string
+
+force get-symbolic-link-destination-url
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |symbolicLinkDestinationURL|
+    raise build, field url
+
+force set-symbolic-link-destination-url
+  field build, field file-wrapper
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |symbolicLinkDestinationURL|
+    drive factor, share value
+
+force needs-to-be-updated
+  field build, field file-wrapper
+  field from-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |needsToBeUpdated|
+    drive factor
+      brand from-path
+      share from-path
+    raise build, class bool
+
+force matches-contents
+  field build, field file-wrapper
+  field of, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |matchesContents|
+    drive factor
+      brand of
+      share of
+    raise build, class bool
+
+force update
+  field build, field file-wrapper
+  field from-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor
+      brand from-path
+      share from-path
+    raise build, class bool
+
+force read
+  field build, field file-wrapper
+  field from, field url
+  field options, field file-wrapper-reading-options
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand options
+      share options
+
+force get-serialized-representation
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |serializedRepresentation|
+    raise build, field data
+
+force set-serialized-representation
+  field build, field file-wrapper
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |serializedRepresentation|
+    drive factor, share value
+
+force get-filename
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |filename|
+    raise build, field string
+
+force set-filename
+  field build, field file-wrapper
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |filename|
+    drive factor, share value
+
+force get-preferred-filename
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredFilename|
+    raise build, field string
+
+force set-preferred-filename
+  field build, field file-wrapper
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredFilename|
+    drive factor, share value
+
+force get-file-attributes
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fileAttributes|
+    raise build, field string
+
+force set-file-attributes
+  field build, field file-wrapper
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fileAttributes|
+    drive factor, share value
+
+force get-regular-file-contents
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |regularFileContents|
+    raise build, field data
+
+force set-regular-file-contents
+  field build, field file-wrapper
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |regularFileContents|
+    drive factor, share value
+
+force write
+  field build, field file-wrapper
+  field to-file, field string
+  field atomically, field bool
+  field update-filenames, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to-file
+      share to-file
+    drive factor
+      brand atomically
+      share atomically
+    drive factor
+      brand update-filenames
+      share update-filenames
+    raise build, class bool
+
+force write
+  field build, field file-wrapper
+  field to, field url
+  field options, field file-wrapper-writing-options
+  field original-contents-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand original-contents-url
+      share original-contents-url
+
+force get-icon
+  field build, field file-wrapper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |icon|
+    raise build, field ns-image
+
+force set-icon
+  field build, field file-wrapper
+  field value, field ns-image
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |icon|
+    drive factor, share value

@@ -1,0 +1,255 @@
+force get-delegate
+  field build, field ns-speech-synthesizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    raise build, field ns-speech-synthesizer-delegate
+
+force set-delegate
+  field build, field ns-speech-synthesizer
+  field value, field ns-speech-synthesizer-delegate
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    mount factor, share value
+
+force get-uses-feedback-window
+  field build, field ns-speech-synthesizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |usesFeedbackWindow|
+    raise build, field bool
+
+force set-uses-feedback-window
+  field build, field ns-speech-synthesizer
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |usesFeedbackWindow|
+    mount factor, share value
+
+force voice
+  field build, field ns-speech-synthesizer
+
+  cause call-method
+    mount object, share build
+    mount method, |voice|
+    raise build, class ns-speech-synthesizer-voice-name
+
+force set-voice
+  field build, field ns-speech-synthesizer
+  field a, class ns-speech-synthesizer-voice-name
+
+  cause call-method
+    mount object, share build
+    mount method, |setVoice|
+    mount factor, share a
+    raise build, class bool
+
+force get-rate
+  field build, field ns-speech-synthesizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rate|
+    raise build, field float
+
+force set-rate
+  field build, field ns-speech-synthesizer
+  field value, field float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |rate|
+    mount factor, share value
+
+force get-volume
+  field build, field ns-speech-synthesizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |volume|
+    raise build, field float
+
+force set-volume
+  field build, field ns-speech-synthesizer
+  field value, field float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |volume|
+    mount factor, share value
+
+force add-speech-dictionary
+  field build, field ns-speech-synthesizer
+  field ns-speech-synthesizer-dictionary-key, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |addSpeechDictionary|
+    mount factor
+      brand ns-speech-synthesizer-dictionary-key
+      share ns-speech-synthesizer-dictionary-key
+
+force object
+  field build, field ns-speech-synthesizer
+  field for-property, field ns-speech-synthesizer-speech-property-key
+
+  cause call-method
+    mount object, share build
+    mount method, |object|
+    mount factor
+      brand for-property
+      share for-property
+    raise build, class any
+
+force set-object
+  field build, field ns-speech-synthesizer
+  field a, class any
+  field for-property, field ns-speech-synthesizer-speech-property-key
+
+  cause call-method
+    mount object, share build
+    mount method, |setObject|
+    mount factor, share a
+    mount factor
+      brand for-property
+      share for-property
+
+force get-class-available-voices
+
+  cause get-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |availableVoices|
+    raise build, field ns-speech-synthesizer-voice-name
+
+force set-class-available-voices
+  field value, field ns-speech-synthesizer-voice-name
+
+  cause set-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |availableVoices|
+    mount factor, share value
+
+force get-class-default-voice
+
+  cause get-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |defaultVoice|
+    raise build, field ns-speech-synthesizer-voice-name
+
+force set-class-default-voice
+  field value, field ns-speech-synthesizer-voice-name
+
+  cause set-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |defaultVoice|
+    mount factor, share value
+
+force get-class-is-any-application-speaking
+
+  cause get-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |isAnyApplicationSpeaking|
+    raise build, field bool
+
+force set-class-is-any-application-speaking
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSSpeechSynthesizer|
+    mount aspect, |isAnyApplicationSpeaking|
+    mount factor, share value
+
+force get-is-speaking
+  field build, field ns-speech-synthesizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isSpeaking|
+    raise build, field bool
+
+force set-is-speaking
+  field build, field ns-speech-synthesizer
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isSpeaking|
+    mount factor, share value
+
+force start-speaking
+  field build, field ns-speech-synthesizer
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |startSpeaking|
+    mount factor, share a
+    raise build, class bool
+
+force start-speaking
+  field build, field ns-speech-synthesizer
+  field a, class string
+  field to, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |startSpeaking|
+    mount factor, share a
+    mount factor
+      brand to
+      share to
+    raise build, class bool
+
+force pause-speaking
+  field build, field ns-speech-synthesizer
+  field at, field ns-speech-synthesizer-boundary
+
+  cause call-method
+    mount object, share build
+    mount method, |pauseSpeaking|
+    mount factor
+      brand at
+      share at
+
+force continue-speaking
+  field build, field ns-speech-synthesizer
+
+  cause call-method
+    mount object, share build
+    mount method, |continueSpeaking|
+
+force stop-speaking
+  field build, field ns-speech-synthesizer
+
+  cause call-method
+    mount object, share build
+    mount method, |stopSpeaking|
+
+force stop-speaking
+  field build, field ns-speech-synthesizer
+  field at, field ns-speech-synthesizer-boundary
+
+  cause call-method
+    mount object, share build
+    mount method, |stopSpeaking|
+    mount factor
+      brand at
+      share at
+
+force phonemes
+  field build, field ns-speech-synthesizer
+  field from, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |phonemes|
+    mount factor
+      brand from
+      share from
+    raise build, class string

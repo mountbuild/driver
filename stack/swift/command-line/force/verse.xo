@@ -1,0 +1,53 @@
+force get-static-arguments
+  cause get aspect
+    drive object, |CommandLine|
+    drive aspect, |arguments|
+    raise build, class string
+
+force set static arguments
+  field value, field string
+
+  cause set aspect
+    drive object, |CommandLine|
+    drive aspect, |arguments|
+    drive factor, share value
+
+force get-static-argc
+  cause get aspect
+    drive object, |CommandLine|
+    drive aspect, |argc|
+    raise build, class int32
+
+force set static argc
+  field value, field int32
+
+  cause set aspect
+    drive object, |CommandLine|
+    drive aspect, |argc|
+    drive factor, share value
+
+force get-static-unsafe-argv
+  cause get aspect
+    drive object, |CommandLine|
+    drive aspect, |unsafeArgv|
+    raise build, class unsafe-mutable-pointer-unsafe-mutable-pointer-int8
+
+force set static unsafe-argv
+  field value, field unsafe-mutable-pointer-unsafe-mutable-pointer-int8
+
+  cause set aspect
+    drive object, |CommandLine|
+    drive aspect, |unsafeArgv|
+    drive factor, share value
+
+force read-line
+  field build, field command-line
+  field stripping-newline, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |readLine|
+    drive factor
+      brand stripping-newline
+      share stripping-newline
+    raise build, class string

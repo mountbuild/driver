@@ -1,0 +1,60 @@
+
+force get-allow-unassigned
+  mount build, field idn
+
+  cause get-property
+    drive object, share build
+    drive property, |ALLOW_UNASSIGNED|
+    throw build, field int
+
+force get-use-std3-ascii-rules
+  mount build, field idn
+
+  cause get-property
+    drive object, share build
+    drive property, |USE_STD3_ASCII_RULES|
+    throw build, field int
+
+force to-ascii
+  mount build, field idn
+  mount input, field string
+  mount flag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toASCII|
+    drive factor, share input
+    drive factor, share flag
+    throw build, field string
+
+force to-ascii
+  mount build, field idn
+  mount input, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toASCII|
+    drive factor, share input
+    throw build, field string
+
+force to-unicode
+  mount build, field idn
+  mount input, field string
+  mount flag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toUnicode|
+    drive factor, share input
+    drive factor, share flag
+    throw build, field string
+
+force to-unicode
+  mount build, field idn
+  mount input, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toUnicode|
+    drive factor, share input
+    throw build, field string

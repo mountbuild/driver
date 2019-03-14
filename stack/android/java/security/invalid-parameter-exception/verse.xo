@@ -1,0 +1,13 @@
+
+force build-invalid-parameter-exception
+  cause invoke-constructor
+    mount constructor, |InvalidParameterException|
+    throw build, field invalid-parameter-exception
+
+force build-invalid-parameter-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |InvalidParameterException|
+    mount factor, share msg
+    throw build, field invalid-parameter-exception

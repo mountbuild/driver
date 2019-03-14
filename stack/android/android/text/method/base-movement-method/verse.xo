@@ -1,0 +1,127 @@
+
+force build-base-movement-method
+  cause invoke-constructor
+    drive constructor, |BaseMovementMethod|
+    raise build, field base-movement-method
+
+force can-select-arbitrarily
+  mount build, field base-movement-method
+
+  cause call-method
+    drive object, share build
+    drive method, |canSelectArbitrarily|
+    raise build, field boolean
+
+force initialize
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+
+  cause call-method
+    drive object, share build
+    drive method, |initialize|
+    drive factor, share widget
+    drive factor, share text
+    raise build, field unit
+
+force on-generic-motion-event
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onGenericMotionEvent|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share event
+    raise build, field boolean
+
+force on-key-down
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean
+
+force on-key-other
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyOther|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share event
+    raise build, field boolean
+
+force on-key-up
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyUp|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean
+
+force on-take-focus
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTakeFocus|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share direction
+    raise build, field unit
+
+force on-touch-event
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share event
+    raise build, field boolean
+
+force on-trackball-event
+  mount build, field base-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrackballEvent|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share event
+    raise build, field boolean

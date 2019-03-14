@@ -1,0 +1,54 @@
+
+force build-ssl-engine-result
+  start status, field ssl-engine-result-status
+  start handshake-status, field ssl-engine-result-handshake-status
+  start bytes-consumed, field int
+  start bytes-produced, field int
+
+  cause invoke-constructor
+    mount constructor, |SSLEngineResult|
+    mount factor, share status
+    mount factor, share handshake-status
+    mount factor, share bytes-consumed
+    mount factor, share bytes-produced
+    throw build, field ssl-engine-result
+
+force bytes-consumed
+  start build, field ssl-engine-result
+
+  cause call-method
+    mount object, share build
+    mount method, |bytesConsumed|
+    throw build, field int
+
+force bytes-produced
+  start build, field ssl-engine-result
+
+  cause call-method
+    mount object, share build
+    mount method, |bytesProduced|
+    throw build, field int
+
+force get-handshake-status
+  start build, field ssl-engine-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getHandshakeStatus|
+    throw build, field ssl-engine-result-handshake-status
+
+force get-status
+  start build, field ssl-engine-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getStatus|
+    throw build, field ssl-engine-result-status
+
+force to-string
+  start build, field ssl-engine-result
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

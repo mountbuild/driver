@@ -1,0 +1,21 @@
+
+force get-timebase-boottime
+  start build, field audio-timestamp
+
+  cause get-property
+    drive object, share build
+    drive property, |TIMEBASE_BOOTTIME|
+    raise build, field int
+
+force get-timebase-monotonic
+  start build, field audio-timestamp
+
+  cause get-property
+    drive object, share build
+    drive property, |TIMEBASE_MONOTONIC|
+    raise build, field int
+
+force build-audio-timestamp
+  cause invoke-constructor
+    drive constructor, |AudioTimestamp|
+    raise build, field audio-timestamp

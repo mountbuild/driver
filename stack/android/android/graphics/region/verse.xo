@@ -1,0 +1,369 @@
+
+force build-region
+  cause invoke-constructor
+    drive constructor, |Region|
+    raise build, field region
+
+force build-region
+  mount region, field region
+
+  cause invoke-constructor
+    drive constructor, |Region|
+    drive factor, share region
+    raise build, field region
+
+force build-region
+  mount r, field rect
+
+  cause invoke-constructor
+    drive constructor, |Region|
+    drive factor, share r
+    raise build, field region
+
+force build-region
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause invoke-constructor
+    drive constructor, |Region|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field region
+
+force contains
+  mount build, field region
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share x
+    drive factor, share y
+    raise build, field boolean
+
+force describe-contents
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field region
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-boundary-path
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |getBoundaryPath|
+    raise build, field path
+
+force get-boundary-path
+  mount build, field region
+  mount path, field path
+
+  cause call-method
+    drive object, share build
+    drive method, |getBoundaryPath|
+    drive factor, share path
+    raise build, field boolean
+
+force get-bounds
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |getBounds|
+    raise build, field rect
+
+force get-bounds
+  mount build, field region
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |getBounds|
+    drive factor, share r
+    raise build, field boolean
+
+force is-complex
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |isComplex|
+    raise build, field boolean
+
+force is-empty
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    raise build, field boolean
+
+force is-rect
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |isRect|
+    raise build, field boolean
+
+force op
+  mount build, field region
+  mount r, field rect
+  mount op, field region-op
+
+  cause call-method
+    drive object, share build
+    drive method, |op|
+    drive factor, share r
+    drive factor, share op
+    raise build, field boolean
+
+force op
+  mount build, field region
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+  mount op, field region-op
+
+  cause call-method
+    drive object, share build
+    drive method, |op|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    drive factor, share op
+    raise build, field boolean
+
+force op
+  mount build, field region
+  mount region, field region
+  mount op, field region-op
+
+  cause call-method
+    drive object, share build
+    drive method, |op|
+    drive factor, share region
+    drive factor, share op
+    raise build, field boolean
+
+force op
+  mount build, field region
+  mount rect, field rect
+  mount region, field region
+  mount op, field region-op
+
+  cause call-method
+    drive object, share build
+    drive method, |op|
+    drive factor, share rect
+    drive factor, share region
+    drive factor, share op
+    raise build, field boolean
+
+force op
+  mount build, field region
+  mount region1, field region
+  mount region2, field region
+  mount op, field region-op
+
+  cause call-method
+    drive object, share build
+    drive method, |op|
+    drive factor, share region1
+    drive factor, share region2
+    drive factor, share op
+    raise build, field boolean
+
+force quick-contains
+  mount build, field region
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |quickContains|
+    drive factor, share r
+    raise build, field boolean
+
+force quick-contains
+  mount build, field region
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |quickContains|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force quick-reject
+  mount build, field region
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |quickReject|
+    drive factor, share r
+    raise build, field boolean
+
+force quick-reject
+  mount build, field region
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |quickReject|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force quick-reject
+  mount build, field region
+  mount rgn, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |quickReject|
+    drive factor, share rgn
+    raise build, field boolean
+
+force set
+  mount build, field region
+  mount region, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share region
+    raise build, field boolean
+
+force set
+  mount build, field region
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share r
+    raise build, field boolean
+
+force set
+  mount build, field region
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force set-empty
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |setEmpty|
+    raise build, field unit
+
+force set-path
+  mount build, field region
+  mount path, field path
+  mount clip, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |setPath|
+    drive factor, share path
+    drive factor, share clip
+    raise build, field boolean
+
+force to-string
+  mount build, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force translate
+  mount build, field region
+  mount dx, field int
+  mount dy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |translate|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field unit
+
+force translate
+  mount build, field region
+  mount dx, field int
+  mount dy, field int
+  mount dst, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |translate|
+    drive factor, share dx
+    drive factor, share dy
+    drive factor, share dst
+    raise build, field unit
+
+force union
+  mount build, field region
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |union|
+    drive factor, share r
+    raise build, field boolean
+
+force write-to-parcel
+  mount build, field region
+  mount p, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share p
+    drive factor, share flags
+    raise build, field unit

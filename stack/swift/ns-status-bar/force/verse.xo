@@ -1,0 +1,69 @@
+force get-class-system
+
+  cause get-aspect
+    mount object, |NSStatusBar|
+    mount aspect, |system|
+    raise build, field ns-status-bar
+
+force set-class-system
+  field value, field ns-status-bar
+
+  cause set-aspect
+    mount object, |NSStatusBar|
+    mount aspect, |system|
+    mount factor, share value
+
+force status-item
+  field build, field ns-status-bar
+  field with-length, field cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |statusItem|
+    mount factor
+      brand with-length
+      share with-length
+    raise build, class ns-status-item
+
+force remove-status-item
+  field build, field ns-status-bar
+  field a, class ns-status-item
+
+  cause call-method
+    mount object, share build
+    mount method, |removeStatusItem|
+    mount factor, share a
+
+force get-is-vertical
+  field build, field ns-status-bar
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isVertical|
+    raise build, field bool
+
+force set-is-vertical
+  field build, field ns-status-bar
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isVertical|
+    mount factor, share value
+
+force get-thickness
+  field build, field ns-status-bar
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |thickness|
+    raise build, field cg-float
+
+force set-thickness
+  field build, field ns-status-bar
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |thickness|
+    mount factor, share value

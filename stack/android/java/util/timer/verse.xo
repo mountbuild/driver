@@ -1,0 +1,127 @@
+
+force build-timer
+  cause invoke-constructor
+    drive constructor, |Timer|
+    throw build, field timer
+
+force build-timer
+  mount is-daemon, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Timer|
+    drive factor, share is-daemon
+    throw build, field timer
+
+force build-timer
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |Timer|
+    drive factor, share name
+    throw build, field timer
+
+force build-timer
+  mount name, field string
+  mount is-daemon, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Timer|
+    drive factor, share name
+    drive factor, share is-daemon
+    throw build, field timer
+
+force cancel
+  mount build, field timer
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field unit
+
+force purge
+  mount build, field timer
+
+  cause call-method
+    drive object, share build
+    drive method, |purge|
+    throw build, field int
+
+force schedule
+  mount build, field timer
+  mount task, field timer-task
+  mount delay, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share task
+    drive factor, share delay
+    throw build, field unit
+
+force schedule
+  mount build, field timer
+  mount task, field timer-task
+  mount time, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share task
+    drive factor, share time
+    throw build, field unit
+
+force schedule
+  mount build, field timer
+  mount task, field timer-task
+  mount delay, field long
+  mount period, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share task
+    drive factor, share delay
+    drive factor, share period
+    throw build, field unit
+
+force schedule
+  mount build, field timer
+  mount task, field timer-task
+  mount first-time, field date
+  mount period, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor, share task
+    drive factor, share first-time
+    drive factor, share period
+    throw build, field unit
+
+force schedule-at-fixed-rate
+  mount build, field timer
+  mount task, field timer-task
+  mount delay, field long
+  mount period, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |scheduleAtFixedRate|
+    drive factor, share task
+    drive factor, share delay
+    drive factor, share period
+    throw build, field unit
+
+force schedule-at-fixed-rate
+  mount build, field timer
+  mount task, field timer-task
+  mount first-time, field date
+  mount period, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |scheduleAtFixedRate|
+    drive factor, share task
+    drive factor, share first-time
+    drive factor, share period
+    throw build, field unit

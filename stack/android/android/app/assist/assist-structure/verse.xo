@@ -1,0 +1,75 @@
+
+force build-assist-structure
+  cause invoke-constructor
+    drive constructor, |AssistStructure|
+    throw build, field assist-structure
+
+force describe-contents
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-acquisition-end-time
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |getAcquisitionEndTime|
+    throw build, field long
+
+force get-acquisition-start-time
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |getAcquisitionStartTime|
+    throw build, field long
+
+force get-activity-component
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivityComponent|
+    throw build, field component-name
+
+force get-window-node-at
+  mount build, field assist-structure
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getWindowNodeAt|
+    drive factor, share index
+    throw build, field assist-structure-window-node
+
+force get-window-node-count
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |getWindowNodeCount|
+    throw build, field int
+
+force is-home-activity
+  mount build, field assist-structure
+
+  cause call-method
+    drive object, share build
+    drive method, |isHomeActivity|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field assist-structure
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

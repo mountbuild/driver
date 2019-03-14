@@ -1,0 +1,251 @@
+
+force build-simple-date-format
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    drive factor, share pattern
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start loc, field locale
+
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    drive factor, share pattern
+    drive factor, share loc
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start loc, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    drive factor, share pattern
+    drive factor, share loc
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start override, field string
+  start loc, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    drive factor, share pattern
+    drive factor, share override
+    drive factor, share loc
+    raise build, field simple-date-format
+
+force build-simple-date-format
+  start pattern, field string
+  start format-data, field date-format-symbols
+
+  cause invoke-constructor
+    drive constructor, |SimpleDateFormat|
+    drive factor, share pattern
+    drive factor, share format-data
+    raise build, field simple-date-format
+
+force apply-localized-pattern
+  start build, field simple-date-format
+  start pat, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |applyLocalizedPattern|
+    drive factor, share pat
+    raise build, field unit
+
+force apply-pattern
+  start build, field simple-date-format
+  start pat, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |applyPattern|
+    drive factor, share pat
+    raise build, field unit
+
+force clone
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    raise build, field any
+
+force equals
+  start build, field simple-date-format
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force format
+  start build, field simple-date-format
+  start cal, field calendar
+  start to-append-to, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share cal
+    drive factor, share to-append-to
+    drive factor, share pos
+    raise build, field string-buffer
+
+force format-to-character-iterator
+  start build, field simple-date-format
+  start obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |formatToCharacterIterator|
+    drive factor, share obj
+    raise build, field attributed-character-iterator
+
+force get2-digit-year-start
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |get2DigitYearStart|
+    raise build, field date
+
+force get-date-format-symbols
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getDateFormatSymbols|
+    raise build, field date-format-symbols
+
+force get-number-format
+  start build, field simple-date-format
+  start field, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberFormat|
+    drive factor, share field
+    raise build, field number-format
+
+force get-time-zone-format
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZoneFormat|
+    raise build, field time-zone-format
+
+force hash-code
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force parse
+  start build, field simple-date-format
+  start text, field string
+  start cal, field calendar
+  start parse-pos, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share text
+    drive factor, share cal
+    drive factor, share parse-pos
+    raise build, field unit
+
+force set2-digit-year-start
+  start build, field simple-date-format
+  start start-date, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |set2DigitYearStart|
+    drive factor, share start-date
+    raise build, field unit
+
+force set-context
+  start build, field simple-date-format
+  start context, field display-context
+
+  cause call-method
+    drive object, share build
+    drive method, |setContext|
+    drive factor, share context
+    raise build, field unit
+
+force set-date-format-symbols
+  start build, field simple-date-format
+  start new-format-symbols, field date-format-symbols
+
+  cause call-method
+    drive object, share build
+    drive method, |setDateFormatSymbols|
+    drive factor, share new-format-symbols
+    raise build, field unit
+
+force set-number-format
+  start build, field simple-date-format
+  start new-number-format, field number-format
+
+  cause call-method
+    drive object, share build
+    drive method, |setNumberFormat|
+    drive factor, share new-number-format
+    raise build, field unit
+
+force set-number-format
+  start build, field simple-date-format
+  start fields, field string
+  start override-nf, field number-format
+
+  cause call-method
+    drive object, share build
+    drive method, |setNumberFormat|
+    drive factor, share fields
+    drive factor, share override-nf
+    raise build, field unit
+
+force set-time-zone-format
+  start build, field simple-date-format
+  start tzfmt, field time-zone-format
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeZoneFormat|
+    drive factor, share tzfmt
+    raise build, field unit
+
+force to-localized-pattern
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toLocalizedPattern|
+    raise build, field string
+
+force to-pattern
+  start build, field simple-date-format
+
+  cause call-method
+    drive object, share build
+    drive method, |toPattern|
+    raise build, field string

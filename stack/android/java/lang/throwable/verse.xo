@@ -1,0 +1,145 @@
+
+force build-throwable
+  cause invoke-constructor
+    drive constructor, |Throwable|
+    throw build, field throwable
+
+force build-throwable
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |Throwable|
+    drive factor, share message
+    throw build, field throwable
+
+force build-throwable
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |Throwable|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field throwable
+
+force build-throwable
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |Throwable|
+    drive factor, share cause
+    throw build, field throwable
+
+force add-suppressed
+  mount build, field throwable
+  mount exception, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |addSuppressed|
+    drive factor, share exception
+    throw build, field unit
+
+force fill-in-stack-trace
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |fillInStackTrace|
+    throw build, field throwable
+
+force get-cause
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getCause|
+    throw build, field throwable
+
+force get-localized-message
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalizedMessage|
+    throw build, field string
+
+force get-message
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessage|
+    throw build, field string
+
+force get-stack-trace
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getStackTrace|
+    throw build, field array
+
+force get-suppressed
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuppressed|
+    throw build, field array
+
+force init-cause
+  mount build, field throwable
+  mount cause, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |initCause|
+    drive factor, share cause
+    throw build, field throwable
+
+force print-stack-trace
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |printStackTrace|
+    throw build, field unit
+
+force print-stack-trace
+  mount build, field throwable
+  mount s, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |printStackTrace|
+    drive factor, share s
+    throw build, field unit
+
+force print-stack-trace
+  mount build, field throwable
+  mount s, field print-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |printStackTrace|
+    drive factor, share s
+    throw build, field unit
+
+force set-stack-trace
+  mount build, field throwable
+  mount stack-trace, field array-stack-trace-element
+
+  cause call-method
+    drive object, share build
+    drive method, |setStackTrace|
+    drive factor, share stack-trace
+    throw build, field unit
+
+force to-string
+  mount build, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

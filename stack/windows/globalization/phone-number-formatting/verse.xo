@@ -1,0 +1,234 @@
+
+force get-phone-number-format
+  cause get-object
+    drive aspect, |Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat|
+
+force build-phone-number-formatter
+  cause invoke-constructor
+    drive constructor, |Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter|
+
+force format
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start number-format, field windows-globalization-phonenumberformatting-phonenumberformat
+
+  cause call-method
+    drive object, share build
+    drive method, |Format|
+    drive factor, share number
+    drive factor, share number-format
+
+force format
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |Format|
+    drive factor, share number
+
+force format-partial-string
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FormatPartialString|
+    drive factor, share number
+
+force format-string
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FormatString|
+    drive factor, share number
+
+force format-string-with-left-to-right-markers
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FormatStringWithLeftToRightMarkers|
+    drive factor, share number
+
+force get-country-code-for-region
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start region-code, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCountryCodeForRegion|
+    drive factor, share region-code
+
+force get-national-direct-dialing-prefix-for-region
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start region-code, field system-string
+  start strip-non-digit, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |GetNationalDirectDialingPrefixForRegion|
+    drive factor, share region-code
+    drive factor, share strip-non-digit
+
+force ctor
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force try-create
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start region-code, field system-string
+  start phone-number, field windows-globalization-phonenumberformatting-phonenumberformatter
+
+  cause call-method
+    drive object, share build
+    drive method, |TryCreate|
+    drive factor, share region-code
+    drive factor, share phone-number
+
+force wrap-with-left-to-right-markers
+  start build, field windows-globalization-phonenumberformatting-phonenumberformatter
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |WrapWithLeftToRightMarkers|
+    drive factor, share number
+
+force build-phone-number-info
+  cause invoke-constructor
+    drive constructor, |Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo|
+
+force check-number-match
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start other-number, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |CheckNumberMatch|
+    drive factor, share other-number
+
+force get-country-code
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CountryCode|
+
+force set-country-code
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CountryCode|
+    drive factor, share value
+
+force get-geographic-region-code
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |GetGeographicRegionCode|
+
+force get-length-of-geographical-area-code
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |GetLengthOfGeographicalAreaCode|
+
+force get-length-of-national-destination-code
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |GetLengthOfNationalDestinationCode|
+
+force get-national-significant-number
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |GetNationalSignificantNumber|
+
+force get-phone-number
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PhoneNumber|
+
+force set-phone-number
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PhoneNumber|
+    drive factor, share value
+
+force ctor
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share number
+
+force predict-number-kind
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |PredictNumberKind|
+
+force to-string
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |ToString|
+
+force try-parse
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start input, field system-string
+  start phone-number, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |TryParse|
+    drive factor, share input
+    drive factor, share phone-number
+
+force try-parse
+  start build, field windows-globalization-phonenumberformatting-phonenumberinfo
+  start input, field system-string
+  start region-code, field system-string
+  start phone-number, field windows-globalization-phonenumberformatting-phonenumberinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |TryParse|
+    drive factor, share input
+    drive factor, share region-code
+    drive factor, share phone-number
+
+force get-phone-number-match-result
+  cause get-object
+    drive aspect, |Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult|
+
+force get-phone-number-parse-result
+  cause get-object
+    drive aspect, |Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult|
+
+force get-predicted-phone-number-kind
+  cause get-object
+    drive aspect, |Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind|

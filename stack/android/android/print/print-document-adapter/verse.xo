@@ -1,0 +1,63 @@
+
+force get-extra-print-preview
+  mount build, field print-document-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PRINT_PREVIEW|
+    throw build, field string
+
+force build-print-document-adapter
+  cause invoke-constructor
+    drive constructor, |PrintDocumentAdapter|
+    throw build, field print-document-adapter
+
+force on-finish
+  mount build, field print-document-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinish|
+    throw build, field unit
+
+force on-layout
+  mount build, field print-document-adapter
+  mount old-attributes, field print-attributes
+  mount new-attributes, field print-attributes
+  mount cancellation-signal, field cancellation-signal
+  mount callback, field print-document-adapter-layout-result-callback
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onLayout|
+    drive factor, share old-attributes
+    drive factor, share new-attributes
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    drive factor, share extras
+    throw build, field unit
+
+force on-start
+  mount build, field print-document-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    throw build, field unit
+
+force on-write
+  mount build, field print-document-adapter
+  mount pages, field array-page-range
+  mount destination, field parcel-file-descriptor
+  mount cancellation-signal, field cancellation-signal
+  mount callback, field print-document-adapter-write-result-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onWrite|
+    drive factor, share pages
+    drive factor, share destination
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit

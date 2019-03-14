@@ -1,0 +1,310 @@
+
+force get-plugin-status-physical-module-changed
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |PLUGIN_STATUS_PHYSICAL_MODULE_CHANGED|
+    raise build, field int
+
+force get-plugin-status-session-number-changed
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |PLUGIN_STATUS_SESSION_NUMBER_CHANGED|
+    raise build, field int
+
+force get-scrambling-mode-aes128
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_AES128|
+    raise build, field int
+
+force get-scrambling-mode-aes-ecb
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_AES_ECB|
+    raise build, field int
+
+force get-scrambling-mode-aes-scte52
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_AES_SCTE52|
+    raise build, field int
+
+force get-scrambling-mode-dvb-cissa-v1
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CISSA_V1|
+    raise build, field int
+
+force get-scrambling-mode-dvb-csa1
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CSA1|
+    raise build, field int
+
+force get-scrambling-mode-dvb-csa2
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CSA2|
+    raise build, field int
+
+force get-scrambling-mode-dvb-csa3-enhance
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CSA3_ENHANCE|
+    raise build, field int
+
+force get-scrambling-mode-dvb-csa3-minimal
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CSA3_MINIMAL|
+    raise build, field int
+
+force get-scrambling-mode-dvb-csa3-standard
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_CSA3_STANDARD|
+    raise build, field int
+
+force get-scrambling-mode-dvb-idsa
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_DVB_IDSA|
+    raise build, field int
+
+force get-scrambling-mode-multi2
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_MULTI2|
+    raise build, field int
+
+force get-scrambling-mode-reserved
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_RESERVED|
+    raise build, field int
+
+force get-scrambling-mode-tdes-ecb
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_TDES_ECB|
+    raise build, field int
+
+force get-scrambling-mode-tdes-scte52
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLING_MODE_TDES_SCTE52|
+    raise build, field int
+
+force get-session-usage-live
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SESSION_USAGE_LIVE|
+    raise build, field int
+
+force get-session-usage-playback
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SESSION_USAGE_PLAYBACK|
+    raise build, field int
+
+force get-session-usage-record
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SESSION_USAGE_RECORD|
+    raise build, field int
+
+force get-session-usage-timeshift
+  start build, field media-cas
+
+  cause get-property
+    drive object, share build
+    drive property, |SESSION_USAGE_TIMESHIFT|
+    raise build, field int
+
+force build-media-cas
+  start ca-system-id, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaCas|
+    drive factor, share ca-system-id
+    raise build, field media-cas
+
+force build-media-cas
+  start context, field context
+  start cas-system-id, field int
+  start tv-input-service-session-id, field string
+  start priority-hint, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaCas|
+    drive factor, share context
+    drive factor, share cas-system-id
+    drive factor, share tv-input-service-session-id
+    drive factor, share priority-hint
+    raise build, field media-cas
+
+force close
+  start build, field media-cas
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force enumerate-plugins
+  start build, field media-cas
+
+  cause call-method
+    drive object, share build
+    drive method, |enumeratePlugins|
+    raise build, field array
+
+force is-system-id-supported
+  start build, field media-cas
+  start ca-system-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isSystemIdSupported|
+    drive factor, share ca-system-id
+    raise build, field boolean
+
+force open-session
+  start build, field media-cas
+
+  cause call-method
+    drive object, share build
+    drive method, |openSession|
+    raise build, field media-cas-session
+
+force open-session
+  start build, field media-cas
+  start session-usage, field int
+  start scrambling-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openSession|
+    drive factor, share session-usage
+    drive factor, share scrambling-mode
+    raise build, field media-cas-session
+
+force process-emm
+  start build, field media-cas
+  start data, field byte-array
+  start offset, field int
+  start length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |processEmm|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share length
+    raise build, field unit
+
+force process-emm
+  start build, field media-cas
+  start data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |processEmm|
+    drive factor, share data
+    raise build, field unit
+
+force provision
+  start build, field media-cas
+  start provision-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |provision|
+    drive factor, share provision-string
+    raise build, field unit
+
+force refresh-entitlements
+  start build, field media-cas
+  start refresh-type, field int
+  start refresh-data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |refreshEntitlements|
+    drive factor, share refresh-type
+    drive factor, share refresh-data
+    raise build, field unit
+
+force send-event
+  start build, field media-cas
+  start event, field int
+  start arg, field int
+  start data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEvent|
+    drive factor, share event
+    drive factor, share arg
+    drive factor, share data
+    raise build, field unit
+
+force set-event-listener
+  start build, field media-cas
+  start listener, field media-cas-event-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setEventListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force set-private-data
+  start build, field media-cas
+  start data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setPrivateData|
+    drive factor, share data
+    raise build, field unit

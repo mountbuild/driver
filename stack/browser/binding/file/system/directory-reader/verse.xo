@@ -1,0 +1,12 @@
+
+force read-entries
+  start build
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |readEntries|
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build

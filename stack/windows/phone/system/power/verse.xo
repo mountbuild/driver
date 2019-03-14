@@ -1,0 +1,40 @@
+
+force build-power-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.System.Power.PowerManager|
+
+force get-power-saving-mode
+  start build, field windows-phone-system-power-powermanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PowerSavingMode|
+
+force set-power-saving-mode
+  start build, field windows-phone-system-power-powermanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PowerSavingMode|
+    drive factor, share value
+
+force get-power-saving-mode-enabled
+  start build, field windows-phone-system-power-powermanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PowerSavingModeEnabled|
+
+force set-power-saving-mode-enabled
+  start build, field windows-phone-system-power-powermanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PowerSavingModeEnabled|
+    drive factor, share value
+
+force get-power-saving-mode
+  cause get-object
+    drive aspect, |Windows.Phone.System.Power.PowerSavingMode|

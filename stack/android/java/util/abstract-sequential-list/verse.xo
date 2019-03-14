@@ -1,0 +1,74 @@
+
+force add
+  mount build, field abstract-sequential-list
+  mount index, field int
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share index
+    drive factor, share element
+    throw build, field unit
+
+force add-all
+  mount build, field abstract-sequential-list
+  mount index, field int
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share index
+    drive factor, share elements
+    throw build, field boolean
+
+force get
+  mount build, field abstract-sequential-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share index
+    throw build, field e
+
+force iterator
+  mount build, field abstract-sequential-list
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force list-iterator
+  mount build, field abstract-sequential-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |listIterator|
+    drive factor, share index
+    throw build, field mutable-list-iterator
+
+force remove-at
+  mount build, field abstract-sequential-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAt|
+    drive factor, share index
+    throw build, field e
+
+force set
+  mount build, field abstract-sequential-list
+  mount index, field int
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share index
+    drive factor, share element
+    throw build, field e

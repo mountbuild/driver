@@ -1,0 +1,184 @@
+
+force build-renaming-delegating-context
+  mount context, field context
+  mount file-prefix, field string
+
+  cause invoke-constructor
+    drive constructor, |RenamingDelegatingContext|
+    drive factor, share context
+    drive factor, share file-prefix
+    raise build, field renaming-delegating-context
+
+force build-renaming-delegating-context
+  mount context, field context
+  mount file-context, field context
+  mount file-prefix, field string
+
+  cause invoke-constructor
+    drive constructor, |RenamingDelegatingContext|
+    drive factor, share context
+    drive factor, share file-context
+    drive factor, share file-prefix
+    raise build, field renaming-delegating-context
+
+force database-list
+  mount build, field renaming-delegating-context
+
+  cause call-method
+    drive object, share build
+    drive method, |databaseList|
+    raise build, field array
+
+force delete-database
+  mount build, field renaming-delegating-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteDatabase|
+    drive factor, share name
+    raise build, field boolean
+
+force delete-file
+  mount build, field renaming-delegating-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteFile|
+    drive factor, share name
+    raise build, field boolean
+
+force file-list
+  mount build, field renaming-delegating-context
+
+  cause call-method
+    drive object, share build
+    drive method, |fileList|
+    raise build, field array
+
+force get-cache-dir
+  mount build, field renaming-delegating-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getCacheDir|
+    raise build, field file
+
+force get-database-path
+  mount build, field renaming-delegating-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDatabasePath|
+    drive factor, share name
+    raise build, field file
+
+force get-database-prefix
+  mount build, field renaming-delegating-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDatabasePrefix|
+    raise build, field string
+
+force get-file-stream-path
+  mount build, field renaming-delegating-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileStreamPath|
+    drive factor, share name
+    raise build, field file
+
+force make-existing-files-and-dbs-accessible
+  mount build, field renaming-delegating-context
+
+  cause call-method
+    drive object, share build
+    drive method, |makeExistingFilesAndDbsAccessible|
+    raise build, field unit
+
+force open-file-input
+  mount build, field renaming-delegating-context
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openFileInput|
+    drive factor, share name
+    raise build, field file-input-stream
+
+force open-file-output
+  mount build, field renaming-delegating-context
+  mount name, field string
+  mount mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openFileOutput|
+    drive factor, share name
+    drive factor, share mode
+    raise build, field file-output-stream
+
+force open-or-create-database
+  mount build, field renaming-delegating-context
+  mount name, field string
+  mount mode, field int
+  mount factory, field sq-lite-database-cursor-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |openOrCreateDatabase|
+    drive factor, share name
+    drive factor, share mode
+    drive factor, share factory
+    raise build, field sq-lite-database
+
+force open-or-create-database
+  mount build, field renaming-delegating-context
+  mount name, field string
+  mount mode, field int
+  mount factory, field sq-lite-database-cursor-factory
+  mount error-handler, field database-error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openOrCreateDatabase|
+    drive factor, share name
+    drive factor, share mode
+    drive factor, share factory
+    drive factor, share error-handler
+    raise build, field sq-lite-database
+
+force provider-with-renamed-context
+  mount build, field renaming-delegating-context
+  mount content-provider, field class-t
+  mount c, field context
+  mount file-prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |providerWithRenamedContext|
+    drive factor, share content-provider
+    drive factor, share c
+    drive factor, share file-prefix
+    raise build, field t
+
+force provider-with-renamed-context
+  mount build, field renaming-delegating-context
+  mount content-provider, field class-t
+  mount c, field context
+  mount file-prefix, field string
+  mount allow-access-to-existing-files-and-dbs, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |providerWithRenamedContext|
+    drive factor, share content-provider
+    drive factor, share c
+    drive factor, share file-prefix
+    drive factor, share allow-access-to-existing-files-and-dbs
+    raise build, field t

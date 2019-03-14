@@ -1,0 +1,238 @@
+
+force get-flag-match-cached
+  mount build, field shortcut-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MATCH_CACHED|
+    throw build, field int
+
+force get-flag-match-dynamic
+  mount build, field shortcut-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MATCH_DYNAMIC|
+    throw build, field int
+
+force get-flag-match-manifest
+  mount build, field shortcut-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MATCH_MANIFEST|
+    throw build, field int
+
+force get-flag-match-pinned
+  mount build, field shortcut-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MATCH_PINNED|
+    throw build, field int
+
+force add-dynamic-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-info-list, field mutable-list-shortcut-info
+
+  cause call-method
+    drive object, share build
+    drive method, |addDynamicShortcuts|
+    drive factor, share shortcut-info-list
+    throw build, field boolean
+
+force create-shortcut-result-intent
+  mount build, field shortcut-manager
+  mount shortcut, field shortcut-info
+
+  cause call-method
+    drive object, share build
+    drive method, |createShortcutResultIntent|
+    drive factor, share shortcut
+    throw build, field intent
+
+force disable-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-ids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |disableShortcuts|
+    drive factor, share shortcut-ids
+    throw build, field unit
+
+force disable-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-ids, field mutable-list-string
+  mount disabled-message, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |disableShortcuts|
+    drive factor, share shortcut-ids
+    drive factor, share disabled-message
+    throw build, field unit
+
+force enable-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-ids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |enableShortcuts|
+    drive factor, share shortcut-ids
+    throw build, field unit
+
+force get-dynamic-shortcuts
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDynamicShortcuts|
+    throw build, field mutable-list
+
+force get-icon-max-height
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconMaxHeight|
+    throw build, field int
+
+force get-icon-max-width
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconMaxWidth|
+    throw build, field int
+
+force get-manifest-shortcuts
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getManifestShortcuts|
+    throw build, field mutable-list
+
+force get-max-shortcut-count-per-activity
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxShortcutCountPerActivity|
+    throw build, field int
+
+force get-pinned-shortcuts
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPinnedShortcuts|
+    throw build, field mutable-list
+
+force get-shortcuts
+  mount build, field shortcut-manager
+  mount match-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortcuts|
+    drive factor, share match-flags
+    throw build, field mutable-list
+
+force is-rate-limiting-active
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isRateLimitingActive|
+    throw build, field boolean
+
+force is-request-pin-shortcut-supported
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isRequestPinShortcutSupported|
+    throw build, field boolean
+
+force push-dynamic-shortcut
+  mount build, field shortcut-manager
+  mount shortcut, field shortcut-info
+
+  cause call-method
+    drive object, share build
+    drive method, |pushDynamicShortcut|
+    drive factor, share shortcut
+    throw build, field unit
+
+force remove-all-dynamic-shortcuts
+  mount build, field shortcut-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllDynamicShortcuts|
+    throw build, field unit
+
+force remove-dynamic-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-ids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDynamicShortcuts|
+    drive factor, share shortcut-ids
+    throw build, field unit
+
+force remove-long-lived-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-ids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLongLivedShortcuts|
+    drive factor, share shortcut-ids
+    throw build, field unit
+
+force report-shortcut-used
+  mount build, field shortcut-manager
+  mount shortcut-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |reportShortcutUsed|
+    drive factor, share shortcut-id
+    throw build, field unit
+
+force request-pin-shortcut
+  mount build, field shortcut-manager
+  mount shortcut, field shortcut-info
+  mount result-intent, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPinShortcut|
+    drive factor, share shortcut
+    drive factor, share result-intent
+    throw build, field boolean
+
+force set-dynamic-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-info-list, field mutable-list-shortcut-info
+
+  cause call-method
+    drive object, share build
+    drive method, |setDynamicShortcuts|
+    drive factor, share shortcut-info-list
+    throw build, field boolean
+
+force update-shortcuts
+  mount build, field shortcut-manager
+  mount shortcut-info-list, field mutable-list-shortcut-info
+
+  cause call-method
+    drive object, share build
+    drive method, |updateShortcuts|
+    drive factor, share shortcut-info-list
+    throw build, field boolean

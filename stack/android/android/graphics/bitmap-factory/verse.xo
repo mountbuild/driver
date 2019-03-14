@@ -1,0 +1,149 @@
+
+force build-bitmap-factory
+  cause invoke-constructor
+    drive constructor, |BitmapFactory|
+    raise build, field bitmap-factory
+
+force decode-byte-array
+  mount build, field bitmap-factory
+  mount data, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeByteArray|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-byte-array
+  mount build, field bitmap-factory
+  mount data, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeByteArray|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share length
+    raise build, field bitmap
+
+force decode-file
+  mount build, field bitmap-factory
+  mount path-name, field string
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFile|
+    drive factor, share path-name
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-file
+  mount build, field bitmap-factory
+  mount path-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFile|
+    drive factor, share path-name
+    raise build, field bitmap
+
+force decode-file-descriptor
+  mount build, field bitmap-factory
+  mount fd, field file-descriptor
+  mount out-padding, field rect
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFileDescriptor|
+    drive factor, share fd
+    drive factor, share out-padding
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-file-descriptor
+  mount build, field bitmap-factory
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeFileDescriptor|
+    drive factor, share fd
+    raise build, field bitmap
+
+force decode-resource
+  mount build, field bitmap-factory
+  mount res, field resources
+  mount id, field int
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeResource|
+    drive factor, share res
+    drive factor, share id
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-resource
+  mount build, field bitmap-factory
+  mount res, field resources
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeResource|
+    drive factor, share res
+    drive factor, share id
+    raise build, field bitmap
+
+force decode-resource-stream
+  mount build, field bitmap-factory
+  mount res, field resources
+  mount value, field typed-value
+  mount is, field input-stream
+  mount pad, field rect
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeResourceStream|
+    drive factor, share res
+    drive factor, share value
+    drive factor, share is
+    drive factor, share pad
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-stream
+  mount build, field bitmap-factory
+  mount is, field input-stream
+  mount out-padding, field rect
+  mount opts, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeStream|
+    drive factor, share is
+    drive factor, share out-padding
+    drive factor, share opts
+    raise build, field bitmap
+
+force decode-stream
+  mount build, field bitmap-factory
+  mount is, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeStream|
+    drive factor, share is
+    raise build, field bitmap

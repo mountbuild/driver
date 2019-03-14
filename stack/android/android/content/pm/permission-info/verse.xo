@@ -1,0 +1,243 @@
+
+force get-flag-costs-money
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_COSTS_MONEY|
+    throw build, field int
+
+force get-flag-hard-restricted
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_HARD_RESTRICTED|
+    throw build, field int
+
+force get-flag-immutably-restricted
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_IMMUTABLY_RESTRICTED|
+    throw build, field int
+
+force get-flag-installed
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_INSTALLED|
+    throw build, field int
+
+force get-flag-soft-restricted
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_SOFT_RESTRICTED|
+    throw build, field int
+
+force get-protection-dangerous
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_DANGEROUS|
+    throw build, field int
+
+force get-protection-flag-appop
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_APPOP|
+    throw build, field int
+
+force get-protection-flag-development
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_DEVELOPMENT|
+    throw build, field int
+
+force get-protection-flag-installer
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_INSTALLER|
+    throw build, field int
+
+force get-protection-flag-instant
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_INSTANT|
+    throw build, field int
+
+force get-protection-flag-pre23
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_PRE23|
+    throw build, field int
+
+force get-protection-flag-preinstalled
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_PREINSTALLED|
+    throw build, field int
+
+force get-protection-flag-privileged
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_PRIVILEGED|
+    throw build, field int
+
+force get-protection-flag-runtime-only
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_RUNTIME_ONLY|
+    throw build, field int
+
+force get-protection-flag-setup
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_SETUP|
+    throw build, field int
+
+force get-protection-flag-system
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_SYSTEM|
+    throw build, field int
+
+force get-protection-flag-verifier
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_FLAG_VERIFIER|
+    throw build, field int
+
+force get-protection-mask-base
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_MASK_BASE|
+    throw build, field int
+
+force get-protection-mask-flags
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_MASK_FLAGS|
+    throw build, field int
+
+force get-protection-normal
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_NORMAL|
+    throw build, field int
+
+force get-protection-signature
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_SIGNATURE|
+    throw build, field int
+
+force get-protection-signature-or-system
+  mount build, field permission-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTECTION_SIGNATURE_OR_SYSTEM|
+    throw build, field int
+
+force build-permission-info
+  cause invoke-constructor
+    drive constructor, |PermissionInfo|
+    throw build, field permission-info
+
+force build-permission-info
+  mount orig, field permission-info
+
+  cause invoke-constructor
+    drive constructor, |PermissionInfo|
+    drive factor, share orig
+    throw build, field permission-info
+
+force describe-contents
+  mount build, field permission-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-protection
+  mount build, field permission-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getProtection|
+    throw build, field int
+
+force get-protection-flags
+  mount build, field permission-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getProtectionFlags|
+    throw build, field int
+
+force load-description
+  mount build, field permission-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadDescription|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force to-string
+  mount build, field permission-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field permission-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

@@ -1,0 +1,26 @@
+
+force build-window-metrics
+  mount bounds, field rect
+  mount window-insets, field window-insets
+
+  cause invoke-constructor
+    drive constructor, |WindowMetrics|
+    drive factor, share bounds
+    drive factor, share window-insets
+    raise build, field window-metrics
+
+force get-bounds
+  mount build, field window-metrics
+
+  cause call-method
+    drive object, share build
+    drive method, |getBounds|
+    raise build, field rect
+
+force get-window-insets
+  mount build, field window-metrics
+
+  cause call-method
+    drive object, share build
+    drive method, |getWindowInsets|
+    raise build, field window-insets

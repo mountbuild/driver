@@ -1,0 +1,62 @@
+
+force get-fingerprint-gesture-swipe-down
+  start build, field fingerprint-gesture-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_GESTURE_SWIPE_DOWN|
+    throw build, field int
+
+force get-fingerprint-gesture-swipe-left
+  start build, field fingerprint-gesture-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_GESTURE_SWIPE_LEFT|
+    throw build, field int
+
+force get-fingerprint-gesture-swipe-right
+  start build, field fingerprint-gesture-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_GESTURE_SWIPE_RIGHT|
+    throw build, field int
+
+force get-fingerprint-gesture-swipe-up
+  start build, field fingerprint-gesture-controller
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_GESTURE_SWIPE_UP|
+    throw build, field int
+
+force is-gesture-detection-available
+  start build, field fingerprint-gesture-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |isGestureDetectionAvailable|
+    throw build, field boolean
+
+force register-fingerprint-gesture-callback
+  start build, field fingerprint-gesture-controller
+  start callback, field fingerprint-gesture-controller-fingerprint-gesture-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerFingerprintGestureCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force unregister-fingerprint-gesture-callback
+  start build, field fingerprint-gesture-controller
+  start callback, field fingerprint-gesture-controller-fingerprint-gesture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterFingerprintGestureCallback|
+    drive factor, share callback
+    throw build, field unit

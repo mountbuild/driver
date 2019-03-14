@@ -1,0 +1,16 @@
+
+force build-event-listener-proxy
+  mount listener, field t
+
+  cause invoke-constructor
+    drive constructor, |EventListenerProxy|
+    drive factor, share listener
+    throw build, field event-listener-proxy
+
+force get-listener
+  mount build, field event-listener-proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |getListener|
+    throw build, field t

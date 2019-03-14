@@ -1,0 +1,150 @@
+
+force create-ssl-engine
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |createSSLEngine|
+    throw build, field ssl-engine
+
+force create-ssl-engine
+  start build, field ssl-context
+  start peer-host, field string
+  start peer-port, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createSSLEngine|
+    mount factor, share peer-host
+    mount factor, share peer-port
+    throw build, field ssl-engine
+
+force get-client-session-context
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getClientSessionContext|
+    throw build, field ssl-session-context
+
+force get-default
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefault|
+    throw build, field ssl-context
+
+force get-default-ssl-parameters
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefaultSSLParameters|
+    throw build, field ssl-parameters
+
+force get-instance
+  start build, field ssl-context
+  start protocol, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share protocol
+    throw build, field ssl-context
+
+force get-instance
+  start build, field ssl-context
+  start protocol, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share protocol
+    mount factor, share provider
+    throw build, field ssl-context
+
+force get-instance
+  start build, field ssl-context
+  start protocol, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share protocol
+    mount factor, share provider
+    throw build, field ssl-context
+
+force get-protocol
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getProtocol|
+    throw build, field string
+
+force get-provider
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force get-server-session-context
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getServerSessionContext|
+    throw build, field ssl-session-context
+
+force get-server-socket-factory
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getServerSocketFactory|
+    throw build, field ssl-server-socket-factory
+
+force get-socket-factory
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getSocketFactory|
+    throw build, field ssl-socket-factory
+
+force get-supported-ssl-parameters
+  start build, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedSSLParameters|
+    throw build, field ssl-parameters
+
+force init
+  start build, field ssl-context
+  start km, field array-key-manager
+  start tm, field array-trust-manager
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share km
+    mount factor, share tm
+    mount factor, share random
+    throw build, field unit
+
+force set-default
+  start build, field ssl-context
+  start context, field ssl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |setDefault|
+    mount factor, share context
+    throw build, field unit

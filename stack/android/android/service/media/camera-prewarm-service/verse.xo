@@ -1,0 +1,43 @@
+
+force build-camera-prewarm-service
+  cause invoke-constructor
+    drive constructor, |CameraPrewarmService|
+    raise build, field camera-prewarm-service
+
+force on-bind
+  mount build, field camera-prewarm-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-cooldown
+  mount build, field camera-prewarm-service
+  mount camera-intent-fired, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onCooldown|
+    drive factor, share camera-intent-fired
+    raise build, field unit
+
+force on-prewarm
+  mount build, field camera-prewarm-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onPrewarm|
+    raise build, field unit
+
+force on-unbind
+  mount build, field camera-prewarm-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    raise build, field boolean

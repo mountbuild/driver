@@ -1,0 +1,559 @@
+
+force get-media-error-server-died
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_ERROR_SERVER_DIED|
+    raise build, field int
+
+force get-media-recorder-error-unknown
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_ERROR_UNKNOWN|
+    raise build, field int
+
+force get-media-recorder-info-max-duration-reached
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_INFO_MAX_DURATION_REACHED|
+    raise build, field int
+
+force get-media-recorder-info-max-filesize-approaching
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_INFO_MAX_FILESIZE_APPROACHING|
+    raise build, field int
+
+force get-media-recorder-info-max-filesize-reached
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_INFO_MAX_FILESIZE_REACHED|
+    raise build, field int
+
+force get-media-recorder-info-next-output-file-started
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_INFO_NEXT_OUTPUT_FILE_STARTED|
+    raise build, field int
+
+force get-media-recorder-info-unknown
+  start build, field media-recorder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIA_RECORDER_INFO_UNKNOWN|
+    raise build, field int
+
+force build-media-recorder
+  cause invoke-constructor
+    drive constructor, |MediaRecorder|
+    raise build, field media-recorder
+
+force add-on-routing-changed-listener
+  start build, field media-recorder
+  start listener, field audio-routing-on-routing-changed-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnRoutingChangedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force get-active-microphones
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveMicrophones|
+    raise build, field mutable-list
+
+force get-active-recording-configuration
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveRecordingConfiguration|
+    raise build, field audio-recording-configuration
+
+force get-audio-source-max
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioSourceMax|
+    raise build, field int
+
+force get-max-amplitude
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxAmplitude|
+    raise build, field int
+
+force get-metrics
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetrics|
+    raise build, field persistable-bundle
+
+force get-preferred-device
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferredDevice|
+    raise build, field audio-device-info
+
+force get-routed-device
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoutedDevice|
+    raise build, field audio-device-info
+
+force get-surface
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurface|
+    raise build, field surface
+
+force is-privacy-sensitive
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |isPrivacySensitive|
+    raise build, field boolean
+
+force pause
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+    raise build, field unit
+
+force prepare
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |prepare|
+    raise build, field unit
+
+force register-audio-recording-callback
+  start build, field media-recorder
+  start executor, field executor
+  start cb, field audio-manager-audio-recording-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerAudioRecordingCallback|
+    drive factor, share executor
+    drive factor, share cb
+    raise build, field unit
+
+force release
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force remove-on-routing-changed-listener
+  start build, field media-recorder
+  start listener, field audio-routing-on-routing-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnRoutingChangedListener|
+    drive factor, share listener
+    raise build, field unit
+
+force reset
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force resume
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    raise build, field unit
+
+force set-audio-channels
+  start build, field media-recorder
+  start num-channels, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioChannels|
+    drive factor, share num-channels
+    raise build, field unit
+
+force set-audio-encoder
+  start build, field media-recorder
+  start audio-encoder, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioEncoder|
+    drive factor, share audio-encoder
+    raise build, field unit
+
+force set-audio-encoding-bit-rate
+  start build, field media-recorder
+  start bit-rate, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioEncodingBitRate|
+    drive factor, share bit-rate
+    raise build, field unit
+
+force set-audio-sampling-rate
+  start build, field media-recorder
+  start sampling-rate, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioSamplingRate|
+    drive factor, share sampling-rate
+    raise build, field unit
+
+force set-audio-source
+  start build, field media-recorder
+  start audio-source, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioSource|
+    drive factor, share audio-source
+    raise build, field unit
+
+force set-camera
+  start build, field media-recorder
+  start c, field camera
+
+  cause call-method
+    drive object, share build
+    drive method, |setCamera|
+    drive factor, share c
+    raise build, field unit
+
+force set-capture-rate
+  start build, field media-recorder
+  start fps, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setCaptureRate|
+    drive factor, share fps
+    raise build, field unit
+
+force set-input-surface
+  start build, field media-recorder
+  start surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputSurface|
+    drive factor, share surface
+    raise build, field unit
+
+force set-location
+  start build, field media-recorder
+  start latitude, field float
+  start longitude, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocation|
+    drive factor, share latitude
+    drive factor, share longitude
+    raise build, field unit
+
+force set-max-duration
+  start build, field media-recorder
+  start max-duration-ms, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxDuration|
+    drive factor, share max-duration-ms
+    raise build, field unit
+
+force set-max-file-size
+  start build, field media-recorder
+  start max-filesize-bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxFileSize|
+    drive factor, share max-filesize-bytes
+    raise build, field unit
+
+force set-next-output-file
+  start build, field media-recorder
+  start fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |setNextOutputFile|
+    drive factor, share fd
+    raise build, field unit
+
+force set-next-output-file
+  start build, field media-recorder
+  start file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |setNextOutputFile|
+    drive factor, share file
+    raise build, field unit
+
+force set-on-error-listener
+  start build, field media-recorder
+  start l, field media-recorder-on-error-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnErrorListener|
+    drive factor, share l
+    raise build, field unit
+
+force set-on-info-listener
+  start build, field media-recorder
+  start listener, field media-recorder-on-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnInfoListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-orientation-hint
+  start build, field media-recorder
+  start degrees, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrientationHint|
+    drive factor, share degrees
+    raise build, field unit
+
+force set-output-file
+  start build, field media-recorder
+  start fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputFile|
+    drive factor, share fd
+    raise build, field unit
+
+force set-output-file
+  start build, field media-recorder
+  start file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputFile|
+    drive factor, share file
+    raise build, field unit
+
+force set-output-file
+  start build, field media-recorder
+  start path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputFile|
+    drive factor, share path
+    raise build, field unit
+
+force set-output-format
+  start build, field media-recorder
+  start output-format, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputFormat|
+    drive factor, share output-format
+    raise build, field unit
+
+force set-preferred-device
+  start build, field media-recorder
+  start device-info, field audio-device-info
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredDevice|
+    drive factor, share device-info
+    raise build, field boolean
+
+force set-preferred-microphone-direction
+  start build, field media-recorder
+  start direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredMicrophoneDirection|
+    drive factor, share direction
+    raise build, field boolean
+
+force set-preferred-microphone-field-dimension
+  start build, field media-recorder
+  start zoom, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredMicrophoneFieldDimension|
+    drive factor, share zoom
+    raise build, field boolean
+
+force set-preview-display
+  start build, field media-recorder
+  start sv, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreviewDisplay|
+    drive factor, share sv
+    raise build, field unit
+
+force set-privacy-sensitive
+  start build, field media-recorder
+  start privacy-sensitive, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPrivacySensitive|
+    drive factor, share privacy-sensitive
+    raise build, field unit
+
+force set-profile
+  start build, field media-recorder
+  start profile, field camcorder-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |setProfile|
+    drive factor, share profile
+    raise build, field unit
+
+force set-video-encoder
+  start build, field media-recorder
+  start video-encoder, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoEncoder|
+    drive factor, share video-encoder
+    raise build, field unit
+
+force set-video-encoding-bit-rate
+  start build, field media-recorder
+  start bit-rate, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoEncodingBitRate|
+    drive factor, share bit-rate
+    raise build, field unit
+
+force set-video-encoding-profile-level
+  start build, field media-recorder
+  start profile, field int
+  start level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoEncodingProfileLevel|
+    drive factor, share profile
+    drive factor, share level
+    raise build, field unit
+
+force set-video-frame-rate
+  start build, field media-recorder
+  start rate, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoFrameRate|
+    drive factor, share rate
+    raise build, field unit
+
+force set-video-size
+  start build, field media-recorder
+  start width, field int
+  start height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoSize|
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit
+
+force set-video-source
+  start build, field media-recorder
+  start video-source, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoSource|
+    drive factor, share video-source
+    raise build, field unit
+
+force start
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field unit
+
+force stop
+  start build, field media-recorder
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit
+
+force unregister-audio-recording-callback
+  start build, field media-recorder
+  start cb, field audio-manager-audio-recording-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterAudioRecordingCallback|
+    drive factor, share cb
+    raise build, field unit

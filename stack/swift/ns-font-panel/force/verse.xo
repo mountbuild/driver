@@ -1,0 +1,110 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSFontPanel|
+    drive aspect, |shared|
+    raise build, field ns-font-panel
+
+force set-class-shared
+  field value, field ns-font-panel
+
+  cause set-aspect
+    drive object, |NSFontPanel|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-class-shared-font-panel-exists
+
+  cause get-aspect
+    drive object, |NSFontPanel|
+    drive aspect, |sharedFontPanelExists|
+    raise build, field bool
+
+force set-class-shared-font-panel-exists
+  field value, field bool
+
+  cause set-aspect
+    drive object, |NSFontPanel|
+    drive aspect, |sharedFontPanelExists|
+    drive factor, share value
+
+force get-is-enabled
+  field build, field ns-font-panel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEnabled|
+    raise build, field bool
+
+force set-is-enabled
+  field build, field ns-font-panel
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEnabled|
+    drive factor, share value
+
+force reload-default-font-families
+  field build, field ns-font-panel
+
+  cause call-method
+    drive object, share build
+    drive method, |reloadDefaultFontFamilies|
+
+force set-panel-font
+  field build, field ns-font-panel
+  field a, class ns-font
+  field is-multiple, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setPanelFont|
+    drive factor, share a
+    drive factor
+      brand is-multiple
+      share is-multiple
+
+force convert
+  field build, field ns-font-panel
+  field a, class ns-font
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    raise build, class ns-font
+
+force get-works-when-modal
+  field build, field ns-font-panel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |worksWhenModal|
+    raise build, field bool
+
+force set-works-when-modal
+  field build, field ns-font-panel
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |worksWhenModal|
+    drive factor, share value
+
+force get-accessory-view
+  field build, field ns-font-panel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |accessoryView|
+    raise build, field ns-view
+
+force set-accessory-view
+  field build, field ns-font-panel
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |accessoryView|
+    drive factor, share value

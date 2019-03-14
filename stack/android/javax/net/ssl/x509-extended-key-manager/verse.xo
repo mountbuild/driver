@@ -1,0 +1,28 @@
+
+force choose-engine-client-alias
+  start build, field x509-extended-key-manager
+  start key-type, field array-string
+  start issuers, field array-principal
+  start engine, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |chooseEngineClientAlias|
+    mount factor, share key-type
+    mount factor, share issuers
+    mount factor, share engine
+    throw build, field string
+
+force choose-engine-server-alias
+  start build, field x509-extended-key-manager
+  start key-type, field string
+  start issuers, field array-principal
+  start engine, field ssl-engine
+
+  cause call-method
+    mount object, share build
+    mount method, |chooseEngineServerAlias|
+    mount factor, share key-type
+    mount factor, share issuers
+    mount factor, share engine
+    throw build, field string

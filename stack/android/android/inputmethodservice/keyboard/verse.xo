@@ -1,0 +1,204 @@
+
+force get-edge-bottom
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |EDGE_BOTTOM|
+    throw build, field int
+
+force get-edge-left
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |EDGE_LEFT|
+    throw build, field int
+
+force get-edge-right
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |EDGE_RIGHT|
+    throw build, field int
+
+force get-edge-top
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |EDGE_TOP|
+    throw build, field int
+
+force get-keycode-alt
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_ALT|
+    throw build, field int
+
+force get-keycode-cancel
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_CANCEL|
+    throw build, field int
+
+force get-keycode-delete
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_DELETE|
+    throw build, field int
+
+force get-keycode-done
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_DONE|
+    throw build, field int
+
+force get-keycode-mode-change
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_MODE_CHANGE|
+    throw build, field int
+
+force get-keycode-shift
+  mount build, field keyboard
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYCODE_SHIFT|
+    throw build, field int
+
+force build-keyboard
+  mount context, field context
+  mount xml-layout-res-id, field int
+
+  cause invoke-constructor
+    drive constructor, |Keyboard|
+    drive factor, share context
+    drive factor, share xml-layout-res-id
+    throw build, field keyboard
+
+force build-keyboard
+  mount context, field context
+  mount xml-layout-res-id, field int
+  mount mode-id, field int
+  mount width, field int
+  mount height, field int
+
+  cause invoke-constructor
+    drive constructor, |Keyboard|
+    drive factor, share context
+    drive factor, share xml-layout-res-id
+    drive factor, share mode-id
+    drive factor, share width
+    drive factor, share height
+    throw build, field keyboard
+
+force build-keyboard
+  mount context, field context
+  mount xml-layout-res-id, field int
+  mount mode-id, field int
+
+  cause invoke-constructor
+    drive constructor, |Keyboard|
+    drive factor, share context
+    drive factor, share xml-layout-res-id
+    drive factor, share mode-id
+    throw build, field keyboard
+
+force build-keyboard
+  mount context, field context
+  mount layout-template-res-id, field int
+  mount characters, field char-sequence
+  mount columns, field int
+  mount horizontal-padding, field int
+
+  cause invoke-constructor
+    drive constructor, |Keyboard|
+    drive factor, share context
+    drive factor, share layout-template-res-id
+    drive factor, share characters
+    drive factor, share columns
+    drive factor, share horizontal-padding
+    throw build, field keyboard
+
+force get-height
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    throw build, field int
+
+force get-keys
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeys|
+    throw build, field mutable-list
+
+force get-min-width
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinWidth|
+    throw build, field int
+
+force get-modifier-keys
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |getModifierKeys|
+    throw build, field mutable-list
+
+force get-nearest-keys
+  mount build, field keyboard
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getNearestKeys|
+    drive factor, share x
+    drive factor, share y
+    throw build, field int-array
+
+force get-shift-key-index
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |getShiftKeyIndex|
+    throw build, field int
+
+force is-shifted
+  mount build, field keyboard
+
+  cause call-method
+    drive object, share build
+    drive method, |isShifted|
+    throw build, field boolean
+
+force set-shifted
+  mount build, field keyboard
+  mount shift-state, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setShifted|
+    drive factor, share shift-state
+    throw build, field boolean

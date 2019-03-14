@@ -1,0 +1,26 @@
+
+force build-sync-event
+  start type
+  start init
+
+  cause invoke-constructor
+    mount constructor, |SyncEvent|
+    mount factor, share type
+    mount factor, share init
+    throw build
+
+force get-tag
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tag|
+    throw build
+
+force get-last-chance
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |lastChance|
+    throw build

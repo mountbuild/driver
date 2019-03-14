@@ -1,0 +1,74 @@
+
+force delete-all-data
+  mount build, field web-storage
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteAllData|
+    throw build, field unit
+
+force delete-origin
+  mount build, field web-storage
+  mount origin, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteOrigin|
+    drive factor, share origin
+    throw build, field unit
+
+force get-instance
+  mount build, field web-storage
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    throw build, field web-storage
+
+force get-origins
+  mount build, field web-storage
+  mount callback, field value-callback-mutable-map-any
+  mount any, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrigins|
+    drive factor, share callback
+    drive factor, share any
+    throw build, field unit
+
+force get-quota-for-origin
+  mount build, field web-storage
+  mount origin, field string
+  mount callback, field value-callback-long
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuotaForOrigin|
+    drive factor, share origin
+    drive factor, share callback
+    throw build, field unit
+
+force get-usage-for-origin
+  mount build, field web-storage
+  mount origin, field string
+  mount callback, field value-callback-long
+
+  cause call-method
+    drive object, share build
+    drive method, |getUsageForOrigin|
+    drive factor, share origin
+    drive factor, share callback
+    throw build, field unit
+
+force set-quota-for-origin
+  mount build, field web-storage
+  mount origin, field string
+  mount quota, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setQuotaForOrigin|
+    drive factor, share origin
+    drive factor, share quota
+    throw build, field unit

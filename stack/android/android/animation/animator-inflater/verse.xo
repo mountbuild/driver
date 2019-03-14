@@ -1,0 +1,29 @@
+
+force build-animator-inflater
+  cause invoke-constructor
+    drive constructor, |AnimatorInflater|
+    throw build, field animator-inflater
+
+force load-animator
+  mount build, field animator-inflater
+  mount context, field context
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadAnimator|
+    drive factor, share context
+    drive factor, share id
+    throw build, field animator
+
+force load-state-list-animator
+  mount build, field animator-inflater
+  mount context, field context
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadStateListAnimator|
+    drive factor, share context
+    drive factor, share id
+    throw build, field state-list-animator

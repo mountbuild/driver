@@ -1,0 +1,42 @@
+
+force build-base64-output-stream
+  mount out, field output-stream
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |Base64OutputStream|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field base64-output-stream
+
+force close
+  mount build, field base64-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force write
+  mount build, field base64-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field base64-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

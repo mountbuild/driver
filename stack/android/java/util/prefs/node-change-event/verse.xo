@@ -1,0 +1,26 @@
+
+force build-node-change-event
+  mount parent, field preferences
+  mount child, field preferences
+
+  cause invoke-constructor
+    drive constructor, |NodeChangeEvent|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field node-change-event
+
+force get-child
+  mount build, field node-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getChild|
+    throw build, field preferences
+
+force get-parent
+  mount build, field node-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field preferences

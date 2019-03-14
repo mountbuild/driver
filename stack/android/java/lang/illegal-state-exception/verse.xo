@@ -1,0 +1,31 @@
+
+force build-illegal-state-exception
+  cause invoke-constructor
+    drive constructor, |IllegalStateException|
+    throw build, field illegal-state-exception
+
+force build-illegal-state-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |IllegalStateException|
+    drive factor, share s
+    throw build, field illegal-state-exception
+
+force build-illegal-state-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |IllegalStateException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field illegal-state-exception
+
+force build-illegal-state-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |IllegalStateException|
+    drive factor, share cause
+    throw build, field illegal-state-exception

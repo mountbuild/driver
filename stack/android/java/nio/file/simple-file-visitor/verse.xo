@@ -1,0 +1,48 @@
+
+force post-visit-directory
+  mount build, field simple-file-visitor
+  mount dir, field t
+  mount exc, field io-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |postVisitDirectory|
+    drive factor, share dir
+    drive factor, share exc
+    throw build, field file-visit-result
+
+force pre-visit-directory
+  mount build, field simple-file-visitor
+  mount dir, field t
+  mount attrs, field basic-file-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |preVisitDirectory|
+    drive factor, share dir
+    drive factor, share attrs
+    throw build, field file-visit-result
+
+force visit-file
+  mount build, field simple-file-visitor
+  mount file, field t
+  mount attrs, field basic-file-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |visitFile|
+    drive factor, share file
+    drive factor, share attrs
+    throw build, field file-visit-result
+
+force visit-file-failed
+  mount build, field simple-file-visitor
+  mount file, field t
+  mount exc, field io-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |visitFileFailed|
+    drive factor, share file
+    drive factor, share exc
+    throw build, field file-visit-result

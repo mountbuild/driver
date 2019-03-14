@@ -1,0 +1,134 @@
+
+force get-blue
+  mount build, field rggb-channel-vector
+
+  cause get-property
+    drive object, share build
+    drive property, |BLUE|
+    throw build, field int
+
+force get-count
+  mount build, field rggb-channel-vector
+
+  cause get-property
+    drive object, share build
+    drive property, |COUNT|
+    throw build, field int
+
+force get-green-even
+  mount build, field rggb-channel-vector
+
+  cause get-property
+    drive object, share build
+    drive property, |GREEN_EVEN|
+    throw build, field int
+
+force get-green-odd
+  mount build, field rggb-channel-vector
+
+  cause get-property
+    drive object, share build
+    drive property, |GREEN_ODD|
+    throw build, field int
+
+force get-red
+  mount build, field rggb-channel-vector
+
+  cause get-property
+    drive object, share build
+    drive property, |RED|
+    throw build, field int
+
+force build-rggb-channel-vector
+  mount red, field float
+  mount green-even, field float
+  mount green-odd, field float
+  mount blue, field float
+
+  cause invoke-constructor
+    drive constructor, |RggbChannelVector|
+    drive factor, share red
+    drive factor, share green-even
+    drive factor, share green-odd
+    drive factor, share blue
+    throw build, field rggb-channel-vector
+
+force copy-to
+  mount build, field rggb-channel-vector
+  mount destination, field float-array
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyTo|
+    drive factor, share destination
+    drive factor, share offset
+    throw build, field unit
+
+force equals
+  mount build, field rggb-channel-vector
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-blue
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlue|
+    throw build, field float
+
+force get-component
+  mount build, field rggb-channel-vector
+  mount color-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponent|
+    drive factor, share color-channel
+    throw build, field float
+
+force get-green-even
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |getGreenEven|
+    throw build, field float
+
+force get-green-odd
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |getGreenOdd|
+    throw build, field float
+
+force get-red
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |getRed|
+    throw build, field float
+
+force hash-code
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field rggb-channel-vector
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

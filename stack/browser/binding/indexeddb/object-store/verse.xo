@@ -1,0 +1,201 @@
+
+force get-index-names
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |indexNames|
+    throw build
+
+force get-key-path
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |keyPath|
+    throw build
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build
+
+force set-name
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |name|
+    mount factor, share value
+
+force get-transaction
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |transaction|
+    throw build
+
+force get-auto-increment
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |autoIncrement|
+    throw build
+
+force add
+  start build
+  start value
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |add|
+    mount factor, share value
+    mount factor, share key
+
+force clear
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |clear|
+
+force count
+  start build
+  start query
+
+  cause call-method
+    mount object, share build
+    mount method, |count|
+    mount factor, share query
+    throw build
+
+force create-index
+  start build
+  start index-name
+  start key-path
+  start object-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |createIndex|
+    mount factor, share index-name
+    mount factor, share key-path
+    mount factor, share object-parameters
+    throw build
+
+force delete
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |delete|
+    mount factor, share key
+    throw build
+
+force delete-index
+  start build
+  start index-name
+
+  cause call-method
+    mount object, share build
+    mount method, |deleteIndex|
+    mount factor, share index-name
+    throw build
+
+force get
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |get|
+    mount factor, share key
+    throw build
+
+force get-key
+  start build
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |getKey|
+    mount factor, share key
+    throw build
+
+force get-all
+  start build
+  start query
+  start count
+
+  cause call-method
+    mount object, share build
+    mount method, |getAll|
+    mount factor, share query
+    mount factor, share count
+    throw build
+
+force get-all-keys
+  start build
+  start query
+  start count
+
+  cause call-method
+    mount object, share build
+    mount method, |getAllKeys|
+    mount factor, share query
+    mount factor, share count
+    throw build
+
+force index
+  start build
+  start name
+
+  cause call-method
+    mount object, share build
+    mount method, |index|
+    mount factor, share name
+    throw build
+
+force open-cursor
+  start build
+  start query
+  start direction
+
+  cause call-method
+    mount object, share build
+    mount method, |openCursor|
+    mount factor, share query
+    mount factor, share direction
+    throw build
+
+force open-key-cursor
+  start build
+  start query
+  start direction
+
+  cause call-method
+    mount object, share build
+    mount method, |openKeyCursor|
+    mount factor, share query
+    mount factor, share direction
+    throw build
+
+force put
+  start build
+  start item
+  start key
+
+  cause call-method
+    mount object, share build
+    mount method, |put|
+    mount factor, share item
+    mount factor, share key
+    throw build

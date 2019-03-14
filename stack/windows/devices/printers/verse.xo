@@ -1,0 +1,65 @@
+
+force build-print3-d-device
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Printers.Print3DDevice|
+
+force from-id-async
+  start build, field windows-devices-printers-print3ddevice
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+
+force get-device-selector
+  start build, field windows-devices-printers-print3ddevice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force get-print-schema
+  start build, field windows-devices-printers-print3ddevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PrintSchema|
+
+force set-print-schema
+  start build, field windows-devices-printers-print3ddevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PrintSchema|
+    drive factor, share value
+
+force build-print-schema
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Printers.PrintSchema|
+
+force get-capabilities-async
+  start build, field windows-devices-printers-printschema
+  start constrain-ticket, field windows-storage-streams-irandomaccessstreamwithcontenttype
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCapabilitiesAsync|
+    drive factor, share constrain-ticket
+
+force get-default-print-ticket-async
+  start build, field windows-devices-printers-printschema
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefaultPrintTicketAsync|
+
+force merge-and-validate-with-default-print-ticket-async
+  start build, field windows-devices-printers-printschema
+  start delta-ticket, field windows-storage-streams-irandomaccessstreamwithcontenttype
+
+  cause call-method
+    drive object, share build
+    drive method, |MergeAndValidateWithDefaultPrintTicketAsync|
+    drive factor, share delta-ticket

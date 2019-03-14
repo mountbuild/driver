@@ -1,0 +1,206 @@
+
+force acquire
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquire|
+    drive factor, share arg
+    throw build, field unit
+
+force acquire-interruptibly
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireInterruptibly|
+    drive factor, share arg
+    throw build, field unit
+
+force acquire-shared
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireShared|
+    drive factor, share arg
+    throw build, field unit
+
+force acquire-shared-interruptibly
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireSharedInterruptibly|
+    drive factor, share arg
+    throw build, field unit
+
+force get-exclusive-queued-threads
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getExclusiveQueuedThreads|
+    throw build, field mutable-collection
+
+force get-first-queued-thread
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getFirstQueuedThread|
+    throw build, field thread
+
+force get-queue-length
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueueLength|
+    throw build, field int
+
+force get-queued-threads
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueuedThreads|
+    throw build, field mutable-collection
+
+force get-shared-queued-threads
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getSharedQueuedThreads|
+    throw build, field mutable-collection
+
+force get-wait-queue-length
+  mount build, field abstract-queued-synchronizer
+  mount condition, field abstract-queued-synchronizer-condition-object
+
+  cause call-method
+    drive object, share build
+    drive method, |getWaitQueueLength|
+    drive factor, share condition
+    throw build, field int
+
+force get-waiting-threads
+  mount build, field abstract-queued-synchronizer
+  mount condition, field abstract-queued-synchronizer-condition-object
+
+  cause call-method
+    drive object, share build
+    drive method, |getWaitingThreads|
+    drive factor, share condition
+    throw build, field mutable-collection
+
+force has-contended
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |hasContended|
+    throw build, field boolean
+
+force has-queued-predecessors
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedPredecessors|
+    throw build, field boolean
+
+force has-queued-threads
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedThreads|
+    throw build, field boolean
+
+force has-waiters
+  mount build, field abstract-queued-synchronizer
+  mount condition, field abstract-queued-synchronizer-condition-object
+
+  cause call-method
+    drive object, share build
+    drive method, |hasWaiters|
+    drive factor, share condition
+    throw build, field boolean
+
+force is-queued
+  mount build, field abstract-queued-synchronizer
+  mount thread, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |isQueued|
+    drive factor, share thread
+    throw build, field boolean
+
+force owns
+  mount build, field abstract-queued-synchronizer
+  mount condition, field abstract-queued-synchronizer-condition-object
+
+  cause call-method
+    drive object, share build
+    drive method, |owns|
+    drive factor, share condition
+    throw build, field boolean
+
+force release
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    drive factor, share arg
+    throw build, field boolean
+
+force release-shared
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseShared|
+    drive factor, share arg
+    throw build, field boolean
+
+force to-string
+  mount build, field abstract-queued-synchronizer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force try-acquire-nanos
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+  mount nanos-timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquireNanos|
+    drive factor, share arg
+    drive factor, share nanos-timeout
+    throw build, field boolean
+
+force try-acquire-shared-nanos
+  mount build, field abstract-queued-synchronizer
+  mount arg, field int
+  mount nanos-timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquireSharedNanos|
+    drive factor, share arg
+    drive factor, share nanos-timeout
+    throw build, field boolean

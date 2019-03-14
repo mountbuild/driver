@@ -1,0 +1,128 @@
+
+force get-direction-in
+  start build, field ip-sec-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DIRECTION_IN|
+    throw build, field int
+
+force get-direction-out
+  start build, field ip-sec-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DIRECTION_OUT|
+    throw build, field int
+
+force allocate-security-parameter-index
+  start build, field ip-sec-manager
+  start destination-address, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateSecurityParameterIndex|
+    drive factor, share destination-address
+    throw build, field ip-sec-manager-security-parameter-index
+
+force allocate-security-parameter-index
+  start build, field ip-sec-manager
+  start destination-address, field inet-address
+  start requested-spi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |allocateSecurityParameterIndex|
+    drive factor, share destination-address
+    drive factor, share requested-spi
+    throw build, field ip-sec-manager-security-parameter-index
+
+force apply-transport-mode-transform
+  start build, field ip-sec-manager
+  start socket, field socket
+  start direction, field int
+  start transform, field ip-sec-transform
+
+  cause call-method
+    drive object, share build
+    drive method, |applyTransportModeTransform|
+    drive factor, share socket
+    drive factor, share direction
+    drive factor, share transform
+    throw build, field unit
+
+force apply-transport-mode-transform
+  start build, field ip-sec-manager
+  start socket, field datagram-socket
+  start direction, field int
+  start transform, field ip-sec-transform
+
+  cause call-method
+    drive object, share build
+    drive method, |applyTransportModeTransform|
+    drive factor, share socket
+    drive factor, share direction
+    drive factor, share transform
+    throw build, field unit
+
+force apply-transport-mode-transform
+  start build, field ip-sec-manager
+  start socket, field file-descriptor
+  start direction, field int
+  start transform, field ip-sec-transform
+
+  cause call-method
+    drive object, share build
+    drive method, |applyTransportModeTransform|
+    drive factor, share socket
+    drive factor, share direction
+    drive factor, share transform
+    throw build, field unit
+
+force open-udp-encapsulation-socket
+  start build, field ip-sec-manager
+  start port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openUdpEncapsulationSocket|
+    drive factor, share port
+    throw build, field ip-sec-manager-udp-encapsulation-socket
+
+force open-udp-encapsulation-socket
+  start build, field ip-sec-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |openUdpEncapsulationSocket|
+    throw build, field ip-sec-manager-udp-encapsulation-socket
+
+force remove-transport-mode-transforms
+  start build, field ip-sec-manager
+  start socket, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTransportModeTransforms|
+    drive factor, share socket
+    throw build, field unit
+
+force remove-transport-mode-transforms
+  start build, field ip-sec-manager
+  start socket, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTransportModeTransforms|
+    drive factor, share socket
+    throw build, field unit
+
+force remove-transport-mode-transforms
+  start build, field ip-sec-manager
+  start socket, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTransportModeTransforms|
+    drive factor, share socket
+    throw build, field unit

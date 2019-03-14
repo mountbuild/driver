@@ -1,0 +1,81 @@
+
+force get-error-already-mounted
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_ALREADY_MOUNTED|
+    raise build, field int
+
+force get-error-could-not-mount
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_COULD_NOT_MOUNT|
+    raise build, field int
+
+force get-error-could-not-unmount
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_COULD_NOT_UNMOUNT|
+    raise build, field int
+
+force get-error-internal
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INTERNAL|
+    raise build, field int
+
+force get-error-not-mounted
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NOT_MOUNTED|
+    raise build, field int
+
+force get-error-permission-denied
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_PERMISSION_DENIED|
+    raise build, field int
+
+force get-mounted
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |MOUNTED|
+    raise build, field int
+
+force get-unmounted
+  mount build, field on-obb-state-change-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |UNMOUNTED|
+    raise build, field int
+
+force build-on-obb-state-change-listener
+  cause invoke-constructor
+    drive constructor, |OnObbStateChangeListener|
+    raise build, field on-obb-state-change-listener
+
+force on-obb-state-change
+  mount build, field on-obb-state-change-listener
+  mount path, field string
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onObbStateChange|
+    drive factor, share path
+    drive factor, share state
+    raise build, field unit

@@ -1,0 +1,26 @@
+
+force get-type
+  mount build, field crl
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    throw build, field string
+
+force is-revoked
+  mount build, field crl
+  mount cert, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |isRevoked|
+    mount factor, share cert
+    throw build, field boolean
+
+force to-string
+  mount build, field crl
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

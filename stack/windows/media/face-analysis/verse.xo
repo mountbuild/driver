@@ -1,0 +1,199 @@
+
+force build-detected-face
+  cause invoke-constructor
+    drive constructor, |Windows.Media.FaceAnalysis.DetectedFace|
+
+force get-face-box
+  start build, field windows-media-faceanalysis-detectedface
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FaceBox|
+
+force set-face-box
+  start build, field windows-media-faceanalysis-detectedface
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FaceBox|
+    drive factor, share value
+
+force build-face-detector
+  cause invoke-constructor
+    drive constructor, |Windows.Media.FaceAnalysis.FaceDetector|
+
+force create-async
+  start build, field windows-media-faceanalysis-facedetector
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAsync|
+
+force detect-faces-async
+  start build, field windows-media-faceanalysis-facedetector
+  start image, field windows-graphics-imaging-softwarebitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |DetectFacesAsync|
+    drive factor, share image
+
+force detect-faces-async
+  start build, field windows-media-faceanalysis-facedetector
+  start image, field windows-graphics-imaging-softwarebitmap
+  start search-area, field windows-graphics-imaging-bitmapbounds
+
+  cause call-method
+    drive object, share build
+    drive method, |DetectFacesAsync|
+    drive factor, share image
+    drive factor, share search-area
+
+force get-supported-bitmap-pixel-formats
+  start build, field windows-media-faceanalysis-facedetector
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSupportedBitmapPixelFormats|
+
+force is-bitmap-pixel-format-supported
+  start build, field windows-media-faceanalysis-facedetector
+  start bitmap-pixel-format, field windows-graphics-imaging-bitmappixelformat
+
+  cause call-method
+    drive object, share build
+    drive method, |IsBitmapPixelFormatSupported|
+    drive factor, share bitmap-pixel-format
+
+force get-is-supported
+  start build, field windows-media-faceanalysis-facedetector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+
+force set-is-supported
+  start build, field windows-media-faceanalysis-facedetector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+    drive factor, share value
+
+force get-max-detectable-face-size
+  start build, field windows-media-faceanalysis-facedetector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxDetectableFaceSize|
+
+force set-max-detectable-face-size
+  start build, field windows-media-faceanalysis-facedetector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxDetectableFaceSize|
+    drive factor, share value
+
+force get-min-detectable-face-size
+  start build, field windows-media-faceanalysis-facedetector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinDetectableFaceSize|
+
+force set-min-detectable-face-size
+  start build, field windows-media-faceanalysis-facedetector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinDetectableFaceSize|
+    drive factor, share value
+
+force build-face-tracker
+  cause invoke-constructor
+    drive constructor, |Windows.Media.FaceAnalysis.FaceTracker|
+
+force create-async
+  start build, field windows-media-faceanalysis-facetracker
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAsync|
+
+force get-supported-bitmap-pixel-formats
+  start build, field windows-media-faceanalysis-facetracker
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSupportedBitmapPixelFormats|
+
+force is-bitmap-pixel-format-supported
+  start build, field windows-media-faceanalysis-facetracker
+  start bitmap-pixel-format, field windows-graphics-imaging-bitmappixelformat
+
+  cause call-method
+    drive object, share build
+    drive method, |IsBitmapPixelFormatSupported|
+    drive factor, share bitmap-pixel-format
+
+force get-is-supported
+  start build, field windows-media-faceanalysis-facetracker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+
+force set-is-supported
+  start build, field windows-media-faceanalysis-facetracker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+    drive factor, share value
+
+force get-max-detectable-face-size
+  start build, field windows-media-faceanalysis-facetracker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxDetectableFaceSize|
+
+force set-max-detectable-face-size
+  start build, field windows-media-faceanalysis-facetracker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxDetectableFaceSize|
+    drive factor, share value
+
+force get-min-detectable-face-size
+  start build, field windows-media-faceanalysis-facetracker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinDetectableFaceSize|
+
+force set-min-detectable-face-size
+  start build, field windows-media-faceanalysis-facetracker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinDetectableFaceSize|
+    drive factor, share value
+
+force process-next-frame-async
+  start build, field windows-media-faceanalysis-facetracker
+  start video-frame, field windows-media-videoframe
+
+  cause call-method
+    drive object, share build
+    drive method, |ProcessNextFrameAsync|
+    drive factor, share video-frame

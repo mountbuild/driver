@@ -1,0 +1,134 @@
+
+force build-identity
+  mount name, field string
+  mount scope, field identity-scope
+
+  cause invoke-constructor
+    mount constructor, |Identity|
+    mount factor, share name
+    mount factor, share scope
+    throw build, field identity
+
+force build-identity
+  mount name, field string
+
+  cause invoke-constructor
+    mount constructor, |Identity|
+    mount factor, share name
+    throw build, field identity
+
+force add-certificate
+  mount build, field identity
+  mount certificate, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |addCertificate|
+    mount factor, share certificate
+    throw build, field unit
+
+force certificates
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |certificates|
+    throw build, field array
+
+force equals
+  mount build, field identity
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-info
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |getInfo|
+    throw build, field string
+
+force get-name
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string
+
+force get-public-key
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicKey|
+    throw build, field public-key
+
+force get-scope
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |getScope|
+    throw build, field identity-scope
+
+force hash-code
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force remove-certificate
+  mount build, field identity
+  mount certificate, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |removeCertificate|
+    mount factor, share certificate
+    throw build, field unit
+
+force set-info
+  mount build, field identity
+  mount info, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setInfo|
+    mount factor, share info
+    throw build, field unit
+
+force set-public-key
+  mount build, field identity
+  mount key, field public-key
+
+  cause call-method
+    mount object, share build
+    mount method, |setPublicKey|
+    mount factor, share key
+    throw build, field unit
+
+force to-string
+  mount build, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force to-string
+  mount build, field identity
+  mount detailed, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    mount factor, share detailed
+    throw build, field string

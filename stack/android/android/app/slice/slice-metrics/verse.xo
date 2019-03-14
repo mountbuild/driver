@@ -1,0 +1,38 @@
+
+force build-slice-metrics
+  start context, field context
+  start uri, field uri
+
+  cause invoke-constructor
+    drive constructor, |SliceMetrics|
+    drive factor, share context
+    drive factor, share uri
+    throw build, field slice-metrics
+
+force log-hidden
+  start build, field slice-metrics
+
+  cause call-method
+    drive object, share build
+    drive method, |logHidden|
+    throw build, field unit
+
+force log-touch
+  start build, field slice-metrics
+  start action-type, field int
+  start sub-slice, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |logTouch|
+    drive factor, share action-type
+    drive factor, share sub-slice
+    throw build, field unit
+
+force log-visible
+  start build, field slice-metrics
+
+  cause call-method
+    drive object, share build
+    drive method, |logVisible|
+    throw build, field unit

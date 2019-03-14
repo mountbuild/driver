@@ -1,0 +1,78 @@
+
+force build-sentence-suggestions-info
+  mount suggestions-infos, field array-suggestions-info
+  mount offsets, field int-array
+  mount lengths, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SentenceSuggestionsInfo|
+    drive factor, share suggestions-infos
+    drive factor, share offsets
+    drive factor, share lengths
+    raise build, field sentence-suggestions-info
+
+force build-sentence-suggestions-info
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |SentenceSuggestionsInfo|
+    drive factor, share source
+    raise build, field sentence-suggestions-info
+
+force describe-contents
+  mount build, field sentence-suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-length-at
+  mount build, field sentence-suggestions-info
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLengthAt|
+    drive factor, share i
+    raise build, field int
+
+force get-offset-at
+  mount build, field sentence-suggestions-info
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffsetAt|
+    drive factor, share i
+    raise build, field int
+
+force get-suggestions-count
+  mount build, field sentence-suggestions-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestionsCount|
+    raise build, field int
+
+force get-suggestions-info-at
+  mount build, field sentence-suggestions-info
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestionsInfoAt|
+    drive factor, share i
+    raise build, field suggestions-info
+
+force write-to-parcel
+  mount build, field sentence-suggestions-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

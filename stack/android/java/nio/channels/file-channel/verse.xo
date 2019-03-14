@@ -1,0 +1,250 @@
+
+force force
+  mount build, field file-channel
+  mount meta-data, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |force|
+    mount factor, share meta-data
+    throw build, field unit
+
+force lock
+  mount build, field file-channel
+  mount position, field long
+  mount size, field long
+  mount shared, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |lock|
+    mount factor, share position
+    mount factor, share size
+    mount factor, share shared
+    throw build, field file-lock
+
+force lock
+  mount build, field file-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |lock|
+    throw build, field file-lock
+
+force map
+  mount build, field file-channel
+  mount mode, field file-channel-map-mode
+  mount position, field long
+  mount size, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |map|
+    mount factor, share mode
+    mount factor, share position
+    mount factor, share size
+    throw build, field mapped-byte-buffer
+
+force open
+  mount build, field file-channel
+  mount path, field path
+  mount options, field mutable-set-out-open-option
+  mount vararg-attrs, field file-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share vararg-attrs
+    throw build, field file-channel
+
+force open
+  mount build, field file-channel
+  mount path, field path
+  mount vararg-options, field open-option
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share path
+    mount factor, share vararg-options
+    throw build, field file-channel
+
+force position
+  mount build, field file-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |position|
+    throw build, field long
+
+force position
+  mount build, field file-channel
+  mount new-position, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |position|
+    mount factor, share new-position
+    throw build, field file-channel
+
+force read
+  mount build, field file-channel
+  mount dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dst
+    throw build, field int
+
+force read
+  mount build, field file-channel
+  mount dsts, field array-byte-buffer
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dsts
+    mount factor, share offset
+    mount factor, share length
+    throw build, field long
+
+force read
+  mount build, field file-channel
+  mount dsts, field array-byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dsts
+    throw build, field long
+
+force read
+  mount build, field file-channel
+  mount dst, field byte-buffer
+  mount position, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dst
+    mount factor, share position
+    throw build, field int
+
+force size
+  mount build, field file-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |size|
+    throw build, field long
+
+force transfer-from
+  mount build, field file-channel
+  mount src, field readable-byte-channel
+  mount position, field long
+  mount count, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |transferFrom|
+    mount factor, share src
+    mount factor, share position
+    mount factor, share count
+    throw build, field long
+
+force transfer-to
+  mount build, field file-channel
+  mount position, field long
+  mount count, field long
+  mount target, field writable-byte-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |transferTo|
+    mount factor, share position
+    mount factor, share count
+    mount factor, share target
+    throw build, field long
+
+force truncate
+  mount build, field file-channel
+  mount size, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |truncate|
+    mount factor, share size
+    throw build, field file-channel
+
+force try-lock
+  mount build, field file-channel
+  mount position, field long
+  mount size, field long
+  mount shared, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |tryLock|
+    mount factor, share position
+    mount factor, share size
+    mount factor, share shared
+    throw build, field file-lock
+
+force try-lock
+  mount build, field file-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |tryLock|
+    throw build, field file-lock
+
+force write
+  mount build, field file-channel
+  mount src, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share src
+    throw build, field int
+
+force write
+  mount build, field file-channel
+  mount srcs, field array-byte-buffer
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share srcs
+    mount factor, share offset
+    mount factor, share length
+    throw build, field long
+
+force write
+  mount build, field file-channel
+  mount srcs, field array-byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share srcs
+    throw build, field long
+
+force write
+  mount build, field file-channel
+  mount src, field byte-buffer
+  mount position, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share src
+    mount factor, share position
+    throw build, field int

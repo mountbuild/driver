@@ -1,0 +1,36 @@
+
+force build-preference-change-event
+  mount node, field preferences
+  mount key, field string
+  mount new-value, field string
+
+  cause invoke-constructor
+    drive constructor, |PreferenceChangeEvent|
+    drive factor, share node
+    drive factor, share key
+    drive factor, share new-value
+    throw build, field preference-change-event
+
+force get-key
+  mount build, field preference-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field string
+
+force get-new-value
+  mount build, field preference-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getNewValue|
+    throw build, field string
+
+force get-node
+  mount build, field preference-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getNode|
+    throw build, field preferences

@@ -1,0 +1,20 @@
+
+force on-failure
+  mount build, field fill-callback
+  mount message, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |onFailure|
+    drive factor, share message
+    raise build, field unit
+
+force on-success
+  mount build, field fill-callback
+  mount response, field fill-response
+
+  cause call-method
+    drive object, share build
+    drive method, |onSuccess|
+    drive factor, share response
+    raise build, field unit

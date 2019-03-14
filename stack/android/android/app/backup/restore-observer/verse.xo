@@ -1,0 +1,37 @@
+
+force build-restore-observer
+  cause invoke-constructor
+    drive constructor, |RestoreObserver|
+    throw build, field restore-observer
+
+force on-update
+  start build, field restore-observer
+  start now-being-restored, field int
+  start current-package, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdate|
+    drive factor, share now-being-restored
+    drive factor, share current-package
+    throw build, field unit
+
+force restore-finished
+  start build, field restore-observer
+  start error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreFinished|
+    drive factor, share error
+    throw build, field unit
+
+force restore-starting
+  start build, field restore-observer
+  start num-packages, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreStarting|
+    drive factor, share num-packages
+    throw build, field unit

@@ -1,0 +1,261 @@
+
+force get-socket-dgram
+  start build, field local-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |SOCKET_DGRAM|
+    throw build, field int
+
+force get-socket-seqpacket
+  start build, field local-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |SOCKET_SEQPACKET|
+    throw build, field int
+
+force get-socket-stream
+  start build, field local-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |SOCKET_STREAM|
+    throw build, field int
+
+force build-local-socket
+  cause invoke-constructor
+    drive constructor, |LocalSocket|
+    throw build, field local-socket
+
+force build-local-socket
+  start sock-type, field int
+
+  cause invoke-constructor
+    drive constructor, |LocalSocket|
+    drive factor, share sock-type
+    throw build, field local-socket
+
+force bind
+  start build, field local-socket
+  start bindpoint, field local-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share bindpoint
+    throw build, field unit
+
+force close
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  start build, field local-socket
+  start endpoint, field local-socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share endpoint
+    throw build, field unit
+
+force connect
+  start build, field local-socket
+  start endpoint, field local-socket-address
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share endpoint
+    drive factor, share timeout
+    throw build, field unit
+
+force get-ancillary-file-descriptors
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getAncillaryFileDescriptors|
+    throw build, field array
+
+force get-file-descriptor
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileDescriptor|
+    throw build, field file-descriptor
+
+force get-input-stream
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputStream|
+    throw build, field input-stream
+
+force get-local-socket-address
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalSocketAddress|
+    throw build, field local-socket-address
+
+force get-output-stream
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputStream|
+    throw build, field output-stream
+
+force get-peer-credentials
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerCredentials|
+    throw build, field credentials
+
+force get-receive-buffer-size
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceiveBufferSize|
+    throw build, field int
+
+force get-remote-socket-address
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteSocketAddress|
+    throw build, field local-socket-address
+
+force get-send-buffer-size
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSendBufferSize|
+    throw build, field int
+
+force get-so-timeout
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSoTimeout|
+    throw build, field int
+
+force is-bound
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isBound|
+    throw build, field boolean
+
+force is-closed
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isClosed|
+    throw build, field boolean
+
+force is-connected
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force is-input-shutdown
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isInputShutdown|
+    throw build, field boolean
+
+force is-output-shutdown
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isOutputShutdown|
+    throw build, field boolean
+
+force set-file-descriptors-for-send
+  start build, field local-socket
+  start fds, field array-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |setFileDescriptorsForSend|
+    drive factor, share fds
+    throw build, field unit
+
+force set-receive-buffer-size
+  start build, field local-socket
+  start size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReceiveBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-send-buffer-size
+  start build, field local-socket
+  start n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSendBufferSize|
+    drive factor, share n
+    throw build, field unit
+
+force set-so-timeout
+  start build, field local-socket
+  start n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSoTimeout|
+    drive factor, share n
+    throw build, field unit
+
+force shutdown-input
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownInput|
+    throw build, field unit
+
+force shutdown-output
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownOutput|
+    throw build, field unit
+
+force to-string
+  start build, field local-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

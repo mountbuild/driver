@@ -1,0 +1,277 @@
+
+force get-download-status-error
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DOWNLOAD_STATUS_ERROR|
+    raise build, field int
+
+force get-download-status-ok
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DOWNLOAD_STATUS_OK|
+    raise build, field int
+
+force get-download-status-retry-on-carrier-network
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DOWNLOAD_STATUS_RETRY_ON_CARRIER_NETWORK|
+    raise build, field int
+
+force get-receive-options-default
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |RECEIVE_OPTIONS_DEFAULT|
+    raise build, field int
+
+force get-receive-options-drop
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |RECEIVE_OPTIONS_DROP|
+    raise build, field int
+
+force get-receive-options-skip-notify-when-credential-protected-storage-unavailable
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |RECEIVE_OPTIONS_SKIP_NOTIFY_WHEN_CREDENTIAL_PROTECTED_STORAGE_UNAVAILABLE|
+    raise build, field int
+
+force get-send-flag-request-delivery-status
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SEND_FLAG_REQUEST_DELIVERY_STATUS|
+    raise build, field int
+
+force get-send-status-error
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SEND_STATUS_ERROR|
+    raise build, field int
+
+force get-send-status-ok
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SEND_STATUS_OK|
+    raise build, field int
+
+force get-send-status-retry-on-carrier-network
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SEND_STATUS_RETRY_ON_CARRIER_NETWORK|
+    raise build, field int
+
+force get-service-interface
+  mount build, field carrier-messaging-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-carrier-messaging-service
+  cause invoke-constructor
+    drive constructor, |CarrierMessagingService|
+    raise build, field carrier-messaging-service
+
+force on-bind
+  mount build, field carrier-messaging-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-download-mms
+  mount build, field carrier-messaging-service
+  mount content-uri, field uri
+  mount sub-id, field int
+  mount location, field uri
+  mount callback, field carrier-messaging-service-result-callback-int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDownloadMms|
+    drive factor, share content-uri
+    drive factor, share sub-id
+    drive factor, share location
+    drive factor, share callback
+    raise build, field unit
+
+force on-filter-sms
+  mount build, field carrier-messaging-service
+  mount pdu, field message-pdu
+  mount format, field string
+  mount dest-port, field int
+  mount sub-id, field int
+  mount callback, field carrier-messaging-service-result-callback-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onFilterSms|
+    drive factor, share pdu
+    drive factor, share format
+    drive factor, share dest-port
+    drive factor, share sub-id
+    drive factor, share callback
+    raise build, field unit
+
+force on-receive-text-sms
+  mount build, field carrier-messaging-service
+  mount pdu, field message-pdu
+  mount format, field string
+  mount dest-port, field int
+  mount sub-id, field int
+  mount callback, field carrier-messaging-service-result-callback-int
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceiveTextSms|
+    drive factor, share pdu
+    drive factor, share format
+    drive factor, share dest-port
+    drive factor, share sub-id
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-data-sms
+  mount build, field carrier-messaging-service
+  mount data, field byte-array
+  mount sub-id, field int
+  mount dest-address, field string
+  mount dest-port, field int
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendDataSms|
+    drive factor, share data
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share dest-port
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-data-sms
+  mount build, field carrier-messaging-service
+  mount data, field byte-array
+  mount sub-id, field int
+  mount dest-address, field string
+  mount dest-port, field int
+  mount send-sms-flag, field int
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendDataSms|
+    drive factor, share data
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share dest-port
+    drive factor, share send-sms-flag
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-mms
+  mount build, field carrier-messaging-service
+  mount pdu-uri, field uri
+  mount sub-id, field int
+  mount location, field uri
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-mms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendMms|
+    drive factor, share pdu-uri
+    drive factor, share sub-id
+    drive factor, share location
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-multipart-text-sms
+  mount build, field carrier-messaging-service
+  mount parts, field mutable-list-string
+  mount sub-id, field int
+  mount dest-address, field string
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-multipart-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendMultipartTextSms|
+    drive factor, share parts
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-multipart-text-sms
+  mount build, field carrier-messaging-service
+  mount parts, field mutable-list-string
+  mount sub-id, field int
+  mount dest-address, field string
+  mount send-sms-flag, field int
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-multipart-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendMultipartTextSms|
+    drive factor, share parts
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share send-sms-flag
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-text-sms
+  mount build, field carrier-messaging-service
+  mount text, field string
+  mount sub-id, field int
+  mount dest-address, field string
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendTextSms|
+    drive factor, share text
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share callback
+    raise build, field unit
+
+force on-send-text-sms
+  mount build, field carrier-messaging-service
+  mount text, field string
+  mount sub-id, field int
+  mount dest-address, field string
+  mount send-sms-flag, field int
+  mount callback, field carrier-messaging-service-result-callback-carrier-messaging-service-send-sms-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSendTextSms|
+    drive factor, share text
+    drive factor, share sub-id
+    drive factor, share dest-address
+    drive factor, share send-sms-flag
+    drive factor, share callback
+    raise build, field unit

@@ -1,0 +1,268 @@
+
+force build-pkix-parameters
+  mount trust-anchors, field mutable-set-trust-anchor
+
+  cause invoke-constructor
+    mount constructor, |PKIXParameters|
+    mount factor, share trust-anchors
+    throw build, field pkix-parameters
+
+force build-pkix-parameters
+  mount keystore, field key-store
+
+  cause invoke-constructor
+    mount constructor, |PKIXParameters|
+    mount factor, share keystore
+    throw build, field pkix-parameters
+
+force add-cert-path-checker
+  mount build, field pkix-parameters
+  mount checker, field pkix-cert-path-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |addCertPathChecker|
+    mount factor, share checker
+    throw build, field unit
+
+force add-cert-store
+  mount build, field pkix-parameters
+  mount store, field cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |addCertStore|
+    mount factor, share store
+    throw build, field unit
+
+force clone
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-cert-path-checkers
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertPathCheckers|
+    throw build, field mutable-list
+
+force get-cert-stores
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertStores|
+    throw build, field mutable-list
+
+force get-date
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getDate|
+    throw build, field date
+
+force get-initial-policies
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getInitialPolicies|
+    throw build, field mutable-set
+
+force get-policy-qualifiers-rejected
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getPolicyQualifiersRejected|
+    throw build, field boolean
+
+force get-sig-provider
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigProvider|
+    throw build, field string
+
+force get-target-cert-constraints
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getTargetCertConstraints|
+    throw build, field cert-selector
+
+force get-trust-anchors
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getTrustAnchors|
+    throw build, field mutable-set
+
+force is-any-policy-inhibited
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |isAnyPolicyInhibited|
+    throw build, field boolean
+
+force is-explicit-policy-required
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |isExplicitPolicyRequired|
+    throw build, field boolean
+
+force is-policy-mapping-inhibited
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |isPolicyMappingInhibited|
+    throw build, field boolean
+
+force is-revocation-enabled
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |isRevocationEnabled|
+    throw build, field boolean
+
+force set-any-policy-inhibited
+  mount build, field pkix-parameters
+  mount val, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setAnyPolicyInhibited|
+    mount factor, share val
+    throw build, field unit
+
+force set-cert-path-checkers
+  mount build, field pkix-parameters
+  mount checkers, field mutable-list-pkix-cert-path-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |setCertPathCheckers|
+    mount factor, share checkers
+    throw build, field unit
+
+force set-cert-stores
+  mount build, field pkix-parameters
+  mount stores, field mutable-list-cert-store
+
+  cause call-method
+    mount object, share build
+    mount method, |setCertStores|
+    mount factor, share stores
+    throw build, field unit
+
+force set-date
+  mount build, field pkix-parameters
+  mount date, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |setDate|
+    mount factor, share date
+    throw build, field unit
+
+force set-explicit-policy-required
+  mount build, field pkix-parameters
+  mount val, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setExplicitPolicyRequired|
+    mount factor, share val
+    throw build, field unit
+
+force set-initial-policies
+  mount build, field pkix-parameters
+  mount initial-policies, field mutable-set-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setInitialPolicies|
+    mount factor, share initial-policies
+    throw build, field unit
+
+force set-policy-mapping-inhibited
+  mount build, field pkix-parameters
+  mount val, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setPolicyMappingInhibited|
+    mount factor, share val
+    throw build, field unit
+
+force set-policy-qualifiers-rejected
+  mount build, field pkix-parameters
+  mount qualifiers-rejected, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setPolicyQualifiersRejected|
+    mount factor, share qualifiers-rejected
+    throw build, field unit
+
+force set-revocation-enabled
+  mount build, field pkix-parameters
+  mount val, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setRevocationEnabled|
+    mount factor, share val
+    throw build, field unit
+
+force set-sig-provider
+  mount build, field pkix-parameters
+  mount sig-provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSigProvider|
+    mount factor, share sig-provider
+    throw build, field unit
+
+force set-target-cert-constraints
+  mount build, field pkix-parameters
+  mount selector, field cert-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |setTargetCertConstraints|
+    mount factor, share selector
+    throw build, field unit
+
+force set-trust-anchors
+  mount build, field pkix-parameters
+  mount trust-anchors, field mutable-set-trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |setTrustAnchors|
+    mount factor, share trust-anchors
+    throw build, field unit
+
+force to-string
+  mount build, field pkix-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

@@ -1,0 +1,367 @@
+
+force build-xml-filter-impl
+  cause invoke-constructor
+    drive constructor, |XMLFilterImpl|
+    throw build, field xml-filter-impl
+
+force build-xml-filter-impl
+  mount parent, field xml-reader
+
+  cause invoke-constructor
+    drive constructor, |XMLFilterImpl|
+    drive factor, share parent
+    throw build, field xml-filter-impl
+
+force characters
+  mount build, field xml-filter-impl
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |characters|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force end-document
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |endDocument|
+    throw build, field unit
+
+force end-element
+  mount build, field xml-filter-impl
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    throw build, field unit
+
+force end-prefix-mapping
+  mount build, field xml-filter-impl
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endPrefixMapping|
+    drive factor, share prefix
+    throw build, field unit
+
+force error
+  mount build, field xml-filter-impl
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |error|
+    drive factor, share e
+    throw build, field unit
+
+force fatal-error
+  mount build, field xml-filter-impl
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |fatalError|
+    drive factor, share e
+    throw build, field unit
+
+force get-content-handler
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentHandler|
+    throw build, field content-handler
+
+force get-dtd-handler
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getDTDHandler|
+    throw build, field dtd-handler
+
+force get-entity-resolver
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntityResolver|
+    throw build, field entity-resolver
+
+force get-error-handler
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorHandler|
+    throw build, field error-handler
+
+force get-feature
+  mount build, field xml-filter-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeature|
+    drive factor, share name
+    throw build, field boolean
+
+force get-parent
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field xml-reader
+
+force get-property
+  mount build, field xml-filter-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share name
+    throw build, field any
+
+force ignorable-whitespace
+  mount build, field xml-filter-impl
+  mount ch, field char-array
+  mount start, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ignorableWhitespace|
+    drive factor, share ch
+    drive factor, share start
+    drive factor, share length
+    throw build, field unit
+
+force notation-decl
+  mount build, field xml-filter-impl
+  mount name, field string
+  mount public-id, field string
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |notationDecl|
+    drive factor, share name
+    drive factor, share public-id
+    drive factor, share system-id
+    throw build, field unit
+
+force parse
+  mount build, field xml-filter-impl
+  mount input, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share input
+    throw build, field unit
+
+force parse
+  mount build, field xml-filter-impl
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share system-id
+    throw build, field unit
+
+force processing-instruction
+  mount build, field xml-filter-impl
+  mount target, field string
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |processingInstruction|
+    drive factor, share target
+    drive factor, share data
+    throw build, field unit
+
+force resolve-entity
+  mount build, field xml-filter-impl
+  mount public-id, field string
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveEntity|
+    drive factor, share public-id
+    drive factor, share system-id
+    throw build, field input-source
+
+force set-content-handler
+  mount build, field xml-filter-impl
+  mount handler, field content-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-dtd-handler
+  mount build, field xml-filter-impl
+  mount handler, field dtd-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDTDHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-document-locator
+  mount build, field xml-filter-impl
+  mount locator, field locator
+
+  cause call-method
+    drive object, share build
+    drive method, |setDocumentLocator|
+    drive factor, share locator
+    throw build, field unit
+
+force set-entity-resolver
+  mount build, field xml-filter-impl
+  mount resolver, field entity-resolver
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntityResolver|
+    drive factor, share resolver
+    throw build, field unit
+
+force set-error-handler
+  mount build, field xml-filter-impl
+  mount handler, field error-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setErrorHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-feature
+  mount build, field xml-filter-impl
+  mount name, field string
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFeature|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit
+
+force set-parent
+  mount build, field xml-filter-impl
+  mount parent, field xml-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |setParent|
+    drive factor, share parent
+    throw build, field unit
+
+force set-property
+  mount build, field xml-filter-impl
+  mount name, field string
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperty|
+    drive factor, share name
+    drive factor, share value
+    throw build, field unit
+
+force skipped-entity
+  mount build, field xml-filter-impl
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |skippedEntity|
+    drive factor, share name
+    throw build, field unit
+
+force start-document
+  mount build, field xml-filter-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |startDocument|
+    throw build, field unit
+
+force start-element
+  mount build, field xml-filter-impl
+  mount uri, field string
+  mount local-name, field string
+  mount q-name, field string
+  mount atts, field attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |startElement|
+    drive factor, share uri
+    drive factor, share local-name
+    drive factor, share q-name
+    drive factor, share atts
+    throw build, field unit
+
+force start-prefix-mapping
+  mount build, field xml-filter-impl
+  mount prefix, field string
+  mount uri, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startPrefixMapping|
+    drive factor, share prefix
+    drive factor, share uri
+    throw build, field unit
+
+force unparsed-entity-decl
+  mount build, field xml-filter-impl
+  mount name, field string
+  mount public-id, field string
+  mount system-id, field string
+  mount notation-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unparsedEntityDecl|
+    drive factor, share name
+    drive factor, share public-id
+    drive factor, share system-id
+    drive factor, share notation-name
+    throw build, field unit
+
+force warning
+  mount build, field xml-filter-impl
+  mount e, field sax-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |warning|
+    drive factor, share e
+    throw build, field unit

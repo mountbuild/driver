@@ -1,0 +1,33 @@
+
+force build-permissions
+  cause invoke-constructor
+    mount constructor, |Permissions|
+    throw build, field permissions
+
+force add
+  mount build, field permissions
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |add|
+    mount factor, share permission
+    throw build, field unit
+
+force elements
+  mount build, field permissions
+
+  cause call-method
+    mount object, share build
+    mount method, |elements|
+    throw build, field enumeration
+
+force implies
+  mount build, field permissions
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share permission
+    throw build, field boolean

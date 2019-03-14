@@ -1,0 +1,29 @@
+
+force build-extended-ssl-session
+  cause invoke-constructor
+    mount constructor, |ExtendedSSLSession|
+    throw build, field extended-ssl-session
+
+force get-local-supported-signature-algorithms
+  start build, field extended-ssl-session
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocalSupportedSignatureAlgorithms|
+    throw build, field array
+
+force get-peer-supported-signature-algorithms
+  start build, field extended-ssl-session
+
+  cause call-method
+    mount object, share build
+    mount method, |getPeerSupportedSignatureAlgorithms|
+    throw build, field array
+
+force get-requested-server-names
+  start build, field extended-ssl-session
+
+  cause call-method
+    mount object, share build
+    mount method, |getRequestedServerNames|
+    throw build, field mutable-list

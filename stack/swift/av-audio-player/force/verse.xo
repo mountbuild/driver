@@ -1,0 +1,391 @@
+force play
+  field build, field av-audio-player
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    raise build, class bool
+
+force play
+  field build, field av-audio-player
+  field at-time, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    drive factor
+      brand at-time
+      share at-time
+    raise build, class bool
+
+force pause
+  field build, field av-audio-player
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+
+force stop
+  field build, field av-audio-player
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+
+force prepare-to-play
+  field build, field av-audio-player
+
+  cause call-method
+    drive object, share build
+    drive method, |prepareToPlay|
+    raise build, class bool
+
+force set-volume
+  field build, field av-audio-player
+  field a, class float
+  field fade-duration, field time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |setVolume|
+    drive factor, share a
+    drive factor
+      brand fade-duration
+      share fade-duration
+
+force get-is-playing
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPlaying|
+    raise build, field bool
+
+force set-is-playing
+  field build, field av-audio-player
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPlaying|
+    drive factor, share value
+
+force get-volume
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |volume|
+    raise build, field float
+
+force set-volume
+  field build, field av-audio-player
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |volume|
+    drive factor, share value
+
+force get-pan
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pan|
+    raise build, field float
+
+force set-pan
+  field build, field av-audio-player
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pan|
+    drive factor, share value
+
+force get-rate
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rate|
+    raise build, field float
+
+force set-rate
+  field build, field av-audio-player
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rate|
+    drive factor, share value
+
+force get-enable-rate
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enableRate|
+    raise build, field bool
+
+force set-enable-rate
+  field build, field av-audio-player
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enableRate|
+    drive factor, share value
+
+force get-number-of-loops
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfLoops|
+    raise build, field int
+
+force set-number-of-loops
+  field build, field av-audio-player
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfLoops|
+    drive factor, share value
+
+force get-delegate
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field av-audio-player-delegate
+
+force set-delegate
+  field build, field av-audio-player
+  field value, field av-audio-player-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-settings
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |settings|
+    raise build, field string
+
+force set-settings
+  field build, field av-audio-player
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |settings|
+    drive factor, share value
+
+force get-number-of-channels
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfChannels|
+    raise build, field int
+
+force set-number-of-channels
+  field build, field av-audio-player
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfChannels|
+    drive factor, share value
+
+force get-channel-assignments
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |channelAssignments|
+    raise build, field av-audio-session-channel-description
+
+force set-channel-assignments
+  field build, field av-audio-player
+  field value, field av-audio-session-channel-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |channelAssignments|
+    drive factor, share value
+
+force get-duration
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |duration|
+    raise build, field time-interval
+
+force set-duration
+  field build, field av-audio-player
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |duration|
+    drive factor, share value
+
+force get-current-time
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    raise build, field time-interval
+
+force set-current-time
+  field build, field av-audio-player
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentTime|
+    drive factor, share value
+
+force get-device-current-time
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deviceCurrentTime|
+    raise build, field time-interval
+
+force set-device-current-time
+  field build, field av-audio-player
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deviceCurrentTime|
+    drive factor, share value
+
+force get-url
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |url|
+    raise build, field url
+
+force set-url
+  field build, field av-audio-player
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |url|
+    drive factor, share value
+
+force get-data
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |data|
+    raise build, field data
+
+force set-data
+  field build, field av-audio-player
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |data|
+    drive factor, share value
+
+force get-current-device
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentDevice|
+    raise build, field string
+
+force set-current-device
+  field build, field av-audio-player
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentDevice|
+    drive factor, share value
+
+force get-format
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |format|
+    raise build, field av-audio-format
+
+force set-format
+  field build, field av-audio-player
+  field value, field av-audio-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |format|
+    drive factor, share value
+
+force get-is-metering-enabled
+  field build, field av-audio-player
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMeteringEnabled|
+    raise build, field bool
+
+force set-is-metering-enabled
+  field build, field av-audio-player
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMeteringEnabled|
+    drive factor, share value
+
+force average-power
+  field build, field av-audio-player
+  field for-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |averagePower|
+    drive factor
+      brand for-channel
+      share for-channel
+    raise build, class float
+
+force peak-power
+  field build, field av-audio-player
+  field for-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |peakPower|
+    drive factor
+      brand for-channel
+      share for-channel
+    raise build, class float
+
+force update-meters
+  field build, field av-audio-player
+
+  cause call-method
+    drive object, share build
+    drive method, |updateMeters|

@@ -1,0 +1,150 @@
+
+force average-bytes-per-char
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |averageBytesPerChar|
+    throw build, field float
+
+force can-encode
+  mount build, field charset-encoder
+  mount c, field char
+
+  cause call-method
+    mount object, share build
+    mount method, |canEncode|
+    mount factor, share c
+    throw build, field boolean
+
+force can-encode
+  mount build, field charset-encoder
+  mount cs, field char-sequence
+
+  cause call-method
+    mount object, share build
+    mount method, |canEncode|
+    mount factor, share cs
+    throw build, field boolean
+
+force charset
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |charset|
+    throw build, field charset
+
+force encode
+  mount build, field charset-encoder
+  mount in, field char-buffer
+  mount out, field byte-buffer
+  mount end-of-input, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |encode|
+    mount factor, share in
+    mount factor, share out
+    mount factor, share end-of-input
+    throw build, field coder-result
+
+force encode
+  mount build, field charset-encoder
+  mount in, field char-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |encode|
+    mount factor, share in
+    throw build, field byte-buffer
+
+force flush
+  mount build, field charset-encoder
+  mount out, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |flush|
+    mount factor, share out
+    throw build, field coder-result
+
+force is-legal-replacement
+  mount build, field charset-encoder
+  mount repl, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |isLegalReplacement|
+    mount factor, share repl
+    throw build, field boolean
+
+force malformed-input-action
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |malformedInputAction|
+    throw build, field coding-error-action
+
+force max-bytes-per-char
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |maxBytesPerChar|
+    throw build, field float
+
+force on-malformed-input
+  mount build, field charset-encoder
+  mount new-action, field coding-error-action
+
+  cause call-method
+    mount object, share build
+    mount method, |onMalformedInput|
+    mount factor, share new-action
+    throw build, field charset-encoder
+
+force on-unmappable-character
+  mount build, field charset-encoder
+  mount new-action, field coding-error-action
+
+  cause call-method
+    mount object, share build
+    mount method, |onUnmappableCharacter|
+    mount factor, share new-action
+    throw build, field charset-encoder
+
+force replace-with
+  mount build, field charset-encoder
+  mount new-replacement, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |replaceWith|
+    mount factor, share new-replacement
+    throw build, field charset-encoder
+
+force replacement
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |replacement|
+    throw build, field byte-array
+
+force reset
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |reset|
+    throw build, field charset-encoder
+
+force unmappable-character-action
+  mount build, field charset-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |unmappableCharacterAction|
+    throw build, field coding-error-action

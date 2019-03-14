@@ -1,0 +1,130 @@
+
+force generate-crl
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCRL|
+    mount factor, share in-stream
+    throw build, field crl
+
+force generate-cr-ls
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCRLs|
+    mount factor, share in-stream
+    throw build, field mutable-collection
+
+force generate-cert-path
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCertPath|
+    mount factor, share in-stream
+    throw build, field cert-path
+
+force generate-cert-path
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+  mount encoding, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCertPath|
+    mount factor, share in-stream
+    mount factor, share encoding
+    throw build, field cert-path
+
+force generate-cert-path
+  mount build, field certificate-factory
+  mount certificates, field mutable-list-out-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCertPath|
+    mount factor, share certificates
+    throw build, field cert-path
+
+force generate-certificate
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCertificate|
+    mount factor, share in-stream
+    throw build, field certificate
+
+force generate-certificates
+  mount build, field certificate-factory
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |generateCertificates|
+    mount factor, share in-stream
+    throw build, field mutable-collection
+
+force get-cert-path-encodings
+  mount build, field certificate-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertPathEncodings|
+    throw build, field mutable-iterator
+
+force get-instance
+  mount build, field certificate-factory
+  mount type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    throw build, field certificate-factory
+
+force get-instance
+  mount build, field certificate-factory
+  mount type, field string
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share provider
+    throw build, field certificate-factory
+
+force get-instance
+  mount build, field certificate-factory
+  mount type, field string
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share provider
+    throw build, field certificate-factory
+
+force get-provider
+  mount build, field certificate-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force get-type
+  mount build, field certificate-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    throw build, field string

@@ -1,0 +1,43 @@
+
+force get-carrier-service-interface
+  mount build, field carrier-service
+
+  cause get-property
+    drive object, share build
+    drive property, |CARRIER_SERVICE_INTERFACE|
+    raise build, field string
+
+force build-carrier-service
+  cause invoke-constructor
+    drive constructor, |CarrierService|
+    raise build, field carrier-service
+
+force notify-carrier-network-change
+  mount build, field carrier-service
+  mount active, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyCarrierNetworkChange|
+    drive factor, share active
+    raise build, field unit
+
+force on-bind
+  mount build, field carrier-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-load-config
+  mount build, field carrier-service
+  mount id, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadConfig|
+    drive factor, share id
+    raise build, field persistable-bundle

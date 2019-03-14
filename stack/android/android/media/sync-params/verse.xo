@@ -1,0 +1,141 @@
+
+force get-audio-adjust-mode-default
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_ADJUST_MODE_DEFAULT|
+    raise build, field int
+
+force get-audio-adjust-mode-resample
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_ADJUST_MODE_RESAMPLE|
+    raise build, field int
+
+force get-audio-adjust-mode-stretch
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_ADJUST_MODE_STRETCH|
+    raise build, field int
+
+force get-sync-source-audio
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_SOURCE_AUDIO|
+    raise build, field int
+
+force get-sync-source-default
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_SOURCE_DEFAULT|
+    raise build, field int
+
+force get-sync-source-system-clock
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_SOURCE_SYSTEM_CLOCK|
+    raise build, field int
+
+force get-sync-source-vsync
+  start build, field sync-params
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_SOURCE_VSYNC|
+    raise build, field int
+
+force build-sync-params
+  cause invoke-constructor
+    drive constructor, |SyncParams|
+    raise build, field sync-params
+
+force allow-defaults
+  start build, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |allowDefaults|
+    raise build, field sync-params
+
+force get-audio-adjust-mode
+  start build, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioAdjustMode|
+    raise build, field int
+
+force get-frame-rate
+  start build, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrameRate|
+    raise build, field float
+
+force get-sync-source
+  start build, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getSyncSource|
+    raise build, field int
+
+force get-tolerance
+  start build, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |getTolerance|
+    raise build, field float
+
+force set-audio-adjust-mode
+  start build, field sync-params
+  start audio-adjust-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioAdjustMode|
+    drive factor, share audio-adjust-mode
+    raise build, field sync-params
+
+force set-frame-rate
+  start build, field sync-params
+  start frame-rate, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setFrameRate|
+    drive factor, share frame-rate
+    raise build, field sync-params
+
+force set-sync-source
+  start build, field sync-params
+  start sync-source, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSyncSource|
+    drive factor, share sync-source
+    raise build, field sync-params
+
+force set-tolerance
+  start build, field sync-params
+  start tolerance, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTolerance|
+    drive factor, share tolerance
+    raise build, field sync-params

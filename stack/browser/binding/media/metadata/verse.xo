@@ -1,0 +1,76 @@
+
+force build-media-metadata
+  start metadata
+
+  cause invoke-constructor
+    mount constructor, |MediaMetadata|
+    mount factor, share metadata
+    throw build
+
+force get-title
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |title|
+    throw build
+
+force set-title
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |title|
+    mount factor, share value
+
+force get-artist
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |artist|
+    throw build
+
+force set-artist
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |artist|
+    mount factor, share value
+
+force get-album
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |album|
+    throw build
+
+force set-album
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |album|
+    mount factor, share value
+
+force get-artwork
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |artwork|
+    throw build
+
+force set-artwork
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |artwork|
+    mount factor, share value

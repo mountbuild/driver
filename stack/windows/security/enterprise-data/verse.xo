@@ -1,0 +1,1165 @@
+
+force build-buffer-protect-unprotect-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.BufferProtectUnprotectResult|
+
+force get-buffer
+  start build, field windows-security-enterprisedata-bufferprotectunprotectresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Buffer|
+
+force set-buffer
+  start build, field windows-security-enterprisedata-bufferprotectunprotectresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Buffer|
+    drive factor, share value
+
+force get-protection-info
+  start build, field windows-security-enterprisedata-bufferprotectunprotectresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProtectionInfo|
+
+force set-protection-info
+  start build, field windows-security-enterprisedata-bufferprotectunprotectresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProtectionInfo|
+    drive factor, share value
+
+force build-data-protection-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.DataProtectionInfo|
+
+force get-identity
+  start build, field windows-security-enterprisedata-dataprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identity|
+
+force set-identity
+  start build, field windows-security-enterprisedata-dataprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identity|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-enterprisedata-dataprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-enterprisedata-dataprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-data-protection-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.DataProtectionManager|
+
+force get-protection-info-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start protected-data, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |GetProtectionInfoAsync|
+    drive factor, share protected-data
+
+force get-stream-protection-info-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start protected-stream, field windows-storage-streams-iinputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStreamProtectionInfoAsync|
+    drive factor, share protected-stream
+
+force protect-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start data, field windows-storage-streams-ibuffer
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectAsync|
+    drive factor, share data
+    drive factor, share identity
+
+force protect-stream-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start unprotected-stream, field windows-storage-streams-iinputstream
+  start identity, field system-string
+  start protected-stream, field windows-storage-streams-ioutputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectStreamAsync|
+    drive factor, share unprotected-stream
+    drive factor, share identity
+    drive factor, share protected-stream
+
+force unprotect-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start data, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |UnprotectAsync|
+    drive factor, share data
+
+force unprotect-stream-async
+  start build, field windows-security-enterprisedata-dataprotectionmanager
+  start protected-stream, field windows-storage-streams-iinputstream
+  start unprotected-stream, field windows-storage-streams-ioutputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |UnprotectStreamAsync|
+    drive factor, share protected-stream
+    drive factor, share unprotected-stream
+
+force get-data-protection-status
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.DataProtectionStatus|
+
+force get-enforcement-level
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.EnforcementLevel|
+
+force build-file-protection-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.FileProtectionInfo|
+
+force get-identity
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identity|
+
+force set-identity
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identity|
+    drive factor, share value
+
+force get-is-protect-while-open-supported
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsProtectWhileOpenSupported|
+
+force set-is-protect-while-open-supported
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsProtectWhileOpenSupported|
+    drive factor, share value
+
+force get-is-roamable
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsRoamable|
+
+force set-is-roamable
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsRoamable|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-enterprisedata-fileprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-file-protection-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.FileProtectionManager|
+
+force copy-protection-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start source, field windows-storage-istorageitem
+  start target, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |CopyProtectionAsync|
+    drive factor, share source
+    drive factor, share target
+
+force create-protected-and-open-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start parent-folder, field windows-storage-istoragefolder
+  start desired-name, field system-string
+  start identity, field system-string
+  start collision-option, field windows-storage-creationcollisionoption
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateProtectedAndOpenAsync|
+    drive factor, share parent-folder
+    drive factor, share desired-name
+    drive factor, share identity
+    drive factor, share collision-option
+
+force get-protection-info-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start source, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |GetProtectionInfoAsync|
+    drive factor, share source
+
+force is-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |IsContainerAsync|
+    drive factor, share file
+
+force load-file-from-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start container-file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFileFromContainerAsync|
+    drive factor, share container-file
+
+force load-file-from-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start container-file, field windows-storage-istoragefile
+  start target, field windows-storage-istorageitem
+  start collision-option, field windows-storage-namecollisionoption
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFileFromContainerAsync|
+    drive factor, share container-file
+    drive factor, share target
+    drive factor, share collision-option
+
+force load-file-from-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start container-file, field windows-storage-istoragefile
+  start target, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFileFromContainerAsync|
+    drive factor, share container-file
+    drive factor, share target
+
+force protect-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start target, field windows-storage-istorageitem
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectAsync|
+    drive factor, share target
+    drive factor, share identity
+
+force save-file-as-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start protected-file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveFileAsContainerAsync|
+    drive factor, share protected-file
+
+force save-file-as-container-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start protected-file, field windows-storage-istoragefile
+  start shared-with-identities, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveFileAsContainerAsync|
+    drive factor, share protected-file
+    drive factor, share shared-with-identities
+
+force unprotect-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start target, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |UnprotectAsync|
+    drive factor, share target
+
+force unprotect-async
+  start build, field windows-security-enterprisedata-fileprotectionmanager
+  start target, field windows-storage-istorageitem
+  start options, field windows-security-enterprisedata-fileunprotectoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |UnprotectAsync|
+    drive factor, share target
+    drive factor, share options
+
+force get-file-protection-status
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.FileProtectionStatus|
+
+force build-file-revocation-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.FileRevocationManager|
+
+force copy-protection-async
+  start build, field windows-security-enterprisedata-filerevocationmanager
+  start source-storage-item, field windows-storage-istorageitem
+  start target-storage-item, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |CopyProtectionAsync|
+    drive factor, share source-storage-item
+    drive factor, share target-storage-item
+
+force get-status-async
+  start build, field windows-security-enterprisedata-filerevocationmanager
+  start storage-item, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStatusAsync|
+    drive factor, share storage-item
+
+force protect-async
+  start build, field windows-security-enterprisedata-filerevocationmanager
+  start storage-item, field windows-storage-istorageitem
+  start enterprise-identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectAsync|
+    drive factor, share storage-item
+    drive factor, share enterprise-identity
+
+force revoke
+  start build, field windows-security-enterprisedata-filerevocationmanager
+  start enterprise-identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Revoke|
+    drive factor, share enterprise-identity
+
+force build-file-unprotect-options
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.FileUnprotectOptions|
+
+force get-audit
+  start build, field windows-security-enterprisedata-fileunprotectoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Audit|
+
+force set-audit
+  start build, field windows-security-enterprisedata-fileunprotectoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Audit|
+    drive factor, share value
+
+force ctor
+  start build, field windows-security-enterprisedata-fileunprotectoptions
+  start audit, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share audit
+
+force build-protected-access-resumed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs|
+
+force get-identities
+  start build, field windows-security-enterprisedata-protectedaccessresumedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identities|
+
+force set-identities
+  start build, field windows-security-enterprisedata-protectedaccessresumedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identities|
+    drive factor, share value
+
+force build-protected-access-suspending-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs|
+
+force get-deadline
+  start build, field windows-security-enterprisedata-protectedaccesssuspendingeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Deadline|
+
+force set-deadline
+  start build, field windows-security-enterprisedata-protectedaccesssuspendingeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Deadline|
+    drive factor, share value
+
+force get-deferral
+  start build, field windows-security-enterprisedata-protectedaccesssuspendingeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-identities
+  start build, field windows-security-enterprisedata-protectedaccesssuspendingeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identities|
+
+force set-identities
+  start build, field windows-security-enterprisedata-protectedaccesssuspendingeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identities|
+    drive factor, share value
+
+force build-protected-container-export-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedContainerExportResult|
+
+force get-file
+  start build, field windows-security-enterprisedata-protectedcontainerexportresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |File|
+
+force set-file
+  start build, field windows-security-enterprisedata-protectedcontainerexportresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |File|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-enterprisedata-protectedcontainerexportresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-enterprisedata-protectedcontainerexportresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-protected-container-import-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedContainerImportResult|
+
+force get-file
+  start build, field windows-security-enterprisedata-protectedcontainerimportresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |File|
+
+force set-file
+  start build, field windows-security-enterprisedata-protectedcontainerimportresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |File|
+    drive factor, share value
+
+force get-status
+  start build, field windows-security-enterprisedata-protectedcontainerimportresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-enterprisedata-protectedcontainerimportresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force build-protected-content-revoked-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs|
+
+force get-identities
+  start build, field windows-security-enterprisedata-protectedcontentrevokedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identities|
+
+force set-identities
+  start build, field windows-security-enterprisedata-protectedcontentrevokedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identities|
+    drive factor, share value
+
+force build-protected-file-create-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectedFileCreateResult|
+
+force get-file
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |File|
+
+force set-file
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |File|
+    drive factor, share value
+
+force get-protection-info
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProtectionInfo|
+
+force set-protection-info
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProtectionInfo|
+    drive factor, share value
+
+force get-stream
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Stream|
+
+force set-stream
+  start build, field windows-security-enterprisedata-protectedfilecreateresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Stream|
+    drive factor, share value
+
+force get-protected-import-export-status
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.ProtectedImportExportStatus|
+
+force get-protection-policy-audit-action
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.ProtectionPolicyAuditAction|
+
+force build-protection-policy-audit-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo|
+
+force get-action
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Action|
+
+force set-action
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Action|
+    drive factor, share value
+
+force get-data-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DataDescription|
+
+force set-data-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DataDescription|
+    drive factor, share value
+
+force ctor
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start action, field windows-security-enterprisedata-protectionpolicyauditaction
+  start data-description, field system-string
+  start source-description, field system-string
+  start target-description, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share action
+    drive factor, share data-description
+    drive factor, share source-description
+    drive factor, share target-description
+
+force ctor
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start action, field windows-security-enterprisedata-protectionpolicyauditaction
+  start data-description, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share action
+    drive factor, share data-description
+
+force get-source-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceDescription|
+
+force set-source-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceDescription|
+    drive factor, share value
+
+force get-target-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TargetDescription|
+
+force set-target-description
+  start build, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TargetDescription|
+    drive factor, share value
+
+force get-protection-policy-evaluation-result
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult|
+
+force build-protection-policy-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ProtectionPolicyManager|
+
+force check-access
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CheckAccess|
+    drive factor, share source-identity
+    drive factor, share target-identity
+
+force check-access-for-app
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start app-package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CheckAccessForApp|
+    drive factor, share source-identity
+    drive factor, share app-package-family-name
+
+force clear-process-u-i-policy
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause call-method
+    drive object, share build
+    drive method, |ClearProcessUIPolicy|
+
+force create-current-thread-network-context
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateCurrentThreadNetworkContext|
+    drive factor, share identity
+
+force get-enforcement-level
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetEnforcementLevel|
+    drive factor, share identity
+
+force get-for-current-view
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentView|
+
+force get-primary-managed-identity-for-identity
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPrimaryManagedIdentityForIdentity|
+    drive factor, share identity
+
+force get-primary-managed-identity-for-network-endpoint-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start endpoint-host, field windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPrimaryManagedIdentityForNetworkEndpointAsync|
+    drive factor, share endpoint-host
+
+force has-content-been-revoked-since
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+  start since, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |HasContentBeenRevokedSince|
+    drive factor, share identity
+    drive factor, share since
+
+force get-identity
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Identity|
+
+force set-identity
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Identity|
+    drive factor, share value
+
+force is-file-protection-required-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start target, field windows-storage-istorageitem
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsFileProtectionRequiredAsync|
+    drive factor, share target
+    drive factor, share identity
+
+force is-file-protection-required-for-new-file-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start parent-folder, field windows-storage-istoragefolder
+  start identity, field system-string
+  start desired-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsFileProtectionRequiredForNewFileAsync|
+    drive factor, share parent-folder
+    drive factor, share identity
+    drive factor, share desired-name
+
+force is-identity-managed
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsIdentityManaged|
+    drive factor, share identity
+
+force get-is-protection-enabled
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsProtectionEnabled|
+
+force set-is-protection-enabled
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsProtectionEnabled|
+    drive factor, share value
+
+force is-protection-under-lock-required
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsProtectionUnderLockRequired|
+    drive factor, share identity
+
+force is-roamable-protection-enabled
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsRoamableProtectionEnabled|
+    drive factor, share identity
+
+force is-user-decryption-allowed
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsUserDecryptionAllowed|
+    drive factor, share identity
+
+force log-audit-event
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |LogAuditEvent|
+    drive factor, share source-identity
+    drive factor, share target-identity
+    drive factor, share audit-info
+
+force get-primary-managed-identity
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PrimaryManagedIdentity|
+
+force set-primary-managed-identity
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PrimaryManagedIdentity|
+    drive factor, share value
+
+force request-access-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+    drive factor, share source-identity
+    drive factor, share target-identity
+    drive factor, share audit-info
+    drive factor, share message-from-app
+
+force request-access-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+  start behavior, field windows-security-enterprisedata-protectionpolicyrequestaccessbehavior
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+    drive factor, share source-identity
+    drive factor, share target-identity
+    drive factor, share audit-info
+    drive factor, share message-from-app
+    drive factor, share behavior
+
+force request-access-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+    drive factor, share source-identity
+    drive factor, share target-identity
+    drive factor, share audit-info
+
+force request-access-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start target-identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessAsync|
+    drive factor, share source-identity
+    drive factor, share target-identity
+
+force request-access-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start app-package-family-name, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+  start behavior, field windows-security-enterprisedata-protectionpolicyrequestaccessbehavior
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForAppAsync|
+    drive factor, share source-identity
+    drive factor, share app-package-family-name
+    drive factor, share audit-info
+    drive factor, share message-from-app
+    drive factor, share behavior
+
+force request-access-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start app-package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForAppAsync|
+    drive factor, share source-identity
+    drive factor, share app-package-family-name
+
+force request-access-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start app-package-family-name, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForAppAsync|
+    drive factor, share source-identity
+    drive factor, share app-package-family-name
+    drive factor, share audit-info
+
+force request-access-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-identity, field system-string
+  start app-package-family-name, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessForAppAsync|
+    drive factor, share source-identity
+    drive factor, share app-package-family-name
+    drive factor, share audit-info
+    drive factor, share message-from-app
+
+force request-access-to-files-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-item-list, field windows-foundation-collections-iiterable-windows-storage-istorageitem
+  start app-package-family-name, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+  start behavior, field windows-security-enterprisedata-protectionpolicyrequestaccessbehavior
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessToFilesForAppAsync|
+    drive factor, share source-item-list
+    drive factor, share app-package-family-name
+    drive factor, share audit-info
+    drive factor, share message-from-app
+    drive factor, share behavior
+
+force request-access-to-files-for-app-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-item-list, field windows-foundation-collections-iiterable-windows-storage-istorageitem
+  start app-package-family-name, field system-string
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessToFilesForAppAsync|
+    drive factor, share source-item-list
+    drive factor, share app-package-family-name
+    drive factor, share audit-info
+
+force request-access-to-files-for-process-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-item-list, field windows-foundation-collections-iiterable-windows-storage-istorageitem
+  start process-id, field system-uint32
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+  start message-from-app, field system-string
+  start behavior, field windows-security-enterprisedata-protectionpolicyrequestaccessbehavior
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessToFilesForProcessAsync|
+    drive factor, share source-item-list
+    drive factor, share process-id
+    drive factor, share audit-info
+    drive factor, share message-from-app
+    drive factor, share behavior
+
+force request-access-to-files-for-process-async
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start source-item-list, field windows-foundation-collections-iiterable-windows-storage-istorageitem
+  start process-id, field system-uint32
+  start audit-info, field windows-security-enterprisedata-protectionpolicyauditinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAccessToFilesForProcessAsync|
+    drive factor, share source-item-list
+    drive factor, share process-id
+    drive factor, share audit-info
+
+force revoke-content
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RevokeContent|
+    drive factor, share identity
+
+force get-show-enterprise-indicator
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ShowEnterpriseIndicator|
+
+force set-show-enterprise-indicator
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ShowEnterpriseIndicator|
+    drive factor, share value
+
+force try-apply-process-u-i-policy
+  start build, field windows-security-enterprisedata-protectionpolicymanager
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TryApplyProcessUIPolicy|
+    drive factor, share identity
+
+force get-protection-policy-request-access-behavior
+  cause get-object
+    drive aspect, |Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior|
+
+force build-thread-network-context
+  cause invoke-constructor
+    drive constructor, |Windows.Security.EnterpriseData.ThreadNetworkContext|
+
+force close
+  start build, field windows-security-enterprisedata-threadnetworkcontext
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|

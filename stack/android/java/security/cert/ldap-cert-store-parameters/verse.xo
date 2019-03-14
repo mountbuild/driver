@@ -1,0 +1,55 @@
+
+force build-ldap-cert-store-parameters
+  mount server-name, field string
+  mount port, field int
+
+  cause invoke-constructor
+    mount constructor, |LDAPCertStoreParameters|
+    mount factor, share server-name
+    mount factor, share port
+    throw build, field ldap-cert-store-parameters
+
+force build-ldap-cert-store-parameters
+  mount server-name, field string
+
+  cause invoke-constructor
+    mount constructor, |LDAPCertStoreParameters|
+    mount factor, share server-name
+    throw build, field ldap-cert-store-parameters
+
+force build-ldap-cert-store-parameters
+  cause invoke-constructor
+    mount constructor, |LDAPCertStoreParameters|
+    throw build, field ldap-cert-store-parameters
+
+force clone
+  mount build, field ldap-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-port
+  mount build, field ldap-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getPort|
+    throw build, field int
+
+force get-server-name
+  mount build, field ldap-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getServerName|
+    throw build, field string
+
+force to-string
+  mount build, field ldap-cert-store-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

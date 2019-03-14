@@ -1,0 +1,96 @@
+
+force build-scene
+  mount scene-root, field view-group
+
+  cause invoke-constructor
+    drive constructor, |Scene|
+    drive factor, share scene-root
+    throw build, field scene
+
+force build-scene
+  mount scene-root, field view-group
+  mount layout, field view
+
+  cause invoke-constructor
+    drive constructor, |Scene|
+    drive factor, share scene-root
+    drive factor, share layout
+    throw build, field scene
+
+force build-scene
+  mount scene-root, field view-group
+  mount layout, field view-group
+
+  cause invoke-constructor
+    drive constructor, |Scene|
+    drive factor, share scene-root
+    drive factor, share layout
+    throw build, field scene
+
+force enter
+  mount build, field scene
+
+  cause call-method
+    drive object, share build
+    drive method, |enter|
+    throw build, field unit
+
+force exit
+  mount build, field scene
+
+  cause call-method
+    drive object, share build
+    drive method, |exit|
+    throw build, field unit
+
+force get-current-scene
+  mount build, field scene
+  mount scene-root, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentScene|
+    drive factor, share scene-root
+    throw build, field scene
+
+force get-scene-for-layout
+  mount build, field scene
+  mount scene-root, field view-group
+  mount layout-id, field int
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getSceneForLayout|
+    drive factor, share scene-root
+    drive factor, share layout-id
+    drive factor, share context
+    throw build, field scene
+
+force get-scene-root
+  mount build, field scene
+
+  cause call-method
+    drive object, share build
+    drive method, |getSceneRoot|
+    throw build, field view-group
+
+force set-enter-action
+  mount build, field scene
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |setEnterAction|
+    drive factor, share action
+    throw build, field unit
+
+force set-exit-action
+  mount build, field scene
+  mount action, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |setExitAction|
+    drive factor, share action
+    throw build, field unit

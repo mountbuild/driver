@@ -1,0 +1,443 @@
+
+force get-epoch-julian-day
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |EPOCH_JULIAN_DAY|
+    raise build, field int
+
+force get-friday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |FRIDAY|
+    raise build, field int
+
+force get-hour
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |HOUR|
+    raise build, field int
+
+force get-minute
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |MINUTE|
+    raise build, field int
+
+force get-monday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |MONDAY|
+    raise build, field int
+
+force get-monday-before-julian-epoch
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |MONDAY_BEFORE_JULIAN_EPOCH|
+    raise build, field int
+
+force get-month
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |MONTH|
+    raise build, field int
+
+force get-month-day
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |MONTH_DAY|
+    raise build, field int
+
+force get-saturday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |SATURDAY|
+    raise build, field int
+
+force get-second
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |SECOND|
+    raise build, field int
+
+force get-sunday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |SUNDAY|
+    raise build, field int
+
+force get-thursday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |THURSDAY|
+    raise build, field int
+
+force get-timezone-utc
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |TIMEZONE_UTC|
+    raise build, field string
+
+force get-tuesday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |TUESDAY|
+    raise build, field int
+
+force get-wednesday
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |WEDNESDAY|
+    raise build, field int
+
+force get-week-day
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |WEEK_DAY|
+    raise build, field int
+
+force get-week-num
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |WEEK_NUM|
+    raise build, field int
+
+force get-year
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |YEAR|
+    raise build, field int
+
+force get-year-day
+  mount build, field time
+
+  cause get-property
+    drive object, share build
+    drive property, |YEAR_DAY|
+    raise build, field int
+
+force build-time
+  mount timezone-id, field string
+
+  cause invoke-constructor
+    drive constructor, |Time|
+    drive factor, share timezone-id
+    raise build, field time
+
+force build-time
+  cause invoke-constructor
+    drive constructor, |Time|
+    raise build, field time
+
+force build-time
+  mount other, field time
+
+  cause invoke-constructor
+    drive constructor, |Time|
+    drive factor, share other
+    raise build, field time
+
+force after
+  mount build, field time
+  mount that, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |after|
+    drive factor, share that
+    raise build, field boolean
+
+force before
+  mount build, field time
+  mount that, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |before|
+    drive factor, share that
+    raise build, field boolean
+
+force clear
+  mount build, field time
+  mount timezone-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    drive factor, share timezone-id
+    raise build, field unit
+
+force compare
+  mount build, field time
+  mount a, field time
+  mount b, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor, share b
+    raise build, field int
+
+force format
+  mount build, field time
+  mount format, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share format
+    raise build, field string
+
+force format2445
+  mount build, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |format2445|
+    raise build, field string
+
+force format3339
+  mount build, field time
+  mount all-day, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |format3339|
+    drive factor, share all-day
+    raise build, field string
+
+force get-actual-maximum
+  mount build, field time
+  mount field, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActualMaximum|
+    drive factor, share field
+    raise build, field int
+
+force get-current-timezone
+  mount build, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentTimezone|
+    raise build, field string
+
+force get-julian-day
+  mount build, field time
+  mount millis, field long
+  mount gmtoff-seconds, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getJulianDay|
+    drive factor, share millis
+    drive factor, share gmtoff-seconds
+    raise build, field int
+
+force get-julian-monday-from-weeks-since-epoch
+  mount build, field time
+  mount week, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getJulianMondayFromWeeksSinceEpoch|
+    drive factor, share week
+    raise build, field int
+
+force get-week-number
+  mount build, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |getWeekNumber|
+    raise build, field int
+
+force get-weeks-since-epoch-from-julian-day
+  mount build, field time
+  mount julian-day, field int
+  mount first-day-of-week, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getWeeksSinceEpochFromJulianDay|
+    drive factor, share julian-day
+    drive factor, share first-day-of-week
+    raise build, field int
+
+force is-epoch
+  mount build, field time
+  mount time, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |isEpoch|
+    drive factor, share time
+    raise build, field boolean
+
+force normalize
+  mount build, field time
+  mount ignore-dst, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |normalize|
+    drive factor, share ignore-dst
+    raise build, field long
+
+force parse
+  mount build, field time
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share s
+    raise build, field boolean
+
+force parse3339
+  mount build, field time
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse3339|
+    drive factor, share s
+    raise build, field boolean
+
+force set
+  mount build, field time
+  mount millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share millis
+    raise build, field unit
+
+force set
+  mount build, field time
+  mount that, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share that
+    raise build, field unit
+
+force set
+  mount build, field time
+  mount second, field int
+  mount minute, field int
+  mount hour, field int
+  mount month-day, field int
+  mount month, field int
+  mount year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share second
+    drive factor, share minute
+    drive factor, share hour
+    drive factor, share month-day
+    drive factor, share month
+    drive factor, share year
+    raise build, field unit
+
+force set
+  mount build, field time
+  mount month-day, field int
+  mount month, field int
+  mount year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share month-day
+    drive factor, share month
+    drive factor, share year
+    raise build, field unit
+
+force set-julian-day
+  mount build, field time
+  mount julian-day, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setJulianDay|
+    drive factor, share julian-day
+    raise build, field long
+
+force set-to-now
+  mount build, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |setToNow|
+    raise build, field unit
+
+force switch-timezone
+  mount build, field time
+  mount timezone, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |switchTimezone|
+    drive factor, share timezone
+    raise build, field unit
+
+force to-millis
+  mount build, field time
+  mount ignore-dst, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |toMillis|
+    drive factor, share ignore-dst
+    raise build, field long
+
+force to-string
+  mount build, field time
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

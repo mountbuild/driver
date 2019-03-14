@@ -1,0 +1,52 @@
+
+force open-asynchronous-channel-group
+  mount build, field asynchronous-channel-provider
+  mount n-threads, field int
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |openAsynchronousChannelGroup|
+    mount factor, share n-threads
+    mount factor, share thread-factory
+    throw build, field asynchronous-channel-group
+
+force open-asynchronous-channel-group
+  mount build, field asynchronous-channel-provider
+  mount executor, field executor-service
+  mount initial-size, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |openAsynchronousChannelGroup|
+    mount factor, share executor
+    mount factor, share initial-size
+    throw build, field asynchronous-channel-group
+
+force open-asynchronous-server-socket-channel
+  mount build, field asynchronous-channel-provider
+  mount group, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |openAsynchronousServerSocketChannel|
+    mount factor, share group
+    throw build, field asynchronous-server-socket-channel
+
+force open-asynchronous-socket-channel
+  mount build, field asynchronous-channel-provider
+  mount group, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |openAsynchronousSocketChannel|
+    mount factor, share group
+    throw build, field asynchronous-socket-channel
+
+force provider
+  mount build, field asynchronous-channel-provider
+
+  cause call-method
+    mount object, share build
+    mount method, |provider|
+    throw build, field asynchronous-channel-provider

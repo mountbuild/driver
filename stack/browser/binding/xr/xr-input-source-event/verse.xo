@@ -1,0 +1,26 @@
+
+force build-x-r-input-source-event
+  start type
+  start event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |XRInputSourceEvent|
+    mount factor, share type
+    mount factor, share event-init-dict
+    throw build
+
+force get-frame
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |frame|
+    throw build
+
+force get-input-source
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |inputSource|
+    throw build

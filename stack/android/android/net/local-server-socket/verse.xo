@@ -1,0 +1,48 @@
+
+force build-local-server-socket
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |LocalServerSocket|
+    drive factor, share name
+    throw build, field local-server-socket
+
+force build-local-server-socket
+  start fd, field file-descriptor
+
+  cause invoke-constructor
+    drive constructor, |LocalServerSocket|
+    drive factor, share fd
+    throw build, field local-server-socket
+
+force accept
+  start build, field local-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |accept|
+    throw build, field local-socket
+
+force close
+  start build, field local-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-file-descriptor
+  start build, field local-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileDescriptor|
+    throw build, field file-descriptor
+
+force get-local-socket-address
+  start build, field local-server-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalSocketAddress|
+    throw build, field local-socket-address

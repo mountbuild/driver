@@ -1,0 +1,40 @@
+
+force close
+  mount build, field web-message-port
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force post-message
+  mount build, field web-message-port
+  mount message, field web-message
+
+  cause call-method
+    drive object, share build
+    drive method, |postMessage|
+    drive factor, share message
+    throw build, field unit
+
+force set-web-message-callback
+  mount build, field web-message-port
+  mount callback, field web-message-port-web-message-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setWebMessageCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force set-web-message-callback
+  mount build, field web-message-port
+  mount callback, field web-message-port-web-message-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setWebMessageCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit

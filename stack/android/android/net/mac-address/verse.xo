@@ -1,0 +1,142 @@
+
+force get-type-broadcast
+  start build, field mac-address
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BROADCAST|
+    throw build, field int
+
+force get-type-multicast
+  start build, field mac-address
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_MULTICAST|
+    throw build, field int
+
+force get-type-unicast
+  start build, field mac-address
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_UNICAST|
+    throw build, field int
+
+force describe-contents
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field mac-address
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force from-bytes
+  start build, field mac-address
+  start addr, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |fromBytes|
+    drive factor, share addr
+    throw build, field mac-address
+
+force from-string
+  start build, field mac-address
+  start addr, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fromString|
+    drive factor, share addr
+    throw build, field mac-address
+
+force get-address-type
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddressType|
+    throw build, field int
+
+force get-link-local-ipv6-from-eui48-mac
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |getLinkLocalIpv6FromEui48Mac|
+    throw build, field inet6-address
+
+force hash-code
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-locally-assigned
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |isLocallyAssigned|
+    throw build, field boolean
+
+force matches
+  start build, field mac-address
+  start base-address, field mac-address
+  start mask, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |matches|
+    drive factor, share base-address
+    drive factor, share mask
+    throw build, field boolean
+
+force to-byte-array
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |toByteArray|
+    throw build, field byte-array
+
+force to-oui-string
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |toOuiString|
+    throw build, field string
+
+force to-string
+  start build, field mac-address
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field mac-address
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

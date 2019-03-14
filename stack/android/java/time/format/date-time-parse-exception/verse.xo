@@ -1,0 +1,42 @@
+
+force build-date-time-parse-exception
+  mount message, field string
+  mount parsed-data, field char-sequence
+  mount error-index, field int
+
+  cause invoke-constructor
+    drive constructor, |DateTimeParseException|
+    drive factor, share message
+    drive factor, share parsed-data
+    drive factor, share error-index
+    throw build, field date-time-parse-exception
+
+force build-date-time-parse-exception
+  mount message, field string
+  mount parsed-data, field char-sequence
+  mount error-index, field int
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |DateTimeParseException|
+    drive factor, share message
+    drive factor, share parsed-data
+    drive factor, share error-index
+    drive factor, share cause
+    throw build, field date-time-parse-exception
+
+force get-error-index
+  mount build, field date-time-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorIndex|
+    throw build, field int
+
+force get-parsed-string
+  mount build, field date-time-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getParsedString|
+    throw build, field string

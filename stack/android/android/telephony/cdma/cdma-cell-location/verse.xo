@@ -1,0 +1,139 @@
+
+force build-cdma-cell-location
+  cause invoke-constructor
+    drive constructor, |CdmaCellLocation|
+    throw build, field cdma-cell-location
+
+force build-cdma-cell-location
+  mount bundle, field bundle
+
+  cause invoke-constructor
+    drive constructor, |CdmaCellLocation|
+    drive factor, share bundle
+    throw build, field cdma-cell-location
+
+force convert-quart-sec-to-dec-degrees
+  mount build, field cdma-cell-location
+  mount quart-sec, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |convertQuartSecToDecDegrees|
+    drive factor, share quart-sec
+    throw build, field double
+
+force equals
+  mount build, field cdma-cell-location
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force fill-in-notifier-bundle
+  mount build, field cdma-cell-location
+  mount bundle-to-fill, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |fillInNotifierBundle|
+    drive factor, share bundle-to-fill
+    throw build, field unit
+
+force get-base-station-id
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getBaseStationId|
+    throw build, field int
+
+force get-base-station-latitude
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getBaseStationLatitude|
+    throw build, field int
+
+force get-base-station-longitude
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getBaseStationLongitude|
+    throw build, field int
+
+force get-network-id
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkId|
+    throw build, field int
+
+force get-system-id
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemId|
+    throw build, field int
+
+force hash-code
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force set-cell-location-data
+  mount build, field cdma-cell-location
+  mount base-station-id, field int
+  mount base-station-latitude, field int
+  mount base-station-longitude, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCellLocationData|
+    drive factor, share base-station-id
+    drive factor, share base-station-latitude
+    drive factor, share base-station-longitude
+    throw build, field unit
+
+force set-cell-location-data
+  mount build, field cdma-cell-location
+  mount base-station-id, field int
+  mount base-station-latitude, field int
+  mount base-station-longitude, field int
+  mount system-id, field int
+  mount network-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCellLocationData|
+    drive factor, share base-station-id
+    drive factor, share base-station-latitude
+    drive factor, share base-station-longitude
+    drive factor, share system-id
+    drive factor, share network-id
+    throw build, field unit
+
+force set-state-invalid
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |setStateInvalid|
+    throw build, field unit
+
+force to-string
+  mount build, field cdma-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,48 @@
+force get-class-default
+
+  cause get-aspect
+    drive object, |NSFileProviderManager|
+    drive aspect, |default|
+    raise build, field ns-file-provider-manager
+
+force set-class-default
+  field value, field ns-file-provider-manager
+
+  cause set-aspect
+    drive object, |NSFileProviderManager|
+    drive aspect, |default|
+    drive factor, share value
+
+force get-document-storage-url
+  field build, field ns-file-provider-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |documentStorageURL|
+    raise build, field url
+
+force set-document-storage-url
+  field build, field ns-file-provider-manager
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |documentStorageURL|
+    drive factor, share value
+
+force get-provider-identifier
+  field build, field ns-file-provider-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |providerIdentifier|
+    raise build, field string
+
+force set-provider-identifier
+  field build, field ns-file-provider-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |providerIdentifier|
+    drive factor, share value

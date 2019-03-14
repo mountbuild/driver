@@ -1,0 +1,153 @@
+
+force get-service-interface
+  mount build, field media-browser-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-media-browser-service
+  cause invoke-constructor
+    drive constructor, |MediaBrowserService|
+    raise build, field media-browser-service
+
+force dump
+  mount build, field media-browser-service
+  mount fd, field file-descriptor
+  mount writer, field print-writer
+  mount args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    raise build, field unit
+
+force get-browser-root-hints
+  mount build, field media-browser-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getBrowserRootHints|
+    raise build, field bundle
+
+force get-current-browser-info
+  mount build, field media-browser-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentBrowserInfo|
+    raise build, field media-session-manager-remote-user-info
+
+force get-session-token
+  mount build, field media-browser-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionToken|
+    raise build, field media-session-token
+
+force notify-children-changed
+  mount build, field media-browser-service
+  mount parent-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChildrenChanged|
+    drive factor, share parent-id
+    raise build, field unit
+
+force notify-children-changed
+  mount build, field media-browser-service
+  mount parent-id, field string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChildrenChanged|
+    drive factor, share parent-id
+    drive factor, share options
+    raise build, field unit
+
+force on-bind
+  mount build, field media-browser-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-create
+  mount build, field media-browser-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-get-root
+  mount build, field media-browser-service
+  mount client-package-name, field string
+  mount client-uid, field int
+  mount root-hints, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetRoot|
+    drive factor, share client-package-name
+    drive factor, share client-uid
+    drive factor, share root-hints
+    raise build, field media-browser-service-browser-root
+
+force on-load-children
+  mount build, field media-browser-service
+  mount parent-id, field string
+  mount result, field media-browser-service-result-mutable-list-media-browser-media-item
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadChildren|
+    drive factor, share parent-id
+    drive factor, share result
+    raise build, field unit
+
+force on-load-children
+  mount build, field media-browser-service
+  mount parent-id, field string
+  mount result, field media-browser-service-result-mutable-list-media-browser-media-item
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadChildren|
+    drive factor, share parent-id
+    drive factor, share result
+    drive factor, share options
+    raise build, field unit
+
+force on-load-item
+  mount build, field media-browser-service
+  mount item-id, field string
+  mount result, field media-browser-service-result-media-browser-media-item
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadItem|
+    drive factor, share item-id
+    drive factor, share result
+    raise build, field unit
+
+force set-session-token
+  mount build, field media-browser-service
+  mount token, field media-session-token
+
+  cause call-method
+    drive object, share build
+    drive method, |setSessionToken|
+    drive factor, share token
+    raise build, field unit

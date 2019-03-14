@@ -1,0 +1,21 @@
+
+force build-egl-context
+  cause invoke-constructor
+    mount constructor, |EGLContext|
+    throw build, field egl-context
+
+force get-egl
+  start build, field egl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getEGL|
+    throw build, field egl
+
+force get-gl
+  start build, field egl-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getGL|
+    throw build, field gl

@@ -1,0 +1,80 @@
+
+force build-drawable-margin-span
+  mount drawable, field drawable
+
+  cause invoke-constructor
+    drive constructor, |DrawableMarginSpan|
+    drive factor, share drawable
+    raise build, field drawable-margin-span
+
+force build-drawable-margin-span
+  mount drawable, field drawable
+  mount pad, field int
+
+  cause invoke-constructor
+    drive constructor, |DrawableMarginSpan|
+    drive factor, share drawable
+    drive factor, share pad
+    raise build, field drawable-margin-span
+
+force choose-height
+  mount build, field drawable-margin-span
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount istartv, field int
+  mount v, field int
+  mount fm, field paint-font-metrics-int
+
+  cause call-method
+    drive object, share build
+    drive method, |chooseHeight|
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share istartv
+    drive factor, share v
+    drive factor, share fm
+    raise build, field unit
+
+force draw-leading-margin
+  mount build, field drawable-margin-span
+  mount c, field canvas
+  mount p, field paint
+  mount x, field int
+  mount dir, field int
+  mount top, field int
+  mount baseline, field int
+  mount bottom, field int
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount first, field boolean
+  mount layout, field layout
+
+  cause call-method
+    drive object, share build
+    drive method, |drawLeadingMargin|
+    drive factor, share c
+    drive factor, share p
+    drive factor, share x
+    drive factor, share dir
+    drive factor, share top
+    drive factor, share baseline
+    drive factor, share bottom
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share first
+    drive factor, share layout
+    raise build, field unit
+
+force get-leading-margin
+  mount build, field drawable-margin-span
+  mount first, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeadingMargin|
+    drive factor, share first
+    raise build, field int

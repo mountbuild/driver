@@ -1,0 +1,49 @@
+
+force create
+  cause create-literal
+    mount literal, |{}|
+    raise build
+
+force check-if-has-property
+  start object
+  start property
+
+  cause call-method
+    mount object, share object
+    mount method, |hasOwnProperty|
+    mount factor, share property
+    raise build
+
+force stringify-json
+  start object
+
+  cause call-method
+    mount object, |JSON|
+    mount method, |stringify|
+    mount factor, share object
+    raise build
+
+force parse-json
+  start string
+
+  cause call-method
+    mount object, |JSON|
+    mount method, |parse|
+    mount factor, share string
+    raise build
+
+force get-keys
+  start object
+
+  cause call-method
+    mount object, |Object|
+    mount method, |keys|
+    mount factor, share object
+
+force get-values
+  start object
+
+  cause call-method
+    mount object, |Object|
+    mount method, |values|
+    mount factor, share object

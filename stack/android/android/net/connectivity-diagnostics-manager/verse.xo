@@ -1,0 +1,24 @@
+
+force register-connectivity-diagnostics-callback
+  start build, field connectivity-diagnostics-manager
+  start request, field network-request
+  start e, field executor
+  start callback, field connectivity-diagnostics-manager-connectivity-diagnostics-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerConnectivityDiagnosticsCallback|
+    drive factor, share request
+    drive factor, share e
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-connectivity-diagnostics-callback
+  start build, field connectivity-diagnostics-manager
+  start callback, field connectivity-diagnostics-manager-connectivity-diagnostics-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterConnectivityDiagnosticsCallback|
+    drive factor, share callback
+    throw build, field unit

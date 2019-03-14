@@ -1,0 +1,96 @@
+
+force get-available-currencies
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableCurrencies|
+    throw build, field mutable-set
+
+force get-currency-code
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrencyCode|
+    throw build, field string
+
+force get-default-fraction-digits
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultFractionDigits|
+    throw build, field int
+
+force get-display-name
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    throw build, field string
+
+force get-display-name
+  mount build, field currency
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share locale
+    throw build, field string
+
+force get-instance
+  mount build, field currency
+  mount currency-code, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share currency-code
+    throw build, field currency
+
+force get-instance
+  mount build, field currency
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    throw build, field currency
+
+force get-numeric-code
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumericCode|
+    throw build, field int
+
+force get-symbol
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |getSymbol|
+    throw build, field string
+
+force get-symbol
+  mount build, field currency
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getSymbol|
+    drive factor, share locale
+    throw build, field string
+
+force to-string
+  mount build, field currency
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

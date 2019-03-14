@@ -1,0 +1,16 @@
+
+force build-unsupported-charset-exception
+  mount charset-name, field string
+
+  cause invoke-constructor
+    mount constructor, |UnsupportedCharsetException|
+    mount factor, share charset-name
+    throw build, field unsupported-charset-exception
+
+force get-charset-name
+  mount build, field unsupported-charset-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getCharsetName|
+    throw build, field string

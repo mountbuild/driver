@@ -1,0 +1,398 @@
+
+force build-pdf-document
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Pdf.PdfDocument|
+
+force get-page
+  start build, field windows-data-pdf-pdfdocument
+  start page-index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPage|
+    drive factor, share page-index
+
+force get-is-password-protected
+  start build, field windows-data-pdf-pdfdocument
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsPasswordProtected|
+
+force set-is-password-protected
+  start build, field windows-data-pdf-pdfdocument
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsPasswordProtected|
+    drive factor, share value
+
+force load-from-file-async
+  start build, field windows-data-pdf-pdfdocument
+  start file, field windows-storage-istoragefile
+  start password, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFromFileAsync|
+    drive factor, share file
+    drive factor, share password
+
+force load-from-file-async
+  start build, field windows-data-pdf-pdfdocument
+  start file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFromFileAsync|
+    drive factor, share file
+
+force load-from-stream-async
+  start build, field windows-data-pdf-pdfdocument
+  start input-stream, field windows-storage-streams-irandomaccessstream
+  start password, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFromStreamAsync|
+    drive factor, share input-stream
+    drive factor, share password
+
+force load-from-stream-async
+  start build, field windows-data-pdf-pdfdocument
+  start input-stream, field windows-storage-streams-irandomaccessstream
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFromStreamAsync|
+    drive factor, share input-stream
+
+force get-page-count
+  start build, field windows-data-pdf-pdfdocument
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PageCount|
+
+force set-page-count
+  start build, field windows-data-pdf-pdfdocument
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PageCount|
+    drive factor, share value
+
+force build-pdf-page
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Pdf.PdfPage|
+
+force close
+  start build, field windows-data-pdf-pdfpage
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-dimensions
+  start build, field windows-data-pdf-pdfpage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Dimensions|
+
+force set-dimensions
+  start build, field windows-data-pdf-pdfpage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Dimensions|
+    drive factor, share value
+
+force get-index
+  start build, field windows-data-pdf-pdfpage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Index|
+
+force set-index
+  start build, field windows-data-pdf-pdfpage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Index|
+    drive factor, share value
+
+force get-preferred-zoom
+  start build, field windows-data-pdf-pdfpage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PreferredZoom|
+
+force set-preferred-zoom
+  start build, field windows-data-pdf-pdfpage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PreferredZoom|
+    drive factor, share value
+
+force prepare-page-async
+  start build, field windows-data-pdf-pdfpage
+
+  cause call-method
+    drive object, share build
+    drive method, |PreparePageAsync|
+
+force render-to-stream-async
+  start build, field windows-data-pdf-pdfpage
+  start output-stream, field windows-storage-streams-irandomaccessstream
+
+  cause call-method
+    drive object, share build
+    drive method, |RenderToStreamAsync|
+    drive factor, share output-stream
+
+force render-to-stream-async
+  start build, field windows-data-pdf-pdfpage
+  start output-stream, field windows-storage-streams-irandomaccessstream
+  start options, field windows-data-pdf-pdfpagerenderoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |RenderToStreamAsync|
+    drive factor, share output-stream
+    drive factor, share options
+
+force get-rotation
+  start build, field windows-data-pdf-pdfpage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Rotation|
+
+force set-rotation
+  start build, field windows-data-pdf-pdfpage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Rotation|
+    drive factor, share value
+
+force get-size
+  start build, field windows-data-pdf-pdfpage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-data-pdf-pdfpage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force build-pdf-page-dimensions
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Pdf.PdfPageDimensions|
+
+force get-art-box
+  start build, field windows-data-pdf-pdfpagedimensions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ArtBox|
+
+force set-art-box
+  start build, field windows-data-pdf-pdfpagedimensions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ArtBox|
+    drive factor, share value
+
+force get-bleed-box
+  start build, field windows-data-pdf-pdfpagedimensions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BleedBox|
+
+force set-bleed-box
+  start build, field windows-data-pdf-pdfpagedimensions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BleedBox|
+    drive factor, share value
+
+force get-crop-box
+  start build, field windows-data-pdf-pdfpagedimensions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CropBox|
+
+force set-crop-box
+  start build, field windows-data-pdf-pdfpagedimensions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CropBox|
+    drive factor, share value
+
+force get-media-box
+  start build, field windows-data-pdf-pdfpagedimensions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MediaBox|
+
+force set-media-box
+  start build, field windows-data-pdf-pdfpagedimensions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MediaBox|
+    drive factor, share value
+
+force get-trim-box
+  start build, field windows-data-pdf-pdfpagedimensions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrimBox|
+
+force set-trim-box
+  start build, field windows-data-pdf-pdfpagedimensions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrimBox|
+    drive factor, share value
+
+force build-pdf-page-render-options
+  cause invoke-constructor
+    drive constructor, |Windows.Data.Pdf.PdfPageRenderOptions|
+
+force get-background-color
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BackgroundColor|
+
+force set-background-color
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BackgroundColor|
+    drive factor, share value
+
+force get-bitmap-encoder-id
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BitmapEncoderId|
+
+force set-bitmap-encoder-id
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BitmapEncoderId|
+    drive factor, share value
+
+force get-destination-height
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DestinationHeight|
+
+force set-destination-height
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DestinationHeight|
+    drive factor, share value
+
+force get-destination-width
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DestinationWidth|
+
+force set-destination-width
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DestinationWidth|
+    drive factor, share value
+
+force get-is-ignoring-high-contrast
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsIgnoringHighContrast|
+
+force set-is-ignoring-high-contrast
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsIgnoringHighContrast|
+    drive factor, share value
+
+force ctor
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-source-rect
+  start build, field windows-data-pdf-pdfpagerenderoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceRect|
+
+force set-source-rect
+  start build, field windows-data-pdf-pdfpagerenderoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceRect|
+    drive factor, share value
+
+force get-pdf-page-rotation
+  cause get-object
+    drive aspect, |Windows.Data.Pdf.PdfPageRotation|

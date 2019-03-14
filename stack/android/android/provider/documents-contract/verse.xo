@@ -1,0 +1,504 @@
+
+force get-action-document-settings
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DOCUMENT_SETTINGS|
+    raise build, field string
+
+force get-extra-error
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_ERROR|
+    raise build, field string
+
+force get-extra-exclude-self
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_EXCLUDE_SELF|
+    raise build, field string
+
+force get-extra-info
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_INFO|
+    raise build, field string
+
+force get-extra-initial-uri
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_INITIAL_URI|
+    raise build, field string
+
+force get-extra-loading
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LOADING|
+    raise build, field string
+
+force get-extra-orientation
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_ORIENTATION|
+    raise build, field string
+
+force get-extra-prompt
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PROMPT|
+    raise build, field string
+
+force get-metadata-exif
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |METADATA_EXIF|
+    raise build, field string
+
+force get-metadata-tree-count
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |METADATA_TREE_COUNT|
+    raise build, field string
+
+force get-metadata-tree-size
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |METADATA_TREE_SIZE|
+    raise build, field string
+
+force get-metadata-types
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |METADATA_TYPES|
+    raise build, field string
+
+force get-provider-interface
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |PROVIDER_INTERFACE|
+    raise build, field string
+
+force get-query-arg-display-name
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERY_ARG_DISPLAY_NAME|
+    raise build, field string
+
+force get-query-arg-exclude-media
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERY_ARG_EXCLUDE_MEDIA|
+    raise build, field string
+
+force get-query-arg-file-size-over
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERY_ARG_FILE_SIZE_OVER|
+    raise build, field string
+
+force get-query-arg-last-modified-after
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERY_ARG_LAST_MODIFIED_AFTER|
+    raise build, field string
+
+force get-query-arg-mime-types
+  mount build, field documents-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERY_ARG_MIME_TYPES|
+    raise build, field string
+
+force build-child-documents-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount parent-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChildDocumentsUri|
+    drive factor, share authority
+    drive factor, share parent-document-id
+    raise build, field uri
+
+force build-child-documents-uri-using-tree
+  mount build, field documents-contract
+  mount tree-uri, field uri
+  mount parent-document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChildDocumentsUriUsingTree|
+    drive factor, share tree-uri
+    drive factor, share parent-document-id
+    raise build, field uri
+
+force build-document-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildDocumentUri|
+    drive factor, share authority
+    drive factor, share document-id
+    raise build, field uri
+
+force build-document-uri-using-tree
+  mount build, field documents-contract
+  mount tree-uri, field uri
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildDocumentUriUsingTree|
+    drive factor, share tree-uri
+    drive factor, share document-id
+    raise build, field uri
+
+force build-recent-documents-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount root-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildRecentDocumentsUri|
+    drive factor, share authority
+    drive factor, share root-id
+    raise build, field uri
+
+force build-root-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount root-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildRootUri|
+    drive factor, share authority
+    drive factor, share root-id
+    raise build, field uri
+
+force build-roots-uri
+  mount build, field documents-contract
+  mount authority, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildRootsUri|
+    drive factor, share authority
+    raise build, field uri
+
+force build-search-documents-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount root-id, field string
+  mount query, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildSearchDocumentsUri|
+    drive factor, share authority
+    drive factor, share root-id
+    drive factor, share query
+    raise build, field uri
+
+force build-tree-document-uri
+  mount build, field documents-contract
+  mount authority, field string
+  mount document-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildTreeDocumentUri|
+    drive factor, share authority
+    drive factor, share document-id
+    raise build, field uri
+
+force copy-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount source-document-uri, field uri
+  mount target-parent-document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |copyDocument|
+    drive factor, share content
+    drive factor, share source-document-uri
+    drive factor, share target-parent-document-uri
+    raise build, field uri
+
+force create-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount parent-document-uri, field uri
+  mount mime-type, field string
+  mount display-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createDocument|
+    drive factor, share content
+    drive factor, share parent-document-uri
+    drive factor, share mime-type
+    drive factor, share display-name
+    raise build, field uri
+
+force create-web-link-intent
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount uri, field uri
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |createWebLinkIntent|
+    drive factor, share content
+    drive factor, share uri
+    drive factor, share options
+    raise build, field intent-sender
+
+force delete-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteDocument|
+    drive factor, share content
+    drive factor, share document-uri
+    raise build, field boolean
+
+force eject-root
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount root-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |ejectRoot|
+    drive factor, share content
+    drive factor, share root-uri
+    raise build, field unit
+
+force find-document-path
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount tree-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |findDocumentPath|
+    drive factor, share content
+    drive factor, share tree-uri
+    raise build, field documents-contract-path
+
+force get-document-id
+  mount build, field documents-contract
+  mount document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentId|
+    drive factor, share document-uri
+    raise build, field string
+
+force get-document-metadata
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentMetadata|
+    drive factor, share content
+    drive factor, share document-uri
+    raise build, field bundle
+
+force get-document-thumbnail
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount document-uri, field uri
+  mount size, field point
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |getDocumentThumbnail|
+    drive factor, share content
+    drive factor, share document-uri
+    drive factor, share size
+    drive factor, share signal
+    raise build, field bitmap
+
+force get-root-id
+  mount build, field documents-contract
+  mount root-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRootId|
+    drive factor, share root-uri
+    raise build, field string
+
+force get-search-documents-query
+  mount build, field documents-contract
+  mount search-documents-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getSearchDocumentsQuery|
+    drive factor, share search-documents-uri
+    raise build, field string
+
+force get-tree-document-id
+  mount build, field documents-contract
+  mount document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getTreeDocumentId|
+    drive factor, share document-uri
+    raise build, field string
+
+force is-child-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount parent-document-uri, field uri
+  mount child-document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isChildDocument|
+    drive factor, share content
+    drive factor, share parent-document-uri
+    drive factor, share child-document-uri
+    raise build, field boolean
+
+force is-document-uri
+  mount build, field documents-contract
+  mount context, field context
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isDocumentUri|
+    drive factor, share context
+    drive factor, share uri
+    raise build, field boolean
+
+force is-root-uri
+  mount build, field documents-contract
+  mount context, field context
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isRootUri|
+    drive factor, share context
+    drive factor, share uri
+    raise build, field boolean
+
+force is-roots-uri
+  mount build, field documents-contract
+  mount context, field context
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isRootsUri|
+    drive factor, share context
+    drive factor, share uri
+    raise build, field boolean
+
+force is-tree-uri
+  mount build, field documents-contract
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isTreeUri|
+    drive factor, share uri
+    raise build, field boolean
+
+force move-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount source-document-uri, field uri
+  mount source-parent-document-uri, field uri
+  mount target-parent-document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |moveDocument|
+    drive factor, share content
+    drive factor, share source-document-uri
+    drive factor, share source-parent-document-uri
+    drive factor, share target-parent-document-uri
+    raise build, field uri
+
+force remove-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount document-uri, field uri
+  mount parent-document-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |removeDocument|
+    drive factor, share content
+    drive factor, share document-uri
+    drive factor, share parent-document-uri
+    raise build, field boolean
+
+force rename-document
+  mount build, field documents-contract
+  mount content, field content-resolver
+  mount document-uri, field uri
+  mount display-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |renameDocument|
+    drive factor, share content
+    drive factor, share document-uri
+    drive factor, share display-name
+    raise build, field uri

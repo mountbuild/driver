@@ -1,0 +1,84 @@
+
+force can-be-satisfied-by
+  start build, field network-request
+  start nc, field network-capabilities
+
+  cause call-method
+    drive object, share build
+    drive method, |canBeSatisfiedBy|
+    drive factor, share nc
+    throw build, field boolean
+
+force describe-contents
+  start build, field network-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field network-request
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-network-specifier
+  start build, field network-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkSpecifier|
+    throw build, field network-specifier
+
+force has-capability
+  start build, field network-request
+  start capability, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCapability|
+    drive factor, share capability
+    throw build, field boolean
+
+force has-transport
+  start build, field network-request
+  start transport-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasTransport|
+    drive factor, share transport-type
+    throw build, field boolean
+
+force hash-code
+  start build, field network-request
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field network-request
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field network-request
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

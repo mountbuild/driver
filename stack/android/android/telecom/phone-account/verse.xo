@@ -1,0 +1,342 @@
+
+force get-capability-adhoc-conference-calling
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_ADHOC_CONFERENCE_CALLING|
+    throw build, field int
+
+force get-capability-call-provider
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_CALL_PROVIDER|
+    throw build, field int
+
+force get-capability-call-subject
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_CALL_SUBJECT|
+    throw build, field int
+
+force get-capability-connection-manager
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_CONNECTION_MANAGER|
+    throw build, field int
+
+force get-capability-place-emergency-calls
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_PLACE_EMERGENCY_CALLS|
+    throw build, field int
+
+force get-capability-rtt
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_RTT|
+    throw build, field int
+
+force get-capability-self-managed
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_SELF_MANAGED|
+    throw build, field int
+
+force get-capability-sim-subscription
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_SIM_SUBSCRIPTION|
+    throw build, field int
+
+force get-capability-supports-video-calling
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_SUPPORTS_VIDEO_CALLING|
+    throw build, field int
+
+force get-capability-video-calling
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_VIDEO_CALLING|
+    throw build, field int
+
+force get-capability-video-calling-relies-on-presence
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |CAPABILITY_VIDEO_CALLING_RELIES_ON_PRESENCE|
+    throw build, field int
+
+force get-extra-call-subject-character-encoding
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CALL_SUBJECT_CHARACTER_ENCODING|
+    throw build, field string
+
+force get-extra-call-subject-max-length
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CALL_SUBJECT_MAX_LENGTH|
+    throw build, field string
+
+force get-extra-log-self-managed-calls
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LOG_SELF_MANAGED_CALLS|
+    throw build, field string
+
+force get-extra-supports-handover-from
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SUPPORTS_HANDOVER_FROM|
+    throw build, field string
+
+force get-extra-supports-handover-to
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SUPPORTS_HANDOVER_TO|
+    throw build, field string
+
+force get-no-highlight-color
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_HIGHLIGHT_COLOR|
+    throw build, field int
+
+force get-no-resource-id
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_RESOURCE_ID|
+    throw build, field int
+
+force get-scheme-sip
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |SCHEME_SIP|
+    throw build, field string
+
+force get-scheme-tel
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |SCHEME_TEL|
+    throw build, field string
+
+force get-scheme-voicemail
+  mount build, field phone-account
+
+  cause get-property
+    drive object, share build
+    drive property, |SCHEME_VOICEMAIL|
+    throw build, field string
+
+force builder
+  mount build, field phone-account
+  mount account-handle, field phone-account-handle
+  mount label, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |builder|
+    drive factor, share account-handle
+    drive factor, share label
+    throw build, field phone-account-builder
+
+force describe-contents
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field phone-account
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-account-handle
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccountHandle|
+    throw build, field phone-account-handle
+
+force get-address
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    throw build, field uri
+
+force get-capabilities
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getCapabilities|
+    throw build, field int
+
+force get-extras
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-highlight-color
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getHighlightColor|
+    throw build, field int
+
+force get-icon
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    throw build, field icon
+
+force get-label
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force get-short-description
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortDescription|
+    throw build, field char-sequence
+
+force get-subscription-address
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubscriptionAddress|
+    throw build, field uri
+
+force get-supported-uri-schemes
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedUriSchemes|
+    throw build, field mutable-list
+
+force has-capabilities
+  mount build, field phone-account
+  mount capability, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCapabilities|
+    drive factor, share capability
+    throw build, field boolean
+
+force hash-code
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-enabled
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    throw build, field boolean
+
+force supports-uri-scheme
+  mount build, field phone-account
+  mount uri-scheme, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsUriScheme|
+    drive factor, share uri-scheme
+    throw build, field boolean
+
+force to-builder
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |toBuilder|
+    throw build, field phone-account-builder
+
+force to-string
+  mount build, field phone-account
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field phone-account
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

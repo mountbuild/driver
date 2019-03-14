@@ -1,0 +1,121 @@
+
+force build-hash-set
+  cause invoke-constructor
+    drive constructor, |HashSet|
+    throw build, field hash-set
+
+force build-hash-set
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |HashSet|
+    drive factor, share c
+    throw build, field hash-set
+
+force build-hash-set
+  mount initial-capacity, field int
+  mount load-factor, field float
+
+  cause invoke-constructor
+    drive constructor, |HashSet|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    throw build, field hash-set
+
+force build-hash-set
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |HashSet|
+    drive factor, share initial-capacity
+    throw build, field hash-set
+
+force add
+  mount build, field hash-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force clear
+  mount build, field hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force contains
+  mount build, field hash-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force contains
+  mount build, field hash-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force is-empty
+  mount build, field hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force remove
+  mount build, field hash-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove
+  mount build, field hash-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force spliterator
+  mount build, field hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator

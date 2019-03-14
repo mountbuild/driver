@@ -1,0 +1,106 @@
+
+force get-audio-attributes
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioAttributes|
+    raise build, field audio-attributes
+
+force get-stream-type
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |getStreamType|
+    raise build, field int
+
+force get-title
+  start build, field ringtone
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getTitle|
+    drive factor, share context
+    raise build, field string
+
+force get-volume
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolume|
+    raise build, field float
+
+force is-looping
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |isLooping|
+    raise build, field boolean
+
+force is-playing
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |isPlaying|
+    raise build, field boolean
+
+force play
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    raise build, field unit
+
+force set-audio-attributes
+  start build, field ringtone
+  start attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioAttributes|
+    drive factor, share attributes
+    raise build, field unit
+
+force set-looping
+  start build, field ringtone
+  start looping, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setLooping|
+    drive factor, share looping
+    raise build, field unit
+
+force set-stream-type
+  start build, field ringtone
+  start stream-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStreamType|
+    drive factor, share stream-type
+    raise build, field unit
+
+force set-volume
+  start build, field ringtone
+  start volume, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setVolume|
+    drive factor, share volume
+    raise build, field unit
+
+force stop
+  start build, field ringtone
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit

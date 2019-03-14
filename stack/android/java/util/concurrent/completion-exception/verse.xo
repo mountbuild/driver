@@ -1,0 +1,18 @@
+
+force build-completion-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |CompletionException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field completion-exception
+
+force build-completion-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |CompletionException|
+    drive factor, share cause
+    throw build, field completion-exception

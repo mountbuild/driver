@@ -1,0 +1,51 @@
+
+force get-quality-high
+  start build, field camera-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_HIGH|
+    raise build, field int
+
+force get-quality-low
+  start build, field camera-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_LOW|
+    raise build, field int
+
+force get-quality-medium
+  start build, field camera-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_MEDIUM|
+    raise build, field int
+
+force build-camera-profile
+  cause invoke-constructor
+    drive constructor, |CameraProfile|
+    raise build, field camera-profile
+
+force get-jpeg-encoding-quality-parameter
+  start build, field camera-profile
+  start quality, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getJpegEncodingQualityParameter|
+    drive factor, share quality
+    raise build, field int
+
+force get-jpeg-encoding-quality-parameter
+  start build, field camera-profile
+  start camera-id, field int
+  start quality, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getJpegEncodingQualityParameter|
+    drive factor, share camera-id
+    drive factor, share quality
+    raise build, field int

@@ -1,0 +1,80 @@
+
+force build-rsa-multi-prime-private-crt-key-spec
+  mount modulus, field big-integer
+  mount public-exponent, field big-integer
+  mount private-exponent, field big-integer
+  mount prime-p, field big-integer
+  mount prime-q, field big-integer
+  mount prime-exponent-p, field big-integer
+  mount prime-exponent-q, field big-integer
+  mount crt-coefficient, field big-integer
+  mount other-prime-info, field array-rsa-other-prime-info
+
+  cause invoke-constructor
+    mount constructor, |RSAMultiPrimePrivateCrtKeySpec|
+    mount factor, share modulus
+    mount factor, share public-exponent
+    mount factor, share private-exponent
+    mount factor, share prime-p
+    mount factor, share prime-q
+    mount factor, share prime-exponent-p
+    mount factor, share prime-exponent-q
+    mount factor, share crt-coefficient
+    mount factor, share other-prime-info
+    throw build, field rsa-multi-prime-private-crt-key-spec
+
+force get-crt-coefficient
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getCrtCoefficient|
+    throw build, field big-integer
+
+force get-other-prime-info
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getOtherPrimeInfo|
+    throw build, field array
+
+force get-prime-exponent-p
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrimeExponentP|
+    throw build, field big-integer
+
+force get-prime-exponent-q
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrimeExponentQ|
+    throw build, field big-integer
+
+force get-prime-p
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrimeP|
+    throw build, field big-integer
+
+force get-prime-q
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrimeQ|
+    throw build, field big-integer
+
+force get-public-exponent
+  mount build, field rsa-multi-prime-private-crt-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicExponent|
+    throw build, field big-integer

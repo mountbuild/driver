@@ -1,0 +1,115 @@
+
+force get-priority-hint-use-case-type-background
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HINT_USE_CASE_TYPE_BACKGROUND|
+    raise build, field int
+
+force get-priority-hint-use-case-type-live
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HINT_USE_CASE_TYPE_LIVE|
+    raise build, field int
+
+force get-priority-hint-use-case-type-playback
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HINT_USE_CASE_TYPE_PLAYBACK|
+    raise build, field int
+
+force get-priority-hint-use-case-type-record
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HINT_USE_CASE_TYPE_RECORD|
+    raise build, field int
+
+force get-priority-hint-use-case-type-scan
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PRIORITY_HINT_USE_CASE_TYPE_SCAN|
+    raise build, field int
+
+force get-service-interface
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force get-service-meta-data
+  start build, field tv-input-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force build-tv-input-service
+  cause invoke-constructor
+    drive constructor, |TvInputService|
+    raise build, field tv-input-service
+
+force on-bind
+  start build, field tv-input-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-create-recording-session
+  start build, field tv-input-service
+  start input-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateRecordingSession|
+    drive factor, share input-id
+    raise build, field tv-input-service-recording-session
+
+force on-create-recording-session
+  start build, field tv-input-service
+  start input-id, field string
+  start session-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateRecordingSession|
+    drive factor, share input-id
+    drive factor, share session-id
+    raise build, field tv-input-service-recording-session
+
+force on-create-session
+  start build, field tv-input-service
+  start input-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateSession|
+    drive factor, share input-id
+    raise build, field tv-input-service-session
+
+force on-create-session
+  start build, field tv-input-service
+  start input-id, field string
+  start session-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateSession|
+    drive factor, share input-id
+    drive factor, share session-id
+    raise build, field tv-input-service-session

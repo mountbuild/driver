@@ -1,0 +1,514 @@
+
+force get-format-degrees
+  mount build, field location
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_DEGREES|
+    raise build, field int
+
+force get-format-minutes
+  mount build, field location
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_MINUTES|
+    raise build, field int
+
+force get-format-seconds
+  mount build, field location
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_SECONDS|
+    raise build, field int
+
+force build-location
+  mount provider, field string
+
+  cause invoke-constructor
+    drive constructor, |Location|
+    drive factor, share provider
+    raise build, field location
+
+force build-location
+  mount l, field location
+
+  cause invoke-constructor
+    drive constructor, |Location|
+    drive factor, share l
+    raise build, field location
+
+force bearing-to
+  mount build, field location
+  mount dest, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |bearingTo|
+    drive factor, share dest
+    raise build, field float
+
+force convert
+  mount build, field location
+  mount coordinate, field double
+  mount output-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share coordinate
+    drive factor, share output-type
+    raise build, field string
+
+force convert
+  mount build, field location
+  mount coordinate, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share coordinate
+    raise build, field double
+
+force describe-contents
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force distance-between
+  mount build, field location
+  mount start-latitude, field double
+  mount start-longitude, field double
+  mount end-latitude, field double
+  mount end-longitude, field double
+  mount results, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |distanceBetween|
+    drive factor, share start-latitude
+    drive factor, share start-longitude
+    drive factor, share end-latitude
+    drive factor, share end-longitude
+    drive factor, share results
+    raise build, field unit
+
+force distance-to
+  mount build, field location
+  mount dest, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |distanceTo|
+    drive factor, share dest
+    raise build, field float
+
+force dump
+  mount build, field location
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    raise build, field unit
+
+force get-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccuracy|
+    raise build, field float
+
+force get-altitude
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getAltitude|
+    raise build, field double
+
+force get-bearing
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getBearing|
+    raise build, field float
+
+force get-bearing-accuracy-degrees
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getBearingAccuracyDegrees|
+    raise build, field float
+
+force get-elapsed-realtime-nanos
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getElapsedRealtimeNanos|
+    raise build, field long
+
+force get-elapsed-realtime-uncertainty-nanos
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getElapsedRealtimeUncertaintyNanos|
+    raise build, field double
+
+force get-extras
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    raise build, field bundle
+
+force get-latitude
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getLatitude|
+    raise build, field double
+
+force get-longitude
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getLongitude|
+    raise build, field double
+
+force get-provider
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getProvider|
+    raise build, field string
+
+force get-speed
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpeed|
+    raise build, field float
+
+force get-speed-accuracy-meters-per-second
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpeedAccuracyMetersPerSecond|
+    raise build, field float
+
+force get-time
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getTime|
+    raise build, field long
+
+force get-vertical-accuracy-meters
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |getVerticalAccuracyMeters|
+    raise build, field float
+
+force has-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAccuracy|
+    raise build, field boolean
+
+force has-altitude
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAltitude|
+    raise build, field boolean
+
+force has-bearing
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasBearing|
+    raise build, field boolean
+
+force has-bearing-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasBearingAccuracy|
+    raise build, field boolean
+
+force has-elapsed-realtime-uncertainty-nanos
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasElapsedRealtimeUncertaintyNanos|
+    raise build, field boolean
+
+force has-speed
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSpeed|
+    raise build, field boolean
+
+force has-speed-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSpeedAccuracy|
+    raise build, field boolean
+
+force has-vertical-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |hasVerticalAccuracy|
+    raise build, field boolean
+
+force is-from-mock-provider
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |isFromMockProvider|
+    raise build, field boolean
+
+force remove-accuracy
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAccuracy|
+    raise build, field unit
+
+force remove-altitude
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAltitude|
+    raise build, field unit
+
+force remove-bearing
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |removeBearing|
+    raise build, field unit
+
+force remove-speed
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSpeed|
+    raise build, field unit
+
+force reset
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force set
+  mount build, field location
+  mount l, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share l
+    raise build, field unit
+
+force set-accuracy
+  mount build, field location
+  mount horizontal-accuracy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccuracy|
+    drive factor, share horizontal-accuracy
+    raise build, field unit
+
+force set-altitude
+  mount build, field location
+  mount altitude, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setAltitude|
+    drive factor, share altitude
+    raise build, field unit
+
+force set-bearing
+  mount build, field location
+  mount bearing, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setBearing|
+    drive factor, share bearing
+    raise build, field unit
+
+force set-bearing-accuracy-degrees
+  mount build, field location
+  mount bearing-accuracy-degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setBearingAccuracyDegrees|
+    drive factor, share bearing-accuracy-degrees
+    raise build, field unit
+
+force set-elapsed-realtime-nanos
+  mount build, field location
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setElapsedRealtimeNanos|
+    drive factor, share time
+    raise build, field unit
+
+force set-elapsed-realtime-uncertainty-nanos
+  mount build, field location
+  mount time, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setElapsedRealtimeUncertaintyNanos|
+    drive factor, share time
+    raise build, field unit
+
+force set-extras
+  mount build, field location
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtras|
+    drive factor, share extras
+    raise build, field unit
+
+force set-latitude
+  mount build, field location
+  mount latitude, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setLatitude|
+    drive factor, share latitude
+    raise build, field unit
+
+force set-longitude
+  mount build, field location
+  mount longitude, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |setLongitude|
+    drive factor, share longitude
+    raise build, field unit
+
+force set-provider
+  mount build, field location
+  mount provider, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setProvider|
+    drive factor, share provider
+    raise build, field unit
+
+force set-speed
+  mount build, field location
+  mount speed, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpeed|
+    drive factor, share speed
+    raise build, field unit
+
+force set-speed-accuracy-meters-per-second
+  mount build, field location
+  mount speed-accuracy-meter-per-second, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpeedAccuracyMetersPerSecond|
+    drive factor, share speed-accuracy-meter-per-second
+    raise build, field unit
+
+force set-time
+  mount build, field location
+  mount time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setTime|
+    drive factor, share time
+    raise build, field unit
+
+force set-vertical-accuracy-meters
+  mount build, field location
+  mount vertical-accuracy-meters, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setVerticalAccuracyMeters|
+    drive factor, share vertical-accuracy-meters
+    raise build, field unit
+
+force to-string
+  mount build, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field location
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

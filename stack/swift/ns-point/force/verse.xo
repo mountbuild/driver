@@ -1,0 +1,80 @@
+force ns-equal-points
+  field build, field ns-point
+  field a, class ns-point
+  field b, class ns-point
+
+  cause call-method
+    mount object, share build
+    mount method, |NSEqualPoints|
+    mount factor, share a
+    mount factor, share b
+    raise build, class bool
+
+force ns-make-point
+  field build, field ns-point
+  field a, class cg-float
+  field b, class cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |NSMakePoint|
+    mount factor, share a
+    mount factor, share b
+    raise build, class ns-point
+
+force ns-point-from-string
+  field build, field ns-point
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |NSPointFromString|
+    mount factor, share a
+    raise build, class ns-point
+
+force ns-string-from-point
+  field build, field ns-point
+  field a, class ns-point
+
+  cause call-method
+    mount object, share build
+    mount method, |NSStringFromPoint|
+    mount factor, share a
+    raise build, class string
+
+force ns-point-from-cg-point
+  field build, field ns-point
+  field a, class cg-point
+
+  cause call-method
+    mount object, share build
+    mount method, |NSPointFromCGPoint|
+    mount factor, share a
+    raise build, class ns-point
+
+force ns-point-to-cg-point
+  field build, field ns-point
+  field a, class ns-point
+
+  cause call-method
+    mount object, share build
+    mount method, |NSPointToCGPoint|
+    mount factor, share a
+    raise build, class cg-point
+
+force get-ns-zero-point
+  field build, field ns-point
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |NSZeroPoint|
+    raise build, field ns-point
+
+force set-ns-zero-point
+  field build, field NSPoint
+  field value, field NSPoint
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |NSZeroPoint|
+    mount factor, share value

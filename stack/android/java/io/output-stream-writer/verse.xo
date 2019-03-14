@@ -1,0 +1,100 @@
+
+force build-output-stream-writer
+  mount out, field output-stream
+  mount charset-name, field string
+
+  cause invoke-constructor
+    drive constructor, |OutputStreamWriter|
+    drive factor, share out
+    drive factor, share charset-name
+    throw build, field output-stream-writer
+
+force build-output-stream-writer
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |OutputStreamWriter|
+    drive factor, share out
+    throw build, field output-stream-writer
+
+force build-output-stream-writer
+  mount out, field output-stream
+  mount cs, field charset
+
+  cause invoke-constructor
+    drive constructor, |OutputStreamWriter|
+    drive factor, share out
+    drive factor, share cs
+    throw build, field output-stream-writer
+
+force build-output-stream-writer
+  mount out, field output-stream
+  mount enc, field charset-encoder
+
+  cause invoke-constructor
+    drive constructor, |OutputStreamWriter|
+    drive factor, share out
+    drive factor, share enc
+    throw build, field output-stream-writer
+
+force close
+  mount build, field output-stream-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field output-stream-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force get-encoding
+  mount build, field output-stream-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncoding|
+    throw build, field string
+
+force write
+  mount build, field output-stream-writer
+  mount c, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share c
+    throw build, field unit
+
+force write
+  mount build, field output-stream-writer
+  mount cbuf, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share cbuf
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write
+  mount build, field output-stream-writer
+  mount str, field string
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share str
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

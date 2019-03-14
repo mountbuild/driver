@@ -1,0 +1,57 @@
+
+force get-extra-proxy-info
+  mount build, field proxy
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PROXY_INFO|
+    throw build, field string
+
+force get-proxy-change-action
+  mount build, field proxy
+
+  cause get-property
+    drive object, share build
+    drive property, |PROXY_CHANGE_ACTION|
+    throw build, field string
+
+force build-proxy
+  cause invoke-constructor
+    drive constructor, |Proxy|
+    throw build, field proxy
+
+force get-default-host
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultHost|
+    throw build, field string
+
+force get-default-port
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultPort|
+    throw build, field int
+
+force get-host
+  mount build, field proxy
+  mount ctx, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    drive factor, share ctx
+    throw build, field string
+
+force get-port
+  mount build, field proxy
+  mount ctx, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    drive factor, share ctx
+    throw build, field int

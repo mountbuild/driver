@@ -1,0 +1,25 @@
+
+force build-remote-views-service
+  cause invoke-constructor
+    drive constructor, |RemoteViewsService|
+    throw build, field remote-views-service
+
+force on-bind
+  mount build, field remote-views-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-get-view-factory
+  mount build, field remote-views-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetViewFactory|
+    drive factor, share intent
+    throw build, field remote-views-service-remote-views-factory

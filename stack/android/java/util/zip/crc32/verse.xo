@@ -1,0 +1,65 @@
+
+force build-crc32
+  cause invoke-constructor
+    drive constructor, |CRC32|
+    throw build, field crc32
+
+force get-value
+  mount build, field crc32
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field long
+
+force reset
+  mount build, field crc32
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force update
+  mount build, field crc32
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share b
+    throw build, field unit
+
+force update
+  mount build, field crc32
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force update
+  mount build, field crc32
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share b
+    throw build, field unit
+
+force update
+  mount build, field crc32
+  mount buffer, field byte-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share buffer
+    throw build, field unit

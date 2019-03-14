@@ -1,0 +1,20 @@
+
+force build-desktop-window-target
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Composition.Desktop.DesktopWindowTarget|
+
+force get-is-topmost
+  mount build, field windows-ui-composition-desktop-desktopwindowtarget
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsTopmost|
+
+force set-is-topmost
+  mount build, field windows-ui-composition-desktop-desktopwindowtarget
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsTopmost|
+    drive factor, share value

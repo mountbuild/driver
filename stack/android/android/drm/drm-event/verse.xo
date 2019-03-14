@@ -1,0 +1,66 @@
+
+force get-drm-info-object
+  mount build, field drm-event
+
+  cause get-property
+    drive object, share build
+    drive property, |DRM_INFO_OBJECT|
+    throw build, field string
+
+force get-drm-info-status-object
+  mount build, field drm-event
+
+  cause get-property
+    drive object, share build
+    drive property, |DRM_INFO_STATUS_OBJECT|
+    throw build, field string
+
+force get-type-all-rights-removed
+  mount build, field drm-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ALL_RIGHTS_REMOVED|
+    throw build, field int
+
+force get-type-drm-info-processed
+  mount build, field drm-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_DRM_INFO_PROCESSED|
+    throw build, field int
+
+force get-attribute
+  mount build, field drm-event
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttribute|
+    drive factor, share key
+    throw build, field any
+
+force get-message
+  mount build, field drm-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessage|
+    throw build, field string
+
+force get-type
+  mount build, field drm-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force get-unique-id
+  mount build, field drm-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getUniqueId|
+    throw build, field int

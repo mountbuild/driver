@@ -1,0 +1,13 @@
+
+force build-bad-padding-exception
+  cause invoke-constructor
+    mount constructor, |BadPaddingException|
+    throw build, field bad-padding-exception
+
+force build-bad-padding-exception
+  start msg, field string
+
+  cause invoke-constructor
+    mount constructor, |BadPaddingException|
+    mount factor, share msg
+    throw build, field bad-padding-exception

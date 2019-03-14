@@ -1,0 +1,46 @@
+
+force build-http-retry-exception
+  mount detail, field string
+  mount code, field int
+
+  cause invoke-constructor
+    drive constructor, |HttpRetryException|
+    drive factor, share detail
+    drive factor, share code
+    throw build, field http-retry-exception
+
+force build-http-retry-exception
+  mount detail, field string
+  mount code, field int
+  mount location, field string
+
+  cause invoke-constructor
+    drive constructor, |HttpRetryException|
+    drive factor, share detail
+    drive factor, share code
+    drive factor, share location
+    throw build, field http-retry-exception
+
+force get-location
+  mount build, field http-retry-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocation|
+    throw build, field string
+
+force get-reason
+  mount build, field http-retry-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field string
+
+force response-code
+  mount build, field http-retry-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |responseCode|
+    throw build, field int

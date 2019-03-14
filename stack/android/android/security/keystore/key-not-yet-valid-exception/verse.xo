@@ -1,0 +1,23 @@
+
+force build-key-not-yet-valid-exception
+  cause invoke-constructor
+    drive constructor, |KeyNotYetValidException|
+    throw build, field key-not-yet-valid-exception
+
+force build-key-not-yet-valid-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |KeyNotYetValidException|
+    drive factor, share message
+    throw build, field key-not-yet-valid-exception
+
+force build-key-not-yet-valid-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |KeyNotYetValidException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field key-not-yet-valid-exception

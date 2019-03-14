@@ -1,0 +1,44 @@
+
+force get-type-nfc-payment-started
+  mount build, field wallet-service-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NFC_PAYMENT_STARTED|
+    raise build, field int
+
+force build-wallet-service-event
+  mount event-type, field int
+
+  cause invoke-constructor
+    drive constructor, |WalletServiceEvent|
+    drive factor, share event-type
+    raise build, field wallet-service-event
+
+force describe-contents
+  mount build, field wallet-service-event
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-event-type
+  mount build, field wallet-service-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEventType|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field wallet-service-event
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

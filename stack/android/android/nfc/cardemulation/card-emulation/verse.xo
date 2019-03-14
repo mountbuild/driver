@@ -1,0 +1,232 @@
+
+force get-action-change-default
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CHANGE_DEFAULT|
+    throw build, field string
+
+force get-category-other
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |CATEGORY_OTHER|
+    throw build, field string
+
+force get-category-payment
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |CATEGORY_PAYMENT|
+    throw build, field string
+
+force get-extra-category
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CATEGORY|
+    throw build, field string
+
+force get-extra-service-component
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SERVICE_COMPONENT|
+    throw build, field string
+
+force get-selection-mode-always-ask
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |SELECTION_MODE_ALWAYS_ASK|
+    throw build, field int
+
+force get-selection-mode-ask-if-conflict
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |SELECTION_MODE_ASK_IF_CONFLICT|
+    throw build, field int
+
+force get-selection-mode-prefer-default
+  mount build, field card-emulation
+
+  cause get-property
+    drive object, share build
+    drive property, |SELECTION_MODE_PREFER_DEFAULT|
+    throw build, field int
+
+force category-allows-foreground-preference
+  mount build, field card-emulation
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |categoryAllowsForegroundPreference|
+    drive factor, share category
+    throw build, field boolean
+
+force get-aids-for-preferred-payment-service
+  mount build, field card-emulation
+
+  cause call-method
+    drive object, share build
+    drive method, |getAidsForPreferredPaymentService|
+    throw build, field mutable-list
+
+force get-aids-for-service
+  mount build, field card-emulation
+  mount service, field component-name
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAidsForService|
+    drive factor, share service
+    drive factor, share category
+    throw build, field mutable-list
+
+force get-description-for-preferred-payment-service
+  mount build, field card-emulation
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescriptionForPreferredPaymentService|
+    throw build, field char-sequence
+
+force get-instance
+  mount build, field card-emulation
+  mount adapter, field nfc-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share adapter
+    throw build, field card-emulation
+
+force get-route-destination-for-preferred-payment-service
+  mount build, field card-emulation
+
+  cause call-method
+    drive object, share build
+    drive method, |getRouteDestinationForPreferredPaymentService|
+    throw build, field string
+
+force get-selection-mode-for-category
+  mount build, field card-emulation
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectionModeForCategory|
+    drive factor, share category
+    throw build, field int
+
+force is-default-service-for-aid
+  mount build, field card-emulation
+  mount service, field component-name
+  mount aid, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isDefaultServiceForAid|
+    drive factor, share service
+    drive factor, share aid
+    throw build, field boolean
+
+force is-default-service-for-category
+  mount build, field card-emulation
+  mount service, field component-name
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isDefaultServiceForCategory|
+    drive factor, share service
+    drive factor, share category
+    throw build, field boolean
+
+force register-aids-for-service
+  mount build, field card-emulation
+  mount service, field component-name
+  mount category, field string
+  mount aids, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |registerAidsForService|
+    drive factor, share service
+    drive factor, share category
+    drive factor, share aids
+    throw build, field boolean
+
+force remove-aids-for-service
+  mount build, field card-emulation
+  mount service, field component-name
+  mount category, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAidsForService|
+    drive factor, share service
+    drive factor, share category
+    throw build, field boolean
+
+force set-off-host-for-service
+  mount build, field card-emulation
+  mount service, field component-name
+  mount off-host-secure-element, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setOffHostForService|
+    drive factor, share service
+    drive factor, share off-host-secure-element
+    throw build, field boolean
+
+force set-preferred-service
+  mount build, field card-emulation
+  mount activity, field activity
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredService|
+    drive factor, share activity
+    drive factor, share service
+    throw build, field boolean
+
+force supports-aid-prefix-registration
+  mount build, field card-emulation
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsAidPrefixRegistration|
+    throw build, field boolean
+
+force unset-off-host-for-service
+  mount build, field card-emulation
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |unsetOffHostForService|
+    drive factor, share service
+    throw build, field boolean
+
+force unset-preferred-service
+  mount build, field card-emulation
+  mount activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |unsetPreferredService|
+    drive factor, share activity
+    throw build, field boolean

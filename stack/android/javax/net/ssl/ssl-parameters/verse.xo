@@ -1,0 +1,203 @@
+
+force build-ssl-parameters
+  cause invoke-constructor
+    mount constructor, |SSLParameters|
+    throw build, field ssl-parameters
+
+force build-ssl-parameters
+  start cipher-suites, field array-string
+
+  cause invoke-constructor
+    mount constructor, |SSLParameters|
+    mount factor, share cipher-suites
+    throw build, field ssl-parameters
+
+force build-ssl-parameters
+  start cipher-suites, field array-string
+  start protocols, field array-string
+
+  cause invoke-constructor
+    mount constructor, |SSLParameters|
+    mount factor, share cipher-suites
+    mount factor, share protocols
+    throw build, field ssl-parameters
+
+force get-algorithm-constraints
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithmConstraints|
+    throw build, field algorithm-constraints
+
+force get-application-protocols
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getApplicationProtocols|
+    throw build, field array
+
+force get-cipher-suites
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getCipherSuites|
+    throw build, field array
+
+force get-endpoint-identification-algorithm
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getEndpointIdentificationAlgorithm|
+    throw build, field string
+
+force get-need-client-auth
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getNeedClientAuth|
+    throw build, field boolean
+
+force get-protocols
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getProtocols|
+    throw build, field array
+
+force get-sni-matchers
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getSNIMatchers|
+    throw build, field mutable-collection
+
+force get-server-names
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getServerNames|
+    throw build, field mutable-list
+
+force get-use-cipher-suites-order
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getUseCipherSuitesOrder|
+    throw build, field boolean
+
+force get-want-client-auth
+  start build, field ssl-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getWantClientAuth|
+    throw build, field boolean
+
+force set-algorithm-constraints
+  start build, field ssl-parameters
+  start constraints, field algorithm-constraints
+
+  cause call-method
+    mount object, share build
+    mount method, |setAlgorithmConstraints|
+    mount factor, share constraints
+    throw build, field unit
+
+force set-application-protocols
+  start build, field ssl-parameters
+  start protocols, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setApplicationProtocols|
+    mount factor, share protocols
+    throw build, field unit
+
+force set-cipher-suites
+  start build, field ssl-parameters
+  start cipher-suites, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setCipherSuites|
+    mount factor, share cipher-suites
+    throw build, field unit
+
+force set-endpoint-identification-algorithm
+  start build, field ssl-parameters
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setEndpointIdentificationAlgorithm|
+    mount factor, share algorithm
+    throw build, field unit
+
+force set-need-client-auth
+  start build, field ssl-parameters
+  start need-client-auth, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setNeedClientAuth|
+    mount factor, share need-client-auth
+    throw build, field unit
+
+force set-protocols
+  start build, field ssl-parameters
+  start protocols, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setProtocols|
+    mount factor, share protocols
+    throw build, field unit
+
+force set-sni-matchers
+  start build, field ssl-parameters
+  start matchers, field mutable-collection-sni-matcher
+
+  cause call-method
+    mount object, share build
+    mount method, |setSNIMatchers|
+    mount factor, share matchers
+    throw build, field unit
+
+force set-server-names
+  start build, field ssl-parameters
+  start server-names, field mutable-list-sni-server-name
+
+  cause call-method
+    mount object, share build
+    mount method, |setServerNames|
+    mount factor, share server-names
+    throw build, field unit
+
+force set-use-cipher-suites-order
+  start build, field ssl-parameters
+  start honor-order, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setUseCipherSuitesOrder|
+    mount factor, share honor-order
+    throw build, field unit
+
+force set-want-client-auth
+  start build, field ssl-parameters
+  start want-client-auth, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setWantClientAuth|
+    mount factor, share want-client-auth
+    throw build, field unit

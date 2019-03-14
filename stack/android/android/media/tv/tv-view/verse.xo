@@ -1,0 +1,316 @@
+
+force build-tv-view
+  start context, field context
+
+  cause invoke-constructor
+    drive constructor, |TvView|
+    drive factor, share context
+    raise build, field tv-view
+
+force build-tv-view
+  start context, field context
+  start attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TvView|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field tv-view
+
+force build-tv-view
+  start context, field context
+  start attrs, field attribute-set
+  start def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |TvView|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    raise build, field tv-view
+
+force dispatch-generic-motion-event
+  start build, field tv-view
+  start event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchGenericMotionEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force dispatch-key-event
+  start build, field tv-view
+  start event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchKeyEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force dispatch-touch-event
+  start build, field tv-view
+  start event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchTouchEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force dispatch-trackball-event
+  start build, field tv-view
+  start event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchTrackballEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force dispatch-unhandled-input-event
+  start build, field tv-view
+  start event, field input-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchUnhandledInputEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force dispatch-window-focus-changed
+  start build, field tv-view
+  start has-focus, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchWindowFocusChanged|
+    drive factor, share has-focus
+    raise build, field unit
+
+force draw
+  start build, field tv-view
+  start canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    raise build, field unit
+
+force gather-transparent-region
+  start build, field tv-view
+  start region, field region
+
+  cause call-method
+    drive object, share build
+    drive method, |gatherTransparentRegion|
+    drive factor, share region
+    raise build, field boolean
+
+force get-selected-track
+  start build, field tv-view
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedTrack|
+    drive factor, share type
+    raise build, field string
+
+force get-tracks
+  start build, field tv-view
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTracks|
+    drive factor, share type
+    raise build, field mutable-list
+
+force on-unhandled-input-event
+  start build, field tv-view
+  start event, field input-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnhandledInputEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force reset
+  start build, field tv-view
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force select-track
+  start build, field tv-view
+  start type, field int
+  start track-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |selectTrack|
+    drive factor, share type
+    drive factor, share track-id
+    raise build, field unit
+
+force send-app-private-command
+  start build, field tv-view
+  start action, field string
+  start data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAppPrivateCommand|
+    drive factor, share action
+    drive factor, share data
+    raise build, field unit
+
+force set-callback
+  start build, field tv-view
+  start callback, field tv-view-tv-input-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share callback
+    raise build, field unit
+
+force set-caption-enabled
+  start build, field tv-view
+  start enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setCaptionEnabled|
+    drive factor, share enabled
+    raise build, field unit
+
+force set-on-unhandled-input-event-listener
+  start build, field tv-view
+  start listener, field tv-view-on-unhandled-input-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnUnhandledInputEventListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-stream-volume
+  start build, field tv-view
+  start volume, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setStreamVolume|
+    drive factor, share volume
+    raise build, field unit
+
+force set-time-shift-position-callback
+  start build, field tv-view
+  start callback, field tv-view-time-shift-position-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeShiftPositionCallback|
+    drive factor, share callback
+    raise build, field unit
+
+force set-z-order-media-overlay
+  start build, field tv-view
+  start is-media-overlay, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setZOrderMediaOverlay|
+    drive factor, share is-media-overlay
+    raise build, field unit
+
+force set-z-order-on-top
+  start build, field tv-view
+  start on-top, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setZOrderOnTop|
+    drive factor, share on-top
+    raise build, field unit
+
+force time-shift-pause
+  start build, field tv-view
+
+  cause call-method
+    drive object, share build
+    drive method, |timeShiftPause|
+    raise build, field unit
+
+force time-shift-play
+  start build, field tv-view
+  start input-id, field string
+  start recorded-program-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |timeShiftPlay|
+    drive factor, share input-id
+    drive factor, share recorded-program-uri
+    raise build, field unit
+
+force time-shift-resume
+  start build, field tv-view
+
+  cause call-method
+    drive object, share build
+    drive method, |timeShiftResume|
+    raise build, field unit
+
+force time-shift-seek-to
+  start build, field tv-view
+  start time-ms, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |timeShiftSeekTo|
+    drive factor, share time-ms
+    raise build, field unit
+
+force time-shift-set-playback-params
+  start build, field tv-view
+  start params, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |timeShiftSetPlaybackParams|
+    drive factor, share params
+    raise build, field unit
+
+force tune
+  start build, field tv-view
+  start input-id, field string
+  start channel-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |tune|
+    drive factor, share input-id
+    drive factor, share channel-uri
+    raise build, field unit
+
+force tune
+  start build, field tv-view
+  start input-id, field string
+  start channel-uri, field uri
+  start params, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |tune|
+    drive factor, share input-id
+    drive factor, share channel-uri
+    drive factor, share params
+    raise build, field unit

@@ -1,0 +1,84 @@
+
+force build-long-accumulator
+  mount accumulator-function, field long-binary-operator
+  mount identity, field long
+
+  cause invoke-constructor
+    drive constructor, |LongAccumulator|
+    drive factor, share accumulator-function
+    drive factor, share identity
+    throw build, field long-accumulator
+
+force accumulate
+  mount build, field long-accumulator
+  mount x, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |accumulate|
+    drive factor, share x
+    throw build, field unit
+
+force get
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field long
+
+force get-then-reset
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |getThenReset|
+    throw build, field long
+
+force reset
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force to-double
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |toDouble|
+    throw build, field double
+
+force to-float
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |toFloat|
+    throw build, field float
+
+force to-int
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |toInt|
+    throw build, field int
+
+force to-long
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |toLong|
+    throw build, field long
+
+force to-string
+  mount build, field long-accumulator
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

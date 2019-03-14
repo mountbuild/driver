@@ -1,0 +1,40 @@
+
+force build-rtc-track-event
+  start event-info
+
+  cause invoke-constructor
+    mount constructor, |RTCTrackEvent|
+    mount factor, share event-info
+    throw build
+
+force get-receiver
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |receiver|
+    throw build
+
+force get-streams
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |streams|
+    throw build
+
+force get-track
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |track|
+    throw build
+
+force get-transceiver
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |transceiver|
+    throw build

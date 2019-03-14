@@ -1,0 +1,42 @@
+
+force build-event-source
+  start url
+  start configuration
+
+  cause invoke-constructor
+    mount constructor, |EventSource|
+    mount factor, share url
+    mount factor, share configuration
+    throw build
+
+force get-ready-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |readyState|
+    throw build
+
+force get-url
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |url|
+    throw build
+
+force get-with-credentials
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |withCredentials|
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build

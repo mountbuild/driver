@@ -1,0 +1,36 @@
+
+force build-dh-private-key-spec
+  start x, field big-integer
+  start p, field big-integer
+  start g, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |DHPrivateKeySpec|
+    mount factor, share x
+    mount factor, share p
+    mount factor, share g
+    throw build, field dh-private-key-spec
+
+force get-g
+  start build, field dh-private-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getG|
+    throw build, field big-integer
+
+force get-p
+  start build, field dh-private-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer
+
+force get-x
+  start build, field dh-private-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getX|
+    throw build, field big-integer

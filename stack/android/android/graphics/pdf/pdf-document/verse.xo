@@ -1,0 +1,51 @@
+
+force build-pdf-document
+  cause invoke-constructor
+    drive constructor, |PdfDocument|
+    raise build, field pdf-document
+
+force close
+  mount build, field pdf-document
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force finish-page
+  mount build, field pdf-document
+  mount page, field pdf-document-page
+
+  cause call-method
+    drive object, share build
+    drive method, |finishPage|
+    drive factor, share page
+    raise build, field unit
+
+force get-pages
+  mount build, field pdf-document
+
+  cause call-method
+    drive object, share build
+    drive method, |getPages|
+    raise build, field mutable-list
+
+force start-page
+  mount build, field pdf-document
+  mount page-info, field pdf-document-page-info
+
+  cause call-method
+    drive object, share build
+    drive method, |startPage|
+    drive factor, share page-info
+    raise build, field pdf-document-page
+
+force write-to
+  mount build, field pdf-document
+  mount out, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |writeTo|
+    drive factor, share out
+    raise build, field unit

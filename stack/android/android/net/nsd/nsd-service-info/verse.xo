@@ -1,0 +1,135 @@
+
+force build-nsd-service-info
+  cause invoke-constructor
+    drive constructor, |NsdServiceInfo|
+    throw build, field nsd-service-info
+
+force describe-contents
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-attributes
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttributes|
+    throw build, field mutable-map
+
+force get-host
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    throw build, field inet-address
+
+force get-port
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-service-name
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceName|
+    throw build, field string
+
+force get-service-type
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceType|
+    throw build, field string
+
+force remove-attribute
+  start build, field nsd-service-info
+  start key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAttribute|
+    drive factor, share key
+    throw build, field unit
+
+force set-attribute
+  start build, field nsd-service-info
+  start key, field string
+  start value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttribute|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit
+
+force set-host
+  start build, field nsd-service-info
+  start s, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |setHost|
+    drive factor, share s
+    throw build, field unit
+
+force set-port
+  start build, field nsd-service-info
+  start p, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPort|
+    drive factor, share p
+    throw build, field unit
+
+force set-service-name
+  start build, field nsd-service-info
+  start s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setServiceName|
+    drive factor, share s
+    throw build, field unit
+
+force set-service-type
+  start build, field nsd-service-info
+  start s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setServiceType|
+    drive factor, share s
+    throw build, field unit
+
+force to-string
+  start build, field nsd-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field nsd-service-info
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

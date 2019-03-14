@@ -1,0 +1,33 @@
+
+force build-time-animator
+  cause invoke-constructor
+    drive constructor, |TimeAnimator|
+    throw build, field time-animator
+
+force set-current-play-time
+  mount build, field time-animator
+  mount play-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrentPlayTime|
+    drive factor, share play-time
+    throw build, field unit
+
+force set-time-listener
+  mount build, field time-animator
+  mount listener, field time-animator-time-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force start
+  mount build, field time-animator
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    throw build, field unit

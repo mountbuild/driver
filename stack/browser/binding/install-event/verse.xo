@@ -1,0 +1,18 @@
+
+force build-install-event
+  start type
+  start init
+
+  cause invoke-constructor
+    mount constructor, |InstallEvent|
+    mount factor, share type
+    mount factor, share init
+    throw build
+
+force get-active-worker
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |activeWorker|
+    throw build

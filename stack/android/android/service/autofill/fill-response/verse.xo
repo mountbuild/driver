@@ -1,0 +1,44 @@
+
+force get-flag-disable-activity-only
+  mount build, field fill-response
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_DISABLE_ACTIVITY_ONLY|
+    raise build, field int
+
+force get-flag-track-context-commited
+  mount build, field fill-response
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_TRACK_CONTEXT_COMMITED|
+    raise build, field int
+
+force describe-contents
+  mount build, field fill-response
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force to-string
+  mount build, field fill-response
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field fill-response
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

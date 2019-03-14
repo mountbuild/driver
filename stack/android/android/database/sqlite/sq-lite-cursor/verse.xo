@@ -1,0 +1,126 @@
+
+force build-sq-lite-cursor
+  mount db, field sq-lite-database
+  mount driver, field sq-lite-cursor-driver
+  mount edit-table, field string
+  mount query, field sq-lite-query
+
+  cause invoke-constructor
+    drive constructor, |SQLiteCursor|
+    drive factor, share db
+    drive factor, share driver
+    drive factor, share edit-table
+    drive factor, share query
+    raise build, field sq-lite-cursor
+
+force build-sq-lite-cursor
+  mount driver, field sq-lite-cursor-driver
+  mount edit-table, field string
+  mount query, field sq-lite-query
+
+  cause invoke-constructor
+    drive constructor, |SQLiteCursor|
+    drive factor, share driver
+    drive factor, share edit-table
+    drive factor, share query
+    raise build, field sq-lite-cursor
+
+force close
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force deactivate
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |deactivate|
+    raise build, field unit
+
+force get-column-index
+  mount build, field sq-lite-cursor
+  mount column-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnIndex|
+    drive factor, share column-name
+    raise build, field int
+
+force get-column-names
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnNames|
+    raise build, field array
+
+force get-count
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    raise build, field int
+
+force get-database
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |getDatabase|
+    raise build, field sq-lite-database
+
+force on-move
+  mount build, field sq-lite-cursor
+  mount old-position, field int
+  mount new-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMove|
+    drive factor, share old-position
+    drive factor, share new-position
+    raise build, field boolean
+
+force requery
+  mount build, field sq-lite-cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |requery|
+    raise build, field boolean
+
+force set-fill-window-forward-only
+  mount build, field sq-lite-cursor
+  mount fill-window-forward-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFillWindowForwardOnly|
+    drive factor, share fill-window-forward-only
+    raise build, field unit
+
+force set-selection-arguments
+  mount build, field sq-lite-cursor
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectionArguments|
+    drive factor, share selection-args
+    raise build, field unit
+
+force set-window
+  mount build, field sq-lite-cursor
+  mount window, field cursor-window
+
+  cause call-method
+    drive object, share build
+    drive method, |setWindow|
+    drive factor, share window
+    raise build, field unit

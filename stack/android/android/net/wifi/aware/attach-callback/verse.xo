@@ -1,0 +1,23 @@
+
+force build-attach-callback
+  cause invoke-constructor
+    drive constructor, |AttachCallback|
+    throw build, field attach-callback
+
+force on-attach-failed
+  mount build, field attach-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onAttachFailed|
+    throw build, field unit
+
+force on-attached
+  mount build, field attach-callback
+  mount session, field wifi-aware-session
+
+  cause call-method
+    drive object, share build
+    drive method, |onAttached|
+    drive factor, share session
+    throw build, field unit

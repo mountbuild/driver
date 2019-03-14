@@ -1,0 +1,170 @@
+
+force get-fingerprint-acquired-good
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_GOOD|
+    throw build, field int
+
+force get-fingerprint-acquired-imager-dirty
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_IMAGER_DIRTY|
+    throw build, field int
+
+force get-fingerprint-acquired-insufficient
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_INSUFFICIENT|
+    throw build, field int
+
+force get-fingerprint-acquired-partial
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_PARTIAL|
+    throw build, field int
+
+force get-fingerprint-acquired-too-fast
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_TOO_FAST|
+    throw build, field int
+
+force get-fingerprint-acquired-too-slow
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ACQUIRED_TOO_SLOW|
+    throw build, field int
+
+force get-fingerprint-error-canceled
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_CANCELED|
+    throw build, field int
+
+force get-fingerprint-error-hw-not-present
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_HW_NOT_PRESENT|
+    throw build, field int
+
+force get-fingerprint-error-hw-unavailable
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_HW_UNAVAILABLE|
+    throw build, field int
+
+force get-fingerprint-error-lockout
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_LOCKOUT|
+    throw build, field int
+
+force get-fingerprint-error-lockout-permanent
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_LOCKOUT_PERMANENT|
+    throw build, field int
+
+force get-fingerprint-error-no-fingerprints
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_NO_FINGERPRINTS|
+    throw build, field int
+
+force get-fingerprint-error-no-space
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_NO_SPACE|
+    throw build, field int
+
+force get-fingerprint-error-timeout
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_TIMEOUT|
+    throw build, field int
+
+force get-fingerprint-error-unable-to-process
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_UNABLE_TO_PROCESS|
+    throw build, field int
+
+force get-fingerprint-error-user-canceled
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_USER_CANCELED|
+    throw build, field int
+
+force get-fingerprint-error-vendor
+  mount build, field fingerprint-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FINGERPRINT_ERROR_VENDOR|
+    throw build, field int
+
+force authenticate
+  mount build, field fingerprint-manager
+  mount crypto, field fingerprint-manager-crypto-object
+  mount cancel, field cancellation-signal
+  mount flags, field int
+  mount callback, field fingerprint-manager-authentication-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |authenticate|
+    drive factor, share crypto
+    drive factor, share cancel
+    drive factor, share flags
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force has-enrolled-fingerprints
+  mount build, field fingerprint-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |hasEnrolledFingerprints|
+    throw build, field boolean
+
+force is-hardware-detected
+  mount build, field fingerprint-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isHardwareDetected|
+    throw build, field boolean

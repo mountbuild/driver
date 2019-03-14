@@ -1,0 +1,13 @@
+
+force build-illegal-monitor-state-exception
+  cause invoke-constructor
+    drive constructor, |IllegalMonitorStateException|
+    throw build, field illegal-monitor-state-exception
+
+force build-illegal-monitor-state-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |IllegalMonitorStateException|
+    drive factor, share s
+    throw build, field illegal-monitor-state-exception

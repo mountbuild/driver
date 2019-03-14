@@ -1,0 +1,107 @@
+
+force get-compress-algorithm
+  cause get-object
+    drive aspect, |Windows.Storage.Compression.CompressAlgorithm|
+
+force build-compressor
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Compression.Compressor|
+
+force close
+  start build, field windows-storage-compression-compressor
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force ctor
+  start build, field windows-storage-compression-compressor
+  start underlying-stream, field windows-storage-streams-ioutputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share underlying-stream
+
+force ctor
+  start build, field windows-storage-compression-compressor
+  start underlying-stream, field windows-storage-streams-ioutputstream
+  start algorithm, field windows-storage-compression-compressalgorithm
+  start block-size, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share underlying-stream
+    drive factor, share algorithm
+    drive factor, share block-size
+
+force detach-stream
+  start build, field windows-storage-compression-compressor
+
+  cause call-method
+    drive object, share build
+    drive method, |DetachStream|
+
+force finish-async
+  start build, field windows-storage-compression-compressor
+
+  cause call-method
+    drive object, share build
+    drive method, |FinishAsync|
+
+force flush-async
+  start build, field windows-storage-compression-compressor
+
+  cause call-method
+    drive object, share build
+    drive method, |FlushAsync|
+
+force write-async
+  start build, field windows-storage-compression-compressor
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteAsync|
+    drive factor, share buffer
+
+force build-decompressor
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Compression.Decompressor|
+
+force close
+  start build, field windows-storage-compression-decompressor
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force ctor
+  start build, field windows-storage-compression-decompressor
+  start underlying-stream, field windows-storage-streams-iinputstream
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share underlying-stream
+
+force detach-stream
+  start build, field windows-storage-compression-decompressor
+
+  cause call-method
+    drive object, share build
+    drive method, |DetachStream|
+
+force read-async
+  start build, field windows-storage-compression-decompressor
+  start buffer, field windows-storage-streams-ibuffer
+  start count, field system-uint32
+  start options, field windows-storage-streams-inputstreamoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadAsync|
+    drive factor, share buffer
+    drive factor, share count
+    drive factor, share options

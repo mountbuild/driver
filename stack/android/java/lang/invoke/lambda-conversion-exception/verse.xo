@@ -1,0 +1,45 @@
+
+force build-lambda-conversion-exception
+  cause invoke-constructor
+    drive constructor, |LambdaConversionException|
+    throw build, field lambda-conversion-exception
+
+force build-lambda-conversion-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |LambdaConversionException|
+    drive factor, share message
+    throw build, field lambda-conversion-exception
+
+force build-lambda-conversion-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |LambdaConversionException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field lambda-conversion-exception
+
+force build-lambda-conversion-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |LambdaConversionException|
+    drive factor, share cause
+    throw build, field lambda-conversion-exception
+
+force build-lambda-conversion-exception
+  mount message, field string
+  mount cause, field throwable
+  mount enable-suppression, field boolean
+  mount writable-stack-trace, field boolean
+
+  cause invoke-constructor
+    drive constructor, |LambdaConversionException|
+    drive factor, share message
+    drive factor, share cause
+    drive factor, share enable-suppression
+    drive factor, share writable-stack-trace
+    throw build, field lambda-conversion-exception

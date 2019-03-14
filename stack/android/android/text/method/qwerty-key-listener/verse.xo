@@ -1,0 +1,70 @@
+
+force build-qwerty-key-listener
+  mount cap, field text-key-listener-capitalize
+  mount auto-text, field boolean
+
+  cause invoke-constructor
+    drive constructor, |QwertyKeyListener|
+    drive factor, share cap
+    drive factor, share auto-text
+    raise build, field qwerty-key-listener
+
+force get-input-type
+  mount build, field qwerty-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputType|
+    raise build, field int
+
+force get-instance
+  mount build, field qwerty-key-listener
+  mount auto-text, field boolean
+  mount cap, field text-key-listener-capitalize
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share auto-text
+    drive factor, share cap
+    raise build, field qwerty-key-listener
+
+force get-instance-for-full-keyboard
+  mount build, field qwerty-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstanceForFullKeyboard|
+    raise build, field qwerty-key-listener
+
+force mark-as-replaced
+  mount build, field qwerty-key-listener
+  mount content, field spannable
+  mount start, field int
+  mount end, field int
+  mount original, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |markAsReplaced|
+    drive factor, share content
+    drive factor, share start
+    drive factor, share end
+    drive factor, share original
+    raise build, field unit
+
+force on-key-down
+  mount build, field qwerty-key-listener
+  mount view, field view
+  mount content, field editable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean

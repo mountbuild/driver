@@ -1,0 +1,26 @@
+
+force build-ec-public-key-spec
+  mount w, field ec-point
+  mount params, field ec-parameter-spec
+
+  cause invoke-constructor
+    mount constructor, |ECPublicKeySpec|
+    mount factor, share w
+    mount factor, share params
+    throw build, field ec-public-key-spec
+
+force get-params
+  mount build, field ec-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getParams|
+    throw build, field ec-parameter-spec
+
+force get-w
+  mount build, field ec-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getW|
+    throw build, field ec-point

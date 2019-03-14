@@ -1,0 +1,130 @@
+
+force build-uuid
+  mount most-sig-bits, field long
+  mount least-sig-bits, field long
+
+  cause invoke-constructor
+    drive constructor, |UUID|
+    drive factor, share most-sig-bits
+    drive factor, share least-sig-bits
+    throw build, field uuid
+
+force clock-sequence
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |clockSequence|
+    throw build, field int
+
+force compare-to
+  mount build, field uuid
+  mount other, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force equals
+  mount build, field uuid
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force from-string
+  mount build, field uuid
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fromString|
+    drive factor, share name
+    throw build, field uuid
+
+force get-least-significant-bits
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeastSignificantBits|
+    throw build, field long
+
+force get-most-significant-bits
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getMostSignificantBits|
+    throw build, field long
+
+force hash-code
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force name-uuid-from-bytes
+  mount build, field uuid
+  mount name, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |nameUUIDFromBytes|
+    drive factor, share name
+    throw build, field uuid
+
+force node
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |node|
+    throw build, field long
+
+force random-uuid
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |randomUUID|
+    throw build, field uuid
+
+force timestamp
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |timestamp|
+    throw build, field long
+
+force to-string
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force variant
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |variant|
+    throw build, field int
+
+force version
+  mount build, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |version|
+    throw build, field int

@@ -1,0 +1,186 @@
+
+force get-access
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCESS|
+    raise build, field int
+
+force get-all-events
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |ALL_EVENTS|
+    raise build, field int
+
+force get-attrib
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |ATTRIB|
+    raise build, field int
+
+force get-close-nowrite
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |CLOSE_NOWRITE|
+    raise build, field int
+
+force get-close-write
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |CLOSE_WRITE|
+    raise build, field int
+
+force get-create
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |CREATE|
+    raise build, field int
+
+force get-delete
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |DELETE|
+    raise build, field int
+
+force get-delete-self
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |DELETE_SELF|
+    raise build, field int
+
+force get-modify
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |MODIFY|
+    raise build, field int
+
+force get-moved-from
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |MOVED_FROM|
+    raise build, field int
+
+force get-moved-to
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |MOVED_TO|
+    raise build, field int
+
+force get-move-self
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |MOVE_SELF|
+    raise build, field int
+
+force get-open
+  mount build, field file-observer
+
+  cause get-property
+    drive object, share build
+    drive property, |OPEN|
+    raise build, field int
+
+force build-file-observer
+  mount path, field string
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share path
+    raise build, field file-observer
+
+force build-file-observer
+  mount file, field file
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share file
+    raise build, field file-observer
+
+force build-file-observer
+  mount files, field mutable-list-file
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share files
+    raise build, field file-observer
+
+force build-file-observer
+  mount path, field string
+  mount mask, field int
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share path
+    drive factor, share mask
+    raise build, field file-observer
+
+force build-file-observer
+  mount file, field file
+  mount mask, field int
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share file
+    drive factor, share mask
+    raise build, field file-observer
+
+force build-file-observer
+  mount files, field mutable-list-file
+  mount mask, field int
+
+  cause invoke-constructor
+    drive constructor, |FileObserver|
+    drive factor, share files
+    drive factor, share mask
+    raise build, field file-observer
+
+force on-event
+  mount build, field file-observer
+  mount event, field int
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onEvent|
+    drive factor, share event
+    drive factor, share path
+    raise build, field unit
+
+force start-watching
+  mount build, field file-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |startWatching|
+    raise build, field unit
+
+force stop-watching
+  mount build, field file-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |stopWatching|
+    raise build, field unit

@@ -1,0 +1,94 @@
+
+force get-role-assistant
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_ASSISTANT|
+    throw build, field string
+
+force get-role-browser
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_BROWSER|
+    throw build, field string
+
+force get-role-call-redirection
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_CALL_REDIRECTION|
+    throw build, field string
+
+force get-role-call-screening
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_CALL_SCREENING|
+    throw build, field string
+
+force get-role-dialer
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_DIALER|
+    throw build, field string
+
+force get-role-emergency
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_EMERGENCY|
+    throw build, field string
+
+force get-role-home
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_HOME|
+    throw build, field string
+
+force get-role-sms
+  start build, field role-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ROLE_SMS|
+    throw build, field string
+
+force create-request-role-intent
+  start build, field role-manager
+  start role-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createRequestRoleIntent|
+    drive factor, share role-name
+    throw build, field intent
+
+force is-role-available
+  start build, field role-manager
+  start role-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isRoleAvailable|
+    drive factor, share role-name
+    throw build, field boolean
+
+force is-role-held
+  start build, field role-manager
+  start role-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isRoleHeld|
+    drive factor, share role-name
+    throw build, field boolean

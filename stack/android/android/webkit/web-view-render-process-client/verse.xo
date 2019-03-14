@@ -1,0 +1,29 @@
+
+force build-web-view-render-process-client
+  cause invoke-constructor
+    drive constructor, |WebViewRenderProcessClient|
+    throw build, field web-view-render-process-client
+
+force on-render-process-responsive
+  mount build, field web-view-render-process-client
+  mount view, field web-view
+  mount renderer, field web-view-render-process
+
+  cause call-method
+    drive object, share build
+    drive method, |onRenderProcessResponsive|
+    drive factor, share view
+    drive factor, share renderer
+    throw build, field unit
+
+force on-render-process-unresponsive
+  mount build, field web-view-render-process-client
+  mount view, field web-view
+  mount renderer, field web-view-render-process
+
+  cause call-method
+    drive object, share build
+    drive method, |onRenderProcessUnresponsive|
+    drive factor, share view
+    drive factor, share renderer
+    throw build, field unit

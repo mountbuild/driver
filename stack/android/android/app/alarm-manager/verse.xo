@@ -1,0 +1,300 @@
+
+force get-action-next-alarm-clock-changed
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_NEXT_ALARM_CLOCK_CHANGED|
+    throw build, field string
+
+force get-elapsed-realtime
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ELAPSED_REALTIME|
+    throw build, field int
+
+force get-elapsed-realtime-wakeup
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ELAPSED_REALTIME_WAKEUP|
+    throw build, field int
+
+force get-interval-day
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_DAY|
+    throw build, field long
+
+force get-interval-fifteen-minutes
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_FIFTEEN_MINUTES|
+    throw build, field long
+
+force get-interval-half-day
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_HALF_DAY|
+    throw build, field long
+
+force get-interval-half-hour
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_HALF_HOUR|
+    throw build, field long
+
+force get-interval-hour
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_HOUR|
+    throw build, field long
+
+force get-rtc
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RTC|
+    throw build, field int
+
+force get-rtc-wakeup
+  mount build, field alarm-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RTC_WAKEUP|
+    throw build, field int
+
+force cancel
+  mount build, field alarm-manager
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share operation
+    throw build, field unit
+
+force cancel
+  mount build, field alarm-manager
+  mount listener, field alarm-manager-on-alarm-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share listener
+    throw build, field unit
+
+force get-next-alarm-clock
+  mount build, field alarm-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getNextAlarmClock|
+    throw build, field alarm-manager-alarm-clock-info
+
+force set
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount tag, field string
+  mount listener, field alarm-manager-on-alarm-listener
+  mount target-handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share tag
+    drive factor, share listener
+    drive factor, share target-handler
+    throw build, field unit
+
+force set-alarm-clock
+  mount build, field alarm-manager
+  mount info, field alarm-manager-alarm-clock-info
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setAlarmClock|
+    drive factor, share info
+    drive factor, share operation
+    throw build, field unit
+
+force set-and-allow-while-idle
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setAndAllowWhileIdle|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-exact
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setExact|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-exact
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount tag, field string
+  mount listener, field alarm-manager-on-alarm-listener
+  mount target-handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setExact|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share tag
+    drive factor, share listener
+    drive factor, share target-handler
+    throw build, field unit
+
+force set-exact-and-allow-while-idle
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setExactAndAllowWhileIdle|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-inexact-repeating
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount interval-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setInexactRepeating|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share interval-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-repeating
+  mount build, field alarm-manager
+  mount type, field int
+  mount trigger-at-millis, field long
+  mount interval-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeating|
+    drive factor, share type
+    drive factor, share trigger-at-millis
+    drive factor, share interval-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-time
+  mount build, field alarm-manager
+  mount millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setTime|
+    drive factor, share millis
+    throw build, field unit
+
+force set-time-zone
+  mount build, field alarm-manager
+  mount time-zone, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeZone|
+    drive factor, share time-zone
+    throw build, field unit
+
+force set-window
+  mount build, field alarm-manager
+  mount type, field int
+  mount window-start-millis, field long
+  mount window-length-millis, field long
+  mount operation, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setWindow|
+    drive factor, share type
+    drive factor, share window-start-millis
+    drive factor, share window-length-millis
+    drive factor, share operation
+    throw build, field unit
+
+force set-window
+  mount build, field alarm-manager
+  mount type, field int
+  mount window-start-millis, field long
+  mount window-length-millis, field long
+  mount tag, field string
+  mount listener, field alarm-manager-on-alarm-listener
+  mount target-handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setWindow|
+    drive factor, share type
+    drive factor, share window-start-millis
+    drive factor, share window-length-millis
+    drive factor, share tag
+    drive factor, share listener
+    drive factor, share target-handler
+    throw build, field unit

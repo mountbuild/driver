@@ -1,0 +1,459 @@
+
+force build-socket
+  cause invoke-constructor
+    drive constructor, |Socket|
+    throw build, field socket
+
+force build-socket
+  mount proxy, field proxy
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share proxy
+    throw build, field socket
+
+force build-socket
+  mount host, field string
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share host
+    drive factor, share port
+    throw build, field socket
+
+force build-socket
+  mount address, field inet-address
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share address
+    drive factor, share port
+    throw build, field socket
+
+force build-socket
+  mount host, field string
+  mount port, field int
+  mount local-addr, field inet-address
+  mount local-port, field int
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share local-addr
+    drive factor, share local-port
+    throw build, field socket
+
+force build-socket
+  mount address, field inet-address
+  mount port, field int
+  mount local-addr, field inet-address
+  mount local-port, field int
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share address
+    drive factor, share port
+    drive factor, share local-addr
+    drive factor, share local-port
+    throw build, field socket
+
+force build-socket
+  mount host, field string
+  mount port, field int
+  mount stream, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share stream
+    throw build, field socket
+
+force build-socket
+  mount host, field inet-address
+  mount port, field int
+  mount stream, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Socket|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share stream
+    throw build, field socket
+
+force bind
+  mount build, field socket
+  mount bindpoint, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |bind|
+    drive factor, share bindpoint
+    throw build, field unit
+
+force close
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field socket
+  mount endpoint, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share endpoint
+    throw build, field unit
+
+force connect
+  mount build, field socket
+  mount endpoint, field socket-address
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share endpoint
+    drive factor, share timeout
+    throw build, field unit
+
+force get-channel
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field socket-channel
+
+force get-inet-address
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInetAddress|
+    throw build, field inet-address
+
+force get-input-stream
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputStream|
+    throw build, field input-stream
+
+force get-keep-alive
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeepAlive|
+    throw build, field boolean
+
+force get-local-address
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalAddress|
+    throw build, field inet-address
+
+force get-local-port
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalPort|
+    throw build, field int
+
+force get-local-socket-address
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalSocketAddress|
+    throw build, field socket-address
+
+force get-oob-inline
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getOOBInline|
+    throw build, field boolean
+
+force get-output-stream
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputStream|
+    throw build, field output-stream
+
+force get-port
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-receive-buffer-size
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReceiveBufferSize|
+    throw build, field int
+
+force get-remote-socket-address
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteSocketAddress|
+    throw build, field socket-address
+
+force get-reuse-address
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getReuseAddress|
+    throw build, field boolean
+
+force get-send-buffer-size
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSendBufferSize|
+    throw build, field int
+
+force get-so-linger
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSoLinger|
+    throw build, field int
+
+force get-so-timeout
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getSoTimeout|
+    throw build, field int
+
+force get-tcp-no-delay
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getTcpNoDelay|
+    throw build, field boolean
+
+force get-traffic-class
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrafficClass|
+    throw build, field int
+
+force is-bound
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isBound|
+    throw build, field boolean
+
+force is-closed
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isClosed|
+    throw build, field boolean
+
+force is-connected
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force is-input-shutdown
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isInputShutdown|
+    throw build, field boolean
+
+force is-output-shutdown
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isOutputShutdown|
+    throw build, field boolean
+
+force send-urgent-data
+  mount build, field socket
+  mount data, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendUrgentData|
+    drive factor, share data
+    throw build, field unit
+
+force set-keep-alive
+  mount build, field socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeepAlive|
+    drive factor, share on
+    throw build, field unit
+
+force set-oob-inline
+  mount build, field socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setOOBInline|
+    drive factor, share on
+    throw build, field unit
+
+force set-performance-preferences
+  mount build, field socket
+  mount connection-time, field int
+  mount latency, field int
+  mount bandwidth, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPerformancePreferences|
+    drive factor, share connection-time
+    drive factor, share latency
+    drive factor, share bandwidth
+    throw build, field unit
+
+force set-receive-buffer-size
+  mount build, field socket
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReceiveBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-reuse-address
+  mount build, field socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReuseAddress|
+    drive factor, share on
+    throw build, field unit
+
+force set-send-buffer-size
+  mount build, field socket
+  mount size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSendBufferSize|
+    drive factor, share size
+    throw build, field unit
+
+force set-so-linger
+  mount build, field socket
+  mount on, field boolean
+  mount linger, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSoLinger|
+    drive factor, share on
+    drive factor, share linger
+    throw build, field unit
+
+force set-so-timeout
+  mount build, field socket
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSoTimeout|
+    drive factor, share timeout
+    throw build, field unit
+
+force set-socket-impl-factory
+  mount build, field socket
+  mount fac, field socket-impl-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setSocketImplFactory|
+    drive factor, share fac
+    throw build, field unit
+
+force set-tcp-no-delay
+  mount build, field socket
+  mount on, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setTcpNoDelay|
+    drive factor, share on
+    throw build, field unit
+
+force set-traffic-class
+  mount build, field socket
+  mount tc, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTrafficClass|
+    drive factor, share tc
+    throw build, field unit
+
+force shutdown-input
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownInput|
+    throw build, field unit
+
+force shutdown-output
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownOutput|
+    throw build, field unit
+
+force to-string
+  mount build, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

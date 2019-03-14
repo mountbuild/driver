@@ -1,0 +1,175 @@
+
+force build-properties
+  cause invoke-constructor
+    drive constructor, |Properties|
+    throw build, field properties
+
+force build-properties
+  mount defaults, field properties
+
+  cause invoke-constructor
+    drive constructor, |Properties|
+    drive factor, share defaults
+    throw build, field properties
+
+force get-property
+  mount build, field properties
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share key
+    throw build, field string
+
+force get-property
+  mount build, field properties
+  mount key, field string
+  mount default-value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share key
+    drive factor, share default-value
+    throw build, field string
+
+force list
+  mount build, field properties
+  mount out, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    drive factor, share out
+    throw build, field unit
+
+force list
+  mount build, field properties
+  mount out, field print-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    drive factor, share out
+    throw build, field unit
+
+force load
+  mount build, field properties
+  mount reader, field reader
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share reader
+    throw build, field unit
+
+force load
+  mount build, field properties
+  mount in-stream, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share in-stream
+    throw build, field unit
+
+force load-from-xml
+  mount build, field properties
+  mount in, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromXML|
+    drive factor, share in
+    throw build, field unit
+
+force property-names
+  mount build, field properties
+
+  cause call-method
+    drive object, share build
+    drive method, |propertyNames|
+    throw build, field enumeration
+
+force save
+  mount build, field properties
+  mount out, field output-stream
+  mount comments, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |save|
+    drive factor, share out
+    drive factor, share comments
+    throw build, field unit
+
+force set-property
+  mount build, field properties
+  mount key, field string
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperty|
+    drive factor, share key
+    drive factor, share value
+    throw build, field any
+
+force store
+  mount build, field properties
+  mount writer, field writer
+  mount comments, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |store|
+    drive factor, share writer
+    drive factor, share comments
+    throw build, field unit
+
+force store
+  mount build, field properties
+  mount out, field output-stream
+  mount comments, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |store|
+    drive factor, share out
+    drive factor, share comments
+    throw build, field unit
+
+force store-to-xml
+  mount build, field properties
+  mount os, field output-stream
+  mount comment, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |storeToXML|
+    drive factor, share os
+    drive factor, share comment
+    throw build, field unit
+
+force store-to-xml
+  mount build, field properties
+  mount os, field output-stream
+  mount comment, field string
+  mount encoding, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |storeToXML|
+    drive factor, share os
+    drive factor, share comment
+    drive factor, share encoding
+    throw build, field unit
+
+force string-property-names
+  mount build, field properties
+
+  cause call-method
+    drive object, share build
+    drive method, |stringPropertyNames|
+    throw build, field mutable-set

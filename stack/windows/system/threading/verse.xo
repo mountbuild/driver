@@ -1,0 +1,136 @@
+
+force build-thread-pool
+  cause invoke-constructor
+    drive constructor, |Windows.System.Threading.ThreadPool|
+
+force run-async
+  start build, field windows-system-threading-threadpool
+  start handler, field windows-system-threading-workitemhandler
+  start priority, field windows-system-threading-workitempriority
+
+  cause call-method
+    drive object, share build
+    drive method, |RunAsync|
+    drive factor, share handler
+    drive factor, share priority
+
+force run-async
+  start build, field windows-system-threading-threadpool
+  start handler, field windows-system-threading-workitemhandler
+  start priority, field windows-system-threading-workitempriority
+  start options, field windows-system-threading-workitemoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |RunAsync|
+    drive factor, share handler
+    drive factor, share priority
+    drive factor, share options
+
+force run-async
+  start build, field windows-system-threading-threadpool
+  start handler, field windows-system-threading-workitemhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |RunAsync|
+    drive factor, share handler
+
+force build-thread-pool-timer
+  cause invoke-constructor
+    drive constructor, |Windows.System.Threading.ThreadPoolTimer|
+
+force cancel
+  start build, field windows-system-threading-threadpooltimer
+
+  cause call-method
+    drive object, share build
+    drive method, |Cancel|
+
+force create-periodic-timer
+  start build, field windows-system-threading-threadpooltimer
+  start handler, field windows-system-threading-timerelapsedhandler
+  start period, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |CreatePeriodicTimer|
+    drive factor, share handler
+    drive factor, share period
+
+force create-periodic-timer
+  start build, field windows-system-threading-threadpooltimer
+  start handler, field windows-system-threading-timerelapsedhandler
+  start period, field windows-foundation-timespan
+  start destroyed, field windows-system-threading-timerdestroyedhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |CreatePeriodicTimer|
+    drive factor, share handler
+    drive factor, share period
+    drive factor, share destroyed
+
+force create-timer
+  start build, field windows-system-threading-threadpooltimer
+  start handler, field windows-system-threading-timerelapsedhandler
+  start delay, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateTimer|
+    drive factor, share handler
+    drive factor, share delay
+
+force create-timer
+  start build, field windows-system-threading-threadpooltimer
+  start handler, field windows-system-threading-timerelapsedhandler
+  start delay, field windows-foundation-timespan
+  start destroyed, field windows-system-threading-timerdestroyedhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateTimer|
+    drive factor, share handler
+    drive factor, share delay
+    drive factor, share destroyed
+
+force get-delay
+  start build, field windows-system-threading-threadpooltimer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Delay|
+
+force set-delay
+  start build, field windows-system-threading-threadpooltimer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Delay|
+    drive factor, share value
+
+force get-period
+  start build, field windows-system-threading-threadpooltimer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Period|
+
+force set-period
+  start build, field windows-system-threading-threadpooltimer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Period|
+    drive factor, share value
+
+force get-work-item-options
+  cause get-object
+    drive aspect, |Windows.System.Threading.WorkItemOptions|
+
+force get-work-item-priority
+  cause get-object
+    drive aspect, |Windows.System.Threading.WorkItemPriority|

@@ -1,0 +1,44 @@
+
+force get-action-wfc-ims-registration-error
+  mount build, field ims-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_WFC_IMS_REGISTRATION_ERROR|
+    throw build, field string
+
+force get-extra-wfc-registration-failure-message
+  mount build, field ims-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WFC_REGISTRATION_FAILURE_MESSAGE|
+    throw build, field string
+
+force get-extra-wfc-registration-failure-title
+  mount build, field ims-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WFC_REGISTRATION_FAILURE_TITLE|
+    throw build, field string
+
+force get-ims-mm-tel-manager
+  mount build, field ims-manager
+  mount subscription-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getImsMmTelManager|
+    drive factor, share subscription-id
+    throw build, field ims-mm-tel-manager
+
+force get-ims-rcs-manager
+  mount build, field ims-manager
+  mount subscription-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getImsRcsManager|
+    drive factor, share subscription-id
+    throw build, field ims-rcs-manager

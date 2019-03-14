@@ -1,0 +1,204 @@
+
+force get-quality-default
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_DEFAULT|
+    throw build, field int
+
+force get-quality-high
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_HIGH|
+    throw build, field int
+
+force get-quality-low
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_LOW|
+    throw build, field int
+
+force get-quality-medium
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_MEDIUM|
+    throw build, field int
+
+force get-state-audio-only
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_AUDIO_ONLY|
+    throw build, field int
+
+force get-state-bidirectional
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_BIDIRECTIONAL|
+    throw build, field int
+
+force get-state-paused
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_PAUSED|
+    throw build, field int
+
+force get-state-rx-enabled
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_RX_ENABLED|
+    throw build, field int
+
+force get-state-tx-enabled
+  mount build, field video-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_TX_ENABLED|
+    throw build, field int
+
+force build-video-profile
+  mount video-state, field int
+
+  cause invoke-constructor
+    drive constructor, |VideoProfile|
+    drive factor, share video-state
+    throw build, field video-profile
+
+force build-video-profile
+  mount video-state, field int
+  mount quality, field int
+
+  cause invoke-constructor
+    drive constructor, |VideoProfile|
+    drive factor, share video-state
+    drive factor, share quality
+    throw build, field video-profile
+
+force describe-contents
+  mount build, field video-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-quality
+  mount build, field video-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuality|
+    throw build, field int
+
+force get-video-state
+  mount build, field video-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoState|
+    throw build, field int
+
+force is-audio-only
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isAudioOnly|
+    drive factor, share video-state
+    throw build, field boolean
+
+force is-bidirectional
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isBidirectional|
+    drive factor, share video-state
+    throw build, field boolean
+
+force is-paused
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isPaused|
+    drive factor, share video-state
+    throw build, field boolean
+
+force is-reception-enabled
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isReceptionEnabled|
+    drive factor, share video-state
+    throw build, field boolean
+
+force is-transmission-enabled
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isTransmissionEnabled|
+    drive factor, share video-state
+    throw build, field boolean
+
+force is-video
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isVideo|
+    drive factor, share video-state
+    throw build, field boolean
+
+force to-string
+  mount build, field video-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force video-state-to-string
+  mount build, field video-profile
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |videoStateToString|
+    drive factor, share video-state
+    throw build, field string
+
+force write-to-parcel
+  mount build, field video-profile
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,142 @@
+
+force get-status-fail
+  mount build, field ranging-result
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAIL|
+    throw build, field int
+
+force get-status-responder-does-not-support-ieee80211-mc
+  mount build, field ranging-result
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_RESPONDER_DOES_NOT_SUPPORT_IEEE80211MC|
+    throw build, field int
+
+force get-status-success
+  mount build, field ranging-result
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_SUCCESS|
+    throw build, field int
+
+force describe-contents
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field ranging-result
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-distance-mm
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getDistanceMm|
+    throw build, field int
+
+force get-distance-std-dev-mm
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getDistanceStdDevMm|
+    throw build, field int
+
+force get-mac-address
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getMacAddress|
+    throw build, field mac-address
+
+force get-num-attempted-measurements
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumAttemptedMeasurements|
+    throw build, field int
+
+force get-num-successful-measurements
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumSuccessfulMeasurements|
+    throw build, field int
+
+force get-peer-handle
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerHandle|
+    throw build, field peer-handle
+
+force get-ranging-timestamp-millis
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getRangingTimestampMillis|
+    throw build, field long
+
+force get-rssi
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getRssi|
+    throw build, field int
+
+force get-status
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatus|
+    throw build, field int
+
+force get-unverified-responder-location
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnverifiedResponderLocation|
+    throw build, field responder-location
+
+force hash-code
+  mount build, field ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field ranging-result
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

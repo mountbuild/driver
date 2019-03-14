@@ -1,0 +1,13 @@
+
+force build-no-route-to-host-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |NoRouteToHostException|
+    drive factor, share msg
+    throw build, field no-route-to-host-exception
+
+force build-no-route-to-host-exception
+  cause invoke-constructor
+    drive constructor, |NoRouteToHostException|
+    throw build, field no-route-to-host-exception

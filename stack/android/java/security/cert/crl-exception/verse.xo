@@ -1,0 +1,31 @@
+
+force build-crl-exception
+  cause invoke-constructor
+    mount constructor, |CRLException|
+    throw build, field crl-exception
+
+force build-crl-exception
+  mount message, field string
+
+  cause invoke-constructor
+    mount constructor, |CRLException|
+    mount factor, share message
+    throw build, field crl-exception
+
+force build-crl-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CRLException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field crl-exception
+
+force build-crl-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CRLException|
+    mount factor, share cause
+    throw build, field crl-exception

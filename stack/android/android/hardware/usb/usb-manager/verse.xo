@@ -1,0 +1,136 @@
+
+force get-action-usb-accessory-attached
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_USB_ACCESSORY_ATTACHED|
+    throw build, field string
+
+force get-action-usb-accessory-detached
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_USB_ACCESSORY_DETACHED|
+    throw build, field string
+
+force get-action-usb-device-attached
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_USB_DEVICE_ATTACHED|
+    throw build, field string
+
+force get-action-usb-device-detached
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_USB_DEVICE_DETACHED|
+    throw build, field string
+
+force get-extra-accessory
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_ACCESSORY|
+    throw build, field string
+
+force get-extra-device
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_DEVICE|
+    throw build, field string
+
+force get-extra-permission-granted
+  mount build, field usb-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PERMISSION_GRANTED|
+    throw build, field string
+
+force get-accessory-list
+  mount build, field usb-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessoryList|
+    throw build, field array
+
+force get-device-list
+  mount build, field usb-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceList|
+    throw build, field hash-map
+
+force has-permission
+  mount build, field usb-manager
+  mount device, field usb-device
+
+  cause call-method
+    drive object, share build
+    drive method, |hasPermission|
+    drive factor, share device
+    throw build, field boolean
+
+force has-permission
+  mount build, field usb-manager
+  mount accessory, field usb-accessory
+
+  cause call-method
+    drive object, share build
+    drive method, |hasPermission|
+    drive factor, share accessory
+    throw build, field boolean
+
+force open-accessory
+  mount build, field usb-manager
+  mount accessory, field usb-accessory
+
+  cause call-method
+    drive object, share build
+    drive method, |openAccessory|
+    drive factor, share accessory
+    throw build, field parcel-file-descriptor
+
+force open-device
+  mount build, field usb-manager
+  mount device, field usb-device
+
+  cause call-method
+    drive object, share build
+    drive method, |openDevice|
+    drive factor, share device
+    throw build, field usb-device-connection
+
+force request-permission
+  mount build, field usb-manager
+  mount device, field usb-device
+  mount pi, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPermission|
+    drive factor, share device
+    drive factor, share pi
+    throw build, field unit
+
+force request-permission
+  mount build, field usb-manager
+  mount accessory, field usb-accessory
+  mount pi, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPermission|
+    drive factor, share accessory
+    drive factor, share pi
+    throw build, field unit

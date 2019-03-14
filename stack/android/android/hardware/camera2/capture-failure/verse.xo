@@ -1,0 +1,64 @@
+
+force get-reason-error
+  mount build, field capture-failure
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_ERROR|
+    throw build, field int
+
+force get-reason-flushed
+  mount build, field capture-failure
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_FLUSHED|
+    throw build, field int
+
+force get-frame-number
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrameNumber|
+    throw build, field long
+
+force get-physical-camera-id
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhysicalCameraId|
+    throw build, field string
+
+force get-reason
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field int
+
+force get-request
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getRequest|
+    throw build, field capture-request
+
+force get-sequence-id
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getSequenceId|
+    throw build, field int
+
+force was-image-captured
+  mount build, field capture-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |wasImageCaptured|
+    throw build, field boolean

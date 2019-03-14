@@ -1,0 +1,809 @@
+force get-menu-bar-height
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |menuBarHeight|
+    raise build, field cg-float
+
+force set-menu-bar-height
+  field build, field ns-menu
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |menuBarHeight|
+    drive factor, share value
+
+force insert-item
+  field build, field ns-menu
+  field a, class ns-menu-item
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |insertItem|
+    drive factor, share a
+    drive factor
+      brand at
+      share at
+
+force insert-item
+  field build, field ns-menu
+  field with-title, field string
+  field action, field selector
+  field key-equivalent, field string
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |insertItem|
+    drive factor
+      brand with-title
+      share with-title
+    drive factor
+      brand action
+      share action
+    drive factor
+      brand key-equivalent
+      share key-equivalent
+    drive factor
+      brand at
+      share at
+    raise build, class ns-menu-item
+
+force add-item
+  field build, field ns-menu
+  field a, class ns-menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |addItem|
+    drive factor, share a
+
+force add-item
+  field build, field ns-menu
+  field with-title, field string
+  field action, field selector
+  field key-equivalent, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addItem|
+    drive factor
+      brand with-title
+      share with-title
+    drive factor
+      brand action
+      share action
+    drive factor
+      brand key-equivalent
+      share key-equivalent
+    raise build, class ns-menu-item
+
+force remove-item
+  field build, field ns-menu
+  field a, class ns-menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |removeItem|
+    drive factor, share a
+
+force remove-item
+  field build, field ns-menu
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeItem|
+    drive factor
+      brand at
+      share at
+
+force item-changed
+  field build, field ns-menu
+  field a, class ns-menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |itemChanged|
+    drive factor, share a
+
+force remove-all-items
+  field build, field ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllItems|
+
+force item
+  field build, field ns-menu
+  field with-tag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand with-tag
+      share with-tag
+    raise build, class ns-menu-item
+
+force item
+  field build, field ns-menu
+  field with-title, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand with-title
+      share with-title
+    raise build, class ns-menu-item
+
+force item
+  field build, field ns-menu
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |item|
+    drive factor
+      brand at
+      share at
+    raise build, class ns-menu-item
+
+force get-number-of-items
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfItems|
+    raise build, field int
+
+force set-number-of-items
+  field build, field ns-menu
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfItems|
+    drive factor, share value
+
+force get-items
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |items|
+    raise build, field ns-menu-item
+
+force set-items
+  field build, field ns-menu
+  field value, field ns-menu-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |items|
+    drive factor, share value
+
+force index
+  field build, field ns-menu
+  field of, field ns-menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force index-of-item
+  field build, field ns-menu
+  field with-title, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfItem|
+    drive factor
+      brand with-title
+      share with-title
+    raise build, class int
+
+force index-of-item
+  field build, field ns-menu
+  field with-tag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfItem|
+    drive factor
+      brand with-tag
+      share with-tag
+    raise build, class int
+
+force index-of-item
+  field build, field ns-menu
+  field with-target, field any
+  field and-action, field selector
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfItem|
+    drive factor
+      brand with-target
+      share with-target
+    drive factor
+      brand and-action
+      share and-action
+    raise build, class int
+
+force index-of-item
+  field build, field ns-menu
+  field with-represented-object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfItem|
+    drive factor
+      brand with-represented-object
+      share with-represented-object
+    raise build, class int
+
+force index-of-item
+  field build, field ns-menu
+  field with-submenu, field ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfItem|
+    drive factor
+      brand with-submenu
+      share with-submenu
+    raise build, class int
+
+force set-submenu
+  field build, field ns-menu
+  field a, class ns-menu
+  field for, field ns-menu-item
+
+  cause call-method
+    drive object, share build
+    drive method, |setSubmenu|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force submenu-action
+  field build, field ns-menu
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |submenuAction|
+    drive factor, share a
+
+force get-supermenu
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supermenu|
+    raise build, field ns-menu
+
+force set-supermenu
+  field build, field ns-menu
+  field value, field ns-menu
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supermenu|
+    drive factor, share value
+
+force get-is-torn-off
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isTornOff|
+    raise build, field bool
+
+force set-is-torn-off
+  field build, field ns-menu
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isTornOff|
+    drive factor, share value
+
+force get-autoenables-items
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |autoenablesItems|
+    raise build, field bool
+
+force set-autoenables-items
+  field build, field ns-menu
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |autoenablesItems|
+    drive factor, share value
+
+force update
+  field build, field ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+
+force get-font
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |font|
+    raise build, field ns-font
+
+force set-font
+  field build, field ns-menu
+  field value, field ns-font
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |font|
+    drive factor, share value
+
+force perform-key-equivalent
+  field build, field ns-menu
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |performKeyEquivalent|
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force perform-action-for-item
+  field build, field ns-menu
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |performActionForItem|
+    drive factor
+      brand at
+      share at
+
+force get-title
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |title|
+    raise build, field string
+
+force set-title
+  field build, field ns-menu
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |title|
+    drive factor, share value
+
+force get-minimum-width
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |minimumWidth|
+    raise build, field cg-float
+
+force set-minimum-width
+  field build, field ns-menu
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |minimumWidth|
+    drive factor, share value
+
+force get-size
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |size|
+    raise build, field ns-size
+
+force set-size
+  field build, field ns-menu
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |size|
+    drive factor, share value
+
+force get-properties-to-update
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |propertiesToUpdate|
+    raise build, field ns-menu-properties
+
+force set-properties-to-update
+  field build, field ns-menu
+  field value, field ns-menu-properties
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |propertiesToUpdate|
+    drive factor, share value
+
+force get-menu-changed-messages-enabled
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |menuChangedMessagesEnabled|
+    raise build, field bool
+
+force set-menu-changed-messages-enabled
+  field build, field ns-menu
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |menuChangedMessagesEnabled|
+    drive factor, share value
+
+force get-allows-context-menu-plug-ins
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsContextMenuPlugIns|
+    raise build, field bool
+
+force set-allows-context-menu-plug-ins
+  field build, field ns-menu
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsContextMenuPlugIns|
+    drive factor, share value
+
+force help-requested
+  field build, field ns-menu
+  field with, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |helpRequested|
+    drive factor
+      brand with
+      share with
+
+force pop-up
+  field build, field ns-menu
+  field positioning, field ns-menu-item
+  field at, field ns-point
+  field in, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |popUp|
+    drive factor
+      brand positioning
+      share positioning
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand in
+      share in
+    raise build, class bool
+
+force get-shows-state-column
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |showsStateColumn|
+    raise build, field bool
+
+force set-shows-state-column
+  field build, field ns-menu
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |showsStateColumn|
+    drive factor, share value
+
+force get-highlighted-item
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |highlightedItem|
+    raise build, field ns-menu-item
+
+force set-highlighted-item
+  field build, field ns-menu
+  field value, field ns-menu-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |highlightedItem|
+    drive factor, share value
+
+force get-user-interface-layout-direction
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    raise build, field ns-user-interface-layout-direction
+
+force set-user-interface-layout-direction
+  field build, field ns-menu
+  field value, field ns-user-interface-layout-direction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    drive factor, share value
+
+force get-delegate
+  field build, field ns-menu
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-menu-delegate
+
+force set-delegate
+  field build, field ns-menu
+  field value, field ns-menu-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force cancel-tracking
+  field build, field ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelTracking|
+
+force cancel-tracking-without-animation
+  field build, field ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelTrackingWithoutAnimation|
+
+force get-class-did-add-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didAddItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-add-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didAddItemNotification|
+    drive factor, share value
+
+force get-class-did-add-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didAddItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-add-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didAddItemNotification|
+    drive factor, share value
+
+force get-class-did-change-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didChangeItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didChangeItemNotification|
+    drive factor, share value
+
+force get-class-did-change-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didChangeItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didChangeItemNotification|
+    drive factor, share value
+
+force get-class-did-begin-tracking-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didBeginTrackingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-begin-tracking-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didBeginTrackingNotification|
+    drive factor, share value
+
+force get-class-did-begin-tracking-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didBeginTrackingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-begin-tracking-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didBeginTrackingNotification|
+    drive factor, share value
+
+force get-class-did-end-tracking-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didEndTrackingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-end-tracking-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didEndTrackingNotification|
+    drive factor, share value
+
+force get-class-did-end-tracking-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didEndTrackingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-end-tracking-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didEndTrackingNotification|
+    drive factor, share value
+
+force get-class-did-remove-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didRemoveItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-remove-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didRemoveItemNotification|
+    drive factor, share value
+
+force get-class-did-remove-item-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didRemoveItemNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-remove-item-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didRemoveItemNotification|
+    drive factor, share value
+
+force get-class-did-send-action-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didSendActionNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-send-action-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didSendActionNotification|
+    drive factor, share value
+
+force get-class-did-send-action-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |didSendActionNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-send-action-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |didSendActionNotification|
+    drive factor, share value
+
+force get-class-will-send-action-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |willSendActionNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-send-action-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |willSendActionNotification|
+    drive factor, share value
+
+force get-class-will-send-action-notification
+
+  cause get-aspect
+    drive object, |NSMenu|
+    drive aspect, |willSendActionNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-send-action-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSMenu|
+    drive aspect, |willSendActionNotification|
+    drive factor, share value

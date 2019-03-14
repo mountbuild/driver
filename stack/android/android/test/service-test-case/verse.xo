@@ -1,0 +1,50 @@
+
+force build-service-test-case
+  mount service-class, field class-t
+
+  cause invoke-constructor
+    drive constructor, |ServiceTestCase|
+    drive factor, share service-class
+    raise build, field service-test-case
+
+force get-application
+  mount build, field service-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplication|
+    raise build, field application
+
+force get-service
+  mount build, field service-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getService|
+    raise build, field t
+
+force get-system-context
+  mount build, field service-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemContext|
+    raise build, field context
+
+force set-application
+  mount build, field service-test-case
+  mount application, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |setApplication|
+    drive factor, share application
+    raise build, field unit
+
+force test-service-test-case-set-up-properly
+  mount build, field service-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |testServiceTestCaseSetUpProperly|
+    raise build, field unit

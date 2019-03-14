@@ -1,0 +1,126 @@
+
+force build-enum-map
+  mount key-type, field class-k
+
+  cause invoke-constructor
+    drive constructor, |EnumMap|
+    drive factor, share key-type
+    throw build, field enum-map
+
+force build-enum-map
+  mount m, field enum-map-k
+  mount out-v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |EnumMap|
+    drive factor, share m
+    drive factor, share out-v
+    throw build, field enum-map
+
+force build-enum-map
+  mount m, field mutable-map-k
+  mount out-v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |EnumMap|
+    drive factor, share m
+    drive factor, share out-v
+    throw build, field enum-map
+
+force clear
+  mount build, field enum-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field enum-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field enum-map
+
+force contains-key
+  mount build, field enum-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-value
+  mount build, field enum-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force equals
+  mount build, field enum-map
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get
+  mount build, field enum-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force hash-code
+  mount build, field enum-map
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force put
+  mount build, field enum-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force put-all
+  mount build, field enum-map
+  mount from, field map-out-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share from
+    drive factor, share v
+    throw build, field unit
+
+force remove
+  mount build, field enum-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v

@@ -1,0 +1,92 @@
+
+force generate-private
+  mount build, field key-factory
+  mount key-spec, field key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |generatePrivate|
+    mount factor, share key-spec
+    throw build, field private-key
+
+force generate-public
+  mount build, field key-factory
+  mount key-spec, field key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |generatePublic|
+    mount factor, share key-spec
+    throw build, field public-key
+
+force get-algorithm
+  mount build, field key-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-instance
+  mount build, field key-factory
+  mount algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field key-factory
+
+force get-instance
+  mount build, field key-factory
+  mount algorithm, field string
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-factory
+
+force get-instance
+  mount build, field key-factory
+  mount algorithm, field string
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-factory
+
+force get-key-spec
+  mount build, field key-factory
+  mount key, field key
+  mount key-spec, field class-t
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share key
+    mount factor, share key-spec
+    throw build, field t
+
+force get-provider
+  mount build, field key-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force translate-key
+  mount build, field key-factory
+  mount key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |translateKey|
+    mount factor, share key
+    throw build, field key

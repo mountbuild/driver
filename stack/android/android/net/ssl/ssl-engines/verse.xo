@@ -1,0 +1,22 @@
+
+force is-supported-engine
+  mount build, field ssl-engines
+  mount engine, field ssl-engine
+
+  cause call-method
+    drive object, share build
+    drive method, |isSupportedEngine|
+    drive factor, share engine
+    throw build, field boolean
+
+force set-use-session-tickets
+  mount build, field ssl-engines
+  mount engine, field ssl-engine
+  mount use-session-tickets, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setUseSessionTickets|
+    drive factor, share engine
+    drive factor, share use-session-tickets
+    throw build, field unit

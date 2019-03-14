@@ -1,0 +1,98 @@
+
+force build-time-picker-dialog
+  mount context, field context
+  mount listener, field time-picker-dialog-on-time-set-listener
+  mount hour-of-day, field int
+  mount minute, field int
+  mount is24-hour-view, field boolean
+
+  cause invoke-constructor
+    drive constructor, |TimePickerDialog|
+    drive factor, share context
+    drive factor, share listener
+    drive factor, share hour-of-day
+    drive factor, share minute
+    drive factor, share is24-hour-view
+    throw build, field time-picker-dialog
+
+force build-time-picker-dialog
+  mount context, field context
+  mount theme-res-id, field int
+  mount listener, field time-picker-dialog-on-time-set-listener
+  mount hour-of-day, field int
+  mount minute, field int
+  mount is24-hour-view, field boolean
+
+  cause invoke-constructor
+    drive constructor, |TimePickerDialog|
+    drive factor, share context
+    drive factor, share theme-res-id
+    drive factor, share listener
+    drive factor, share hour-of-day
+    drive factor, share minute
+    drive factor, share is24-hour-view
+    throw build, field time-picker-dialog
+
+force on-click
+  mount build, field time-picker-dialog
+  mount dialog, field dialog-interface
+  mount which, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onClick|
+    drive factor, share dialog
+    drive factor, share which
+    throw build, field unit
+
+force on-restore-instance-state
+  mount build, field time-picker-dialog
+  mount saved-instance-state, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestoreInstanceState|
+    drive factor, share saved-instance-state
+    throw build, field unit
+
+force on-save-instance-state
+  mount build, field time-picker-dialog
+
+  cause call-method
+    drive object, share build
+    drive method, |onSaveInstanceState|
+    throw build, field bundle
+
+force on-time-changed
+  mount build, field time-picker-dialog
+  mount view, field time-picker
+  mount hour-of-day, field int
+  mount minute, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTimeChanged|
+    drive factor, share view
+    drive factor, share hour-of-day
+    drive factor, share minute
+    throw build, field unit
+
+force show
+  mount build, field time-picker-dialog
+
+  cause call-method
+    drive object, share build
+    drive method, |show|
+    throw build, field unit
+
+force update-time
+  mount build, field time-picker-dialog
+  mount hour-of-day, field int
+  mount minute-of-hour, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |updateTime|
+    drive factor, share hour-of-day
+    drive factor, share minute-of-hour
+    throw build, field unit

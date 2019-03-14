@@ -1,0 +1,97 @@
+
+force build-abstract-verifier
+  cause invoke-constructor
+    drive constructor, |AbstractVerifier|
+    throw build, field abstract-verifier
+
+force acceptable-country-wildcard
+  mount build, field abstract-verifier
+  mount cn, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptableCountryWildcard|
+    drive factor, share cn
+    throw build, field boolean
+
+force count-dots
+  mount build, field abstract-verifier
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |countDots|
+    drive factor, share s
+    throw build, field int
+
+force get-c-ns
+  mount build, field abstract-verifier
+  mount cert, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getCNs|
+    drive factor, share cert
+    throw build, field array
+
+force get-dns-subject-alts
+  mount build, field abstract-verifier
+  mount cert, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getDNSSubjectAlts|
+    drive factor, share cert
+    throw build, field array
+
+force verify
+  mount build, field abstract-verifier
+  mount host, field string
+  mount ssl, field ssl-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |verify|
+    drive factor, share host
+    drive factor, share ssl
+    throw build, field unit
+
+force verify
+  mount build, field abstract-verifier
+  mount host, field string
+  mount session, field ssl-session
+
+  cause call-method
+    drive object, share build
+    drive method, |verify|
+    drive factor, share host
+    drive factor, share session
+    throw build, field boolean
+
+force verify
+  mount build, field abstract-verifier
+  mount host, field string
+  mount cert, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |verify|
+    drive factor, share host
+    drive factor, share cert
+    throw build, field unit
+
+force verify
+  mount build, field abstract-verifier
+  mount host, field string
+  mount cns, field array-string
+  mount subject-alts, field array-string
+  mount strict-with-sub-domains, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |verify|
+    drive factor, share host
+    drive factor, share cns
+    drive factor, share subject-alts
+    drive factor, share strict-with-sub-domains
+    throw build, field unit

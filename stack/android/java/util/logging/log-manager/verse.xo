@@ -1,0 +1,116 @@
+
+force get-logging-mxbean-name
+  mount build, field log-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOGGING_MXBEAN_NAME|
+    throw build, field string
+
+force add-logger
+  mount build, field log-manager
+  mount logger, field logger
+
+  cause call-method
+    drive object, share build
+    drive method, |addLogger|
+    drive factor, share logger
+    throw build, field boolean
+
+force add-property-change-listener
+  mount build, field log-manager
+  mount l, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addPropertyChangeListener|
+    drive factor, share l
+    throw build, field unit
+
+force check-access
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    throw build, field unit
+
+force get-log-manager
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLogManager|
+    throw build, field log-manager
+
+force get-logger
+  mount build, field log-manager
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getLogger|
+    drive factor, share name
+    throw build, field logger
+
+force get-logger-names
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoggerNames|
+    throw build, field enumeration
+
+force get-logging-mx-bean
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoggingMXBean|
+    throw build, field logging-mx-bean
+
+force get-property
+  mount build, field log-manager
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperty|
+    drive factor, share name
+    throw build, field string
+
+force read-configuration
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |readConfiguration|
+    throw build, field unit
+
+force read-configuration
+  mount build, field log-manager
+  mount ins, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readConfiguration|
+    drive factor, share ins
+    throw build, field unit
+
+force remove-property-change-listener
+  mount build, field log-manager
+  mount l, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removePropertyChangeListener|
+    drive factor, share l
+    throw build, field unit
+
+force reset
+  mount build, field log-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit

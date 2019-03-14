@@ -1,0 +1,125 @@
+
+force build-sql-client-info-exception
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    mount factor, share cause
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    mount factor, share cause
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start sql-state, field string
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start sql-state, field string
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    mount factor, share cause
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    raise build, field sql-client-info-exception
+
+force build-sql-client-info-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start failed-properties, field mutable-map-string
+  start client-info-status, field undefined
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SQLClientInfoException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share failed-properties
+    mount factor, share client-info-status
+    mount factor, share cause
+    raise build, field sql-client-info-exception
+
+force get-failed-properties
+  start build, field sql-client-info-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getFailedProperties|
+    raise build, field mutable-map

@@ -1,0 +1,476 @@
+
+force get-busy
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |BUSY|
+    throw build, field int
+
+force get-error
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    throw build, field int
+
+force get-extra-discovery-state
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_DISCOVERY_STATE|
+    throw build, field string
+
+force get-extra-network-info
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_NETWORK_INFO|
+    throw build, field string
+
+force get-extra-p2-p-device-list
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_P2P_DEVICE_LIST|
+    throw build, field string
+
+force get-extra-wifi-p2-p-device
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WIFI_P2P_DEVICE|
+    throw build, field string
+
+force get-extra-wifi-p2-p-group
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WIFI_P2P_GROUP|
+    throw build, field string
+
+force get-extra-wifi-p2-p-info
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WIFI_P2P_INFO|
+    throw build, field string
+
+force get-extra-wifi-state
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WIFI_STATE|
+    throw build, field string
+
+force get-no-service-requests
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_SERVICE_REQUESTS|
+    throw build, field int
+
+force get-p2-p-unsupported
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |P2P_UNSUPPORTED|
+    throw build, field int
+
+force get-wifi-p2-p-connection-changed-action
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_CONNECTION_CHANGED_ACTION|
+    throw build, field string
+
+force get-wifi-p2-p-discovery-changed-action
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_DISCOVERY_CHANGED_ACTION|
+    throw build, field string
+
+force get-wifi-p2-p-discovery-started
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_DISCOVERY_STARTED|
+    throw build, field int
+
+force get-wifi-p2-p-discovery-stopped
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_DISCOVERY_STOPPED|
+    throw build, field int
+
+force get-wifi-p2-p-peers-changed-action
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_PEERS_CHANGED_ACTION|
+    throw build, field string
+
+force get-wifi-p2-p-state-changed-action
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_STATE_CHANGED_ACTION|
+    throw build, field string
+
+force get-wifi-p2-p-state-disabled
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_STATE_DISABLED|
+    throw build, field int
+
+force get-wifi-p2-p-state-enabled
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_STATE_ENABLED|
+    throw build, field int
+
+force get-wifi-p2-p-this-device-changed-action
+  mount build, field wifi-p2p-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_P2P_THIS_DEVICE_CHANGED_ACTION|
+    throw build, field string
+
+force add-local-service
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount serv-info, field wifi-p2p-service-info
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addLocalService|
+    drive factor, share c
+    drive factor, share serv-info
+    drive factor, share listener
+    throw build, field unit
+
+force add-service-request
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount req, field wifi-p2p-service-request
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addServiceRequest|
+    drive factor, share c
+    drive factor, share req
+    drive factor, share listener
+    throw build, field unit
+
+force cancel-connect
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelConnect|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force clear-local-services
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |clearLocalServices|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force clear-service-requests
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |clearServiceRequests|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force connect
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount config, field wifi-p2p-config
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share c
+    drive factor, share config
+    drive factor, share listener
+    throw build, field unit
+
+force create-group
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |createGroup|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force create-group
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount config, field wifi-p2p-config
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |createGroup|
+    drive factor, share c
+    drive factor, share config
+    drive factor, share listener
+    throw build, field unit
+
+force discover-peers
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverPeers|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force discover-services
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverServices|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force initialize
+  mount build, field wifi-p2p-manager
+  mount src-context, field context
+  mount src-looper, field looper
+  mount listener, field wifi-p2p-manager-channel-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |initialize|
+    drive factor, share src-context
+    drive factor, share src-looper
+    drive factor, share listener
+    throw build, field wifi-p2p-manager-channel
+
+force remove-group
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeGroup|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force remove-local-service
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount serv-info, field wifi-p2p-service-info
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLocalService|
+    drive factor, share c
+    drive factor, share serv-info
+    drive factor, share listener
+    throw build, field unit
+
+force remove-service-request
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount req, field wifi-p2p-service-request
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeServiceRequest|
+    drive factor, share c
+    drive factor, share req
+    drive factor, share listener
+    throw build, field unit
+
+force request-connection-info
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-connection-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestConnectionInfo|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-device-info
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-device-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDeviceInfo|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-discovery-state
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-discovery-state-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDiscoveryState|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-group-info
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-group-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestGroupInfo|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-network-info
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-network-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestNetworkInfo|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-p2p-state
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-p2p-state-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestP2pState|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force request-peers
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-peer-list-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPeers|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force set-dns-sd-response-listeners
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount serv-listener, field wifi-p2p-manager-dns-sd-service-response-listener
+  mount txt-listener, field wifi-p2p-manager-dns-sd-txt-record-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setDnsSdResponseListeners|
+    drive factor, share c
+    drive factor, share serv-listener
+    drive factor, share txt-listener
+    throw build, field unit
+
+force set-service-response-listener
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-service-response-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setServiceResponseListener|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force set-upnp-service-response-listener
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-upnp-service-response-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setUpnpServiceResponseListener|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit
+
+force stop-peer-discovery
+  mount build, field wifi-p2p-manager
+  mount c, field wifi-p2p-manager-channel
+  mount listener, field wifi-p2p-manager-action-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |stopPeerDiscovery|
+    drive factor, share c
+    drive factor, share listener
+    throw build, field unit

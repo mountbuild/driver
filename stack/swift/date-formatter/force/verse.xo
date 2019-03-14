@@ -1,0 +1,642 @@
+force date
+  field build, field date-formatter
+  field from, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |date|
+    drive factor
+      brand from
+      share from
+    raise build, class date
+
+force string
+  field build, field date-formatter
+  field from, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |string|
+    drive factor
+      brand from
+      share from
+    raise build, class string
+
+force get-object-value
+  field build, field date-formatter
+  field a, class autoreleasing-unsafe-mutable-pointer-any-object
+  field for, field string
+  field range, field unsafe-mutable-pointer-ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |getObjectValue|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand range
+      share range
+
+force get-date-style
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dateStyle|
+    raise build, field date-formatter-style
+
+force set-date-style
+  field build, field date-formatter
+  field value, field date-formatter-style
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dateStyle|
+    drive factor, share value
+
+force get-time-style
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timeStyle|
+    raise build, field date-formatter-style
+
+force set-time-style
+  field build, field date-formatter
+  field value, field date-formatter-style
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timeStyle|
+    drive factor, share value
+
+force get-date-format
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dateFormat|
+    raise build, field string
+
+force set-date-format
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dateFormat|
+    drive factor, share value
+
+force set-localized-date-format-from-template
+  field build, field date-formatter
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocalizedDateFormatFromTemplate|
+    drive factor, share a
+
+force get-formatting-context
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |formattingContext|
+    raise build, field formatter-context
+
+force set-formatting-context
+  field build, field date-formatter
+  field value, field formatter-context
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |formattingContext|
+    drive factor, share value
+
+force get-calendar
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |calendar|
+    raise build, field calendar
+
+force set-calendar
+  field build, field date-formatter
+  field value, field calendar
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |calendar|
+    drive factor, share value
+
+force get-default-date
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |defaultDate|
+    raise build, field date
+
+force set-default-date
+  field build, field date-formatter
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |defaultDate|
+    drive factor, share value
+
+force get-locale
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |locale|
+    raise build, field locale
+
+force set-locale
+  field build, field date-formatter
+  field value, field locale
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |locale|
+    drive factor, share value
+
+force get-time-zone
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timeZone|
+    raise build, field time-zone
+
+force set-time-zone
+  field build, field date-formatter
+  field value, field time-zone
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timeZone|
+    drive factor, share value
+
+force get-two-digit-start-date
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |twoDigitStartDate|
+    raise build, field date
+
+force set-two-digit-start-date
+  field build, field date-formatter
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |twoDigitStartDate|
+    drive factor, share value
+
+force get-gregorian-start-date
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |gregorianStartDate|
+    raise build, field date
+
+force set-gregorian-start-date
+  field build, field date-formatter
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |gregorianStartDate|
+    drive factor, share value
+
+force get-formatter-behavior
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |formatterBehavior|
+    raise build, field date-formatter-behavior
+
+force set-formatter-behavior
+  field build, field date-formatter
+  field value, field date-formatter-behavior
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |formatterBehavior|
+    drive factor, share value
+
+force get-class-default-formatter-behavior
+
+  cause get-aspect
+    drive object, |DateFormatter|
+    drive aspect, |defaultFormatterBehavior|
+    raise build, field date-formatter-behavior
+
+force set-class-default-formatter-behavior
+  field value, field date-formatter-behavior
+
+  cause set-aspect
+    drive object, |DateFormatter|
+    drive aspect, |defaultFormatterBehavior|
+    drive factor, share value
+
+force get-is-lenient
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLenient|
+    raise build, field bool
+
+force set-is-lenient
+  field build, field date-formatter
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLenient|
+    drive factor, share value
+
+force get-does-relative-date-formatting
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |doesRelativeDateFormatting|
+    raise build, field bool
+
+force set-does-relative-date-formatting
+  field build, field date-formatter
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |doesRelativeDateFormatting|
+    drive factor, share value
+
+force get-am-symbol
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |amSymbol|
+    raise build, field string
+
+force set-am-symbol
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |amSymbol|
+    drive factor, share value
+
+force get-pm-symbol
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pmSymbol|
+    raise build, field string
+
+force set-pm-symbol
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pmSymbol|
+    drive factor, share value
+
+force get-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |weekdaySymbols|
+    raise build, field string
+
+force set-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |weekdaySymbols|
+    drive factor, share value
+
+force get-short-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortWeekdaySymbols|
+    raise build, field string
+
+force set-short-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortWeekdaySymbols|
+    drive factor, share value
+
+force get-very-short-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |veryShortWeekdaySymbols|
+    raise build, field string
+
+force set-very-short-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |veryShortWeekdaySymbols|
+    drive factor, share value
+
+force get-standalone-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |standaloneWeekdaySymbols|
+    raise build, field string
+
+force set-standalone-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |standaloneWeekdaySymbols|
+    drive factor, share value
+
+force get-short-standalone-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneWeekdaySymbols|
+    raise build, field string
+
+force set-short-standalone-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneWeekdaySymbols|
+    drive factor, share value
+
+force get-very-short-standalone-weekday-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |veryShortStandaloneWeekdaySymbols|
+    raise build, field string
+
+force set-very-short-standalone-weekday-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |veryShortStandaloneWeekdaySymbols|
+    drive factor, share value
+
+force get-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |monthSymbols|
+    raise build, field string
+
+force set-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |monthSymbols|
+    drive factor, share value
+
+force get-short-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortMonthSymbols|
+    raise build, field string
+
+force set-short-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortMonthSymbols|
+    drive factor, share value
+
+force get-very-short-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |veryShortMonthSymbols|
+    raise build, field string
+
+force set-very-short-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |veryShortMonthSymbols|
+    drive factor, share value
+
+force get-standalone-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |standaloneMonthSymbols|
+    raise build, field string
+
+force set-standalone-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |standaloneMonthSymbols|
+    drive factor, share value
+
+force get-short-standalone-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneMonthSymbols|
+    raise build, field string
+
+force set-short-standalone-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneMonthSymbols|
+    drive factor, share value
+
+force get-very-short-standalone-month-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |veryShortStandaloneMonthSymbols|
+    raise build, field string
+
+force set-very-short-standalone-month-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |veryShortStandaloneMonthSymbols|
+    drive factor, share value
+
+force get-quarter-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |quarterSymbols|
+    raise build, field string
+
+force set-quarter-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |quarterSymbols|
+    drive factor, share value
+
+force get-short-quarter-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortQuarterSymbols|
+    raise build, field string
+
+force set-short-quarter-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortQuarterSymbols|
+    drive factor, share value
+
+force get-standalone-quarter-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |standaloneQuarterSymbols|
+    raise build, field string
+
+force set-standalone-quarter-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |standaloneQuarterSymbols|
+    drive factor, share value
+
+force get-short-standalone-quarter-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneQuarterSymbols|
+    raise build, field string
+
+force set-short-standalone-quarter-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortStandaloneQuarterSymbols|
+    drive factor, share value
+
+force get-era-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |eraSymbols|
+    raise build, field string
+
+force set-era-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |eraSymbols|
+    drive factor, share value
+
+force get-long-era-symbols
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |longEraSymbols|
+    raise build, field string
+
+force set-long-era-symbols
+  field build, field date-formatter
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |longEraSymbols|
+    drive factor, share value
+
+force get-generates-calendar-dates
+  field build, field date-formatter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |generatesCalendarDates|
+    raise build, field bool
+
+force set-generates-calendar-dates
+  field build, field date-formatter
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |generatesCalendarDates|
+    drive factor, share value

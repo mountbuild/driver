@@ -1,0 +1,63 @@
+force get-mach-port
+  field build, field ns-mach-port
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |machPort|
+    raise build, field u-int32
+
+force set-mach-port
+  field build, field ns-mach-port
+  field value, field u-int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |machPort|
+    drive factor, share value
+
+force remove
+  field build, field ns-mach-port
+  field from, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand for-mode
+      share for-mode
+
+force schedule
+  field build, field ns-mach-port
+  field in, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand for-mode
+      share for-mode
+
+force delegate
+  field build, field ns-mach-port
+
+  cause call-method
+    drive object, share build
+    drive method, |delegate|
+    raise build, class ns-mach-port-delegate
+
+force set-delegate
+  field build, field ns-mach-port
+  field a, class ns-mach-port-delegate
+
+  cause call-method
+    drive object, share build
+    drive method, |setDelegate|
+    drive factor, share a

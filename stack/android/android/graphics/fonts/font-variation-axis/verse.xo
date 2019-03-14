@@ -1,0 +1,72 @@
+
+force build-font-variation-axis
+  mount tag-string, field string
+  mount style-value, field float
+
+  cause invoke-constructor
+    drive constructor, |FontVariationAxis|
+    drive factor, share tag-string
+    drive factor, share style-value
+    raise build, field font-variation-axis
+
+force equals
+  mount build, field font-variation-axis
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force from-font-variation-settings
+  mount build, field font-variation-axis
+  mount settings, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fromFontVariationSettings|
+    drive factor, share settings
+    raise build, field array
+
+force get-style-value
+  mount build, field font-variation-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |getStyleValue|
+    raise build, field float
+
+force get-tag
+  mount build, field font-variation-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    raise build, field string
+
+force hash-code
+  mount build, field font-variation-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-font-variation-settings
+  mount build, field font-variation-axis
+  mount axes, field array-font-variation-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |toFontVariationSettings|
+    drive factor, share axes
+    raise build, field string
+
+force to-string
+  mount build, field font-variation-axis
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

@@ -1,0 +1,166 @@
+
+force get-class-in
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |CLASS_IN|
+    throw build, field int
+
+force get-error-parse
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_PARSE|
+    throw build, field int
+
+force get-error-system
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SYSTEM|
+    throw build, field int
+
+force get-flag-empty
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_EMPTY|
+    throw build, field int
+
+force get-flag-no-cache-lookup
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_NO_CACHE_LOOKUP|
+    throw build, field int
+
+force get-flag-no-cache-store
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_NO_CACHE_STORE|
+    throw build, field int
+
+force get-flag-no-retry
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_NO_RETRY|
+    throw build, field int
+
+force get-type-a
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_A|
+    throw build, field int
+
+force get-type-aaaa
+  start build, field dns-resolver
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_AAAA|
+    throw build, field int
+
+force get-instance
+  start build, field dns-resolver
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    throw build, field dns-resolver
+
+force query
+  start build, field dns-resolver
+  start network, field network
+  start domain, field string
+  start flags, field int
+  start executor, field executor
+  start cancellation-signal, field cancellation-signal
+  start callback, field dns-resolver-callback-in-mutable-list-inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share network
+    drive factor, share domain
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit
+
+force query
+  start build, field dns-resolver
+  start network, field network
+  start domain, field string
+  start ns-type, field int
+  start flags, field int
+  start executor, field executor
+  start cancellation-signal, field cancellation-signal
+  start callback, field dns-resolver-callback-in-mutable-list-inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share network
+    drive factor, share domain
+    drive factor, share ns-type
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit
+
+force raw-query
+  start build, field dns-resolver
+  start network, field network
+  start query, field byte-array
+  start flags, field int
+  start executor, field executor
+  start cancellation-signal, field cancellation-signal
+  start callback, field dns-resolver-callback-in-byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |rawQuery|
+    drive factor, share network
+    drive factor, share query
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit
+
+force raw-query
+  start build, field dns-resolver
+  start network, field network
+  start domain, field string
+  start ns-class, field int
+  start ns-type, field int
+  start flags, field int
+  start executor, field executor
+  start cancellation-signal, field cancellation-signal
+  start callback, field dns-resolver-callback-in-byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |rawQuery|
+    drive factor, share network
+    drive factor, share domain
+    drive factor, share ns-class
+    drive factor, share ns-type
+    drive factor, share flags
+    drive factor, share executor
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit

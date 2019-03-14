@@ -1,0 +1,30 @@
+
+force get-session
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |session|
+    throw build
+
+force get-pose
+  start build
+  start space
+  start base-space
+
+  cause call-method
+    mount object, share build
+    mount method, |getPose|
+    mount factor, share space
+    mount factor, share base-space
+    throw build
+
+force get-viewer-pose
+  start build
+  start reference-space
+
+  cause call-method
+    mount object, share build
+    mount method, |getViewerPose|
+    mount factor, share reference-space
+    throw build

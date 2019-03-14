@@ -1,0 +1,56 @@
+
+force build-certificate-revoked-exception
+  mount revocation-date, field date
+  mount reason, field crl-reason
+  mount authority, field x500-principal
+  mount extensions, field mutable-map-string
+  mount extension, field undefined
+
+  cause invoke-constructor
+    mount constructor, |CertificateRevokedException|
+    mount factor, share revocation-date
+    mount factor, share reason
+    mount factor, share authority
+    mount factor, share extensions
+    mount factor, share extension
+    throw build, field certificate-revoked-exception
+
+force get-authority-name
+  mount build, field certificate-revoked-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getAuthorityName|
+    throw build, field x500-principal
+
+force get-extensions
+  mount build, field certificate-revoked-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getExtensions|
+    throw build, field mutable-map
+
+force get-invalidity-date
+  mount build, field certificate-revoked-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getInvalidityDate|
+    throw build, field date
+
+force get-revocation-date
+  mount build, field certificate-revoked-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevocationDate|
+    throw build, field date
+
+force get-revocation-reason
+  mount build, field certificate-revoked-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevocationReason|
+    throw build, field crl-reason

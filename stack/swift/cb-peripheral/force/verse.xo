@@ -1,0 +1,257 @@
+force get-name
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field cb-peripheral
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-delegate
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field cb-peripheral-delegate
+
+force set-delegate
+  field build, field cb-peripheral
+  field value, field cb-peripheral-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force discover-services
+  field build, field cb-peripheral
+  field a, class cbuuid
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverServices|
+    drive factor, share a
+
+force discover-included-services
+  field build, field cb-peripheral
+  field a, class cbuuid
+  field for, field cb-service
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverIncludedServices|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force get-services
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |services|
+    raise build, field cb-service
+
+force set-services
+  field build, field cb-peripheral
+  field value, field cb-service
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |services|
+    drive factor, share value
+
+force discover-characteristics
+  field build, field cb-peripheral
+  field a, class cbuuid
+  field for, field cb-service
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverCharacteristics|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force discover-descriptors
+  field build, field cb-peripheral
+  field for, field cb-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverDescriptors|
+    drive factor
+      brand for
+      share for
+
+force read-value
+  field build, field cb-peripheral
+  field for, field cb-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |readValue|
+    drive factor
+      brand for
+      share for
+
+force read-value
+  field build, field cb-peripheral
+  field for, field cb-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |readValue|
+    drive factor
+      brand for
+      share for
+
+force write-value
+  field build, field cb-peripheral
+  field a, class data
+  field for, field cb-characteristic
+  field type, field cb-characteristic-write-type
+
+  cause call-method
+    drive object, share build
+    drive method, |writeValue|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand type
+      share type
+
+force write-value
+  field build, field cb-peripheral
+  field a, class data
+  field for, field cb-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |writeValue|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force maximum-write-value-length
+  field build, field cb-peripheral
+  field for, field cb-characteristic-write-type
+
+  cause call-method
+    drive object, share build
+    drive method, |maximumWriteValueLength|
+    drive factor
+      brand for
+      share for
+    raise build, class int
+
+force set-notify-value
+  field build, field cb-peripheral
+  field a, class bool
+  field for, field cb-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |setNotifyValue|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force get-state
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |state|
+    raise build, field cb-peripheral-state
+
+force set-state
+  field build, field cb-peripheral
+  field value, field cb-peripheral-state
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |state|
+    drive factor, share value
+
+force get-can-send-write-without-response
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canSendWriteWithoutResponse|
+    raise build, field bool
+
+force set-can-send-write-without-response
+  field build, field cb-peripheral
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canSendWriteWithoutResponse|
+    drive factor, share value
+
+force read-rssi
+  field build, field cb-peripheral
+
+  cause call-method
+    drive object, share build
+    drive method, |readRSSI|
+
+force get-rssi
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rssi|
+    raise build, field ns-number
+
+force set-rssi
+  field build, field cb-peripheral
+  field value, field ns-number
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rssi|
+    drive factor, share value
+
+force open-l2-cap-channel
+  field build, field cb-peripheral
+  field a, class cbl2-cappsm
+
+  cause call-method
+    drive object, share build
+    drive method, |openL2CAPChannel|
+    drive factor, share a
+
+force get-ancs-authorized
+  field build, field cb-peripheral
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ancsAuthorized|
+    raise build, field bool
+
+force set-ancs-authorized
+  field build, field cb-peripheral
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ancsAuthorized|
+    drive factor, share value

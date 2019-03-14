@@ -1,0 +1,42 @@
+
+force build-pdf-renderer
+  mount input, field parcel-file-descriptor
+
+  cause invoke-constructor
+    drive constructor, |PdfRenderer|
+    drive factor, share input
+    raise build, field pdf-renderer
+
+force close
+  mount build, field pdf-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-page-count
+  mount build, field pdf-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |getPageCount|
+    raise build, field int
+
+force open-page
+  mount build, field pdf-renderer
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openPage|
+    drive factor, share index
+    raise build, field pdf-renderer-page
+
+force should-scale-for-printing
+  mount build, field pdf-renderer
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldScaleForPrinting|
+    raise build, field boolean

@@ -1,0 +1,70 @@
+
+force get-above
+  mount build, field touch-delegate
+
+  cause get-property
+    drive object, share build
+    drive property, |ABOVE|
+    raise build, field int
+
+force get-below
+  mount build, field touch-delegate
+
+  cause get-property
+    drive object, share build
+    drive property, |BELOW|
+    raise build, field int
+
+force get-to-left
+  mount build, field touch-delegate
+
+  cause get-property
+    drive object, share build
+    drive property, |TO_LEFT|
+    raise build, field int
+
+force get-to-right
+  mount build, field touch-delegate
+
+  cause get-property
+    drive object, share build
+    drive property, |TO_RIGHT|
+    raise build, field int
+
+force build-touch-delegate
+  mount bounds, field rect
+  mount delegate-view, field view
+
+  cause invoke-constructor
+    drive constructor, |TouchDelegate|
+    drive factor, share bounds
+    drive factor, share delegate-view
+    raise build, field touch-delegate
+
+force get-touch-delegate-info
+  mount build, field touch-delegate
+
+  cause call-method
+    drive object, share build
+    drive method, |getTouchDelegateInfo|
+    raise build, field accessibility-node-info-touch-delegate-info
+
+force on-touch-event
+  mount build, field touch-delegate
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force on-touch-exploration-hover-event
+  mount build, field touch-delegate
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchExplorationHoverEvent|
+    drive factor, share event
+    raise build, field boolean

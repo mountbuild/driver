@@ -1,0 +1,172 @@
+
+force build-data-input-stream
+  mount in, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |DataInputStream|
+    drive factor, share in
+    throw build, field data-input-stream
+
+force read
+  mount build, field data-input-stream
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    throw build, field int
+
+force read
+  mount build, field data-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force read-boolean
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readBoolean|
+    throw build, field boolean
+
+force read-byte
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readByte|
+    throw build, field byte
+
+force read-char
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readChar|
+    throw build, field char
+
+force read-double
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readDouble|
+    throw build, field double
+
+force read-float
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readFloat|
+    throw build, field float
+
+force read-fully
+  mount build, field data-input-stream
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |readFully|
+    drive factor, share b
+    throw build, field unit
+
+force read-fully
+  mount build, field data-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readFully|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force read-int
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readInt|
+    throw build, field int
+
+force read-line
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readLine|
+    throw build, field string
+
+force read-long
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readLong|
+    throw build, field long
+
+force read-short
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readShort|
+    throw build, field short
+
+force read-utf
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readUTF|
+    throw build, field string
+
+force read-utf
+  mount build, field data-input-stream
+  mount in, field data-input
+
+  cause call-method
+    drive object, share build
+    drive method, |readUTF|
+    drive factor, share in
+    throw build, field string
+
+force read-unsigned-byte
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readUnsignedByte|
+    throw build, field int
+
+force read-unsigned-short
+  mount build, field data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |readUnsignedShort|
+    throw build, field int
+
+force skip-bytes
+  mount build, field data-input-stream
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |skipBytes|
+    drive factor, share n
+    throw build, field int

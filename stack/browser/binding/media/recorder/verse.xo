@@ -1,0 +1,106 @@
+
+force build-media-recorder
+  start stream
+  start options
+
+  cause invoke-constructor
+    mount constructor, |MediaRecorder|
+    mount factor, share stream
+    mount factor, share options
+    throw build
+
+force get-mime-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mimeType|
+    throw build
+
+force get-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |state|
+    throw build
+
+force get-stream
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |stream|
+    throw build
+
+force get-ignore-muted-media
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ignoreMutedMedia|
+    throw build
+
+force set-ignore-muted-media
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |ignoreMutedMedia|
+    mount factor, share value
+
+force get-video-bits-per-second
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |videoBitsPerSecond|
+    throw build
+
+force get-audio-bits-per-second
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |audioBitsPerSecond|
+    throw build
+
+force pause
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |pause|
+    throw build
+
+force request-data
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |requestData|
+
+force resume
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |resume|
+
+force start
+  start build
+  start timeslice
+
+  cause call-method
+    mount object, share build
+    mount method, |start|
+    mount factor, share timeslice
+    throw build
+
+force stop
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |stop|

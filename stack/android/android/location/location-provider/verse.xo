@@ -1,0 +1,114 @@
+
+force get-available
+  mount build, field location-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |AVAILABLE|
+    raise build, field int
+
+force get-out-of-service
+  mount build, field location-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |OUT_OF_SERVICE|
+    raise build, field int
+
+force get-temporarily-unavailable
+  mount build, field location-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPORARILY_UNAVAILABLE|
+    raise build, field int
+
+force get-accuracy
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccuracy|
+    raise build, field int
+
+force get-name
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force get-power-requirement
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getPowerRequirement|
+    raise build, field int
+
+force has-monetary-cost
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMonetaryCost|
+    raise build, field boolean
+
+force meets-criteria
+  mount build, field location-provider
+  mount criteria, field criteria
+
+  cause call-method
+    drive object, share build
+    drive method, |meetsCriteria|
+    drive factor, share criteria
+    raise build, field boolean
+
+force requires-cell
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresCell|
+    raise build, field boolean
+
+force requires-network
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresNetwork|
+    raise build, field boolean
+
+force requires-satellite
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresSatellite|
+    raise build, field boolean
+
+force supports-altitude
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsAltitude|
+    raise build, field boolean
+
+force supports-bearing
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsBearing|
+    raise build, field boolean
+
+force supports-speed
+  mount build, field location-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsSpeed|
+    raise build, field boolean

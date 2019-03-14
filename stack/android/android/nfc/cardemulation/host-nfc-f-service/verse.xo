@@ -1,0 +1,71 @@
+
+force get-deactivation-link-loss
+  mount build, field host-nfc-f-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DEACTIVATION_LINK_LOSS|
+    throw build, field int
+
+force get-service-interface
+  mount build, field host-nfc-f-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force get-service-meta-data
+  mount build, field host-nfc-f-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    throw build, field string
+
+force build-host-nfc-f-service
+  cause invoke-constructor
+    drive constructor, |HostNfcFService|
+    throw build, field host-nfc-f-service
+
+force on-bind
+  mount build, field host-nfc-f-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-deactivated
+  mount build, field host-nfc-f-service
+  mount reason, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDeactivated|
+    drive factor, share reason
+    throw build, field unit
+
+force process-nfc-f-packet
+  mount build, field host-nfc-f-service
+  mount command-packet, field byte-array
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |processNfcFPacket|
+    drive factor, share command-packet
+    drive factor, share extras
+    throw build, field byte-array
+
+force send-response-packet
+  mount build, field host-nfc-f-service
+  mount response-packet, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendResponsePacket|
+    drive factor, share response-packet
+    throw build, field unit

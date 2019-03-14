@@ -1,0 +1,216 @@
+
+force get-direction-default-left-to-right
+  start build, field bidi
+
+  cause get-property
+    mount object, share build
+    mount property, |DIRECTION_DEFAULT_LEFT_TO_RIGHT|
+    raise build, field int
+
+force get-direction-default-right-to-left
+  start build, field bidi
+
+  cause get-property
+    mount object, share build
+    mount property, |DIRECTION_DEFAULT_RIGHT_TO_LEFT|
+    raise build, field int
+
+force get-direction-left-to-right
+  start build, field bidi
+
+  cause get-property
+    mount object, share build
+    mount property, |DIRECTION_LEFT_TO_RIGHT|
+    raise build, field int
+
+force get-direction-right-to-left
+  start build, field bidi
+
+  cause get-property
+    mount object, share build
+    mount property, |DIRECTION_RIGHT_TO_LEFT|
+    raise build, field int
+
+force build-bidi
+  start paragraph, field string
+  start flags, field int
+
+  cause invoke-constructor
+    mount constructor, |Bidi|
+    mount factor, share paragraph
+    mount factor, share flags
+    raise build, field bidi
+
+force build-bidi
+  start paragraph, field attributed-character-iterator
+
+  cause invoke-constructor
+    mount constructor, |Bidi|
+    mount factor, share paragraph
+    raise build, field bidi
+
+force build-bidi
+  start text, field char-array
+  start text-start, field int
+  start embeddings, field byte-array
+  start emb-start, field int
+  start paragraph-length, field int
+  start flags, field int
+
+  cause invoke-constructor
+    mount constructor, |Bidi|
+    mount factor, share text
+    mount factor, share text-start
+    mount factor, share embeddings
+    mount factor, share emb-start
+    mount factor, share paragraph-length
+    mount factor, share flags
+    raise build, field bidi
+
+force base-is-left-to-right
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |baseIsLeftToRight|
+    raise build, field boolean
+
+force create-line-bidi
+  start build, field bidi
+  start line-start, field int
+  start line-limit, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createLineBidi|
+    mount factor, share line-start
+    mount factor, share line-limit
+    raise build, field bidi
+
+force get-base-level
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |getBaseLevel|
+    raise build, field int
+
+force get-length
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |getLength|
+    raise build, field int
+
+force get-level-at
+  start build, field bidi
+  start offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getLevelAt|
+    mount factor, share offset
+    raise build, field int
+
+force get-run-count
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |getRunCount|
+    raise build, field int
+
+force get-run-level
+  start build, field bidi
+  start run, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getRunLevel|
+    mount factor, share run
+    raise build, field int
+
+force get-run-limit
+  start build, field bidi
+  start run, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getRunLimit|
+    mount factor, share run
+    raise build, field int
+
+force get-run-start
+  start build, field bidi
+  start run, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getRunStart|
+    mount factor, share run
+    raise build, field int
+
+force is-left-to-right
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |isLeftToRight|
+    raise build, field boolean
+
+force is-mixed
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |isMixed|
+    raise build, field boolean
+
+force is-right-to-left
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |isRightToLeft|
+    raise build, field boolean
+
+force reorder-visually
+  start build, field bidi
+  start levels, field byte-array
+  start level-start, field int
+  start objects, field array-any
+  start object-start, field int
+  start count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |reorderVisually|
+    mount factor, share levels
+    mount factor, share level-start
+    mount factor, share objects
+    mount factor, share object-start
+    mount factor, share count
+    raise build, field unit
+
+force requires-bidi
+  start build, field bidi
+  start text, field char-array
+  start start, field int
+  start limit, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |requiresBidi|
+    mount factor, share text
+    mount factor, share start
+    mount factor, share limit
+    raise build, field boolean
+
+force to-string
+  start build, field bidi
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string

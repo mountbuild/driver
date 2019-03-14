@@ -1,0 +1,55 @@
+
+force build-unicode-set-iterator
+  start set, field unicode-set
+
+  cause invoke-constructor
+    drive constructor, |UnicodeSetIterator|
+    drive factor, share set
+    raise build, field unicode-set-iterator
+
+force build-unicode-set-iterator
+  cause invoke-constructor
+    drive constructor, |UnicodeSetIterator|
+    raise build, field unicode-set-iterator
+
+force get-string
+  start build, field unicode-set-iterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getString|
+    raise build, field string
+
+force next
+  start build, field unicode-set-iterator
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    raise build, field boolean
+
+force next-range
+  start build, field unicode-set-iterator
+
+  cause call-method
+    drive object, share build
+    drive method, |nextRange|
+    raise build, field boolean
+
+force reset
+  start build, field unicode-set-iterator
+  start uset, field unicode-set
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    drive factor, share uset
+    raise build, field unit
+
+force reset
+  start build, field unicode-set-iterator
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit

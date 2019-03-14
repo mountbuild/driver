@@ -1,0 +1,36 @@
+
+force build-basic-permission
+  mount name, field string
+
+  cause invoke-constructor
+    mount constructor, |BasicPermission|
+    mount factor, share name
+    throw build, field basic-permission
+
+force build-basic-permission
+  mount name, field string
+  mount actions, field string
+
+  cause invoke-constructor
+    mount constructor, |BasicPermission|
+    mount factor, share name
+    mount factor, share actions
+    throw build, field basic-permission
+
+force get-actions
+  mount build, field basic-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getActions|
+    throw build, field string
+
+force implies
+  mount build, field basic-permission
+  mount p, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share p
+    throw build, field boolean

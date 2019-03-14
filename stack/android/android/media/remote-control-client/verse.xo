@@ -1,0 +1,252 @@
+
+force get-flag-key-media-fast-forward
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_FAST_FORWARD|
+    raise build, field int
+
+force get-flag-key-media-next
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_NEXT|
+    raise build, field int
+
+force get-flag-key-media-pause
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_PAUSE|
+    raise build, field int
+
+force get-flag-key-media-play
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_PLAY|
+    raise build, field int
+
+force get-flag-key-media-play-pause
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_PLAY_PAUSE|
+    raise build, field int
+
+force get-flag-key-media-position-update
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_POSITION_UPDATE|
+    raise build, field int
+
+force get-flag-key-media-previous
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_PREVIOUS|
+    raise build, field int
+
+force get-flag-key-media-rating
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_RATING|
+    raise build, field int
+
+force get-flag-key-media-rewind
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_REWIND|
+    raise build, field int
+
+force get-flag-key-media-stop
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_KEY_MEDIA_STOP|
+    raise build, field int
+
+force get-playstate-buffering
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_BUFFERING|
+    raise build, field int
+
+force get-playstate-error
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_ERROR|
+    raise build, field int
+
+force get-playstate-fast-forwarding
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_FAST_FORWARDING|
+    raise build, field int
+
+force get-playstate-paused
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_PAUSED|
+    raise build, field int
+
+force get-playstate-playing
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_PLAYING|
+    raise build, field int
+
+force get-playstate-rewinding
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_REWINDING|
+    raise build, field int
+
+force get-playstate-skipping-backwards
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_SKIPPING_BACKWARDS|
+    raise build, field int
+
+force get-playstate-skipping-forwards
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_SKIPPING_FORWARDS|
+    raise build, field int
+
+force get-playstate-stopped
+  start build, field remote-control-client
+
+  cause get-property
+    drive object, share build
+    drive property, |PLAYSTATE_STOPPED|
+    raise build, field int
+
+force build-remote-control-client
+  start media-button-intent, field pending-intent
+
+  cause invoke-constructor
+    drive constructor, |RemoteControlClient|
+    drive factor, share media-button-intent
+    raise build, field remote-control-client
+
+force build-remote-control-client
+  start media-button-intent, field pending-intent
+  start looper, field looper
+
+  cause invoke-constructor
+    drive constructor, |RemoteControlClient|
+    drive factor, share media-button-intent
+    drive factor, share looper
+    raise build, field remote-control-client
+
+force edit-metadata
+  start build, field remote-control-client
+  start start-empty, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |editMetadata|
+    drive factor, share start-empty
+    raise build, field remote-control-client-metadata-editor
+
+force get-media-session
+  start build, field remote-control-client
+
+  cause call-method
+    drive object, share build
+    drive method, |getMediaSession|
+    raise build, field media-session
+
+force set-metadata-update-listener
+  start build, field remote-control-client
+  start l, field remote-control-client-on-metadata-update-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setMetadataUpdateListener|
+    drive factor, share l
+    raise build, field unit
+
+force set-on-get-playback-position-listener
+  start build, field remote-control-client
+  start l, field remote-control-client-on-get-playback-position-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnGetPlaybackPositionListener|
+    drive factor, share l
+    raise build, field unit
+
+force set-playback-position-update-listener
+  start build, field remote-control-client
+  start l, field remote-control-client-on-playback-position-update-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackPositionUpdateListener|
+    drive factor, share l
+    raise build, field unit
+
+force set-playback-state
+  start build, field remote-control-client
+  start state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackState|
+    drive factor, share state
+    raise build, field unit
+
+force set-playback-state
+  start build, field remote-control-client
+  start state, field int
+  start time-in-ms, field long
+  start playback-speed, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackState|
+    drive factor, share state
+    drive factor, share time-in-ms
+    drive factor, share playback-speed
+    raise build, field unit
+
+force set-transport-control-flags
+  start build, field remote-control-client
+  start transport-control-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTransportControlFlags|
+    drive factor, share transport-control-flags
+    raise build, field unit

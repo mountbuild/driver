@@ -1,0 +1,336 @@
+
+force build-thread-pool-executor
+  mount core-pool-size, field int
+  mount maximum-pool-size, field int
+  mount keep-alive-time, field long
+  mount unit, field time-unit
+  mount work-queue, field blocking-queue-runnable
+
+  cause invoke-constructor
+    drive constructor, |ThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share maximum-pool-size
+    drive factor, share keep-alive-time
+    drive factor, share unit
+    drive factor, share work-queue
+    throw build, field thread-pool-executor
+
+force build-thread-pool-executor
+  mount core-pool-size, field int
+  mount maximum-pool-size, field int
+  mount keep-alive-time, field long
+  mount unit, field time-unit
+  mount work-queue, field blocking-queue-runnable
+  mount thread-factory, field thread-factory
+
+  cause invoke-constructor
+    drive constructor, |ThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share maximum-pool-size
+    drive factor, share keep-alive-time
+    drive factor, share unit
+    drive factor, share work-queue
+    drive factor, share thread-factory
+    throw build, field thread-pool-executor
+
+force build-thread-pool-executor
+  mount core-pool-size, field int
+  mount maximum-pool-size, field int
+  mount keep-alive-time, field long
+  mount unit, field time-unit
+  mount work-queue, field blocking-queue-runnable
+  mount handler, field rejected-execution-handler
+
+  cause invoke-constructor
+    drive constructor, |ThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share maximum-pool-size
+    drive factor, share keep-alive-time
+    drive factor, share unit
+    drive factor, share work-queue
+    drive factor, share handler
+    throw build, field thread-pool-executor
+
+force build-thread-pool-executor
+  mount core-pool-size, field int
+  mount maximum-pool-size, field int
+  mount keep-alive-time, field long
+  mount unit, field time-unit
+  mount work-queue, field blocking-queue-runnable
+  mount thread-factory, field thread-factory
+  mount handler, field rejected-execution-handler
+
+  cause invoke-constructor
+    drive constructor, |ThreadPoolExecutor|
+    drive factor, share core-pool-size
+    drive factor, share maximum-pool-size
+    drive factor, share keep-alive-time
+    drive factor, share unit
+    drive factor, share work-queue
+    drive factor, share thread-factory
+    drive factor, share handler
+    throw build, field thread-pool-executor
+
+force allow-core-thread-time-out
+  mount build, field thread-pool-executor
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |allowCoreThreadTimeOut|
+    drive factor, share value
+    throw build, field unit
+
+force allows-core-thread-time-out
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |allowsCoreThreadTimeOut|
+    throw build, field boolean
+
+force await-termination
+  mount build, field thread-pool-executor
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |awaitTermination|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force execute
+  mount build, field thread-pool-executor
+  mount command, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share command
+    throw build, field unit
+
+force get-active-count
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveCount|
+    throw build, field int
+
+force get-completed-task-count
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getCompletedTaskCount|
+    throw build, field long
+
+force get-core-pool-size
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getCorePoolSize|
+    throw build, field int
+
+force get-keep-alive-time
+  mount build, field thread-pool-executor
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeepAliveTime|
+    drive factor, share unit
+    throw build, field long
+
+force get-largest-pool-size
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getLargestPoolSize|
+    throw build, field int
+
+force get-maximum-pool-size
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumPoolSize|
+    throw build, field int
+
+force get-pool-size
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getPoolSize|
+    throw build, field int
+
+force get-queue
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueue|
+    throw build, field blocking-queue
+
+force get-rejected-execution-handler
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getRejectedExecutionHandler|
+    throw build, field rejected-execution-handler
+
+force get-task-count
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getTaskCount|
+    throw build, field long
+
+force get-thread-factory
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadFactory|
+    throw build, field thread-factory
+
+force is-shutdown
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |isShutdown|
+    throw build, field boolean
+
+force is-terminated
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |isTerminated|
+    throw build, field boolean
+
+force is-terminating
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |isTerminating|
+    throw build, field boolean
+
+force prestart-all-core-threads
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |prestartAllCoreThreads|
+    throw build, field int
+
+force prestart-core-thread
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |prestartCoreThread|
+    throw build, field boolean
+
+force purge
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |purge|
+    throw build, field unit
+
+force remove
+  mount build, field thread-pool-executor
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share task
+    throw build, field boolean
+
+force set-core-pool-size
+  mount build, field thread-pool-executor
+  mount core-pool-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCorePoolSize|
+    drive factor, share core-pool-size
+    throw build, field unit
+
+force set-keep-alive-time
+  mount build, field thread-pool-executor
+  mount time, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeepAliveTime|
+    drive factor, share time
+    drive factor, share unit
+    throw build, field unit
+
+force set-maximum-pool-size
+  mount build, field thread-pool-executor
+  mount maximum-pool-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaximumPoolSize|
+    drive factor, share maximum-pool-size
+    throw build, field unit
+
+force set-rejected-execution-handler
+  mount build, field thread-pool-executor
+  mount handler, field rejected-execution-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setRejectedExecutionHandler|
+    drive factor, share handler
+    throw build, field unit
+
+force set-thread-factory
+  mount build, field thread-pool-executor
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setThreadFactory|
+    drive factor, share thread-factory
+    throw build, field unit
+
+force shutdown
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    throw build, field unit
+
+force shutdown-now
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownNow|
+    throw build, field mutable-list
+
+force to-string
+  mount build, field thread-pool-executor
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

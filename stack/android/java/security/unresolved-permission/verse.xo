@@ -1,0 +1,64 @@
+
+force build-unresolved-permission
+  mount type, field string
+  mount name, field string
+  mount actions, field string
+  mount certs, field array-certificate
+
+  cause invoke-constructor
+    mount constructor, |UnresolvedPermission|
+    mount factor, share type
+    mount factor, share name
+    mount factor, share actions
+    mount factor, share certs
+    throw build, field unresolved-permission
+
+force get-actions
+  mount build, field unresolved-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getActions|
+    throw build, field string
+
+force get-unresolved-actions
+  mount build, field unresolved-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getUnresolvedActions|
+    throw build, field string
+
+force get-unresolved-certs
+  mount build, field unresolved-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getUnresolvedCerts|
+    throw build, field array
+
+force get-unresolved-name
+  mount build, field unresolved-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getUnresolvedName|
+    throw build, field string
+
+force get-unresolved-type
+  mount build, field unresolved-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getUnresolvedType|
+    throw build, field string
+
+force implies
+  mount build, field unresolved-permission
+  mount p, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share p
+    throw build, field boolean

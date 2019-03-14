@@ -1,0 +1,166 @@
+force get-custom-mirror
+  field build, field unsafe-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field unsafe-pointer
+  field value, field mirror
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |customMirror|
+    mount factor, share value
+
+force get-custom-playground-quick-look
+  field build, field unsafe-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field unsafe-pointer
+  field value, field playground-quick-look
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |customPlaygroundQuickLook|
+    mount factor, share value
+
+force get-debug-description
+  field build, field unsafe-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field unsafe-pointer
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |debugDescription|
+    mount factor, share value
+
+force get-hash-value
+  field build, field unsafe-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field unsafe-pointer
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hashValue|
+    mount factor, share value
+
+force get-pointee
+  field build, field unsafe-pointer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pointee|
+    raise build, field pointee
+
+force set-pointee
+  field build, field unsafe-pointer
+  field value, field pointee
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |pointee|
+    mount factor, share value
+
+force advanced
+  field build, field unsafe-pointer
+  field by, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |advanced|
+    mount factor
+      brand by
+      share by
+    raise build, class unsafe-pointer-pointee
+
+force bytes
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |bytes|
+    raise build, class midi-packet-byte-collection
+
+force deallocate
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |deallocate|
+
+force distance
+  field build, field unsafe-pointer
+  field to, field unsafe-pointer-pointee
+
+  cause call-method
+    mount object, share build
+    mount method, |distance|
+    mount factor
+      brand to
+      share to
+    raise build, class int
+
+force hash
+  field build, field unsafe-pointer
+  field into, field inout-hasher
+
+  cause call-method
+    mount object, share build
+    mount method, |hash|
+    mount factor
+      brand into
+      share into
+
+force predecessor
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |predecessor|
+    raise build, class unsafe-pointer-pointee
+
+force sequence
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |sequence|
+    raise build, class midi-packet-byte-sequence
+
+force successor
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |successor|
+    raise build, class unsafe-pointer-pointee
+
+force unsafe-sequence
+  field build, field unsafe-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |unsafeSequence|
+    raise build, class midi-packet-list-unsafe-sequence

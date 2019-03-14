@@ -1,0 +1,28 @@
+
+force build-comparison-failure
+  start message, field string
+  start expected, field string
+  start actual, field string
+
+  cause invoke-constructor
+    drive constructor, |ComparisonFailure|
+    drive factor, share message
+    drive factor, share expected
+    drive factor, share actual
+    throw build, field comparison-failure
+
+force get-actual
+  start build, field comparison-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getActual|
+    throw build, field string
+
+force get-expected
+  start build, field comparison-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |getExpected|
+    throw build, field string

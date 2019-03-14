@@ -1,0 +1,1187 @@
+force get-class-
+
+  cause get-aspect
+    drive object, |FileManager|
+    drive aspect, ||undefined
+
+force set-class-
+  field valueundefined
+
+  cause set-aspect
+    drive object, |FileManager|
+    drive aspect, ||
+    drive factor, share value
+
+force get-home-directory-for-current-user
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |homeDirectoryForCurrentUser|
+    raise build, field url
+
+force set-home-directory-for-current-user
+  field build, field file-manager
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |homeDirectoryForCurrentUser|
+    drive factor, share value
+
+force ns-home-directory
+  field build, field file-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |NSHomeDirectory|
+    raise build, class string
+
+force ns-user-name
+  field build, field file-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |NSUserName|
+    raise build, class string
+
+force ns-full-user-name
+  field build, field file-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |NSFullUserName|
+    raise build, class string
+
+force home-directory
+  field build, field file-manager
+  field for-user, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |homeDirectory|
+    drive factor
+      brand for-user
+      share for-user
+    raise build, class url
+
+force ns-home-directory-for-user
+  field build, field file-manager
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |NSHomeDirectoryForUser|
+    drive factor, share a
+    raise build, class string
+
+force get-temporary-directory
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |temporaryDirectory|
+    raise build, field url
+
+force set-temporary-directory
+  field build, field file-manager
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |temporaryDirectory|
+    drive factor, share value
+
+force ns-temporary-directory
+  field build, field file-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |NSTemporaryDirectory|
+    raise build, class string
+
+force url
+  field build, field file-manager
+  field for, field file-manager-search-path-directory
+  field in, field file-manager-search-path-domain-mask
+  field appropriate-for, field url
+  field create, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |url|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand appropriate-for
+      share appropriate-for
+    drive factor
+      brand create
+      share create
+    raise build, class url
+
+force urls
+  field build, field file-manager
+  field for, field file-manager-search-path-directory
+  field in, field file-manager-search-path-domain-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |urls|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand in
+      share in
+    raise build, class url
+
+force ns-search-path-for-directories-in-domains
+  field build, field file-manager
+  field a, class file-manager-search-path-directory
+  field b, class file-manager-search-path-domain-mask
+  field c, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |NSSearchPathForDirectoriesInDomains|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    raise build, class string
+
+force ns-open-step-root-directory
+  field build, field file-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |NSOpenStepRootDirectory|
+    raise build, class string
+
+force container-url
+  field build, field file-manager
+  field for-security-application-group-identifier, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |containerURL|
+    drive factor
+      brand for-security-application-group-identifier
+      share for-security-application-group-identifier
+    raise build, class url
+
+force contents-of-directory
+  field build, field file-manager
+  field at, field url
+  field including-properties-for-keys, field url-resource-key
+  field options, field file-manager-directory-enumeration-options
+
+  cause call-method
+    drive object, share build
+    drive method, |contentsOfDirectory|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand including-properties-for-keys
+      share including-properties-for-keys
+    drive factor
+      brand options
+      share options
+    raise build, class url
+
+force contents-of-directory
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |contentsOfDirectory|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force enumerator
+  field build, field file-manager
+  field at, field url
+  field including-properties-for-keys, field url-resource-key
+  field options, field file-manager-directory-enumeration-options
+  field error-handler, field url
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerator|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand including-properties-for-keys
+      share including-properties-for-keys
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand error-handler
+      share error-handler
+    drive factor, share a
+    raise build, class bool
+
+force enumerator
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerator|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class file-manager-directory-enumerator
+
+force mounted-volume-ur-ls
+  field build, field file-manager
+  field including-resource-values-for-keys, field url-resource-key
+  field options, field file-manager-volume-enumeration-options
+
+  cause call-method
+    drive object, share build
+    drive method, |mountedVolumeURLs|
+    drive factor
+      brand including-resource-values-for-keys
+      share including-resource-values-for-keys
+    drive factor
+      brand options
+      share options
+    raise build, class url
+
+force subpaths-of-directory
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |subpathsOfDirectory|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force subpaths
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |subpaths|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force create-directory
+  field build, field file-manager
+  field at, field url
+  field with-intermediate-directories, field bool
+  field attributes, field file-attribute-key
+
+  cause call-method
+    drive object, share build
+    drive method, |createDirectory|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand with-intermediate-directories
+      share with-intermediate-directories
+    drive factor
+      brand attributes
+      share attributes
+
+force create-directory
+  field build, field file-manager
+  field at-path, field string
+  field with-intermediate-directories, field bool
+  field attributes, field file-attribute-key
+
+  cause call-method
+    drive object, share build
+    drive method, |createDirectory|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand with-intermediate-directories
+      share with-intermediate-directories
+    drive factor
+      brand attributes
+      share attributes
+
+force create-file
+  field build, field file-manager
+  field at-path, field string
+  field contents, field data
+  field attributes, field file-attribute-key
+
+  cause call-method
+    drive object, share build
+    drive method, |createFile|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand contents
+      share contents
+    drive factor
+      brand attributes
+      share attributes
+    raise build, class bool
+
+force remove-item
+  field build, field file-manager
+  field at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |removeItem|
+    drive factor
+      brand at
+      share at
+
+force remove-item
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeItem|
+    drive factor
+      brand at-path
+      share at-path
+
+force trash-item
+  field build, field file-manager
+  field at, field url
+  field resulting-item-url, field autoreleasing-unsafe-mutable-pointer-nsurl
+
+  cause call-method
+    drive object, share build
+    drive method, |trashItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand resulting-item-url
+      share resulting-item-url
+
+force replace-item-at
+  field build, field file-manager
+  field a, class url
+  field with-item-at, field url
+  field backup-item-name, field string
+  field options, field file-manager-item-replacement-options
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceItemAt|
+    drive factor, share a
+    drive factor
+      brand with-item-at
+      share with-item-at
+    drive factor
+      brand backup-item-name
+      share backup-item-name
+    drive factor
+      brand options
+      share options
+    raise build, class url
+
+force replace-item
+  field build, field file-manager
+  field at, field url
+  field with-item-at, field url
+  field backup-item-name, field string
+  field options, field file-manager-item-replacement-options
+  field resulting-item-url, field autoreleasing-unsafe-mutable-pointer-nsurl
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand with-item-at
+      share with-item-at
+    drive factor
+      brand backup-item-name
+      share backup-item-name
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand resulting-item-url
+      share resulting-item-url
+
+force copy-item
+  field build, field file-manager
+  field at, field url
+  field to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |copyItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand to
+      share to
+
+force copy-item
+  field build, field file-manager
+  field at-path, field string
+  field to-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |copyItem|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand to-path
+      share to-path
+
+force move-item
+  field build, field file-manager
+  field at, field url
+  field to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |moveItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand to
+      share to
+
+force move-item
+  field build, field file-manager
+  field at-path, field string
+  field to-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |moveItem|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand to-path
+      share to-path
+
+force get-ubiquity-identity-token
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ubiquityIdentityToken|
+    raise build, field ns-coding
+
+force set-ubiquity-identity-token
+  field build, field file-manager
+  field value, field ns-coding
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ubiquityIdentityToken|
+    drive factor, share value
+
+force url
+  field build, field file-manager
+  field for-ubiquity-container-identifier, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |url|
+    drive factor
+      brand for-ubiquity-container-identifier
+      share for-ubiquity-container-identifier
+    raise build, class url
+
+force is-ubiquitous-item
+  field build, field file-manager
+  field at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |isUbiquitousItem|
+    drive factor
+      brand at
+      share at
+    raise build, class bool
+
+force set-ubiquitous
+  field build, field file-manager
+  field a, class bool
+  field item-at, field url
+  field destination-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |setUbiquitous|
+    drive factor, share a
+    drive factor
+      brand item-at
+      share item-at
+    drive factor
+      brand destination-url
+      share destination-url
+
+force start-downloading-ubiquitous-item
+  field build, field file-manager
+  field at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |startDownloadingUbiquitousItem|
+    drive factor
+      brand at
+      share at
+
+force evict-ubiquitous-item
+  field build, field file-manager
+  field at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |evictUbiquitousItem|
+    drive factor
+      brand at
+      share at
+
+force url
+  field build, field file-manager
+  field for-publishing-ubiquitous-item-at, field url
+  field expiration, field autoreleasing-unsafe-mutable-pointer-ns-date
+
+  cause call-method
+    drive object, share build
+    drive method, |url|
+    drive factor
+      brand for-publishing-ubiquitous-item-at
+      share for-publishing-ubiquitous-item-at
+    drive factor
+      brand expiration
+      share expiration
+    raise build, class url
+
+force get-file-provider-services-for-item
+  field build, field file-manager
+  field at, field url
+  field completion-handler, field ns-file-provider-service-name
+  field a, class error
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileProviderServicesForItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand completion-handler
+      share completion-handler
+    drive factor, share a
+    raise build, class void
+
+force create-symbolic-link
+  field build, field file-manager
+  field at, field url
+  field with-destination-url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |createSymbolicLink|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand with-destination-url
+      share with-destination-url
+
+force create-symbolic-link
+  field build, field file-manager
+  field at-path, field string
+  field with-destination-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createSymbolicLink|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand with-destination-path
+      share with-destination-path
+
+force link-item
+  field build, field file-manager
+  field at, field url
+  field to, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |linkItem|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand to
+      share to
+
+force link-item
+  field build, field file-manager
+  field at-path, field string
+  field to-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |linkItem|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand to-path
+      share to-path
+
+force destination-of-symbolic-link
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |destinationOfSymbolicLink|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force file-exists
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fileExists|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force file-exists
+  field build, field file-manager
+  field at-path, field string
+  field is-directory, field unsafe-mutable-pointer-obj-c-bool
+
+  cause call-method
+    drive object, share build
+    drive method, |fileExists|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand is-directory
+      share is-directory
+    raise build, class bool
+
+force is-readable-file
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isReadableFile|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force is-writable-file
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isWritableFile|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force is-executable-file
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isExecutableFile|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force is-deletable-file
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeletableFile|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force components-to-display
+  field build, field file-manager
+  field for-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |componentsToDisplay|
+    drive factor
+      brand for-path
+      share for-path
+    raise build, class string
+
+force display-name
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |displayName|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force attributes-of-item
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |attributesOfItem|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class file-attribute-key
+
+force attributes-of-file-system
+  field build, field file-manager
+  field for-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |attributesOfFileSystem|
+    drive factor
+      brand for-path
+      share for-path
+    raise build, class file-attribute-key
+
+force set-attributes
+  field build, field file-manager
+  field file-attribute-key, field any
+  field of-item-at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAttributes|
+    drive factor
+      brand file-attribute-key
+      share file-attribute-key
+    drive factor
+      brand of-item-at-path
+      share of-item-at-path
+
+force contents
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |contents|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class data
+
+force contents-equal
+  field build, field file-manager
+  field at-path, field string
+  field and-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |contentsEqual|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand and-path
+      share and-path
+    raise build, class bool
+
+force get-relationship
+  field build, field file-manager
+  field a, class unsafe-mutable-pointer-file-manager-url-relationship
+  field of-directory-at, field url
+  field to-item-at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getRelationship|
+    drive factor, share a
+    drive factor
+      brand of-directory-at
+      share of-directory-at
+    drive factor
+      brand to-item-at
+      share to-item-at
+
+force get-relationship
+  field build, field file-manager
+  field a, class unsafe-mutable-pointer-file-manager-url-relationship
+  field of, field file-manager-search-path-directory
+  field in, field file-manager-search-path-domain-mask
+  field to-item-at, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getRelationship|
+    drive factor, share a
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand to-item-at
+      share to-item-at
+
+force file-system-representation
+  field build, field file-manager
+  field with-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fileSystemRepresentation|
+    drive factor
+      brand with-path
+      share with-path
+    raise build, class unsafe-pointer-int8
+
+force string
+  field build, field file-manager
+  field with-file-system-representation, field unsafe-pointer-int8
+  field length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |string|
+    drive factor
+      brand with-file-system-representation
+      share with-file-system-representation
+    drive factor
+      brand length
+      share length
+    raise build, class string
+
+force get-delegate
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field file-manager-delegate
+
+force set-delegate
+  field build, field file-manager
+  field value, field file-manager-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force change-current-directory-path
+  field build, field file-manager
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |changeCurrentDirectoryPath|
+    drive factor, share a
+    raise build, class bool
+
+force get-current-directory-path
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentDirectoryPath|
+    raise build, field string
+
+force set-current-directory-path
+  field build, field file-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentDirectoryPath|
+    drive factor, share value
+
+force unmount-volume
+  field build, field file-manager
+  field at, field url
+  field options, field file-manager-unmount-options
+  field completion-handler, field error
+
+  cause call-method
+    drive object, share build
+    drive method, |unmountVolume|
+    drive factor
+      brand at
+      share at
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+    raise build, class void
+
+force get-ns-file-manager-unmount-dissenting-process-identifier-error-key
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSFileManagerUnmountDissentingProcessIdentifierErrorKey|
+    raise build, field string
+
+force set-ns-file-manager-unmount-dissenting-process-identifier-error-key
+  field build, field FileManager
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSFileManagerUnmountDissentingProcessIdentifierErrorKey|
+    drive factor, share value
+
+force ns-file-type-for-hfs-type-code
+  field build, field file-manager
+  field a, class os-type
+
+  cause call-method
+    drive object, share build
+    drive method, |NSFileTypeForHFSTypeCode|
+    drive factor, share a
+    raise build, class string
+
+force nshfs-type-code-from-file-type
+  field build, field file-manager
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |NSHFSTypeCodeFromFileType|
+    drive factor, share a
+    raise build, class os-type
+
+force nshfs-type-of-file
+  field build, field file-manager
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |NSHFSTypeOfFile|
+    drive factor, share a
+    raise build, class string
+
+force get-ns-foundation-version-with-file-manager-resource-fork-support
+  field build, field file-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSFoundationVersionWithFileManagerResourceForkSupport|
+    raise build, field int32
+
+force set-ns-foundation-version-with-file-manager-resource-fork-support
+  field build, field file-manager
+  field value, field int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSFoundationVersionWithFileManagerResourceForkSupport|
+    drive factor, share value
+
+force change-file-attributes
+  field build, field file-manager
+  field any-hashable, field any
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |changeFileAttributes|
+    drive factor
+      brand any-hashable
+      share any-hashable
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force file-attributes
+  field build, field file-manager
+  field at-path, field string
+  field traverse-link, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |fileAttributes|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand traverse-link
+      share traverse-link
+    raise build, class any-hashable
+
+force file-system-attributes
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fileSystemAttributes|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class any-hashable
+
+force directory-contents
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |directoryContents|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class any
+
+force create-directory
+  field build, field file-manager
+  field at-path, field string
+  field attributes, field any-hashable
+
+  cause call-method
+    drive object, share build
+    drive method, |createDirectory|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand attributes
+      share attributes
+    raise build, class bool
+
+force create-symbolic-link
+  field build, field file-manager
+  field at-path, field string
+  field path-content, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createSymbolicLink|
+    drive factor
+      brand at-path
+      share at-path
+    drive factor
+      brand path-content
+      share path-content
+    raise build, class bool
+
+force path-content-of-symbolic-link
+  field build, field file-manager
+  field at-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |pathContentOfSymbolicLink|
+    drive factor
+      brand at-path
+      share at-path
+    raise build, class string
+
+force file-manager
+  field build, field file-manager
+  field a, class file-manager
+  field should-proceed-after-error, field any-hashable
+
+  cause call-method
+    drive object, share build
+    drive method, |fileManager|
+    drive factor, share a
+    drive factor
+      brand should-proceed-after-error
+      share should-proceed-after-error
+    raise build, class bool
+
+force file-manager
+  field build, field file-manager
+  field a, class file-manager
+  field will-process-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |fileManager|
+    drive factor, share a
+    drive factor
+      brand will-process-path
+      share will-process-path
+
+force replace-item-at-url
+  field build, field file-manager
+  field original-item-url, field nsurl
+  field with-item-at-url, field nsurl
+  field backup-item-name, field string
+  field options, field file-manager-item-replacement-options
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceItemAtURL|
+    drive factor
+      brand original-item-url
+      share original-item-url
+    drive factor
+      brand with-item-at-url
+      share with-item-at-url
+    drive factor
+      brand backup-item-name
+      share backup-item-name
+    drive factor
+      brand options
+      share options
+    raise build, class nsurl

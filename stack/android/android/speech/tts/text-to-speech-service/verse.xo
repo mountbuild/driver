@@ -1,0 +1,73 @@
+
+force build-text-to-speech-service
+  cause invoke-constructor
+    drive constructor, |TextToSpeechService|
+    throw build, field text-to-speech-service
+
+force on-bind
+  mount build, field text-to-speech-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-create
+  mount build, field text-to-speech-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-destroy
+  mount build, field text-to-speech-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-get-default-voice-name-for
+  mount build, field text-to-speech-service
+  mount lang, field string
+  mount country, field string
+  mount variant, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetDefaultVoiceNameFor|
+    drive factor, share lang
+    drive factor, share country
+    drive factor, share variant
+    throw build, field string
+
+force on-get-voices
+  mount build, field text-to-speech-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetVoices|
+    throw build, field mutable-list
+
+force on-is-valid-voice-name
+  mount build, field text-to-speech-service
+  mount voice-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onIsValidVoiceName|
+    drive factor, share voice-name
+    throw build, field int
+
+force on-load-voice
+  mount build, field text-to-speech-service
+  mount voice-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadVoice|
+    drive factor, share voice-name
+    throw build, field int

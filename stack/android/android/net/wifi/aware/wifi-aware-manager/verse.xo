@@ -1,0 +1,66 @@
+
+force get-action-wifi-aware-state-changed
+  mount build, field wifi-aware-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_WIFI_AWARE_STATE_CHANGED|
+    throw build, field string
+
+force get-wifi-aware-data-path-role-initiator
+  mount build, field wifi-aware-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_AWARE_DATA_PATH_ROLE_INITIATOR|
+    throw build, field int
+
+force get-wifi-aware-data-path-role-responder
+  mount build, field wifi-aware-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_AWARE_DATA_PATH_ROLE_RESPONDER|
+    throw build, field int
+
+force attach
+  mount build, field wifi-aware-manager
+  mount attach-callback, field attach-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |attach|
+    drive factor, share attach-callback
+    drive factor, share handler
+    throw build, field unit
+
+force attach
+  mount build, field wifi-aware-manager
+  mount attach-callback, field attach-callback
+  mount identity-changed-listener, field identity-changed-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |attach|
+    drive factor, share attach-callback
+    drive factor, share identity-changed-listener
+    drive factor, share handler
+    throw build, field unit
+
+force get-characteristics
+  mount build, field wifi-aware-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacteristics|
+    throw build, field characteristics
+
+force is-available
+  mount build, field wifi-aware-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAvailable|
+    throw build, field boolean

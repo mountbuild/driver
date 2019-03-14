@@ -1,0 +1,4953 @@
+
+force build-aggregate-contact-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.AggregateContactManager|
+
+force find-raw-contacts-async
+  start build, field windows-applicationmodel-contacts-aggregatecontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |FindRawContactsAsync|
+    drive factor, share contact
+
+force set-remote-identification-information-async
+  start build, field windows-applicationmodel-contacts-aggregatecontactmanager
+  start contact-list-id, field system-string
+  start remote-source-id, field system-string
+  start account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetRemoteIdentificationInformationAsync|
+    drive factor, share contact-list-id
+    drive factor, share remote-source-id
+    drive factor, share account-id
+
+force try-link-contacts-async
+  start build, field windows-applicationmodel-contacts-aggregatecontactmanager
+  start primary-contact, field windows-applicationmodel-contacts-contact
+  start secondary-contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |TryLinkContactsAsync|
+    drive factor, share primary-contact
+    drive factor, share secondary-contact
+
+force try-set-preferred-source-for-picture-async
+  start build, field windows-applicationmodel-contacts-aggregatecontactmanager
+  start aggregate-contact, field windows-applicationmodel-contacts-contact
+  start raw-contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetPreferredSourceForPictureAsync|
+    drive factor, share aggregate-contact
+    drive factor, share raw-contact
+
+force unlink-raw-contact-async
+  start build, field windows-applicationmodel-contacts-aggregatecontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |UnlinkRawContactAsync|
+    drive factor, share contact
+
+force build-contact
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.Contact|
+
+force get-addresses
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Addresses|
+
+force set-addresses
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Addresses|
+    drive factor, share value
+
+force get-aggregate-id
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AggregateId|
+
+force set-aggregate-id
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AggregateId|
+    drive factor, share value
+
+force get-connected-service-accounts
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectedServiceAccounts|
+
+force set-connected-service-accounts
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectedServiceAccounts|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-contact-list-id
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContactListId|
+
+force set-contact-list-id
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContactListId|
+    drive factor, share value
+
+force get-data-suppliers
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DataSuppliers|
+
+force set-data-suppliers
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DataSuppliers|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-display-name-override
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayNameOverride|
+
+force set-display-name-override
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayNameOverride|
+    drive factor, share value
+
+force get-display-picture-user-update-time
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayPictureUserUpdateTime|
+
+force set-display-picture-user-update-time
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayPictureUserUpdateTime|
+    drive factor, share value
+
+force get-emails
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emails|
+
+force set-emails
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emails|
+    drive factor, share value
+
+force get-fields
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Fields|
+
+force set-fields
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Fields|
+    drive factor, share value
+
+force get-first-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FirstName|
+
+force set-first-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FirstName|
+    drive factor, share value
+
+force get-full-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FullName|
+
+force set-full-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FullName|
+    drive factor, share value
+
+force get-honorific-name-prefix
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HonorificNamePrefix|
+
+force set-honorific-name-prefix
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HonorificNamePrefix|
+    drive factor, share value
+
+force get-honorific-name-suffix
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HonorificNameSuffix|
+
+force set-honorific-name-suffix
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HonorificNameSuffix|
+    drive factor, share value
+
+force get-id
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-important-dates
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ImportantDates|
+
+force set-important-dates
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ImportantDates|
+    drive factor, share value
+
+force get-is-aggregate
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsAggregate|
+
+force set-is-aggregate
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsAggregate|
+    drive factor, share value
+
+force get-is-display-picture-manually-set
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsDisplayPictureManuallySet|
+
+force set-is-display-picture-manually-set
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsDisplayPictureManuallySet|
+    drive factor, share value
+
+force get-is-me
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsMe|
+
+force set-is-me
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsMe|
+    drive factor, share value
+
+force get-job-info
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |JobInfo|
+
+force set-job-info
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |JobInfo|
+    drive factor, share value
+
+force get-large-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LargeDisplayPicture|
+
+force set-large-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LargeDisplayPicture|
+    drive factor, share value
+
+force get-last-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LastName|
+
+force set-last-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LastName|
+    drive factor, share value
+
+force get-middle-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MiddleName|
+
+force set-middle-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MiddleName|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-nickname
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Nickname|
+
+force set-nickname
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Nickname|
+    drive factor, share value
+
+force get-notes
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Notes|
+
+force set-notes
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Notes|
+    drive factor, share value
+
+force get-phones
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Phones|
+
+force set-phones
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Phones|
+    drive factor, share value
+
+force get-provider-properties
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProviderProperties|
+
+force set-provider-properties
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProviderProperties|
+    drive factor, share value
+
+force get-remote-id
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemoteId|
+
+force set-remote-id
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemoteId|
+    drive factor, share value
+
+force get-ring-tone-token
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RingToneToken|
+
+force set-ring-tone-token
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RingToneToken|
+    drive factor, share value
+
+force get-significant-others
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SignificantOthers|
+
+force set-significant-others
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SignificantOthers|
+    drive factor, share value
+
+force get-small-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SmallDisplayPicture|
+
+force set-small-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SmallDisplayPicture|
+    drive factor, share value
+
+force get-sort-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SortName|
+
+force set-sort-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SortName|
+    drive factor, share value
+
+force get-source-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceDisplayPicture|
+
+force set-source-display-picture
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceDisplayPicture|
+    drive factor, share value
+
+force get-text-tone-token
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TextToneToken|
+
+force set-text-tone-token
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TextToneToken|
+    drive factor, share value
+
+force get-thumbnail
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Thumbnail|
+
+force set-thumbnail
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Thumbnail|
+    drive factor, share value
+
+force get-websites
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Websites|
+
+force set-websites
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Websites|
+    drive factor, share value
+
+force get-yomi-display-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |YomiDisplayName|
+
+force set-yomi-display-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |YomiDisplayName|
+    drive factor, share value
+
+force get-yomi-family-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |YomiFamilyName|
+
+force set-yomi-family-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |YomiFamilyName|
+    drive factor, share value
+
+force get-yomi-given-name
+  start build, field windows-applicationmodel-contacts-contact
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |YomiGivenName|
+
+force set-yomi-given-name
+  start build, field windows-applicationmodel-contacts-contact
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |YomiGivenName|
+    drive factor, share value
+
+force build-contact-address
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactAddress|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-country
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Country|
+
+force set-country
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Country|
+    drive factor, share value
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-kind
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-locality
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Locality|
+
+force set-locality
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Locality|
+    drive factor, share value
+
+force get-postal-code
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PostalCode|
+
+force set-postal-code
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PostalCode|
+    drive factor, share value
+
+force get-region
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Region|
+
+force set-region
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Region|
+    drive factor, share value
+
+force get-street-address
+  start build, field windows-applicationmodel-contacts-contactaddress
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StreetAddress|
+
+force set-street-address
+  start build, field windows-applicationmodel-contacts-contactaddress
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StreetAddress|
+    drive factor, share value
+
+force get-contact-address-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactAddressKind|
+
+force build-contact-annotation
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactAnnotation|
+
+force get-annotation-list-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AnnotationListId|
+
+force set-annotation-list-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AnnotationListId|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-contact-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContactId|
+
+force set-contact-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContactId|
+    drive factor, share value
+
+force get-contact-list-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContactListId|
+
+force set-contact-list-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContactListId|
+    drive factor, share value
+
+force get-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-is-disabled
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsDisabled|
+
+force set-is-disabled
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsDisabled|
+    drive factor, share value
+
+force get-provider-properties
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProviderProperties|
+
+force set-provider-properties
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProviderProperties|
+    drive factor, share value
+
+force get-remote-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemoteId|
+
+force set-remote-id
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemoteId|
+    drive factor, share value
+
+force get-supported-operations
+  start build, field windows-applicationmodel-contacts-contactannotation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SupportedOperations|
+
+force set-supported-operations
+  start build, field windows-applicationmodel-contacts-contactannotation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SupportedOperations|
+    drive factor, share value
+
+force build-contact-annotation-list
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactAnnotationList|
+
+force delete-annotation-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start annotation, field windows-applicationmodel-contacts-contactannotation
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAnnotationAsync|
+    drive factor, share annotation
+
+force delete-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAsync|
+
+force find-annotations-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAnnotationsAsync|
+
+force find-annotations-by-remote-id-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start remote-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAnnotationsByRemoteIdAsync|
+    drive factor, share remote-id
+
+force get-annotation-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start annotation-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAnnotationAsync|
+    drive factor, share annotation-id
+
+force get-id
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-provider-package-family-name
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProviderPackageFamilyName|
+
+force set-provider-package-family-name
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProviderPackageFamilyName|
+    drive factor, share value
+
+force try-save-annotation-async
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start annotation, field windows-applicationmodel-contacts-contactannotation
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySaveAnnotationAsync|
+    drive factor, share annotation
+
+force get-user-data-account-id
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserDataAccountId|
+
+force set-user-data-account-id
+  start build, field windows-applicationmodel-contacts-contactannotationlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserDataAccountId|
+    drive factor, share value
+
+force get-contact-annotation-operations
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactAnnotationOperations|
+
+force build-contact-annotation-store
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactAnnotationStore|
+
+force create-annotation-list-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start user-data-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAnnotationListAsync|
+    drive factor, share user-data-account-id
+
+force create-annotation-list-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAnnotationListAsync|
+
+force disable-annotation-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start annotation, field windows-applicationmodel-contacts-contactannotation
+
+  cause call-method
+    drive object, share build
+    drive method, |DisableAnnotationAsync|
+    drive factor, share annotation
+
+force find-annotation-lists-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAnnotationListsAsync|
+
+force find-annotations-for-contact-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAnnotationsForContactAsync|
+    drive factor, share contact
+
+force find-annotations-for-contact-list-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start contact-list-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAnnotationsForContactListAsync|
+    drive factor, share contact-list-id
+
+force find-contact-ids-by-email-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start email-address, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindContactIdsByEmailAsync|
+    drive factor, share email-address
+
+force find-contact-ids-by-phone-number-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start phone-number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindContactIdsByPhoneNumberAsync|
+    drive factor, share phone-number
+
+force get-annotation-list-async
+  start build, field windows-applicationmodel-contacts-contactannotationstore
+  start annotation-list-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAnnotationListAsync|
+    drive factor, share annotation-list-id
+
+force get-contact-annotation-store-access-type
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType|
+
+force build-contact-batch
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactBatch|
+
+force get-contacts
+  start build, field windows-applicationmodel-contacts-contactbatch
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Contacts|
+
+force set-contacts
+  start build, field windows-applicationmodel-contacts-contactbatch
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Contacts|
+    drive factor, share value
+
+force get-status
+  start build, field windows-applicationmodel-contacts-contactbatch
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-applicationmodel-contacts-contactbatch
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-contact-batch-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactBatchStatus|
+
+force build-contact-card-delayed-data-loader
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader|
+
+force close
+  start build, field windows-applicationmodel-contacts-contactcarddelayeddataloader
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force set-data
+  start build, field windows-applicationmodel-contacts-contactcarddelayeddataloader
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |SetData|
+    drive factor, share contact
+
+force get-contact-card-header-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactCardHeaderKind|
+
+force build-contact-card-options
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactCardOptions|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-header-kind
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HeaderKind|
+
+force set-header-kind
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HeaderKind|
+    drive factor, share value
+
+force get-initial-tab-kind
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InitialTabKind|
+
+force set-initial-tab-kind
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InitialTabKind|
+    drive factor, share value
+
+force get-server-search-contact-list-ids
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServerSearchContactListIds|
+
+force set-server-search-contact-list-ids
+  start build, field windows-applicationmodel-contacts-contactcardoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServerSearchContactListIds|
+    drive factor, share value
+
+force get-contact-card-tab-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactCardTabKind|
+
+force build-contact-change
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactChange|
+
+force get-change-type
+  start build, field windows-applicationmodel-contacts-contactchange
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChangeType|
+
+force set-change-type
+  start build, field windows-applicationmodel-contacts-contactchange
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChangeType|
+    drive factor, share value
+
+force get-contact
+  start build, field windows-applicationmodel-contacts-contactchange
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Contact|
+
+force set-contact
+  start build, field windows-applicationmodel-contacts-contactchange
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Contact|
+    drive factor, share value
+
+force build-contact-changed-deferral
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactChangedDeferral|
+
+force complete
+  start build, field windows-applicationmodel-contacts-contactchangeddeferral
+
+  cause call-method
+    drive object, share build
+    drive method, |Complete|
+
+force build-contact-changed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactChangedEventArgs|
+
+force get-deferral
+  start build, field windows-applicationmodel-contacts-contactchangedeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force build-contact-change-reader
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactChangeReader|
+
+force accept-changes
+  start build, field windows-applicationmodel-contacts-contactchangereader
+
+  cause call-method
+    drive object, share build
+    drive method, |AcceptChanges|
+
+force accept-changes-through
+  start build, field windows-applicationmodel-contacts-contactchangereader
+  start last-change-to-accept, field windows-applicationmodel-contacts-contactchange
+
+  cause call-method
+    drive object, share build
+    drive method, |AcceptChangesThrough|
+    drive factor, share last-change-to-accept
+
+force read-batch-async
+  start build, field windows-applicationmodel-contacts-contactchangereader
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadBatchAsync|
+
+force build-contact-change-tracker
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactChangeTracker|
+
+force enable
+  start build, field windows-applicationmodel-contacts-contactchangetracker
+
+  cause call-method
+    drive object, share build
+    drive method, |Enable|
+
+force get-change-reader
+  start build, field windows-applicationmodel-contacts-contactchangetracker
+
+  cause call-method
+    drive object, share build
+    drive method, |GetChangeReader|
+
+force get-is-tracking
+  start build, field windows-applicationmodel-contacts-contactchangetracker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsTracking|
+
+force set-is-tracking
+  start build, field windows-applicationmodel-contacts-contactchangetracker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsTracking|
+    drive factor, share value
+
+force reset
+  start build, field windows-applicationmodel-contacts-contactchangetracker
+
+  cause call-method
+    drive object, share build
+    drive method, |Reset|
+
+force get-contact-change-type
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactChangeType|
+
+force build-contact-connected-service-account
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactconnectedserviceaccount
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-id
+  start build, field windows-applicationmodel-contacts-contactconnectedserviceaccount
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-contactconnectedserviceaccount
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-service-name
+  start build, field windows-applicationmodel-contacts-contactconnectedserviceaccount
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServiceName|
+
+force set-service-name
+  start build, field windows-applicationmodel-contacts-contactconnectedserviceaccount
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServiceName|
+    drive factor, share value
+
+force build-contact-date
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactDate|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-day
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Day|
+
+force set-day
+  start build, field windows-applicationmodel-contacts-contactdate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Day|
+    drive factor, share value
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactdate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-kind
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-applicationmodel-contacts-contactdate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-month
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Month|
+
+force set-month
+  start build, field windows-applicationmodel-contacts-contactdate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Month|
+    drive factor, share value
+
+force get-year
+  start build, field windows-applicationmodel-contacts-contactdate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Year|
+
+force set-year
+  start build, field windows-applicationmodel-contacts-contactdate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Year|
+    drive factor, share value
+
+force get-contact-date-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactDateKind|
+
+force build-contact-email
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactEmail|
+
+force get-address
+  start build, field windows-applicationmodel-contacts-contactemail
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Address|
+
+force set-address
+  start build, field windows-applicationmodel-contacts-contactemail
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Address|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactemail
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactemail
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactemail
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-kind
+  start build, field windows-applicationmodel-contacts-contactemail
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-applicationmodel-contacts-contactemail
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-contact-email-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactEmailKind|
+
+force build-contact-field
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactField|
+
+force get-category
+  start build, field windows-applicationmodel-contacts-contactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactfield
+  start name, field system-string
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share value
+    drive factor, share type
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-type
+  start build, field windows-applicationmodel-contacts-contactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-value
+  start build, field windows-applicationmodel-contacts-contactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-applicationmodel-contacts-contactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force get-contact-field-category
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactFieldCategory|
+
+force build-contact-field-factory
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactFieldFactory|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force create-field
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share value
+    drive factor, share type
+
+force create-field
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start name, field system-string
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force create-field
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start service, field system-string
+  start display-text, field system-string
+  start verb, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+    drive factor, share category
+    drive factor, share service
+    drive factor, share display-text
+    drive factor, share verb
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+    drive factor, share category
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start user-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+
+force create-location
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start street, field system-string
+  start city, field system-string
+  start region, field system-string
+  start country, field system-string
+  start postal-code, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+    drive factor, share category
+    drive factor, share street
+    drive factor, share city
+    drive factor, share region
+    drive factor, share country
+    drive factor, share postal-code
+
+force create-location
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start unstructured-address, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+
+force create-location
+  start build, field windows-applicationmodel-contacts-contactfieldfactory
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+    drive factor, share category
+
+force get-contact-field-type
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactFieldType|
+
+force build-contact-group
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactGroup|
+
+force build-contact-information
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactInformation|
+
+force get-custom-fields
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CustomFields|
+
+force set-custom-fields
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CustomFields|
+    drive factor, share value
+
+force get-emails
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emails|
+
+force set-emails
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emails|
+    drive factor, share value
+
+force get-thumbnail-async
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause call-method
+    drive object, share build
+    drive method, |GetThumbnailAsync|
+
+force get-instant-messages
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InstantMessages|
+
+force set-instant-messages
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InstantMessages|
+    drive factor, share value
+
+force get-locations
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Locations|
+
+force set-locations
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Locations|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactinformation
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PhoneNumbers|
+
+force set-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PhoneNumbers|
+    drive factor, share value
+
+force query-custom-fields
+  start build, field windows-applicationmodel-contacts-contactinformation
+  start custom-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |QueryCustomFields|
+    drive factor, share custom-name
+
+force build-contact-instant-message-field
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactInstantMessageField|
+
+force get-category
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start service, field system-string
+  start display-text, field system-string
+  start verb, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share user-name
+    drive factor, share category
+    drive factor, share service
+    drive factor, share display-text
+    drive factor, share verb
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share user-name
+    drive factor, share category
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start user-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share user-name
+
+force get-display-text
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+
+force set-display-text
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+    drive factor, share value
+
+force get-launch-uri
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LaunchUri|
+
+force set-launch-uri
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LaunchUri|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-service
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Service|
+
+force set-service
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Service|
+    drive factor, share value
+
+force get-type
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-user-name
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserName|
+
+force set-user-name
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserName|
+    drive factor, share value
+
+force get-value
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-applicationmodel-contacts-contactinstantmessagefield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force build-contact-job-info
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactJobInfo|
+
+force get-company-address
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CompanyAddress|
+
+force set-company-address
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CompanyAddress|
+    drive factor, share value
+
+force get-company-name
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CompanyName|
+
+force set-company-name
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CompanyName|
+    drive factor, share value
+
+force get-company-yomi-name
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CompanyYomiName|
+
+force set-company-yomi-name
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CompanyYomiName|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-department
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Department|
+
+force set-department
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Department|
+    drive factor, share value
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-manager
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Manager|
+
+force set-manager
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Manager|
+    drive factor, share value
+
+force get-office
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Office|
+
+force set-office
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Office|
+    drive factor, share value
+
+force get-title
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Title|
+
+force set-title
+  start build, field windows-applicationmodel-contacts-contactjobinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Title|
+    drive factor, share value
+
+force build-contact-launch-action-verbs
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs|
+
+force get-call
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Call|
+
+force set-call
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Call|
+    drive factor, share value
+
+force get-map
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Map|
+
+force set-map
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Map|
+    drive factor, share value
+
+force get-message
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Message|
+
+force set-message
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Message|
+    drive factor, share value
+
+force get-post
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Post|
+
+force set-post
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Post|
+    drive factor, share value
+
+force get-video-call
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |VideoCall|
+
+force set-video-call
+  start build, field windows-applicationmodel-contacts-contactlaunchactionverbs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |VideoCall|
+    drive factor, share value
+
+force build-contact-list
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactList|
+
+force get-change-tracker
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+
+force set-change-tracker
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+    drive factor, share value
+
+force delete-async
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAsync|
+
+force delete-contact-async
+  start build, field windows-applicationmodel-contacts-contactlist
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteContactAsync|
+    drive factor, share contact
+
+force get-display-name
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-change-tracker
+  start build, field windows-applicationmodel-contacts-contactlist
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetChangeTracker|
+    drive factor, share identity
+
+force get-contact-async
+  start build, field windows-applicationmodel-contacts-contactlist
+  start contact-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactAsync|
+    drive factor, share contact-id
+
+force get-contact-from-remote-id-async
+  start build, field windows-applicationmodel-contacts-contactlist
+  start remote-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactFromRemoteIdAsync|
+    drive factor, share remote-id
+
+force get-contact-reader
+  start build, field windows-applicationmodel-contacts-contactlist
+  start options, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactReader|
+    drive factor, share options
+
+force get-contact-reader
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactReader|
+
+force get-me-contact-async
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMeContactAsync|
+
+force get-id
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-is-hidden
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsHidden|
+
+force set-is-hidden
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsHidden|
+    drive factor, share value
+
+force get-limited-write-operations
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LimitedWriteOperations|
+
+force set-limited-write-operations
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LimitedWriteOperations|
+    drive factor, share value
+
+force get-other-app-read-access
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OtherAppReadAccess|
+
+force set-other-app-read-access
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OtherAppReadAccess|
+    drive factor, share value
+
+force get-other-app-write-access
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OtherAppWriteAccess|
+
+force set-other-app-write-access
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OtherAppWriteAccess|
+    drive factor, share value
+
+force register-sync-manager-async
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterSyncManagerAsync|
+
+force save-async
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsync|
+
+force save-contact-async
+  start build, field windows-applicationmodel-contacts-contactlist
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveContactAsync|
+    drive factor, share contact
+
+force get-source-display-name
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SourceDisplayName|
+
+force set-source-display-name
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SourceDisplayName|
+    drive factor, share value
+
+force get-supports-server-search
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SupportsServerSearch|
+
+force set-supports-server-search
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SupportsServerSearch|
+    drive factor, share value
+
+force get-sync-constraints
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SyncConstraints|
+
+force set-sync-constraints
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SyncConstraints|
+    drive factor, share value
+
+force get-sync-manager
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SyncManager|
+
+force set-sync-manager
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SyncManager|
+    drive factor, share value
+
+force get-user-data-account-id
+  start build, field windows-applicationmodel-contacts-contactlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserDataAccountId|
+
+force set-user-data-account-id
+  start build, field windows-applicationmodel-contacts-contactlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserDataAccountId|
+    drive factor, share value
+
+force build-contact-list-limited-write-operations
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations|
+
+force try-create-or-update-contact-async
+  start build, field windows-applicationmodel-contacts-contactlistlimitedwriteoperations
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |TryCreateOrUpdateContactAsync|
+    drive factor, share contact
+
+force try-delete-contact-async
+  start build, field windows-applicationmodel-contacts-contactlistlimitedwriteoperations
+  start contact-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TryDeleteContactAsync|
+    drive factor, share contact-id
+
+force get-contact-list-other-app-read-access
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess|
+
+force get-contact-list-other-app-write-access
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess|
+
+force build-contact-list-sync-constraints
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactListSyncConstraints|
+
+force get-can-sync-descriptions
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanSyncDescriptions|
+
+force set-can-sync-descriptions
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanSyncDescriptions|
+    drive factor, share value
+
+force get-max-anniversary-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxAnniversaryDates|
+
+force set-max-anniversary-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxAnniversaryDates|
+    drive factor, share value
+
+force get-max-assistant-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxAssistantPhoneNumbers|
+
+force set-max-assistant-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxAssistantPhoneNumbers|
+    drive factor, share value
+
+force get-max-birthday-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxBirthdayDates|
+
+force set-max-birthday-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxBirthdayDates|
+    drive factor, share value
+
+force get-max-business-fax-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxBusinessFaxPhoneNumbers|
+
+force set-max-business-fax-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxBusinessFaxPhoneNumbers|
+    drive factor, share value
+
+force get-max-child-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxChildRelationships|
+
+force set-max-child-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxChildRelationships|
+    drive factor, share value
+
+force get-max-company-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxCompanyPhoneNumbers|
+
+force set-max-company-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxCompanyPhoneNumbers|
+    drive factor, share value
+
+force get-max-home-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxHomeAddresses|
+
+force set-max-home-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxHomeAddresses|
+    drive factor, share value
+
+force get-max-home-fax-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxHomeFaxPhoneNumbers|
+
+force set-max-home-fax-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxHomeFaxPhoneNumbers|
+    drive factor, share value
+
+force get-max-home-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxHomePhoneNumbers|
+
+force set-max-home-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxHomePhoneNumbers|
+    drive factor, share value
+
+force get-max-job-info
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxJobInfo|
+
+force set-max-job-info
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxJobInfo|
+    drive factor, share value
+
+force get-max-mobile-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxMobilePhoneNumbers|
+
+force set-max-mobile-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxMobilePhoneNumbers|
+    drive factor, share value
+
+force get-max-other-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxOtherAddresses|
+
+force set-max-other-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxOtherAddresses|
+    drive factor, share value
+
+force get-max-other-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxOtherDates|
+
+force set-max-other-dates
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxOtherDates|
+    drive factor, share value
+
+force get-max-other-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxOtherEmailAddresses|
+
+force set-max-other-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxOtherEmailAddresses|
+    drive factor, share value
+
+force get-max-other-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxOtherPhoneNumbers|
+
+force set-max-other-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxOtherPhoneNumbers|
+    drive factor, share value
+
+force get-max-other-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxOtherRelationships|
+
+force set-max-other-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxOtherRelationships|
+    drive factor, share value
+
+force get-max-pager-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxPagerPhoneNumbers|
+
+force set-max-pager-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxPagerPhoneNumbers|
+    drive factor, share value
+
+force get-max-parent-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxParentRelationships|
+
+force set-max-parent-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxParentRelationships|
+    drive factor, share value
+
+force get-max-partner-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxPartnerRelationships|
+
+force set-max-partner-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxPartnerRelationships|
+    drive factor, share value
+
+force get-max-personal-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxPersonalEmailAddresses|
+
+force set-max-personal-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxPersonalEmailAddresses|
+    drive factor, share value
+
+force get-max-radio-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxRadioPhoneNumbers|
+
+force set-max-radio-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxRadioPhoneNumbers|
+    drive factor, share value
+
+force get-max-sibling-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxSiblingRelationships|
+
+force set-max-sibling-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxSiblingRelationships|
+    drive factor, share value
+
+force get-max-spouse-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxSpouseRelationships|
+
+force set-max-spouse-relationships
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxSpouseRelationships|
+    drive factor, share value
+
+force get-max-websites
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxWebsites|
+
+force set-max-websites
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxWebsites|
+    drive factor, share value
+
+force get-max-work-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxWorkAddresses|
+
+force set-max-work-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxWorkAddresses|
+    drive factor, share value
+
+force get-max-work-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxWorkEmailAddresses|
+
+force set-max-work-email-addresses
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxWorkEmailAddresses|
+    drive factor, share value
+
+force get-max-work-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxWorkPhoneNumbers|
+
+force set-max-work-phone-numbers
+  start build, field windows-applicationmodel-contacts-contactlistsyncconstraints
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxWorkPhoneNumbers|
+    drive factor, share value
+
+force build-contact-list-sync-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactListSyncManager|
+
+force get-last-attempted-sync-time
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LastAttemptedSyncTime|
+
+force set-last-attempted-sync-time
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LastAttemptedSyncTime|
+    drive factor, share value
+
+force get-last-successful-sync-time
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LastSuccessfulSyncTime|
+
+force set-last-successful-sync-time
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LastSuccessfulSyncTime|
+    drive factor, share value
+
+force get-status
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force sync-async
+  start build, field windows-applicationmodel-contacts-contactlistsyncmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |SyncAsync|
+
+force get-contact-list-sync-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactListSyncStatus|
+
+force build-contact-location-field
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactLocationField|
+
+force get-category
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force get-city
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |City|
+
+force set-city
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |City|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share unstructured-address
+    drive factor, share category
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start unstructured-address, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share unstructured-address
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start street, field system-string
+  start city, field system-string
+  start region, field system-string
+  start country, field system-string
+  start postal-code, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share unstructured-address
+    drive factor, share category
+    drive factor, share street
+    drive factor, share city
+    drive factor, share region
+    drive factor, share country
+    drive factor, share postal-code
+
+force get-country
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Country|
+
+force set-country
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Country|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-postal-code
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PostalCode|
+
+force set-postal-code
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PostalCode|
+    drive factor, share value
+
+force get-region
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Region|
+
+force set-region
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Region|
+    drive factor, share value
+
+force get-street
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Street|
+
+force set-street
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Street|
+    drive factor, share value
+
+force get-type
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-unstructured-address
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UnstructuredAddress|
+
+force set-unstructured-address
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UnstructuredAddress|
+    drive factor, share value
+
+force get-value
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-applicationmodel-contacts-contactlocationfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force build-contact-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactManager|
+
+force convert-contact-to-v-card-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertContactToVCardAsync|
+    drive factor, share contact
+
+force convert-contact-to-v-card-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start max-bytes, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertContactToVCardAsync|
+    drive factor, share contact
+    drive factor, share max-bytes
+
+force convert-v-card-to-contact-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start v-card, field windows-storage-streams-irandomaccessstreamreference
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertVCardToContactAsync|
+    drive factor, share v-card
+
+force get-for-user
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force get-include-middle-name-in-system-display-and-sort
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IncludeMiddleNameInSystemDisplayAndSort|
+
+force set-include-middle-name-in-system-display-and-sort
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IncludeMiddleNameInSystemDisplayAndSort|
+    drive factor, share value
+
+force is-show-contact-card-supported
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsShowContactCardSupported|
+
+force is-show-delay-loaded-contact-card-supported
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsShowDelayLoadedContactCardSupported|
+
+force is-show-full-contact-card-supported-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsShowFullContactCardSupportedAsync|
+
+force request-annotation-store-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start access-type, field windows-applicationmodel-contacts-contactannotationstoreaccesstype
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAnnotationStoreAsync|
+    drive factor, share access-type
+
+force request-store-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start access-type, field windows-applicationmodel-contacts-contactstoreaccesstype
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestStoreAsync|
+    drive factor, share access-type
+
+force request-store-async
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestStoreAsync|
+
+force show-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start selection, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowContactCard|
+    drive factor, share contact
+    drive factor, share selection
+
+force show-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowContactCard|
+    drive factor, share contact
+    drive factor, share selection
+    drive factor, share preferred-placement
+
+force show-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+  start contact-card-options, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowContactCard|
+    drive factor, share contact
+    drive factor, share selection
+    drive factor, share preferred-placement
+    drive factor, share contact-card-options
+
+force show-delay-loaded-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+  start contact-card-options, field windows-applicationmodel-contacts-contactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowDelayLoadedContactCard|
+    drive factor, share contact
+    drive factor, share selection
+    drive factor, share preferred-placement
+    drive factor, share contact-card-options
+
+force show-delay-loaded-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start selection, field windows-foundation-rect
+  start preferred-placement, field windows-ui-popups-placement
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowDelayLoadedContactCard|
+    drive factor, share contact
+    drive factor, share selection
+    drive factor, share preferred-placement
+
+force show-full-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start full-contact-card-options, field windows-applicationmodel-contacts-fullcontactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowFullContactCard|
+    drive factor, share contact
+    drive factor, share full-contact-card-options
+
+force get-system-display-name-order
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemDisplayNameOrder|
+
+force set-system-display-name-order
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemDisplayNameOrder|
+    drive factor, share value
+
+force get-system-sort-order
+  start build, field windows-applicationmodel-contacts-contactmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemSortOrder|
+
+force set-system-sort-order
+  start build, field windows-applicationmodel-contacts-contactmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemSortOrder|
+    drive factor, share value
+
+force build-contact-manager-for-user
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactManagerForUser|
+
+force convert-contact-to-v-card-async
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertContactToVCardAsync|
+    drive factor, share contact
+
+force convert-contact-to-v-card-async
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start contact, field windows-applicationmodel-contacts-contact
+  start max-bytes, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertContactToVCardAsync|
+    drive factor, share contact
+    drive factor, share max-bytes
+
+force convert-v-card-to-contact-async
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start v-card, field windows-storage-streams-irandomaccessstreamreference
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertVCardToContactAsync|
+    drive factor, share v-card
+
+force request-annotation-store-async
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start access-type, field windows-applicationmodel-contacts-contactannotationstoreaccesstype
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestAnnotationStoreAsync|
+    drive factor, share access-type
+
+force request-store-async
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start access-type, field windows-applicationmodel-contacts-contactstoreaccesstype
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestStoreAsync|
+    drive factor, share access-type
+
+force show-full-contact-card
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start contact, field windows-applicationmodel-contacts-contact
+  start full-contact-card-options, field windows-applicationmodel-contacts-fullcontactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowFullContactCard|
+    drive factor, share contact
+    drive factor, share full-contact-card-options
+
+force get-system-display-name-order
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemDisplayNameOrder|
+
+force set-system-display-name-order
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemDisplayNameOrder|
+    drive factor, share value
+
+force get-system-sort-order
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemSortOrder|
+
+force set-system-sort-order
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemSortOrder|
+    drive factor, share value
+
+force get-user
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-applicationmodel-contacts-contactmanagerforuser
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force build-contact-match-reason
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactMatchReason|
+
+force get-field
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Field|
+
+force set-field
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Field|
+    drive factor, share value
+
+force get-segments
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Segments|
+
+force set-segments
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Segments|
+    drive factor, share value
+
+force get-text
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-applicationmodel-contacts-contactmatchreason
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force get-contact-match-reason-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactMatchReasonKind|
+
+force get-contact-name-order
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactNameOrder|
+
+force build-contact-panel
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactPanel|
+
+force close-panel
+  start build, field windows-applicationmodel-contacts-contactpanel
+
+  cause call-method
+    drive object, share build
+    drive method, |ClosePanel|
+
+force get-header-color
+  start build, field windows-applicationmodel-contacts-contactpanel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HeaderColor|
+
+force set-header-color
+  start build, field windows-applicationmodel-contacts-contactpanel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HeaderColor|
+    drive factor, share value
+
+force build-contact-panel-closing-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs|
+
+force get-deferral
+  start build, field windows-applicationmodel-contacts-contactpanelclosingeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force build-contact-panel-launch-full-app-requested-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs|
+
+force get-handled
+  start build, field windows-applicationmodel-contacts-contactpanellaunchfullapprequestedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Handled|
+
+force set-handled
+  start build, field windows-applicationmodel-contacts-contactpanellaunchfullapprequestedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Handled|
+    drive factor, share value
+
+force build-contact-phone
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactPhone|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactphone
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactphone
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactphone
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-kind
+  start build, field windows-applicationmodel-contacts-contactphone
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Kind|
+
+force set-kind
+  start build, field windows-applicationmodel-contacts-contactphone
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Kind|
+    drive factor, share value
+
+force get-number
+  start build, field windows-applicationmodel-contacts-contactphone
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Number|
+
+force set-number
+  start build, field windows-applicationmodel-contacts-contactphone
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Number|
+    drive factor, share value
+
+force get-contact-phone-kind
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactPhoneKind|
+
+force build-contact-picker
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactPicker|
+
+force get-commit-button-text
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CommitButtonText|
+
+force set-commit-button-text
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CommitButtonText|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force create-for-user
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateForUser|
+    drive factor, share user
+
+force get-desired-fields
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+
+force set-desired-fields
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+    drive factor, share value
+
+force get-desired-fields-with-contact-field-type
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredFieldsWithContactFieldType|
+
+force set-desired-fields-with-contact-field-type
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredFieldsWithContactFieldType|
+    drive factor, share value
+
+force is-supported-async
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupportedAsync|
+
+force pick-contact-async
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |PickContactAsync|
+
+force pick-contacts-async
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |PickContactsAsync|
+
+force pick-multiple-contacts-async
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |PickMultipleContactsAsync|
+
+force pick-single-contact-async
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause call-method
+    drive object, share build
+    drive method, |PickSingleContactAsync|
+
+force get-selection-mode
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SelectionMode|
+
+force set-selection-mode
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SelectionMode|
+    drive factor, share value
+
+force get-user
+  start build, field windows-applicationmodel-contacts-contactpicker
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-applicationmodel-contacts-contactpicker
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force get-contact-query-desired-fields
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactQueryDesiredFields|
+
+force build-contact-query-options
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactQueryOptions|
+
+force get-annotation-list-ids
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AnnotationListIds|
+
+force set-annotation-list-ids
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AnnotationListIds|
+    drive factor, share value
+
+force get-contact-list-ids
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContactListIds|
+
+force set-contact-list-ids
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContactListIds|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start text, field system-string
+  start fields, field windows-applicationmodel-contacts-contactquerysearchfields
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share text
+    drive factor, share fields
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share text
+
+force get-desired-fields
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+
+force set-desired-fields
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+    drive factor, share value
+
+force get-desired-operations
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredOperations|
+
+force set-desired-operations
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredOperations|
+    drive factor, share value
+
+force get-include-contacts-from-hidden-lists
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IncludeContactsFromHiddenLists|
+
+force set-include-contacts-from-hidden-lists
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IncludeContactsFromHiddenLists|
+    drive factor, share value
+
+force get-text-search
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TextSearch|
+
+force set-text-search
+  start build, field windows-applicationmodel-contacts-contactqueryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TextSearch|
+    drive factor, share value
+
+force get-contact-query-search-fields
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactQuerySearchFields|
+
+force get-contact-query-search-scope
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactQuerySearchScope|
+
+force build-contact-query-text-search
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactQueryTextSearch|
+
+force get-fields
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Fields|
+
+force set-fields
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Fields|
+    drive factor, share value
+
+force get-search-scope
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SearchScope|
+
+force set-search-scope
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SearchScope|
+    drive factor, share value
+
+force get-text
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-applicationmodel-contacts-contactquerytextsearch
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force build-contact-reader
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactReader|
+
+force get-matching-properties-with-match-reason
+  start build, field windows-applicationmodel-contacts-contactreader
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMatchingPropertiesWithMatchReason|
+    drive factor, share contact
+
+force read-batch-async
+  start build, field windows-applicationmodel-contacts-contactreader
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadBatchAsync|
+
+force get-contact-relationship
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactRelationship|
+
+force get-contact-selection-mode
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactSelectionMode|
+
+force build-contact-significant-other
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactSignificantOther|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-relationship
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Relationship|
+
+force set-relationship
+  start build, field windows-applicationmodel-contacts-contactsignificantother
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Relationship|
+    drive factor, share value
+
+force build-contact-store
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactStore|
+
+force get-aggregate-contact-manager
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AggregateContactManager|
+
+force set-aggregate-contact-manager
+  start build, field windows-applicationmodel-contacts-contactstore
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AggregateContactManager|
+    drive factor, share value
+
+force get-change-tracker
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+
+force set-change-tracker
+  start build, field windows-applicationmodel-contacts-contactstore
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+    drive factor, share value
+
+force create-contact-list-async
+  start build, field windows-applicationmodel-contacts-contactstore
+  start display-name, field system-string
+  start user-data-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateContactListAsync|
+    drive factor, share display-name
+    drive factor, share user-data-account-id
+
+force create-contact-list-async
+  start build, field windows-applicationmodel-contacts-contactstore
+  start display-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateContactListAsync|
+    drive factor, share display-name
+
+force find-contact-lists-async
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause call-method
+    drive object, share build
+    drive method, |FindContactListsAsync|
+
+force find-contacts-async
+  start build, field windows-applicationmodel-contacts-contactstore
+  start search-text, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindContactsAsync|
+    drive factor, share search-text
+
+force find-contacts-async
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause call-method
+    drive object, share build
+    drive method, |FindContactsAsync|
+
+force get-change-tracker
+  start build, field windows-applicationmodel-contacts-contactstore
+  start identity, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetChangeTracker|
+    drive factor, share identity
+
+force get-contact-async
+  start build, field windows-applicationmodel-contacts-contactstore
+  start contact-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactAsync|
+    drive factor, share contact-id
+
+force get-contact-list-async
+  start build, field windows-applicationmodel-contacts-contactstore
+  start contact-list-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactListAsync|
+    drive factor, share contact-list-id
+
+force get-contact-reader
+  start build, field windows-applicationmodel-contacts-contactstore
+  start options, field windows-applicationmodel-contacts-contactqueryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactReader|
+    drive factor, share options
+
+force get-contact-reader
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause call-method
+    drive object, share build
+    drive method, |GetContactReader|
+
+force get-me-contact-async
+  start build, field windows-applicationmodel-contacts-contactstore
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMeContactAsync|
+
+force get-contact-store-access-type
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.ContactStoreAccessType|
+
+force build-contact-store-notification-trigger-details
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails|
+
+force build-contact-website
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.ContactWebsite|
+
+force ctor
+  start build, field windows-applicationmodel-contacts-contactwebsite
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-description
+  start build, field windows-applicationmodel-contacts-contactwebsite
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-contacts-contactwebsite
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-raw-value
+  start build, field windows-applicationmodel-contacts-contactwebsite
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RawValue|
+
+force set-raw-value
+  start build, field windows-applicationmodel-contacts-contactwebsite
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RawValue|
+    drive factor, share value
+
+force get-uri
+  start build, field windows-applicationmodel-contacts-contactwebsite
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Uri|
+
+force set-uri
+  start build, field windows-applicationmodel-contacts-contactwebsite
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Uri|
+    drive factor, share value
+
+force build-full-contact-card-options
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.FullContactCardOptions|
+
+force get-desired-remaining-view
+  start build, field windows-applicationmodel-contacts-fullcontactcardoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredRemainingView|
+
+force set-desired-remaining-view
+  start build, field windows-applicationmodel-contacts-fullcontactcardoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredRemainingView|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-contacts-fullcontactcardoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-category
+  start build, field windows-applicationmodel-contacts-icontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  start build, field windows-applicationmodel-contacts-icontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-contacts-icontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-contacts-icontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-type
+  start build, field windows-applicationmodel-contacts-icontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-applicationmodel-contacts-icontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-value
+  start build, field windows-applicationmodel-contacts-icontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-applicationmodel-contacts-icontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force create-field
+  start build, field windows-applicationmodel-contacts-icontactfieldfactory
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share value
+    drive factor, share type
+
+force create-field
+  start build, field windows-applicationmodel-contacts-icontactfieldfactory
+  start name, field system-string
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force create-field
+  start build, field windows-applicationmodel-contacts-icontactfieldfactory
+  start value, field system-string
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateField|
+    drive factor, share value
+    drive factor, share type
+    drive factor, share category
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-icontactinstantmessagefieldfactory
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start service, field system-string
+  start display-text, field system-string
+  start verb, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+    drive factor, share category
+    drive factor, share service
+    drive factor, share display-text
+    drive factor, share verb
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-icontactinstantmessagefieldfactory
+  start user-name, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+    drive factor, share category
+
+force create-instant-message
+  start build, field windows-applicationmodel-contacts-icontactinstantmessagefieldfactory
+  start user-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInstantMessage|
+    drive factor, share user-name
+
+force create-location
+  start build, field windows-applicationmodel-contacts-icontactlocationfieldfactory
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+  start street, field system-string
+  start city, field system-string
+  start region, field system-string
+  start country, field system-string
+  start postal-code, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+    drive factor, share category
+    drive factor, share street
+    drive factor, share city
+    drive factor, share region
+    drive factor, share country
+    drive factor, share postal-code
+
+force create-location
+  start build, field windows-applicationmodel-contacts-icontactlocationfieldfactory
+  start unstructured-address, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+
+force create-location
+  start build, field windows-applicationmodel-contacts-icontactlocationfieldfactory
+  start unstructured-address, field system-string
+  start category, field windows-applicationmodel-contacts-contactfieldcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateLocation|
+    drive factor, share unstructured-address
+    drive factor, share category
+
+force build-known-contact-field
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.KnownContactField|
+
+force convert-name-to-type
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertNameToType|
+    drive factor, share name
+
+force convert-type-to-name
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start type, field windows-applicationmodel-contacts-contactfieldtype
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertTypeToName|
+    drive factor, share type
+
+force get-email
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Email|
+
+force set-email
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Email|
+    drive factor, share value
+
+force get-instant-message
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InstantMessage|
+
+force set-instant-message
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InstantMessage|
+    drive factor, share value
+
+force get-location
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Location|
+
+force set-location
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Location|
+    drive factor, share value
+
+force get-phone-number
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PhoneNumber|
+
+force set-phone-number
+  start build, field windows-applicationmodel-contacts-knowncontactfield
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PhoneNumber|
+    drive factor, share value
+
+force build-pinned-contact-ids-query-result
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult|
+
+force get-contact-ids
+  start build, field windows-applicationmodel-contacts-pinnedcontactidsqueryresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ContactIds|
+
+force set-contact-ids
+  start build, field windows-applicationmodel-contacts-pinnedcontactidsqueryresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ContactIds|
+    drive factor, share value
+
+force build-pinned-contact-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.PinnedContactManager|
+
+force get-default
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force get-for-user
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForUser|
+    drive factor, share user
+
+force get-pinned-contact-ids-async
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPinnedContactIdsAsync|
+
+force is-contact-pinned
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start surface, field windows-applicationmodel-contacts-pinnedcontactsurface
+
+  cause call-method
+    drive object, share build
+    drive method, |IsContactPinned|
+    drive factor, share contact
+    drive factor, share surface
+
+force is-pin-surface-supported
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start surface, field windows-applicationmodel-contacts-pinnedcontactsurface
+
+  cause call-method
+    drive object, share build
+    drive method, |IsPinSurfaceSupported|
+    drive factor, share surface
+
+force is-supported
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force request-pin-contact-async
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start surface, field windows-applicationmodel-contacts-pinnedcontactsurface
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestPinContactAsync|
+    drive factor, share contact
+    drive factor, share surface
+
+force request-pin-contacts-async
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start contacts, field windows-foundation-collections-iiterable-windows-applicationmodel-contacts-contact
+  start surface, field windows-applicationmodel-contacts-pinnedcontactsurface
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestPinContactsAsync|
+    drive factor, share contacts
+    drive factor, share surface
+
+force request-unpin-contact-async
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+  start surface, field windows-applicationmodel-contacts-pinnedcontactsurface
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestUnpinContactAsync|
+    drive factor, share contact
+    drive factor, share surface
+
+force signal-contact-activity
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |SignalContactActivity|
+    drive factor, share contact
+
+force get-user
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-applicationmodel-contacts-pinnedcontactmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value

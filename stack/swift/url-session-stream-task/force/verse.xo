@@ -1,0 +1,62 @@
+force capture-streams
+  field build, field url-session-stream-task
+
+  cause call-method
+    drive object, share build
+    drive method, |captureStreams|
+
+force close-read
+  field build, field url-session-stream-task
+
+  cause call-method
+    drive object, share build
+    drive method, |closeRead|
+
+force close-write
+  field build, field url-session-stream-task
+
+  cause call-method
+    drive object, share build
+    drive method, |closeWrite|
+
+force start-secure-connection
+  field build, field url-session-stream-task
+
+  cause call-method
+    drive object, share build
+    drive method, |startSecureConnection|
+
+force stop-secure-connection
+  field build, field url-session-stream-task
+
+  cause call-method
+    drive object, share build
+    drive method, |stopSecureConnection|
+
+force stream-task
+  field build, field url-session-stream-task
+  field with-host-name, field string
+  field port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |streamTask|
+    drive factor
+      brand with-host-name
+      share with-host-name
+    drive factor
+      brand port
+      share port
+    raise build, class url-session-stream-task
+
+force stream-task
+  field build, field url-session-stream-task
+  field with, field net-service
+
+  cause call-method
+    drive object, share build
+    drive method, |streamTask|
+    drive factor
+      brand with
+      share with
+    raise build, class url-session-stream-task

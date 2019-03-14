@@ -1,0 +1,56 @@
+
+force create
+  mount build, field script-intrinsic3-dlut
+  mount rs, field render-script
+  mount e, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share rs
+    drive factor, share e
+    raise build, field script-intrinsic3-dlut
+
+force for-each
+  mount build, field script-intrinsic3-dlut
+  mount ain, field allocation
+  mount aout, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share ain
+    drive factor, share aout
+    raise build, field unit
+
+force for-each
+  mount build, field script-intrinsic3-dlut
+  mount ain, field allocation
+  mount aout, field allocation
+  mount opt, field script-launch-options
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share ain
+    drive factor, share aout
+    drive factor, share opt
+    raise build, field unit
+
+force get-kernel-id
+  mount build, field script-intrinsic3-dlut
+
+  cause call-method
+    drive object, share build
+    drive method, |getKernelID|
+    raise build, field script-kernel-id
+
+force set-lut
+  mount build, field script-intrinsic3-dlut
+  mount lut, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setLUT|
+    drive factor, share lut
+    raise build, field unit

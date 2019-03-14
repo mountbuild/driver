@@ -1,0 +1,39 @@
+
+force build-transition-propagation
+  cause invoke-constructor
+    drive constructor, |TransitionPropagation|
+    throw build, field transition-propagation
+
+force capture-values
+  mount build, field transition-propagation
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force get-propagation-properties
+  mount build, field transition-propagation
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropagationProperties|
+    throw build, field array
+
+force get-start-delay
+  mount build, field transition-propagation
+  mount scene-root, field view-group
+  mount transition, field transition
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartDelay|
+    drive factor, share scene-root
+    drive factor, share transition
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field long

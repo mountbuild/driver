@@ -1,0 +1,112 @@
+
+force get-account-id
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCOUNT_ID|
+    throw build, field string
+
+force get-subscription-id
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBSCRIPTION_ID|
+    throw build, field string
+
+force get-type-registration-info
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_REGISTRATION_INFO|
+    throw build, field int
+
+force get-type-rights-acquisition-info
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_ACQUISITION_INFO|
+    throw build, field int
+
+force get-type-rights-acquisition-progress-info
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_ACQUISITION_PROGRESS_INFO|
+    throw build, field int
+
+force get-type-unregistration-info
+  mount build, field drm-info-request
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_UNREGISTRATION_INFO|
+    throw build, field int
+
+force build-drm-info-request
+  mount info-type, field int
+  mount mime-type, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmInfoRequest|
+    drive factor, share info-type
+    drive factor, share mime-type
+    throw build, field drm-info-request
+
+force get
+  mount build, field drm-info-request
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field any
+
+force get-info-type
+  mount build, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getInfoType|
+    throw build, field int
+
+force get-mime-type
+  mount build, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    throw build, field string
+
+force iterator
+  mount build, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force key-iterator
+  mount build, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |keyIterator|
+    throw build, field mutable-iterator
+
+force put
+  mount build, field drm-info-request
+  mount key, field string
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit

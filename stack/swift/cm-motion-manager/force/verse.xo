@@ -1,0 +1,468 @@
+force get-is-device-motion-available
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDeviceMotionAvailable|
+    raise build, field bool
+
+force set-is-device-motion-available
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDeviceMotionAvailable|
+    drive factor, share value
+
+force get-is-accelerometer-available
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAccelerometerAvailable|
+    raise build, field bool
+
+force set-is-accelerometer-available
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAccelerometerAvailable|
+    drive factor, share value
+
+force get-is-gyro-available
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isGyroAvailable|
+    raise build, field bool
+
+force set-is-gyro-available
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isGyroAvailable|
+    drive factor, share value
+
+force get-is-magnetometer-available
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMagnetometerAvailable|
+    raise build, field bool
+
+force set-is-magnetometer-available
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMagnetometerAvailable|
+    drive factor, share value
+
+force get-is-device-motion-active
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDeviceMotionActive|
+    raise build, field bool
+
+force set-is-device-motion-active
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDeviceMotionActive|
+    drive factor, share value
+
+force get-is-accelerometer-active
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAccelerometerActive|
+    raise build, field bool
+
+force set-is-accelerometer-active
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAccelerometerActive|
+    drive factor, share value
+
+force get-is-gyro-active
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isGyroActive|
+    raise build, field bool
+
+force set-is-gyro-active
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isGyroActive|
+    drive factor, share value
+
+force get-is-magnetometer-active
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMagnetometerActive|
+    raise build, field bool
+
+force set-is-magnetometer-active
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMagnetometerActive|
+    drive factor, share value
+
+force get-shows-device-movement-display
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |showsDeviceMovementDisplay|
+    raise build, field bool
+
+force set-shows-device-movement-display
+  field build, field cm-motion-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |showsDeviceMovementDisplay|
+    drive factor, share value
+
+force get-device-motion-update-interval
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deviceMotionUpdateInterval|
+    raise build, field time-interval
+
+force set-device-motion-update-interval
+  field build, field cm-motion-manager
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deviceMotionUpdateInterval|
+    drive factor, share value
+
+force start-device-motion-updates
+  field build, field cm-motion-manager
+  field using, field cm-attitude-reference-frame
+  field to, field operation-queue
+  field with-handler, field cm-device-motion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startDeviceMotionUpdates|
+    drive factor
+      brand using
+      share using
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-handler
+      share with-handler
+
+force start-device-motion-updates
+  field build, field cm-motion-manager
+  field to, field operation-queue
+  field with-handler, field cm-device-motion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startDeviceMotionUpdates|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-handler
+      share with-handler
+
+force start-device-motion-updates
+  field build, field cm-motion-manager
+  field using, field cm-attitude-reference-frame
+
+  cause call-method
+    drive object, share build
+    drive method, |startDeviceMotionUpdates|
+    drive factor
+      brand using
+      share using
+
+force start-device-motion-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |startDeviceMotionUpdates|
+
+force stop-device-motion-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopDeviceMotionUpdates|
+
+force get-device-motion
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |deviceMotion|
+    raise build, field cm-device-motion
+
+force set-device-motion
+  field build, field cm-motion-manager
+  field value, field cm-device-motion
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |deviceMotion|
+    drive factor, share value
+
+force get-accelerometer-update-interval
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |accelerometerUpdateInterval|
+    raise build, field time-interval
+
+force set-accelerometer-update-interval
+  field build, field cm-motion-manager
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |accelerometerUpdateInterval|
+    drive factor, share value
+
+force start-accelerometer-updates
+  field build, field cm-motion-manager
+  field to, field operation-queue
+  field with-handler, field cm-accelerometer-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startAccelerometerUpdates|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-handler
+      share with-handler
+
+force start-accelerometer-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |startAccelerometerUpdates|
+
+force stop-accelerometer-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAccelerometerUpdates|
+
+force get-accelerometer-data
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |accelerometerData|
+    raise build, field cm-accelerometer-data
+
+force set-accelerometer-data
+  field build, field cm-motion-manager
+  field value, field cm-accelerometer-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |accelerometerData|
+    drive factor, share value
+
+force get-gyro-update-interval
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |gyroUpdateInterval|
+    raise build, field time-interval
+
+force set-gyro-update-interval
+  field build, field cm-motion-manager
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |gyroUpdateInterval|
+    drive factor, share value
+
+force start-gyro-updates
+  field build, field cm-motion-manager
+  field to, field operation-queue
+  field with-handler, field cm-gyro-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startGyroUpdates|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-handler
+      share with-handler
+
+force start-gyro-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |startGyroUpdates|
+
+force stop-gyro-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopGyroUpdates|
+
+force get-gyro-data
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |gyroData|
+    raise build, field cm-gyro-data
+
+force set-gyro-data
+  field build, field cm-motion-manager
+  field value, field cm-gyro-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |gyroData|
+    drive factor, share value
+
+force get-magnetometer-update-interval
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |magnetometerUpdateInterval|
+    raise build, field time-interval
+
+force set-magnetometer-update-interval
+  field build, field cm-motion-manager
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |magnetometerUpdateInterval|
+    drive factor, share value
+
+force start-magnetometer-updates
+  field build, field cm-motion-manager
+  field to, field operation-queue
+  field with-handler, field cm-magnetometer-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |startMagnetometerUpdates|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand with-handler
+      share with-handler
+
+force start-magnetometer-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |startMagnetometerUpdates|
+
+force stop-magnetometer-updates
+  field build, field cm-motion-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopMagnetometerUpdates|
+
+force get-magnetometer-data
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |magnetometerData|
+    raise build, field cm-magnetometer-data
+
+force set-magnetometer-data
+  field build, field cm-motion-manager
+  field value, field cm-magnetometer-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |magnetometerData|
+    drive factor, share value
+
+force get-attitude-reference-frame
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |attitudeReferenceFrame|
+    raise build, field cm-attitude-reference-frame
+
+force set-attitude-reference-frame
+  field build, field cm-motion-manager
+  field value, field cm-attitude-reference-frame
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |attitudeReferenceFrame|
+    drive factor, share value
+
+force get-cm-error-domain
+  field build, field cm-motion-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CMErrorDomain|
+    raise build, field string
+
+force set-cm-error-domain
+  field build, field CMMotionManager
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CMErrorDomain|
+    drive factor, share value

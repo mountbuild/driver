@@ -1,0 +1,197 @@
+
+force build-adaptive-card-builder
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Shell.AdaptiveCardBuilder|
+
+force create-adaptive-card-from-json
+  mount build, field windows-ui-shell-adaptivecardbuilder
+  mount value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAdaptiveCardFromJson|
+    drive factor, share value
+
+force to-json
+  mount build, field windows-ui-shell-iadaptivecard
+
+  cause call-method
+    drive object, share build
+    drive method, |ToJson|
+
+force create-adaptive-card-from-json
+  mount build, field windows-ui-shell-iadaptivecardbuilderstatics
+  mount value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateAdaptiveCardFromJson|
+    drive factor, share value
+
+force get-security-app-kind
+  cause get-object
+    drive aspect, |Windows.UI.Shell.SecurityAppKind|
+
+force build-security-app-manager
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Shell.SecurityAppManager|
+
+force register
+  mount build, field windows-ui-shell-securityappmanager
+  mount kind, field windows-ui-shell-securityappkind
+  mount display-name, field system-string
+  mount details-uri, field windows-foundation-uri
+  mount register-per-user, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |Register|
+    drive factor, share kind
+    drive factor, share display-name
+    drive factor, share details-uri
+    drive factor, share register-per-user
+
+force ctor
+  mount build, field windows-ui-shell-securityappmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force unregister
+  mount build, field windows-ui-shell-securityappmanager
+  mount kind, field windows-ui-shell-securityappkind
+  mount guid-registration, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |Unregister|
+    drive factor, share kind
+    drive factor, share guid-registration
+
+force update-state
+  mount build, field windows-ui-shell-securityappmanager
+  mount kind, field windows-ui-shell-securityappkind
+  mount guid-registration, field system-guid
+  mount state, field windows-ui-shell-securityappstate
+  mount substatus, field windows-ui-shell-securityappsubstatus
+  mount details-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateState|
+    drive factor, share kind
+    drive factor, share guid-registration
+    drive factor, share state
+    drive factor, share substatus
+    drive factor, share details-uri
+
+force get-security-app-state
+  cause get-object
+    drive aspect, |Windows.UI.Shell.SecurityAppState|
+
+force get-security-app-substatus
+  cause get-object
+    drive aspect, |Windows.UI.Shell.SecurityAppSubstatus|
+
+force build-taskbar-manager
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Shell.TaskbarManager|
+
+force get-default
+  mount build, field windows-ui-shell-taskbarmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force is-app-list-entry-pinned-async
+  mount build, field windows-ui-shell-taskbarmanager
+  mount app-list-entry, field windows-applicationmodel-core-applistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |IsAppListEntryPinnedAsync|
+    drive factor, share app-list-entry
+
+force is-current-app-pinned-async
+  mount build, field windows-ui-shell-taskbarmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCurrentAppPinnedAsync|
+
+force get-is-pinning-allowed
+  mount build, field windows-ui-shell-taskbarmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsPinningAllowed|
+
+force set-is-pinning-allowed
+  mount build, field windows-ui-shell-taskbarmanager
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsPinningAllowed|
+    drive factor, share value
+
+force is-secondary-tile-pinned-async
+  mount build, field windows-ui-shell-taskbarmanager
+  mount tile-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSecondaryTilePinnedAsync|
+    drive factor, share tile-id
+
+force get-is-supported
+  mount build, field windows-ui-shell-taskbarmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+
+force set-is-supported
+  mount build, field windows-ui-shell-taskbarmanager
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsSupported|
+    drive factor, share value
+
+force request-pin-app-list-entry-async
+  mount build, field windows-ui-shell-taskbarmanager
+  mount app-list-entry, field windows-applicationmodel-core-applistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestPinAppListEntryAsync|
+    drive factor, share app-list-entry
+
+force request-pin-current-app-async
+  mount build, field windows-ui-shell-taskbarmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestPinCurrentAppAsync|
+
+force request-pin-secondary-tile-async
+  mount build, field windows-ui-shell-taskbarmanager
+  mount secondary-tile, field windows-ui-startscreen-secondarytile
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestPinSecondaryTileAsync|
+    drive factor, share secondary-tile
+
+force try-unpin-secondary-tile-async
+  mount build, field windows-ui-shell-taskbarmanager
+  mount tile-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TryUnpinSecondaryTileAsync|
+    drive factor, share tile-id

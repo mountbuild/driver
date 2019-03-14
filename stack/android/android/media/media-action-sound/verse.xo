@@ -1,0 +1,65 @@
+
+force get-focus-complete
+  mount build, field media-action-sound
+
+  cause get-property
+    drive object, share build
+    drive property, |FOCUS_COMPLETE|
+    raise build, field int
+
+force get-shutter-click
+  mount build, field media-action-sound
+
+  cause get-property
+    drive object, share build
+    drive property, |SHUTTER_CLICK|
+    raise build, field int
+
+force get-start-video-recording
+  mount build, field media-action-sound
+
+  cause get-property
+    drive object, share build
+    drive property, |START_VIDEO_RECORDING|
+    raise build, field int
+
+force get-stop-video-recording
+  mount build, field media-action-sound
+
+  cause get-property
+    drive object, share build
+    drive property, |STOP_VIDEO_RECORDING|
+    raise build, field int
+
+force build-media-action-sound
+  cause invoke-constructor
+    drive constructor, |MediaActionSound|
+    raise build, field media-action-sound
+
+force load
+  mount build, field media-action-sound
+  mount sound-name, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share sound-name
+    raise build, field unit
+
+force play
+  mount build, field media-action-sound
+  mount sound-name, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    drive factor, share sound-name
+    raise build, field unit
+
+force release
+  mount build, field media-action-sound
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit

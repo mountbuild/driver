@@ -1,0 +1,44 @@
+
+force build-file-writer
+  mount file-name, field string
+
+  cause invoke-constructor
+    drive constructor, |FileWriter|
+    drive factor, share file-name
+    throw build, field file-writer
+
+force build-file-writer
+  mount file-name, field string
+  mount append, field boolean
+
+  cause invoke-constructor
+    drive constructor, |FileWriter|
+    drive factor, share file-name
+    drive factor, share append
+    throw build, field file-writer
+
+force build-file-writer
+  mount file, field file
+
+  cause invoke-constructor
+    drive constructor, |FileWriter|
+    drive factor, share file
+    throw build, field file-writer
+
+force build-file-writer
+  mount file, field file
+  mount append, field boolean
+
+  cause invoke-constructor
+    drive constructor, |FileWriter|
+    drive factor, share file
+    drive factor, share append
+    throw build, field file-writer
+
+force build-file-writer
+  mount fd, field file-descriptor
+
+  cause invoke-constructor
+    drive constructor, |FileWriter|
+    drive factor, share fd
+    throw build, field file-writer

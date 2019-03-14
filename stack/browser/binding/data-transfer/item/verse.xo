@@ -1,0 +1,42 @@
+
+force get-kind
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |kind|
+    throw build
+
+force get-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |type|
+    throw build
+
+force get-as-file
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getAsFile|
+    throw build
+
+force get-as-file-system-handle
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getAsFileSystemHandle|
+    throw build
+
+force get-as-string
+  start build
+  start callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getAsString|
+    mount factor, share callback
+    throw build

@@ -1,0 +1,548 @@
+
+force get-action-connection-state-changed
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONNECTION_STATE_CHANGED|
+    throw build, field string
+
+force get-action-discovery-finished
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DISCOVERY_FINISHED|
+    throw build, field string
+
+force get-action-discovery-started
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DISCOVERY_STARTED|
+    throw build, field string
+
+force get-action-local-name-changed
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_LOCAL_NAME_CHANGED|
+    throw build, field string
+
+force get-action-request-discoverable
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_REQUEST_DISCOVERABLE|
+    throw build, field string
+
+force get-action-request-enable
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_REQUEST_ENABLE|
+    throw build, field string
+
+force get-action-scan-mode-changed
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SCAN_MODE_CHANGED|
+    throw build, field string
+
+force get-action-state-changed
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_STATE_CHANGED|
+    throw build, field string
+
+force get-error
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    throw build, field int
+
+force get-extra-connection-state
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CONNECTION_STATE|
+    throw build, field string
+
+force get-extra-discoverable-duration
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_DISCOVERABLE_DURATION|
+    throw build, field string
+
+force get-extra-local-name
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LOCAL_NAME|
+    throw build, field string
+
+force get-extra-previous-connection-state
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PREVIOUS_CONNECTION_STATE|
+    throw build, field string
+
+force get-extra-previous-scan-mode
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PREVIOUS_SCAN_MODE|
+    throw build, field string
+
+force get-extra-previous-state
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PREVIOUS_STATE|
+    throw build, field string
+
+force get-extra-scan-mode
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SCAN_MODE|
+    throw build, field string
+
+force get-extra-state
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_STATE|
+    throw build, field string
+
+force get-scan-mode-connectable
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_MODE_CONNECTABLE|
+    throw build, field int
+
+force get-scan-mode-connectable-discoverable
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_MODE_CONNECTABLE_DISCOVERABLE|
+    throw build, field int
+
+force get-scan-mode-none
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_MODE_NONE|
+    throw build, field int
+
+force get-state-connected
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CONNECTED|
+    throw build, field int
+
+force get-state-connecting
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CONNECTING|
+    throw build, field int
+
+force get-state-disconnected
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_DISCONNECTED|
+    throw build, field int
+
+force get-state-disconnecting
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_DISCONNECTING|
+    throw build, field int
+
+force get-state-off
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_OFF|
+    throw build, field int
+
+force get-state-on
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_ON|
+    throw build, field int
+
+force get-state-turning-off
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_TURNING_OFF|
+    throw build, field int
+
+force get-state-turning-on
+  mount build, field bluetooth-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_TURNING_ON|
+    throw build, field int
+
+force cancel-discovery
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelDiscovery|
+    throw build, field boolean
+
+force check-bluetooth-address
+  mount build, field bluetooth-adapter
+  mount address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkBluetoothAddress|
+    drive factor, share address
+    throw build, field boolean
+
+force close-profile-proxy
+  mount build, field bluetooth-adapter
+  mount profile, field int
+  mount proxy, field bluetooth-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |closeProfileProxy|
+    drive factor, share profile
+    drive factor, share proxy
+    throw build, field unit
+
+force disable
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |disable|
+    throw build, field boolean
+
+force enable
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |enable|
+    throw build, field boolean
+
+force get-address
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    throw build, field string
+
+force get-bluetooth-le-advertiser
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getBluetoothLeAdvertiser|
+    throw build, field bluetooth-le-advertiser
+
+force get-bluetooth-le-scanner
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getBluetoothLeScanner|
+    throw build, field bluetooth-le-scanner
+
+force get-bonded-devices
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getBondedDevices|
+    throw build, field mutable-set
+
+force get-default-adapter
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultAdapter|
+    throw build, field bluetooth-adapter
+
+force get-le-maximum-advertising-data-length
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeMaximumAdvertisingDataLength|
+    throw build, field int
+
+force get-name
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-profile-connection-state
+  mount build, field bluetooth-adapter
+  mount profile, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfileConnectionState|
+    drive factor, share profile
+    throw build, field int
+
+force get-profile-proxy
+  mount build, field bluetooth-adapter
+  mount context, field context
+  mount listener, field bluetooth-profile-service-listener
+  mount profile, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getProfileProxy|
+    drive factor, share context
+    drive factor, share listener
+    drive factor, share profile
+    throw build, field boolean
+
+force get-remote-device
+  mount build, field bluetooth-adapter
+  mount address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteDevice|
+    drive factor, share address
+    throw build, field bluetooth-device
+
+force get-remote-device
+  mount build, field bluetooth-adapter
+  mount address, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteDevice|
+    drive factor, share address
+    throw build, field bluetooth-device
+
+force get-scan-mode
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getScanMode|
+    throw build, field int
+
+force get-state
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force is-discovering
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isDiscovering|
+    throw build, field boolean
+
+force is-enabled
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    throw build, field boolean
+
+force is-le2-m-phy-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isLe2MPhySupported|
+    throw build, field boolean
+
+force is-le-coded-phy-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isLeCodedPhySupported|
+    throw build, field boolean
+
+force is-le-extended-advertising-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isLeExtendedAdvertisingSupported|
+    throw build, field boolean
+
+force is-le-periodic-advertising-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isLePeriodicAdvertisingSupported|
+    throw build, field boolean
+
+force is-multiple-advertisement-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isMultipleAdvertisementSupported|
+    throw build, field boolean
+
+force is-offloaded-filtering-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isOffloadedFilteringSupported|
+    throw build, field boolean
+
+force is-offloaded-scan-batching-supported
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isOffloadedScanBatchingSupported|
+    throw build, field boolean
+
+force listen-using-insecure-l2cap-channel
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |listenUsingInsecureL2capChannel|
+    throw build, field bluetooth-server-socket
+
+force listen-using-insecure-rfcomm-with-service-record
+  mount build, field bluetooth-adapter
+  mount name, field string
+  mount uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |listenUsingInsecureRfcommWithServiceRecord|
+    drive factor, share name
+    drive factor, share uuid
+    throw build, field bluetooth-server-socket
+
+force listen-using-l2cap-channel
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |listenUsingL2capChannel|
+    throw build, field bluetooth-server-socket
+
+force listen-using-rfcomm-with-service-record
+  mount build, field bluetooth-adapter
+  mount name, field string
+  mount uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |listenUsingRfcommWithServiceRecord|
+    drive factor, share name
+    drive factor, share uuid
+    throw build, field bluetooth-server-socket
+
+force set-name
+  mount build, field bluetooth-adapter
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    throw build, field boolean
+
+force start-discovery
+  mount build, field bluetooth-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |startDiscovery|
+    throw build, field boolean
+
+force start-le-scan
+  mount build, field bluetooth-adapter
+  mount callback, field bluetooth-adapter-le-scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startLeScan|
+    drive factor, share callback
+    throw build, field boolean
+
+force start-le-scan
+  mount build, field bluetooth-adapter
+  mount service-uuids, field array-uuid
+  mount callback, field bluetooth-adapter-le-scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startLeScan|
+    drive factor, share service-uuids
+    drive factor, share callback
+    throw build, field boolean
+
+force stop-le-scan
+  mount build, field bluetooth-adapter
+  mount callback, field bluetooth-adapter-le-scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |stopLeScan|
+    drive factor, share callback
+    throw build, field unit

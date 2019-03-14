@@ -1,0 +1,385 @@
+
+force build-app-service-catalog
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceCatalog|
+
+force find-app-service-providers-async
+  start build, field windows-applicationmodel-appservice-appservicecatalog
+  start app-service-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAppServiceProvidersAsync|
+    drive factor, share app-service-name
+
+force build-app-service-closed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceClosedEventArgs|
+
+force get-status
+  start build, field windows-applicationmodel-appservice-appserviceclosedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-applicationmodel-appservice-appserviceclosedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-app-service-closed-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.AppService.AppServiceClosedStatus|
+
+force build-app-service-connection
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceConnection|
+
+force ctor
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-app-service-name
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppServiceName|
+
+force set-app-service-name
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppServiceName|
+    drive factor, share value
+
+force close
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force open-async
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause call-method
+    drive object, share build
+    drive method, |OpenAsync|
+
+force open-remote-async
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start remote-system-connection-request, field windows-system-remotesystems-remotesystemconnectionrequest
+
+  cause call-method
+    drive object, share build
+    drive method, |OpenRemoteAsync|
+    drive factor, share remote-system-connection-request
+
+force get-package-family-name
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PackageFamilyName|
+
+force set-package-family-name
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PackageFamilyName|
+    drive factor, share value
+
+force send-message-async
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start message, field windows-foundation-collections-valueset
+
+  cause call-method
+    drive object, share build
+    drive method, |SendMessageAsync|
+    drive factor, share message
+
+force send-stateless-message-async
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start connection, field windows-applicationmodel-appservice-appserviceconnection
+  start connection-request, field windows-system-remotesystems-remotesystemconnectionrequest
+  start message, field windows-foundation-collections-valueset
+
+  cause call-method
+    drive object, share build
+    drive method, |SendStatelessMessageAsync|
+    drive factor, share connection
+    drive factor, share connection-request
+    drive factor, share message
+
+force get-user
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |User|
+
+force set-user
+  start build, field windows-applicationmodel-appservice-appserviceconnection
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |User|
+    drive factor, share value
+
+force get-app-service-connection-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.AppService.AppServiceConnectionStatus|
+
+force build-app-service-deferral
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceDeferral|
+
+force complete
+  start build, field windows-applicationmodel-appservice-appservicedeferral
+
+  cause call-method
+    drive object, share build
+    drive method, |Complete|
+
+force build-app-service-request
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceRequest|
+
+force get-message
+  start build, field windows-applicationmodel-appservice-appservicerequest
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Message|
+
+force set-message
+  start build, field windows-applicationmodel-appservice-appservicerequest
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Message|
+    drive factor, share value
+
+force send-response-async
+  start build, field windows-applicationmodel-appservice-appservicerequest
+  start message, field windows-foundation-collections-valueset
+
+  cause call-method
+    drive object, share build
+    drive method, |SendResponseAsync|
+    drive factor, share message
+
+force build-app-service-request-received-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs|
+
+force get-deferral
+  start build, field windows-applicationmodel-appservice-appservicerequestreceivedeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-request
+  start build, field windows-applicationmodel-appservice-appservicerequestreceivedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Request|
+
+force set-request
+  start build, field windows-applicationmodel-appservice-appservicerequestreceivedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Request|
+    drive factor, share value
+
+force build-app-service-response
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceResponse|
+
+force get-message
+  start build, field windows-applicationmodel-appservice-appserviceresponse
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Message|
+
+force set-message
+  start build, field windows-applicationmodel-appservice-appserviceresponse
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Message|
+    drive factor, share value
+
+force get-status
+  start build, field windows-applicationmodel-appservice-appserviceresponse
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-applicationmodel-appservice-appserviceresponse
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-app-service-response-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.AppService.AppServiceResponseStatus|
+
+force build-app-service-trigger-details
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.AppServiceTriggerDetails|
+
+force get-app-service-connection
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppServiceConnection|
+
+force set-app-service-connection
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppServiceConnection|
+    drive factor, share value
+
+force get-caller-package-family-name
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CallerPackageFamilyName|
+
+force set-caller-package-family-name
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CallerPackageFamilyName|
+    drive factor, share value
+
+force get-caller-remote-connection-token
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CallerRemoteConnectionToken|
+
+force set-caller-remote-connection-token
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CallerRemoteConnectionToken|
+    drive factor, share value
+
+force check-caller-for-capability-async
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start capability-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CheckCallerForCapabilityAsync|
+    drive factor, share capability-name
+
+force get-is-remote-system-connection
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsRemoteSystemConnection|
+
+force set-is-remote-system-connection
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsRemoteSystemConnection|
+    drive factor, share value
+
+force get-name
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-applicationmodel-appservice-appservicetriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force build-stateless-app-service-response
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.AppService.StatelessAppServiceResponse|
+
+force get-message
+  start build, field windows-applicationmodel-appservice-statelessappserviceresponse
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Message|
+
+force set-message
+  start build, field windows-applicationmodel-appservice-statelessappserviceresponse
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Message|
+    drive factor, share value
+
+force get-status
+  start build, field windows-applicationmodel-appservice-statelessappserviceresponse
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-applicationmodel-appservice-statelessappserviceresponse
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-stateless-app-service-response-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus|

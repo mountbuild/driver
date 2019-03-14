@@ -1,0 +1,105 @@
+
+force get-extended-execution-reason
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason|
+
+force get-extended-execution-result
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult|
+
+force build-extended-execution-revoked-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs|
+
+force get-reason
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionrevokedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Reason|
+
+force set-reason
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionrevokedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Reason|
+    drive factor, share value
+
+force get-extended-execution-revoked-reason
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason|
+
+force build-extended-execution-session
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession|
+
+force close
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-description
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force ctor
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-percent-progress
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PercentProgress|
+
+force set-percent-progress
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PercentProgress|
+    drive factor, share value
+
+force get-reason
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Reason|
+
+force set-reason
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Reason|
+    drive factor, share value
+
+force request-extension-async
+  start build, field windows-applicationmodel-extendedexecution-extendedexecutionsession
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestExtensionAsync|

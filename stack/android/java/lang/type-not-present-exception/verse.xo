@@ -1,0 +1,18 @@
+
+force build-type-not-present-exception
+  mount type-name, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |TypeNotPresentException|
+    drive factor, share type-name
+    drive factor, share cause
+    throw build, field type-not-present-exception
+
+force type-name
+  mount build, field type-not-present-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |typeName|
+    throw build, field string

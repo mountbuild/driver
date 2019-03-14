@@ -1,0 +1,340 @@
+
+force get-datatypefactory-property
+  start build, field datatype-factory
+
+  cause get-property
+    mount object, share build
+    mount property, |DATATYPEFACTORY_PROPERTY|
+    throw build, field string
+
+force new-duration
+  start build, field datatype-factory
+  start lexical-representation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newDuration|
+    mount factor, share lexical-representation
+    throw build, field duration
+
+force new-duration
+  start build, field datatype-factory
+  start duration-in-milli-seconds, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |newDuration|
+    mount factor, share duration-in-milli-seconds
+    throw build, field duration
+
+force new-duration
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start years, field big-integer
+  start months, field big-integer
+  start days, field big-integer
+  start hours, field big-integer
+  start minutes, field big-integer
+  start seconds, field big-decimal
+
+  cause call-method
+    mount object, share build
+    mount method, |newDuration|
+    mount factor, share is-positive
+    mount factor, share years
+    mount factor, share months
+    mount factor, share days
+    mount factor, share hours
+    mount factor, share minutes
+    mount factor, share seconds
+    throw build, field duration
+
+force new-duration
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start years, field int
+  start months, field int
+  start days, field int
+  start hours, field int
+  start minutes, field int
+  start seconds, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newDuration|
+    mount factor, share is-positive
+    mount factor, share years
+    mount factor, share months
+    mount factor, share days
+    mount factor, share hours
+    mount factor, share minutes
+    mount factor, share seconds
+    throw build, field duration
+
+force new-duration-day-time
+  start build, field datatype-factory
+  start lexical-representation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationDayTime|
+    mount factor, share lexical-representation
+    throw build, field duration
+
+force new-duration-day-time
+  start build, field datatype-factory
+  start duration-in-milliseconds, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationDayTime|
+    mount factor, share duration-in-milliseconds
+    throw build, field duration
+
+force new-duration-day-time
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start day, field big-integer
+  start hour, field big-integer
+  start minute, field big-integer
+  start second, field big-integer
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationDayTime|
+    mount factor, share is-positive
+    mount factor, share day
+    mount factor, share hour
+    mount factor, share minute
+    mount factor, share second
+    throw build, field duration
+
+force new-duration-day-time
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start day, field int
+  start hour, field int
+  start minute, field int
+  start second, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationDayTime|
+    mount factor, share is-positive
+    mount factor, share day
+    mount factor, share hour
+    mount factor, share minute
+    mount factor, share second
+    throw build, field duration
+
+force new-duration-year-month
+  start build, field datatype-factory
+  start lexical-representation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationYearMonth|
+    mount factor, share lexical-representation
+    throw build, field duration
+
+force new-duration-year-month
+  start build, field datatype-factory
+  start duration-in-milliseconds, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationYearMonth|
+    mount factor, share duration-in-milliseconds
+    throw build, field duration
+
+force new-duration-year-month
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start year, field big-integer
+  start month, field big-integer
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationYearMonth|
+    mount factor, share is-positive
+    mount factor, share year
+    mount factor, share month
+    throw build, field duration
+
+force new-duration-year-month
+  start build, field datatype-factory
+  start is-positive, field boolean
+  start year, field int
+  start month, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newDurationYearMonth|
+    mount factor, share is-positive
+    mount factor, share year
+    mount factor, share month
+    throw build, field duration
+
+force new-instance
+  start build, field datatype-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    throw build, field datatype-factory
+
+force new-instance
+  start build, field datatype-factory
+  start factory-class-name, field string
+  start class-loader, field class-loader
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share factory-class-name
+    mount factor, share class-loader
+    throw build, field datatype-factory
+
+force new-xml-gregorian-calendar
+  start build, field datatype-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendar|
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar
+  start build, field datatype-factory
+  start lexical-representation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendar|
+    mount factor, share lexical-representation
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar
+  start build, field datatype-factory
+  start cal, field gregorian-calendar
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendar|
+    mount factor, share cal
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar
+  start build, field datatype-factory
+  start year, field big-integer
+  start month, field int
+  start day, field int
+  start hour, field int
+  start minute, field int
+  start second, field int
+  start fractional-second, field big-decimal
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendar|
+    mount factor, share year
+    mount factor, share month
+    mount factor, share day
+    mount factor, share hour
+    mount factor, share minute
+    mount factor, share second
+    mount factor, share fractional-second
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar
+  start build, field datatype-factory
+  start year, field int
+  start month, field int
+  start day, field int
+  start hour, field int
+  start minute, field int
+  start second, field int
+  start millisecond, field int
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendar|
+    mount factor, share year
+    mount factor, share month
+    mount factor, share day
+    mount factor, share hour
+    mount factor, share minute
+    mount factor, share second
+    mount factor, share millisecond
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar-date
+  start build, field datatype-factory
+  start year, field int
+  start month, field int
+  start day, field int
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendarDate|
+    mount factor, share year
+    mount factor, share month
+    mount factor, share day
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar-time
+  start build, field datatype-factory
+  start hours, field int
+  start minutes, field int
+  start seconds, field int
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendarTime|
+    mount factor, share hours
+    mount factor, share minutes
+    mount factor, share seconds
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar-time
+  start build, field datatype-factory
+  start hours, field int
+  start minutes, field int
+  start seconds, field int
+  start fractional-second, field big-decimal
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendarTime|
+    mount factor, share hours
+    mount factor, share minutes
+    mount factor, share seconds
+    mount factor, share fractional-second
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar
+
+force new-xml-gregorian-calendar-time
+  start build, field datatype-factory
+  start hours, field int
+  start minutes, field int
+  start seconds, field int
+  start milliseconds, field int
+  start timezone, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLGregorianCalendarTime|
+    mount factor, share hours
+    mount factor, share minutes
+    mount factor, share seconds
+    mount factor, share milliseconds
+    mount factor, share timezone
+    throw build, field xml-gregorian-calendar

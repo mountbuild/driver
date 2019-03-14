@@ -1,0 +1,126 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSUserDefaultsController|
+    drive aspect, |shared|
+    raise build, field ns-user-defaults-controller
+
+force set-class-shared
+  field value, field ns-user-defaults-controller
+
+  cause set-aspect
+    drive object, |NSUserDefaultsController|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-defaults
+  field build, field ns-user-defaults-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |defaults|
+    raise build, field user-defaults
+
+force set-defaults
+  field build, field ns-user-defaults-controller
+  field value, field user-defaults
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |defaults|
+    drive factor, share value
+
+force get-initial-values
+  field build, field ns-user-defaults-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |initialValues|
+    raise build, field string
+
+force set-initial-values
+  field build, field ns-user-defaults-controller
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |initialValues|
+    drive factor, share value
+
+force get-has-unapplied-changes
+  field build, field ns-user-defaults-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasUnappliedChanges|
+    raise build, field bool
+
+force set-has-unapplied-changes
+  field build, field ns-user-defaults-controller
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasUnappliedChanges|
+    drive factor, share value
+
+force get-applies-immediately
+  field build, field ns-user-defaults-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |appliesImmediately|
+    raise build, field bool
+
+force set-applies-immediately
+  field build, field ns-user-defaults-controller
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |appliesImmediately|
+    drive factor, share value
+
+force get-values
+  field build, field ns-user-defaults-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |values|
+    raise build, field any
+
+force set-values
+  field build, field ns-user-defaults-controller
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |values|
+    drive factor, share value
+
+force revert
+  field build, field ns-user-defaults-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |revert|
+    drive factor, share a
+
+force revert-to-initial-values
+  field build, field ns-user-defaults-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |revertToInitialValues|
+    drive factor, share a
+
+force save
+  field build, field ns-user-defaults-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |save|
+    drive factor, share a

@@ -1,0 +1,69 @@
+
+force get-service-interface
+  mount build, field visual-voicemail-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force build-visual-voicemail-service
+  cause invoke-constructor
+    drive constructor, |VisualVoicemailService|
+    throw build, field visual-voicemail-service
+
+force on-bind
+  mount build, field visual-voicemail-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-cell-service-connected
+  mount build, field visual-voicemail-service
+  mount task, field visual-voicemail-service-visual-voicemail-task
+  mount phone-account-handle, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onCellServiceConnected|
+    drive factor, share task
+    drive factor, share phone-account-handle
+    throw build, field unit
+
+force on-sim-removed
+  mount build, field visual-voicemail-service
+  mount task, field visual-voicemail-service-visual-voicemail-task
+  mount phone-account-handle, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onSimRemoved|
+    drive factor, share task
+    drive factor, share phone-account-handle
+    throw build, field unit
+
+force on-sms-received
+  mount build, field visual-voicemail-service
+  mount task, field visual-voicemail-service-visual-voicemail-task
+  mount sms, field visual-voicemail-sms
+
+  cause call-method
+    drive object, share build
+    drive method, |onSmsReceived|
+    drive factor, share task
+    drive factor, share sms
+    throw build, field unit
+
+force on-stopped
+  mount build, field visual-voicemail-service
+  mount task, field visual-voicemail-service-visual-voicemail-task
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopped|
+    drive factor, share task
+    throw build, field unit

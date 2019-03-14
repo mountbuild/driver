@@ -1,0 +1,35 @@
+
+force build-mbms-streaming-session-callback
+  cause invoke-constructor
+    drive constructor, |MbmsStreamingSessionCallback|
+    throw build, field mbms-streaming-session-callback
+
+force on-error
+  mount build, field mbms-streaming-session-callback
+  mount error-code, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share error-code
+    drive factor, share message
+    throw build, field unit
+
+force on-middleware-ready
+  mount build, field mbms-streaming-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onMiddlewareReady|
+    throw build, field unit
+
+force on-streaming-services-updated
+  mount build, field mbms-streaming-session-callback
+  mount services, field mutable-list-streaming-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onStreamingServicesUpdated|
+    drive factor, share services
+    throw build, field unit

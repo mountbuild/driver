@@ -1,0 +1,76 @@
+
+force get-mailto-scheme
+  start build, field mail-to
+
+  cause get-property
+    drive object, share build
+    drive property, |MAILTO_SCHEME|
+    throw build, field string
+
+force get-body
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |getBody|
+    throw build, field string
+
+force get-cc
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |getCc|
+    throw build, field string
+
+force get-headers
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeaders|
+    throw build, field mutable-map
+
+force get-subject
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubject|
+    throw build, field string
+
+force get-to
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |getTo|
+    throw build, field string
+
+force is-mail-to
+  start build, field mail-to
+  start url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isMailTo|
+    drive factor, share url
+    throw build, field boolean
+
+force parse
+  start build, field mail-to
+  start url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share url
+    throw build, field mail-to
+
+force to-string
+  start build, field mail-to
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

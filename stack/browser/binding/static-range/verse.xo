@@ -1,0 +1,56 @@
+
+force build-static-range
+  start range-spec
+
+  cause invoke-constructor
+    mount constructor, |StaticRange|
+    mount factor, share range-spec
+    throw build
+
+force get-collapsed
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |collapsed|
+    throw build
+
+force get-end-container
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endContainer|
+    throw build
+
+force get-end-offset
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endOffset|
+    throw build
+
+force get-start-container
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |startContainer|
+    throw build
+
+force get-start-offset
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |startOffset|
+    throw build
+
+force to-range
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |toRange|
+    throw build

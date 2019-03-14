@@ -1,0 +1,34 @@
+
+force build-usb-configuration
+  start device
+  start configuration-value
+
+  cause invoke-constructor
+    mount constructor, |USBConfiguration|
+    mount factor, share device
+    mount factor, share configuration-value
+    throw build
+
+force get-configuration-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |configurationValue|
+    throw build
+
+force get-configuration-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |configurationName|
+    throw build
+
+force get-interfaces
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |interfaces|
+    throw build

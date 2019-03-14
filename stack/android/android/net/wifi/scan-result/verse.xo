@@ -1,0 +1,153 @@
+
+force get-channel-width-160-mhz
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_WIDTH_160MHZ|
+    throw build, field int
+
+force get-channel-width-20-mhz
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_WIDTH_20MHZ|
+    throw build, field int
+
+force get-channel-width-40-mhz
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_WIDTH_40MHZ|
+    throw build, field int
+
+force get-channel-width-80-mhz
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_WIDTH_80MHZ|
+    throw build, field int
+
+force get-channel-width-80-mhz-plus-mhz
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_WIDTH_80MHZ_PLUS_MHZ|
+    throw build, field int
+
+force get-wifi-standard-11-ac
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_STANDARD_11AC|
+    throw build, field int
+
+force get-wifi-standard-11-ax
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_STANDARD_11AX|
+    throw build, field int
+
+force get-wifi-standard-11-n
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_STANDARD_11N|
+    throw build, field int
+
+force get-wifi-standard-legacy
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_STANDARD_LEGACY|
+    throw build, field int
+
+force get-wifi-standard-unknown
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_STANDARD_UNKNOWN|
+    throw build, field int
+
+force build-scan-result
+  mount source, field scan-result
+
+  cause invoke-constructor
+    drive constructor, |ScanResult|
+    drive factor, share source
+    throw build, field scan-result
+
+force build-scan-result
+  cause invoke-constructor
+    drive constructor, |ScanResult|
+    throw build, field scan-result
+
+force describe-contents
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-information-elements
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getInformationElements|
+    throw build, field mutable-list
+
+force get-wifi-standard
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getWifiStandard|
+    throw build, field int
+
+force is80211mc-responder
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |is80211mcResponder|
+    throw build, field boolean
+
+force is-passpoint-network
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |isPasspointNetwork|
+    throw build, field boolean
+
+force to-string
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field scan-result
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

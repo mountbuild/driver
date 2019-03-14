@@ -1,0 +1,82 @@
+
+force build-trust-anchor
+  mount trusted-cert, field x509-certificate
+  mount name-constraints, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |TrustAnchor|
+    mount factor, share trusted-cert
+    mount factor, share name-constraints
+    throw build, field trust-anchor
+
+force build-trust-anchor
+  mount ca-principal, field x500-principal
+  mount pub-key, field public-key
+  mount name-constraints, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |TrustAnchor|
+    mount factor, share ca-principal
+    mount factor, share pub-key
+    mount factor, share name-constraints
+    throw build, field trust-anchor
+
+force build-trust-anchor
+  mount ca-name, field string
+  mount pub-key, field public-key
+  mount name-constraints, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |TrustAnchor|
+    mount factor, share ca-name
+    mount factor, share pub-key
+    mount factor, share name-constraints
+    throw build, field trust-anchor
+
+force get-ca
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |getCA|
+    throw build, field x500-principal
+
+force get-ca-name
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |getCAName|
+    throw build, field string
+
+force get-ca-public-key
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |getCAPublicKey|
+    throw build, field public-key
+
+force get-name-constraints
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |getNameConstraints|
+    throw build, field byte-array
+
+force get-trusted-cert
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |getTrustedCert|
+    throw build, field x509-certificate
+
+force to-string
+  mount build, field trust-anchor
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

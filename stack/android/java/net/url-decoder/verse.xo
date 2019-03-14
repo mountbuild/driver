@@ -1,0 +1,27 @@
+
+force build-url-decoder
+  cause invoke-constructor
+    drive constructor, |URLDecoder|
+    throw build, field url-decoder
+
+force decode
+  mount build, field url-decoder
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decode|
+    drive factor, share s
+    throw build, field string
+
+force decode
+  mount build, field url-decoder
+  mount s, field string
+  mount enc, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |decode|
+    drive factor, share s
+    drive factor, share enc
+    throw build, field string

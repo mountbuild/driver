@@ -1,0 +1,44 @@
+
+force get-cells
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cells|
+    throw build
+
+force get-row-index
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rowIndex|
+    throw build
+
+force get-section-row-index
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sectionRowIndex|
+    throw build
+
+force delete-cell
+  start build
+  start index
+
+  cause call-method
+    mount object, share build
+    mount method, |deleteCell|
+    mount factor, share index
+    throw build
+
+force insert-cell
+  start build
+  start index
+
+  cause call-method
+    mount object, share build
+    mount method, |insertCell|
+    mount factor, share index
+    throw build

@@ -1,0 +1,70 @@
+
+force build-geomagnetic-field
+  mount gd-latitude-deg, field float
+  mount gd-longitude-deg, field float
+  mount altitude-meters, field float
+  mount time-millis, field long
+
+  cause invoke-constructor
+    drive constructor, |GeomagneticField|
+    drive factor, share gd-latitude-deg
+    drive factor, share gd-longitude-deg
+    drive factor, share altitude-meters
+    drive factor, share time-millis
+    throw build, field geomagnetic-field
+
+force get-declination
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclination|
+    throw build, field float
+
+force get-field-strength
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getFieldStrength|
+    throw build, field float
+
+force get-horizontal-strength
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getHorizontalStrength|
+    throw build, field float
+
+force get-inclination
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getInclination|
+    throw build, field float
+
+force get-x
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getX|
+    throw build, field float
+
+force get-y
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getY|
+    throw build, field float
+
+force get-z
+  mount build, field geomagnetic-field
+
+  cause call-method
+    drive object, share build
+    drive method, |getZ|
+    throw build, field float

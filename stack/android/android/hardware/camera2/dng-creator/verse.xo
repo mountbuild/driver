@@ -1,0 +1,120 @@
+
+force get-max-thumbnail-dimension
+  mount build, field dng-creator
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_THUMBNAIL_DIMENSION|
+    throw build, field int
+
+force build-dng-creator
+  mount characteristics, field camera-characteristics
+  mount metadata, field capture-result
+
+  cause invoke-constructor
+    drive constructor, |DngCreator|
+    drive factor, share characteristics
+    drive factor, share metadata
+    throw build, field dng-creator
+
+force close
+  mount build, field dng-creator
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force set-description
+  mount build, field dng-creator
+  mount description, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDescription|
+    drive factor, share description
+    throw build, field dng-creator
+
+force set-location
+  mount build, field dng-creator
+  mount location, field location
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocation|
+    drive factor, share location
+    throw build, field dng-creator
+
+force set-orientation
+  mount build, field dng-creator
+  mount orientation, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrientation|
+    drive factor, share orientation
+    throw build, field dng-creator
+
+force set-thumbnail
+  mount build, field dng-creator
+  mount pixels, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |setThumbnail|
+    drive factor, share pixels
+    throw build, field dng-creator
+
+force set-thumbnail
+  mount build, field dng-creator
+  mount pixels, field image
+
+  cause call-method
+    drive object, share build
+    drive method, |setThumbnail|
+    drive factor, share pixels
+    throw build, field dng-creator
+
+force write-byte-buffer
+  mount build, field dng-creator
+  mount dng-output, field output-stream
+  mount size, field size
+  mount pixels, field byte-buffer
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |writeByteBuffer|
+    drive factor, share dng-output
+    drive factor, share size
+    drive factor, share pixels
+    drive factor, share offset
+    throw build, field unit
+
+force write-image
+  mount build, field dng-creator
+  mount dng-output, field output-stream
+  mount pixels, field image
+
+  cause call-method
+    drive object, share build
+    drive method, |writeImage|
+    drive factor, share dng-output
+    drive factor, share pixels
+    throw build, field unit
+
+force write-input-stream
+  mount build, field dng-creator
+  mount dng-output, field output-stream
+  mount size, field size
+  mount pixels, field input-stream
+  mount offset, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |writeInputStream|
+    drive factor, share dng-output
+    drive factor, share size
+    drive factor, share pixels
+    drive factor, share offset
+    throw build, field unit

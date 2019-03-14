@@ -1,0 +1,109 @@
+
+force get-feature
+  start build, field stream-result
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-stream-result
+  cause invoke-constructor
+    mount constructor, |StreamResult|
+    throw build, field stream-result
+
+force build-stream-result
+  start output-stream, field output-stream
+
+  cause invoke-constructor
+    mount constructor, |StreamResult|
+    mount factor, share output-stream
+    throw build, field stream-result
+
+force build-stream-result
+  start writer, field writer
+
+  cause invoke-constructor
+    mount constructor, |StreamResult|
+    mount factor, share writer
+    throw build, field stream-result
+
+force build-stream-result
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |StreamResult|
+    mount factor, share system-id
+    throw build, field stream-result
+
+force build-stream-result
+  start f, field file
+
+  cause invoke-constructor
+    mount constructor, |StreamResult|
+    mount factor, share f
+    throw build, field stream-result
+
+force get-output-stream
+  start build, field stream-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getOutputStream|
+    throw build, field output-stream
+
+force get-system-id
+  start build, field stream-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force get-writer
+  start build, field stream-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getWriter|
+    throw build, field writer
+
+force set-output-stream
+  start build, field stream-result
+  start output-stream, field output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |setOutputStream|
+    mount factor, share output-stream
+    throw build, field unit
+
+force set-system-id
+  start build, field stream-result
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit
+
+force set-system-id
+  start build, field stream-result
+  start f, field file
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share f
+    throw build, field unit
+
+force set-writer
+  start build, field stream-result
+  start writer, field writer
+
+  cause call-method
+    mount object, share build
+    mount method, |setWriter|
+    mount factor, share writer
+    throw build, field unit

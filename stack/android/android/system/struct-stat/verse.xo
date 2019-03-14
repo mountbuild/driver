@@ -1,0 +1,72 @@
+
+force build-struct-stat
+  mount st-dev, field long
+  mount st-ino, field long
+  mount st-mode, field int
+  mount st-nlink, field long
+  mount st-uid, field int
+  mount st-gid, field int
+  mount st-rdev, field long
+  mount st-size, field long
+  mount st-atime, field long
+  mount st-mtime, field long
+  mount st-ctime, field long
+  mount st-blksize, field long
+  mount st-blocks, field long
+
+  cause invoke-constructor
+    drive constructor, |StructStat|
+    drive factor, share st-dev
+    drive factor, share st-ino
+    drive factor, share st-mode
+    drive factor, share st-nlink
+    drive factor, share st-uid
+    drive factor, share st-gid
+    drive factor, share st-rdev
+    drive factor, share st-size
+    drive factor, share st-atime
+    drive factor, share st-mtime
+    drive factor, share st-ctime
+    drive factor, share st-blksize
+    drive factor, share st-blocks
+    raise build, field struct-stat
+
+force build-struct-stat
+  mount st-dev, field long
+  mount st-ino, field long
+  mount st-mode, field int
+  mount st-nlink, field long
+  mount st-uid, field int
+  mount st-gid, field int
+  mount st-rdev, field long
+  mount st-size, field long
+  mount st-atim, field struct-timespec
+  mount st-mtim, field struct-timespec
+  mount st-ctim, field struct-timespec
+  mount st-blksize, field long
+  mount st-blocks, field long
+
+  cause invoke-constructor
+    drive constructor, |StructStat|
+    drive factor, share st-dev
+    drive factor, share st-ino
+    drive factor, share st-mode
+    drive factor, share st-nlink
+    drive factor, share st-uid
+    drive factor, share st-gid
+    drive factor, share st-rdev
+    drive factor, share st-size
+    drive factor, share st-atim
+    drive factor, share st-mtim
+    drive factor, share st-ctim
+    drive factor, share st-blksize
+    drive factor, share st-blocks
+    raise build, field struct-stat
+
+force to-string
+  mount build, field struct-stat
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

@@ -1,0 +1,188 @@
+
+force bind
+  mount build, field datagram-channel
+  mount local, field socket-address
+
+  cause call-method
+    mount object, share build
+    mount method, |bind|
+    mount factor, share local
+    throw build, field datagram-channel
+
+force connect
+  mount build, field datagram-channel
+  mount remote, field socket-address
+
+  cause call-method
+    mount object, share build
+    mount method, |connect|
+    mount factor, share remote
+    throw build, field datagram-channel
+
+force disconnect
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |disconnect|
+    throw build, field datagram-channel
+
+force get-local-address
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocalAddress|
+    throw build, field socket-address
+
+force get-remote-address
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |getRemoteAddress|
+    throw build, field socket-address
+
+force is-connected
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |isConnected|
+    throw build, field boolean
+
+force open
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    throw build, field datagram-channel
+
+force open
+  mount build, field datagram-channel
+  mount family, field protocol-family
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share family
+    throw build, field datagram-channel
+
+force read
+  mount build, field datagram-channel
+  mount dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dst
+    throw build, field int
+
+force read
+  mount build, field datagram-channel
+  mount dsts, field array-byte-buffer
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dsts
+    mount factor, share offset
+    mount factor, share length
+    throw build, field long
+
+force read
+  mount build, field datagram-channel
+  mount dsts, field array-byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor, share dsts
+    throw build, field long
+
+force receive
+  mount build, field datagram-channel
+  mount dst, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |receive|
+    mount factor, share dst
+    throw build, field socket-address
+
+force send
+  mount build, field datagram-channel
+  mount src, field byte-buffer
+  mount target, field socket-address
+
+  cause call-method
+    mount object, share build
+    mount method, |send|
+    mount factor, share src
+    mount factor, share target
+    throw build, field int
+
+force set-option
+  mount build, field datagram-channel
+  mount name, field socket-option-t
+  mount value, field t
+
+  cause call-method
+    mount object, share build
+    mount method, |setOption|
+    mount factor, share name
+    mount factor, share value
+    throw build, field datagram-channel
+
+force socket
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |socket|
+    throw build, field datagram-socket
+
+force valid-ops
+  mount build, field datagram-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |validOps|
+    throw build, field int
+
+force write
+  mount build, field datagram-channel
+  mount src, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share src
+    throw build, field int
+
+force write
+  mount build, field datagram-channel
+  mount srcs, field array-byte-buffer
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share srcs
+    mount factor, share offset
+    mount factor, share length
+    throw build, field long
+
+force write
+  mount build, field datagram-channel
+  mount srcs, field array-byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share srcs
+    throw build, field long

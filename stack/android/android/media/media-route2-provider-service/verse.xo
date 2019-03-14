@@ -1,0 +1,251 @@
+
+force get-reason-invalid-command
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_INVALID_COMMAND|
+    raise build, field int
+
+force get-reason-network-error
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_NETWORK_ERROR|
+    raise build, field int
+
+force get-reason-rejected
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_REJECTED|
+    raise build, field int
+
+force get-reason-route-not-available
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_ROUTE_NOT_AVAILABLE|
+    raise build, field int
+
+force get-reason-unknown-error
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_UNKNOWN_ERROR|
+    raise build, field int
+
+force get-request-id-none
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |REQUEST_ID_NONE|
+    raise build, field long
+
+force get-service-interface
+  start build, field media-route2-provider-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-media-route2-provider-service
+  cause invoke-constructor
+    drive constructor, |MediaRoute2ProviderService|
+    raise build, field media-route2-provider-service
+
+force get-all-session-info
+  start build, field media-route2-provider-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllSessionInfo|
+    raise build, field mutable-list
+
+force get-session-info
+  start build, field media-route2-provider-service
+  start session-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionInfo|
+    drive factor, share session-id
+    raise build, field routing-session-info
+
+force notify-request-failed
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start reason, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyRequestFailed|
+    drive factor, share request-id
+    drive factor, share reason
+    raise build, field unit
+
+force notify-routes
+  start build, field media-route2-provider-service
+  start routes, field mutable-collection-media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyRoutes|
+    drive factor, share routes
+    raise build, field unit
+
+force notify-session-created
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-info, field routing-session-info
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySessionCreated|
+    drive factor, share request-id
+    drive factor, share session-info
+    raise build, field unit
+
+force notify-session-released
+  start build, field media-route2-provider-service
+  start session-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySessionReleased|
+    drive factor, share session-id
+    raise build, field unit
+
+force notify-session-updated
+  start build, field media-route2-provider-service
+  start session-info, field routing-session-info
+
+  cause call-method
+    drive object, share build
+    drive method, |notifySessionUpdated|
+    drive factor, share session-info
+    raise build, field unit
+
+force on-bind
+  start build, field media-route2-provider-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-create-session
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start package-name, field string
+  start route-id, field string
+  start session-hints, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateSession|
+    drive factor, share request-id
+    drive factor, share package-name
+    drive factor, share route-id
+    drive factor, share session-hints
+    raise build, field unit
+
+force on-deselect-route
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-id, field string
+  start route-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onDeselectRoute|
+    drive factor, share request-id
+    drive factor, share session-id
+    drive factor, share route-id
+    raise build, field unit
+
+force on-discovery-preference-changed
+  start build, field media-route2-provider-service
+  start preference, field route-discovery-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |onDiscoveryPreferenceChanged|
+    drive factor, share preference
+    raise build, field unit
+
+force on-release-session
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onReleaseSession|
+    drive factor, share request-id
+    drive factor, share session-id
+    raise build, field unit
+
+force on-select-route
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-id, field string
+  start route-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onSelectRoute|
+    drive factor, share request-id
+    drive factor, share session-id
+    drive factor, share route-id
+    raise build, field unit
+
+force on-set-route-volume
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start route-id, field string
+  start volume, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSetRouteVolume|
+    drive factor, share request-id
+    drive factor, share route-id
+    drive factor, share volume
+    raise build, field unit
+
+force on-set-session-volume
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-id, field string
+  start volume, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSetSessionVolume|
+    drive factor, share request-id
+    drive factor, share session-id
+    drive factor, share volume
+    raise build, field unit
+
+force on-transfer-to-route
+  start build, field media-route2-provider-service
+  start request-id, field long
+  start session-id, field string
+  start route-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransferToRoute|
+    drive factor, share request-id
+    drive factor, share session-id
+    drive factor, share route-id
+    raise build, field unit

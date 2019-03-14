@@ -1,0 +1,55 @@
+
+force build-transition-listener-adapter
+  cause invoke-constructor
+    drive constructor, |TransitionListenerAdapter|
+    throw build, field transition-listener-adapter
+
+force on-transition-cancel
+  mount build, field transition-listener-adapter
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransitionCancel|
+    drive factor, share transition
+    throw build, field unit
+
+force on-transition-end
+  mount build, field transition-listener-adapter
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransitionEnd|
+    drive factor, share transition
+    throw build, field unit
+
+force on-transition-pause
+  mount build, field transition-listener-adapter
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransitionPause|
+    drive factor, share transition
+    throw build, field unit
+
+force on-transition-resume
+  mount build, field transition-listener-adapter
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransitionResume|
+    drive factor, share transition
+    throw build, field unit
+
+force on-transition-start
+  mount build, field transition-listener-adapter
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransitionStart|
+    drive factor, share transition
+    throw build, field unit

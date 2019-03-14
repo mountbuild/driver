@@ -1,0 +1,45 @@
+force get-delegate
+  field build, field pk-push-registry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field pk-push-registry-delegate
+
+force set-delegate
+  field build, field pk-push-registry
+  field value, field pk-push-registry-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-desired-push-types
+  field build, field pk-push-registry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |desiredPushTypes|
+    raise build, field set-pk-push-type
+
+force set-desired-push-types
+  field build, field pk-push-registry
+  field value, field set-pk-push-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |desiredPushTypes|
+    drive factor, share value
+
+force push-token
+  field build, field pk-push-registry
+  field for, field pk-push-type
+
+  cause call-method
+    drive object, share build
+    drive method, |pushToken|
+    drive factor
+      brand for
+      share for
+    raise build, class data

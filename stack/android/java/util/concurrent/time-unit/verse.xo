@@ -1,0 +1,116 @@
+
+force convert
+  mount build, field time-unit
+  mount source-duration, field long
+  mount source-unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share source-duration
+    drive factor, share source-unit
+    throw build, field long
+
+force sleep
+  mount build, field time-unit
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |sleep|
+    drive factor, share timeout
+    throw build, field unit
+
+force timed-join
+  mount build, field time-unit
+  mount thread, field thread
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |timedJoin|
+    drive factor, share thread
+    drive factor, share timeout
+    throw build, field unit
+
+force timed-wait
+  mount build, field time-unit
+  mount obj, field any
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |timedWait|
+    drive factor, share obj
+    drive factor, share timeout
+    throw build, field unit
+
+force to-days
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toDays|
+    drive factor, share duration
+    throw build, field long
+
+force to-hours
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toHours|
+    drive factor, share duration
+    throw build, field long
+
+force to-micros
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toMicros|
+    drive factor, share duration
+    throw build, field long
+
+force to-millis
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toMillis|
+    drive factor, share duration
+    throw build, field long
+
+force to-minutes
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toMinutes|
+    drive factor, share duration
+    throw build, field long
+
+force to-nanos
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toNanos|
+    drive factor, share duration
+    throw build, field long
+
+force to-seconds
+  mount build, field time-unit
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |toSeconds|
+    drive factor, share duration
+    throw build, field long

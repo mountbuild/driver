@@ -1,0 +1,15 @@
+
+force build-identity-changed-listener
+  cause invoke-constructor
+    drive constructor, |IdentityChangedListener|
+    throw build, field identity-changed-listener
+
+force on-identity-changed
+  mount build, field identity-changed-listener
+  mount mac, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onIdentityChanged|
+    drive factor, share mac
+    throw build, field unit

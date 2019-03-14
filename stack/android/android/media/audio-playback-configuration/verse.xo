@@ -1,0 +1,54 @@
+
+force describe-contents
+  mount build, field audio-playback-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field audio-playback-configuration
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-audio-attributes
+  mount build, field audio-playback-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioAttributes|
+    raise build, field audio-attributes
+
+force hash-code
+  mount build, field audio-playback-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-string
+  mount build, field audio-playback-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field audio-playback-configuration
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

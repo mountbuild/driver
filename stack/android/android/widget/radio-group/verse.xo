@@ -1,0 +1,132 @@
+
+force build-radio-group
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |RadioGroup|
+    drive factor, share context
+    throw build, field radio-group
+
+force build-radio-group
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |RadioGroup|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field radio-group
+
+force add-view
+  mount build, field radio-group
+  mount child, field view
+  mount index, field int
+  mount params, field view-group-layout-params
+
+  cause call-method
+    drive object, share build
+    drive method, |addView|
+    drive factor, share child
+    drive factor, share index
+    drive factor, share params
+    throw build, field unit
+
+force autofill
+  mount build, field radio-group
+  mount value, field autofill-value
+
+  cause call-method
+    drive object, share build
+    drive method, |autofill|
+    drive factor, share value
+    throw build, field unit
+
+force check
+  mount build, field radio-group
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |check|
+    drive factor, share id
+    throw build, field unit
+
+force clear-check
+  mount build, field radio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |clearCheck|
+    throw build, field unit
+
+force generate-layout-params
+  mount build, field radio-group
+  mount attrs, field attribute-set
+
+  cause call-method
+    drive object, share build
+    drive method, |generateLayoutParams|
+    drive factor, share attrs
+    throw build, field radio-group-layout-params
+
+force get-accessibility-class-name
+  mount build, field radio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force get-autofill-type
+  mount build, field radio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getAutofillType|
+    throw build, field int
+
+force get-autofill-value
+  mount build, field radio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getAutofillValue|
+    throw build, field autofill-value
+
+force get-checked-radio-button-id
+  mount build, field radio-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getCheckedRadioButtonId|
+    throw build, field int
+
+force on-initialize-accessibility-node-info
+  mount build, field radio-group
+  mount info, field accessibility-node-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onInitializeAccessibilityNodeInfo|
+    drive factor, share info
+    throw build, field unit
+
+force set-on-checked-change-listener
+  mount build, field radio-group
+  mount listener, field radio-group-on-checked-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnCheckedChangeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-on-hierarchy-change-listener
+  mount build, field radio-group
+  mount listener, field view-group-on-hierarchy-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnHierarchyChangeListener|
+    drive factor, share listener
+    throw build, field unit

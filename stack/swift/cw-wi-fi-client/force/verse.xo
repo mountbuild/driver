@@ -1,0 +1,73 @@
+force get-delegate
+  field build, field cw-wi-fi-client
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field any-object
+
+force set-delegate
+  field build, field cw-wi-fi-client
+  field value, field any-object
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force interface
+  field build, field cw-wi-fi-client
+
+  cause call-method
+    drive object, share build
+    drive method, |interface|
+    raise build, class cw-interface
+
+force interface
+  field build, field cw-wi-fi-client
+  field with-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |interface|
+    drive factor
+      brand with-name
+      share with-name
+    raise build, class cw-interface
+
+force interfaces
+  field build, field cw-wi-fi-client
+
+  cause call-method
+    drive object, share build
+    drive method, |interfaces|
+    raise build, class cw-interface
+
+force start-monitoring-event
+  field build, field cw-wi-fi-client
+  field with, field cw-event-type
+
+  cause call-method
+    drive object, share build
+    drive method, |startMonitoringEvent|
+    drive factor
+      brand with
+      share with
+
+force stop-monitoring-all-events
+  field build, field cw-wi-fi-client
+
+  cause call-method
+    drive object, share build
+    drive method, |stopMonitoringAllEvents|
+
+force stop-monitoring-event
+  field build, field cw-wi-fi-client
+  field with, field cw-event-type
+
+  cause call-method
+    drive object, share build
+    drive method, |stopMonitoringEvent|
+    drive factor
+      brand with
+      share with

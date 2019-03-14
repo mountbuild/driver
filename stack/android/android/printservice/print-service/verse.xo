@@ -1,0 +1,89 @@
+
+force get-extra-can-select-printer
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CAN_SELECT_PRINTER|
+    throw build, field string
+
+force get-extra-printer-info
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PRINTER_INFO|
+    throw build, field string
+
+force get-extra-print-document-info
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PRINT_DOCUMENT_INFO|
+    throw build, field string
+
+force get-extra-print-job-info
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PRINT_JOB_INFO|
+    throw build, field string
+
+force get-extra-select-printer
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SELECT_PRINTER|
+    throw build, field string
+
+force get-service-interface
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force get-service-meta-data
+  mount build, field print-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    throw build, field string
+
+force build-print-service
+  cause invoke-constructor
+    drive constructor, |PrintService|
+    throw build, field print-service
+
+force generate-printer-id
+  mount build, field print-service
+  mount local-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |generatePrinterId|
+    drive factor, share local-id
+    throw build, field printer-id
+
+force get-active-print-jobs
+  mount build, field print-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivePrintJobs|
+    throw build, field mutable-list
+
+force on-bind
+  mount build, field print-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder

@@ -1,0 +1,237 @@
+
+force build-key-store-spi
+  cause invoke-constructor
+    mount constructor, |KeyStoreSpi|
+    throw build, field key-store-spi
+
+force engine-aliases
+  mount build, field key-store-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |engineAliases|
+    throw build, field enumeration
+
+force engine-contains-alias
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineContainsAlias|
+    mount factor, share alias
+    throw build, field boolean
+
+force engine-delete-entry
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineDeleteEntry|
+    mount factor, share alias
+    throw build, field unit
+
+force engine-entry-instance-of
+  mount build, field key-store-spi
+  mount alias, field string
+  mount entry-class, field class-out-key-store-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |engineEntryInstanceOf|
+    mount factor, share alias
+    mount factor, share entry-class
+    throw build, field boolean
+
+force engine-get-certificate
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCertificate|
+    mount factor, share alias
+    throw build, field certificate
+
+force engine-get-certificate-alias
+  mount build, field key-store-spi
+  mount cert, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCertificateAlias|
+    mount factor, share cert
+    throw build, field string
+
+force engine-get-certificate-chain
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCertificateChain|
+    mount factor, share alias
+    throw build, field array
+
+force engine-get-creation-date
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCreationDate|
+    mount factor, share alias
+    throw build, field date
+
+force engine-get-entry
+  mount build, field key-store-spi
+  mount alias, field string
+  mount prot-param, field key-store-protection-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetEntry|
+    mount factor, share alias
+    mount factor, share prot-param
+    throw build, field key-store-entry
+
+force engine-get-key
+  mount build, field key-store-spi
+  mount alias, field string
+  mount password, field char-array
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetKey|
+    mount factor, share alias
+    mount factor, share password
+    throw build, field key
+
+force engine-is-certificate-entry
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineIsCertificateEntry|
+    mount factor, share alias
+    throw build, field boolean
+
+force engine-is-key-entry
+  mount build, field key-store-spi
+  mount alias, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineIsKeyEntry|
+    mount factor, share alias
+    throw build, field boolean
+
+force engine-load
+  mount build, field key-store-spi
+  mount stream, field input-stream
+  mount password, field char-array
+
+  cause call-method
+    mount object, share build
+    mount method, |engineLoad|
+    mount factor, share stream
+    mount factor, share password
+    throw build, field unit
+
+force engine-load
+  mount build, field key-store-spi
+  mount param, field key-store-load-store-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |engineLoad|
+    mount factor, share param
+    throw build, field unit
+
+force engine-set-certificate-entry
+  mount build, field key-store-spi
+  mount alias, field string
+  mount cert, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |engineSetCertificateEntry|
+    mount factor, share alias
+    mount factor, share cert
+    throw build, field unit
+
+force engine-set-entry
+  mount build, field key-store-spi
+  mount alias, field string
+  mount entry, field key-store-entry
+  mount prot-param, field key-store-protection-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |engineSetEntry|
+    mount factor, share alias
+    mount factor, share entry
+    mount factor, share prot-param
+    throw build, field unit
+
+force engine-set-key-entry
+  mount build, field key-store-spi
+  mount alias, field string
+  mount key, field key
+  mount password, field char-array
+  mount chain, field array-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |engineSetKeyEntry|
+    mount factor, share alias
+    mount factor, share key
+    mount factor, share password
+    mount factor, share chain
+    throw build, field unit
+
+force engine-set-key-entry
+  mount build, field key-store-spi
+  mount alias, field string
+  mount key, field byte-array
+  mount chain, field array-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |engineSetKeyEntry|
+    mount factor, share alias
+    mount factor, share key
+    mount factor, share chain
+    throw build, field unit
+
+force engine-size
+  mount build, field key-store-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |engineSize|
+    throw build, field int
+
+force engine-store
+  mount build, field key-store-spi
+  mount stream, field output-stream
+  mount password, field char-array
+
+  cause call-method
+    mount object, share build
+    mount method, |engineStore|
+    mount factor, share stream
+    mount factor, share password
+    throw build, field unit
+
+force engine-store
+  mount build, field key-store-spi
+  mount param, field key-store-load-store-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |engineStore|
+    mount factor, share param
+    throw build, field unit

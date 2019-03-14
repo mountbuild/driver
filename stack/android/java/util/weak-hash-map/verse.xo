@@ -1,0 +1,139 @@
+
+force build-weak-hash-map
+  mount initial-capacity, field int
+  mount load-factor, field float
+
+  cause invoke-constructor
+    drive constructor, |WeakHashMap|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    throw build, field weak-hash-map
+
+force build-weak-hash-map
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |WeakHashMap|
+    drive factor, share initial-capacity
+    throw build, field weak-hash-map
+
+force build-weak-hash-map
+  cause invoke-constructor
+    drive constructor, |WeakHashMap|
+    throw build, field weak-hash-map
+
+force build-weak-hash-map
+  mount m, field mutable-map-out-k
+  mount out-v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |WeakHashMap|
+    drive factor, share m
+    drive factor, share out-v
+    throw build, field weak-hash-map
+
+force clear
+  mount build, field weak-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force contains-key
+  mount build, field weak-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-value
+  mount build, field weak-hash-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force for-each
+  mount build, field weak-hash-map
+  mount action, field bi-consumer-in-k
+  mount in-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share action
+    drive factor, share in-v
+    throw build, field unit
+
+force get
+  mount build, field weak-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force is-empty
+  mount build, field weak-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force put
+  mount build, field weak-hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force put-all
+  mount build, field weak-hash-map
+  mount from, field map-out-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share from
+    drive factor, share v
+    throw build, field unit
+
+force remove
+  mount build, field weak-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force replace-all
+  mount build, field weak-hash-map
+  mount function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceAll|
+    drive factor, share function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field unit

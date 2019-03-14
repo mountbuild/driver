@@ -1,0 +1,498 @@
+
+force get-decrypt-mode
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |DECRYPT_MODE|
+    throw build, field int
+
+force get-encrypt-mode
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |ENCRYPT_MODE|
+    throw build, field int
+
+force get-private-key
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |PRIVATE_KEY|
+    throw build, field int
+
+force get-public-key
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |PUBLIC_KEY|
+    throw build, field int
+
+force get-secret-key
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |SECRET_KEY|
+    throw build, field int
+
+force get-unwrap-mode
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |UNWRAP_MODE|
+    throw build, field int
+
+force get-wrap-mode
+  start build, field cipher
+
+  cause get-property
+    mount object, share build
+    mount property, |WRAP_MODE|
+    throw build, field int
+
+force do-final
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    throw build, field byte-array
+
+force do-final
+  start build, field cipher
+  start output, field byte-array
+  start output-offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share output
+    mount factor, share output-offset
+    throw build, field int
+
+force do-final
+  start build, field cipher
+  start input, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share input
+    throw build, field byte-array
+
+force do-final
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    throw build, field byte-array
+
+force do-final
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+  start output, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    mount factor, share output
+    throw build, field int
+
+force do-final
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+  start output, field byte-array
+  start output-offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    mount factor, share output
+    mount factor, share output-offset
+    throw build, field int
+
+force do-final
+  start build, field cipher
+  start input, field byte-buffer
+  start output, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |doFinal|
+    mount factor, share input
+    mount factor, share output
+    throw build, field int
+
+force get-algorithm
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-block-size
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getBlockSize|
+    throw build, field int
+
+force get-exemption-mechanism
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getExemptionMechanism|
+    throw build, field exemption-mechanism
+
+force get-iv
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getIV|
+    throw build, field byte-array
+
+force get-instance
+  start build, field cipher
+  start transformation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share transformation
+    throw build, field cipher
+
+force get-instance
+  start build, field cipher
+  start transformation, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share transformation
+    mount factor, share provider
+    throw build, field cipher
+
+force get-instance
+  start build, field cipher
+  start transformation, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share transformation
+    mount factor, share provider
+    throw build, field cipher
+
+force get-max-allowed-key-length
+  start build, field cipher
+  start transformation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaxAllowedKeyLength|
+    mount factor, share transformation
+    throw build, field int
+
+force get-max-allowed-parameter-spec
+  start build, field cipher
+  start transformation, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaxAllowedParameterSpec|
+    mount factor, share transformation
+    throw build, field algorithm-parameter-spec
+
+force get-output-size
+  start build, field cipher
+  start input-len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getOutputSize|
+    mount factor, share input-len
+    throw build, field int
+
+force get-parameters
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameters|
+    throw build, field algorithm-parameters
+
+force get-provider
+  start build, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+  start params, field algorithm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    mount factor, share params
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+  start params, field algorithm-parameter-spec
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    mount factor, share params
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+  start params, field algorithm-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    mount factor, share params
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start key, field key
+  start params, field algorithm-parameters
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share key
+    mount factor, share params
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start certificate, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share certificate
+    throw build, field unit
+
+force init
+  start build, field cipher
+  start opmode, field int
+  start certificate, field certificate
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share opmode
+    mount factor, share certificate
+    mount factor, share random
+    throw build, field unit
+
+force unwrap
+  start build, field cipher
+  start wrapped-key, field byte-array
+  start wrapped-key-algorithm, field string
+  start wrapped-key-type, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |unwrap|
+    mount factor, share wrapped-key
+    mount factor, share wrapped-key-algorithm
+    mount factor, share wrapped-key-type
+    throw build, field key
+
+force update
+  start build, field cipher
+  start input, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    throw build, field byte-array
+
+force update
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    throw build, field byte-array
+
+force update
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+  start output, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    mount factor, share output
+    throw build, field int
+
+force update
+  start build, field cipher
+  start input, field byte-array
+  start input-offset, field int
+  start input-len, field int
+  start output, field byte-array
+  start output-offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    mount factor, share input-offset
+    mount factor, share input-len
+    mount factor, share output
+    mount factor, share output-offset
+    throw build, field int
+
+force update
+  start build, field cipher
+  start input, field byte-buffer
+  start output, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share input
+    mount factor, share output
+    throw build, field int
+
+force update-aad
+  start build, field cipher
+  start src, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |updateAAD|
+    mount factor, share src
+    throw build, field unit
+
+force update-aad
+  start build, field cipher
+  start src, field byte-array
+  start offset, field int
+  start len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |updateAAD|
+    mount factor, share src
+    mount factor, share offset
+    mount factor, share len
+    throw build, field unit
+
+force update-aad
+  start build, field cipher
+  start src, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |updateAAD|
+    mount factor, share src
+    throw build, field unit
+
+force wrap
+  start build, field cipher
+  start key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |wrap|
+    mount factor, share key
+    throw build, field byte-array

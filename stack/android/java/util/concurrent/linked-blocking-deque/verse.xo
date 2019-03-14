@@ -1,0 +1,455 @@
+
+force build-linked-blocking-deque
+  cause invoke-constructor
+    drive constructor, |LinkedBlockingDeque|
+    throw build, field linked-blocking-deque
+
+force build-linked-blocking-deque
+  mount capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |LinkedBlockingDeque|
+    drive factor, share capacity
+    throw build, field linked-blocking-deque
+
+force build-linked-blocking-deque
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |LinkedBlockingDeque|
+    drive factor, share c
+    throw build, field linked-blocking-deque
+
+force add
+  mount build, field linked-blocking-deque
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force add-first
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |addFirst|
+    drive factor, share e
+    throw build, field unit
+
+force add-last
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |addLast|
+    drive factor, share e
+    throw build, field unit
+
+force clear
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force contains
+  mount build, field linked-blocking-deque
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force descending-iterator
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |descendingIterator|
+    throw build, field mutable-iterator
+
+force drain-to
+  mount build, field linked-blocking-deque
+  mount c, field mutable-collection-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    throw build, field int
+
+force drain-to
+  mount build, field linked-blocking-deque
+  mount c, field mutable-collection-in-e
+  mount max-elements, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    drive factor, share max-elements
+    throw build, field int
+
+force element
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |element|
+    throw build, field e
+
+force get-first
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |getFirst|
+    throw build, field e
+
+force get-last
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |getLast|
+    throw build, field e
+
+force iterator
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force offer
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    throw build, field boolean
+
+force offer
+  mount build, field linked-blocking-deque
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force offer-first
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offerFirst|
+    drive factor, share e
+    throw build, field boolean
+
+force offer-first
+  mount build, field linked-blocking-deque
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |offerFirst|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force offer-last
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offerLast|
+    drive factor, share e
+    throw build, field boolean
+
+force offer-last
+  mount build, field linked-blocking-deque
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |offerLast|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force peek
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force peek-first
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |peekFirst|
+    throw build, field e
+
+force peek-last
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |peekLast|
+    throw build, field e
+
+force poll
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field e
+
+force poll
+  mount build, field linked-blocking-deque
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field e
+
+force poll-first
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |pollFirst|
+    throw build, field e
+
+force poll-first
+  mount build, field linked-blocking-deque
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |pollFirst|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field e
+
+force poll-last
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |pollLast|
+    throw build, field e
+
+force poll-last
+  mount build, field linked-blocking-deque
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |pollLast|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field e
+
+force pop
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |pop|
+    throw build, field e
+
+force push
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |push|
+    drive factor, share e
+    throw build, field unit
+
+force put
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share e
+    throw build, field unit
+
+force put-first
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |putFirst|
+    drive factor, share e
+    throw build, field unit
+
+force put-last
+  mount build, field linked-blocking-deque
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |putLast|
+    drive factor, share e
+    throw build, field unit
+
+force remaining-capacity
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |remainingCapacity|
+    throw build, field int
+
+force remove
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    throw build, field e
+
+force remove
+  mount build, field linked-blocking-deque
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove-first
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFirst|
+    throw build, field e
+
+force remove-first-occurrence
+  mount build, field linked-blocking-deque
+  mount o, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFirstOccurrence|
+    drive factor, share o
+    throw build, field boolean
+
+force remove-last
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLast|
+    throw build, field e
+
+force remove-last-occurrence
+  mount build, field linked-blocking-deque
+  mount o, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLastOccurrence|
+    drive factor, share o
+    throw build, field boolean
+
+force spliterator
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force take
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |take|
+    throw build, field e
+
+force take-first
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |takeFirst|
+    throw build, field e
+
+force take-last
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |takeLast|
+    throw build, field e
+
+force to-array
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field linked-blocking-deque
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array
+
+force to-string
+  mount build, field linked-blocking-deque
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,52 @@
+
+force describe-contents
+  mount build, field wifi-aware-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-peer-ipv6-addr
+  mount build, field wifi-aware-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerIpv6Addr|
+    throw build, field inet6-address
+
+force get-port
+  mount build, field wifi-aware-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-transport-protocol
+  mount build, field wifi-aware-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransportProtocol|
+    throw build, field int
+
+force to-string
+  mount build, field wifi-aware-network-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-aware-network-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

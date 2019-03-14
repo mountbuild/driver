@@ -1,0 +1,122 @@
+
+force answer-call
+  start build, field sip-session
+  start session-description, field string
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |answerCall|
+    drive factor, share session-description
+    drive factor, share timeout
+    throw build, field unit
+
+force change-call
+  start build, field sip-session
+  start session-description, field string
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |changeCall|
+    drive factor, share session-description
+    drive factor, share timeout
+    throw build, field unit
+
+force end-call
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |endCall|
+    throw build, field unit
+
+force get-call-id
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallId|
+    throw build, field string
+
+force get-local-ip
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalIp|
+    throw build, field string
+
+force get-local-profile
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalProfile|
+    throw build, field sip-profile
+
+force get-peer-profile
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerProfile|
+    throw build, field sip-profile
+
+force get-state
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force is-in-call
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isInCall|
+    throw build, field boolean
+
+force make-call
+  start build, field sip-session
+  start callee, field sip-profile
+  start session-description, field string
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCall|
+    drive factor, share callee
+    drive factor, share session-description
+    drive factor, share timeout
+    throw build, field unit
+
+force register
+  start build, field sip-session
+  start duration, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |register|
+    drive factor, share duration
+    throw build, field unit
+
+force set-listener
+  start build, field sip-session
+  start listener, field sip-session-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setListener|
+    drive factor, share listener
+    throw build, field unit
+
+force unregister
+  start build, field sip-session
+
+  cause call-method
+    drive object, share build
+    drive method, |unregister|
+    throw build, field unit

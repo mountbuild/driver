@@ -1,0 +1,16 @@
+
+force build-illegal-charset-name-exception
+  mount charset-name, field string
+
+  cause invoke-constructor
+    mount constructor, |IllegalCharsetNameException|
+    mount factor, share charset-name
+    throw build, field illegal-charset-name-exception
+
+force get-charset-name
+  mount build, field illegal-charset-name-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getCharsetName|
+    throw build, field string

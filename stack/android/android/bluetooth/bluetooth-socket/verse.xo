@@ -1,0 +1,96 @@
+
+force get-type-l2-cap
+  mount build, field bluetooth-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_L2CAP|
+    throw build, field int
+
+force get-type-rfcomm
+  mount build, field bluetooth-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RFCOMM|
+    throw build, field int
+
+force get-type-sco
+  mount build, field bluetooth-socket
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_SCO|
+    throw build, field int
+
+force close
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    throw build, field unit
+
+force get-connection-type
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionType|
+    throw build, field int
+
+force get-input-stream
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputStream|
+    throw build, field input-stream
+
+force get-max-receive-packet-size
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxReceivePacketSize|
+    throw build, field int
+
+force get-max-transmit-packet-size
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxTransmitPacketSize|
+    throw build, field int
+
+force get-output-stream
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputStream|
+    throw build, field output-stream
+
+force get-remote-device
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteDevice|
+    throw build, field bluetooth-device
+
+force is-connected
+  mount build, field bluetooth-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean

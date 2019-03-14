@@ -1,0 +1,79 @@
+
+force build-x509-crl-entry
+  cause invoke-constructor
+    mount constructor, |X509CRLEntry|
+    throw build, field x509-crl-entry
+
+force equals
+  mount build, field x509-crl-entry
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-certificate-issuer
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertificateIssuer|
+    throw build, field x500-principal
+
+force get-encoded
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-revocation-date
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevocationDate|
+    throw build, field date
+
+force get-revocation-reason
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |getRevocationReason|
+    throw build, field crl-reason
+
+force get-serial-number
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |getSerialNumber|
+    throw build, field big-integer
+
+force has-extensions
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |hasExtensions|
+    throw build, field boolean
+
+force hash-code
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field x509-crl-entry
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

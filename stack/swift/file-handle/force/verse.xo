@@ -1,0 +1,436 @@
+force get-class-standard-error
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardError|
+    raise build, field file-handle
+
+force set-class-standard-error
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardError|
+    drive factor, share value
+
+force get-class-standard-input
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardInput|
+    raise build, field file-handle
+
+force set-class-standard-input
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardInput|
+    drive factor, share value
+
+force get-class-standard-output
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardOutput|
+    raise build, field file-handle
+
+force set-class-standard-output
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |standardOutput|
+    drive factor, share value
+
+force get-class-null-device
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |nullDevice|
+    raise build, field file-handle
+
+force set-class-null-device
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |nullDevice|
+    drive factor, share value
+
+force get-file-descriptor
+  field build, field file-handle
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fileDescriptor|
+    raise build, field int32
+
+force set-file-descriptor
+  field build, field file-handle
+  field value, field int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fileDescriptor|
+    drive factor, share value
+
+force get-available-data
+  field build, field file-handle
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableData|
+    raise build, field data
+
+force set-available-data
+  field build, field file-handle
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableData|
+    drive factor, share value
+
+force read-data-to-end-of-file
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |readDataToEndOfFile|
+    raise build, class data
+
+force read-data
+  field build, field file-handle
+  field of-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readData|
+    drive factor
+      brand of-length
+      share of-length
+    raise build, class data
+
+force write
+  field build, field file-handle
+  field a, class data
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share a
+
+force get-readability-handler
+  field build, field file-handle
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |readabilityHandler|
+    raise build, field file-handle
+
+force set-readability-handler
+  field build, field file-handle
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |readabilityHandler|
+    drive factor, share value
+
+force get-writeability-handler
+  field build, field file-handle
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |writeabilityHandler|
+    raise build, field file-handle
+
+force set-writeability-handler
+  field build, field file-handle
+  field value, field file-handle
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |writeabilityHandler|
+    drive factor, share value
+
+force accept-connection-in-background-and-notify
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptConnectionInBackgroundAndNotify|
+
+force accept-connection-in-background-and-notify
+  field build, field file-handle
+  field for-modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptConnectionInBackgroundAndNotify|
+    drive factor
+      brand for-modes
+      share for-modes
+
+force read-in-background-and-notify
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |readInBackgroundAndNotify|
+
+force read-in-background-and-notify
+  field build, field file-handle
+  field for-modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |readInBackgroundAndNotify|
+    drive factor
+      brand for-modes
+      share for-modes
+
+force read-to-end-of-file-in-background-and-notify
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |readToEndOfFileInBackgroundAndNotify|
+
+force read-to-end-of-file-in-background-and-notify
+  field build, field file-handle
+  field for-modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |readToEndOfFileInBackgroundAndNotify|
+    drive factor
+      brand for-modes
+      share for-modes
+
+force wait-for-data-in-background-and-notify
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForDataInBackgroundAndNotify|
+
+force wait-for-data-in-background-and-notify
+  field build, field file-handle
+  field for-modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForDataInBackgroundAndNotify|
+    drive factor
+      brand for-modes
+      share for-modes
+
+force get-offset-in-file
+  field build, field file-handle
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |offsetInFile|
+    raise build, field u-int64
+
+force set-offset-in-file
+  field build, field file-handle
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |offsetInFile|
+    drive factor, share value
+
+force seek-to-end-of-file
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |seekToEndOfFile|
+    raise build, class u-int64
+
+force seek
+  field build, field file-handle
+  field to-file-offset, field u-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |seek|
+    drive factor
+      brand to-file-offset
+      share to-file-offset
+
+force close-file
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |closeFile|
+
+force synchronize-file
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |synchronizeFile|
+
+force truncate-file
+  field build, field file-handle
+  field at-offset, field u-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |truncateFile|
+    drive factor
+      brand at-offset
+      share at-offset
+
+force get-static-ns-file-handle-connection-accepted
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleConnectionAccepted|
+    raise build, field NSNotification.Name
+
+force set-static-ns-file-handle-connection-accepted
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleConnectionAccepted|
+    drive factor, share value
+
+force get-static-ns-file-handle-data-available
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleDataAvailable|
+    raise build, field NSNotification.Name
+
+force set-static-ns-file-handle-data-available
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleDataAvailable|
+    drive factor, share value
+
+force get-class-read-completion-notification
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |readCompletionNotification|
+    raise build, field ns-notification-name
+
+force set-class-read-completion-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |readCompletionNotification|
+    drive factor, share value
+
+force get-class-read-completion-notification
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |readCompletionNotification|
+    raise build, field ns-notification-name
+
+force set-class-read-completion-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |readCompletionNotification|
+    drive factor, share value
+
+force get-static-ns-file-handle-read-to-end-of-file-completion
+
+  cause get-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleReadToEndOfFileCompletion|
+    raise build, field NSNotification.Name
+
+force set-static-ns-file-handle-read-to-end-of-file-completion
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |FileHandle|
+    drive aspect, |NSFileHandleReadToEndOfFileCompletion|
+    drive factor, share value
+
+force close
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+
+force offset
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |offset|
+    raise build, class u-int64
+
+force read
+  field build, field file-handle
+  field up-to-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor
+      brand up-to-count
+      share up-to-count
+    raise build, class data
+
+force read-to-end
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |readToEnd|
+    raise build, class data
+
+force seek
+  field build, field file-handle
+  field to-offset, field u-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |seek|
+    drive factor
+      brand to-offset
+      share to-offset
+
+force seek-to-end
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |seekToEnd|
+    raise build, class u-int64
+
+force synchronize
+  field build, field file-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |synchronize|
+
+force truncate
+  field build, field file-handle
+  field at-offset, field u-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |truncate|
+    drive factor
+      brand at-offset
+      share at-offset

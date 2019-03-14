@@ -1,0 +1,64 @@
+
+force build-property-change-event
+  mount source, field any
+  mount property-name, field string
+  mount old-value, field any
+  mount new-value, field any
+
+  cause invoke-constructor
+    drive constructor, |PropertyChangeEvent|
+    drive factor, share source
+    drive factor, share property-name
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field property-change-event
+
+force get-new-value
+  mount build, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getNewValue|
+    throw build, field any
+
+force get-old-value
+  mount build, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getOldValue|
+    throw build, field any
+
+force get-propagation-id
+  mount build, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropagationId|
+    throw build, field any
+
+force get-property-name
+  mount build, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropertyName|
+    throw build, field string
+
+force set-propagation-id
+  mount build, field property-change-event
+  mount propagation-id, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setPropagationId|
+    drive factor, share propagation-id
+    throw build, field unit
+
+force to-string
+  mount build, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

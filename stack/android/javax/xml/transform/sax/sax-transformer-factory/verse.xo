@@ -1,0 +1,72 @@
+
+force get-feature
+  start build, field sax-transformer-factory
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force get-feature-xmlfilter
+  start build, field sax-transformer-factory
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE_XMLFILTER|
+    throw build, field string
+
+force new-templates-handler
+  start build, field sax-transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newTemplatesHandler|
+    throw build, field templates-handler
+
+force new-transformer-handler
+  start build, field sax-transformer-factory
+  start src, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |newTransformerHandler|
+    mount factor, share src
+    throw build, field transformer-handler
+
+force new-transformer-handler
+  start build, field sax-transformer-factory
+  start templates, field templates
+
+  cause call-method
+    mount object, share build
+    mount method, |newTransformerHandler|
+    mount factor, share templates
+    throw build, field transformer-handler
+
+force new-transformer-handler
+  start build, field sax-transformer-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newTransformerHandler|
+    throw build, field transformer-handler
+
+force new-xml-filter
+  start build, field sax-transformer-factory
+  start src, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLFilter|
+    mount factor, share src
+    throw build, field xml-filter
+
+force new-xml-filter
+  start build, field sax-transformer-factory
+  start templates, field templates
+
+  cause call-method
+    mount object, share build
+    mount method, |newXMLFilter|
+    mount factor, share templates
+    throw build, field xml-filter

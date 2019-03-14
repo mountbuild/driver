@@ -1,0 +1,178 @@
+
+force build-header-view-list-adapter
+  mount header-view-infos, field array-list-list-view-fixed-view-info
+  mount footer-view-infos, field array-list-list-view-fixed-view-info
+  mount adapter, field list-adapter
+
+  cause invoke-constructor
+    drive constructor, |HeaderViewListAdapter|
+    drive factor, share header-view-infos
+    drive factor, share footer-view-infos
+    drive factor, share adapter
+    throw build, field header-view-list-adapter
+
+force are-all-items-enabled
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |areAllItemsEnabled|
+    throw build, field boolean
+
+force get-count
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    throw build, field int
+
+force get-filter
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilter|
+    throw build, field filter
+
+force get-footers-count
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFootersCount|
+    throw build, field int
+
+force get-headers-count
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeadersCount|
+    throw build, field int
+
+force get-item
+  mount build, field header-view-list-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItem|
+    drive factor, share position
+    throw build, field any
+
+force get-item-id
+  mount build, field header-view-list-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemId|
+    drive factor, share position
+    throw build, field long
+
+force get-item-view-type
+  mount build, field header-view-list-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemViewType|
+    drive factor, share position
+    throw build, field int
+
+force get-view
+  mount build, field header-view-list-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-view-type-count
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getViewTypeCount|
+    throw build, field int
+
+force get-wrapped-adapter
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getWrappedAdapter|
+    throw build, field list-adapter
+
+force has-stable-ids
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |hasStableIds|
+    throw build, field boolean
+
+force is-empty
+  mount build, field header-view-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force is-enabled
+  mount build, field header-view-list-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    drive factor, share position
+    throw build, field boolean
+
+force register-data-set-observer
+  mount build, field header-view-list-adapter
+  mount observer, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerDataSetObserver|
+    drive factor, share observer
+    throw build, field unit
+
+force remove-footer
+  mount build, field header-view-list-adapter
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFooter|
+    drive factor, share v
+    throw build, field boolean
+
+force remove-header
+  mount build, field header-view-list-adapter
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeHeader|
+    drive factor, share v
+    throw build, field boolean
+
+force unregister-data-set-observer
+  mount build, field header-view-list-adapter
+  mount observer, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterDataSetObserver|
+    drive factor, share observer
+    throw build, field unit

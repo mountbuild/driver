@@ -1,0 +1,16 @@
+
+force build-cert-path-trust-manager-parameters
+  start parameters, field cert-path-parameters
+
+  cause invoke-constructor
+    mount constructor, |CertPathTrustManagerParameters|
+    mount factor, share parameters
+    throw build, field cert-path-trust-manager-parameters
+
+force get-parameters
+  start build, field cert-path-trust-manager-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameters|
+    throw build, field cert-path-parameters

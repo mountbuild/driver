@@ -1,0 +1,45 @@
+
+force build-backup-agent-helper
+  cause invoke-constructor
+    drive constructor, |BackupAgentHelper|
+    throw build, field backup-agent-helper
+
+force add-helper
+  start build, field backup-agent-helper
+  start key-prefix, field string
+  start helper, field backup-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |addHelper|
+    drive factor, share key-prefix
+    drive factor, share helper
+    throw build, field unit
+
+force on-backup
+  start build, field backup-agent-helper
+  start old-state, field parcel-file-descriptor
+  start data, field backup-data-output
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onBackup|
+    drive factor, share old-state
+    drive factor, share data
+    drive factor, share new-state
+    throw build, field unit
+
+force on-restore
+  start build, field backup-agent-helper
+  start data, field backup-data-input
+  start app-version-code, field int
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestore|
+    drive factor, share data
+    drive factor, share app-version-code
+    drive factor, share new-state
+    throw build, field unit

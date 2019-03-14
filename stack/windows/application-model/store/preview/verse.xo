@@ -1,0 +1,700 @@
+
+force get-delivery-optimization-download-mode
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode|
+
+force get-delivery-optimization-download-mode-source
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource|
+
+force build-delivery-optimization-settings
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings|
+
+force get-download-mode
+  start build, field windows-applicationmodel-store-preview-deliveryoptimizationsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DownloadMode|
+
+force set-download-mode
+  start build, field windows-applicationmodel-store-preview-deliveryoptimizationsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DownloadMode|
+    drive factor, share value
+
+force get-download-mode-source
+  start build, field windows-applicationmodel-store-preview-deliveryoptimizationsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DownloadModeSource|
+
+force set-download-mode-source
+  start build, field windows-applicationmodel-store-preview-deliveryoptimizationsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DownloadModeSource|
+    drive factor, share value
+
+force get-current-settings
+  start build, field windows-applicationmodel-store-preview-deliveryoptimizationsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentSettings|
+
+force build-store-configuration
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StoreConfiguration|
+
+force filter-unsupported-system-features-async
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start system-features, field windows-foundation-collections-iiterable-windows-applicationmodel-store-preview-storesystemfeature
+
+  cause call-method
+    drive object, share build
+    drive method, |FilterUnsupportedSystemFeaturesAsync|
+    drive factor, share system-features
+
+force get-enterprise-store-web-account-id
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |GetEnterpriseStoreWebAccountId|
+
+force get-enterprise-store-web-account-id-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetEnterpriseStoreWebAccountIdForUser|
+    drive factor, share user
+
+force get-purchase-prompting-policy-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPurchasePromptingPolicyForUser|
+    drive factor, share user
+
+force get-store-log-data-async
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start options, field windows-applicationmodel-store-preview-storelogoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStoreLogDataAsync|
+    drive factor, share options
+
+force get-store-web-account-id
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStoreWebAccountId|
+
+force get-store-web-account-id-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStoreWebAccountIdForUser|
+    drive factor, share user
+
+force get-hardware-manufacturer-info
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareManufacturerInfo|
+
+force set-hardware-manufacturer-info
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareManufacturerInfo|
+    drive factor, share value
+
+force has-store-web-account
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |HasStoreWebAccount|
+
+force has-store-web-account-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |HasStoreWebAccountForUser|
+    drive factor, share user
+
+force is-pin-to-desktop-supported
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |IsPinToDesktopSupported|
+
+force is-pin-to-start-supported
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |IsPinToStartSupported|
+
+force is-pin-to-taskbar-supported
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |IsPinToTaskbarSupported|
+
+force is-store-web-account-id
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsStoreWebAccountId|
+    drive factor, share web-account-id
+
+force is-store-web-account-id-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsStoreWebAccountIdForUser|
+    drive factor, share user
+    drive factor, share web-account-id
+
+force pin-to-desktop
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start app-package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |PinToDesktop|
+    drive factor, share app-package-family-name
+
+force pin-to-desktop-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+  start app-package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |PinToDesktopForUser|
+    drive factor, share user
+    drive factor, share app-package-family-name
+
+force get-purchase-prompting-policy
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PurchasePromptingPolicy|
+
+force set-purchase-prompting-policy
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PurchasePromptingPolicy|
+    drive factor, share value
+
+force set-enterprise-store-web-account-id
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetEnterpriseStoreWebAccountId|
+    drive factor, share web-account-id
+
+force set-enterprise-store-web-account-id-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetEnterpriseStoreWebAccountIdForUser|
+    drive factor, share user
+    drive factor, share web-account-id
+
+force set-mobile-operator-configuration
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start mobile-operator-id, field system-string
+  start app-download-limit-in-megabytes, field system-uint32
+  start update-download-limit-in-megabytes, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |SetMobileOperatorConfiguration|
+    drive factor, share mobile-operator-id
+    drive factor, share app-download-limit-in-megabytes
+    drive factor, share update-download-limit-in-megabytes
+
+force set-purchase-prompting-policy-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+  start value, field windows-foundation-ireference-system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPurchasePromptingPolicyForUser|
+    drive factor, share user
+    drive factor, share value
+
+force set-store-web-account-id
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetStoreWebAccountId|
+    drive factor, share web-account-id
+
+force set-store-web-account-id-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+  start web-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetStoreWebAccountIdForUser|
+    drive factor, share user
+    drive factor, share web-account-id
+
+force set-system-configuration
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start catalog-hardware-manufacturer-id, field system-string
+  start catalog-store-content-modifier-id, field system-string
+  start system-configuration-expiration, field windows-foundation-datetime
+  start catalog-hardware-descriptor, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetSystemConfiguration|
+    drive factor, share catalog-hardware-manufacturer-id
+    drive factor, share catalog-store-content-modifier-id
+    drive factor, share system-configuration-expiration
+    drive factor, share catalog-hardware-descriptor
+
+force should-restrict-to-enterprise-store-only
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |ShouldRestrictToEnterpriseStoreOnly|
+
+force should-restrict-to-enterprise-store-only-for-user
+  start build, field windows-applicationmodel-store-preview-storeconfiguration
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |ShouldRestrictToEnterpriseStoreOnlyForUser|
+    drive factor, share user
+
+force build-store-hardware-manufacturer-info
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo|
+
+force get-hardware-manufacturer-id
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareManufacturerId|
+
+force set-hardware-manufacturer-id
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareManufacturerId|
+    drive factor, share value
+
+force get-manufacturer-name
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ManufacturerName|
+
+force set-manufacturer-name
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ManufacturerName|
+    drive factor, share value
+
+force get-model-name
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ModelName|
+
+force set-model-name
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ModelName|
+    drive factor, share value
+
+force get-store-content-modifier-id
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StoreContentModifierId|
+
+force set-store-content-modifier-id
+  start build, field windows-applicationmodel-store-preview-storehardwaremanufacturerinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StoreContentModifierId|
+    drive factor, share value
+
+force get-store-log-options
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Store.Preview.StoreLogOptions|
+
+force build-store-preview
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StorePreview|
+
+force load-add-on-product-infos-async
+  start build, field windows-applicationmodel-store-preview-storepreview
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadAddOnProductInfosAsync|
+
+force request-product-purchase-by-product-id-and-sku-id-async
+  start build, field windows-applicationmodel-store-preview-storepreview
+  start product-id, field system-string
+  start sku-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestProductPurchaseByProductIdAndSkuIdAsync|
+    drive factor, share product-id
+    drive factor, share sku-id
+
+force build-store-preview-product-info
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo|
+
+force get-description
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-product-id
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+
+force set-product-id
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+    drive factor, share value
+
+force get-product-type
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProductType|
+
+force set-product-type
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProductType|
+    drive factor, share value
+
+force get-sku-info-list
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SkuInfoList|
+
+force set-sku-info-list
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SkuInfoList|
+    drive factor, share value
+
+force get-title
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Title|
+
+force set-title
+  start build, field windows-applicationmodel-store-preview-storepreviewproductinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Title|
+    drive factor, share value
+
+force get-store-preview-product-purchase-status
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus|
+
+force build-store-preview-purchase-results
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults|
+
+force get-product-purchase-status
+  start build, field windows-applicationmodel-store-preview-storepreviewpurchaseresults
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProductPurchaseStatus|
+
+force set-product-purchase-status
+  start build, field windows-applicationmodel-store-preview-storepreviewpurchaseresults
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProductPurchaseStatus|
+    drive factor, share value
+
+force build-store-preview-sku-info
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo|
+
+force get-currency-code
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CurrencyCode|
+
+force set-currency-code
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CurrencyCode|
+    drive factor, share value
+
+force get-custom-developer-data
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CustomDeveloperData|
+
+force set-custom-developer-data
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CustomDeveloperData|
+    drive factor, share value
+
+force get-description
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-extended-data
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExtendedData|
+
+force set-extended-data
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExtendedData|
+    drive factor, share value
+
+force get-formatted-list-price
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FormattedListPrice|
+
+force set-formatted-list-price
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FormattedListPrice|
+    drive factor, share value
+
+force get-product-id
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+
+force set-product-id
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+    drive factor, share value
+
+force get-sku-id
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SkuId|
+
+force set-sku-id
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SkuId|
+    drive factor, share value
+
+force get-sku-type
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SkuType|
+
+force set-sku-type
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SkuType|
+    drive factor, share value
+
+force get-title
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Title|
+
+force set-title
+  start build, field windows-applicationmodel-store-preview-storepreviewskuinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Title|
+    drive factor, share value
+
+force get-store-system-feature
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Store.Preview.StoreSystemFeature|
+
+force build-web-authentication-core-manager-helper
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper|
+
+force request-token-with-u-i-element-hosting-async
+  start build, field windows-applicationmodel-store-preview-webauthenticationcoremanagerhelper
+  start request, field windows-security-authentication-web-core-webtokenrequest
+  start ui-element, field windows-ui-xaml-uielement
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestTokenWithUIElementHostingAsync|
+    drive factor, share request
+    drive factor, share ui-element
+
+force request-token-with-u-i-element-hosting-async
+  start build, field windows-applicationmodel-store-preview-webauthenticationcoremanagerhelper
+  start request, field windows-security-authentication-web-core-webtokenrequest
+  start web-account, field windows-security-credentials-webaccount
+  start ui-element, field windows-ui-xaml-uielement
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestTokenWithUIElementHostingAsync|
+    drive factor, share request
+    drive factor, share web-account
+    drive factor, share ui-element

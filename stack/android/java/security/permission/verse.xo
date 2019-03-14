@@ -1,0 +1,52 @@
+
+force build-permission
+  mount name, field string
+
+  cause invoke-constructor
+    mount constructor, |Permission|
+    mount factor, share name
+    throw build, field permission
+
+force check-guard
+  mount build, field permission
+  mount object, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |checkGuard|
+    mount factor, share object
+    throw build, field unit
+
+force get-actions
+  mount build, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getActions|
+    throw build, field string
+
+force get-name
+  mount build, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getName|
+    throw build, field string
+
+force implies
+  mount build, field permission
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share permission
+    throw build, field boolean
+
+force new-permission-collection
+  mount build, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |newPermissionCollection|
+    throw build, field permission-collection

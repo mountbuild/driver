@@ -1,0 +1,345 @@
+
+force build-enterprise
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Management.Deployment.Enterprise|
+
+force get-enrollment-valid-from
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EnrollmentValidFrom|
+
+force set-enrollment-valid-from
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EnrollmentValidFrom|
+    drive factor, share value
+
+force get-enrollment-valid-to
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EnrollmentValidTo|
+
+force set-enrollment-valid-to
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EnrollmentValidTo|
+    drive factor, share value
+
+force get-id
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-name
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-status
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-workplace-id
+  start build, field windows-phone-management-deployment-enterprise
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WorkplaceId|
+
+force set-workplace-id
+  start build, field windows-phone-management-deployment-enterprise
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WorkplaceId|
+    drive factor, share value
+
+force build-enterprise-enrollment-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Management.Deployment.EnterpriseEnrollmentManager|
+
+force get-current-enterprise
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CurrentEnterprise|
+
+force set-current-enterprise
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CurrentEnterprise|
+    drive factor, share value
+
+force get-enrolled-enterprises
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EnrolledEnterprises|
+
+force set-enrolled-enterprises
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EnrolledEnterprises|
+    drive factor, share value
+
+force request-enrollment-async
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+  start enrollment-token, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestEnrollmentAsync|
+    drive factor, share enrollment-token
+
+force request-unenrollment-async
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+  start enterprise, field windows-phone-management-deployment-enterprise
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestUnenrollmentAsync|
+    drive factor, share enterprise
+
+force validate-enterprises-async
+  start build, field windows-phone-management-deployment-enterpriseenrollmentmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |ValidateEnterprisesAsync|
+
+force build-enterprise-enrollment-result
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult|
+
+force get-enrolled-enterprise
+  start build, field windows-phone-management-deployment-enterpriseenrollmentresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EnrolledEnterprise|
+
+force set-enrolled-enterprise
+  start build, field windows-phone-management-deployment-enterpriseenrollmentresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EnrolledEnterprise|
+    drive factor, share value
+
+force get-status
+  start build, field windows-phone-management-deployment-enterpriseenrollmentresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-phone-management-deployment-enterpriseenrollmentresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-enterprise-enrollment-status
+  cause get-object
+    drive aspect, |Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus|
+
+force get-enterprise-status
+  cause get-object
+    drive aspect, |Windows.Phone.Management.Deployment.EnterpriseStatus|
+
+force build-installation-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Management.Deployment.InstallationManager|
+
+force add-package-async
+  start build, field windows-phone-management-deployment-installationmanager
+  start title, field system-string
+  start source-location, field windows-foundation-uri
+  start instance-id, field system-string
+  start offer-id, field system-string
+  start license, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPackageAsync|
+    drive factor, share title
+    drive factor, share source-location
+    drive factor, share instance-id
+    drive factor, share offer-id
+    drive factor, share license
+
+force add-package-async
+  start build, field windows-phone-management-deployment-installationmanager
+  start title, field system-string
+  start source-location, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPackageAsync|
+    drive factor, share title
+    drive factor, share source-location
+
+force find-packages
+  start build, field windows-phone-management-deployment-installationmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |FindPackages|
+
+force find-packages
+  start build, field windows-phone-management-deployment-installationmanager
+  start package-name, field system-string
+  start package-publisher, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindPackages|
+    drive factor, share package-name
+    drive factor, share package-publisher
+
+force find-packages-for-current-publisher
+  start build, field windows-phone-management-deployment-installationmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |FindPackagesForCurrentPublisher|
+
+force get-pending-package-installs
+  start build, field windows-phone-management-deployment-installationmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPendingPackageInstalls|
+
+force register-package-async
+  start build, field windows-phone-management-deployment-installationmanager
+  start manifest-uri, field windows-foundation-uri
+  start dependency-package-uris, field windows-foundation-collections-iiterable-windows-foundation-uri
+  start deployment-options, field windows-management-deployment-deploymentoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterPackageAsync|
+    drive factor, share manifest-uri
+    drive factor, share dependency-package-uris
+    drive factor, share deployment-options
+
+force remove-package-async
+  start build, field windows-phone-management-deployment-installationmanager
+  start package-full-name, field system-string
+  start removal-options, field windows-management-deployment-removaloptions
+
+  cause call-method
+    drive object, share build
+    drive method, |RemovePackageAsync|
+    drive factor, share package-full-name
+    drive factor, share removal-options
+
+force build-package-install-result
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Management.Deployment.PackageInstallResult|
+
+force get-error-text
+  start build, field windows-phone-management-deployment-packageinstallresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ErrorText|
+
+force set-error-text
+  start build, field windows-phone-management-deployment-packageinstallresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ErrorText|
+    drive factor, share value
+
+force get-install-state
+  start build, field windows-phone-management-deployment-packageinstallresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InstallState|
+
+force set-install-state
+  start build, field windows-phone-management-deployment-packageinstallresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InstallState|
+    drive factor, share value
+
+force get-product-id
+  start build, field windows-phone-management-deployment-packageinstallresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+
+force set-product-id
+  start build, field windows-phone-management-deployment-packageinstallresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProductId|
+    drive factor, share value

@@ -1,0 +1,150 @@
+
+force build-string-search
+  start pattern, field string
+  start target, field character-iterator
+  start collator, field rule-based-collator
+  start breakiter, field break-iterator
+
+  cause invoke-constructor
+    drive constructor, |StringSearch|
+    drive factor, share pattern
+    drive factor, share target
+    drive factor, share collator
+    drive factor, share breakiter
+    raise build, field string-search
+
+force build-string-search
+  start pattern, field string
+  start target, field character-iterator
+  start collator, field rule-based-collator
+
+  cause invoke-constructor
+    drive constructor, |StringSearch|
+    drive factor, share pattern
+    drive factor, share target
+    drive factor, share collator
+    raise build, field string-search
+
+force build-string-search
+  start pattern, field string
+  start target, field character-iterator
+  start locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |StringSearch|
+    drive factor, share pattern
+    drive factor, share target
+    drive factor, share locale
+    raise build, field string-search
+
+force build-string-search
+  start pattern, field string
+  start target, field character-iterator
+  start locale, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |StringSearch|
+    drive factor, share pattern
+    drive factor, share target
+    drive factor, share locale
+    raise build, field string-search
+
+force build-string-search
+  start pattern, field string
+  start target, field string
+
+  cause invoke-constructor
+    drive constructor, |StringSearch|
+    drive factor, share pattern
+    drive factor, share target
+    raise build, field string-search
+
+force get-collator
+  start build, field string-search
+
+  cause call-method
+    drive object, share build
+    drive method, |getCollator|
+    raise build, field rule-based-collator
+
+force get-index
+  start build, field string-search
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    raise build, field int
+
+force get-pattern
+  start build, field string-search
+
+  cause call-method
+    drive object, share build
+    drive method, |getPattern|
+    raise build, field string
+
+force is-canonical
+  start build, field string-search
+
+  cause call-method
+    drive object, share build
+    drive method, |isCanonical|
+    raise build, field boolean
+
+force reset
+  start build, field string-search
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force set-canonical
+  start build, field string-search
+  start allow-canonical, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setCanonical|
+    drive factor, share allow-canonical
+    raise build, field unit
+
+force set-collator
+  start build, field string-search
+  start collator, field rule-based-collator
+
+  cause call-method
+    drive object, share build
+    drive method, |setCollator|
+    drive factor, share collator
+    raise build, field unit
+
+force set-index
+  start build, field string-search
+  start position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setIndex|
+    drive factor, share position
+    raise build, field unit
+
+force set-pattern
+  start build, field string-search
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPattern|
+    drive factor, share pattern
+    raise build, field unit
+
+force set-target
+  start build, field string-search
+  start text, field character-iterator
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor, share text
+    raise build, field unit

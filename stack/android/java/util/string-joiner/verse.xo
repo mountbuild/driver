@@ -1,0 +1,66 @@
+
+force build-string-joiner
+  mount delimiter, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |StringJoiner|
+    drive factor, share delimiter
+    throw build, field string-joiner
+
+force build-string-joiner
+  mount delimiter, field char-sequence
+  mount prefix, field char-sequence
+  mount suffix, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |StringJoiner|
+    drive factor, share delimiter
+    drive factor, share prefix
+    drive factor, share suffix
+    throw build, field string-joiner
+
+force add
+  mount build, field string-joiner
+  mount new-element, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share new-element
+    throw build, field string-joiner
+
+force length
+  mount build, field string-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    throw build, field int
+
+force merge
+  mount build, field string-joiner
+  mount other, field string-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |merge|
+    drive factor, share other
+    throw build, field string-joiner
+
+force set-empty-value
+  mount build, field string-joiner
+  mount empty-value, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setEmptyValue|
+    drive factor, share empty-value
+    throw build, field string-joiner
+
+force to-string
+  mount build, field string-joiner
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

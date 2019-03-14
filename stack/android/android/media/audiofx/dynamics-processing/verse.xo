@@ -1,0 +1,358 @@
+
+force get-variant-favor-frequency-resolution
+  mount build, field dynamics-processing
+
+  cause get-property
+    drive object, share build
+    drive property, |VARIANT_FAVOR_FREQUENCY_RESOLUTION|
+    raise build, field int
+
+force get-variant-favor-time-resolution
+  mount build, field dynamics-processing
+
+  cause get-property
+    drive object, share build
+    drive property, |VARIANT_FAVOR_TIME_RESOLUTION|
+    raise build, field int
+
+force build-dynamics-processing
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |DynamicsProcessing|
+    drive factor, share audio-session
+    raise build, field dynamics-processing
+
+force build-dynamics-processing
+  mount priority, field int
+  mount audio-session, field int
+  mount cfg, field dynamics-processing-config
+
+  cause invoke-constructor
+    drive constructor, |DynamicsProcessing|
+    drive factor, share priority
+    drive factor, share audio-session
+    drive factor, share cfg
+    raise build, field dynamics-processing
+
+force get-channel-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannelByChannelIndex|
+    drive factor, share channel-index
+    raise build, field dynamics-processing-channel
+
+force get-channel-count
+  mount build, field dynamics-processing
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannelCount|
+    raise build, field int
+
+force get-config
+  mount build, field dynamics-processing
+
+  cause call-method
+    drive object, share build
+    drive method, |getConfig|
+    raise build, field dynamics-processing-config
+
+force get-input-gain-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputGainByChannelIndex|
+    drive factor, share channel-index
+    raise build, field float
+
+force get-limiter-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLimiterByChannelIndex|
+    drive factor, share channel-index
+    raise build, field dynamics-processing-limiter
+
+force get-mbc-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMbcBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    raise build, field dynamics-processing-mbc-band
+
+force get-mbc-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMbcByChannelIndex|
+    drive factor, share channel-index
+    raise build, field dynamics-processing-mbc
+
+force get-post-eq-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPostEqBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    raise build, field dynamics-processing-eq-band
+
+force get-post-eq-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPostEqByChannelIndex|
+    drive factor, share channel-index
+    raise build, field dynamics-processing-eq
+
+force get-pre-eq-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreEqBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    raise build, field dynamics-processing-eq-band
+
+force get-pre-eq-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreEqByChannelIndex|
+    drive factor, share channel-index
+    raise build, field dynamics-processing-eq
+
+force set-all-channels-to
+  mount build, field dynamics-processing
+  mount channel, field dynamics-processing-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllChannelsTo|
+    drive factor, share channel
+    raise build, field unit
+
+force set-channel-to
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount channel, field dynamics-processing-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |setChannelTo|
+    drive factor, share channel-index
+    drive factor, share channel
+    raise build, field unit
+
+force set-input-gain-all-channels-to
+  mount build, field dynamics-processing
+  mount input-gain, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputGainAllChannelsTo|
+    drive factor, share input-gain
+    raise build, field unit
+
+force set-input-gainby-channel
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount input-gain, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputGainbyChannel|
+    drive factor, share channel-index
+    drive factor, share input-gain
+    raise build, field unit
+
+force set-limiter-all-channels-to
+  mount build, field dynamics-processing
+  mount limiter, field dynamics-processing-limiter
+
+  cause call-method
+    drive object, share build
+    drive method, |setLimiterAllChannelsTo|
+    drive factor, share limiter
+    raise build, field unit
+
+force set-limiter-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount limiter, field dynamics-processing-limiter
+
+  cause call-method
+    drive object, share build
+    drive method, |setLimiterByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share limiter
+    raise build, field unit
+
+force set-mbc-all-channels-to
+  mount build, field dynamics-processing
+  mount mbc, field dynamics-processing-mbc
+
+  cause call-method
+    drive object, share build
+    drive method, |setMbcAllChannelsTo|
+    drive factor, share mbc
+    raise build, field unit
+
+force set-mbc-band-all-channels-to
+  mount build, field dynamics-processing
+  mount band, field int
+  mount mbc-band, field dynamics-processing-mbc-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setMbcBandAllChannelsTo|
+    drive factor, share band
+    drive factor, share mbc-band
+    raise build, field unit
+
+force set-mbc-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+  mount mbc-band, field dynamics-processing-mbc-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setMbcBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    drive factor, share mbc-band
+    raise build, field unit
+
+force set-mbc-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount mbc, field dynamics-processing-mbc
+
+  cause call-method
+    drive object, share build
+    drive method, |setMbcByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share mbc
+    raise build, field unit
+
+force set-post-eq-all-channels-to
+  mount build, field dynamics-processing
+  mount post-eq, field dynamics-processing-eq
+
+  cause call-method
+    drive object, share build
+    drive method, |setPostEqAllChannelsTo|
+    drive factor, share post-eq
+    raise build, field unit
+
+force set-post-eq-band-all-channels-to
+  mount build, field dynamics-processing
+  mount band, field int
+  mount post-eq-band, field dynamics-processing-eq-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setPostEqBandAllChannelsTo|
+    drive factor, share band
+    drive factor, share post-eq-band
+    raise build, field unit
+
+force set-post-eq-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+  mount post-eq-band, field dynamics-processing-eq-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setPostEqBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    drive factor, share post-eq-band
+    raise build, field unit
+
+force set-post-eq-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount post-eq, field dynamics-processing-eq
+
+  cause call-method
+    drive object, share build
+    drive method, |setPostEqByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share post-eq
+    raise build, field unit
+
+force set-pre-eq-all-channels-to
+  mount build, field dynamics-processing
+  mount pre-eq, field dynamics-processing-eq
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreEqAllChannelsTo|
+    drive factor, share pre-eq
+    raise build, field unit
+
+force set-pre-eq-band-all-channels-to
+  mount build, field dynamics-processing
+  mount band, field int
+  mount pre-eq-band, field dynamics-processing-eq-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreEqBandAllChannelsTo|
+    drive factor, share band
+    drive factor, share pre-eq-band
+    raise build, field unit
+
+force set-pre-eq-band-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount band, field int
+  mount pre-eq-band, field dynamics-processing-eq-band
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreEqBandByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share band
+    drive factor, share pre-eq-band
+    raise build, field unit
+
+force set-pre-eq-by-channel-index
+  mount build, field dynamics-processing
+  mount channel-index, field int
+  mount pre-eq, field dynamics-processing-eq
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreEqByChannelIndex|
+    drive factor, share channel-index
+    drive factor, share pre-eq
+    raise build, field unit

@@ -1,0 +1,20 @@
+
+force build-file-already-exists-exception
+  mount file, field string
+
+  cause invoke-constructor
+    drive constructor, |FileAlreadyExistsException|
+    drive factor, share file
+    throw build, field file-already-exists-exception
+
+force build-file-already-exists-exception
+  mount file, field string
+  mount other, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |FileAlreadyExistsException|
+    drive factor, share file
+    drive factor, share other
+    drive factor, share reason
+    throw build, field file-already-exists-exception

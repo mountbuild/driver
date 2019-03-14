@@ -1,0 +1,301 @@
+
+force build-fork-join-task
+  cause invoke-constructor
+    drive constructor, |ForkJoinTask|
+    throw build, field fork-join-task
+
+force adapt
+  mount build, field fork-join-task
+  mount runnable, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |adapt|
+    drive factor, share runnable
+    throw build, field fork-join-task
+
+force adapt
+  mount build, field fork-join-task
+  mount runnable, field runnable
+  mount result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |adapt|
+    drive factor, share runnable
+    drive factor, share result
+    throw build, field fork-join-task
+
+force adapt
+  mount build, field fork-join-task
+  mount callable, field callable-out-t
+
+  cause call-method
+    drive object, share build
+    drive method, |adapt|
+    drive factor, share callable
+    throw build, field fork-join-task
+
+force cancel
+  mount build, field fork-join-task
+  mount may-interrupt-if-running, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share may-interrupt-if-running
+    throw build, field boolean
+
+force compare-and-set-fork-join-task-tag
+  mount build, field fork-join-task
+  mount expect, field short
+  mount update, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSetForkJoinTaskTag|
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean
+
+force complete
+  mount build, field fork-join-task
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |complete|
+    drive factor, share value
+    throw build, field unit
+
+force complete-exceptionally
+  mount build, field fork-join-task
+  mount ex, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |completeExceptionally|
+    drive factor, share ex
+    throw build, field unit
+
+force fork
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |fork|
+    throw build, field fork-join-task
+
+force get
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field v
+
+force get
+  mount build, field fork-join-task
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field v
+
+force get-exception
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getException|
+    throw build, field throwable
+
+force get-fork-join-task-tag
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getForkJoinTaskTag|
+    throw build, field short
+
+force get-pool
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getPool|
+    throw build, field fork-join-pool
+
+force get-queued-task-count
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueuedTaskCount|
+    throw build, field int
+
+force get-raw-result
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawResult|
+    throw build, field v
+
+force get-surplus-queued-task-count
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurplusQueuedTaskCount|
+    throw build, field int
+
+force help-quiesce
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |helpQuiesce|
+    throw build, field unit
+
+force in-fork-join-pool
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |inForkJoinPool|
+    throw build, field boolean
+
+force invoke
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |invoke|
+    throw build, field v
+
+force invoke-all
+  mount build, field fork-join-task
+  mount t1, field fork-join-task
+  mount t2, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share t1
+    drive factor, share t2
+    throw build, field unit
+
+force invoke-all
+  mount build, field fork-join-task
+  mount vararg-tasks, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share vararg-tasks
+    throw build, field unit
+
+force invoke-all
+  mount build, field fork-join-task
+  mount tasks, field mutable-collection-t
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share tasks
+    throw build, field mutable-collection
+
+force is-cancelled
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isCancelled|
+    throw build, field boolean
+
+force is-completed-abnormally
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isCompletedAbnormally|
+    throw build, field boolean
+
+force is-completed-normally
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isCompletedNormally|
+    throw build, field boolean
+
+force is-done
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isDone|
+    throw build, field boolean
+
+force join
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    throw build, field v
+
+force quietly-complete
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |quietlyComplete|
+    throw build, field unit
+
+force quietly-invoke
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |quietlyInvoke|
+    throw build, field unit
+
+force quietly-join
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |quietlyJoin|
+    throw build, field unit
+
+force reinitialize
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |reinitialize|
+    throw build, field unit
+
+force set-fork-join-task-tag
+  mount build, field fork-join-task
+  mount new-value, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setForkJoinTaskTag|
+    drive factor, share new-value
+    throw build, field short
+
+force try-unfork
+  mount build, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |tryUnfork|
+    throw build, field boolean

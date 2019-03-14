@@ -1,0 +1,206 @@
+
+force build-tab-host
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |TabHost|
+    drive factor, share context
+    throw build, field tab-host
+
+force build-tab-host
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TabHost|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field tab-host
+
+force build-tab-host
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |TabHost|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field tab-host
+
+force build-tab-host
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |TabHost|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field tab-host
+
+force add-tab
+  mount build, field tab-host
+  mount tab-spec, field tab-host-tab-spec
+
+  cause call-method
+    drive object, share build
+    drive method, |addTab|
+    drive factor, share tab-spec
+    throw build, field unit
+
+force clear-all-tabs
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |clearAllTabs|
+    throw build, field unit
+
+force dispatch-key-event
+  mount build, field tab-host
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchKeyEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force dispatch-window-focus-changed
+  mount build, field tab-host
+  mount has-focus, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchWindowFocusChanged|
+    drive factor, share has-focus
+    throw build, field unit
+
+force get-accessibility-class-name
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force get-current-tab
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentTab|
+    throw build, field int
+
+force get-current-tab-tag
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentTabTag|
+    throw build, field string
+
+force get-current-tab-view
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentTabView|
+    throw build, field view
+
+force get-current-view
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentView|
+    throw build, field view
+
+force get-tab-content-view
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getTabContentView|
+    throw build, field frame-layout
+
+force get-tab-widget
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getTabWidget|
+    throw build, field tab-widget
+
+force new-tab-spec
+  mount build, field tab-host
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newTabSpec|
+    drive factor, share tag
+    throw build, field tab-host-tab-spec
+
+force on-touch-mode-changed
+  mount build, field tab-host
+  mount is-in-touch-mode, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchModeChanged|
+    drive factor, share is-in-touch-mode
+    throw build, field unit
+
+force set-current-tab
+  mount build, field tab-host
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrentTab|
+    drive factor, share index
+    throw build, field unit
+
+force set-current-tab-by-tag
+  mount build, field tab-host
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setCurrentTabByTag|
+    drive factor, share tag
+    throw build, field unit
+
+force set-on-tab-changed-listener
+  mount build, field tab-host
+  mount l, field tab-host-on-tab-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnTabChangedListener|
+    drive factor, share l
+    throw build, field unit
+
+force setup
+  mount build, field tab-host
+
+  cause call-method
+    drive object, share build
+    drive method, |setup|
+    throw build, field unit
+
+force setup
+  mount build, field tab-host
+  mount activity-group, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |setup|
+    drive factor, share activity-group
+    throw build, field unit

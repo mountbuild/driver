@@ -1,0 +1,161 @@
+
+force get-action-qs-tile
+  mount build, field tile-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_QS_TILE|
+    raise build, field string
+
+force get-action-qs-tile-preferences
+  mount build, field tile-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_QS_TILE_PREFERENCES|
+    raise build, field string
+
+force get-meta-data-active-tile
+  mount build, field tile-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_ACTIVE_TILE|
+    raise build, field string
+
+force get-meta-data-toggleable-tile
+  mount build, field tile-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_TOGGLEABLE_TILE|
+    raise build, field string
+
+force build-tile-service
+  cause invoke-constructor
+    drive constructor, |TileService|
+    raise build, field tile-service
+
+force get-qs-tile
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getQsTile|
+    raise build, field tile
+
+force is-locked
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isLocked|
+    raise build, field boolean
+
+force is-secure
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |isSecure|
+    raise build, field boolean
+
+force on-bind
+  mount build, field tile-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-click
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onClick|
+    raise build, field unit
+
+force on-destroy
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    raise build, field unit
+
+force on-start-listening
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartListening|
+    raise build, field unit
+
+force on-stop-listening
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopListening|
+    raise build, field unit
+
+force on-tile-added
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onTileAdded|
+    raise build, field unit
+
+force on-tile-removed
+  mount build, field tile-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onTileRemoved|
+    raise build, field unit
+
+force request-listening-state
+  mount build, field tile-service
+  mount context, field context
+  mount component, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |requestListeningState|
+    drive factor, share context
+    drive factor, share component
+    raise build, field unit
+
+force show-dialog
+  mount build, field tile-service
+  mount dialog, field dialog
+
+  cause call-method
+    drive object, share build
+    drive method, |showDialog|
+    drive factor, share dialog
+    raise build, field unit
+
+force start-activity-and-collapse
+  mount build, field tile-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivityAndCollapse|
+    drive factor, share intent
+    raise build, field unit
+
+force unlock-and-run
+  mount build, field tile-service
+  mount runnable, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockAndRun|
+    drive factor, share runnable
+    raise build, field unit

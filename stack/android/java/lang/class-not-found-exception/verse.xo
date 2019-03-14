@@ -1,0 +1,31 @@
+
+force build-class-not-found-exception
+  cause invoke-constructor
+    drive constructor, |ClassNotFoundException|
+    throw build, field class-not-found-exception
+
+force build-class-not-found-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |ClassNotFoundException|
+    drive factor, share s
+    throw build, field class-not-found-exception
+
+force build-class-not-found-exception
+  mount s, field string
+  mount ex, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ClassNotFoundException|
+    drive factor, share s
+    drive factor, share ex
+    throw build, field class-not-found-exception
+
+force get-exception
+  mount build, field class-not-found-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getException|
+    throw build, field throwable

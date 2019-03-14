@@ -1,0 +1,325 @@
+
+force get-appearing
+  mount build, field layout-transition
+
+  cause get-property
+    drive object, share build
+    drive property, |APPEARING|
+    throw build, field int
+
+force get-change-appearing
+  mount build, field layout-transition
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANGE_APPEARING|
+    throw build, field int
+
+force get-change-disappearing
+  mount build, field layout-transition
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANGE_DISAPPEARING|
+    throw build, field int
+
+force get-changing
+  mount build, field layout-transition
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANGING|
+    throw build, field int
+
+force get-disappearing
+  mount build, field layout-transition
+
+  cause get-property
+    drive object, share build
+    drive property, |DISAPPEARING|
+    throw build, field int
+
+force build-layout-transition
+  cause invoke-constructor
+    drive constructor, |LayoutTransition|
+    throw build, field layout-transition
+
+force add-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |addChild|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field unit
+
+force add-transition-listener
+  mount build, field layout-transition
+  mount listener, field layout-transition-transition-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addTransitionListener|
+    drive factor, share listener
+    throw build, field unit
+
+force disable-transition-type
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |disableTransitionType|
+    drive factor, share transition-type
+    throw build, field unit
+
+force enable-transition-type
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |enableTransitionType|
+    drive factor, share transition-type
+    throw build, field unit
+
+force get-animator
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnimator|
+    drive factor, share transition-type
+    throw build, field animator
+
+force get-duration
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuration|
+    drive factor, share transition-type
+    throw build, field long
+
+force get-interpolator
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolator|
+    drive factor, share transition-type
+    throw build, field time-interpolator
+
+force get-stagger
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStagger|
+    drive factor, share transition-type
+    throw build, field long
+
+force get-start-delay
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartDelay|
+    drive factor, share transition-type
+    throw build, field long
+
+force get-transition-listeners
+  mount build, field layout-transition
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionListeners|
+    throw build, field mutable-list
+
+force hide-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |hideChild|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field unit
+
+force hide-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+  mount new-visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hideChild|
+    drive factor, share parent
+    drive factor, share child
+    drive factor, share new-visibility
+    throw build, field unit
+
+force is-changing-layout
+  mount build, field layout-transition
+
+  cause call-method
+    drive object, share build
+    drive method, |isChangingLayout|
+    throw build, field boolean
+
+force is-running
+  mount build, field layout-transition
+
+  cause call-method
+    drive object, share build
+    drive method, |isRunning|
+    throw build, field boolean
+
+force is-transition-type-enabled
+  mount build, field layout-transition
+  mount transition-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isTransitionTypeEnabled|
+    drive factor, share transition-type
+    throw build, field boolean
+
+force remove-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeChild|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field unit
+
+force remove-transition-listener
+  mount build, field layout-transition
+  mount listener, field layout-transition-transition-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTransitionListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-animate-parent-hierarchy
+  mount build, field layout-transition
+  mount animate-parent-hierarchy, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAnimateParentHierarchy|
+    drive factor, share animate-parent-hierarchy
+    throw build, field unit
+
+force set-animator
+  mount build, field layout-transition
+  mount transition-type, field int
+  mount animator, field animator
+
+  cause call-method
+    drive object, share build
+    drive method, |setAnimator|
+    drive factor, share transition-type
+    drive factor, share animator
+    throw build, field unit
+
+force set-duration
+  mount build, field layout-transition
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setDuration|
+    drive factor, share duration
+    throw build, field unit
+
+force set-duration
+  mount build, field layout-transition
+  mount transition-type, field int
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setDuration|
+    drive factor, share transition-type
+    drive factor, share duration
+    throw build, field unit
+
+force set-interpolator
+  mount build, field layout-transition
+  mount transition-type, field int
+  mount interpolator, field time-interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterpolator|
+    drive factor, share transition-type
+    drive factor, share interpolator
+    throw build, field unit
+
+force set-stagger
+  mount build, field layout-transition
+  mount transition-type, field int
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setStagger|
+    drive factor, share transition-type
+    drive factor, share duration
+    throw build, field unit
+
+force set-start-delay
+  mount build, field layout-transition
+  mount transition-type, field int
+  mount delay, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartDelay|
+    drive factor, share transition-type
+    drive factor, share delay
+    throw build, field unit
+
+force show-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |showChild|
+    drive factor, share parent
+    drive factor, share child
+    throw build, field unit
+
+force show-child
+  mount build, field layout-transition
+  mount parent, field view-group
+  mount child, field view
+  mount old-visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showChild|
+    drive factor, share parent
+    drive factor, share child
+    drive factor, share old-visibility
+    throw build, field unit

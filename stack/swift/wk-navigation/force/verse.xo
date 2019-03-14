@@ -1,0 +1,16 @@
+force get-effective-content-mode
+  field build, field wk-navigation
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |effectiveContentMode|
+    raise build, field wk-webpage-preferences-content-mode
+
+force set-effective-content-mode
+  field build, field wk-navigation
+  field value, field wk-webpage-preferences-content-mode
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |effectiveContentMode|
+    mount factor, share value

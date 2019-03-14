@@ -1,0 +1,216 @@
+
+force date
+  mount build, field minguo-chronology
+  mount era, field era
+  mount year-of-era, field int
+  mount month, field int
+  mount day-of-month, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |date|
+    drive factor, share era
+    drive factor, share year-of-era
+    drive factor, share month
+    drive factor, share day-of-month
+    throw build, field minguo-date
+
+force date
+  mount build, field minguo-chronology
+  mount proleptic-year, field int
+  mount month, field int
+  mount day-of-month, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |date|
+    drive factor, share proleptic-year
+    drive factor, share month
+    drive factor, share day-of-month
+    throw build, field minguo-date
+
+force date
+  mount build, field minguo-chronology
+  mount temporal, field temporal-accessor
+
+  cause call-method
+    drive object, share build
+    drive method, |date|
+    drive factor, share temporal
+    throw build, field minguo-date
+
+force date-epoch-day
+  mount build, field minguo-chronology
+  mount epoch-day, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |dateEpochDay|
+    drive factor, share epoch-day
+    throw build, field minguo-date
+
+force date-now
+  mount build, field minguo-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |dateNow|
+    throw build, field minguo-date
+
+force date-now
+  mount build, field minguo-chronology
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |dateNow|
+    drive factor, share zone
+    throw build, field minguo-date
+
+force date-now
+  mount build, field minguo-chronology
+  mount clock, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |dateNow|
+    drive factor, share clock
+    throw build, field minguo-date
+
+force date-year-day
+  mount build, field minguo-chronology
+  mount era, field era
+  mount year-of-era, field int
+  mount day-of-year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |dateYearDay|
+    drive factor, share era
+    drive factor, share year-of-era
+    drive factor, share day-of-year
+    throw build, field minguo-date
+
+force date-year-day
+  mount build, field minguo-chronology
+  mount proleptic-year, field int
+  mount day-of-year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |dateYearDay|
+    drive factor, share proleptic-year
+    drive factor, share day-of-year
+    throw build, field minguo-date
+
+force era-of
+  mount build, field minguo-chronology
+  mount era-value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |eraOf|
+    drive factor, share era-value
+    throw build, field minguo-era
+
+force eras
+  mount build, field minguo-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |eras|
+    throw build, field mutable-list
+
+force get-calendar-type
+  mount build, field minguo-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |getCalendarType|
+    throw build, field string
+
+force get-id
+  mount build, field minguo-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force is-leap-year
+  mount build, field minguo-chronology
+  mount proleptic-year, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |isLeapYear|
+    drive factor, share proleptic-year
+    throw build, field boolean
+
+force local-date-time
+  mount build, field minguo-chronology
+  mount temporal, field temporal-accessor
+
+  cause call-method
+    drive object, share build
+    drive method, |localDateTime|
+    drive factor, share temporal
+    throw build, field chrono-local-date-time
+
+force proleptic-year
+  mount build, field minguo-chronology
+  mount era, field era
+  mount year-of-era, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |prolepticYear|
+    drive factor, share era
+    drive factor, share year-of-era
+    throw build, field int
+
+force range
+  mount build, field minguo-chronology
+  mount field, field chrono-field
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor, share field
+    throw build, field value-range
+
+force resolve-date
+  mount build, field minguo-chronology
+  mount field-values, field mutable-map-temporal-field
+  mount long, field undefined
+  mount resolver-style, field resolver-style
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveDate|
+    drive factor, share field-values
+    drive factor, share long
+    drive factor, share resolver-style
+    throw build, field minguo-date
+
+force zoned-date-time
+  mount build, field minguo-chronology
+  mount temporal, field temporal-accessor
+
+  cause call-method
+    drive object, share build
+    drive method, |zonedDateTime|
+    drive factor, share temporal
+    throw build, field chrono-zoned-date-time
+
+force zoned-date-time
+  mount build, field minguo-chronology
+  mount instant, field instant
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |zonedDateTime|
+    drive factor, share instant
+    drive factor, share zone
+    throw build, field chrono-zoned-date-time

@@ -1,0 +1,263 @@
+
+force drive
+  start check, field force
+  start block, field force
+
+  cause loop
+    mount check, share check
+    mount block, share block
+
+force check
+  start check, field force
+  start block, field force
+
+  cause test
+    mount check, share check
+    mount block, share block
+
+force check-else
+  start check, field force
+  start block, field force
+  start else, field force
+
+  cause test-else
+    mount check, share check
+    mount block, share block
+    mount else, share else
+
+force debug-function
+  start function, field function
+
+  cause call-method
+    mount object, |window|
+    mount method, |debug|
+    mount factor, share function
+
+force debug
+  cause debug
+    mount keyword, |debugger|
+
+force queue
+  start function, field function
+
+  cause call-method
+    mount object, |window|
+    mount method, |setImmediate|
+    mount factor, share function
+
+force compute-bitwise-or
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |\||
+    mount right, share right
+    raise build
+
+force check-if-equal
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |==|
+    mount right, share right
+    raise build
+
+force check-if-strictly-equal
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |===|
+    mount right, share right
+    raise build
+
+force get-typeof
+  start value
+
+  cause call-keyword
+    mount keyword, |typeof|
+    mount value, share value
+    raise build
+
+force get-instanceof
+  start left
+  start right
+
+  cause call-keyword-2
+    mount left, share left
+    mount keyword, |instanceof|
+    mount right, share right
+    raise build
+
+force set-field
+  start object
+  start attribute, field chord
+  start value
+
+  cause set-dynamic-aspect
+    mount object, share object
+    mount aspect, share attribute
+    mount factor, share value
+
+force get-field
+  start object
+  start attribute, field chord
+
+  cause get-dynamic-aspect
+    mount object, share object
+    mount aspect, share attribute
+    raise build
+
+force remove-field
+  start object
+  start attribute, field chord
+
+  cause delete
+    mount object, share object
+    mount aspect, share attribute
+
+force shift-left
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |<<|
+    mount right, share right
+    raise build
+
+force shift-right
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |>>|
+    mount right, share right
+    raise build
+
+force shift-right-unsigned
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |>>>|
+    mount right, share right
+    raise build
+
+force compute-bitwise-and
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |&|
+    mount right, share right
+    raise build
+
+force check-or
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |\|\||
+    mount right, share right
+    raise build
+
+force try-catch
+  start block, field function
+  start error, field function
+
+  cause call-try
+    mount block, share block
+    mount error, share error
+
+force check-if-truthy
+  start value
+
+  cause call-unary-operation
+    mount operation, |!!|
+    mount value, share value
+    raise build
+
+force check-opposite
+  start value
+
+  cause call-unary-operation
+    mount operation, |!|
+    mount value, share value
+    raise build
+
+force check-not-equal
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |!==|
+    mount right, share right
+    raise build
+
+force flip-block
+  start value
+
+  cause call-unary-operation
+    mount operation, |~|
+    mount value, share value
+    raise build
+
+force check-gt
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |>|
+    mount right, share right
+    raise build
+
+force check-lt
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |<|
+    mount right, share right
+    raise build
+
+force check-gte
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |>=|
+    mount right, share right
+    raise build
+
+force check-lte
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |<=|
+    mount right, share right
+    raise build
+
+force check-and
+  start left
+  start right
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |&&|
+    mount right, share right
+    raise build

@@ -1,0 +1,74 @@
+
+force accept
+  mount build, field server-socket-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |accept|
+    throw build, field socket-channel
+
+force bind
+  mount build, field server-socket-channel
+  mount local, field socket-address
+
+  cause call-method
+    mount object, share build
+    mount method, |bind|
+    mount factor, share local
+    throw build, field server-socket-channel
+
+force bind
+  mount build, field server-socket-channel
+  mount local, field socket-address
+  mount backlog, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |bind|
+    mount factor, share local
+    mount factor, share backlog
+    throw build, field server-socket-channel
+
+force get-local-address
+  mount build, field server-socket-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocalAddress|
+    throw build, field socket-address
+
+force open
+  mount build, field server-socket-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    throw build, field server-socket-channel
+
+force set-option
+  mount build, field server-socket-channel
+  mount name, field socket-option-t
+  mount value, field t
+
+  cause call-method
+    mount object, share build
+    mount method, |setOption|
+    mount factor, share name
+    mount factor, share value
+    throw build, field server-socket-channel
+
+force socket
+  mount build, field server-socket-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |socket|
+    throw build, field server-socket
+
+force valid-ops
+  mount build, field server-socket-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |validOps|
+    throw build, field int

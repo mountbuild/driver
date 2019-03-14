@@ -1,0 +1,31 @@
+
+force build-signature-exception
+  cause invoke-constructor
+    mount constructor, |SignatureException|
+    throw build, field signature-exception
+
+force build-signature-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |SignatureException|
+    mount factor, share msg
+    throw build, field signature-exception
+
+force build-signature-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SignatureException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field signature-exception
+
+force build-signature-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SignatureException|
+    mount factor, share cause
+    throw build, field signature-exception

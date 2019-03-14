@@ -1,0 +1,162 @@
+
+force build-carrier-identifier
+  mount mcc, field string
+  mount mnc, field string
+  mount spn, field string
+  mount imsi, field string
+  mount gid1, field string
+  mount gid2, field string
+
+  cause invoke-constructor
+    drive constructor, |CarrierIdentifier|
+    drive factor, share mcc
+    drive factor, share mnc
+    drive factor, share spn
+    drive factor, share imsi
+    drive factor, share gid1
+    drive factor, share gid2
+    raise build, field carrier-identifier
+
+force build-carrier-identifier
+  mount mcc, field string
+  mount mnc, field string
+  mount spn, field string
+  mount imsi, field string
+  mount gid1, field string
+  mount gid2, field string
+  mount carrierid, field int
+  mount specific-carrier-id, field int
+
+  cause invoke-constructor
+    drive constructor, |CarrierIdentifier|
+    drive factor, share mcc
+    drive factor, share mnc
+    drive factor, share spn
+    drive factor, share imsi
+    drive factor, share gid1
+    drive factor, share gid2
+    drive factor, share carrierid
+    drive factor, share specific-carrier-id
+    raise build, field carrier-identifier
+
+force build-carrier-identifier
+  mount mcc-mnc, field byte-array
+  mount gid1, field string
+  mount gid2, field string
+
+  cause invoke-constructor
+    drive constructor, |CarrierIdentifier|
+    drive factor, share mcc-mnc
+    drive factor, share gid1
+    drive factor, share gid2
+    raise build, field carrier-identifier
+
+force describe-contents
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field carrier-identifier
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-carrier-id
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getCarrierId|
+    raise build, field int
+
+force get-gid1
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getGid1|
+    raise build, field string
+
+force get-gid2
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getGid2|
+    raise build, field string
+
+force get-imsi
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getImsi|
+    raise build, field string
+
+force get-mcc
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getMcc|
+    raise build, field string
+
+force get-mnc
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getMnc|
+    raise build, field string
+
+force get-specific-carrier-id
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpecificCarrierId|
+    raise build, field int
+
+force get-spn
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpn|
+    raise build, field string
+
+force hash-code
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-string
+  mount build, field carrier-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field carrier-identifier
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

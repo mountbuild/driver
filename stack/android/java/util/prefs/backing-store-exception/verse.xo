@@ -1,0 +1,16 @@
+
+force build-backing-store-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |BackingStoreException|
+    drive factor, share s
+    throw build, field backing-store-exception
+
+force build-backing-store-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |BackingStoreException|
+    drive factor, share cause
+    throw build, field backing-store-exception

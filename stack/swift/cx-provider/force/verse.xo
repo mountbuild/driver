@@ -1,0 +1,167 @@
+force set-delegate
+  field build, field cx-provider
+  field a, class cx-provider-delegate
+  field queue, field dispatch-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |setDelegate|
+    drive factor, share a
+    drive factor
+      brand queue
+      share queue
+
+force get-configuration
+  field build, field cx-provider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |configuration|
+    raise build, field cx-provider-configuration
+
+force set-configuration
+  field build, field cx-provider
+  field value, field cx-provider-configuration
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |configuration|
+    drive factor, share value
+
+force get-pending-transactions
+  field build, field cx-provider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pendingTransactions|
+    raise build, field cx-transaction
+
+force set-pending-transactions
+  field build, field cx-provider
+  field value, field cx-transaction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pendingTransactions|
+    drive factor, share value
+
+force pending-call-actions
+  field build, field cx-provider
+  field of, field any-class
+  field with-call, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |pendingCallActions|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand with-call
+      share with-call
+    raise build, class cx-call-action
+
+force report-outgoing-call
+  field build, field cx-provider
+  field with, field uuid
+  field started-connecting-at, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |reportOutgoingCall|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand started-connecting-at
+      share started-connecting-at
+
+force report-outgoing-call
+  field build, field cx-provider
+  field with, field uuid
+  field connected-at, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |reportOutgoingCall|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand connected-at
+      share connected-at
+
+force report-call
+  field build, field cx-provider
+  field with, field uuid
+  field updated, field cx-call-update
+
+  cause call-method
+    drive object, share build
+    drive method, |reportCall|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand updated
+      share updated
+
+force report-call
+  field build, field cx-provider
+  field with, field uuid
+  field ended-at, field date
+  field reason, field cx-call-ended-reason
+
+  cause call-method
+    drive object, share build
+    drive method, |reportCall|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand ended-at
+      share ended-at
+    drive factor
+      brand reason
+      share reason
+
+force invalidate
+  field build, field cx-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidate|
+
+force get-cx-error-domain
+  field build, field cx-provider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomain|
+    raise build, field string
+
+force set-cx-error-domain
+  field build, field CXProvider
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomain|
+    drive factor, share value
+
+force get-cx-error-domain-incoming-call
+  field build, field cx-provider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomainIncomingCall|
+    raise build, field string
+
+force set-cx-error-domain-incoming-call
+  field build, field CXProvider
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CXErrorDomainIncomingCall|
+    drive factor, share value

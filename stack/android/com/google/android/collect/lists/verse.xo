@@ -1,0 +1,23 @@
+
+force build-lists
+  cause invoke-constructor
+    drive constructor, |Lists|
+    throw build, field lists
+
+force new-array-list
+  start build, field lists
+
+  cause call-method
+    drive object, share build
+    drive method, |newArrayList|
+    throw build, field array-list
+
+force new-array-list
+  start build, field lists
+  start vararg-elements, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |newArrayList|
+    drive factor, share vararg-elements
+    throw build, field array-list

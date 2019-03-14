@@ -1,0 +1,139 @@
+force remove-event-handler
+  field build, field ns-apple-event-manager
+  field for-event-class, field ae-event-class
+  field and-event-id, field ae-event-id
+
+  cause call-method
+    mount object, share build
+    mount method, |removeEventHandler|
+    mount factor
+      brand for-event-class
+      share for-event-class
+    mount factor
+      brand and-event-id
+      share and-event-id
+
+force set-event-handler
+  field build, field ns-apple-event-manager
+  field a, class any
+  field and-selector, field selector
+  field for-event-class, field ae-event-class
+  field and-event-id, field ae-event-id
+
+  cause call-method
+    mount object, share build
+    mount method, |setEventHandler|
+    mount factor, share a
+    mount factor
+      brand and-selector
+      share and-selector
+    mount factor
+      brand for-event-class
+      share for-event-class
+    mount factor
+      brand and-event-id
+      share and-event-id
+
+force dispatch-raw-apple-event
+  field build, field ns-apple-event-manager
+  field a, class unsafe-pointer-apple-event
+  field with-raw-reply, field unsafe-mutable-pointer-apple-event
+  field handler-ref-con, field s-ref-con
+
+  cause call-method
+    mount object, share build
+    mount method, |dispatchRawAppleEvent|
+    mount factor, share a
+    mount factor
+      brand with-raw-reply
+      share with-raw-reply
+    mount factor
+      brand handler-ref-con
+      share handler-ref-con
+    raise build, class os-err
+
+force apple-event
+  field build, field ns-apple-event-manager
+  field for-suspension-id, field ns-apple-event-manager-suspension-id
+
+  cause call-method
+    mount object, share build
+    mount method, |appleEvent|
+    mount factor
+      brand for-suspension-id
+      share for-suspension-id
+    raise build, class ns-apple-event-descriptor
+
+force get-current-apple-event
+  field build, field ns-apple-event-manager
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentAppleEvent|
+    raise build, field ns-apple-event-descriptor
+
+force set-current-apple-event
+  field build, field ns-apple-event-manager
+  field value, field ns-apple-event-descriptor
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |currentAppleEvent|
+    mount factor, share value
+
+force get-current-reply-apple-event
+  field build, field ns-apple-event-manager
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentReplyAppleEvent|
+    raise build, field ns-apple-event-descriptor
+
+force set-current-reply-apple-event
+  field build, field ns-apple-event-manager
+  field value, field ns-apple-event-descriptor
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |currentReplyAppleEvent|
+    mount factor, share value
+
+force reply-apple-event
+  field build, field ns-apple-event-manager
+  field for-suspension-id, field ns-apple-event-manager-suspension-id
+
+  cause call-method
+    mount object, share build
+    mount method, |replyAppleEvent|
+    mount factor
+      brand for-suspension-id
+      share for-suspension-id
+    raise build, class ns-apple-event-descriptor
+
+force resume
+  field build, field ns-apple-event-manager
+  field with-suspension-id, field ns-apple-event-manager-suspension-id
+
+  cause call-method
+    mount object, share build
+    mount method, |resume|
+    mount factor
+      brand with-suspension-id
+      share with-suspension-id
+
+force set-current-apple-event-and-reply-event-with-suspension-id
+  field build, field ns-apple-event-manager
+  field a, class ns-apple-event-manager-suspension-id
+
+  cause call-method
+    mount object, share build
+    mount method, |setCurrentAppleEventAndReplyEventWithSuspensionID|
+    mount factor, share a
+
+force suspend-current-apple-event
+  field build, field ns-apple-event-manager
+
+  cause call-method
+    mount object, share build
+    mount method, |suspendCurrentAppleEvent|
+    raise build, class ns-apple-event-manager-suspension-id

@@ -1,0 +1,114 @@
+
+force get-add-contact-result
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Contacts.Provider.AddContactResult|
+
+force build-contact-picker-u-i
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.Provider.ContactPickerUI|
+
+force add-contact
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start id, field system-string
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |AddContact|
+    drive factor, share id
+    drive factor, share contact
+
+force add-contact
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start contact, field windows-applicationmodel-contacts-contact
+
+  cause call-method
+    drive object, share build
+    drive method, |AddContact|
+    drive factor, share contact
+
+force contains-contact
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ContainsContact|
+    drive factor, share id
+
+force get-desired-fields
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+
+force set-desired-fields
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredFields|
+    drive factor, share value
+
+force get-desired-fields-with-contact-field-type
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesiredFieldsWithContactFieldType|
+
+force set-desired-fields-with-contact-field-type
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesiredFieldsWithContactFieldType|
+    drive factor, share value
+
+force remove-contact
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveContact|
+    drive factor, share id
+
+force get-selection-mode
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SelectionMode|
+
+force set-selection-mode
+  start build, field windows-applicationmodel-contacts-provider-contactpickerui
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SelectionMode|
+    drive factor, share value
+
+force build-contact-removed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs|
+
+force get-id
+  start build, field windows-applicationmodel-contacts-provider-contactremovedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-applicationmodel-contacts-provider-contactremovedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value

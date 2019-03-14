@@ -1,0 +1,20 @@
+
+force build-no-such-file-exception
+  mount file, field string
+
+  cause invoke-constructor
+    drive constructor, |NoSuchFileException|
+    drive factor, share file
+    throw build, field no-such-file-exception
+
+force build-no-such-file-exception
+  mount file, field string
+  mount other, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |NoSuchFileException|
+    drive factor, share file
+    drive factor, share other
+    drive factor, share reason
+    throw build, field no-such-file-exception

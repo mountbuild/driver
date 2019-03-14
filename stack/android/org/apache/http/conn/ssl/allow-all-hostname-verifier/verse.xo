@@ -1,0 +1,27 @@
+
+force build-allow-all-hostname-verifier
+  cause invoke-constructor
+    drive constructor, |AllowAllHostnameVerifier|
+    throw build, field allow-all-hostname-verifier
+
+force to-string
+  mount build, field allow-all-hostname-verifier
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force verify
+  mount build, field allow-all-hostname-verifier
+  mount host, field string
+  mount cns, field array-string
+  mount subject-alts, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |verify|
+    drive factor, share host
+    drive factor, share cns
+    drive factor, share subject-alts
+    throw build, field unit

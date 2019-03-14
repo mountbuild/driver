@@ -1,0 +1,62 @@
+
+force get-subscribe-type-active
+  mount build, field subscribe-config
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBSCRIBE_TYPE_ACTIVE|
+    throw build, field int
+
+force get-subscribe-type-passive
+  mount build, field subscribe-config
+
+  cause get-property
+    drive object, share build
+    drive property, |SUBSCRIBE_TYPE_PASSIVE|
+    throw build, field int
+
+force describe-contents
+  mount build, field subscribe-config
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field subscribe-config
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field subscribe-config
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field subscribe-config
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field subscribe-config
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,260 @@
+
+force build-cursor-tree-adapter
+  mount cursor, field cursor
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |CursorTreeAdapter|
+    drive factor, share cursor
+    drive factor, share context
+    throw build, field cursor-tree-adapter
+
+force build-cursor-tree-adapter
+  mount cursor, field cursor
+  mount context, field context
+  mount auto-requery, field boolean
+
+  cause invoke-constructor
+    drive constructor, |CursorTreeAdapter|
+    drive factor, share cursor
+    drive factor, share context
+    drive factor, share auto-requery
+    throw build, field cursor-tree-adapter
+
+force change-cursor
+  mount build, field cursor-tree-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |changeCursor|
+    drive factor, share cursor
+    throw build, field unit
+
+force convert-to-string
+  mount build, field cursor-tree-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToString|
+    drive factor, share cursor
+    throw build, field string
+
+force get-child
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount child-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChild|
+    drive factor, share group-position
+    drive factor, share child-position
+    throw build, field cursor
+
+force get-child-id
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount child-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChildId|
+    drive factor, share group-position
+    drive factor, share child-position
+    throw build, field long
+
+force get-child-view
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount child-position, field int
+  mount is-last-child, field boolean
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getChildView|
+    drive factor, share group-position
+    drive factor, share child-position
+    drive factor, share is-last-child
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-children-count
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChildrenCount|
+    drive factor, share group-position
+    throw build, field int
+
+force get-cursor
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCursor|
+    throw build, field cursor
+
+force get-filter
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilter|
+    throw build, field filter
+
+force get-filter-query-provider
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilterQueryProvider|
+    throw build, field filter-query-provider
+
+force get-group
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroup|
+    drive factor, share group-position
+    throw build, field cursor
+
+force get-group-count
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroupCount|
+    throw build, field int
+
+force get-group-id
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroupId|
+    drive factor, share group-position
+    throw build, field long
+
+force get-group-view
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount is-expanded, field boolean
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroupView|
+    drive factor, share group-position
+    drive factor, share is-expanded
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force has-stable-ids
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |hasStableIds|
+    throw build, field boolean
+
+force is-child-selectable
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount child-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isChildSelectable|
+    drive factor, share group-position
+    drive factor, share child-position
+    throw build, field boolean
+
+force notify-data-set-changed
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDataSetChanged|
+    throw build, field unit
+
+force notify-data-set-changed
+  mount build, field cursor-tree-adapter
+  mount release-cursors, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDataSetChanged|
+    drive factor, share release-cursors
+    throw build, field unit
+
+force notify-data-set-invalidated
+  mount build, field cursor-tree-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDataSetInvalidated|
+    throw build, field unit
+
+force on-group-collapsed
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onGroupCollapsed|
+    drive factor, share group-position
+    throw build, field unit
+
+force run-query-on-background-thread
+  mount build, field cursor-tree-adapter
+  mount constraint, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |runQueryOnBackgroundThread|
+    drive factor, share constraint
+    throw build, field cursor
+
+force set-children-cursor
+  mount build, field cursor-tree-adapter
+  mount group-position, field int
+  mount children-cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |setChildrenCursor|
+    drive factor, share group-position
+    drive factor, share children-cursor
+    throw build, field unit
+
+force set-filter-query-provider
+  mount build, field cursor-tree-adapter
+  mount filter-query-provider, field filter-query-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |setFilterQueryProvider|
+    drive factor, share filter-query-provider
+    throw build, field unit
+
+force set-group-cursor
+  mount build, field cursor-tree-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |setGroupCursor|
+    drive factor, share cursor
+    throw build, field unit

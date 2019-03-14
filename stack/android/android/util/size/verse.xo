@@ -1,0 +1,62 @@
+
+force build-size
+  mount width, field int
+  mount height, field int
+
+  cause invoke-constructor
+    drive constructor, |Size|
+    drive factor, share width
+    drive factor, share height
+    throw build, field size
+
+force equals
+  mount build, field size
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-height
+  mount build, field size
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    throw build, field int
+
+force get-width
+  mount build, field size
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    throw build, field int
+
+force hash-code
+  mount build, field size
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force parse-size
+  mount build, field size
+  mount string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parseSize|
+    drive factor, share string
+    throw build, field size
+
+force to-string
+  mount build, field size
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

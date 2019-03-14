@@ -1,0 +1,56 @@
+
+force build-sequence-input-stream
+  mount e, field enumeration-out-input-stream
+
+  cause invoke-constructor
+    drive constructor, |SequenceInputStream|
+    drive factor, share e
+    throw build, field sequence-input-stream
+
+force build-sequence-input-stream
+  mount s1, field input-stream
+  mount s2, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |SequenceInputStream|
+    drive factor, share s1
+    drive factor, share s2
+    throw build, field sequence-input-stream
+
+force available
+  mount build, field sequence-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force close
+  mount build, field sequence-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force read
+  mount build, field sequence-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field sequence-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int

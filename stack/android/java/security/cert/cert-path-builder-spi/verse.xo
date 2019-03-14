@@ -1,0 +1,23 @@
+
+force build-cert-path-builder-spi
+  cause invoke-constructor
+    mount constructor, |CertPathBuilderSpi|
+    throw build, field cert-path-builder-spi
+
+force engine-build
+  mount build, field cert-path-builder-spi
+  mount params, field cert-path-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |engineBuild|
+    mount factor, share params
+    throw build, field cert-path-builder-result
+
+force engine-get-revocation-checker
+  mount build, field cert-path-builder-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetRevocationChecker|
+    throw build, field cert-path-checker

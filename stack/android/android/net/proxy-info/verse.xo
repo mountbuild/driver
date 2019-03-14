@@ -1,0 +1,122 @@
+
+force build-proxy-info
+  mount source, field proxy-info
+
+  cause invoke-constructor
+    drive constructor, |ProxyInfo|
+    drive factor, share source
+    throw build, field proxy-info
+
+force build-direct-proxy
+  mount build, field proxy-info
+  mount host, field string
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |buildDirectProxy|
+    drive factor, share host
+    drive factor, share port
+    throw build, field proxy-info
+
+force build-direct-proxy
+  mount build, field proxy-info
+  mount host, field string
+  mount port, field int
+  mount excl-list, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildDirectProxy|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share excl-list
+    throw build, field proxy-info
+
+force build-pac-proxy
+  mount build, field proxy-info
+  mount pac-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |buildPacProxy|
+    drive factor, share pac-uri
+    throw build, field proxy-info
+
+force build-pac-proxy
+  mount build, field proxy-info
+  mount pac-url, field uri
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |buildPacProxy|
+    drive factor, share pac-url
+    drive factor, share port
+    throw build, field proxy-info
+
+force equals
+  mount build, field proxy-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-exclusion-list
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getExclusionList|
+    throw build, field array
+
+force get-host
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    throw build, field string
+
+force get-pac-file-url
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPacFileUrl|
+    throw build, field uri
+
+force get-port
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force hash-code
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-valid
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isValid|
+    throw build, field boolean
+
+force to-string
+  mount build, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

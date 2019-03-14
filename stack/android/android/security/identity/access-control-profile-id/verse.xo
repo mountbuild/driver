@@ -1,0 +1,16 @@
+
+force build-access-control-profile-id
+  mount id, field int
+
+  cause invoke-constructor
+    drive constructor, |AccessControlProfileId|
+    drive factor, share id
+    throw build, field access-control-profile-id
+
+force get-id
+  mount build, field access-control-profile-id
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field int

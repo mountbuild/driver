@@ -1,0 +1,927 @@
+
+force build-concurrent-hash-map
+  cause invoke-constructor
+    drive constructor, |ConcurrentHashMap|
+    throw build, field concurrent-hash-map
+
+force build-concurrent-hash-map
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentHashMap|
+    drive factor, share initial-capacity
+    throw build, field concurrent-hash-map
+
+force build-concurrent-hash-map
+  mount m, field mutable-map-out-k
+  mount out-v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentHashMap|
+    drive factor, share m
+    drive factor, share out-v
+    throw build, field concurrent-hash-map
+
+force build-concurrent-hash-map
+  mount initial-capacity, field int
+  mount load-factor, field float
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentHashMap|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    throw build, field concurrent-hash-map
+
+force build-concurrent-hash-map
+  mount initial-capacity, field int
+  mount load-factor, field float
+  mount concurrency-level, field int
+
+  cause invoke-constructor
+    drive constructor, |ConcurrentHashMap|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    drive factor, share concurrency-level
+    throw build, field concurrent-hash-map
+
+force clear
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force compute
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount remapping-function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |compute|
+    drive factor, share key
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force compute-if-absent
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount mapping-function, field function-in-k
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |computeIfAbsent|
+    drive factor, share key
+    drive factor, share mapping-function
+    drive factor, share out-v
+    throw build, field v
+
+force compute-if-present
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount remapping-function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |computeIfPresent|
+    drive factor, share key
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force contains
+  mount build, field concurrent-hash-map
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share value
+    throw build, field boolean
+
+force contains-key
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-key
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-value
+  mount build, field concurrent-hash-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force contains-value
+  mount build, field concurrent-hash-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force elements
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |elements|
+    throw build, field enumeration
+
+force equals
+  mount build, field concurrent-hash-map
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force for-each
+  mount build, field concurrent-hash-map
+  mount action, field bi-consumer-in-k
+  mount in-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share action
+    drive factor, share in-v
+    throw build, field unit
+
+force for-each
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount action, field bi-consumer-in-k
+  mount in-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share parallelism-threshold
+    drive factor, share action
+    drive factor, share in-v
+    throw build, field unit
+
+force for-each
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-u, field undefined
+  mount action, field consumer-in-u
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share in-v
+    drive factor, share out-u
+    drive factor, share action
+    throw build, field unit
+
+force for-each-entry
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount action, field consumer-in-mutable-entry-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachEntry|
+    drive factor, share parallelism-threshold
+    drive factor, share action
+    drive factor, share v
+    throw build, field unit
+
+force for-each-entry
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-mutable-entry-k
+  mount v, field undefined
+  mount out-u, field undefined
+  mount action, field consumer-in-u
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachEntry|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share v
+    drive factor, share out-u
+    drive factor, share action
+    throw build, field unit
+
+force for-each-key
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount action, field consumer-in-k
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachKey|
+    drive factor, share parallelism-threshold
+    drive factor, share action
+    throw build, field unit
+
+force for-each-key
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-in-k
+  mount out-u, field undefined
+  mount action, field consumer-in-u
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachKey|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share out-u
+    drive factor, share action
+    throw build, field unit
+
+force for-each-value
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount action, field consumer-in-v
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachValue|
+    drive factor, share parallelism-threshold
+    drive factor, share action
+    throw build, field unit
+
+force for-each-value
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-in-v
+  mount out-u, field undefined
+  mount action, field consumer-in-u
+
+  cause call-method
+    drive object, share build
+    drive method, |forEachValue|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share out-u
+    drive factor, share action
+    throw build, field unit
+
+force get
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force get
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force get-or-default
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount default-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrDefault|
+    drive factor, share key
+    drive factor, share default-value
+    throw build, field v
+
+force hash-code
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-empty
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force key-set
+  mount build, field concurrent-hash-map
+  mount mapped-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |keySet|
+    drive factor, share mapped-value
+    throw build, field concurrent-hash-map-key-set-view
+
+force keys
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |keys|
+    throw build, field enumeration
+
+force mapping-count
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |mappingCount|
+    throw build, field long
+
+force merge
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount value, field v
+  mount remapping-function, field bi-function-in-v
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |merge|
+    drive factor, share key
+    drive factor, share value
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force new-key-set
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |newKeySet|
+    throw build, field concurrent-hash-map-key-set-view
+
+force new-key-set
+  mount build, field concurrent-hash-map
+  mount initial-capacity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newKeySet|
+    drive factor, share initial-capacity
+    throw build, field concurrent-hash-map-key-set-view
+
+force put
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force put-all
+  mount build, field concurrent-hash-map
+  mount from, field map-out-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share from
+    drive factor, share v
+    throw build, field unit
+
+force put-if-absent
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |putIfAbsent|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force reduce
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-u, field undefined
+  mount reducer, field bi-function-in-u
+  mount in-u, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduce|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share in-v
+    drive factor, share out-u
+    drive factor, share reducer
+    drive factor, share in-u
+    drive factor, share out-u
+    throw build, field u
+
+force reduce-entries
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount reducer, field bi-function-mutable-entry-k
+  mount v, field undefined
+  mount mutable-entry-k, field undefined
+  mount v, field undefined
+  mount out-mutable-entry-k, field undefined
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceEntries|
+    drive factor, share parallelism-threshold
+    drive factor, share reducer
+    drive factor, share v
+    drive factor, share mutable-entry-k
+    drive factor, share v
+    drive factor, share out-mutable-entry-k
+    drive factor, share v
+    throw build, field mutable-entry
+
+force reduce-entries
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-mutable-entry-k
+  mount v, field undefined
+  mount out-u, field undefined
+  mount reducer, field bi-function-in-u
+  mount in-u, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceEntries|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share v
+    drive factor, share out-u
+    drive factor, share reducer
+    drive factor, share in-u
+    drive factor, share out-u
+    throw build, field u
+
+force reduce-entries-to-double
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-double-function-mutable-entry-k
+  mount v, field undefined
+  mount basis, field double
+  mount reducer, field double-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceEntriesToDouble|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field double
+
+force reduce-entries-to-int
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-int-function-mutable-entry-k
+  mount v, field undefined
+  mount basis, field int
+  mount reducer, field int-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceEntriesToInt|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field int
+
+force reduce-entries-to-long
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-long-function-mutable-entry-k
+  mount v, field undefined
+  mount basis, field long
+  mount reducer, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceEntriesToLong|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field long
+
+force reduce-keys
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount reducer, field bi-function-in-k
+  mount in-k, field undefined
+  mount out-k, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceKeys|
+    drive factor, share parallelism-threshold
+    drive factor, share reducer
+    drive factor, share in-k
+    drive factor, share out-k
+    throw build, field k
+
+force reduce-keys
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-in-k
+  mount out-u, field undefined
+  mount reducer, field bi-function-in-u
+  mount in-u, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceKeys|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share out-u
+    drive factor, share reducer
+    drive factor, share in-u
+    drive factor, share out-u
+    throw build, field u
+
+force reduce-keys-to-double
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-double-function-in-k
+  mount basis, field double
+  mount reducer, field double-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceKeysToDouble|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field double
+
+force reduce-keys-to-int
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-int-function-in-k
+  mount basis, field int
+  mount reducer, field int-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceKeysToInt|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field int
+
+force reduce-keys-to-long
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-long-function-in-k
+  mount basis, field long
+  mount reducer, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceKeysToLong|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field long
+
+force reduce-to-double
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-double-bi-function-in-k
+  mount in-v, field undefined
+  mount basis, field double
+  mount reducer, field double-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceToDouble|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share in-v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field double
+
+force reduce-to-int
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-int-bi-function-in-k
+  mount in-v, field undefined
+  mount basis, field int
+  mount reducer, field int-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceToInt|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share in-v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field int
+
+force reduce-to-long
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-long-bi-function-in-k
+  mount in-v, field undefined
+  mount basis, field long
+  mount reducer, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceToLong|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share in-v
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field long
+
+force reduce-values
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount reducer, field bi-function-in-v
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceValues|
+    drive factor, share parallelism-threshold
+    drive factor, share reducer
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force reduce-values
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field function-in-v
+  mount out-u, field undefined
+  mount reducer, field bi-function-in-u
+  mount in-u, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceValues|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share out-u
+    drive factor, share reducer
+    drive factor, share in-u
+    drive factor, share out-u
+    throw build, field u
+
+force reduce-values-to-double
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-double-function-in-v
+  mount basis, field double
+  mount reducer, field double-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceValuesToDouble|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field double
+
+force reduce-values-to-int
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-int-function-in-v
+  mount basis, field int
+  mount reducer, field int-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceValuesToInt|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field int
+
+force reduce-values-to-long
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount transformer, field to-long-function-in-v
+  mount basis, field long
+  mount reducer, field long-binary-operator
+
+  cause call-method
+    drive object, share build
+    drive method, |reduceValuesToLong|
+    drive factor, share parallelism-threshold
+    drive factor, share transformer
+    drive factor, share basis
+    drive factor, share reducer
+    throw build, field long
+
+force remove
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force remove
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    drive factor, share value
+    throw build, field boolean
+
+force remove
+  mount build, field concurrent-hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force replace
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount old-value, field v
+  mount new-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share key
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field boolean
+
+force replace
+  mount build, field concurrent-hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force replace-all
+  mount build, field concurrent-hash-map
+  mount function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceAll|
+    drive factor, share function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field unit
+
+force search
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount search-function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |search|
+    drive factor, share parallelism-threshold
+    drive factor, share search-function
+    drive factor, share in-v
+    drive factor, share out-u
+    throw build, field u
+
+force search-entries
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount search-function, field function-mutable-entry-k
+  mount v, field undefined
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |searchEntries|
+    drive factor, share parallelism-threshold
+    drive factor, share search-function
+    drive factor, share v
+    drive factor, share out-u
+    throw build, field u
+
+force search-keys
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount search-function, field function-in-k
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |searchKeys|
+    drive factor, share parallelism-threshold
+    drive factor, share search-function
+    drive factor, share out-u
+    throw build, field u
+
+force search-values
+  mount build, field concurrent-hash-map
+  mount parallelism-threshold, field long
+  mount search-function, field function-in-v
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |searchValues|
+    drive factor, share parallelism-threshold
+    drive factor, share search-function
+    drive factor, share out-u
+    throw build, field u
+
+force to-string
+  mount build, field concurrent-hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,29 @@
+
+force build-media-data-source
+  cause invoke-constructor
+    drive constructor, |MediaDataSource|
+    raise build, field media-data-source
+
+force get-size
+  start build, field media-data-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    raise build, field long
+
+force read-at
+  start build, field media-data-source
+  start position, field long
+  start buffer, field byte-array
+  start offset, field int
+  start size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readAt|
+    drive factor, share position
+    drive factor, share buffer
+    drive factor, share offset
+    drive factor, share size
+    raise build, field int

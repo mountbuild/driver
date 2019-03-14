@@ -1,0 +1,90 @@
+
+force get-scramble-control-even-key
+  start build, field media-descrambler
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLE_CONTROL_EVEN_KEY|
+    raise build, field byte
+
+force get-scramble-control-odd-key
+  start build, field media-descrambler
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLE_CONTROL_ODD_KEY|
+    raise build, field byte
+
+force get-scramble-control-reserved
+  start build, field media-descrambler
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLE_CONTROL_RESERVED|
+    raise build, field byte
+
+force get-scramble-control-unscrambled
+  start build, field media-descrambler
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLE_CONTROL_UNSCRAMBLED|
+    raise build, field byte
+
+force get-scramble-flag-pes-header
+  start build, field media-descrambler
+
+  cause get-property
+    drive object, share build
+    drive property, |SCRAMBLE_FLAG_PES_HEADER|
+    raise build, field byte
+
+force build-media-descrambler
+  start ca-system-id, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaDescrambler|
+    drive factor, share ca-system-id
+    raise build, field media-descrambler
+
+force close
+  start build, field media-descrambler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force descramble
+  start build, field media-descrambler
+  start src-buf, field byte-buffer
+  start dst-buf, field byte-buffer
+  start crypto-info, field media-codec-crypto-info
+
+  cause call-method
+    drive object, share build
+    drive method, |descramble|
+    drive factor, share src-buf
+    drive factor, share dst-buf
+    drive factor, share crypto-info
+    raise build, field int
+
+force requires-secure-decoder-component
+  start build, field media-descrambler
+  start mime, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresSecureDecoderComponent|
+    drive factor, share mime
+    raise build, field boolean
+
+force set-media-cas-session
+  start build, field media-descrambler
+  start session, field media-cas-session
+
+  cause call-method
+    drive object, share build
+    drive method, |setMediaCasSession|
+    drive factor, share session
+    raise build, field unit

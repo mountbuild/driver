@@ -1,0 +1,448 @@
+force get-class-process-info
+
+  cause get-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |processInfo|
+    raise build, field process-info
+
+force set-class-process-info
+  field value, field process-info
+
+  cause set-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |processInfo|
+    drive factor, share value
+
+force get-arguments
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |arguments|
+    raise build, field string
+
+force set-arguments
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |arguments|
+    drive factor, share value
+
+force get-environment
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |environment|
+    raise build, field string
+
+force set-environment
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |environment|
+    drive factor, share value
+
+force get-globally-unique-string
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |globallyUniqueString|
+    raise build, field string
+
+force set-globally-unique-string
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |globallyUniqueString|
+    drive factor, share value
+
+force get-is-mac-catalyst-app
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMacCatalystApp|
+    raise build, field bool
+
+force set-is-mac-catalyst-app
+  field build, field process-info
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMacCatalystApp|
+    drive factor, share value
+
+force get-process-identifier
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |processIdentifier|
+    raise build, field int32
+
+force set-process-identifier
+  field build, field process-info
+  field value, field int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |processIdentifier|
+    drive factor, share value
+
+force get-process-name
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |processName|
+    raise build, field string
+
+force set-process-name
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |processName|
+    drive factor, share value
+
+force get-user-name
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userName|
+    raise build, field string
+
+force set-user-name
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userName|
+    drive factor, share value
+
+force get-full-user-name
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fullUserName|
+    raise build, field string
+
+force set-full-user-name
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fullUserName|
+    drive factor, share value
+
+force disable-sudden-termination
+  field build, field process-info
+
+  cause call-method
+    drive object, share build
+    drive method, |disableSuddenTermination|
+
+force enable-sudden-termination
+  field build, field process-info
+
+  cause call-method
+    drive object, share build
+    drive method, |enableSuddenTermination|
+
+force disable-automatic-termination
+  field build, field process-info
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |disableAutomaticTermination|
+    drive factor, share a
+
+force enable-automatic-termination
+  field build, field process-info
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |enableAutomaticTermination|
+    drive factor, share a
+
+force get-automatic-termination-support-enabled
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |automaticTerminationSupportEnabled|
+    raise build, field bool
+
+force set-automatic-termination-support-enabled
+  field build, field process-info
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |automaticTerminationSupportEnabled|
+    drive factor, share value
+
+force get-host-name
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hostName|
+    raise build, field string
+
+force set-host-name
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hostName|
+    drive factor, share value
+
+force operating-system
+  field build, field process-info
+
+  cause call-method
+    drive object, share build
+    drive method, |operatingSystem|
+    raise build, class int
+
+force operating-system-name
+  field build, field process-info
+
+  cause call-method
+    drive object, share build
+    drive method, |operatingSystemName|
+    raise build, class string
+
+force get-operating-system-version-string
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |operatingSystemVersionString|
+    raise build, field string
+
+force set-operating-system-version-string
+  field build, field process-info
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |operatingSystemVersionString|
+    drive factor, share value
+
+force get-operating-system-version
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |operatingSystemVersion|
+    raise build, field operating-system-version
+
+force set-operating-system-version
+  field build, field process-info
+  field value, field operating-system-version
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |operatingSystemVersion|
+    drive factor, share value
+
+force is-operating-system-at-least
+  field build, field process-info
+  field a, class operating-system-version
+
+  cause call-method
+    drive object, share build
+    drive method, |isOperatingSystemAtLeast|
+    drive factor, share a
+    raise build, class bool
+
+force get-processor-count
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |processorCount|
+    raise build, field int
+
+force set-processor-count
+  field build, field process-info
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |processorCount|
+    drive factor, share value
+
+force get-active-processor-count
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |activeProcessorCount|
+    raise build, field int
+
+force set-active-processor-count
+  field build, field process-info
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |activeProcessorCount|
+    drive factor, share value
+
+force get-physical-memory
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |physicalMemory|
+    raise build, field u-int64
+
+force set-physical-memory
+  field build, field process-info
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |physicalMemory|
+    drive factor, share value
+
+force get-system-uptime
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |systemUptime|
+    raise build, field time-interval
+
+force set-system-uptime
+  field build, field process-info
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |systemUptime|
+    drive factor, share value
+
+force begin-activity
+  field build, field process-info
+  field options, field process-info-activity-options
+  field reason, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |beginActivity|
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand reason
+      share reason
+    raise build, class ns-object-protocol
+
+force end-activity
+  field build, field process-info
+  field a, class ns-object-protocol
+
+  cause call-method
+    drive object, share build
+    drive method, |endActivity|
+    drive factor, share a
+
+force get-thermal-state
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |thermalState|
+    raise build, field process-info-thermal-state
+
+force set-thermal-state
+  field build, field process-info
+  field value, field process-info-thermal-state
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |thermalState|
+    drive factor, share value
+
+force get-is-low-power-mode-enabled
+  field build, field process-info
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLowPowerModeEnabled|
+    raise build, field bool
+
+force set-is-low-power-mode-enabled
+  field build, field process-info
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLowPowerModeEnabled|
+    drive factor, share value
+
+force get-class-thermal-state-did-change-notification
+
+  cause get-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |thermalStateDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-thermal-state-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |thermalStateDidChangeNotification|
+    drive factor, share value
+
+force get-class-thermal-state-did-change-notification
+
+  cause get-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |thermalStateDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-thermal-state-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |thermalStateDidChangeNotification|
+    drive factor, share value
+
+force get-static-ns-process-info-power-state-did-change
+
+  cause get-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |NSProcessInfoPowerStateDidChange|
+    raise build, field NSNotification.Name
+
+force set-static-ns-process-info-power-state-did-change
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |ProcessInfo|
+    drive aspect, |NSProcessInfoPowerStateDidChange|
+    drive factor, share value

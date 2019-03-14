@@ -1,0 +1,224 @@
+
+force build-message-format
+  start pattern, field string
+
+  cause invoke-constructor
+    mount constructor, |MessageFormat|
+    mount factor, share pattern
+    raise build, field message-format
+
+force build-message-format
+  start pattern, field string
+  start locale, field locale
+
+  cause invoke-constructor
+    mount constructor, |MessageFormat|
+    mount factor, share pattern
+    mount factor, share locale
+    raise build, field message-format
+
+force apply-pattern
+  start build, field message-format
+  start pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyPattern|
+    mount factor, share pattern
+    raise build, field unit
+
+force clone
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    raise build, field any
+
+force equals
+  start build, field message-format
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force format
+  start build, field message-format
+  start arguments, field array-any
+  start result, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share arguments
+    mount factor, share result
+    mount factor, share pos
+    raise build, field string-buffer
+
+force format
+  start build, field message-format
+  start arguments, field any
+  start result, field string-buffer
+  start pos, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share arguments
+    mount factor, share result
+    mount factor, share pos
+    raise build, field string-buffer
+
+force format
+  start build, field message-format
+  start pattern, field string
+  start vararg-arguments, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share pattern
+    mount factor, share vararg-arguments
+    raise build, field string
+
+force format-to-character-iterator
+  start build, field message-format
+  start arguments, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |formatToCharacterIterator|
+    mount factor, share arguments
+    raise build, field attributed-character-iterator
+
+force get-formats
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getFormats|
+    raise build, field array
+
+force get-formats-by-argument-index
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getFormatsByArgumentIndex|
+    raise build, field array
+
+force get-locale
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getLocale|
+    raise build, field locale
+
+force hash-code
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force parse
+  start build, field message-format
+  start source, field string
+  start pos, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |parse|
+    mount factor, share source
+    mount factor, share pos
+    raise build, field array
+
+force parse
+  start build, field message-format
+  start source, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |parse|
+    mount factor, share source
+    raise build, field array
+
+force parse-object
+  start build, field message-format
+  start source, field string
+  start pos, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |parseObject|
+    mount factor, share source
+    mount factor, share pos
+    raise build, field any
+
+force set-format
+  start build, field message-format
+  start format-element-index, field int
+  start new-format, field format
+
+  cause call-method
+    mount object, share build
+    mount method, |setFormat|
+    mount factor, share format-element-index
+    mount factor, share new-format
+    raise build, field unit
+
+force set-format-by-argument-index
+  start build, field message-format
+  start argument-index, field int
+  start new-format, field format
+
+  cause call-method
+    mount object, share build
+    mount method, |setFormatByArgumentIndex|
+    mount factor, share argument-index
+    mount factor, share new-format
+    raise build, field unit
+
+force set-formats
+  start build, field message-format
+  start new-formats, field array-format
+
+  cause call-method
+    mount object, share build
+    mount method, |setFormats|
+    mount factor, share new-formats
+    raise build, field unit
+
+force set-formats-by-argument-index
+  start build, field message-format
+  start new-formats, field array-format
+
+  cause call-method
+    mount object, share build
+    mount method, |setFormatsByArgumentIndex|
+    mount factor, share new-formats
+    raise build, field unit
+
+force set-locale
+  start build, field message-format
+  start locale, field locale
+
+  cause call-method
+    mount object, share build
+    mount method, |setLocale|
+    mount factor, share locale
+    raise build, field unit
+
+force to-pattern
+  start build, field message-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toPattern|
+    raise build, field string

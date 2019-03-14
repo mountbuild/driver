@@ -1,0 +1,73 @@
+force get-static-activate-all-windows
+  cause get aspect
+    drive object, |NSApplication.ActivationOptions|
+    drive aspect, |activateAllWindows|
+    raise build, class ns-application-activation-options
+
+force set static activate-all-windows
+  field value, field ns-application-activation-options
+
+  cause set aspect
+    drive object, |NSApplication.ActivationOptions|
+    drive aspect, |activateAllWindows|
+    drive factor, share value
+
+force get-static-activate-ignoring-other-apps
+  cause get aspect
+    drive object, |NSApplication.ActivationOptions|
+    drive aspect, |activateIgnoringOtherApps|
+    raise build, class ns-application-activation-options
+
+force set static activate-ignoring-other-apps
+  field value, field ns-application-activation-options
+
+  cause set aspect
+    drive object, |NSApplication.ActivationOptions|
+    drive aspect, |activateIgnoringOtherApps|
+    drive factor, share value
+
+force get-is-active
+  field build, field ns-application-activation-options
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isActive|
+    raise build, field bool
+
+force set-is-active
+  field build, field ns-application-activation-options
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isActive|
+    drive factor, share value
+
+force activate
+  field build, field ns-application-activation-options
+  field options, field ns-application-activation-options
+
+  cause call-method
+    drive object, share build
+    drive method, |activate|
+    drive factor
+      brand options
+      share options
+    raise build, class bool
+
+force get-activation-policy
+  field build, field ns-application-activation-options
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |activationPolicy|
+    raise build, field ns-application-activation-policy
+
+force set-activation-policy
+  field build, field ns-application-activation-options
+  field value, field ns-application-activation-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |activationPolicy|
+    drive factor, share value

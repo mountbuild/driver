@@ -1,0 +1,26 @@
+
+force build-unsupported-callback-exception
+  start callback, field callback
+
+  cause invoke-constructor
+    mount constructor, |UnsupportedCallbackException|
+    mount factor, share callback
+    throw build, field unsupported-callback-exception
+
+force build-unsupported-callback-exception
+  start callback, field callback
+  start msg, field string
+
+  cause invoke-constructor
+    mount constructor, |UnsupportedCallbackException|
+    mount factor, share callback
+    mount factor, share msg
+    throw build, field unsupported-callback-exception
+
+force get-callback
+  start build, field unsupported-callback-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getCallback|
+    throw build, field callback

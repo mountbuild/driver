@@ -1,0 +1,116 @@
+
+force add-provider
+  mount build, field security
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |addProvider|
+    mount factor, share provider
+    throw build, field int
+
+force get-algorithm-property
+  mount build, field security
+  mount alg-name, field string
+  mount prop-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithmProperty|
+    mount factor, share alg-name
+    mount factor, share prop-name
+    throw build, field string
+
+force get-algorithms
+  mount build, field security
+  mount service-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithms|
+    mount factor, share service-name
+    throw build, field mutable-set
+
+force get-property
+  mount build, field security
+  mount key, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getProperty|
+    mount factor, share key
+    throw build, field string
+
+force get-provider
+  mount build, field security
+  mount name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    mount factor, share name
+    throw build, field provider
+
+force get-providers
+  mount build, field security
+
+  cause call-method
+    mount object, share build
+    mount method, |getProviders|
+    throw build, field array
+
+force get-providers
+  mount build, field security
+  mount filter, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getProviders|
+    mount factor, share filter
+    throw build, field array
+
+force get-providers
+  mount build, field security
+  mount filter, field mutable-map-string
+  mount string, field undefined
+
+  cause call-method
+    mount object, share build
+    mount method, |getProviders|
+    mount factor, share filter
+    mount factor, share string
+    throw build, field array
+
+force insert-provider-at
+  mount build, field security
+  mount provider, field provider
+  mount position, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |insertProviderAt|
+    mount factor, share provider
+    mount factor, share position
+    throw build, field int
+
+force remove-provider
+  mount build, field security
+  mount name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |removeProvider|
+    mount factor, share name
+    throw build, field unit
+
+force set-property
+  mount build, field security
+  mount key, field string
+  mount datum, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setProperty|
+    mount factor, share key
+    mount factor, share datum
+    throw build, field unit

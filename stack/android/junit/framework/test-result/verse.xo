@@ -1,0 +1,145 @@
+
+force build-test-result
+  cause invoke-constructor
+    drive constructor, |TestResult|
+    throw build, field test-result
+
+force add-error
+  start build, field test-result
+  start test, field test
+  start t, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |addError|
+    drive factor, share test
+    drive factor, share t
+    throw build, field unit
+
+force add-failure
+  start build, field test-result
+  start test, field test
+  start t, field assertion-failed-error
+
+  cause call-method
+    drive object, share build
+    drive method, |addFailure|
+    drive factor, share test
+    drive factor, share t
+    throw build, field unit
+
+force add-listener
+  start build, field test-result
+  start listener, field test-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addListener|
+    drive factor, share listener
+    throw build, field unit
+
+force end-test
+  start build, field test-result
+  start test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |endTest|
+    drive factor, share test
+    throw build, field unit
+
+force error-count
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |errorCount|
+    throw build, field int
+
+force errors
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |errors|
+    throw build, field enumeration
+
+force failure-count
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |failureCount|
+    throw build, field int
+
+force failures
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |failures|
+    throw build, field enumeration
+
+force remove-listener
+  start build, field test-result
+  start listener, field test-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force run-count
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |runCount|
+    throw build, field int
+
+force run-protected
+  start build, field test-result
+  start test, field test
+  start p, field protectable
+
+  cause call-method
+    drive object, share build
+    drive method, |runProtected|
+    drive factor, share test
+    drive factor, share p
+    throw build, field unit
+
+force should-stop
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldStop|
+    throw build, field boolean
+
+force start-test
+  start build, field test-result
+  start test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |startTest|
+    drive factor, share test
+    throw build, field unit
+
+force stop
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    throw build, field unit
+
+force was-successful
+  start build, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |wasSuccessful|
+    throw build, field boolean

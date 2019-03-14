@@ -1,0 +1,310 @@
+force start
+  field build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+
+force main
+  field build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |main|
+
+force cancel
+  field build, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+
+force get-is-executing
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isExecuting|
+    raise build, field bool
+
+force set-is-executing
+  field build, field thread
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isExecuting|
+    drive factor, share value
+
+force get-is-finished
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isFinished|
+    raise build, field bool
+
+force set-is-finished
+  field build, field thread
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isFinished|
+    drive factor, share value
+
+force get-is-cancelled
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isCancelled|
+    raise build, field bool
+
+force set-is-cancelled
+  field build, field thread
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isCancelled|
+    drive factor, share value
+
+force get-class-is-main-thread
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |isMainThread|
+    raise build, field bool
+
+force set-class-is-main-thread
+  field value, field bool
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |isMainThread|
+    drive factor, share value
+
+force get-is-main-thread
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMainThread|
+    raise build, field bool
+
+force set-is-main-thread
+  field build, field thread
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMainThread|
+    drive factor, share value
+
+force get-class-main
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |main|
+    raise build, field thread
+
+force set-class-main
+  field value, field thread
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |main|
+    drive factor, share value
+
+force get-class-current
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |current|
+    raise build, field thread
+
+force set-class-current
+  field value, field thread
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |current|
+    drive factor, share value
+
+force get-class-call-stack-return-addresses
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |callStackReturnAddresses|
+    raise build, field ns-number
+
+force set-class-call-stack-return-addresses
+  field value, field ns-number
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |callStackReturnAddresses|
+    drive factor, share value
+
+force get-class-call-stack-symbols
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |callStackSymbols|
+    raise build, field string
+
+force set-class-call-stack-symbols
+  field value, field string
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |callStackSymbols|
+    drive factor, share value
+
+force get-thread-dictionary
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |threadDictionary|
+    raise build, field ns-mutable-dictionary
+
+force set-thread-dictionary
+  field build, field thread
+  field value, field ns-mutable-dictionary
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |threadDictionary|
+    drive factor, share value
+
+force get-ns-assertion-handler-key
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSAssertionHandlerKey|
+    raise build, field string
+
+force set-ns-assertion-handler-key
+  field build, field Thread
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSAssertionHandlerKey|
+    drive factor, share value
+
+force get-name
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field thread
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-stack-size
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |stackSize|
+    raise build, field int
+
+force set-stack-size
+  field build, field thread
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |stackSize|
+    drive factor, share value
+
+force get-quality-of-service
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |qualityOfService|
+    raise build, field quality-of-service
+
+force set-quality-of-service
+  field build, field thread
+  field value, field quality-of-service
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |qualityOfService|
+    drive factor, share value
+
+force get-thread-priority
+  field build, field thread
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |threadPriority|
+    raise build, field double
+
+force set-thread-priority
+  field build, field thread
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |threadPriority|
+    drive factor, share value
+
+force get-static-ns-did-become-single-threaded
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |NSDidBecomeSingleThreaded|
+    raise build, field NSNotification.Name
+
+force set-static-ns-did-become-single-threaded
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |NSDidBecomeSingleThreaded|
+    drive factor, share value
+
+force get-static-ns-thread-will-exit
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |NSThreadWillExit|
+    raise build, field NSNotification.Name
+
+force set-static-ns-thread-will-exit
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |NSThreadWillExit|
+    drive factor, share value
+
+force get-static-ns-will-become-multi-threaded
+
+  cause get-aspect
+    drive object, |Thread|
+    drive aspect, |NSWillBecomeMultiThreaded|
+    raise build, field NSNotification.Name
+
+force set-static-ns-will-become-multi-threaded
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |Thread|
+    drive aspect, |NSWillBecomeMultiThreaded|
+    drive factor, share value

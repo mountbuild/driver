@@ -1,0 +1,60 @@
+
+force get-orientation-unknown
+  mount build, field orientation-event-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |ORIENTATION_UNKNOWN|
+    raise build, field int
+
+force build-orientation-event-listener
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |OrientationEventListener|
+    drive factor, share context
+    raise build, field orientation-event-listener
+
+force build-orientation-event-listener
+  mount context, field context
+  mount rate, field int
+
+  cause invoke-constructor
+    drive constructor, |OrientationEventListener|
+    drive factor, share context
+    drive factor, share rate
+    raise build, field orientation-event-listener
+
+force can-detect-orientation
+  mount build, field orientation-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |canDetectOrientation|
+    raise build, field boolean
+
+force disable
+  mount build, field orientation-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |disable|
+    raise build, field unit
+
+force enable
+  mount build, field orientation-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |enable|
+    raise build, field unit
+
+force on-orientation-changed
+  mount build, field orientation-event-listener
+  mount orientation, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onOrientationChanged|
+    drive factor, share orientation
+    raise build, field unit

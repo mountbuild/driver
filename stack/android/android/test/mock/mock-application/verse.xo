@@ -1,0 +1,31 @@
+
+force build-mock-application
+  cause invoke-constructor
+    drive constructor, |MockApplication|
+    raise build, field mock-application
+
+force on-configuration-changed
+  mount build, field mock-application
+  mount new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    raise build, field unit
+
+force on-create
+  mount build, field mock-application
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-terminate
+  mount build, field mock-application
+
+  cause call-method
+    drive object, share build
+    drive method, |onTerminate|
+    raise build, field unit

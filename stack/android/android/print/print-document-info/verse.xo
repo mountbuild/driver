@@ -1,0 +1,110 @@
+
+force get-content-type-document
+  mount build, field print-document-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONTENT_TYPE_DOCUMENT|
+    throw build, field int
+
+force get-content-type-photo
+  mount build, field print-document-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONTENT_TYPE_PHOTO|
+    throw build, field int
+
+force get-content-type-unknown
+  mount build, field print-document-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONTENT_TYPE_UNKNOWN|
+    throw build, field int
+
+force get-page-count-unknown
+  mount build, field print-document-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PAGE_COUNT_UNKNOWN|
+    throw build, field int
+
+force describe-contents
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field print-document-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-content-type
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentType|
+    throw build, field int
+
+force get-data-size
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDataSize|
+    throw build, field long
+
+force get-name
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-page-count
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPageCount|
+    throw build, field int
+
+force hash-code
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field print-document-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field print-document-info
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

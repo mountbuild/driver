@@ -1,0 +1,26 @@
+
+force get-instance
+  mount build, field network-security-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    throw build, field network-security-policy
+
+force is-cleartext-traffic-permitted
+  mount build, field network-security-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |isCleartextTrafficPermitted|
+    throw build, field boolean
+
+force is-cleartext-traffic-permitted
+  mount build, field network-security-policy
+  mount hostname, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isCleartextTrafficPermitted|
+    drive factor, share hostname
+    throw build, field boolean

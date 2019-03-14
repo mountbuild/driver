@@ -1,0 +1,46 @@
+
+force build-dsa-public-key-spec
+  mount y, field big-integer
+  mount p, field big-integer
+  mount q, field big-integer
+  mount g, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |DSAPublicKeySpec|
+    mount factor, share y
+    mount factor, share p
+    mount factor, share q
+    mount factor, share g
+    throw build, field dsa-public-key-spec
+
+force get-g
+  mount build, field dsa-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getG|
+    throw build, field big-integer
+
+force get-p
+  mount build, field dsa-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer
+
+force get-q
+  mount build, field dsa-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getQ|
+    throw build, field big-integer
+
+force get-y
+  mount build, field dsa-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getY|
+    throw build, field big-integer

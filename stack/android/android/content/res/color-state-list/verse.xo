@@ -1,0 +1,128 @@
+
+force build-color-state-list
+  mount states, field array-int-array
+  mount colors, field int-array
+
+  cause invoke-constructor
+    drive constructor, |ColorStateList|
+    drive factor, share states
+    drive factor, share colors
+    throw build, field color-state-list
+
+force create-from-xml
+  mount build, field color-state-list
+  mount r, field resources
+  mount parser, field xml-pull-parser
+
+  cause call-method
+    drive object, share build
+    drive method, |createFromXml|
+    drive factor, share r
+    drive factor, share parser
+    throw build, field color-state-list
+
+force create-from-xml
+  mount build, field color-state-list
+  mount r, field resources
+  mount parser, field xml-pull-parser
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |createFromXml|
+    drive factor, share r
+    drive factor, share parser
+    drive factor, share theme
+    throw build, field color-state-list
+
+force describe-contents
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-changing-configurations
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getChangingConfigurations|
+    throw build, field int
+
+force get-color-for-state
+  mount build, field color-state-list
+  mount state-set, field int-array
+  mount default-color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getColorForState|
+    drive factor, share state-set
+    drive factor, share default-color
+    throw build, field int
+
+force get-default-color
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultColor|
+    throw build, field int
+
+force is-opaque
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpaque|
+    throw build, field boolean
+
+force is-stateful
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |isStateful|
+    throw build, field boolean
+
+force to-string
+  mount build, field color-state-list
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-of
+  mount build, field color-state-list
+  mount color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share color
+    throw build, field color-state-list
+
+force with-alpha
+  mount build, field color-state-list
+  mount alpha, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |withAlpha|
+    drive factor, share alpha
+    throw build, field color-state-list
+
+force write-to-parcel
+  mount build, field color-state-list
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

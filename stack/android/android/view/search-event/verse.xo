@@ -1,0 +1,16 @@
+
+force build-search-event
+  mount input-device, field input-device
+
+  cause invoke-constructor
+    drive constructor, |SearchEvent|
+    drive factor, share input-device
+    raise build, field search-event
+
+force get-input-device
+  mount build, field search-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputDevice|
+    raise build, field input-device

@@ -1,0 +1,46 @@
+
+force build-pkix-builder-parameters
+  mount trust-anchors, field mutable-set-trust-anchor
+  mount target-constraints, field cert-selector
+
+  cause invoke-constructor
+    mount constructor, |PKIXBuilderParameters|
+    mount factor, share trust-anchors
+    mount factor, share target-constraints
+    throw build, field pkix-builder-parameters
+
+force build-pkix-builder-parameters
+  mount keystore, field key-store
+  mount target-constraints, field cert-selector
+
+  cause invoke-constructor
+    mount constructor, |PKIXBuilderParameters|
+    mount factor, share keystore
+    mount factor, share target-constraints
+    throw build, field pkix-builder-parameters
+
+force get-max-path-length
+  mount build, field pkix-builder-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaxPathLength|
+    throw build, field int
+
+force set-max-path-length
+  mount build, field pkix-builder-parameters
+  mount max-path-length, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMaxPathLength|
+    mount factor, share max-path-length
+    throw build, field unit
+
+force to-string
+  mount build, field pkix-builder-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

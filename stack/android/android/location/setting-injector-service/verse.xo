@@ -1,0 +1,86 @@
+
+force get-action-injected-setting-changed
+  mount build, field setting-injector-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_INJECTED_SETTING_CHANGED|
+    raise build, field string
+
+force get-action-service-intent
+  mount build, field setting-injector-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SERVICE_INTENT|
+    raise build, field string
+
+force get-attributes-name
+  mount build, field setting-injector-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ATTRIBUTES_NAME|
+    raise build, field string
+
+force get-meta-data-name
+  mount build, field setting-injector-service
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_NAME|
+    raise build, field string
+
+force build-setting-injector-service
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |SettingInjectorService|
+    drive factor, share name
+    raise build, field setting-injector-service
+
+force on-bind
+  mount build, field setting-injector-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-start
+  mount build, field setting-injector-service
+  mount intent, field intent
+  mount start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    drive factor, share intent
+    drive factor, share start-id
+    raise build, field unit
+
+force on-start-command
+  mount build, field setting-injector-service
+  mount intent, field intent
+  mount flags, field int
+  mount start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartCommand|
+    drive factor, share intent
+    drive factor, share flags
+    drive factor, share start-id
+    raise build, field int
+
+force refresh-settings
+  mount build, field setting-injector-service
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |refreshSettings|
+    drive factor, share context
+    raise build, field unit

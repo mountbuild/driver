@@ -1,0 +1,303 @@
+
+force build-fork-join-pool
+  cause invoke-constructor
+    drive constructor, |ForkJoinPool|
+    throw build, field fork-join-pool
+
+force build-fork-join-pool
+  mount parallelism, field int
+
+  cause invoke-constructor
+    drive constructor, |ForkJoinPool|
+    drive factor, share parallelism
+    throw build, field fork-join-pool
+
+force build-fork-join-pool
+  mount parallelism, field int
+  mount factory, field fork-join-pool-fork-join-worker-thread-factory
+  mount handler, field thread-uncaught-exception-handler
+  mount async-mode, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ForkJoinPool|
+    drive factor, share parallelism
+    drive factor, share factory
+    drive factor, share handler
+    drive factor, share async-mode
+    throw build, field fork-join-pool
+
+force await-quiescence
+  mount build, field fork-join-pool
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |awaitQuiescence|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force await-termination
+  mount build, field fork-join-pool
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |awaitTermination|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force common-pool
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |commonPool|
+    throw build, field fork-join-pool
+
+force execute
+  mount build, field fork-join-pool
+  mount task, field fork-join-task
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share task
+    throw build, field unit
+
+force execute
+  mount build, field fork-join-pool
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share task
+    throw build, field unit
+
+force get-active-thread-count
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveThreadCount|
+    throw build, field int
+
+force get-async-mode
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getAsyncMode|
+    throw build, field boolean
+
+force get-common-pool-parallelism
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getCommonPoolParallelism|
+    throw build, field int
+
+force get-factory
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getFactory|
+    throw build, field fork-join-pool-fork-join-worker-thread-factory
+
+force get-parallelism
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getParallelism|
+    throw build, field int
+
+force get-pool-size
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getPoolSize|
+    throw build, field int
+
+force get-queued-submission-count
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueuedSubmissionCount|
+    throw build, field int
+
+force get-queued-task-count
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueuedTaskCount|
+    throw build, field long
+
+force get-running-thread-count
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getRunningThreadCount|
+    throw build, field int
+
+force get-steal-count
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getStealCount|
+    throw build, field long
+
+force get-uncaught-exception-handler
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |getUncaughtExceptionHandler|
+    throw build, field thread-uncaught-exception-handler
+
+force has-queued-submissions
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedSubmissions|
+    throw build, field boolean
+
+force invoke
+  mount build, field fork-join-pool
+  mount task, field fork-join-task-t
+
+  cause call-method
+    drive object, share build
+    drive method, |invoke|
+    drive factor, share task
+    throw build, field t
+
+force invoke-all
+  mount build, field fork-join-pool
+  mount tasks, field mutable-collection-out-callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeAll|
+    drive factor, share tasks
+    throw build, field mutable-list
+
+force is-quiescent
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |isQuiescent|
+    throw build, field boolean
+
+force is-shutdown
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |isShutdown|
+    throw build, field boolean
+
+force is-terminated
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |isTerminated|
+    throw build, field boolean
+
+force is-terminating
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |isTerminating|
+    throw build, field boolean
+
+force managed-block
+  mount build, field fork-join-pool
+  mount blocker, field fork-join-pool-managed-blocker
+
+  cause call-method
+    drive object, share build
+    drive method, |managedBlock|
+    drive factor, share blocker
+    throw build, field unit
+
+force shutdown
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    throw build, field unit
+
+force shutdown-now
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdownNow|
+    throw build, field mutable-list
+
+force submit
+  mount build, field fork-join-pool
+  mount task, field fork-join-task-t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field fork-join-task
+
+force submit
+  mount build, field fork-join-pool
+  mount task, field callable-t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field fork-join-task
+
+force submit
+  mount build, field fork-join-pool
+  mount task, field runnable
+  mount result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    drive factor, share result
+    throw build, field fork-join-task
+
+force submit
+  mount build, field fork-join-pool
+  mount task, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field fork-join-task
+
+force to-string
+  mount build, field fork-join-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

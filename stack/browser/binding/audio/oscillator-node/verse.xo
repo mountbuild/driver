@@ -1,0 +1,88 @@
+
+force build-oscillator-node
+  start context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |OscillatorNode|
+    mount factor, share context
+    mount factor, share options
+    throw build
+
+force get-frequency
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |frequency|
+    throw build
+
+force set-frequency
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |frequency|
+    mount factor, share value
+
+force get-detune
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |detune|
+    throw build
+
+force set-detune
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |detune|
+    mount factor, share value
+
+force get-type
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |type|
+    throw build
+
+force set-type
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |type|
+    mount factor, share value
+
+force set-periodic-wave
+  start build
+  start wave
+
+  cause call-method
+    mount object, share build
+    mount method, |setPeriodicWave|
+    mount factor, share wave
+
+force start
+  start build
+  start when
+
+  cause call-method
+    mount object, share build
+    mount method, |start|
+    mount factor, share when
+
+force stop
+  start build
+  start when
+
+  cause call-method
+    mount object, share build
+    mount method, |stop|
+    mount factor, share when

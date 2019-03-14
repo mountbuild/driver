@@ -1,0 +1,212 @@
+
+force apply
+  mount build, field content-provider-operation
+  mount provider, field content-provider
+  mount back-refs, field array-content-provider-result
+  mount num-back-refs, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    drive factor, share provider
+    drive factor, share back-refs
+    drive factor, share num-back-refs
+    throw build, field content-provider-result
+
+force describe-contents
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-uri
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |getUri|
+    throw build, field uri
+
+force is-assert-query
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isAssertQuery|
+    throw build, field boolean
+
+force is-call
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isCall|
+    throw build, field boolean
+
+force is-delete
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isDelete|
+    throw build, field boolean
+
+force is-exception-allowed
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isExceptionAllowed|
+    throw build, field boolean
+
+force is-insert
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isInsert|
+    throw build, field boolean
+
+force is-read-operation
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isReadOperation|
+    throw build, field boolean
+
+force is-update
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isUpdate|
+    throw build, field boolean
+
+force is-write-operation
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isWriteOperation|
+    throw build, field boolean
+
+force is-yield-allowed
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |isYieldAllowed|
+    throw build, field boolean
+
+force new-assert-query
+  mount build, field content-provider-operation
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newAssertQuery|
+    drive factor, share uri
+    throw build, field content-provider-operation-builder
+
+force new-call
+  mount build, field content-provider-operation
+  mount uri, field uri
+  mount method, field string
+  mount arg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newCall|
+    drive factor, share uri
+    drive factor, share method
+    drive factor, share arg
+    throw build, field content-provider-operation-builder
+
+force new-delete
+  mount build, field content-provider-operation
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newDelete|
+    drive factor, share uri
+    throw build, field content-provider-operation-builder
+
+force new-insert
+  mount build, field content-provider-operation
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newInsert|
+    drive factor, share uri
+    throw build, field content-provider-operation-builder
+
+force new-update
+  mount build, field content-provider-operation
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newUpdate|
+    drive factor, share uri
+    throw build, field content-provider-operation-builder
+
+force resolve-extras-back-references
+  mount build, field content-provider-operation
+  mount back-refs, field array-content-provider-result
+  mount num-back-refs, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveExtrasBackReferences|
+    drive factor, share back-refs
+    drive factor, share num-back-refs
+    throw build, field bundle
+
+force resolve-selection-args-back-references
+  mount build, field content-provider-operation
+  mount back-refs, field array-content-provider-result
+  mount num-back-refs, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveSelectionArgsBackReferences|
+    drive factor, share back-refs
+    drive factor, share num-back-refs
+    throw build, field array
+
+force resolve-value-back-references
+  mount build, field content-provider-operation
+  mount back-refs, field array-content-provider-result
+  mount num-back-refs, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveValueBackReferences|
+    drive factor, share back-refs
+    drive factor, share num-back-refs
+    throw build, field content-values
+
+force to-string
+  mount build, field content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field content-provider-operation
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

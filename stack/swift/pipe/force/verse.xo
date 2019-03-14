@@ -1,0 +1,33 @@
+force get-file-handle-for-reading
+  field build, field pipe
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileHandleForReading|
+    raise build, field file-handle
+
+force set-file-handle-for-reading
+  field build, field pipe
+  field value, field file-handle
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileHandleForReading|
+    mount factor, share value
+
+force get-file-handle-for-writing
+  field build, field pipe
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileHandleForWriting|
+    raise build, field file-handle
+
+force set-file-handle-for-writing
+  field build, field pipe
+  field value, field file-handle
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileHandleForWriting|
+    mount factor, share value

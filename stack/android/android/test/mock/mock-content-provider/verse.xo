@@ -1,0 +1,174 @@
+
+force build-mock-content-provider
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |MockContentProvider|
+    drive factor, share context
+    raise build, field mock-content-provider
+
+force build-mock-content-provider
+  mount context, field context
+  mount read-permission, field string
+  mount write-permission, field string
+  mount path-permissions, field array-path-permission
+
+  cause invoke-constructor
+    drive constructor, |MockContentProvider|
+    drive factor, share context
+    drive factor, share read-permission
+    drive factor, share write-permission
+    drive factor, share path-permissions
+    raise build, field mock-content-provider
+
+force apply-batch
+  mount build, field mock-content-provider
+  mount operations, field array-list-content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |applyBatch|
+    drive factor, share operations
+    raise build, field array
+
+force attach-info
+  mount build, field mock-content-provider
+  mount context, field context
+  mount info, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |attachInfo|
+    drive factor, share context
+    drive factor, share info
+    raise build, field unit
+
+force attach-info-for-testing
+  mount build, field mock-content-provider
+  mount provider, field content-provider
+  mount context, field context
+  mount provider-info, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |attachInfoForTesting|
+    drive factor, share provider
+    drive factor, share context
+    drive factor, share provider-info
+    raise build, field unit
+
+force bulk-insert
+  mount build, field mock-content-provider
+  mount uri, field uri
+  mount values, field array-content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |bulkInsert|
+    drive factor, share uri
+    drive factor, share values
+    raise build, field int
+
+force delete
+  mount build, field mock-content-provider
+  mount uri, field uri
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    raise build, field int
+
+force get-stream-types
+  mount build, field mock-content-provider
+  mount url, field uri
+  mount mime-type-filter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getStreamTypes|
+    drive factor, share url
+    drive factor, share mime-type-filter
+    raise build, field array
+
+force get-type
+  mount build, field mock-content-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    raise build, field string
+
+force insert
+  mount build, field mock-content-provider
+  mount uri, field uri
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    raise build, field uri
+
+force on-create
+  mount build, field mock-content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field boolean
+
+force open-typed-asset-file
+  mount build, field mock-content-provider
+  mount url, field uri
+  mount mime-type, field string
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedAssetFile|
+    drive factor, share url
+    drive factor, share mime-type
+    drive factor, share opts
+    raise build, field asset-file-descriptor
+
+force query
+  mount build, field mock-content-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    raise build, field cursor
+
+force update
+  mount build, field mock-content-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    raise build, field int

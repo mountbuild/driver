@@ -1,0 +1,56 @@
+
+force check
+  mount build, field pkix-cert-path-checker
+  mount cert, field certificate
+  mount unresolved-crit-exts, field mutable-collection-string
+
+  cause call-method
+    mount object, share build
+    mount method, |check|
+    mount factor, share cert
+    mount factor, share unresolved-crit-exts
+    throw build, field unit
+
+force check
+  mount build, field pkix-cert-path-checker
+  mount cert, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |check|
+    mount factor, share cert
+    throw build, field unit
+
+force clone
+  mount build, field pkix-cert-path-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-supported-extensions
+  mount build, field pkix-cert-path-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedExtensions|
+    throw build, field mutable-set
+
+force init
+  mount build, field pkix-cert-path-checker
+  mount forward, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share forward
+    throw build, field unit
+
+force is-forward-checking-supported
+  mount build, field pkix-cert-path-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |isForwardCheckingSupported|
+    throw build, field boolean

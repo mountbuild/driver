@@ -1,0 +1,343 @@
+
+force build-security-manager
+  cause invoke-constructor
+    drive constructor, |SecurityManager|
+    throw build, field security-manager
+
+force check-accept
+  mount build, field security-manager
+  mount host, field string
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccept|
+    drive factor, share host
+    drive factor, share port
+    throw build, field unit
+
+force check-access
+  mount build, field security-manager
+  mount t, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    drive factor, share t
+    throw build, field unit
+
+force check-access
+  mount build, field security-manager
+  mount g, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    drive factor, share g
+    throw build, field unit
+
+force check-awt-event-queue-access
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAwtEventQueueAccess|
+    throw build, field unit
+
+force check-connect
+  mount build, field security-manager
+  mount host, field string
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkConnect|
+    drive factor, share host
+    drive factor, share port
+    throw build, field unit
+
+force check-connect
+  mount build, field security-manager
+  mount host, field string
+  mount port, field int
+  mount context, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |checkConnect|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share context
+    throw build, field unit
+
+force check-create-class-loader
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkCreateClassLoader|
+    throw build, field unit
+
+force check-delete
+  mount build, field security-manager
+  mount file, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkDelete|
+    drive factor, share file
+    throw build, field unit
+
+force check-exec
+  mount build, field security-manager
+  mount cmd, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkExec|
+    drive factor, share cmd
+    throw build, field unit
+
+force check-exit
+  mount build, field security-manager
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkExit|
+    drive factor, share status
+    throw build, field unit
+
+force check-link
+  mount build, field security-manager
+  mount lib, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkLink|
+    drive factor, share lib
+    throw build, field unit
+
+force check-listen
+  mount build, field security-manager
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkListen|
+    drive factor, share port
+    throw build, field unit
+
+force check-member-access
+  mount build, field security-manager
+  mount clazz, field class
+  mount which, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkMemberAccess|
+    drive factor, share clazz
+    drive factor, share which
+    throw build, field unit
+
+force check-multicast
+  mount build, field security-manager
+  mount maddr, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |checkMulticast|
+    drive factor, share maddr
+    throw build, field unit
+
+force check-multicast
+  mount build, field security-manager
+  mount maddr, field inet-address
+  mount ttl, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |checkMulticast|
+    drive factor, share maddr
+    drive factor, share ttl
+    throw build, field unit
+
+force check-package-access
+  mount build, field security-manager
+  mount pkg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPackageAccess|
+    drive factor, share pkg
+    throw build, field unit
+
+force check-package-definition
+  mount build, field security-manager
+  mount pkg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPackageDefinition|
+    drive factor, share pkg
+    throw build, field unit
+
+force check-permission
+  mount build, field security-manager
+  mount perm, field permission
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPermission|
+    drive factor, share perm
+    throw build, field unit
+
+force check-permission
+  mount build, field security-manager
+  mount perm, field permission
+  mount context, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPermission|
+    drive factor, share perm
+    drive factor, share context
+    throw build, field unit
+
+force check-print-job-access
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPrintJobAccess|
+    throw build, field unit
+
+force check-properties-access
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPropertiesAccess|
+    throw build, field unit
+
+force check-property-access
+  mount build, field security-manager
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkPropertyAccess|
+    drive factor, share key
+    throw build, field unit
+
+force check-read
+  mount build, field security-manager
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRead|
+    drive factor, share fd
+    throw build, field unit
+
+force check-read
+  mount build, field security-manager
+  mount file, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRead|
+    drive factor, share file
+    throw build, field unit
+
+force check-read
+  mount build, field security-manager
+  mount file, field string
+  mount context, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRead|
+    drive factor, share file
+    drive factor, share context
+    throw build, field unit
+
+force check-security-access
+  mount build, field security-manager
+  mount target, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkSecurityAccess|
+    drive factor, share target
+    throw build, field unit
+
+force check-set-factory
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkSetFactory|
+    throw build, field unit
+
+force check-system-clipboard-access
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |checkSystemClipboardAccess|
+    throw build, field unit
+
+force check-top-level-window
+  mount build, field security-manager
+  mount window, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |checkTopLevelWindow|
+    drive factor, share window
+    throw build, field boolean
+
+force check-write
+  mount build, field security-manager
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |checkWrite|
+    drive factor, share fd
+    throw build, field unit
+
+force check-write
+  mount build, field security-manager
+  mount file, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkWrite|
+    drive factor, share file
+    throw build, field unit
+
+force get-in-check
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getInCheck|
+    throw build, field boolean
+
+force get-security-context
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getSecurityContext|
+    throw build, field any
+
+force get-thread-group
+  mount build, field security-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadGroup|
+    throw build, field thread-group

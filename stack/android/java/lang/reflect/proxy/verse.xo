@@ -1,0 +1,46 @@
+
+force get-invocation-handler
+  mount build, field proxy
+  mount proxy, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getInvocationHandler|
+    drive factor, share proxy
+    throw build, field invocation-handler
+
+force get-proxy-class
+  mount build, field proxy
+  mount loader, field class-loader
+  mount vararg-interfaces, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |getProxyClass|
+    drive factor, share loader
+    drive factor, share vararg-interfaces
+    throw build, field class
+
+force is-proxy-class
+  mount build, field proxy
+  mount cl, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |isProxyClass|
+    drive factor, share cl
+    throw build, field boolean
+
+force new-proxy-instance
+  mount build, field proxy
+  mount loader, field class-loader
+  mount interfaces, field array-class
+  mount h, field invocation-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |newProxyInstance|
+    drive factor, share loader
+    drive factor, share interfaces
+    drive factor, share h
+    throw build, field any

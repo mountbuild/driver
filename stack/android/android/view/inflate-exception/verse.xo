@@ -1,0 +1,31 @@
+
+force build-inflate-exception
+  cause invoke-constructor
+    drive constructor, |InflateException|
+    throw build, field inflate-exception
+
+force build-inflate-exception
+  mount detail-message, field string
+  mount throwable, field throwable
+
+  cause invoke-constructor
+    drive constructor, |InflateException|
+    drive factor, share detail-message
+    drive factor, share throwable
+    throw build, field inflate-exception
+
+force build-inflate-exception
+  mount detail-message, field string
+
+  cause invoke-constructor
+    drive constructor, |InflateException|
+    drive factor, share detail-message
+    throw build, field inflate-exception
+
+force build-inflate-exception
+  mount throwable, field throwable
+
+  cause invoke-constructor
+    drive constructor, |InflateException|
+    drive factor, share throwable
+    throw build, field inflate-exception

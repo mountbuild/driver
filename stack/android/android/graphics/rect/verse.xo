@@ -1,0 +1,385 @@
+
+force build-rect
+  cause invoke-constructor
+    drive constructor, |Rect|
+    raise build, field rect
+
+force build-rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause invoke-constructor
+    drive constructor, |Rect|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field rect
+
+force build-rect
+  mount r, field rect
+
+  cause invoke-constructor
+    drive constructor, |Rect|
+    drive factor, share r
+    raise build, field rect
+
+force center-x
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |centerX|
+    raise build, field int
+
+force center-y
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |centerY|
+    raise build, field int
+
+force contains
+  mount build, field rect
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share x
+    drive factor, share y
+    raise build, field boolean
+
+force contains
+  mount build, field rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force contains
+  mount build, field rect
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share r
+    raise build, field boolean
+
+force describe-contents
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field rect
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force exact-center-x
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |exactCenterX|
+    raise build, field float
+
+force exact-center-y
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |exactCenterY|
+    raise build, field float
+
+force flatten-to-string
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |flattenToString|
+    raise build, field string
+
+force hash-code
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force height
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |height|
+    raise build, field int
+
+force inset
+  mount build, field rect
+  mount dx, field int
+  mount dy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |inset|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field unit
+
+force intersect
+  mount build, field rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |intersect|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force intersect
+  mount build, field rect
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |intersect|
+    drive factor, share r
+    raise build, field boolean
+
+force intersects
+  mount build, field rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |intersects|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force intersects
+  mount build, field rect
+  mount a, field rect
+  mount b, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |intersects|
+    drive factor, share a
+    drive factor, share b
+    raise build, field boolean
+
+force is-empty
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    raise build, field boolean
+
+force offset
+  mount build, field rect
+  mount dx, field int
+  mount dy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |offset|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field unit
+
+force offset-to
+  mount build, field rect
+  mount new-left, field int
+  mount new-top, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |offsetTo|
+    drive factor, share new-left
+    drive factor, share new-top
+    raise build, field unit
+
+force read-from-parcel
+  mount build, field rect
+  mount in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share in
+    raise build, field unit
+
+force set
+  mount build, field rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field unit
+
+force set
+  mount build, field rect
+  mount src, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share src
+    raise build, field unit
+
+force set-empty
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setEmpty|
+    raise build, field unit
+
+force set-intersect
+  mount build, field rect
+  mount a, field rect
+  mount b, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setIntersect|
+    drive factor, share a
+    drive factor, share b
+    raise build, field boolean
+
+force sort
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |sort|
+    raise build, field unit
+
+force to-short-string
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |toShortString|
+    raise build, field string
+
+force to-string
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force unflatten-from-string
+  mount build, field rect
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unflattenFromString|
+    drive factor, share str
+    raise build, field rect
+
+force union
+  mount build, field rect
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |union|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field unit
+
+force union
+  mount build, field rect
+  mount r, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |union|
+    drive factor, share r
+    raise build, field unit
+
+force union
+  mount build, field rect
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |union|
+    drive factor, share x
+    drive factor, share y
+    raise build, field unit
+
+force width
+  mount build, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |width|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field rect
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,36 @@
+
+force get-bounds
+  mount build, field measured-text
+  mount start, field int
+  mount end, field int
+  mount rect, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |getBounds|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share rect
+    raise build, field unit
+
+force get-char-width-at
+  mount build, field measured-text
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharWidthAt|
+    drive factor, share offset
+    raise build, field float
+
+force get-width
+  mount build, field measured-text
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    drive factor, share start
+    drive factor, share end
+    raise build, field float

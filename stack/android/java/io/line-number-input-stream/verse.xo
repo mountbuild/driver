@@ -1,0 +1,84 @@
+
+force build-line-number-input-stream
+  mount in, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |LineNumberInputStream|
+    drive factor, share in
+    throw build, field line-number-input-stream
+
+force available
+  mount build, field line-number-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force get-line-number
+  mount build, field line-number-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force mark
+  mount build, field line-number-input-stream
+  mount readlimit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mark|
+    drive factor, share readlimit
+    throw build, field unit
+
+force read
+  mount build, field line-number-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field line-number-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force reset
+  mount build, field line-number-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force set-line-number
+  mount build, field line-number-input-stream
+  mount line-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLineNumber|
+    drive factor, share line-number
+    throw build, field unit
+
+force skip
+  mount build, field line-number-input-stream
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

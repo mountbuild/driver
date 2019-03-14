@@ -1,0 +1,78 @@
+
+force get-service-meta-data
+  mount build, field spell-checker-session
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force cancel
+  mount build, field spell-checker-session
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    raise build, field unit
+
+force close
+  mount build, field spell-checker-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-sentence-suggestions
+  mount build, field spell-checker-session
+  mount text-infos, field array-text-info
+  mount suggestions-limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSentenceSuggestions|
+    drive factor, share text-infos
+    drive factor, share suggestions-limit
+    raise build, field unit
+
+force get-spell-checker
+  mount build, field spell-checker-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpellChecker|
+    raise build, field spell-checker-info
+
+force get-suggestions
+  mount build, field spell-checker-session
+  mount text-info, field text-info
+  mount suggestions-limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestions|
+    drive factor, share text-info
+    drive factor, share suggestions-limit
+    raise build, field unit
+
+force get-suggestions
+  mount build, field spell-checker-session
+  mount text-infos, field array-text-info
+  mount suggestions-limit, field int
+  mount sequential-words, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuggestions|
+    drive factor, share text-infos
+    drive factor, share suggestions-limit
+    drive factor, share sequential-words
+    raise build, field unit
+
+force is-session-disconnected
+  mount build, field spell-checker-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isSessionDisconnected|
+    raise build, field boolean

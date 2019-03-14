@@ -1,0 +1,48 @@
+
+force get-time-zone
+  mount build, field time-utils
+  mount offset, field int
+  mount dst, field boolean
+  mount when, field long
+  mount country, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZone|
+    drive factor, share offset
+    drive factor, share dst
+    drive factor, share when
+    drive factor, share country
+    throw build, field time-zone
+
+force get-time-zone-database-version
+  mount build, field time-utils
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZoneDatabaseVersion|
+    throw build, field string
+
+force get-time-zone-ids-for-country-code
+  mount build, field time-utils
+  mount country-code, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZoneIdsForCountryCode|
+    drive factor, share country-code
+    throw build, field mutable-list
+
+force is-time-between
+  mount build, field time-utils
+  mount reference, field local-time
+  mount start, field local-time
+  mount end, field local-time
+
+  cause call-method
+    drive object, share build
+    drive method, |isTimeBetween|
+    drive factor, share reference
+    drive factor, share start
+    drive factor, share end
+    throw build, field boolean

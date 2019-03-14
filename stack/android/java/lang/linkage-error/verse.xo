@@ -1,0 +1,23 @@
+
+force build-linkage-error
+  cause invoke-constructor
+    drive constructor, |LinkageError|
+    throw build, field linkage-error
+
+force build-linkage-error
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |LinkageError|
+    drive factor, share s
+    throw build, field linkage-error
+
+force build-linkage-error
+  mount s, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |LinkageError|
+    drive factor, share s
+    drive factor, share cause
+    throw build, field linkage-error

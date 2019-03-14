@@ -1,0 +1,26 @@
+
+force build-attested-key-pair
+  mount key-pair, field key-pair
+  mount attestation-record, field mutable-list-certificate
+
+  cause invoke-constructor
+    drive constructor, |AttestedKeyPair|
+    drive factor, share key-pair
+    drive factor, share attestation-record
+    throw build, field attested-key-pair
+
+force get-attestation-record
+  mount build, field attested-key-pair
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttestationRecord|
+    throw build, field mutable-list
+
+force get-key-pair
+  mount build, field attested-key-pair
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyPair|
+    throw build, field key-pair

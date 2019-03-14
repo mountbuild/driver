@@ -1,0 +1,23 @@
+
+force build-account-authenticator-activity
+  cause invoke-constructor
+    drive constructor, |AccountAuthenticatorActivity|
+    throw build, field account-authenticator-activity
+
+force finish
+  mount build, field account-authenticator-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    throw build, field unit
+
+force set-account-authenticator-result
+  mount build, field account-authenticator-activity
+  mount result, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccountAuthenticatorResult|
+    drive factor, share result
+    throw build, field unit

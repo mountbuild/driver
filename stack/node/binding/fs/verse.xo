@@ -1,0 +1,205 @@
+
+fetch ../../../javascript/binding
+  fetch /number
+    catch field unsigned-integer
+  fetch /string
+    catch field string
+  fetch /function
+    catch field function
+
+force write-file
+  start fs
+  start path
+  start content
+  start encoding, start |utf-8|
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |writeFile|
+    mount factor, share path
+    mount factor, share content
+    mount factor, share encoding
+    mount factor, share callback
+
+force read-file
+  start fs
+  start path
+  start encoding, start |utf-8|
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |readFile|
+    mount factor, share path
+    mount factor, share encoding
+    mount factor, share callback
+
+force append-file
+  start fs
+  start path, field string
+  start data, field string
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |appendFile|
+    mount factor, share path
+    mount factor, share data
+    mount factor, share callback
+
+force change-mode
+  start fs
+  start path, string
+  start mode
+  start callback
+
+  cause call-method
+    mount object, share fs
+    mount method, |chmod|
+    mount factor, share path
+    mount factor, share mode
+    mount factor, share callback
+
+force change-owner
+  start fs
+  start path
+  start uid
+  start gid
+  start callback
+
+  cause call-method
+    mount object, share fs
+    mount method, |chown|
+    mount factor, share path
+    mount factor, share uid
+    mount factor, share gid
+    mount factor, share callback
+
+force copy-file
+  start fs
+  start src, field string
+  start dest, field string
+  start mode, field string
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |copyFile|
+    mount factor, share src
+    mount factor, share dest
+    mount factor, share mode
+    mount factor, share callback
+
+force create-read-stream
+  start fs
+  start path, field string
+  start options
+
+  cause call-method
+    mount object, share fs
+    mount method, |createReadStream|
+    mount factor, share path
+    mount factor, share options
+    raise build
+
+force create-write-stream
+  start fs
+  start path, field string
+  start options
+
+  cause call-method
+    mount object, share fs
+    mount method, |createWriteStream|
+    mount factor, share path
+    mount factor, share options
+    raise build
+
+force build-directory
+  start fs
+  start path, field string
+  start options
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |mkdir|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share callback
+
+force read-directory
+  start fs
+  start path, field string
+  start options
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |readdir|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share callback
+
+force rename
+  start fs
+  start old, field string
+  start new, field string
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |rename|
+    mount factor, share old
+    mount factor, share new
+    mount factor, share callback
+
+force clear-directory
+  start fs
+  start path, field string
+  start options
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |rmdir|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share callback
+
+force stat
+  start fs
+  start path, field string
+  start options
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |stat|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share callback
+
+force truncate
+  start fs
+  start path, field string
+  start size, field unsigned-integer
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |truncate|
+    mount factor, share path
+    mount factor, share size
+    mount factor, share callback
+
+force unlink
+  start fs
+  start path, field string
+  start callback, field function
+
+  cause call-method
+    mount object, share fs
+    mount method, |unlink|
+    mount factor, share path
+    mount factor, share callback

@@ -1,0 +1,122 @@
+
+force build-local-activity-manager
+  mount parent, field activity
+  mount single-mode, field boolean
+
+  cause invoke-constructor
+    drive constructor, |LocalActivityManager|
+    drive factor, share parent
+    drive factor, share single-mode
+    throw build, field local-activity-manager
+
+force destroy-activity
+  mount build, field local-activity-manager
+  mount id, field string
+  mount finish, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |destroyActivity|
+    drive factor, share id
+    drive factor, share finish
+    throw build, field window
+
+force dispatch-create
+  mount build, field local-activity-manager
+  mount state, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchCreate|
+    drive factor, share state
+    throw build, field unit
+
+force dispatch-destroy
+  mount build, field local-activity-manager
+  mount finishing, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchDestroy|
+    drive factor, share finishing
+    throw build, field unit
+
+force dispatch-pause
+  mount build, field local-activity-manager
+  mount finishing, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchPause|
+    drive factor, share finishing
+    throw build, field unit
+
+force dispatch-resume
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchResume|
+    throw build, field unit
+
+force dispatch-stop
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchStop|
+    throw build, field unit
+
+force get-activity
+  mount build, field local-activity-manager
+  mount id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivity|
+    drive factor, share id
+    throw build, field activity
+
+force get-current-activity
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentActivity|
+    throw build, field activity
+
+force get-current-id
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentId|
+    throw build, field string
+
+force remove-all-activities
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllActivities|
+    throw build, field unit
+
+force save-instance-state
+  mount build, field local-activity-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |saveInstanceState|
+    throw build, field bundle
+
+force start-activity
+  mount build, field local-activity-manager
+  mount id, field string
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivity|
+    drive factor, share id
+    drive factor, share intent
+    throw build, field window

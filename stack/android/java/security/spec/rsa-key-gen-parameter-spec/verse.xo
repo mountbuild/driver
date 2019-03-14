@@ -1,0 +1,26 @@
+
+force build-rsa-key-gen-parameter-spec
+  mount keysize, field int
+  mount public-exponent, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |RSAKeyGenParameterSpec|
+    mount factor, share keysize
+    mount factor, share public-exponent
+    throw build, field rsa-key-gen-parameter-spec
+
+force get-keysize
+  mount build, field rsa-key-gen-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeysize|
+    throw build, field int
+
+force get-public-exponent
+  mount build, field rsa-key-gen-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicExponent|
+    throw build, field big-integer

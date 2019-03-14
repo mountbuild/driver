@@ -1,0 +1,106 @@
+
+force get-log-sync-details
+  mount build, field abstract-threaded-sync-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |LOG_SYNC_DETAILS|
+    throw build, field int
+
+force build-abstract-threaded-sync-adapter
+  mount context, field context
+  mount auto-initialize, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AbstractThreadedSyncAdapter|
+    drive factor, share context
+    drive factor, share auto-initialize
+    throw build, field abstract-threaded-sync-adapter
+
+force build-abstract-threaded-sync-adapter
+  mount context, field context
+  mount auto-initialize, field boolean
+  mount allow-parallel-syncs, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AbstractThreadedSyncAdapter|
+    drive factor, share context
+    drive factor, share auto-initialize
+    drive factor, share allow-parallel-syncs
+    throw build, field abstract-threaded-sync-adapter
+
+force get-context
+  mount build, field abstract-threaded-sync-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getContext|
+    throw build, field context
+
+force get-sync-adapter-binder
+  mount build, field abstract-threaded-sync-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getSyncAdapterBinder|
+    throw build, field i-binder
+
+force on-perform-sync
+  mount build, field abstract-threaded-sync-adapter
+  mount account, field account
+  mount extras, field bundle
+  mount authority, field string
+  mount provider, field content-provider-client
+  mount sync-result, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onPerformSync|
+    drive factor, share account
+    drive factor, share extras
+    drive factor, share authority
+    drive factor, share provider
+    drive factor, share sync-result
+    throw build, field unit
+
+force on-security-exception
+  mount build, field abstract-threaded-sync-adapter
+  mount account, field account
+  mount extras, field bundle
+  mount authority, field string
+  mount sync-result, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onSecurityException|
+    drive factor, share account
+    drive factor, share extras
+    drive factor, share authority
+    drive factor, share sync-result
+    throw build, field unit
+
+force on-sync-canceled
+  mount build, field abstract-threaded-sync-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |onSyncCanceled|
+    throw build, field unit
+
+force on-sync-canceled
+  mount build, field abstract-threaded-sync-adapter
+  mount thread, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |onSyncCanceled|
+    drive factor, share thread
+    throw build, field unit
+
+force on-unsyncable-account
+  mount build, field abstract-threaded-sync-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnsyncableAccount|
+    throw build, field boolean

@@ -1,0 +1,40 @@
+
+force build-gcm-parameter-spec
+  start t-len, field int
+  start src, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |GCMParameterSpec|
+    mount factor, share t-len
+    mount factor, share src
+    throw build, field gcm-parameter-spec
+
+force build-gcm-parameter-spec
+  start t-len, field int
+  start src, field byte-array
+  start offset, field int
+  start len, field int
+
+  cause invoke-constructor
+    mount constructor, |GCMParameterSpec|
+    mount factor, share t-len
+    mount factor, share src
+    mount factor, share offset
+    mount factor, share len
+    throw build, field gcm-parameter-spec
+
+force get-iv
+  start build, field gcm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIV|
+    throw build, field byte-array
+
+force get-t-len
+  start build, field gcm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getTLen|
+    throw build, field int

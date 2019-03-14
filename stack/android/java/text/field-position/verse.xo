@@ -1,0 +1,104 @@
+
+force build-field-position
+  start field, field int
+
+  cause invoke-constructor
+    mount constructor, |FieldPosition|
+    mount factor, share field
+    raise build, field field-position
+
+force build-field-position
+  start attribute, field format-field
+
+  cause invoke-constructor
+    mount constructor, |FieldPosition|
+    mount factor, share attribute
+    raise build, field field-position
+
+force build-field-position
+  start attribute, field format-field
+  start field-id, field int
+
+  cause invoke-constructor
+    mount constructor, |FieldPosition|
+    mount factor, share attribute
+    mount factor, share field-id
+    raise build, field field-position
+
+force equals
+  start build, field field-position
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force get-begin-index
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getBeginIndex|
+    raise build, field int
+
+force get-end-index
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getEndIndex|
+    raise build, field int
+
+force get-field
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getField|
+    raise build, field int
+
+force get-field-attribute
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |getFieldAttribute|
+    raise build, field format-field
+
+force hash-code
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force set-begin-index
+  start build, field field-position
+  start bi, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setBeginIndex|
+    mount factor, share bi
+    raise build, field unit
+
+force set-end-index
+  start build, field field-position
+  start ei, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setEndIndex|
+    mount factor, share ei
+    raise build, field unit
+
+force to-string
+  start build, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string

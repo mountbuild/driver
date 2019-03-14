@@ -1,0 +1,33 @@
+
+force build-paint-drawable
+  cause invoke-constructor
+    drive constructor, |PaintDrawable|
+    raise build, field paint-drawable
+
+force build-paint-drawable
+  mount color, field int
+
+  cause invoke-constructor
+    drive constructor, |PaintDrawable|
+    drive factor, share color
+    raise build, field paint-drawable
+
+force set-corner-radii
+  mount build, field paint-drawable
+  mount radii, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setCornerRadii|
+    drive factor, share radii
+    raise build, field unit
+
+force set-corner-radius
+  mount build, field paint-drawable
+  mount radius, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setCornerRadius|
+    drive factor, share radius
+    raise build, field unit

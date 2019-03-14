@@ -1,0 +1,39 @@
+
+force build-linked-hash-set
+  mount initial-capacity, field int
+  mount load-factor, field float
+
+  cause invoke-constructor
+    drive constructor, |LinkedHashSet|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    throw build, field linked-hash-set
+
+force build-linked-hash-set
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |LinkedHashSet|
+    drive factor, share initial-capacity
+    throw build, field linked-hash-set
+
+force build-linked-hash-set
+  cause invoke-constructor
+    drive constructor, |LinkedHashSet|
+    throw build, field linked-hash-set
+
+force build-linked-hash-set
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |LinkedHashSet|
+    drive factor, share c
+    throw build, field linked-hash-set
+
+force spliterator
+  mount build, field linked-hash-set
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator

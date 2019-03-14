@@ -1,0 +1,44 @@
+
+force build-x-path-exception
+  start message, field string
+
+  cause invoke-constructor
+    mount constructor, |XPathException|
+    mount factor, share message
+    throw build, field x-path-exception
+
+force build-x-path-exception
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |XPathException|
+    mount factor, share cause
+    throw build, field x-path-exception
+
+force print-stack-trace
+  start build, field x-path-exception
+  start s, field print-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit
+
+force print-stack-trace
+  start build, field x-path-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    throw build, field unit
+
+force print-stack-trace
+  start build, field x-path-exception
+  start s, field print-writer
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit

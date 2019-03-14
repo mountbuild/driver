@@ -1,0 +1,1212 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |shared|
+    raise build, field ui-application
+
+force set-class-shared
+  field value, field ui-application
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-delegate
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ui-application-delegate
+
+force set-delegate
+  field build, field ui-application
+  field value, field ui-application-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force register-for-remote-notifications
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |registerForRemoteNotifications|
+
+force unregister-for-remote-notifications
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterForRemoteNotifications|
+
+force get-is-registered-for-remote-notifications
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRegisteredForRemoteNotifications|
+    raise build, field bool
+
+force set-is-registered-for-remote-notifications
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRegisteredForRemoteNotifications|
+    drive factor, share value
+
+force get-application-state
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |applicationState|
+    raise build, field ui-application-state
+
+force set-application-state
+  field build, field ui-application
+  field value, field ui-application-state
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |applicationState|
+    drive factor, share value
+
+force get-supports-multiple-scenes
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportsMultipleScenes|
+    raise build, field bool
+
+force set-supports-multiple-scenes
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportsMultipleScenes|
+    drive factor, share value
+
+force get-connected-scenes
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |connectedScenes|
+    raise build, field set-ui-scene
+
+force set-connected-scenes
+  field build, field ui-application
+  field value, field set-ui-scene
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |connectedScenes|
+    drive factor, share value
+
+force get-open-sessions
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |openSessions|
+    raise build, field set-ui-scene-session
+
+force set-open-sessions
+  field build, field ui-application
+  field value, field set-ui-scene-session
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |openSessions|
+    drive factor, share value
+
+force request-scene-session-refresh
+  field build, field ui-application
+  field a, class ui-scene-session
+
+  cause call-method
+    drive object, share build
+    drive method, |requestSceneSessionRefresh|
+    drive factor, share a
+
+force get-background-refresh-status
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |backgroundRefreshStatus|
+    raise build, field ui-background-refresh-status
+
+force set-background-refresh-status
+  field build, field ui-application
+  field value, field ui-background-refresh-status
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |backgroundRefreshStatus|
+    drive factor, share value
+
+force get-class-background-refresh-status-did-change-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundRefreshStatusDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-background-refresh-status-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundRefreshStatusDidChangeNotification|
+    drive factor, share value
+
+force get-class-background-refresh-status-did-change-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundRefreshStatusDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-background-refresh-status-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundRefreshStatusDidChangeNotification|
+    drive factor, share value
+
+force end-background-task
+  field build, field ui-application
+  field a, class ui-background-task-identifier
+
+  cause call-method
+    drive object, share build
+    drive method, |endBackgroundTask|
+    drive factor, share a
+
+force get-background-time-remaining
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |backgroundTimeRemaining|
+    raise build, field time-interval
+
+force set-background-time-remaining
+  field build, field ui-application
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |backgroundTimeRemaining|
+    drive factor, share value
+
+force get-class-background-fetch-interval-minimum
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalMinimum|
+    raise build, field time-interval
+
+force set-class-background-fetch-interval-minimum
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalMinimum|
+    drive factor, share value
+
+force get-class-background-fetch-interval-minimum
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalMinimum|
+    raise build, field time-interval
+
+force set-class-background-fetch-interval-minimum
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalMinimum|
+    drive factor, share value
+
+force get-class-background-fetch-interval-never
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalNever|
+    raise build, field time-interval
+
+force set-class-background-fetch-interval-never
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalNever|
+    drive factor, share value
+
+force get-class-background-fetch-interval-never
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalNever|
+    raise build, field time-interval
+
+force set-class-background-fetch-interval-never
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |backgroundFetchIntervalNever|
+    drive factor, share value
+
+force can-open-url
+  field build, field ui-application
+  field a, class url
+
+  cause call-method
+    drive object, share build
+    drive method, |canOpenURL|
+    drive factor, share a
+    raise build, class bool
+
+force get-class-open-settings-url-string
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |openSettingsURLString|
+    raise build, field string
+
+force set-class-open-settings-url-string
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |openSettingsURLString|
+    drive factor, share value
+
+force get-class-open-settings-url-string
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |openSettingsURLString|
+    raise build, field string
+
+force set-class-open-settings-url-string
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |openSettingsURLString|
+    drive factor, share value
+
+force get-is-idle-timer-disabled
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isIdleTimerDisabled|
+    raise build, field bool
+
+force set-is-idle-timer-disabled
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isIdleTimerDisabled|
+    drive factor, share value
+
+force extend-state-restoration
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |extendStateRestoration|
+
+force complete-state-restoration
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |completeStateRestoration|
+
+force ignore-snapshot-on-next-application-launch
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |ignoreSnapshotOnNextApplicationLaunch|
+
+force get-shortcut-items
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |shortcutItems|
+    raise build, field ui-application-shortcut-item
+
+force set-shortcut-items
+  field build, field ui-application
+  field value, field ui-application-shortcut-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |shortcutItems|
+    drive factor, share value
+
+force get-is-protected-data-available
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isProtectedDataAvailable|
+    raise build, field bool
+
+force set-is-protected-data-available
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isProtectedDataAvailable|
+    drive factor, share value
+
+force get-class-protected-data-did-become-available-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataDidBecomeAvailableNotification|
+    raise build, field ns-notification-name
+
+force set-class-protected-data-did-become-available-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataDidBecomeAvailableNotification|
+    drive factor, share value
+
+force get-class-protected-data-did-become-available-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataDidBecomeAvailableNotification|
+    raise build, field ns-notification-name
+
+force set-class-protected-data-did-become-available-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataDidBecomeAvailableNotification|
+    drive factor, share value
+
+force get-class-protected-data-will-become-unavailable-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataWillBecomeUnavailableNotification|
+    raise build, field ns-notification-name
+
+force set-class-protected-data-will-become-unavailable-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataWillBecomeUnavailableNotification|
+    drive factor, share value
+
+force get-class-protected-data-will-become-unavailable-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataWillBecomeUnavailableNotification|
+    raise build, field ns-notification-name
+
+force set-class-protected-data-will-become-unavailable-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |protectedDataWillBecomeUnavailableNotification|
+    drive factor, share value
+
+force begin-receiving-remote-control-events
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |beginReceivingRemoteControlEvents|
+
+force end-receiving-remote-control-events
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |endReceivingRemoteControlEvents|
+
+force get-user-interface-layout-direction
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    raise build, field ui-user-interface-layout-direction
+
+force set-user-interface-layout-direction
+  field build, field ui-application
+  field value, field ui-user-interface-layout-direction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    drive factor, share value
+
+force send-event
+  field build, field ui-application
+  field a, class ui-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEvent|
+    drive factor, share a
+
+force send-action
+  field build, field ui-application
+  field a, class selector
+  field to, field any
+  field from, field any
+  field for, field ui-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAction|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force begin-ignoring-interaction-events
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |beginIgnoringInteractionEvents|
+
+force end-ignoring-interaction-events
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |endIgnoringInteractionEvents|
+
+force get-is-ignoring-interaction-events
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isIgnoringInteractionEvents|
+    raise build, field bool
+
+force set-is-ignoring-interaction-events
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isIgnoringInteractionEvents|
+    drive factor, share value
+
+force get-application-supports-shake-to-edit
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |applicationSupportsShakeToEdit|
+    raise build, field bool
+
+force set-application-supports-shake-to-edit
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |applicationSupportsShakeToEdit|
+    drive factor, share value
+
+force get-application-icon-badge-number
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |applicationIconBadgeNumber|
+    raise build, field int
+
+force set-application-icon-badge-number
+  field build, field ui-application
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |applicationIconBadgeNumber|
+    drive factor, share value
+
+force get-supports-alternate-icons
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportsAlternateIcons|
+    raise build, field bool
+
+force set-supports-alternate-icons
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportsAlternateIcons|
+    drive factor, share value
+
+force get-alternate-icon-name
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |alternateIconName|
+    raise build, field string
+
+force set-alternate-icon-name
+  field build, field ui-application
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |alternateIconName|
+    drive factor, share value
+
+force get-key-window
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |keyWindow|
+    raise build, field ui-window
+
+force set-key-window
+  field build, field ui-application
+  field value, field ui-window
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |keyWindow|
+    drive factor, share value
+
+force get-windows
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |windows|
+    raise build, field ui-window
+
+force set-windows
+  field build, field ui-application
+  field value, field ui-window
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |windows|
+    drive factor, share value
+
+force get-preferred-content-size-category
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredContentSizeCategory|
+    raise build, field ui-content-size-category
+
+force set-preferred-content-size-category
+  field build, field ui-application
+  field value, field ui-content-size-category
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredContentSizeCategory|
+    drive factor, share value
+
+force get-static-new-value-user-info-key
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |newValueUserInfoKey|
+    raise build, field String
+
+force set-static-new-value-user-info-key
+  field value, field String
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |newValueUserInfoKey|
+    drive factor, share value
+
+force get-static-did-change-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeNotification|
+    raise build, field NSNotification.Name
+
+force set-static-did-change-notification
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeNotification|
+    drive factor, share value
+
+force supported-interface-orientations
+  field build, field ui-application
+  field for, field ui-window
+
+  cause call-method
+    drive object, share build
+    drive method, |supportedInterfaceOrientations|
+    drive factor
+      brand for
+      share for
+    raise build, class ui-interface-orientation-mask
+
+force get-static-tracking
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |tracking|
+    raise build, field RunLoop.Mode
+
+force set-static-tracking
+  field value, field RunLoop.Mode
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |tracking|
+    drive factor, share value
+
+force get-class-user-did-take-screenshot-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |userDidTakeScreenshotNotification|
+    raise build, field ns-notification-name
+
+force set-class-user-did-take-screenshot-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |userDidTakeScreenshotNotification|
+    drive factor, share value
+
+force get-class-user-did-take-screenshot-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |userDidTakeScreenshotNotification|
+    raise build, field ns-notification-name
+
+force set-class-user-did-take-screenshot-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |userDidTakeScreenshotNotification|
+    drive factor, share value
+
+force set-minimum-background-fetch-interval
+  field build, field ui-application
+  field a, class time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |setMinimumBackgroundFetchInterval|
+    drive factor, share a
+
+force get-status-bar-orientation-animation-duration
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |statusBarOrientationAnimationDuration|
+    raise build, field time-interval
+
+force set-status-bar-orientation-animation-duration
+  field build, field ui-application
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |statusBarOrientationAnimationDuration|
+    drive factor, share value
+
+force get-class-did-change-status-bar-frame-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarFrameNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-status-bar-frame-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarFrameNotification|
+    drive factor, share value
+
+force get-class-did-change-status-bar-frame-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarFrameNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-status-bar-frame-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarFrameNotification|
+    drive factor, share value
+
+force get-class-did-change-status-bar-orientation-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarOrientationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-status-bar-orientation-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarOrientationNotification|
+    drive factor, share value
+
+force get-class-did-change-status-bar-orientation-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarOrientationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-status-bar-orientation-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |didChangeStatusBarOrientationNotification|
+    drive factor, share value
+
+force get-class-will-change-status-bar-orientation-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarOrientationNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-change-status-bar-orientation-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarOrientationNotification|
+    drive factor, share value
+
+force get-class-will-change-status-bar-orientation-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarOrientationNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-change-status-bar-orientation-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarOrientationNotification|
+    drive factor, share value
+
+force get-class-will-change-status-bar-frame-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarFrameNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-change-status-bar-frame-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarFrameNotification|
+    drive factor, share value
+
+force get-class-will-change-status-bar-frame-notification
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarFrameNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-change-status-bar-frame-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |willChangeStatusBarFrameNotification|
+    drive factor, share value
+
+force get-class-status-bar-orientation-user-info-key
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarOrientationUserInfoKey|
+    raise build, field string
+
+force set-class-status-bar-orientation-user-info-key
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarOrientationUserInfoKey|
+    drive factor, share value
+
+force get-class-status-bar-orientation-user-info-key
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarOrientationUserInfoKey|
+    raise build, field string
+
+force set-class-status-bar-orientation-user-info-key
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarOrientationUserInfoKey|
+    drive factor, share value
+
+force get-class-status-bar-frame-user-info-key
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarFrameUserInfoKey|
+    raise build, field string
+
+force set-class-status-bar-frame-user-info-key
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarFrameUserInfoKey|
+    drive factor, share value
+
+force get-class-status-bar-frame-user-info-key
+
+  cause get-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarFrameUserInfoKey|
+    raise build, field string
+
+force set-class-status-bar-frame-user-info-key
+  field value, field string
+
+  cause set-aspect
+    drive object, |UIApplication|
+    drive aspect, |statusBarFrameUserInfoKey|
+    drive factor, share value
+
+force get-status-bar-frame
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |statusBarFrame|
+    raise build, field cg-rect
+
+force set-status-bar-frame
+  field build, field ui-application
+  field value, field cg-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |statusBarFrame|
+    drive factor, share value
+
+force get-is-network-activity-indicator-visible
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isNetworkActivityIndicatorVisible|
+    raise build, field bool
+
+force set-is-network-activity-indicator-visible
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isNetworkActivityIndicatorVisible|
+    drive factor, share value
+
+force get-ui-minimum-keep-alive-timeout
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UIMinimumKeepAliveTimeout|
+    raise build, field time-interval
+
+force set-ui-minimum-keep-alive-timeout
+  field build, field UIApplication
+  field value, field TimeInterval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UIMinimumKeepAliveTimeout|
+    drive factor, share value
+
+force register-user-notification-settings
+  field build, field ui-application
+  field a, class ui-user-notification-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |registerUserNotificationSettings|
+    drive factor, share a
+
+force get-current-user-notification-settings
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentUserNotificationSettings|
+    raise build, field ui-user-notification-settings
+
+force set-current-user-notification-settings
+  field build, field ui-application
+  field value, field ui-user-notification-settings
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentUserNotificationSettings|
+    drive factor, share value
+
+force open-url
+  field build, field ui-application
+  field a, class url
+
+  cause call-method
+    drive object, share build
+    drive method, |openURL|
+    drive factor, share a
+    raise build, class bool
+
+force schedule-local-notification
+  field build, field ui-application
+  field a, class ui-local-notification
+
+  cause call-method
+    drive object, share build
+    drive method, |scheduleLocalNotification|
+    drive factor, share a
+
+force present-local-notification-now
+  field build, field ui-application
+  field a, class ui-local-notification
+
+  cause call-method
+    drive object, share build
+    drive method, |presentLocalNotificationNow|
+    drive factor, share a
+
+force cancel-local-notification
+  field build, field ui-application
+  field a, class ui-local-notification
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelLocalNotification|
+    drive factor, share a
+
+force cancel-all-local-notifications
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelAllLocalNotifications|
+
+force get-scheduled-local-notifications
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |scheduledLocalNotifications|
+    raise build, field ui-local-notification
+
+force set-scheduled-local-notifications
+  field build, field ui-application
+  field value, field ui-local-notification
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |scheduledLocalNotifications|
+    drive factor, share value
+
+force set-newsstand-icon-image
+  field build, field ui-application
+  field a, class ui-image
+
+  cause call-method
+    drive object, share build
+    drive method, |setNewsstandIconImage|
+    drive factor, share a
+
+force clear-keep-alive-timeout
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |clearKeepAliveTimeout|
+
+force set-status-bar-hidden
+  field build, field ui-application
+  field a, class bool
+  field with, field ui-status-bar-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |setStatusBarHidden|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+
+force get-is-status-bar-hidden
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isStatusBarHidden|
+    raise build, field bool
+
+force set-is-status-bar-hidden
+  field build, field ui-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isStatusBarHidden|
+    drive factor, share value
+
+force set-status-bar-style
+  field build, field ui-application
+  field a, class ui-status-bar-style
+  field animated, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setStatusBarStyle|
+    drive factor, share a
+    drive factor
+      brand animated
+      share animated
+
+force get-status-bar-style
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |statusBarStyle|
+    raise build, field ui-status-bar-style
+
+force set-status-bar-style
+  field build, field ui-application
+  field value, field ui-status-bar-style
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |statusBarStyle|
+    drive factor, share value
+
+force set-status-bar-orientation
+  field build, field ui-application
+  field a, class ui-interface-orientation
+  field animated, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setStatusBarOrientation|
+    drive factor, share a
+    drive factor
+      brand animated
+      share animated
+
+force get-status-bar-orientation
+  field build, field ui-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |statusBarOrientation|
+    raise build, field ui-interface-orientation
+
+force set-status-bar-orientation
+  field build, field ui-application
+  field value, field ui-interface-orientation
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |statusBarOrientation|
+    drive factor, share value
+
+force register-for-remote-notifications
+  field build, field ui-application
+  field matching, field ui-remote-notification-type
+
+  cause call-method
+    drive object, share build
+    drive method, |registerForRemoteNotifications|
+    drive factor
+      brand matching
+      share matching
+
+force enabled-remote-notification-types
+  field build, field ui-application
+
+  cause call-method
+    drive object, share build
+    drive method, |enabledRemoteNotificationTypes|
+    raise build, class ui-remote-notification-type

@@ -1,0 +1,52 @@
+
+force build-code-signer
+  mount signer-cert-path, field cert-path
+  mount timestamp, field timestamp
+
+  cause invoke-constructor
+    mount constructor, |CodeSigner|
+    mount factor, share signer-cert-path
+    mount factor, share timestamp
+    throw build, field code-signer
+
+force equals
+  mount build, field code-signer
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-signer-cert-path
+  mount build, field code-signer
+
+  cause call-method
+    mount object, share build
+    mount method, |getSignerCertPath|
+    throw build, field cert-path
+
+force get-timestamp
+  mount build, field code-signer
+
+  cause call-method
+    mount object, share build
+    mount method, |getTimestamp|
+    throw build, field timestamp
+
+force hash-code
+  mount build, field code-signer
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field code-signer
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

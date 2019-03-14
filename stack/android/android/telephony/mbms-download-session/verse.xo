@@ -1,0 +1,312 @@
+
+force get-default-top-level-temp-directory
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_TOP_LEVEL_TEMP_DIRECTORY|
+    throw build, field string
+
+force get-extra-mbms-completed-file-uri
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_MBMS_COMPLETED_FILE_URI|
+    throw build, field string
+
+force get-extra-mbms-download-request
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_MBMS_DOWNLOAD_REQUEST|
+    throw build, field string
+
+force get-extra-mbms-download-result
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_MBMS_DOWNLOAD_RESULT|
+    throw build, field string
+
+force get-extra-mbms-file-info
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_MBMS_FILE_INFO|
+    throw build, field string
+
+force get-result-cancelled
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_CANCELLED|
+    throw build, field int
+
+force get-result-download-failure
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_DOWNLOAD_FAILURE|
+    throw build, field int
+
+force get-result-expired
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_EXPIRED|
+    throw build, field int
+
+force get-result-file-root-unreachable
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_FILE_ROOT_UNREACHABLE|
+    throw build, field int
+
+force get-result-io-error
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_IO_ERROR|
+    throw build, field int
+
+force get-result-out-of-storage
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_OUT_OF_STORAGE|
+    throw build, field int
+
+force get-result-service-id-not-defined
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_SERVICE_ID_NOT_DEFINED|
+    throw build, field int
+
+force get-result-successful
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_SUCCESSFUL|
+    throw build, field int
+
+force get-status-actively-downloading
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ACTIVELY_DOWNLOADING|
+    throw build, field int
+
+force get-status-pending-download
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_PENDING_DOWNLOAD|
+    throw build, field int
+
+force get-status-pending-download-window
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_PENDING_DOWNLOAD_WINDOW|
+    throw build, field int
+
+force get-status-pending-repair
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_PENDING_REPAIR|
+    throw build, field int
+
+force get-status-unknown
+  mount build, field mbms-download-session
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_UNKNOWN|
+    throw build, field int
+
+force add-progress-listener
+  mount build, field mbms-download-session
+  mount request, field download-request
+  mount executor, field executor
+  mount listener, field download-progress-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addProgressListener|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field unit
+
+force add-status-listener
+  mount build, field mbms-download-session
+  mount request, field download-request
+  mount executor, field executor
+  mount listener, field download-status-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addStatusListener|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field unit
+
+force cancel-download
+  mount build, field mbms-download-session
+  mount download-request, field download-request
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelDownload|
+    drive factor, share download-request
+    throw build, field unit
+
+force close
+  mount build, field mbms-download-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create
+  mount build, field mbms-download-session
+  mount context, field context
+  mount executor, field executor
+  mount callback, field mbms-download-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field mbms-download-session
+
+force create
+  mount build, field mbms-download-session
+  mount context, field context
+  mount executor, field executor
+  mount subscription-id, field int
+  mount callback, field mbms-download-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    drive factor, share executor
+    drive factor, share subscription-id
+    drive factor, share callback
+    throw build, field mbms-download-session
+
+force download
+  mount build, field mbms-download-session
+  mount request, field download-request
+
+  cause call-method
+    drive object, share build
+    drive method, |download|
+    drive factor, share request
+    throw build, field unit
+
+force get-temp-file-root-directory
+  mount build, field mbms-download-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getTempFileRootDirectory|
+    throw build, field file
+
+force list-pending-downloads
+  mount build, field mbms-download-session
+
+  cause call-method
+    drive object, share build
+    drive method, |listPendingDownloads|
+    throw build, field mutable-list
+
+force remove-progress-listener
+  mount build, field mbms-download-session
+  mount request, field download-request
+  mount listener, field download-progress-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeProgressListener|
+    drive factor, share request
+    drive factor, share listener
+    throw build, field unit
+
+force remove-status-listener
+  mount build, field mbms-download-session
+  mount request, field download-request
+  mount listener, field download-status-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeStatusListener|
+    drive factor, share request
+    drive factor, share listener
+    throw build, field unit
+
+force request-download-state
+  mount build, field mbms-download-session
+  mount download-request, field download-request
+  mount file-info, field file-info
+
+  cause call-method
+    drive object, share build
+    drive method, |requestDownloadState|
+    drive factor, share download-request
+    drive factor, share file-info
+    throw build, field unit
+
+force request-update-file-services
+  mount build, field mbms-download-session
+  mount class-list, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |requestUpdateFileServices|
+    drive factor, share class-list
+    throw build, field unit
+
+force reset-download-knowledge
+  mount build, field mbms-download-session
+  mount download-request, field download-request
+
+  cause call-method
+    drive object, share build
+    drive method, |resetDownloadKnowledge|
+    drive factor, share download-request
+    throw build, field unit
+
+force set-temp-file-root-directory
+  mount build, field mbms-download-session
+  mount temp-file-root-directory, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |setTempFileRootDirectory|
+    drive factor, share temp-file-root-directory
+    throw build, field unit

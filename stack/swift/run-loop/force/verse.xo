@@ -1,0 +1,241 @@
+force get-class-current
+
+  cause get-aspect
+    drive object, |RunLoop|
+    drive aspect, |current|
+    raise build, field run-loop
+
+force set-class-current
+  field value, field run-loop
+
+  cause set-aspect
+    drive object, |RunLoop|
+    drive aspect, |current|
+    drive factor, share value
+
+force get-current-mode
+  field build, field run-loop
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentMode|
+    raise build, field run-loop-mode
+
+force set-current-mode
+  field build, field run-loop
+  field value, field run-loop-mode
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentMode|
+    drive factor, share value
+
+force limit-date
+  field build, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |limitDate|
+    drive factor
+      brand for-mode
+      share for-mode
+    raise build, class date
+
+force get-class-main
+
+  cause get-aspect
+    drive object, |RunLoop|
+    drive aspect, |main|
+    raise build, field run-loop
+
+force set-class-main
+  field value, field run-loop
+
+  cause set-aspect
+    drive object, |RunLoop|
+    drive aspect, |main|
+    drive factor, share value
+
+force get-cf-run-loop
+  field build, field run-loop
+
+  cause call-method
+    drive object, share build
+    drive method, |getCFRunLoop|
+    raise build, class cf-run-loop
+
+force add
+  field build, field run-loop
+  field a, class timer
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share a
+    drive factor
+      brand for-mode
+      share for-mode
+
+force add
+  field build, field run-loop
+  field a, class port
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share a
+    drive factor
+      brand for-mode
+      share for-mode
+
+force remove
+  field build, field run-loop
+  field a, class port
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share a
+    drive factor
+      brand for-mode
+      share for-mode
+
+force run
+  field build, field run-loop
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+
+force run
+  field build, field run-loop
+  field mode, field run-loop-mode
+  field before, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    drive factor
+      brand mode
+      share mode
+    drive factor
+      brand before
+      share before
+    raise build, class bool
+
+force run
+  field build, field run-loop
+  field until, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    drive factor
+      brand until
+      share until
+
+force accept-input
+  field build, field run-loop
+  field for-mode, field run-loop-mode
+  field before, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |acceptInput|
+    drive factor
+      brand for-mode
+      share for-mode
+    drive factor
+      brand before
+      share before
+
+force perform
+  field build, field run-loop
+  field a, class selector
+  field target, field any
+  field argument, field any
+  field order, field int
+  field modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |perform|
+    drive factor, share a
+    drive factor
+      brand target
+      share target
+    drive factor
+      brand argument
+      share argument
+    drive factor
+      brand order
+      share order
+    drive factor
+      brand modes
+      share modes
+
+force cancel-perform
+  field build, field run-loop
+  field a, class selector
+  field target, field any
+  field argument, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelPerform|
+    drive factor, share a
+    drive factor
+      brand target
+      share target
+    drive factor
+      brand argument
+      share argument
+
+force cancel-perform-selectors
+  field build, field run-loop
+  field with-target, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelPerformSelectors|
+    drive factor
+      brand with-target
+      share with-target
+
+force get-minimum-tolerance
+  field build, field run-loop
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |minimumTolerance|
+    raise build, field run-loop-scheduler-time-type-stride
+
+force set-minimum-tolerance
+  field build, field run-loop
+  field value, field run-loop-scheduler-time-type-stride
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |minimumTolerance|
+    drive factor, share value
+
+force get-now
+  field build, field run-loop
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |now|
+    raise build, field run-loop-scheduler-time-type
+
+force set-now
+  field build, field run-loop
+  field value, field run-loop-scheduler-time-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |now|
+    drive factor, share value

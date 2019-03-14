@@ -1,0 +1,118 @@
+
+force get-security-type-open
+  mount build, field soft-ap-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_OPEN|
+    throw build, field int
+
+force get-security-type-wpa2-psk
+  mount build, field soft-ap-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WPA2_PSK|
+    throw build, field int
+
+force get-security-type-wpa3-sae
+  mount build, field soft-ap-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WPA3_SAE|
+    throw build, field int
+
+force get-security-type-wpa3-sae-transition
+  mount build, field soft-ap-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WPA3_SAE_TRANSITION|
+    throw build, field int
+
+force describe-contents
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field soft-ap-configuration
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-bssid
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getBssid|
+    throw build, field mac-address
+
+force get-passphrase
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getPassphrase|
+    throw build, field string
+
+force get-security-type
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getSecurityType|
+    throw build, field int
+
+force get-ssid
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getSsid|
+    throw build, field string
+
+force hash-code
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-hidden-ssid
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |isHiddenSsid|
+    throw build, field boolean
+
+force to-string
+  mount build, field soft-ap-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field soft-ap-configuration
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

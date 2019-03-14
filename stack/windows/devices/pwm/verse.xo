@@ -1,0 +1,220 @@
+
+force build-pwm-controller
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Pwm.PwmController|
+
+force get-actual-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ActualFrequency|
+
+force set-actual-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ActualFrequency|
+    drive factor, share value
+
+force from-id-async
+  start build, field windows-devices-pwm-pwmcontroller
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+
+force get-controllers-async
+  start build, field windows-devices-pwm-pwmcontroller
+  start provider, field windows-devices-pwm-provider-ipwmprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllersAsync|
+    drive factor, share provider
+
+force get-default-async
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefaultAsync|
+
+force get-device-selector
+  start build, field windows-devices-pwm-pwmcontroller
+  start friendly-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share friendly-name
+
+force get-device-selector
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force get-max-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxFrequency|
+
+force set-max-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxFrequency|
+    drive factor, share value
+
+force get-min-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinFrequency|
+
+force set-min-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinFrequency|
+    drive factor, share value
+
+force open-pin
+  start build, field windows-devices-pwm-pwmcontroller
+  start pin-number, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |OpenPin|
+    drive factor, share pin-number
+
+force get-pin-count
+  start build, field windows-devices-pwm-pwmcontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+
+force set-pin-count
+  start build, field windows-devices-pwm-pwmcontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+    drive factor, share value
+
+force set-desired-frequency
+  start build, field windows-devices-pwm-pwmcontroller
+  start desired-frequency, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDesiredFrequency|
+    drive factor, share desired-frequency
+
+force build-pwm-pin
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Pwm.PwmPin|
+
+force close
+  start build, field windows-devices-pwm-pwmpin
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-controller
+  start build, field windows-devices-pwm-pwmpin
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Controller|
+
+force set-controller
+  start build, field windows-devices-pwm-pwmpin
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Controller|
+    drive factor, share value
+
+force get-active-duty-cycle-percentage
+  start build, field windows-devices-pwm-pwmpin
+
+  cause call-method
+    drive object, share build
+    drive method, |GetActiveDutyCyclePercentage|
+
+force get-is-started
+  start build, field windows-devices-pwm-pwmpin
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsStarted|
+
+force set-is-started
+  start build, field windows-devices-pwm-pwmpin
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsStarted|
+    drive factor, share value
+
+force get-polarity
+  start build, field windows-devices-pwm-pwmpin
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Polarity|
+
+force set-polarity
+  start build, field windows-devices-pwm-pwmpin
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Polarity|
+    drive factor, share value
+
+force set-active-duty-cycle-percentage
+  start build, field windows-devices-pwm-pwmpin
+  start duty-cycle-percentage, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |SetActiveDutyCyclePercentage|
+    drive factor, share duty-cycle-percentage
+
+force start
+  start build, field windows-devices-pwm-pwmpin
+
+  cause call-method
+    drive object, share build
+    drive method, |Start|
+
+force stop
+  start build, field windows-devices-pwm-pwmpin
+
+  cause call-method
+    drive object, share build
+    drive method, |Stop|
+
+force get-pwm-pulse-polarity
+  cause get-object
+    drive aspect, |Windows.Devices.Pwm.PwmPulsePolarity|

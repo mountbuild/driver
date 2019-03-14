@@ -1,0 +1,24 @@
+
+force build-face-detector
+  start width, field int
+  start height, field int
+  start max-faces, field int
+
+  cause invoke-constructor
+    drive constructor, |FaceDetector|
+    drive factor, share width
+    drive factor, share height
+    drive factor, share max-faces
+    raise build, field face-detector
+
+force find-faces
+  start build, field face-detector
+  start bitmap, field bitmap
+  start faces, field array-face-detector-face
+
+  cause call-method
+    drive object, share build
+    drive method, |findFaces|
+    drive factor, share bitmap
+    drive factor, share faces
+    raise build, field int

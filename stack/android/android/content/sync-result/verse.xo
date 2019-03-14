@@ -1,0 +1,81 @@
+
+force build-sync-result
+  cause invoke-constructor
+    drive constructor, |SyncResult|
+    throw build, field sync-result
+
+force clear
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force describe-contents
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force has-error
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |hasError|
+    throw build, field boolean
+
+force has-hard-error
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |hasHardError|
+    throw build, field boolean
+
+force has-soft-error
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSoftError|
+    throw build, field boolean
+
+force made-some-progress
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |madeSomeProgress|
+    throw build, field boolean
+
+force to-debug-string
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |toDebugString|
+    throw build, field string
+
+force to-string
+  mount build, field sync-result
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field sync-result
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

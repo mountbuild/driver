@@ -1,0 +1,70 @@
+
+force build-readable-stream
+  start underlying-source
+  start queuing-strategy
+
+  cause invoke-constructor
+    mount constructor, |ReadableStream|
+    mount factor, share underlying-source
+    mount factor, share queuing-strategy
+    throw build
+
+force get-locked
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |locked|
+    throw build
+
+force cancel
+  start build
+  start reason
+
+  cause call-method
+    mount object, share build
+    mount method, |cancel|
+    mount factor, share reason
+    throw build
+
+force get-reader
+  start build
+  start mode
+
+  cause call-method
+    mount object, share build
+    mount method, |getReader|
+    mount factor, share mode
+    throw build
+
+force pipe-through
+  start build
+  start transform-stream
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |pipeThrough|
+    mount factor, share transform-stream
+    mount factor, share options
+    throw build
+
+force pipe-to
+  start build
+  start destination
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |pipeTo|
+    mount factor, share destination
+    mount factor, share options
+    throw build
+
+force tee
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |tee|
+    throw build

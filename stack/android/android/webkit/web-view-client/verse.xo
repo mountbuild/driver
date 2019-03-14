@@ -1,0 +1,481 @@
+
+force get-error-authentication
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_AUTHENTICATION|
+    throw build, field int
+
+force get-error-bad-url
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_BAD_URL|
+    throw build, field int
+
+force get-error-connect
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_CONNECT|
+    throw build, field int
+
+force get-error-failed-ssl-handshake
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_FAILED_SSL_HANDSHAKE|
+    throw build, field int
+
+force get-error-file
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_FILE|
+    throw build, field int
+
+force get-error-file-not-found
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_FILE_NOT_FOUND|
+    throw build, field int
+
+force get-error-host-lookup
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_HOST_LOOKUP|
+    throw build, field int
+
+force get-error-io
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_IO|
+    throw build, field int
+
+force get-error-proxy-authentication
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_PROXY_AUTHENTICATION|
+    throw build, field int
+
+force get-error-redirect-loop
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_REDIRECT_LOOP|
+    throw build, field int
+
+force get-error-timeout
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_TIMEOUT|
+    throw build, field int
+
+force get-error-too-many-requests
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_TOO_MANY_REQUESTS|
+    throw build, field int
+
+force get-error-unknown
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNKNOWN|
+    throw build, field int
+
+force get-error-unsafe-resource
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNSAFE_RESOURCE|
+    throw build, field int
+
+force get-error-unsupported-auth-scheme
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNSUPPORTED_AUTH_SCHEME|
+    throw build, field int
+
+force get-error-unsupported-scheme
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNSUPPORTED_SCHEME|
+    throw build, field int
+
+force get-safe-browsing-threat-billing
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |SAFE_BROWSING_THREAT_BILLING|
+    throw build, field int
+
+force get-safe-browsing-threat-malware
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |SAFE_BROWSING_THREAT_MALWARE|
+    throw build, field int
+
+force get-safe-browsing-threat-phishing
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |SAFE_BROWSING_THREAT_PHISHING|
+    throw build, field int
+
+force get-safe-browsing-threat-unknown
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |SAFE_BROWSING_THREAT_UNKNOWN|
+    throw build, field int
+
+force get-safe-browsing-threat-unwanted-software
+  mount build, field web-view-client
+
+  cause get-property
+    drive object, share build
+    drive property, |SAFE_BROWSING_THREAT_UNWANTED_SOFTWARE|
+    throw build, field int
+
+force build-web-view-client
+  cause invoke-constructor
+    drive constructor, |WebViewClient|
+    throw build, field web-view-client
+
+force do-update-visited-history
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+  mount is-reload, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |doUpdateVisitedHistory|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share is-reload
+    throw build, field unit
+
+force on-form-resubmission
+  mount build, field web-view-client
+  mount view, field web-view
+  mount dont-resend, field message
+  mount resend, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |onFormResubmission|
+    drive factor, share view
+    drive factor, share dont-resend
+    drive factor, share resend
+    throw build, field unit
+
+force on-load-resource
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onLoadResource|
+    drive factor, share view
+    drive factor, share url
+    throw build, field unit
+
+force on-page-commit-visible
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPageCommitVisible|
+    drive factor, share view
+    drive factor, share url
+    throw build, field unit
+
+force on-page-finished
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPageFinished|
+    drive factor, share view
+    drive factor, share url
+    throw build, field unit
+
+force on-page-started
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+  mount favicon, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |onPageStarted|
+    drive factor, share view
+    drive factor, share url
+    drive factor, share favicon
+    throw build, field unit
+
+force on-received-client-cert-request
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedClientCertRequest|
+    drive factor, share view
+    drive factor, share request
+    throw build, field unit
+
+force on-received-error
+  mount build, field web-view-client
+  mount view, field web-view
+  mount error-code, field int
+  mount description, field string
+  mount failing-url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedError|
+    drive factor, share view
+    drive factor, share error-code
+    drive factor, share description
+    drive factor, share failing-url
+    throw build, field unit
+
+force on-received-error
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field web-resource-request
+  mount error, field web-resource-error
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedError|
+    drive factor, share view
+    drive factor, share request
+    drive factor, share error
+    throw build, field unit
+
+force on-received-http-auth-request
+  mount build, field web-view-client
+  mount view, field web-view
+  mount handler, field http-auth-handler
+  mount host, field string
+  mount realm, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedHttpAuthRequest|
+    drive factor, share view
+    drive factor, share handler
+    drive factor, share host
+    drive factor, share realm
+    throw build, field unit
+
+force on-received-http-error
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field web-resource-request
+  mount error-response, field web-resource-response
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedHttpError|
+    drive factor, share view
+    drive factor, share request
+    drive factor, share error-response
+    throw build, field unit
+
+force on-received-login-request
+  mount build, field web-view-client
+  mount view, field web-view
+  mount realm, field string
+  mount account, field string
+  mount args, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedLoginRequest|
+    drive factor, share view
+    drive factor, share realm
+    drive factor, share account
+    drive factor, share args
+    throw build, field unit
+
+force on-received-ssl-error
+  mount build, field web-view-client
+  mount view, field web-view
+  mount handler, field ssl-error-handler
+  mount error, field ssl-error
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceivedSslError|
+    drive factor, share view
+    drive factor, share handler
+    drive factor, share error
+    throw build, field unit
+
+force on-render-process-gone
+  mount build, field web-view-client
+  mount view, field web-view
+  mount detail, field render-process-gone-detail
+
+  cause call-method
+    drive object, share build
+    drive method, |onRenderProcessGone|
+    drive factor, share view
+    drive factor, share detail
+    throw build, field boolean
+
+force on-safe-browsing-hit
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field web-resource-request
+  mount threat-type, field int
+  mount callback, field safe-browsing-response
+
+  cause call-method
+    drive object, share build
+    drive method, |onSafeBrowsingHit|
+    drive factor, share view
+    drive factor, share request
+    drive factor, share threat-type
+    drive factor, share callback
+    throw build, field unit
+
+force on-scale-changed
+  mount build, field web-view-client
+  mount view, field web-view
+  mount old-scale, field float
+  mount new-scale, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |onScaleChanged|
+    drive factor, share view
+    drive factor, share old-scale
+    drive factor, share new-scale
+    throw build, field unit
+
+force on-too-many-redirects
+  mount build, field web-view-client
+  mount view, field web-view
+  mount cancel-msg, field message
+  mount continue-msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |onTooManyRedirects|
+    drive factor, share view
+    drive factor, share cancel-msg
+    drive factor, share continue-msg
+    throw build, field unit
+
+force on-unhandled-key-event
+  mount build, field web-view-client
+  mount view, field web-view
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnhandledKeyEvent|
+    drive factor, share view
+    drive factor, share event
+    throw build, field unit
+
+force should-intercept-request
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldInterceptRequest|
+    drive factor, share view
+    drive factor, share url
+    throw build, field web-resource-response
+
+force should-intercept-request
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field web-resource-request
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldInterceptRequest|
+    drive factor, share view
+    drive factor, share request
+    throw build, field web-resource-response
+
+force should-override-key-event
+  mount build, field web-view-client
+  mount view, field web-view
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldOverrideKeyEvent|
+    drive factor, share view
+    drive factor, share event
+    throw build, field boolean
+
+force should-override-url-loading
+  mount build, field web-view-client
+  mount view, field web-view
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldOverrideUrlLoading|
+    drive factor, share view
+    drive factor, share url
+    throw build, field boolean
+
+force should-override-url-loading
+  mount build, field web-view-client
+  mount view, field web-view
+  mount request, field web-resource-request
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldOverrideUrlLoading|
+    drive factor, share view
+    drive factor, share request
+    throw build, field boolean

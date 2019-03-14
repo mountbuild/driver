@@ -1,0 +1,745 @@
+
+force get-report-key-identifier
+  start build, field instrumentation
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_IDENTIFIER|
+    throw build, field string
+
+force get-report-key-streamresult
+  start build, field instrumentation
+
+  cause get-property
+    drive object, share build
+    drive property, |REPORT_KEY_STREAMRESULT|
+    throw build, field string
+
+force build-instrumentation
+  cause invoke-constructor
+    drive constructor, |Instrumentation|
+    throw build, field instrumentation
+
+force acquire-looper-manager
+  start build, field instrumentation
+  start looper, field looper
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireLooperManager|
+    drive factor, share looper
+    throw build, field test-looper-manager
+
+force add-monitor
+  start build, field instrumentation
+  start monitor, field instrumentation-activity-monitor
+
+  cause call-method
+    drive object, share build
+    drive method, |addMonitor|
+    drive factor, share monitor
+    throw build, field unit
+
+force add-monitor
+  start build, field instrumentation
+  start filter, field intent-filter
+  start result, field instrumentation-activity-result
+  start block, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |addMonitor|
+    drive factor, share filter
+    drive factor, share result
+    drive factor, share block
+    throw build, field instrumentation-activity-monitor
+
+force add-monitor
+  start build, field instrumentation
+  start cls, field string
+  start result, field instrumentation-activity-result
+  start block, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |addMonitor|
+    drive factor, share cls
+    drive factor, share result
+    drive factor, share block
+    throw build, field instrumentation-activity-monitor
+
+force add-results
+  start build, field instrumentation
+  start results, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |addResults|
+    drive factor, share results
+    throw build, field unit
+
+force call-activity-on-create
+  start build, field instrumentation
+  start activity, field activity
+  start icicle, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnCreate|
+    drive factor, share activity
+    drive factor, share icicle
+    throw build, field unit
+
+force call-activity-on-create
+  start build, field instrumentation
+  start activity, field activity
+  start icicle, field bundle
+  start persistent-state, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnCreate|
+    drive factor, share activity
+    drive factor, share icicle
+    drive factor, share persistent-state
+    throw build, field unit
+
+force call-activity-on-destroy
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnDestroy|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-new-intent
+  start build, field instrumentation
+  start activity, field activity
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnNewIntent|
+    drive factor, share activity
+    drive factor, share intent
+    throw build, field unit
+
+force call-activity-on-pause
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnPause|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-picture-in-picture-requested
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnPictureInPictureRequested|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-post-create
+  start build, field instrumentation
+  start activity, field activity
+  start saved-instance-state, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnPostCreate|
+    drive factor, share activity
+    drive factor, share saved-instance-state
+    throw build, field unit
+
+force call-activity-on-post-create
+  start build, field instrumentation
+  start activity, field activity
+  start saved-instance-state, field bundle
+  start persistent-state, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnPostCreate|
+    drive factor, share activity
+    drive factor, share saved-instance-state
+    drive factor, share persistent-state
+    throw build, field unit
+
+force call-activity-on-restart
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnRestart|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-restore-instance-state
+  start build, field instrumentation
+  start activity, field activity
+  start saved-instance-state, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnRestoreInstanceState|
+    drive factor, share activity
+    drive factor, share saved-instance-state
+    throw build, field unit
+
+force call-activity-on-restore-instance-state
+  start build, field instrumentation
+  start activity, field activity
+  start saved-instance-state, field bundle
+  start persistent-state, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnRestoreInstanceState|
+    drive factor, share activity
+    drive factor, share saved-instance-state
+    drive factor, share persistent-state
+    throw build, field unit
+
+force call-activity-on-resume
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnResume|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-save-instance-state
+  start build, field instrumentation
+  start activity, field activity
+  start out-state, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnSaveInstanceState|
+    drive factor, share activity
+    drive factor, share out-state
+    throw build, field unit
+
+force call-activity-on-save-instance-state
+  start build, field instrumentation
+  start activity, field activity
+  start out-state, field bundle
+  start out-persistent-state, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnSaveInstanceState|
+    drive factor, share activity
+    drive factor, share out-state
+    drive factor, share out-persistent-state
+    throw build, field unit
+
+force call-activity-on-start
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnStart|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-stop
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnStop|
+    drive factor, share activity
+    throw build, field unit
+
+force call-activity-on-user-leaving
+  start build, field instrumentation
+  start activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |callActivityOnUserLeaving|
+    drive factor, share activity
+    throw build, field unit
+
+force call-application-on-create
+  start build, field instrumentation
+  start app, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |callApplicationOnCreate|
+    drive factor, share app
+    throw build, field unit
+
+force check-monitor-hit
+  start build, field instrumentation
+  start monitor, field instrumentation-activity-monitor
+  start min-hits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkMonitorHit|
+    drive factor, share monitor
+    drive factor, share min-hits
+    throw build, field boolean
+
+force end-performance-snapshot
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |endPerformanceSnapshot|
+    throw build, field unit
+
+force finish
+  start build, field instrumentation
+  start result-code, field int
+  start results, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    drive factor, share result-code
+    drive factor, share results
+    throw build, field unit
+
+force get-alloc-counts
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllocCounts|
+    throw build, field bundle
+
+force get-binder-counts
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderCounts|
+    throw build, field bundle
+
+force get-component-name
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponentName|
+    throw build, field component-name
+
+force get-context
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getContext|
+    throw build, field context
+
+force get-process-name
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getProcessName|
+    throw build, field string
+
+force get-target-context
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetContext|
+    throw build, field context
+
+force get-ui-automation
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getUiAutomation|
+    throw build, field ui-automation
+
+force get-ui-automation
+  start build, field instrumentation
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getUiAutomation|
+    drive factor, share flags
+    throw build, field ui-automation
+
+force invoke-context-menu-action
+  start build, field instrumentation
+  start target-activity, field activity
+  start id, field int
+  start flag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeContextMenuAction|
+    drive factor, share target-activity
+    drive factor, share id
+    drive factor, share flag
+    throw build, field boolean
+
+force invoke-menu-action-sync
+  start build, field instrumentation
+  start target-activity, field activity
+  start id, field int
+  start flag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeMenuActionSync|
+    drive factor, share target-activity
+    drive factor, share id
+    drive factor, share flag
+    throw build, field boolean
+
+force is-profiling
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |isProfiling|
+    throw build, field boolean
+
+force new-activity
+  start build, field instrumentation
+  start clazz, field class
+  start context, field context
+  start token, field i-binder
+  start application, field application
+  start intent, field intent
+  start info, field activity-info
+  start title, field char-sequence
+  start parent, field activity
+  start id, field string
+  start last-non-configuration-instance, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |newActivity|
+    drive factor, share clazz
+    drive factor, share context
+    drive factor, share token
+    drive factor, share application
+    drive factor, share intent
+    drive factor, share info
+    drive factor, share title
+    drive factor, share parent
+    drive factor, share id
+    drive factor, share last-non-configuration-instance
+    throw build, field activity
+
+force new-activity
+  start build, field instrumentation
+  start cl, field class-loader
+  start class-name, field string
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |newActivity|
+    drive factor, share cl
+    drive factor, share class-name
+    drive factor, share intent
+    throw build, field activity
+
+force new-application
+  start build, field instrumentation
+  start cl, field class-loader
+  start class-name, field string
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |newApplication|
+    drive factor, share cl
+    drive factor, share class-name
+    drive factor, share context
+    throw build, field application
+
+force new-application
+  start build, field instrumentation
+  start clazz, field class
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |newApplication|
+    drive factor, share clazz
+    drive factor, share context
+    throw build, field application
+
+force on-create
+  start build, field instrumentation
+  start arguments, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    drive factor, share arguments
+    throw build, field unit
+
+force on-destroy
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-exception
+  start build, field instrumentation
+  start obj, field any
+  start e, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |onException|
+    drive factor, share obj
+    drive factor, share e
+    throw build, field boolean
+
+force on-start
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    throw build, field unit
+
+force remove-monitor
+  start build, field instrumentation
+  start monitor, field instrumentation-activity-monitor
+
+  cause call-method
+    drive object, share build
+    drive method, |removeMonitor|
+    drive factor, share monitor
+    throw build, field unit
+
+force run-on-main-sync
+  start build, field instrumentation
+  start runner, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runOnMainSync|
+    drive factor, share runner
+    throw build, field unit
+
+force send-character-sync
+  start build, field instrumentation
+  start key-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendCharacterSync|
+    drive factor, share key-code
+    throw build, field unit
+
+force send-key-down-up-sync
+  start build, field instrumentation
+  start key, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeyDownUpSync|
+    drive factor, share key
+    throw build, field unit
+
+force send-key-sync
+  start build, field instrumentation
+  start event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeySync|
+    drive factor, share event
+    throw build, field unit
+
+force send-pointer-sync
+  start build, field instrumentation
+  start event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendPointerSync|
+    drive factor, share event
+    throw build, field unit
+
+force send-status
+  start build, field instrumentation
+  start result-code, field int
+  start results, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStatus|
+    drive factor, share result-code
+    drive factor, share results
+    throw build, field unit
+
+force send-string-sync
+  start build, field instrumentation
+  start text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendStringSync|
+    drive factor, share text
+    throw build, field unit
+
+force send-trackball-event-sync
+  start build, field instrumentation
+  start event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendTrackballEventSync|
+    drive factor, share event
+    throw build, field unit
+
+force set-automatic-performance-snapshots
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |setAutomaticPerformanceSnapshots|
+    throw build, field unit
+
+force set-in-touch-mode
+  start build, field instrumentation
+  start in-touch, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setInTouchMode|
+    drive factor, share in-touch
+    throw build, field unit
+
+force start
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    throw build, field unit
+
+force start-activity-sync
+  start build, field instrumentation
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivitySync|
+    drive factor, share intent
+    throw build, field activity
+
+force start-activity-sync
+  start build, field instrumentation
+  start intent, field intent
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivitySync|
+    drive factor, share intent
+    drive factor, share options
+    throw build, field activity
+
+force start-alloc-counting
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |startAllocCounting|
+    throw build, field unit
+
+force start-performance-snapshot
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |startPerformanceSnapshot|
+    throw build, field unit
+
+force start-profiling
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |startProfiling|
+    throw build, field unit
+
+force stop-alloc-counting
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAllocCounting|
+    throw build, field unit
+
+force stop-profiling
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |stopProfiling|
+    throw build, field unit
+
+force wait-for-idle
+  start build, field instrumentation
+  start recipient, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForIdle|
+    drive factor, share recipient
+    throw build, field unit
+
+force wait-for-idle-sync
+  start build, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForIdleSync|
+    throw build, field unit
+
+force wait-for-monitor
+  start build, field instrumentation
+  start monitor, field instrumentation-activity-monitor
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForMonitor|
+    drive factor, share monitor
+    throw build, field activity
+
+force wait-for-monitor-with-timeout
+  start build, field instrumentation
+  start monitor, field instrumentation-activity-monitor
+  start time-out, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForMonitorWithTimeout|
+    drive factor, share monitor
+    drive factor, share time-out
+    throw build, field activity

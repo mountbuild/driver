@@ -1,0 +1,487 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSFontManager|
+    drive aspect, |shared|
+    raise build, field ns-font-manager
+
+force set-class-shared
+  field value, field ns-font-manager
+
+  cause set-aspect
+    drive object, |NSFontManager|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-available-fonts
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableFonts|
+    raise build, field string
+
+force set-available-fonts
+  field build, field ns-font-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableFonts|
+    drive factor, share value
+
+force get-available-font-families
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableFontFamilies|
+    raise build, field string
+
+force set-available-font-families
+  field build, field ns-font-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableFontFamilies|
+    drive factor, share value
+
+force available-font-names
+  field build, field ns-font-manager
+  field with, field ns-font-trait-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |availableFontNames|
+    drive factor
+      brand with
+      share with
+    raise build, class string
+
+force available-members
+  field build, field ns-font-manager
+  field of-font-family, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |availableMembers|
+    drive factor
+      brand of-font-family
+      share of-font-family
+    raise build, class any
+
+force set-selected-font
+  field build, field ns-font-manager
+  field a, class ns-font
+  field is-multiple, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedFont|
+    drive factor, share a
+    drive factor
+      brand is-multiple
+      share is-multiple
+
+force get-selected-font
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |selectedFont|
+    raise build, field ns-font
+
+force set-selected-font
+  field build, field ns-font-manager
+  field value, field ns-font
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |selectedFont|
+    drive factor, share value
+
+force get-is-multiple
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isMultiple|
+    raise build, field bool
+
+force set-is-multiple
+  field build, field ns-font-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isMultiple|
+    drive factor, share value
+
+force send-action
+  field build, field ns-font-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAction|
+    raise build, class bool
+
+force localized-name
+  field build, field ns-font-manager
+  field for-family, field string
+  field face, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |localizedName|
+    drive factor
+      brand for-family
+      share for-family
+    drive factor
+      brand face
+      share face
+    raise build, class string
+
+force add-font-trait
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |addFontTrait|
+    drive factor, share a
+
+force remove-font-trait
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFontTrait|
+    drive factor, share a
+
+force modify-font
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |modifyFont|
+    drive factor, share a
+
+force modify-font-via-panel
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |modifyFontViaPanel|
+    drive factor, share a
+
+force order-front-styles-panel
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |orderFrontStylesPanel|
+    drive factor, share a
+
+force order-front-font-panel
+  field build, field ns-font-manager
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |orderFrontFontPanel|
+    drive factor, share a
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    raise build, class ns-font
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+  field to-face, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to-face
+      share to-face
+    raise build, class ns-font
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+  field to-family, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to-family
+      share to-family
+    raise build, class ns-font
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+  field to-have-trait, field ns-font-trait-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to-have-trait
+      share to-have-trait
+    raise build, class ns-font
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+  field to-not-have-trait, field ns-font-trait-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to-not-have-trait
+      share to-not-have-trait
+    raise build, class ns-font
+
+force convert
+  field build, field ns-font-manager
+  field a, class ns-font
+  field to-size, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |convert|
+    drive factor, share a
+    drive factor
+      brand to-size
+      share to-size
+    raise build, class ns-font
+
+force convert-weight
+  field build, field ns-font-manager
+  field a, class bool
+  field of, field ns-font
+
+  cause call-method
+    drive object, share build
+    drive method, |convertWeight|
+    drive factor, share a
+    drive factor
+      brand of
+      share of
+    raise build, class ns-font
+
+force get-current-font-action
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentFontAction|
+    raise build, field ns-font-action
+
+force set-current-font-action
+  field build, field ns-font-manager
+  field value, field ns-font-action
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentFontAction|
+    drive factor, share value
+
+force convert-font-traits
+  field build, field ns-font-manager
+  field a, class ns-font-trait-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |convertFontTraits|
+    drive factor, share a
+    raise build, class ns-font-trait-mask
+
+force font
+  field build, field ns-font-manager
+  field with-family, field string
+  field traits, field ns-font-trait-mask
+  field weight, field int
+  field size, field cg-float
+
+  cause call-method
+    drive object, share build
+    drive method, |font|
+    drive factor
+      brand with-family
+      share with-family
+    drive factor
+      brand traits
+      share traits
+    drive factor
+      brand weight
+      share weight
+    drive factor
+      brand size
+      share size
+    raise build, class ns-font
+
+force traits
+  field build, field ns-font-manager
+  field of, field ns-font
+
+  cause call-method
+    drive object, share build
+    drive method, |traits|
+    drive factor
+      brand of
+      share of
+    raise build, class ns-font-trait-mask
+
+force font-named
+  field build, field ns-font-manager
+  field a, class string
+  field has-traits, field ns-font-trait-mask
+
+  cause call-method
+    drive object, share build
+    drive method, |fontNamed|
+    drive factor, share a
+    drive factor
+      brand has-traits
+      share has-traits
+    raise build, class bool
+
+force weight
+  field build, field ns-font-manager
+  field of, field ns-font
+
+  cause call-method
+    drive object, share build
+    drive method, |weight|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force get-is-enabled
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEnabled|
+    raise build, field bool
+
+force set-is-enabled
+  field build, field ns-font-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEnabled|
+    drive factor, share value
+
+force font-panel
+  field build, field ns-font-manager
+  field a, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |fontPanel|
+    drive factor, share a
+    raise build, class ns-font-panel
+
+force set-font-menu
+  field build, field ns-font-manager
+  field a, class ns-menu
+
+  cause call-method
+    drive object, share build
+    drive method, |setFontMenu|
+    drive factor, share a
+
+force font-menu
+  field build, field ns-font-manager
+  field a, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |fontMenu|
+    drive factor, share a
+    raise build, class ns-menu
+
+force get-action
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |action|
+    raise build, field selector
+
+force set-action
+  field build, field ns-font-manager
+  field value, field selector
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |action|
+    drive factor, share value
+
+force get-target
+  field build, field ns-font-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |target|
+    raise build, field any-object
+
+force set-target
+  field build, field ns-font-manager
+  field value, field any-object
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |target|
+    drive factor, share value
+
+force set-selected-attributes
+  field build, field ns-font-manager
+  field string, field any
+  field is-multiple, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedAttributes|
+    drive factor
+      brand string
+      share string
+    drive factor
+      brand is-multiple
+      share is-multiple
+
+force convert-attributes
+  field build, field ns-font-manager
+  field string, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |convertAttributes|
+    drive factor
+      brand string
+      share string
+    raise build, class string-any

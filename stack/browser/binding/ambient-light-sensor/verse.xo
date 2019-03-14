@@ -1,0 +1,25 @@
+
+force build-ambient-light-sensor
+  start options
+
+  cause invoke-constructor
+    mount constructor, |AmbientLightSensor|
+    mount factor, share options
+    throw build
+
+force get-illuminance
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |illuminance|
+    throw build
+
+force set-illuminance
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |illuminance|
+    mount factor, share value

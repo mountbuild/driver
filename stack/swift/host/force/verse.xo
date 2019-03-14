@@ -1,0 +1,96 @@
+force get-address
+  field build, field host
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |address|
+    raise build, field string
+
+force set-address
+  field build, field host
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |address|
+    mount factor, share value
+
+force get-addresses
+  field build, field host
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |addresses|
+    raise build, field string
+
+force set-addresses
+  field build, field host
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |addresses|
+    mount factor, share value
+
+force get-name
+  field build, field host
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field host
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |name|
+    mount factor, share value
+
+force get-localized-name
+  field build, field host
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    raise build, field string
+
+force set-localized-name
+  field build, field host
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    mount factor, share value
+
+force get-names
+  field build, field host
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |names|
+    raise build, field string
+
+force set-names
+  field build, field host
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |names|
+    mount factor, share value
+
+force is-equal
+  field build, field host
+  field to, field host
+
+  cause call-method
+    mount object, share build
+    mount method, |isEqual|
+    mount factor
+      brand to
+      share to
+    raise build, class bool

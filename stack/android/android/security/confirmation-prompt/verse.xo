@@ -1,0 +1,30 @@
+
+force cancel-prompt
+  mount build, field confirmation-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelPrompt|
+    throw build, field unit
+
+force is-supported
+  mount build, field confirmation-prompt
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |isSupported|
+    drive factor, share context
+    throw build, field boolean
+
+force present-prompt
+  mount build, field confirmation-prompt
+  mount executor, field executor
+  mount callback, field confirmation-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |presentPrompt|
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit

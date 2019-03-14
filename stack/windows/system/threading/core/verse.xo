@@ -1,0 +1,110 @@
+
+force build-preallocated-work-item
+  cause invoke-constructor
+    drive constructor, |Windows.System.Threading.Core.PreallocatedWorkItem|
+
+force ctor
+  start build, field windows-system-threading-core-preallocatedworkitem
+  start handler, field windows-system-threading-workitemhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share handler
+
+force ctor
+  start build, field windows-system-threading-core-preallocatedworkitem
+  start handler, field windows-system-threading-workitemhandler
+  start priority, field windows-system-threading-workitempriority
+  start options, field windows-system-threading-workitemoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share handler
+    drive factor, share priority
+    drive factor, share options
+
+force ctor
+  start build, field windows-system-threading-core-preallocatedworkitem
+  start handler, field windows-system-threading-workitemhandler
+  start priority, field windows-system-threading-workitempriority
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share handler
+    drive factor, share priority
+
+force run-async
+  start build, field windows-system-threading-core-preallocatedworkitem
+
+  cause call-method
+    drive object, share build
+    drive method, |RunAsync|
+
+force build-signal-notifier
+  cause invoke-constructor
+    drive constructor, |Windows.System.Threading.Core.SignalNotifier|
+
+force attach-to-event
+  start build, field windows-system-threading-core-signalnotifier
+  start name, field system-string
+  start handler, field windows-system-threading-core-signalhandler
+  start timeout, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |AttachToEvent|
+    drive factor, share name
+    drive factor, share handler
+    drive factor, share timeout
+
+force attach-to-event
+  start build, field windows-system-threading-core-signalnotifier
+  start name, field system-string
+  start handler, field windows-system-threading-core-signalhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |AttachToEvent|
+    drive factor, share name
+    drive factor, share handler
+
+force attach-to-semaphore
+  start build, field windows-system-threading-core-signalnotifier
+  start name, field system-string
+  start handler, field windows-system-threading-core-signalhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |AttachToSemaphore|
+    drive factor, share name
+    drive factor, share handler
+
+force attach-to-semaphore
+  start build, field windows-system-threading-core-signalnotifier
+  start name, field system-string
+  start handler, field windows-system-threading-core-signalhandler
+  start timeout, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |AttachToSemaphore|
+    drive factor, share name
+    drive factor, share handler
+    drive factor, share timeout
+
+force enable
+  start build, field windows-system-threading-core-signalnotifier
+
+  cause call-method
+    drive object, share build
+    drive method, |Enable|
+
+force terminate
+  start build, field windows-system-threading-core-signalnotifier
+
+  cause call-method
+    drive object, share build
+    drive method, |Terminate|

@@ -1,0 +1,26 @@
+
+force build-format-flags-conversion-mismatch-exception
+  mount f, field string
+  mount c, field char
+
+  cause invoke-constructor
+    drive constructor, |FormatFlagsConversionMismatchException|
+    drive factor, share f
+    drive factor, share c
+    throw build, field format-flags-conversion-mismatch-exception
+
+force get-conversion
+  mount build, field format-flags-conversion-mismatch-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getConversion|
+    throw build, field char
+
+force get-flags
+  mount build, field format-flags-conversion-mismatch-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFlags|
+    throw build, field string

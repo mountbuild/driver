@@ -1,0 +1,94 @@
+
+force build-authenticator-description
+  mount type, field string
+  mount package-name, field string
+  mount label-id, field int
+  mount icon-id, field int
+  mount small-icon-id, field int
+  mount pref-id, field int
+  mount custom-tokens, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AuthenticatorDescription|
+    drive factor, share type
+    drive factor, share package-name
+    drive factor, share label-id
+    drive factor, share icon-id
+    drive factor, share small-icon-id
+    drive factor, share pref-id
+    drive factor, share custom-tokens
+    throw build, field authenticator-description
+
+force build-authenticator-description
+  mount type, field string
+  mount package-name, field string
+  mount label-id, field int
+  mount icon-id, field int
+  mount small-icon-id, field int
+  mount pref-id, field int
+
+  cause invoke-constructor
+    drive constructor, |AuthenticatorDescription|
+    drive factor, share type
+    drive factor, share package-name
+    drive factor, share label-id
+    drive factor, share icon-id
+    drive factor, share small-icon-id
+    drive factor, share pref-id
+    throw build, field authenticator-description
+
+force describe-contents
+  mount build, field authenticator-description
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field authenticator-description
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field authenticator-description
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force new-key
+  mount build, field authenticator-description
+  mount type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newKey|
+    drive factor, share type
+    throw build, field authenticator-description
+
+force to-string
+  mount build, field authenticator-description
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field authenticator-description
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

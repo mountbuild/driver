@@ -1,0 +1,19 @@
+
+force build-float-evaluator
+  cause invoke-constructor
+    drive constructor, |FloatEvaluator|
+    throw build, field float-evaluator
+
+force evaluate
+  mount build, field float-evaluator
+  mount fraction, field float
+  mount start-value, field number
+  mount end-value, field number
+
+  cause call-method
+    drive object, share build
+    drive method, |evaluate|
+    drive factor, share fraction
+    drive factor, share start-value
+    drive factor, share end-value
+    throw build, field float

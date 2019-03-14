@@ -1,0 +1,137 @@
+force get-protocol
+  field build, field nsxpc-interface
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |protocol|
+    raise build, field protocol
+
+force set-protocol
+  field build, field nsxpc-interface
+  field value, field protocol
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |protocol|
+    drive factor, share value
+
+force classes
+  field build, field nsxpc-interface
+  field for, field selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |classes|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+    raise build, class set-any-hashable
+
+force for-selector
+  field build, field nsxpc-interface
+  field a, class selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |forSelector|
+    drive factor, share a
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+    raise build, class nsxpc-interface
+
+force set-classes
+  field build, field nsxpc-interface
+  field a, class set-any-hashable
+  field for, field selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setClasses|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+
+force set-interface
+  field build, field nsxpc-interface
+  field a, class nsxpc-interface
+  field for, field selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterface|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+
+force set-xpc-type
+  field build, field nsxpc-interface
+  field a, class xpc-type-t
+  field for, field selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setXPCType|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+
+force xpc-type
+  field build, field nsxpc-interface
+  field for, field selector
+  field argument-index, field int
+  field of-reply, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |xpcType|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand argument-index
+      share argument-index
+    drive factor
+      brand of-reply
+      share of-reply
+    raise build, class xpc-type-t

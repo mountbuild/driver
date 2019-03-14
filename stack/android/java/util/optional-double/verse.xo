@@ -1,0 +1,100 @@
+
+force empty
+  mount build, field optional-double
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    throw build, field optional-double
+
+force equals
+  mount build, field optional-double
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-as-double
+  mount build, field optional-double
+
+  cause call-method
+    drive object, share build
+    drive method, |getAsDouble|
+    throw build, field double
+
+force hash-code
+  mount build, field optional-double
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force if-present
+  mount build, field optional-double
+  mount consumer, field double-consumer
+
+  cause call-method
+    drive object, share build
+    drive method, |ifPresent|
+    drive factor, share consumer
+    throw build, field unit
+
+force is-present
+  mount build, field optional-double
+
+  cause call-method
+    drive object, share build
+    drive method, |isPresent|
+    throw build, field boolean
+
+force of
+  mount build, field optional-double
+  mount value, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share value
+    throw build, field optional-double
+
+force or-else
+  mount build, field optional-double
+  mount other, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |orElse|
+    drive factor, share other
+    throw build, field double
+
+force or-else-get
+  mount build, field optional-double
+  mount other, field double-supplier
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseGet|
+    drive factor, share other
+    throw build, field double
+
+force or-else-throw
+  mount build, field optional-double
+  mount exception-supplier, field supplier-x
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseThrow|
+    drive factor, share exception-supplier
+    throw build, field double
+
+force to-string
+  mount build, field optional-double
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

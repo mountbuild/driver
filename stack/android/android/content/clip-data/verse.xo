@@ -1,0 +1,170 @@
+
+force build-clip-data
+  mount label, field char-sequence
+  mount mime-types, field array-string
+  mount item, field clip-data-item
+
+  cause invoke-constructor
+    drive constructor, |ClipData|
+    drive factor, share label
+    drive factor, share mime-types
+    drive factor, share item
+    throw build, field clip-data
+
+force build-clip-data
+  mount description, field clip-description
+  mount item, field clip-data-item
+
+  cause invoke-constructor
+    drive constructor, |ClipData|
+    drive factor, share description
+    drive factor, share item
+    throw build, field clip-data
+
+force build-clip-data
+  mount other, field clip-data
+
+  cause invoke-constructor
+    drive constructor, |ClipData|
+    drive factor, share other
+    throw build, field clip-data
+
+force add-item
+  mount build, field clip-data
+  mount item, field clip-data-item
+
+  cause call-method
+    drive object, share build
+    drive method, |addItem|
+    drive factor, share item
+    throw build, field unit
+
+force add-item
+  mount build, field clip-data
+  mount resolver, field content-resolver
+  mount item, field clip-data-item
+
+  cause call-method
+    drive object, share build
+    drive method, |addItem|
+    drive factor, share resolver
+    drive factor, share item
+    throw build, field unit
+
+force describe-contents
+  mount build, field clip-data
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-description
+  mount build, field clip-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field clip-description
+
+force get-item-at
+  mount build, field clip-data
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemAt|
+    drive factor, share index
+    throw build, field clip-data-item
+
+force get-item-count
+  mount build, field clip-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemCount|
+    throw build, field int
+
+force new-html-text
+  mount build, field clip-data
+  mount label, field char-sequence
+  mount text, field char-sequence
+  mount html-text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newHtmlText|
+    drive factor, share label
+    drive factor, share text
+    drive factor, share html-text
+    throw build, field clip-data
+
+force new-intent
+  mount build, field clip-data
+  mount label, field char-sequence
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |newIntent|
+    drive factor, share label
+    drive factor, share intent
+    throw build, field clip-data
+
+force new-plain-text
+  mount build, field clip-data
+  mount label, field char-sequence
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |newPlainText|
+    drive factor, share label
+    drive factor, share text
+    throw build, field clip-data
+
+force new-raw-uri
+  mount build, field clip-data
+  mount label, field char-sequence
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newRawUri|
+    drive factor, share label
+    drive factor, share uri
+    throw build, field clip-data
+
+force new-uri
+  mount build, field clip-data
+  mount resolver, field content-resolver
+  mount label, field char-sequence
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |newUri|
+    drive factor, share resolver
+    drive factor, share label
+    drive factor, share uri
+    throw build, field clip-data
+
+force to-string
+  mount build, field clip-data
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field clip-data
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

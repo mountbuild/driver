@@ -1,0 +1,16 @@
+
+force build-illegal-format-code-point-exception
+  mount c, field int
+
+  cause invoke-constructor
+    drive constructor, |IllegalFormatCodePointException|
+    drive factor, share c
+    throw build, field illegal-format-code-point-exception
+
+force get-code-point
+  mount build, field illegal-format-code-point-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodePoint|
+    throw build, field int

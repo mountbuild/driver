@@ -1,0 +1,13 @@
+
+force build-assertion-failed-error
+  cause invoke-constructor
+    drive constructor, |AssertionFailedError|
+    raise build, field assertion-failed-error
+
+force build-assertion-failed-error
+  mount error-message, field string
+
+  cause invoke-constructor
+    drive constructor, |AssertionFailedError|
+    drive factor, share error-message
+    raise build, field assertion-failed-error

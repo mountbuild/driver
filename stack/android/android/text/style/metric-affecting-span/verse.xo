@@ -1,0 +1,23 @@
+
+force build-metric-affecting-span
+  cause invoke-constructor
+    drive constructor, |MetricAffectingSpan|
+    raise build, field metric-affecting-span
+
+force get-underlying
+  mount build, field metric-affecting-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnderlying|
+    raise build, field metric-affecting-span
+
+force update-measure-state
+  mount build, field metric-affecting-span
+  mount text-paint, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateMeasureState|
+    drive factor, share text-paint
+    raise build, field unit

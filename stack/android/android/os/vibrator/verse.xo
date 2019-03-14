@@ -1,0 +1,158 @@
+
+force get-vibration-effect-support-no
+  mount build, field vibrator
+
+  cause get-property
+    drive object, share build
+    drive property, |VIBRATION_EFFECT_SUPPORT_NO|
+    raise build, field int
+
+force get-vibration-effect-support-unknown
+  mount build, field vibrator
+
+  cause get-property
+    drive object, share build
+    drive property, |VIBRATION_EFFECT_SUPPORT_UNKNOWN|
+    raise build, field int
+
+force get-vibration-effect-support-yes
+  mount build, field vibrator
+
+  cause get-property
+    drive object, share build
+    drive property, |VIBRATION_EFFECT_SUPPORT_YES|
+    raise build, field int
+
+force are-all-effects-supported
+  mount build, field vibrator
+  mount vararg-effect-ids, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |areAllEffectsSupported|
+    drive factor, share vararg-effect-ids
+    raise build, field int
+
+force are-all-primitives-supported
+  mount build, field vibrator
+  mount vararg-primitive-ids, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |areAllPrimitivesSupported|
+    drive factor, share vararg-primitive-ids
+    raise build, field boolean
+
+force are-effects-supported
+  mount build, field vibrator
+  mount vararg-effect-ids, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |areEffectsSupported|
+    drive factor, share vararg-effect-ids
+    raise build, field int-array
+
+force are-primitives-supported
+  mount build, field vibrator
+  mount vararg-primitive-ids, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |arePrimitivesSupported|
+    drive factor, share vararg-primitive-ids
+    raise build, field boolean-array
+
+force cancel
+  mount build, field vibrator
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    raise build, field unit
+
+force has-amplitude-control
+  mount build, field vibrator
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAmplitudeControl|
+    raise build, field boolean
+
+force has-vibrator
+  mount build, field vibrator
+
+  cause call-method
+    drive object, share build
+    drive method, |hasVibrator|
+    raise build, field boolean
+
+force vibrate
+  mount build, field vibrator
+  mount milliseconds, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share milliseconds
+    raise build, field unit
+
+force vibrate
+  mount build, field vibrator
+  mount milliseconds, field long
+  mount attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share milliseconds
+    drive factor, share attributes
+    raise build, field unit
+
+force vibrate
+  mount build, field vibrator
+  mount pattern, field long-array
+  mount repeat, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share pattern
+    drive factor, share repeat
+    raise build, field unit
+
+force vibrate
+  mount build, field vibrator
+  mount pattern, field long-array
+  mount repeat, field int
+  mount attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share pattern
+    drive factor, share repeat
+    drive factor, share attributes
+    raise build, field unit
+
+force vibrate
+  mount build, field vibrator
+  mount vibe, field vibration-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share vibe
+    raise build, field unit
+
+force vibrate
+  mount build, field vibrator
+  mount vibe, field vibration-effect
+  mount attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |vibrate|
+    drive factor, share vibe
+    drive factor, share attributes
+    raise build, field unit

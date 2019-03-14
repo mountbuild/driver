@@ -1,0 +1,94 @@
+
+force compare-to
+  mount build, field file-time
+  mount other, field file-time
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force equals
+  mount build, field file-time
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force from
+  mount build, field file-time
+  mount value, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |from|
+    drive factor, share value
+    drive factor, share unit
+    throw build, field file-time
+
+force from
+  mount build, field file-time
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |from|
+    drive factor, share instant
+    throw build, field file-time
+
+force from-millis
+  mount build, field file-time
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |fromMillis|
+    drive factor, share value
+    throw build, field file-time
+
+force hash-code
+  mount build, field file-time
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to
+  mount build, field file-time
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |to|
+    drive factor, share unit
+    throw build, field long
+
+force to-instant
+  mount build, field file-time
+
+  cause call-method
+    drive object, share build
+    drive method, |toInstant|
+    throw build, field instant
+
+force to-millis
+  mount build, field file-time
+
+  cause call-method
+    drive object, share build
+    drive method, |toMillis|
+    throw build, field long
+
+force to-string
+  mount build, field file-time
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

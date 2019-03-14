@@ -1,0 +1,33 @@
+force get-earliest-begin-date
+  field build, field bg-task-request
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |earliestBeginDate|
+    raise build, field date
+
+force set-earliest-begin-date
+  field build, field bg-task-request
+  field value, field date
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |earliestBeginDate|
+    mount factor, share value
+
+force get-identifier
+  field build, field bg-task-request
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |identifier|
+    raise build, field string
+
+force set-identifier
+  field build, field bg-task-request
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |identifier|
+    mount factor, share value

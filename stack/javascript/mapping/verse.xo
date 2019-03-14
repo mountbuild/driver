@@ -1,0 +1,233 @@
+
+fetch @mount/start/force
+  fetch /check
+    catch force check
+      store force start-check
+    catch force check-match
+      store force start-check-match
+    catch force check-blank-match
+      store force start-check-blank-match
+    catch force check-floor
+      store force start-check-floor
+    catch force check-floor-match
+      store force start-check-floor-match
+    catch force check-crest
+      store force start-check-crest
+    catch force check-crest-match
+      store force start-check-crest-match
+    catch force check-blend
+      store force start-check-blend
+    catch force check-cross
+      store force start-check-cross
+    catch force check-shift-match
+      store force start-check-shift-match
+    catch force check-shift
+      store force start-check-shift
+  fetch /state/chain
+    catch force shift-start
+      store force start-shift-start
+    catch force shift-front
+      store force start-shift-front
+    catch force shift-front-count
+      store force start-shift-front-count
+    catch force blend
+      store force start-blend
+    catch force cross
+      store force start-cross
+  fetch /count
+    catch force mount
+      store force start-count-mount
+    catch force clear
+      store force start-count-clear
+    catch force clone
+      store force start-count-clone
+    catch force slice
+      store force start-count-slice
+    catch force clock
+      store force start-count-clock
+    catch force raise
+      store force start-count-raise
+    catch force floor
+      store force start-count-floor
+    catch force round
+      store force start-count-round
+    catch force round-crest
+      store force start-count-round-crest
+    catch force round-floor
+      store force start-count-round-floor
+    catch force fetch-floor
+      store force start-count-fetch-floor
+    catch force fetch-crest
+      store force start-count-fetch-crest
+    catch force hatch
+      store force start-count-hatch
+    catch force hatch-bound
+      store force start-count-hatch-bound
+    catch force break
+      store force start-count-break
+    catch force scale
+      store force start-count-scale
+    catch force slant-wheel
+      store force start-count-slant-wheel
+    catch force slant-wheel-shift
+      store force start-count-slant-wheel-shift
+    catch force slant-wheel-shift-2
+      store force start-count-slant-wheel-shift-2
+    catch force climb-wheel
+      store force start-count-climb-wheel
+    catch force climb-wheel-shift
+      store force start-count-climb-wheel-shift
+    catch force cross-wheel
+      store force start-count-cross-wheel
+    catch force cross-wheel-shift
+      store force start-count-cross-wheel-shift
+    catch force fetch-house
+      store force start-count-fetch-house
+    catch force block
+      store force start-count-block
+  fetch /clock
+    catch force fetch
+      store force start-clock-fetch
+    catch force still
+      store force start-clock-still
+  fetch /write
+    catch force write
+      store force start-write
+
+fetch @mount/drive/javascript/binding
+  fetch /base
+    catch force check
+      store force drive-check
+    catch force check-else
+      store force drive-check-else
+    catch force debug
+      store force drive-debug
+    catch force check-if-strictly-equal
+      store force drive-check-if-strictly-equal
+    catch force shift-left
+      store force drive-shift-left
+    catch force shift-right
+      store force drive-shift-right
+    catch force shift-right-unsigned
+      store force drive-shift-right-unsigned
+    catch force compute-bitwise-or
+      store force drive-compute-bitwise-or
+    catch force compute-bitwise-and
+      store force drive-compute-bitwise-and
+    catch force check-or
+      store force drive-check-or
+    catch force check-and
+      store force drive-check-and
+    catch force check-opposite
+      store force drive-check-opposite
+    catch force check-not-equal
+      store force drive-check-not-equal
+    catch force check-gte
+      store force drive-check-gte
+    catch force check-gt
+      store force drive-check-gt
+    catch force check-lt
+      store force drive-check-lt
+    catch force check-lte
+      store force drive-check-lte
+  fetch /console
+    catch force log
+      store force drive-console-log
+  fetch /number
+    catch force add
+      store force drive-number-add
+    catch force subtract
+      store force drive-number-subtract
+    catch force multiply
+      store force drive-number-multiply
+    catch force divide
+      store force drive-number-divide
+    catch force modulus
+      store force drive-number-modulus
+    catch force increment
+      store force drive-number-increment
+    catch force decrement
+      store force drive-number-decrement
+    catch force get-exponent
+      store force drive-number-get-exponent
+    catch force get-max
+      store force drive-number-get-max
+    catch force get-min
+      store force drive-number-get-min
+    catch force floor
+      store force drive-number-floor
+    catch force ceil
+      store force drive-number-ceil
+    catch force round
+      store force drive-number-round
+    catch force get-abs
+      store force drive-number-get-abs
+    catch force get-cos
+      store force drive-number-get-cos
+    catch force get-acos
+      store force drive-number-get-acos
+    catch force get-sin
+      store force drive-number-get-sin
+    catch force get-asin
+      store force drive-number-get-asin
+    catch force get-tan
+      store force drive-number-get-tan
+    catch force get-atan
+      store force drive-number-get-atan
+    catch force get-atan2
+      store force drive-number-get-atan2
+    catch force get-log
+      store force drive-number-get-log
+    catch force get-sqrt
+      store force drive-number-get-sqrt
+    catch force get-random
+      store force drive-number-get-random
+  fetch /datetime
+    catch force get-millisecond-timestamp
+      store force drive-datetime-get-millisecond-timestamp
+  fetch /timeout
+    catch force create
+      store force drive-timeout-create
+
+mount start-check, drive-check
+mount start-check-match, drive-check-if-strictly-equal
+mount start-shift-start, drive-shift-left
+mount start-shift-front, drive-shift-right
+mount start-shift-front-count, drive-shift-right-unsigned
+mount start-blend, drive-compute-bitwise-or
+mount start-cross, drive-compute-bitwise-and
+mount start-check-floor, drive-check-lt
+mount start-check-floor-match, drive-check-lte
+mount start-check-crest, drive-check-gt
+mount start-check-crest-match, drive-check-gte
+mount start-check-blend, drive-check-or
+mount start-check-cross, drive-check-and
+mount start-check-shift-match, drive-check-not-equal
+mount start-check-shift, drive-check-opposite
+mount start-count-mount, drive-number-add
+mount start-count-clear, drive-number-subtract
+mount start-count-clone, drive-number-multiply
+mount start-count-slice, drive-number-divide
+mount start-count-clock, drive-number-modulus
+mount start-count-raise, drive-number-increment
+mount start-count-floor, drive-number-decrement
+mount start-count-round, drive-number-round
+mount start-count-round-crest, drive-number-ceil
+mount start-count-round-floor, drive-number-floor
+mount start-count-fetch-floor, drive-number-get-min
+mount start-count-fetch-crest, drive-number-get-max
+mount start-count-hatch, drive-number-get-random
+mount start-count-break, drive-number-get-log
+mount start-count-scale, drive-number-get-exponent
+mount start-count-slant-wheel, drive-number-get-tan
+mount start-count-slant-wheel-shift, drive-number-get-atan
+mount start-count-slant-wheel-shift-2, drive-number-get-atan2
+mount start-count-climb-wheel, drive-number-get-sin
+mount start-count-climb-wheel-shift, drive-number-get-asin
+mount start-count-cross-wheel, drive-number-get-cos
+mount start-count-cross-wheel-shift, drive-number-get-acos
+mount start-count-fetch-house, drive-number-get-abs
+mount start-count-block, drive-number-get-sqrt
+mount start-clock-fetch, drive-datetime-get-millisecond-timestamp
+mount start-clock-still, drive-timeout-create
+mount start-write, drive-console-log

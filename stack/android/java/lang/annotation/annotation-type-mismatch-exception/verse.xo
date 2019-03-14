@@ -1,0 +1,26 @@
+
+force build-annotation-type-mismatch-exception
+  mount element, field method
+  mount found-type, field string
+
+  cause invoke-constructor
+    drive constructor, |AnnotationTypeMismatchException|
+    drive factor, share element
+    drive factor, share found-type
+    throw build, field annotation-type-mismatch-exception
+
+force element
+  mount build, field annotation-type-mismatch-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |element|
+    throw build, field method
+
+force found-type
+  mount build, field annotation-type-mismatch-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |foundType|
+    throw build, field string

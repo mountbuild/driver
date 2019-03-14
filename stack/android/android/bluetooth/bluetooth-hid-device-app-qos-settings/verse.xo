@@ -1,0 +1,118 @@
+
+force get-max
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX|
+    throw build, field int
+
+force get-service-best-effort
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_BEST_EFFORT|
+    throw build, field int
+
+force get-service-guaranteed
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_GUARANTEED|
+    throw build, field int
+
+force get-service-no-traffic
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_NO_TRAFFIC|
+    throw build, field int
+
+force build-bluetooth-hid-device-app-qos-settings
+  mount service-type, field int
+  mount token-rate, field int
+  mount token-bucket-size, field int
+  mount peak-bandwidth, field int
+  mount latency, field int
+  mount delay-variation, field int
+
+  cause invoke-constructor
+    drive constructor, |BluetoothHidDeviceAppQosSettings|
+    drive factor, share service-type
+    drive factor, share token-rate
+    drive factor, share token-bucket-size
+    drive factor, share peak-bandwidth
+    drive factor, share latency
+    drive factor, share delay-variation
+    throw build, field bluetooth-hid-device-app-qos-settings
+
+force describe-contents
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-delay-variation
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getDelayVariation|
+    throw build, field int
+
+force get-latency
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getLatency|
+    throw build, field int
+
+force get-peak-bandwidth
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeakBandwidth|
+    throw build, field int
+
+force get-service-type
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceType|
+    throw build, field int
+
+force get-token-bucket-size
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getTokenBucketSize|
+    throw build, field int
+
+force get-token-rate
+  mount build, field bluetooth-hid-device-app-qos-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getTokenRate|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field bluetooth-hid-device-app-qos-settings
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

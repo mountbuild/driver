@@ -1,0 +1,26 @@
+
+force build-root-element
+  mount uri, field string
+  mount local-name, field string
+
+  cause invoke-constructor
+    drive constructor, |RootElement|
+    drive factor, share uri
+    drive factor, share local-name
+    throw build, field root-element
+
+force build-root-element
+  mount local-name, field string
+
+  cause invoke-constructor
+    drive constructor, |RootElement|
+    drive factor, share local-name
+    throw build, field root-element
+
+force get-content-handler
+  mount build, field root-element
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentHandler|
+    throw build, field content-handler

@@ -1,0 +1,128 @@
+
+force get-wifi-mode-cellular-preferred
+  mount build, field ims-mm-tel-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_MODE_CELLULAR_PREFERRED|
+    throw build, field int
+
+force get-wifi-mode-wifi-only
+  mount build, field ims-mm-tel-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_MODE_WIFI_ONLY|
+    throw build, field int
+
+force get-wifi-mode-wifi-preferred
+  mount build, field ims-mm-tel-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_MODE_WIFI_PREFERRED|
+    throw build, field int
+
+force get-registration-transport-type
+  mount build, field ims-mm-tel-manager
+  mount executor, field executor
+  mount transport-type-callback, field consumer-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRegistrationTransportType|
+    drive factor, share executor
+    drive factor, share transport-type-callback
+    throw build, field unit
+
+force get-vo-wi-fi-mode-setting
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getVoWiFiModeSetting|
+    throw build, field int
+
+force is-advanced-calling-setting-enabled
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAdvancedCallingSettingEnabled|
+    throw build, field boolean
+
+force is-tty-over-volte-enabled
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isTtyOverVolteEnabled|
+    throw build, field boolean
+
+force is-vo-wi-fi-roaming-setting-enabled
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isVoWiFiRoamingSettingEnabled|
+    throw build, field boolean
+
+force is-vo-wi-fi-setting-enabled
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isVoWiFiSettingEnabled|
+    throw build, field boolean
+
+force is-vt-setting-enabled
+  mount build, field ims-mm-tel-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isVtSettingEnabled|
+    throw build, field boolean
+
+force register-ims-registration-callback
+  mount build, field ims-mm-tel-manager
+  mount executor, field executor
+  mount c, field registration-manager-registration-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerImsRegistrationCallback|
+    drive factor, share executor
+    drive factor, share c
+    throw build, field unit
+
+force register-mm-tel-capability-callback
+  mount build, field ims-mm-tel-manager
+  mount executor, field executor
+  mount c, field ims-mm-tel-manager-capability-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerMmTelCapabilityCallback|
+    drive factor, share executor
+    drive factor, share c
+    throw build, field unit
+
+force unregister-ims-registration-callback
+  mount build, field ims-mm-tel-manager
+  mount c, field registration-manager-registration-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterImsRegistrationCallback|
+    drive factor, share c
+    throw build, field unit
+
+force unregister-mm-tel-capability-callback
+  mount build, field ims-mm-tel-manager
+  mount c, field ims-mm-tel-manager-capability-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterMmTelCapabilityCallback|
+    drive factor, share c
+    throw build, field unit

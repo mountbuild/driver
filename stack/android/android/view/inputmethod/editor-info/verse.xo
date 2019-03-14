@@ -1,0 +1,247 @@
+
+force get-ime-action-done
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_DONE|
+    raise build, field int
+
+force get-ime-action-go
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_GO|
+    raise build, field int
+
+force get-ime-action-next
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_NEXT|
+    raise build, field int
+
+force get-ime-action-none
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_NONE|
+    raise build, field int
+
+force get-ime-action-previous
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_PREVIOUS|
+    raise build, field int
+
+force get-ime-action-search
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_SEARCH|
+    raise build, field int
+
+force get-ime-action-send
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_SEND|
+    raise build, field int
+
+force get-ime-action-unspecified
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_ACTION_UNSPECIFIED|
+    raise build, field int
+
+force get-ime-flag-force-ascii
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_FORCE_ASCII|
+    raise build, field int
+
+force get-ime-flag-navigate-next
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NAVIGATE_NEXT|
+    raise build, field int
+
+force get-ime-flag-navigate-previous
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NAVIGATE_PREVIOUS|
+    raise build, field int
+
+force get-ime-flag-no-accessory-action
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NO_ACCESSORY_ACTION|
+    raise build, field int
+
+force get-ime-flag-no-enter-action
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NO_ENTER_ACTION|
+    raise build, field int
+
+force get-ime-flag-no-extract-ui
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NO_EXTRACT_UI|
+    raise build, field int
+
+force get-ime-flag-no-fullscreen
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NO_FULLSCREEN|
+    raise build, field int
+
+force get-ime-flag-no-personalized-learning
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_FLAG_NO_PERSONALIZED_LEARNING|
+    raise build, field int
+
+force get-ime-mask-action
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_MASK_ACTION|
+    raise build, field int
+
+force get-ime-null
+  mount build, field editor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |IME_NULL|
+    raise build, field int
+
+force build-editor-info
+  cause invoke-constructor
+    drive constructor, |EditorInfo|
+    raise build, field editor-info
+
+force describe-contents
+  mount build, field editor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force dump
+  mount build, field editor-info
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    raise build, field unit
+
+force get-initial-selected-text
+  mount build, field editor-info
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitialSelectedText|
+    drive factor, share flags
+    raise build, field char-sequence
+
+force get-initial-text-after-cursor
+  mount build, field editor-info
+  mount length, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitialTextAfterCursor|
+    drive factor, share length
+    drive factor, share flags
+    raise build, field char-sequence
+
+force get-initial-text-before-cursor
+  mount build, field editor-info
+  mount length, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitialTextBeforeCursor|
+    drive factor, share length
+    drive factor, share flags
+    raise build, field char-sequence
+
+force make-compatible
+  mount build, field editor-info
+  mount target-sdk-version, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCompatible|
+    drive factor, share target-sdk-version
+    raise build, field unit
+
+force set-initial-surrounding-sub-text
+  mount build, field editor-info
+  mount sub-text, field char-sequence
+  mount sub-text-start, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInitialSurroundingSubText|
+    drive factor, share sub-text
+    drive factor, share sub-text-start
+    raise build, field unit
+
+force set-initial-surrounding-text
+  mount build, field editor-info
+  mount source-text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setInitialSurroundingText|
+    drive factor, share source-text
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field editor-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

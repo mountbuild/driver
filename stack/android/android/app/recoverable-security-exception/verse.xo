@@ -1,0 +1,48 @@
+
+force build-recoverable-security-exception
+  start cause, field throwable
+  start user-message, field char-sequence
+  start user-action, field remote-action
+
+  cause invoke-constructor
+    drive constructor, |RecoverableSecurityException|
+    drive factor, share cause
+    drive factor, share user-message
+    drive factor, share user-action
+    throw build, field recoverable-security-exception
+
+force describe-contents
+  start build, field recoverable-security-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-user-action
+  start build, field recoverable-security-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserAction|
+    throw build, field remote-action
+
+force get-user-message
+  start build, field recoverable-security-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserMessage|
+    throw build, field char-sequence
+
+force write-to-parcel
+  start build, field recoverable-security-exception
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

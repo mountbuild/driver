@@ -1,0 +1,44 @@
+
+force describe-contents
+  mount build, field gnss-measurements-event
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-clock
+  mount build, field gnss-measurements-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getClock|
+    raise build, field gnss-clock
+
+force get-measurements
+  mount build, field gnss-measurements-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeasurements|
+    raise build, field mutable-collection
+
+force to-string
+  mount build, field gnss-measurements-event
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field gnss-measurements-event
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

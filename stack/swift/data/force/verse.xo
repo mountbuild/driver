@@ -1,0 +1,961 @@
+force reset-bytes
+  field build, field data
+  field in, field range-data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |resetBytes|
+    drive factor
+      brand in
+      share in
+
+force write
+  field build, field data
+  field to, field url
+  field options, field data-writing-options
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand options
+      share options
+
+force base64-encoded-data
+  field build, field data
+  field options, field data-base64-encoding-options
+
+  cause call-method
+    drive object, share build
+    drive method, |base64EncodedData|
+    drive factor
+      brand options
+      share options
+    raise build, class data
+
+force base64-encoded-string
+  field build, field data
+  field options, field data-base64-encoding-options
+
+  cause call-method
+    drive object, share build
+    drive method, |base64EncodedString|
+    drive factor
+      brand options
+      share options
+    raise build, class string
+
+force get-is-empty
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    raise build, field bool
+
+force set-is-empty
+  field build, field data
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    drive factor, share value
+
+force copy-bytes
+  field build, field data
+  field to, field unsafe-mutable-pointer-u-int8
+  field count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyBytes|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand count
+      share count
+
+force copy-bytes
+  field build, field data
+  field to, field unsafe-mutable-pointer-u-int8
+  field from, field range-data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |copyBytes|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand from
+      share from
+
+force append
+  field build, field data
+  field a, class data
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+
+force append
+  field build, field data
+  field a, class unsafe-pointer-u-int8
+  field count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+    drive factor
+      brand count
+      share count
+
+force append
+  field build, field data
+  field contents-of, field u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor
+      brand contents-of
+      share contents-of
+
+force reserve-capacity
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |reserveCapacity|
+    drive factor, share a
+
+force remove
+  field build, field data
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand at
+      share at
+    raise build, class u-int8
+
+force remove-all
+  field build, field data
+  field keeping-capacity, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor
+      brand keeping-capacity
+      share keeping-capacity
+
+force remove-subrange
+  field build, field data
+  field a, class range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSubrange|
+    drive factor, share a
+
+force replace-subrange
+  field build, field data
+  field a, class range-data-index
+  field with, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceSubrange|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+
+force replace-subrange
+  field build, field data
+  field a, class range-data-index
+  field with, field unsafe-raw-pointer
+  field count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceSubrange|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand count
+      share count
+
+force max
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |max|
+    raise build, class u-int8
+
+force min
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |min|
+    raise build, class u-int8
+
+force range
+  field build, field data
+  field of, field data
+  field options, field data-search-options
+  field in, field range-data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand in
+      share in
+    raise build, class range-data-index
+
+force prefix
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor, share a
+    raise build, class data
+
+force prefix
+  field build, field data
+  field through, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor
+      brand through
+      share through
+    raise build, class data
+
+force prefix
+  field build, field data
+  field up-to, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor
+      brand up-to
+      share up-to
+    raise build, class data
+
+force suffix
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |suffix|
+    drive factor, share a
+    raise build, class data
+
+force suffix
+  field build, field data
+  field from, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |suffix|
+    drive factor
+      brand from
+      share from
+    raise build, class data
+
+force drop-last
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |dropLast|
+    drive factor, share a
+    raise build, class data
+
+force drop-first
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |dropFirst|
+    drive factor, share a
+    raise build, class data
+
+force advanced
+  field build, field data
+  field by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |advanced|
+    drive factor
+      brand by
+      share by
+    raise build, class data
+
+force get-lazy
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    raise build, field lazy-sequence-data
+
+force set-lazy
+  field build, field data
+  field value, field lazy-sequence-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    drive factor, share value
+
+force enumerated
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerated|
+    raise build, class enumerated-sequence-data
+
+force make-iterator
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |makeIterator|
+    raise build, class data-iterator
+
+force sorted
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |sorted|
+    raise build, class u-int8
+
+force reversed
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |reversed|
+    raise build, class reversed-collection-data
+
+force subdata
+  field build, field data
+  field in, field range-data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |subdata|
+    drive factor
+      brand in
+      share in
+    raise build, class data
+
+force split
+  field build, field data
+  field separator, field u-int8
+  field max-splits, field int
+  field omitting-empty-subsequences, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |split|
+    drive factor
+      brand separator
+      share separator
+    drive factor
+      brand max-splits
+      share max-splits
+    drive factor
+      brand omitting-empty-subsequences
+      share omitting-empty-subsequences
+    raise build, class data
+
+force get-start-index
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    raise build, field data-index
+
+force set-start-index
+  field build, field data
+  field value, field data-index
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    drive factor, share value
+
+force get-end-index
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    raise build, field data-index
+
+force set-end-index
+  field build, field data
+  field value, field data-index
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    drive factor, share value
+
+force index
+  field build, field data
+  field a, class int
+  field offset-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    raise build, class int
+
+force index
+  field build, field data
+  field after, field data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand after
+      share after
+    raise build, class data-index
+
+force index
+  field build, field data
+  field before, field data-index
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand before
+      share before
+    raise build, class data-index
+
+force distance
+  field build, field data
+  field from, field int
+  field to, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |distance|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand to
+      share to
+    raise build, class int
+
+force get-description
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field data
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field data
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field data
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-hash-value
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force get-count
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |count|
+    raise build, field int
+
+force set-count
+  field build, field data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |count|
+    drive factor, share value
+
+force get-first
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |first|
+    raise build, field u-int8
+
+force set-first
+  field build, field data
+  field value, field u-int8
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |first|
+    drive factor, share value
+
+force get-indices
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |indices|
+    raise build, field range-int
+
+force set-indices
+  field build, field data
+  field value, field range-int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |indices|
+    drive factor, share value
+
+force get-last
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |last|
+    raise build, field u-int8
+
+force set-last
+  field build, field data
+  field value, field u-int8
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |last|
+    drive factor, share value
+
+force get-publisher
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |publisher|
+    raise build, field publishers-sequence-data
+
+force set-publisher
+  field build, field data
+  field value, field publishers-sequence-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |publisher|
+    drive factor, share value
+
+force get-regions
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |regions|
+    raise build, field collection-of-one-data
+
+force set-regions
+  field build, field data
+  field value, field collection-of-one-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |regions|
+    drive factor, share value
+
+force get-underestimated-count
+  field build, field data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    raise build, field int
+
+force set-underestimated-count
+  field build, field data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    drive factor, share value
+
+force append
+  field build, field data
+  field a, class u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+
+force applying
+  field build, field data
+  field a, class collection-difference-u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |applying|
+    drive factor, share a
+    raise build, class data
+
+force contains
+  field build, field data
+  field a, class u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force copy-bytes
+  field build, field data
+  field to, field unsafe-mutable-raw-buffer-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |copyBytes|
+    drive factor
+      brand to
+      share to
+    raise build, class int
+
+force encode
+  field build, field data
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force first-index
+  field build, field data
+  field of, field u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |firstIndex|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force form-index
+  field build, field data
+  field a, class inout-int
+  field offset-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+
+force form-index
+  field build, field data
+  field a, class inout-int
+  field offset-by, field int
+  field limited-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    drive factor
+      brand limited-by
+      share limited-by
+    raise build, class bool
+
+force form-index
+  field build, field data
+  field after, field inout-int
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor
+      brand after
+      share after
+
+force form-index
+  field build, field data
+  field before, field inout-int
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor
+      brand before
+      share before
+
+force hash
+  field build, field data
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force index
+  field build, field data
+  field a, class int
+  field offset-by, field int
+  field limited-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    drive factor
+      brand limited-by
+      share limited-by
+    raise build, class int
+
+force index
+  field build, field data
+  field of, field u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force insert
+  field build, field data
+  field a, class u-int8
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share a
+    drive factor
+      brand at
+      share at
+
+force last-index
+  field build, field data
+  field of, field u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndex|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force pop-first
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |popFirst|
+    raise build, class u-int8
+
+force pop-last
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |popLast|
+    raise build, class u-int8
+
+force random-element
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |randomElement|
+    raise build, class u-int8
+
+force remove-first
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFirst|
+    raise build, class u-int8
+
+force remove-first
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFirst|
+    drive factor, share a
+
+force remove-last
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLast|
+    raise build, class u-int8
+
+force remove-last
+  field build, field data
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeLast|
+    drive factor, share a
+
+force reverse
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |reverse|
+
+force shuffle
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |shuffle|
+
+force shuffled
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |shuffled|
+    raise build, class u-int8
+
+force sort
+  field build, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |sort|
+
+force swap-at
+  field build, field data
+  field a, class int
+  field b, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |swapAt|
+    drive factor, share a
+    drive factor, share b

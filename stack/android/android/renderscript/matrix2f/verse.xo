@@ -1,0 +1,139 @@
+
+force build-matrix2f
+  cause invoke-constructor
+    drive constructor, |Matrix2f|
+    raise build, field matrix2f
+
+force build-matrix2f
+  mount data-array, field float-array
+
+  cause invoke-constructor
+    drive constructor, |Matrix2f|
+    drive factor, share data-array
+    raise build, field matrix2f
+
+force get
+  mount build, field matrix2f
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share x
+    drive factor, share y
+    raise build, field float
+
+force get-array
+  mount build, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |getArray|
+    raise build, field float-array
+
+force load
+  mount build, field matrix2f
+  mount src, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share src
+    raise build, field unit
+
+force load-identity
+  mount build, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIdentity|
+    raise build, field unit
+
+force load-multiply
+  mount build, field matrix2f
+  mount lhs, field matrix2f
+  mount rhs, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |loadMultiply|
+    drive factor, share lhs
+    drive factor, share rhs
+    raise build, field unit
+
+force load-rotate
+  mount build, field matrix2f
+  mount rot, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadRotate|
+    drive factor, share rot
+    raise build, field unit
+
+force load-scale
+  mount build, field matrix2f
+  mount x, field float
+  mount y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadScale|
+    drive factor, share x
+    drive factor, share y
+    raise build, field unit
+
+force multiply
+  mount build, field matrix2f
+  mount rhs, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |multiply|
+    drive factor, share rhs
+    raise build, field unit
+
+force rotate
+  mount build, field matrix2f
+  mount rot, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |rotate|
+    drive factor, share rot
+    raise build, field unit
+
+force scale
+  mount build, field matrix2f
+  mount x, field float
+  mount y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |scale|
+    drive factor, share x
+    drive factor, share y
+    raise build, field unit
+
+force set
+  mount build, field matrix2f
+  mount x, field int
+  mount y, field int
+  mount v, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share v
+    raise build, field unit
+
+force transpose
+  mount build, field matrix2f
+
+  cause call-method
+    drive object, share build
+    drive method, |transpose|
+    raise build, field unit

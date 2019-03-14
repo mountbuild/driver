@@ -1,0 +1,37 @@
+force create-request
+  field build, field as-authorization-apple-id-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |createRequest|
+    raise build, class as-authorization-apple-id-request
+
+force get-class-credential-revoked-notification
+
+  cause get-aspect
+    drive object, |ASAuthorizationAppleIDProvider|
+    drive aspect, |credentialRevokedNotification|
+    raise build, field ns-notification-name
+
+force set-class-credential-revoked-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |ASAuthorizationAppleIDProvider|
+    drive aspect, |credentialRevokedNotification|
+    drive factor, share value
+
+force get-class-credential-revoked-notification
+
+  cause get-aspect
+    drive object, |ASAuthorizationAppleIDProvider|
+    drive aspect, |credentialRevokedNotification|
+    raise build, field ns-notification-name
+
+force set-class-credential-revoked-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |ASAuthorizationAppleIDProvider|
+    drive aspect, |credentialRevokedNotification|
+    drive factor, share value

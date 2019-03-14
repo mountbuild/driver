@@ -1,0 +1,69 @@
+
+force build-android-test-case
+  cause invoke-constructor
+    drive constructor, |AndroidTestCase|
+    raise build, field android-test-case
+
+force assert-activity-requires-permission
+  mount build, field android-test-case
+  mount package-name, field string
+  mount class-name, field string
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |assertActivityRequiresPermission|
+    drive factor, share package-name
+    drive factor, share class-name
+    drive factor, share permission
+    raise build, field unit
+
+force assert-reading-content-uri-requires-permission
+  mount build, field android-test-case
+  mount uri, field uri
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |assertReadingContentUriRequiresPermission|
+    drive factor, share uri
+    drive factor, share permission
+    raise build, field unit
+
+force assert-writing-content-uri-requires-permission
+  mount build, field android-test-case
+  mount uri, field uri
+  mount permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |assertWritingContentUriRequiresPermission|
+    drive factor, share uri
+    drive factor, share permission
+    raise build, field unit
+
+force get-context
+  mount build, field android-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getContext|
+    raise build, field context
+
+force set-context
+  mount build, field android-test-case
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |setContext|
+    drive factor, share context
+    raise build, field unit
+
+force test-android-test-case-setup-properly
+  mount build, field android-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |testAndroidTestCaseSetupProperly|
+    raise build, field unit

@@ -1,0 +1,230 @@
+
+force get-data-complete
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_COMPLETE|
+    throw build, field int
+
+force get-data-truncated
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_TRUNCATED|
+    throw build, field int
+
+force get-periodic-interval-not-present
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |PERIODIC_INTERVAL_NOT_PRESENT|
+    throw build, field int
+
+force get-phy-unused
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |PHY_UNUSED|
+    throw build, field int
+
+force get-sid-not-present
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |SID_NOT_PRESENT|
+    throw build, field int
+
+force get-tx-power-not-present
+  mount build, field scan-result
+
+  cause get-property
+    drive object, share build
+    drive property, |TX_POWER_NOT_PRESENT|
+    throw build, field int
+
+force build-scan-result
+  mount device, field bluetooth-device
+  mount scan-record, field scan-record
+  mount rssi, field int
+  mount timestamp-nanos, field long
+
+  cause invoke-constructor
+    drive constructor, |ScanResult|
+    drive factor, share device
+    drive factor, share scan-record
+    drive factor, share rssi
+    drive factor, share timestamp-nanos
+    throw build, field scan-result
+
+force build-scan-result
+  mount device, field bluetooth-device
+  mount event-type, field int
+  mount primary-phy, field int
+  mount secondary-phy, field int
+  mount advertising-sid, field int
+  mount tx-power, field int
+  mount rssi, field int
+  mount periodic-advertising-interval, field int
+  mount scan-record, field scan-record
+  mount timestamp-nanos, field long
+
+  cause invoke-constructor
+    drive constructor, |ScanResult|
+    drive factor, share device
+    drive factor, share event-type
+    drive factor, share primary-phy
+    drive factor, share secondary-phy
+    drive factor, share advertising-sid
+    drive factor, share tx-power
+    drive factor, share rssi
+    drive factor, share periodic-advertising-interval
+    drive factor, share scan-record
+    drive factor, share timestamp-nanos
+    throw build, field scan-result
+
+force describe-contents
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field scan-result
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-advertising-sid
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdvertisingSid|
+    throw build, field int
+
+force get-data-status
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getDataStatus|
+    throw build, field int
+
+force get-device
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevice|
+    throw build, field bluetooth-device
+
+force get-periodic-advertising-interval
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeriodicAdvertisingInterval|
+    throw build, field int
+
+force get-primary-phy
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrimaryPhy|
+    throw build, field int
+
+force get-rssi
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getRssi|
+    throw build, field int
+
+force get-scan-record
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getScanRecord|
+    throw build, field scan-record
+
+force get-secondary-phy
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getSecondaryPhy|
+    throw build, field int
+
+force get-timestamp-nanos
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestampNanos|
+    throw build, field long
+
+force get-tx-power
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getTxPower|
+    throw build, field int
+
+force hash-code
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-connectable
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnectable|
+    throw build, field boolean
+
+force is-legacy
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |isLegacy|
+    throw build, field boolean
+
+force to-string
+  mount build, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field scan-result
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,66 @@
+
+force build-range-template
+  mount template-id, field string
+  mount min-value, field float
+  mount max-value, field float
+  mount current-value, field float
+  mount step-value, field float
+  mount format-string, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |RangeTemplate|
+    drive factor, share template-id
+    drive factor, share min-value
+    drive factor, share max-value
+    drive factor, share current-value
+    drive factor, share step-value
+    drive factor, share format-string
+    raise build, field range-template
+
+force get-current-value
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentValue|
+    raise build, field float
+
+force get-format-string
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormatString|
+    raise build, field char-sequence
+
+force get-max-value
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxValue|
+    raise build, field float
+
+force get-min-value
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinValue|
+    raise build, field float
+
+force get-step-value
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getStepValue|
+    raise build, field float
+
+force get-template-type
+  mount build, field range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplateType|
+    raise build, field int

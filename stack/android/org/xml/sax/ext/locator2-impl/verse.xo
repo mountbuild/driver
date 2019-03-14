@@ -1,0 +1,49 @@
+
+force build-locator2-impl
+  cause invoke-constructor
+    drive constructor, |Locator2Impl|
+    throw build, field locator2-impl
+
+force build-locator2-impl
+  mount locator, field locator
+
+  cause invoke-constructor
+    drive constructor, |Locator2Impl|
+    drive factor, share locator
+    throw build, field locator2-impl
+
+force get-encoding
+  mount build, field locator2-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncoding|
+    throw build, field string
+
+force get-xml-version
+  mount build, field locator2-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |getXMLVersion|
+    throw build, field string
+
+force set-encoding
+  mount build, field locator2-impl
+  mount encoding, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setEncoding|
+    drive factor, share encoding
+    throw build, field unit
+
+force set-xml-version
+  mount build, field locator2-impl
+  mount version, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setXMLVersion|
+    drive factor, share version
+    throw build, field unit

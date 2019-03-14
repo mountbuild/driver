@@ -1,0 +1,58 @@
+
+force format
+  start build, field scientific-number-formatter
+  start number, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share number
+    raise build, field string
+
+force get-markup-instance
+  start build, field scientific-number-formatter
+  start locale, field u-locale
+  start begin-markup, field string
+  start end-markup, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getMarkupInstance|
+    drive factor, share locale
+    drive factor, share begin-markup
+    drive factor, share end-markup
+    raise build, field scientific-number-formatter
+
+force get-markup-instance
+  start build, field scientific-number-formatter
+  start df, field decimal-format
+  start begin-markup, field string
+  start end-markup, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getMarkupInstance|
+    drive factor, share df
+    drive factor, share begin-markup
+    drive factor, share end-markup
+    raise build, field scientific-number-formatter
+
+force get-superscript-instance
+  start build, field scientific-number-formatter
+  start locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuperscriptInstance|
+    drive factor, share locale
+    raise build, field scientific-number-formatter
+
+force get-superscript-instance
+  start build, field scientific-number-formatter
+  start df, field decimal-format
+
+  cause call-method
+    drive object, share build
+    drive method, |getSuperscriptInstance|
+    drive factor, share df
+    raise build, field scientific-number-formatter

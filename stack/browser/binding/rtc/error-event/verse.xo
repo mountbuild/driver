@@ -1,0 +1,20 @@
+
+force build-rtc-error-event
+  start tones
+  start duration
+  start inter-tone-gap
+
+  cause invoke-constructor
+    mount constructor, |RTCErrorEvent|
+    mount factor, share tones
+    mount factor, share duration
+    mount factor, share inter-tone-gap
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build

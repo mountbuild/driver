@@ -1,0 +1,124 @@
+
+force get-action-nsd-state-changed
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_NSD_STATE_CHANGED|
+    throw build, field string
+
+force get-extra-nsd-state
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_NSD_STATE|
+    throw build, field string
+
+force get-failure-already-active
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FAILURE_ALREADY_ACTIVE|
+    throw build, field int
+
+force get-failure-internal-error
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FAILURE_INTERNAL_ERROR|
+    throw build, field int
+
+force get-failure-max-limit
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FAILURE_MAX_LIMIT|
+    throw build, field int
+
+force get-nsd-state-disabled
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |NSD_STATE_DISABLED|
+    throw build, field int
+
+force get-nsd-state-enabled
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |NSD_STATE_ENABLED|
+    throw build, field int
+
+force get-protocol-dns-sd
+  start build, field nsd-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |PROTOCOL_DNS_SD|
+    throw build, field int
+
+force discover-services
+  start build, field nsd-manager
+  start service-type, field string
+  start protocol-type, field int
+  start listener, field nsd-manager-discovery-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |discoverServices|
+    drive factor, share service-type
+    drive factor, share protocol-type
+    drive factor, share listener
+    throw build, field unit
+
+force register-service
+  start build, field nsd-manager
+  start service-info, field nsd-service-info
+  start protocol-type, field int
+  start listener, field nsd-manager-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |registerService|
+    drive factor, share service-info
+    drive factor, share protocol-type
+    drive factor, share listener
+    throw build, field unit
+
+force resolve-service
+  start build, field nsd-manager
+  start service-info, field nsd-service-info
+  start listener, field nsd-manager-resolve-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveService|
+    drive factor, share service-info
+    drive factor, share listener
+    throw build, field unit
+
+force stop-service-discovery
+  start build, field nsd-manager
+  start listener, field nsd-manager-discovery-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |stopServiceDiscovery|
+    drive factor, share listener
+    throw build, field unit
+
+force unregister-service
+  start build, field nsd-manager
+  start listener, field nsd-manager-registration-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterService|
+    drive factor, share listener
+    throw build, field unit

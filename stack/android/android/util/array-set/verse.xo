@@ -1,0 +1,245 @@
+
+force build-array-set
+  cause invoke-constructor
+    drive constructor, |ArraySet|
+    throw build, field array-set
+
+force build-array-set
+  mount capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |ArraySet|
+    drive factor, share capacity
+    throw build, field array-set
+
+force build-array-set
+  mount set, field array-set-e
+
+  cause invoke-constructor
+    drive constructor, |ArraySet|
+    drive factor, share set
+    throw build, field array-set
+
+force build-array-set
+  mount set, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |ArraySet|
+    drive factor, share set
+    throw build, field array-set
+
+force build-array-set
+  mount array, field array-e
+
+  cause invoke-constructor
+    drive constructor, |ArraySet|
+    drive factor, share array
+    throw build, field array-set
+
+force add
+  mount build, field array-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force add-all
+  mount build, field array-set
+  mount array, field array-set-out-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share array
+    throw build, field unit
+
+force add-all
+  mount build, field array-set
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |addAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force clear
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force contains
+  mount build, field array-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force contains-all
+  mount build, field array-set
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |containsAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force ensure-capacity
+  mount build, field array-set
+  mount minimum-capacity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ensureCapacity|
+    drive factor, share minimum-capacity
+    throw build, field unit
+
+force equals
+  mount build, field array-set
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force index-of
+  mount build, field array-set
+  mount key, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share key
+    throw build, field int
+
+force is-empty
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force remove
+  mount build, field array-set
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force remove-all
+  mount build, field array-set
+  mount array, field array-set-out-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor, share array
+    throw build, field boolean
+
+force remove-all
+  mount build, field array-set
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force remove-at
+  mount build, field array-set
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAt|
+    drive factor, share index
+    throw build, field e
+
+force remove-if
+  mount build, field array-set
+  mount filter, field predicate-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |removeIf|
+    drive factor, share filter
+    throw build, field boolean
+
+force retain-all
+  mount build, field array-set
+  mount elements, field collection-e
+
+  cause call-method
+    drive object, share build
+    drive method, |retainAll|
+    drive factor, share elements
+    throw build, field boolean
+
+force to-array
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field array-set
+  mount array, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share array
+    throw build, field array
+
+force to-string
+  mount build, field array-set
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-at
+  mount build, field array-set
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueAt|
+    drive factor, share index
+    throw build, field e

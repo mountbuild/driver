@@ -1,0 +1,294 @@
+
+force build-input-connection-wrapper
+  mount target, field input-connection
+  mount mutable, field boolean
+
+  cause invoke-constructor
+    drive constructor, |InputConnectionWrapper|
+    drive factor, share target
+    drive factor, share mutable
+    raise build, field input-connection-wrapper
+
+force begin-batch-edit
+  mount build, field input-connection-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |beginBatchEdit|
+    raise build, field boolean
+
+force clear-meta-key-states
+  mount build, field input-connection-wrapper
+  mount states, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |clearMetaKeyStates|
+    drive factor, share states
+    raise build, field boolean
+
+force close-connection
+  mount build, field input-connection-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |closeConnection|
+    raise build, field unit
+
+force commit-completion
+  mount build, field input-connection-wrapper
+  mount text, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |commitCompletion|
+    drive factor, share text
+    raise build, field boolean
+
+force commit-content
+  mount build, field input-connection-wrapper
+  mount input-content-info, field input-content-info
+  mount flags, field int
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |commitContent|
+    drive factor, share input-content-info
+    drive factor, share flags
+    drive factor, share opts
+    raise build, field boolean
+
+force commit-correction
+  mount build, field input-connection-wrapper
+  mount correction-info, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |commitCorrection|
+    drive factor, share correction-info
+    raise build, field boolean
+
+force commit-text
+  mount build, field input-connection-wrapper
+  mount text, field char-sequence
+  mount new-cursor-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |commitText|
+    drive factor, share text
+    drive factor, share new-cursor-position
+    raise build, field boolean
+
+force delete-surrounding-text
+  mount build, field input-connection-wrapper
+  mount before-length, field int
+  mount after-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteSurroundingText|
+    drive factor, share before-length
+    drive factor, share after-length
+    raise build, field boolean
+
+force delete-surrounding-text-in-code-points
+  mount build, field input-connection-wrapper
+  mount before-length, field int
+  mount after-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteSurroundingTextInCodePoints|
+    drive factor, share before-length
+    drive factor, share after-length
+    raise build, field boolean
+
+force end-batch-edit
+  mount build, field input-connection-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |endBatchEdit|
+    raise build, field boolean
+
+force finish-composing-text
+  mount build, field input-connection-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |finishComposingText|
+    raise build, field boolean
+
+force get-cursor-caps-mode
+  mount build, field input-connection-wrapper
+  mount req-modes, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCursorCapsMode|
+    drive factor, share req-modes
+    raise build, field int
+
+force get-extracted-text
+  mount build, field input-connection-wrapper
+  mount request, field extracted-text-request
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtractedText|
+    drive factor, share request
+    drive factor, share flags
+    raise build, field extracted-text
+
+force get-handler
+  mount build, field input-connection-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |getHandler|
+    raise build, field handler
+
+force get-selected-text
+  mount build, field input-connection-wrapper
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedText|
+    drive factor, share flags
+    raise build, field char-sequence
+
+force get-text-after-cursor
+  mount build, field input-connection-wrapper
+  mount n, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTextAfterCursor|
+    drive factor, share n
+    drive factor, share flags
+    raise build, field char-sequence
+
+force get-text-before-cursor
+  mount build, field input-connection-wrapper
+  mount n, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTextBeforeCursor|
+    drive factor, share n
+    drive factor, share flags
+    raise build, field char-sequence
+
+force perform-context-menu-action
+  mount build, field input-connection-wrapper
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |performContextMenuAction|
+    drive factor, share id
+    raise build, field boolean
+
+force perform-editor-action
+  mount build, field input-connection-wrapper
+  mount editor-action, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |performEditorAction|
+    drive factor, share editor-action
+    raise build, field boolean
+
+force perform-private-command
+  mount build, field input-connection-wrapper
+  mount action, field string
+  mount data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |performPrivateCommand|
+    drive factor, share action
+    drive factor, share data
+    raise build, field boolean
+
+force report-fullscreen-mode
+  mount build, field input-connection-wrapper
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |reportFullscreenMode|
+    drive factor, share enabled
+    raise build, field boolean
+
+force request-cursor-updates
+  mount build, field input-connection-wrapper
+  mount cursor-update-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |requestCursorUpdates|
+    drive factor, share cursor-update-mode
+    raise build, field boolean
+
+force send-key-event
+  mount build, field input-connection-wrapper
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendKeyEvent|
+    drive factor, share event
+    raise build, field boolean
+
+force set-composing-region
+  mount build, field input-connection-wrapper
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setComposingRegion|
+    drive factor, share start
+    drive factor, share end
+    raise build, field boolean
+
+force set-composing-text
+  mount build, field input-connection-wrapper
+  mount text, field char-sequence
+  mount new-cursor-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setComposingText|
+    drive factor, share text
+    drive factor, share new-cursor-position
+    raise build, field boolean
+
+force set-selection
+  mount build, field input-connection-wrapper
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelection|
+    drive factor, share start
+    drive factor, share end
+    raise build, field boolean
+
+force set-target
+  mount build, field input-connection-wrapper
+  mount target, field input-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor, share target
+    raise build, field unit

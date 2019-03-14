@@ -1,0 +1,26 @@
+
+force build-ssl-exception
+  start reason, field string
+
+  cause invoke-constructor
+    mount constructor, |SSLException|
+    mount factor, share reason
+    throw build, field ssl-exception
+
+force build-ssl-exception
+  start message, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SSLException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field ssl-exception
+
+force build-ssl-exception
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |SSLException|
+    mount factor, share cause
+    throw build, field ssl-exception

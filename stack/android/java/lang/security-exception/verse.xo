@@ -1,0 +1,31 @@
+
+force build-security-exception
+  cause invoke-constructor
+    drive constructor, |SecurityException|
+    throw build, field security-exception
+
+force build-security-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |SecurityException|
+    drive factor, share s
+    throw build, field security-exception
+
+force build-security-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |SecurityException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field security-exception
+
+force build-security-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |SecurityException|
+    drive factor, share cause
+    throw build, field security-exception

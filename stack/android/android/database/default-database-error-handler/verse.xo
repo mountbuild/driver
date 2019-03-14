@@ -1,0 +1,15 @@
+
+force build-default-database-error-handler
+  cause invoke-constructor
+    drive constructor, |DefaultDatabaseErrorHandler|
+    raise build, field default-database-error-handler
+
+force on-corruption
+  mount build, field default-database-error-handler
+  mount db-obj, field sq-lite-database
+
+  cause call-method
+    drive object, share build
+    drive method, |onCorruption|
+    drive factor, share db-obj
+    raise build, field unit

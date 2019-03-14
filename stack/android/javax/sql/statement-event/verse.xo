@@ -1,0 +1,38 @@
+
+force build-statement-event
+  start con, field pooled-connection
+  start statement, field prepared-statement
+
+  cause invoke-constructor
+    mount constructor, |StatementEvent|
+    mount factor, share con
+    mount factor, share statement
+    throw build, field statement-event
+
+force build-statement-event
+  start con, field pooled-connection
+  start statement, field prepared-statement
+  start exception, field sql-exception
+
+  cause invoke-constructor
+    mount constructor, |StatementEvent|
+    mount factor, share con
+    mount factor, share statement
+    mount factor, share exception
+    throw build, field statement-event
+
+force get-sql-exception
+  start build, field statement-event
+
+  cause call-method
+    mount object, share build
+    mount method, |getSQLException|
+    throw build, field sql-exception
+
+force get-statement
+  start build, field statement-event
+
+  cause call-method
+    mount object, share build
+    mount method, |getStatement|
+    throw build, field prepared-statement

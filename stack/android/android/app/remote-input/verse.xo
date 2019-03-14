@@ -1,0 +1,214 @@
+
+force get-edit-choices-before-sending-auto
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |EDIT_CHOICES_BEFORE_SENDING_AUTO|
+    throw build, field int
+
+force get-edit-choices-before-sending-disabled
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |EDIT_CHOICES_BEFORE_SENDING_DISABLED|
+    throw build, field int
+
+force get-edit-choices-before-sending-enabled
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |EDIT_CHOICES_BEFORE_SENDING_ENABLED|
+    throw build, field int
+
+force get-extra-results-data
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RESULTS_DATA|
+    throw build, field string
+
+force get-results-clip-label
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULTS_CLIP_LABEL|
+    throw build, field string
+
+force get-source-choice
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |SOURCE_CHOICE|
+    throw build, field int
+
+force get-source-free-form-input
+  start build, field remote-input
+
+  cause get-property
+    drive object, share build
+    drive property, |SOURCE_FREE_FORM_INPUT|
+    throw build, field int
+
+force add-data-result-to-intent
+  start build, field remote-input
+  start remote-input, field remote-input
+  start intent, field intent
+  start results, field mutable-map-string
+  start uri, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |addDataResultToIntent|
+    drive factor, share remote-input
+    drive factor, share intent
+    drive factor, share results
+    drive factor, share uri
+    throw build, field unit
+
+force add-results-to-intent
+  start build, field remote-input
+  start remote-inputs, field array-remote-input
+  start intent, field intent
+  start results, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |addResultsToIntent|
+    drive factor, share remote-inputs
+    drive factor, share intent
+    drive factor, share results
+    throw build, field unit
+
+force describe-contents
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-allow-free-form-input
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowFreeFormInput|
+    throw build, field boolean
+
+force get-allowed-data-types
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowedDataTypes|
+    throw build, field mutable-set
+
+force get-choices
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getChoices|
+    throw build, field array
+
+force get-data-results-from-intent
+  start build, field remote-input
+  start intent, field intent
+  start remote-input-result-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDataResultsFromIntent|
+    drive factor, share intent
+    drive factor, share remote-input-result-key
+    throw build, field mutable-map
+
+force get-edit-choices-before-sending
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getEditChoicesBeforeSending|
+    throw build, field int
+
+force get-extras
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-label
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force get-result-key
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultKey|
+    throw build, field string
+
+force get-results-from-intent
+  start build, field remote-input
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultsFromIntent|
+    drive factor, share intent
+    throw build, field bundle
+
+force get-results-source
+  start build, field remote-input
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultsSource|
+    drive factor, share intent
+    throw build, field int
+
+force is-data-only
+  start build, field remote-input
+
+  cause call-method
+    drive object, share build
+    drive method, |isDataOnly|
+    throw build, field boolean
+
+force set-results-source
+  start build, field remote-input
+  start intent, field intent
+  start source, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setResultsSource|
+    drive factor, share intent
+    drive factor, share source
+    throw build, field unit
+
+force write-to-parcel
+  start build, field remote-input
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,73 @@
+
+force build-test-case
+  cause invoke-constructor
+    drive constructor, |TestCase|
+    throw build, field test-case
+
+force build-test-case
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |TestCase|
+    drive factor, share name
+    throw build, field test-case
+
+force count-test-cases
+  start build, field test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |countTestCases|
+    throw build, field int
+
+force get-name
+  start build, field test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force run
+  start build, field test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    throw build, field test-result
+
+force run
+  start build, field test-case
+  start result, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    drive factor, share result
+    throw build, field unit
+
+force run-bare
+  start build, field test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |runBare|
+    throw build, field unit
+
+force set-name
+  start build, field test-case
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    throw build, field unit
+
+force to-string
+  start build, field test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,46 @@
+
+force get-kind
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |kind|
+    throw build
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build
+
+force is-same-entry
+  start build
+  start file-system-handle
+
+  cause call-method
+    mount object, share build
+    mount method, |isSameEntry|
+    mount factor, share file-system-handle
+    throw build
+
+force query-permission
+  start build
+  start file-system-handle-permission-descriptor
+
+  cause call-method
+    mount object, share build
+    mount method, |queryPermission|
+    mount factor, share file-system-handle-permission-descriptor
+    throw build
+
+force request-permission
+  start build
+  start file-system-handle-permission-descriptor
+
+  cause call-method
+    mount object, share build
+    mount method, |requestPermission|
+    mount factor, share file-system-handle-permission-descriptor
+    throw build

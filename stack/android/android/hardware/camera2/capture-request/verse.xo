@@ -1,0 +1,72 @@
+
+force describe-contents
+  mount build, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field capture-request
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get
+  mount build, field capture-request
+  mount key, field capture-request-key-t
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field t
+
+force get-keys
+  mount build, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeys|
+    throw build, field mutable-list
+
+force get-tag
+  mount build, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field any
+
+force hash-code
+  mount build, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-reprocess
+  mount build, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |isReprocess|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field capture-request
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

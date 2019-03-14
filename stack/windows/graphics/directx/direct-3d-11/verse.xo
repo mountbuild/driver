@@ -1,0 +1,31 @@
+
+force get-direct3-d-bindings
+  cause get-object
+    drive aspect, |Windows.Graphics.DirectX.Direct3D11.Direct3DBindings|
+
+force get-direct3-d-usage
+  cause get-object
+    drive aspect, |Windows.Graphics.DirectX.Direct3D11.Direct3DUsage|
+
+force trim
+  start build, field windows-graphics-directx-direct3d11-idirect3ddevice
+
+  cause call-method
+    drive object, share build
+    drive method, |Trim|
+
+force get-description
+  start build, field windows-graphics-directx-direct3d11-idirect3dsurface
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-graphics-directx-direct3d11-idirect3dsurface
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value

@@ -1,0 +1,83 @@
+
+force build-app-component-factory
+  cause invoke-constructor
+    drive constructor, |AppComponentFactory|
+    throw build, field app-component-factory
+
+force instantiate-activity
+  start build, field app-component-factory
+  start cl, field class-loader
+  start class-name, field string
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateActivity|
+    drive factor, share cl
+    drive factor, share class-name
+    drive factor, share intent
+    throw build, field activity
+
+force instantiate-application
+  start build, field app-component-factory
+  start cl, field class-loader
+  start class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateApplication|
+    drive factor, share cl
+    drive factor, share class-name
+    throw build, field application
+
+force instantiate-class-loader
+  start build, field app-component-factory
+  start cl, field class-loader
+  start a-info, field application-info
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateClassLoader|
+    drive factor, share cl
+    drive factor, share a-info
+    throw build, field class-loader
+
+force instantiate-provider
+  start build, field app-component-factory
+  start cl, field class-loader
+  start class-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateProvider|
+    drive factor, share cl
+    drive factor, share class-name
+    throw build, field content-provider
+
+force instantiate-receiver
+  start build, field app-component-factory
+  start cl, field class-loader
+  start class-name, field string
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateReceiver|
+    drive factor, share cl
+    drive factor, share class-name
+    drive factor, share intent
+    throw build, field broadcast-receiver
+
+force instantiate-service
+  start build, field app-component-factory
+  start cl, field class-loader
+  start class-name, field string
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |instantiateService|
+    drive factor, share cl
+    drive factor, share class-name
+    drive factor, share intent
+    throw build, field service

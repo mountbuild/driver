@@ -1,0 +1,32 @@
+
+force build-performance-observer
+  start callback
+
+  cause invoke-constructor
+    mount constructor, |PerformanceObserver|
+    mount factor, share callback
+    throw build
+
+force observe
+  start build
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |observe|
+    mount factor, share options
+
+force disconnect
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |disconnect|
+
+force take-records
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |takeRecords|
+    throw build

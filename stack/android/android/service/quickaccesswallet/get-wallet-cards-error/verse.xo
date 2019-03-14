@@ -1,0 +1,46 @@
+
+force build-get-wallet-cards-error
+  mount icon, field icon
+  mount message, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |GetWalletCardsError|
+    drive factor, share icon
+    drive factor, share message
+    raise build, field get-wallet-cards-error
+
+force describe-contents
+  mount build, field get-wallet-cards-error
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-icon
+  mount build, field get-wallet-cards-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    raise build, field icon
+
+force get-message
+  mount build, field get-wallet-cards-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessage|
+    raise build, field char-sequence
+
+force write-to-parcel
+  mount build, field get-wallet-cards-error
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

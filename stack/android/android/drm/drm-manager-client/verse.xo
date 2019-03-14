@@ -1,0 +1,346 @@
+
+force get-error-none
+  mount build, field drm-manager-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NONE|
+    throw build, field int
+
+force get-error-unknown
+  mount build, field drm-manager-client
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNKNOWN|
+    throw build, field int
+
+force build-drm-manager-client
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |DrmManagerClient|
+    drive factor, share context
+    throw build, field drm-manager-client
+
+force acquire-drm-info
+  mount build, field drm-manager-client
+  mount drm-info-request, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireDrmInfo|
+    drive factor, share drm-info-request
+    throw build, field drm-info
+
+force acquire-rights
+  mount build, field drm-manager-client
+  mount drm-info-request, field drm-info-request
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireRights|
+    drive factor, share drm-info-request
+    throw build, field int
+
+force can-handle
+  mount build, field drm-manager-client
+  mount path, field string
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |canHandle|
+    drive factor, share path
+    drive factor, share mime-type
+    throw build, field boolean
+
+force can-handle
+  mount build, field drm-manager-client
+  mount uri, field uri
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |canHandle|
+    drive factor, share uri
+    drive factor, share mime-type
+    throw build, field boolean
+
+force check-rights-status
+  mount build, field drm-manager-client
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRightsStatus|
+    drive factor, share path
+    throw build, field int
+
+force check-rights-status
+  mount build, field drm-manager-client
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRightsStatus|
+    drive factor, share uri
+    throw build, field int
+
+force check-rights-status
+  mount build, field drm-manager-client
+  mount path, field string
+  mount action, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRightsStatus|
+    drive factor, share path
+    drive factor, share action
+    throw build, field int
+
+force check-rights-status
+  mount build, field drm-manager-client
+  mount uri, field uri
+  mount action, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkRightsStatus|
+    drive factor, share uri
+    drive factor, share action
+    throw build, field int
+
+force close
+  mount build, field drm-manager-client
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force close-convert-session
+  mount build, field drm-manager-client
+  mount convert-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |closeConvertSession|
+    drive factor, share convert-id
+    throw build, field drm-converted-status
+
+force convert-data
+  mount build, field drm-manager-client
+  mount convert-id, field int
+  mount input-data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |convertData|
+    drive factor, share convert-id
+    drive factor, share input-data
+    throw build, field drm-converted-status
+
+force get-available-drm-engines
+  mount build, field drm-manager-client
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableDrmEngines|
+    throw build, field array
+
+force get-available-drm-support-info
+  mount build, field drm-manager-client
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableDrmSupportInfo|
+    throw build, field mutable-collection
+
+force get-constraints
+  mount build, field drm-manager-client
+  mount path, field string
+  mount action, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getConstraints|
+    drive factor, share path
+    drive factor, share action
+    throw build, field content-values
+
+force get-constraints
+  mount build, field drm-manager-client
+  mount uri, field uri
+  mount action, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getConstraints|
+    drive factor, share uri
+    drive factor, share action
+    throw build, field content-values
+
+force get-drm-object-type
+  mount build, field drm-manager-client
+  mount path, field string
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDrmObjectType|
+    drive factor, share path
+    drive factor, share mime-type
+    throw build, field int
+
+force get-drm-object-type
+  mount build, field drm-manager-client
+  mount uri, field uri
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDrmObjectType|
+    drive factor, share uri
+    drive factor, share mime-type
+    throw build, field int
+
+force get-metadata
+  mount build, field drm-manager-client
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetadata|
+    drive factor, share path
+    throw build, field content-values
+
+force get-metadata
+  mount build, field drm-manager-client
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetadata|
+    drive factor, share uri
+    throw build, field content-values
+
+force get-original-mime-type
+  mount build, field drm-manager-client
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getOriginalMimeType|
+    drive factor, share path
+    throw build, field string
+
+force get-original-mime-type
+  mount build, field drm-manager-client
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getOriginalMimeType|
+    drive factor, share uri
+    throw build, field string
+
+force open-convert-session
+  mount build, field drm-manager-client
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openConvertSession|
+    drive factor, share mime-type
+    throw build, field int
+
+force process-drm-info
+  mount build, field drm-manager-client
+  mount drm-info, field drm-info
+
+  cause call-method
+    drive object, share build
+    drive method, |processDrmInfo|
+    drive factor, share drm-info
+    throw build, field int
+
+force release
+  mount build, field drm-manager-client
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force remove-all-rights
+  mount build, field drm-manager-client
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllRights|
+    throw build, field int
+
+force remove-rights
+  mount build, field drm-manager-client
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeRights|
+    drive factor, share path
+    throw build, field int
+
+force remove-rights
+  mount build, field drm-manager-client
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |removeRights|
+    drive factor, share uri
+    throw build, field int
+
+force save-rights
+  mount build, field drm-manager-client
+  mount drm-rights, field drm-rights
+  mount rights-path, field string
+  mount content-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |saveRights|
+    drive factor, share drm-rights
+    drive factor, share rights-path
+    drive factor, share content-path
+    throw build, field int
+
+force set-on-error-listener
+  mount build, field drm-manager-client
+  mount error-listener, field drm-manager-client-on-error-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnErrorListener|
+    drive factor, share error-listener
+    throw build, field unit
+
+force set-on-event-listener
+  mount build, field drm-manager-client
+  mount event-listener, field drm-manager-client-on-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnEventListener|
+    drive factor, share event-listener
+    throw build, field unit
+
+force set-on-info-listener
+  mount build, field drm-manager-client
+  mount info-listener, field drm-manager-client-on-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnInfoListener|
+    drive factor, share info-listener
+    throw build, field unit

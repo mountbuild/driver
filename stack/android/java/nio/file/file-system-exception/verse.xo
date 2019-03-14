@@ -1,0 +1,44 @@
+
+force build-file-system-exception
+  mount file, field string
+
+  cause invoke-constructor
+    drive constructor, |FileSystemException|
+    drive factor, share file
+    throw build, field file-system-exception
+
+force build-file-system-exception
+  mount file, field string
+  mount other, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |FileSystemException|
+    drive factor, share file
+    drive factor, share other
+    drive factor, share reason
+    throw build, field file-system-exception
+
+force get-file
+  mount build, field file-system-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFile|
+    throw build, field string
+
+force get-other-file
+  mount build, field file-system-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getOtherFile|
+    throw build, field string
+
+force get-reason
+  mount build, field file-system-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field string

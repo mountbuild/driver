@@ -1,0 +1,48 @@
+
+force get-gzip-magic
+  mount build, field gzip-input-stream
+
+  cause get-property
+    drive object, share build
+    drive property, |GZIP_MAGIC|
+    throw build, field int
+
+force build-gzip-input-stream
+  mount in, field input-stream
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |GZIPInputStream|
+    drive factor, share in
+    drive factor, share size
+    throw build, field gzip-input-stream
+
+force build-gzip-input-stream
+  mount in, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |GZIPInputStream|
+    drive factor, share in
+    throw build, field gzip-input-stream
+
+force close
+  mount build, field gzip-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force read
+  mount build, field gzip-input-stream
+  mount buf, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share buf
+    drive factor, share off
+    drive factor, share len
+    throw build, field int

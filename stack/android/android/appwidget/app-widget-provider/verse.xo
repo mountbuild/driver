@@ -1,0 +1,93 @@
+
+force build-app-widget-provider
+  cause invoke-constructor
+    drive constructor, |AppWidgetProvider|
+    throw build, field app-widget-provider
+
+force on-app-widget-options-changed
+  mount build, field app-widget-provider
+  mount context, field context
+  mount app-widget-manager, field app-widget-manager
+  mount app-widget-id, field int
+  mount new-options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onAppWidgetOptionsChanged|
+    drive factor, share context
+    drive factor, share app-widget-manager
+    drive factor, share app-widget-id
+    drive factor, share new-options
+    throw build, field unit
+
+force on-deleted
+  mount build, field app-widget-provider
+  mount context, field context
+  mount app-widget-ids, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onDeleted|
+    drive factor, share context
+    drive factor, share app-widget-ids
+    throw build, field unit
+
+force on-disabled
+  mount build, field app-widget-provider
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisabled|
+    drive factor, share context
+    throw build, field unit
+
+force on-enabled
+  mount build, field app-widget-provider
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |onEnabled|
+    drive factor, share context
+    throw build, field unit
+
+force on-receive
+  mount build, field app-widget-provider
+  mount context, field context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-restored
+  mount build, field app-widget-provider
+  mount context, field context
+  mount old-widget-ids, field int-array
+  mount new-widget-ids, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestored|
+    drive factor, share context
+    drive factor, share old-widget-ids
+    drive factor, share new-widget-ids
+    throw build, field unit
+
+force on-update
+  mount build, field app-widget-provider
+  mount context, field context
+  mount app-widget-manager, field app-widget-manager
+  mount app-widget-ids, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdate|
+    drive factor, share context
+    drive factor, share app-widget-manager
+    drive factor, share app-widget-ids
+    throw build, field unit

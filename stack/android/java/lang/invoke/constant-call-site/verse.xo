@@ -1,0 +1,34 @@
+
+force build-constant-call-site
+  mount target, field method-handle
+
+  cause invoke-constructor
+    drive constructor, |ConstantCallSite|
+    drive factor, share target
+    throw build, field constant-call-site
+
+force dynamic-invoker
+  mount build, field constant-call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |dynamicInvoker|
+    throw build, field method-handle
+
+force get-target
+  mount build, field constant-call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |getTarget|
+    throw build, field method-handle
+
+force set-target
+  mount build, field constant-call-site
+  mount ignore, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor, share ignore
+    throw build, field unit

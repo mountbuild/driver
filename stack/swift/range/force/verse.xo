@@ -1,0 +1,568 @@
+force get-is-empty
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    raise build, field bool
+
+force set-is-empty
+  field build, field range
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    drive factor, share value
+
+force get-count
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |count|
+    raise build, field int
+
+force set-count
+  field build, field range
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |count|
+    drive factor, share value
+
+force get-lower-bound
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lowerBound|
+    raise build, field bound
+
+force set-lower-bound
+  field build, field Range
+  field value, field Bound
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lowerBound|
+    drive factor, share value
+
+force get-upper-bound
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |upperBound|
+    raise build, field bound
+
+force set-upper-bound
+  field build, field Range
+  field value, field Bound
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |upperBound|
+    drive factor, share value
+
+force contains
+  field build, field range
+  field a, class bound
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share a
+    raise build, class bool
+
+force clamped
+  field build, field range
+  field to, field range-bound
+
+  cause call-method
+    drive object, share build
+    drive method, |clamped|
+    drive factor
+      brand to
+      share to
+    raise build, class range-bound
+
+force get-first
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |first|
+    raise build, field bound
+
+force set-first
+  field build, field range
+  field value, field bound
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |first|
+    drive factor, share value
+
+force get-last
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |last|
+    raise build, field bound
+
+force set-last
+  field build, field range
+  field value, field bound
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |last|
+    drive factor, share value
+
+force random-element
+  field build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |randomElement|
+    raise build, class bound
+
+force prefix
+  field build, field range
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor, share a
+    raise build, class range-bound
+
+force prefix
+  field build, field range
+  field through, field bound
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor
+      brand through
+      share through
+    raise build, class range-bound
+
+force prefix
+  field build, field range
+  field up-to, field bound
+
+  cause call-method
+    drive object, share build
+    drive method, |prefix|
+    drive factor
+      brand up-to
+      share up-to
+    raise build, class range-bound
+
+force suffix
+  field build, field range
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |suffix|
+    drive factor, share a
+    raise build, class range-bound
+
+force suffix
+  field build, field range
+  field from, field bound
+
+  cause call-method
+    drive object, share build
+    drive method, |suffix|
+    drive factor
+      brand from
+      share from
+    raise build, class range-bound
+
+force drop-first
+  field build, field range
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |dropFirst|
+    drive factor, share a
+    raise build, class range-bound
+
+force drop-last
+  field build, field range
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |dropLast|
+    drive factor, share a
+    raise build, class range-bound
+
+force get-lazy
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    raise build, field lazy-sequence-range-bound
+
+force set-lazy
+  field build, field range
+  field value, field lazy-sequence-range-bound
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    drive factor, share value
+
+force enumerated
+  field build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerated|
+    raise build, class enumerated-sequence-range-bound
+
+force get-underestimated-count
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    raise build, field int
+
+force set-underestimated-count
+  field build, field range
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    drive factor, share value
+
+force get-underestimated-count
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    raise build, field int
+
+force set-underestimated-count
+  field build, field range
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    drive factor, share value
+
+force reversed
+  field build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |reversed|
+    raise build, class reversed-collection-range-bound
+
+force shuffled
+  field build, field range
+
+  cause call-method
+    drive object, share build
+    drive method, |shuffled|
+    raise build, class bound
+
+force overlaps
+  field build, field range
+  field a, class range-bound
+
+  cause call-method
+    drive object, share build
+    drive method, |overlaps|
+    drive factor, share a
+    raise build, class bool
+
+force overlaps
+  field build, field range
+  field a, class closed-range-bound
+
+  cause call-method
+    drive object, share build
+    drive method, |overlaps|
+    drive factor, share a
+    raise build, class bool
+
+force get-start-index
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    raise build, field range-bound-index
+
+force set-start-index
+  field build, field range
+  field value, field range-bound-index
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    drive factor, share value
+
+force get-end-index
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    raise build, field range-bound-index
+
+force set-end-index
+  field build, field range
+  field value, field range-bound-index
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    drive factor, share value
+
+force get-indices
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |indices|
+    raise build, field range-bound-indices
+
+force set-indices
+  field build, field range
+  field value, field range-bound-indices
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |indices|
+    drive factor, share value
+
+force index
+  field build, field range
+  field after, field range-bound-index
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand after
+      share after
+    raise build, class range-bound-index
+
+force form-index
+  field build, field range
+  field after, field inout-bound
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor
+      brand after
+      share after
+
+force index
+  field build, field range
+  field before, field range-bound-index
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand before
+      share before
+    raise build, class range-bound-index
+
+force form-index
+  field build, field range
+  field before, field inout-bound
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor
+      brand before
+      share before
+
+force index
+  field build, field range
+  field a, class bound
+  field offset-by, field int
+  field limited-by, field bound
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    drive factor
+      brand limited-by
+      share limited-by
+    raise build, class bound
+
+force form-index
+  field build, field range
+  field a, class inout-bound
+  field offset-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+
+force index
+  field build, field range
+  field a, class range-bound-index
+  field offset-by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    raise build, class range-bound-index
+
+force form-index
+  field build, field range
+  field a, class inout-bound
+  field offset-by, field int
+  field limited-by, field bound
+
+  cause call-method
+    drive object, share build
+    drive method, |formIndex|
+    drive factor, share a
+    drive factor
+      brand offset-by
+      share offset-by
+    drive factor
+      brand limited-by
+      share limited-by
+    raise build, class bool
+
+force distance
+  field build, field range
+  field from, field range-bound-index
+  field to, field range-bound-index
+
+  cause call-method
+    drive object, share build
+    drive method, |distance|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand to
+      share to
+    raise build, class int
+
+force hash
+  field build, field range
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force get-description
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field range
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field range
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field range
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force encode
+  field build, field range
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force get-hash-value
+  field build, field range
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field range
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value

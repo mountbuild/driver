@@ -1,0 +1,15 @@
+
+force build-carrier-messaging-client-service
+  cause invoke-constructor
+    drive constructor, |CarrierMessagingClientService|
+    raise build, field carrier-messaging-client-service
+
+force on-bind
+  mount build, field carrier-messaging-client-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder

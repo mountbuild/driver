@@ -1,0 +1,548 @@
+force register-undo
+  field build, field undo-manager
+  field with-target, field any
+  field selector, field selector
+  field object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |registerUndo|
+    drive factor
+      brand with-target
+      share with-target
+    drive factor
+      brand selector
+      share selector
+    drive factor
+      brand object
+      share object
+
+force prepare
+  field build, field undo-manager
+  field with-invocation-target, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |prepare|
+    drive factor
+      brand with-invocation-target
+      share with-invocation-target
+    raise build, class any
+
+force get-can-undo
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canUndo|
+    raise build, field bool
+
+force set-can-undo
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canUndo|
+    drive factor, share value
+
+force get-can-redo
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |canRedo|
+    raise build, field bool
+
+force set-can-redo
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |canRedo|
+    drive factor, share value
+
+force undo
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |undo|
+
+force undo-nested-group
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |undoNestedGroup|
+
+force redo
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |redo|
+
+force get-levels-of-undo
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |levelsOfUndo|
+    raise build, field int
+
+force set-levels-of-undo
+  field build, field undo-manager
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |levelsOfUndo|
+    drive factor, share value
+
+force begin-undo-grouping
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |beginUndoGrouping|
+
+force end-undo-grouping
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |endUndoGrouping|
+
+force get-groups-by-event
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |groupsByEvent|
+    raise build, field bool
+
+force set-groups-by-event
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |groupsByEvent|
+    drive factor, share value
+
+force get-grouping-level
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |groupingLevel|
+    raise build, field int
+
+force set-grouping-level
+  field build, field undo-manager
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |groupingLevel|
+    drive factor, share value
+
+force disable-undo-registration
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |disableUndoRegistration|
+
+force enable-undo-registration
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |enableUndoRegistration|
+
+force get-is-undo-registration-enabled
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isUndoRegistrationEnabled|
+    raise build, field bool
+
+force set-is-undo-registration-enabled
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isUndoRegistrationEnabled|
+    drive factor, share value
+
+force get-is-undoing
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isUndoing|
+    raise build, field bool
+
+force set-is-undoing
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isUndoing|
+    drive factor, share value
+
+force get-is-redoing
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRedoing|
+    raise build, field bool
+
+force set-is-redoing
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRedoing|
+    drive factor, share value
+
+force remove-all-actions
+  field build, field undo-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllActions|
+
+force remove-all-actions
+  field build, field undo-manager
+  field with-target, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllActions|
+    drive factor
+      brand with-target
+      share with-target
+
+force get-undo-action-name
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |undoActionName|
+    raise build, field string
+
+force set-undo-action-name
+  field build, field undo-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |undoActionName|
+    drive factor, share value
+
+force get-redo-action-name
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |redoActionName|
+    raise build, field string
+
+force set-redo-action-name
+  field build, field undo-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |redoActionName|
+    drive factor, share value
+
+force set-action-name
+  field build, field undo-manager
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |setActionName|
+    drive factor, share a
+
+force get-undo-menu-item-title
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |undoMenuItemTitle|
+    raise build, field string
+
+force set-undo-menu-item-title
+  field build, field undo-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |undoMenuItemTitle|
+    drive factor, share value
+
+force get-redo-menu-item-title
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |redoMenuItemTitle|
+    raise build, field string
+
+force set-redo-menu-item-title
+  field build, field undo-manager
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |redoMenuItemTitle|
+    drive factor, share value
+
+force undo-menu-title
+  field build, field undo-manager
+  field for-undo-action-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |undoMenuTitle|
+    drive factor
+      brand for-undo-action-name
+      share for-undo-action-name
+    raise build, class string
+
+force redo-menu-title
+  field build, field undo-manager
+  field for-undo-action-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |redoMenuTitle|
+    drive factor
+      brand for-undo-action-name
+      share for-undo-action-name
+    raise build, class string
+
+force get-run-loop-modes
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |runLoopModes|
+    raise build, field run-loop-mode
+
+force set-run-loop-modes
+  field build, field undo-manager
+  field value, field run-loop-mode
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |runLoopModes|
+    drive factor, share value
+
+force set-action-is-discardable
+  field build, field undo-manager
+  field a, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setActionIsDiscardable|
+    drive factor, share a
+
+force get-undo-action-is-discardable
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |undoActionIsDiscardable|
+    raise build, field bool
+
+force set-undo-action-is-discardable
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |undoActionIsDiscardable|
+    drive factor, share value
+
+force get-redo-action-is-discardable
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |redoActionIsDiscardable|
+    raise build, field bool
+
+force set-redo-action-is-discardable
+  field build, field undo-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |redoActionIsDiscardable|
+    drive factor, share value
+
+force get-ns-undo-close-grouping-run-loop-ordering
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSUndoCloseGroupingRunLoopOrdering|
+    raise build, field int
+
+force set-ns-undo-close-grouping-run-loop-ordering
+  field build, field UndoManager
+  field value, field Int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSUndoCloseGroupingRunLoopOrdering|
+    drive factor, share value
+
+force get-ns-undo-manager-group-is-discardable-key
+  field build, field undo-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSUndoManagerGroupIsDiscardableKey|
+    raise build, field string
+
+force set-ns-undo-manager-group-is-discardable-key
+  field build, field UndoManager
+  field value, field String
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSUndoManagerGroupIsDiscardableKey|
+    drive factor, share value
+
+force get-static-ns-undo-manager-checkpoint
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerCheckpoint|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-checkpoint
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerCheckpoint|
+    drive factor, share value
+
+force get-static-ns-undo-manager-did-open-undo-group
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidOpenUndoGroup|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-did-open-undo-group
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidOpenUndoGroup|
+    drive factor, share value
+
+force get-static-ns-undo-manager-did-redo-change
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidRedoChange|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-did-redo-change
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidRedoChange|
+    drive factor, share value
+
+force get-static-ns-undo-manager-did-undo-change
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidUndoChange|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-did-undo-change
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidUndoChange|
+    drive factor, share value
+
+force get-static-ns-undo-manager-will-close-undo-group
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillCloseUndoGroup|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-will-close-undo-group
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillCloseUndoGroup|
+    drive factor, share value
+
+force get-static-ns-undo-manager-did-close-undo-group
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidCloseUndoGroup|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-did-close-undo-group
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerDidCloseUndoGroup|
+    drive factor, share value
+
+force get-static-ns-undo-manager-will-redo-change
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillRedoChange|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-will-redo-change
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillRedoChange|
+    drive factor, share value
+
+force get-static-ns-undo-manager-will-undo-change
+
+  cause get-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillUndoChange|
+    raise build, field NSNotification.Name
+
+force set-static-ns-undo-manager-will-undo-change
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |UndoManager|
+    drive aspect, |NSUndoManagerWillUndoChange|
+    drive factor, share value

@@ -1,0 +1,298 @@
+
+force get-param-decay-hf-ratio
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_DECAY_HF_RATIO|
+    raise build, field int
+
+force get-param-decay-time
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_DECAY_TIME|
+    raise build, field int
+
+force get-param-density
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_DENSITY|
+    raise build, field int
+
+force get-param-diffusion
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_DIFFUSION|
+    raise build, field int
+
+force get-param-reflections-delay
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_REFLECTIONS_DELAY|
+    raise build, field int
+
+force get-param-reflections-level
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_REFLECTIONS_LEVEL|
+    raise build, field int
+
+force get-param-reverb-delay
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_REVERB_DELAY|
+    raise build, field int
+
+force get-param-reverb-level
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_REVERB_LEVEL|
+    raise build, field int
+
+force get-param-room-hf-level
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_ROOM_HF_LEVEL|
+    raise build, field int
+
+force get-param-room-level
+  mount build, field environmental-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_ROOM_LEVEL|
+    raise build, field int
+
+force build-environmental-reverb
+  mount priority, field int
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |EnvironmentalReverb|
+    drive factor, share priority
+    drive factor, share audio-session
+    raise build, field environmental-reverb
+
+force get-decay-hf-ratio
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getDecayHFRatio|
+    raise build, field short
+
+force get-decay-time
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getDecayTime|
+    raise build, field int
+
+force get-density
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getDensity|
+    raise build, field short
+
+force get-diffusion
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getDiffusion|
+    raise build, field short
+
+force get-properties
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    raise build, field environmental-reverb-settings
+
+force get-reflections-delay
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getReflectionsDelay|
+    raise build, field int
+
+force get-reflections-level
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getReflectionsLevel|
+    raise build, field short
+
+force get-reverb-delay
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getReverbDelay|
+    raise build, field int
+
+force get-reverb-level
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getReverbLevel|
+    raise build, field short
+
+force get-room-hf-level
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoomHFLevel|
+    raise build, field short
+
+force get-room-level
+  mount build, field environmental-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoomLevel|
+    raise build, field short
+
+force set-decay-hf-ratio
+  mount build, field environmental-reverb
+  mount decay-hf-ratio, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecayHFRatio|
+    drive factor, share decay-hf-ratio
+    raise build, field unit
+
+force set-decay-time
+  mount build, field environmental-reverb
+  mount decay-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecayTime|
+    drive factor, share decay-time
+    raise build, field unit
+
+force set-density
+  mount build, field environmental-reverb
+  mount density, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setDensity|
+    drive factor, share density
+    raise build, field unit
+
+force set-diffusion
+  mount build, field environmental-reverb
+  mount diffusion, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setDiffusion|
+    drive factor, share diffusion
+    raise build, field unit
+
+force set-parameter-listener
+  mount build, field environmental-reverb
+  mount listener, field environmental-reverb-on-parameter-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameterListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-properties
+  mount build, field environmental-reverb
+  mount settings, field environmental-reverb-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperties|
+    drive factor, share settings
+    raise build, field unit
+
+force set-reflections-delay
+  mount build, field environmental-reverb
+  mount reflections-delay, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReflectionsDelay|
+    drive factor, share reflections-delay
+    raise build, field unit
+
+force set-reflections-level
+  mount build, field environmental-reverb
+  mount reflections-level, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setReflectionsLevel|
+    drive factor, share reflections-level
+    raise build, field unit
+
+force set-reverb-delay
+  mount build, field environmental-reverb
+  mount reverb-delay, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setReverbDelay|
+    drive factor, share reverb-delay
+    raise build, field unit
+
+force set-reverb-level
+  mount build, field environmental-reverb
+  mount reverb-level, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setReverbLevel|
+    drive factor, share reverb-level
+    raise build, field unit
+
+force set-room-hf-level
+  mount build, field environmental-reverb
+  mount room-hf, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoomHFLevel|
+    drive factor, share room-hf
+    raise build, field unit
+
+force set-room-level
+  mount build, field environmental-reverb
+  mount room, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoomLevel|
+    drive factor, share room
+    raise build, field unit

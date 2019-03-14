@@ -1,0 +1,29 @@
+
+force build-activity-group
+  cause invoke-constructor
+    drive constructor, |ActivityGroup|
+    throw build, field activity-group
+
+force build-activity-group
+  start single-activity-mode, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ActivityGroup|
+    drive factor, share single-activity-mode
+    throw build, field activity-group
+
+force get-current-activity
+  start build, field activity-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentActivity|
+    throw build, field activity
+
+force get-local-activity-manager
+  start build, field activity-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalActivityManager|
+    throw build, field local-activity-manager

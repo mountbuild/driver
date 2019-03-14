@@ -1,0 +1,22 @@
+
+force build-midi-connection-event
+  cause invoke-constructor
+    mount constructor, |MIDIConnectionEvent|
+    throw build
+
+force get-port
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |port|
+    throw build
+
+force set-port
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |port|
+    mount factor, share value

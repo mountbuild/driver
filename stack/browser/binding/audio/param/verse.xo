@@ -1,0 +1,120 @@
+
+force get-default-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |defaultValue|
+    throw build
+
+force get-max-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |maxValue|
+    throw build
+
+force get-min-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |minValue|
+    throw build
+
+force get-value
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |value|
+    throw build
+
+force set-value
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |value|
+    mount factor, share value
+
+force set-value-at-time
+  start build
+  start value
+  start start-time
+
+  cause call-method
+    mount object, share build
+    mount method, |setValueAtTime|
+    mount factor, share value
+    mount factor, share start-time
+
+force linear-ramp-to-value-at-time
+  start build
+  start value
+  start end-time
+
+  cause call-method
+    mount object, share build
+    mount method, |linearRampToValueAtTime|
+    mount factor, share value
+    mount factor, share end-time
+
+force exponential-ramp-to-value-at-time
+  start build
+  start value
+  start end-time
+
+  cause call-method
+    mount object, share build
+    mount method, |exponentialRampToValueAtTime|
+    mount factor, share value
+    mount factor, share end-time
+
+force set-target-at-time
+  start build
+  start target
+  start start-time
+  start time-constant
+
+  cause call-method
+    mount object, share build
+    mount method, |setTargetAtTime|
+    mount factor, share target
+    mount factor, share start-time
+    mount factor, share time-constant
+
+force set-value-curve-at-time
+  start build
+  start values
+  start start-time
+  start duration
+
+  cause call-method
+    mount object, share build
+    mount method, |setValueCurveAtTime|
+    mount factor, share values
+    mount factor, share start-time
+    mount factor, share duration
+    throw build
+
+force cancel-scheduled-values
+  start build
+  start start-time
+
+  cause call-method
+    mount object, share build
+    mount method, |cancelScheduledValues|
+    mount factor, share start-time
+
+force cancel-and-hold-at-time
+  start build
+  start cancel-time
+
+  cause call-method
+    mount object, share build
+    mount method, |cancelAndHoldAtTime|
+    mount factor, share cancel-time
+    throw build

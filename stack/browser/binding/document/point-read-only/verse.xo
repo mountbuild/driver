@@ -1,0 +1,70 @@
+
+force build-dom-point-read-only
+  start x
+  start y
+  start z
+  start w
+
+  cause invoke-constructor
+    mount constructor, |DOMPointReadOnly|
+    mount factor, share x
+    mount factor, share y
+    mount factor, share z
+    mount factor, share w
+    throw build
+
+force get-x
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |x|
+    throw build
+
+force get-y
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |y|
+    throw build
+
+force get-z
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |z|
+    throw build
+
+force get-w
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |w|
+    throw build
+
+force matrix-transform
+  start build
+  start x
+  start y
+  start z
+  start w
+
+  cause call-method
+    mount object, share build
+    mount method, |matrixTransform|
+    mount factor, share x
+    mount factor, share y
+    mount factor, share z
+    mount factor, share w
+    throw build
+
+force to-j-s-o-n
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |toJSON|
+    throw build

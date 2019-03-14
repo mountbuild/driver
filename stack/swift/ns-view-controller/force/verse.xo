@@ -1,0 +1,549 @@
+force load-view
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |loadView|
+
+force get-represented-object
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |representedObject|
+    raise build, field any
+
+force set-represented-object
+  field build, field ns-view-controller
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |representedObject|
+    drive factor, share value
+
+force get-nib-bundle
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |nibBundle|
+    raise build, field bundle
+
+force set-nib-bundle
+  field build, field ns-view-controller
+  field value, field bundle
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |nibBundle|
+    drive factor, share value
+
+force get-nib-name
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |nibName|
+    raise build, field ns-nib-name
+
+force set-nib-name
+  field build, field ns-view-controller
+  field value, field ns-nib-name
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |nibName|
+    drive factor, share value
+
+force get-view
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |view|
+    raise build, field ns-view
+
+force set-view
+  field build, field ns-view-controller
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |view|
+    drive factor, share value
+
+force get-title
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |title|
+    raise build, field string
+
+force set-title
+  field build, field ns-view-controller
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |title|
+    drive factor, share value
+
+force commit-editing
+  field build, field ns-view-controller
+  field with-delegate, field any
+  field did-commit, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |commitEditing|
+    drive factor
+      brand with-delegate
+      share with-delegate
+    drive factor
+      brand did-commit
+      share did-commit
+    drive factor
+      brand context-info
+      share context-info
+
+force commit-editing
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |commitEditing|
+    raise build, class bool
+
+force discard-editing
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |discardEditing|
+
+force get-storyboard
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |storyboard|
+    raise build, field ns-storyboard
+
+force set-storyboard
+  field build, field ns-view-controller
+  field value, field ns-storyboard
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |storyboard|
+    drive factor, share value
+
+force dismiss
+  field build, field ns-view-controller
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |dismiss|
+    drive factor, share a
+
+force view-did-load
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidLoad|
+
+force get-is-view-loaded
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isViewLoaded|
+    raise build, field bool
+
+force set-is-view-loaded
+  field build, field ns-view-controller
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isViewLoaded|
+    drive factor, share value
+
+force view-will-appear
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillAppear|
+
+force view-did-appear
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidAppear|
+
+force view-will-disappear
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillDisappear|
+
+force view-did-disappear
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidDisappear|
+
+force get-preferred-content-size
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredContentSize|
+    raise build, field ns-size
+
+force set-preferred-content-size
+  field build, field ns-view-controller
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredContentSize|
+    drive factor, share value
+
+force update-view-constraints
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |updateViewConstraints|
+
+force view-will-layout
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillLayout|
+
+force view-did-layout
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |viewDidLayout|
+
+force add-child
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |addChild|
+    drive factor, share a
+
+force get-children
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |children|
+    raise build, field ns-view-controller
+
+force set-children
+  field build, field ns-view-controller
+  field value, field ns-view-controller
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |children|
+    drive factor, share value
+
+force insert-child
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |insertChild|
+    drive factor, share a
+    drive factor
+      brand at
+      share at
+
+force remove-child
+  field build, field ns-view-controller
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeChild|
+    drive factor
+      brand at
+      share at
+
+force remove-from-parent
+  field build, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFromParent|
+
+force preferred-content-size-did-change
+  field build, field ns-view-controller
+  field for, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |preferredContentSizeDidChange|
+    drive factor
+      brand for
+      share for
+
+force present
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+  field animator, field ns-view-controller-presentation-animator
+
+  cause call-method
+    drive object, share build
+    drive method, |present|
+    drive factor, share a
+    drive factor
+      brand animator
+      share animator
+
+force dismiss
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |dismiss|
+    drive factor, share a
+
+force present
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+  field as-popover-relative-to, field ns-rect
+  field of, field ns-view
+  field preferred-edge, field ns-rect-edge
+  field behavior, field ns-popover-behavior
+
+  cause call-method
+    drive object, share build
+    drive method, |present|
+    drive factor, share a
+    drive factor
+      brand as-popover-relative-to
+      share as-popover-relative-to
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand preferred-edge
+      share preferred-edge
+    drive factor
+      brand behavior
+      share behavior
+
+force present-as-modal-window
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |presentAsModalWindow|
+    drive factor, share a
+
+force present-as-sheet
+  field build, field ns-view-controller
+  field a, class ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |presentAsSheet|
+    drive factor, share a
+
+force get-parent
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |parent|
+    raise build, field ns-view-controller
+
+force set-parent
+  field build, field ns-view-controller
+  field value, field ns-view-controller
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |parent|
+    drive factor, share value
+
+force get-presented-view-controllers
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |presentedViewControllers|
+    raise build, field ns-view-controller
+
+force set-presented-view-controllers
+  field build, field ns-view-controller
+  field value, field ns-view-controller
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |presentedViewControllers|
+    drive factor, share value
+
+force get-presenting-view-controller
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |presentingViewController|
+    raise build, field ns-view-controller
+
+force set-presenting-view-controller
+  field build, field ns-view-controller
+  field value, field ns-view-controller
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |presentingViewController|
+    drive factor, share value
+
+force get-extension-context
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |extensionContext|
+    raise build, field ns-extension-context
+
+force set-extension-context
+  field build, field ns-view-controller
+  field value, field ns-extension-context
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |extensionContext|
+    drive factor, share value
+
+force get-preferred-screen-origin
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredScreenOrigin|
+    raise build, field ns-point
+
+force set-preferred-screen-origin
+  field build, field ns-view-controller
+  field value, field ns-point
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredScreenOrigin|
+    drive factor, share value
+
+force get-preferred-maximum-size
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredMaximumSize|
+    raise build, field ns-size
+
+force set-preferred-maximum-size
+  field build, field ns-view-controller
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredMaximumSize|
+    drive factor, share value
+
+force get-preferred-minimum-size
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredMinimumSize|
+    raise build, field ns-size
+
+force set-preferred-minimum-size
+  field build, field ns-view-controller
+  field value, field ns-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredMinimumSize|
+    drive factor, share value
+
+force view-will-transition
+  field build, field ns-view-controller
+  field to, field ns-size
+
+  cause call-method
+    drive object, share build
+    drive method, |viewWillTransition|
+    drive factor
+      brand to
+      share to
+
+force get-source-item-view
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |sourceItemView|
+    raise build, field ns-view
+
+force set-source-item-view
+  field build, field ns-view-controller
+  field value, field ns-view
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |sourceItemView|
+    drive factor, share value
+
+force get-playground-live-view-representation
+  field build, field ns-view-controller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |playgroundLiveViewRepresentation|
+    raise build, field playground-live-view-representation
+
+force set-playground-live-view-representation
+  field build, field ns-view-controller
+  field value, field playground-live-view-representation
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |playgroundLiveViewRepresentation|
+    drive factor, share value
+
+force present
+  field build, field ns-view-controller
+  field in-widget, field ns-view-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |present|
+    drive factor
+      brand in-widget
+      share in-widget

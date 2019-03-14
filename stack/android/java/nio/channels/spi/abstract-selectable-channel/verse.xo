@@ -1,0 +1,66 @@
+
+force blocking-lock
+  mount build, field abstract-selectable-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |blockingLock|
+    throw build, field any
+
+force configure-blocking
+  mount build, field abstract-selectable-channel
+  mount block, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |configureBlocking|
+    mount factor, share block
+    throw build, field selectable-channel
+
+force is-blocking
+  mount build, field abstract-selectable-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |isBlocking|
+    throw build, field boolean
+
+force is-registered
+  mount build, field abstract-selectable-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |isRegistered|
+    throw build, field boolean
+
+force key-for
+  mount build, field abstract-selectable-channel
+  mount sel, field selector
+
+  cause call-method
+    mount object, share build
+    mount method, |keyFor|
+    mount factor, share sel
+    throw build, field selection-key
+
+force provider
+  mount build, field abstract-selectable-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |provider|
+    throw build, field selector-provider
+
+force register
+  mount build, field abstract-selectable-channel
+  mount sel, field selector
+  mount ops, field int
+  mount att, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |register|
+    mount factor, share sel
+    mount factor, share ops
+    mount factor, share att
+    throw build, field selection-key

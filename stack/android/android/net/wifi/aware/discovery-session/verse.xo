@@ -1,0 +1,44 @@
+
+force close
+  mount build, field discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force create-network-specifier-open
+  mount build, field discovery-session
+  mount peer-handle, field peer-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |createNetworkSpecifierOpen|
+    drive factor, share peer-handle
+    throw build, field network-specifier
+
+force create-network-specifier-passphrase
+  mount build, field discovery-session
+  mount peer-handle, field peer-handle
+  mount passphrase, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createNetworkSpecifierPassphrase|
+    drive factor, share peer-handle
+    drive factor, share passphrase
+    throw build, field network-specifier
+
+force send-message
+  mount build, field discovery-session
+  mount peer-handle, field peer-handle
+  mount message-id, field int
+  mount message, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMessage|
+    drive factor, share peer-handle
+    drive factor, share message-id
+    drive factor, share message
+    throw build, field unit

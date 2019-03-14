@@ -1,0 +1,64 @@
+
+force build-rc2-parameter-spec
+  start effective-key-bits, field int
+
+  cause invoke-constructor
+    mount constructor, |RC2ParameterSpec|
+    mount factor, share effective-key-bits
+    throw build, field rc2-parameter-spec
+
+force build-rc2-parameter-spec
+  start effective-key-bits, field int
+  start iv, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |RC2ParameterSpec|
+    mount factor, share effective-key-bits
+    mount factor, share iv
+    throw build, field rc2-parameter-spec
+
+force build-rc2-parameter-spec
+  start effective-key-bits, field int
+  start iv, field byte-array
+  start offset, field int
+
+  cause invoke-constructor
+    mount constructor, |RC2ParameterSpec|
+    mount factor, share effective-key-bits
+    mount factor, share iv
+    mount factor, share offset
+    throw build, field rc2-parameter-spec
+
+force equals
+  start build, field rc2-parameter-spec
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-effective-key-bits
+  start build, field rc2-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getEffectiveKeyBits|
+    throw build, field int
+
+force get-iv
+  start build, field rc2-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getIV|
+    throw build, field byte-array
+
+force hash-code
+  start build, field rc2-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int

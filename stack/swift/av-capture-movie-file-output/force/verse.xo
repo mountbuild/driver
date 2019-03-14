@@ -1,0 +1,114 @@
+force get-movie-fragment-interval
+  field build, field av-capture-movie-file-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |movieFragmentInterval|
+    raise build, field cm-time
+
+force set-movie-fragment-interval
+  field build, field av-capture-movie-file-output
+  field value, field cm-time
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |movieFragmentInterval|
+    drive factor, share value
+
+force get-metadata
+  field build, field av-capture-movie-file-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |metadata|
+    raise build, field av-metadata-item
+
+force set-metadata
+  field build, field av-capture-movie-file-output
+  field value, field av-metadata-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |metadata|
+    drive factor, share value
+
+force supported-output-settings-keys
+  field build, field av-capture-movie-file-output
+  field for, field av-capture-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |supportedOutputSettingsKeys|
+    drive factor
+      brand for
+      share for
+    raise build, class string
+
+force output-settings
+  field build, field av-capture-movie-file-output
+  field for, field av-capture-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |outputSettings|
+    drive factor
+      brand for
+      share for
+    raise build, class string-any
+
+force set-output-settings
+  field build, field av-capture-movie-file-output
+  field string, field any
+  field for, field av-capture-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputSettings|
+    drive factor
+      brand string
+      share string
+    drive factor
+      brand for
+      share for
+
+force get-available-video-codec-types
+  field build, field av-capture-movie-file-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableVideoCodecTypes|
+    raise build, field av-video-codec-type
+
+force set-available-video-codec-types
+  field build, field av-capture-movie-file-output
+  field value, field av-video-codec-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableVideoCodecTypes|
+    drive factor, share value
+
+force records-video-orientation-and-mirroring-changes-as-metadata-track
+  field build, field av-capture-movie-file-output
+  field for, field av-capture-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |recordsVideoOrientationAndMirroringChangesAsMetadataTrack|
+    drive factor
+      brand for
+      share for
+    raise build, class bool
+
+force set-records-video-orientation-and-mirroring-changes-as-metadata-track
+  field build, field av-capture-movie-file-output
+  field a, class bool
+  field for, field av-capture-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |setRecordsVideoOrientationAndMirroringChangesAsMetadataTrack|
+    drive factor, share a
+    drive factor
+      brand for
+      share for

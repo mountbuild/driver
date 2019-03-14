@@ -1,0 +1,867 @@
+
+force build-string
+  cause invoke-constructor
+    drive constructor, |String|
+    throw build, field string
+
+force build-string
+  mount original, field string
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share original
+    throw build, field string
+
+force build-string
+  mount value, field char-array
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share value
+    throw build, field string
+
+force build-string
+  mount value, field char-array
+  mount offset, field int
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share value
+    drive factor, share offset
+    drive factor, share count
+    throw build, field string
+
+force build-string
+  mount code-points, field int-array
+  mount offset, field int
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share code-points
+    drive factor, share offset
+    drive factor, share count
+    throw build, field string
+
+force build-string
+  mount ascii, field byte-array
+  mount hibyte, field int
+  mount offset, field int
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share ascii
+    drive factor, share hibyte
+    drive factor, share offset
+    drive factor, share count
+    throw build, field string
+
+force build-string
+  mount ascii, field byte-array
+  mount hibyte, field int
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share ascii
+    drive factor, share hibyte
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount charset-name, field string
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share charset-name
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount charset, field charset
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share charset
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+  mount charset-name, field string
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    drive factor, share charset-name
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+  mount charset, field charset
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    drive factor, share charset
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    throw build, field string
+
+force build-string
+  mount bytes, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share bytes
+    throw build, field string
+
+force build-string
+  mount buffer, field string-buffer
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share buffer
+    throw build, field string
+
+force build-string
+  mount builder, field string-builder
+
+  cause invoke-constructor
+    drive constructor, |String|
+    drive factor, share builder
+    throw build, field string
+
+force code-point-at
+  mount build, field string
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |codePointAt|
+    drive factor, share index
+    throw build, field int
+
+force code-point-before
+  mount build, field string
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |codePointBefore|
+    drive factor, share index
+    throw build, field int
+
+force code-point-count
+  mount build, field string
+  mount begin-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |codePointCount|
+    drive factor, share begin-index
+    drive factor, share end-index
+    throw build, field int
+
+force compare-to
+  mount build, field string
+  mount other, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force compare-to-ignore-case
+  mount build, field string
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |compareToIgnoreCase|
+    drive factor, share str
+    throw build, field int
+
+force concat
+  mount build, field string
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |concat|
+    drive factor, share str
+    throw build, field string
+
+force contains
+  mount build, field string
+  mount s, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share s
+    throw build, field boolean
+
+force content-equals
+  mount build, field string
+  mount sb, field string-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |contentEquals|
+    drive factor, share sb
+    throw build, field boolean
+
+force content-equals
+  mount build, field string
+  mount cs, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |contentEquals|
+    drive factor, share cs
+    throw build, field boolean
+
+force copy-value-of
+  mount build, field string
+  mount data, field char-array
+  mount offset, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyValueOf|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share count
+    throw build, field string
+
+force copy-value-of
+  mount build, field string
+  mount data, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |copyValueOf|
+    drive factor, share data
+    throw build, field string
+
+force ends-with
+  mount build, field string
+  mount suffix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |endsWith|
+    drive factor, share suffix
+    throw build, field boolean
+
+force equals
+  mount build, field string
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force equals-ignore-case
+  mount build, field string
+  mount another-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |equalsIgnoreCase|
+    drive factor, share another-string
+    throw build, field boolean
+
+force format
+  mount build, field string
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field string
+
+force format
+  mount build, field string
+  mount l, field locale
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share l
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field string
+
+force get
+  mount build, field string
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share index
+    throw build, field char
+
+force get-bytes
+  mount build, field string
+  mount src-begin, field int
+  mount src-end, field int
+  mount dst, field byte-array
+  mount dst-begin, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share src-begin
+    drive factor, share src-end
+    drive factor, share dst
+    drive factor, share dst-begin
+    throw build, field unit
+
+force get-bytes
+  mount build, field string
+  mount charset-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share charset-name
+    throw build, field byte-array
+
+force get-bytes
+  mount build, field string
+  mount charset, field charset
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share charset
+    throw build, field byte-array
+
+force get-bytes
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    throw build, field byte-array
+
+force get-chars
+  mount build, field string
+  mount src-begin, field int
+  mount src-end, field int
+  mount dst, field char-array
+  mount dst-begin, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChars|
+    drive factor, share src-begin
+    drive factor, share src-end
+    drive factor, share dst
+    drive factor, share dst-begin
+    throw build, field unit
+
+force hash-code
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force index-of
+  mount build, field string
+  mount ch, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share ch
+    throw build, field int
+
+force index-of
+  mount build, field string
+  mount ch, field int
+  mount from-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share ch
+    drive factor, share from-index
+    throw build, field int
+
+force index-of
+  mount build, field string
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share str
+    throw build, field int
+
+force index-of
+  mount build, field string
+  mount str, field string
+  mount from-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOf|
+    drive factor, share str
+    drive factor, share from-index
+    throw build, field int
+
+force intern
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |intern|
+    throw build, field string
+
+force is-empty
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force join
+  mount build, field string
+  mount delimiter, field char-sequence
+  mount vararg-elements, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    drive factor, share delimiter
+    drive factor, share vararg-elements
+    throw build, field string
+
+force join
+  mount build, field string
+  mount delimiter, field char-sequence
+  mount elements, field mutable-iterable-char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |join|
+    drive factor, share delimiter
+    drive factor, share elements
+    throw build, field string
+
+force last-index-of
+  mount build, field string
+  mount ch, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share ch
+    throw build, field int
+
+force last-index-of
+  mount build, field string
+  mount ch, field int
+  mount from-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share ch
+    drive factor, share from-index
+    throw build, field int
+
+force last-index-of
+  mount build, field string
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share str
+    throw build, field int
+
+force last-index-of
+  mount build, field string
+  mount str, field string
+  mount from-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |lastIndexOf|
+    drive factor, share str
+    drive factor, share from-index
+    throw build, field int
+
+force matches
+  mount build, field string
+  mount regex, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |matches|
+    drive factor, share regex
+    throw build, field boolean
+
+force offset-by-code-points
+  mount build, field string
+  mount index, field int
+  mount code-point-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |offsetByCodePoints|
+    drive factor, share index
+    drive factor, share code-point-offset
+    throw build, field int
+
+force region-matches
+  mount build, field string
+  mount toffset, field int
+  mount other, field string
+  mount ooffset, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |regionMatches|
+    drive factor, share toffset
+    drive factor, share other
+    drive factor, share ooffset
+    drive factor, share len
+    throw build, field boolean
+
+force region-matches
+  mount build, field string
+  mount ignore-case, field boolean
+  mount toffset, field int
+  mount other, field string
+  mount ooffset, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |regionMatches|
+    drive factor, share ignore-case
+    drive factor, share toffset
+    drive factor, share other
+    drive factor, share ooffset
+    drive factor, share len
+    throw build, field boolean
+
+force replace
+  mount build, field string
+  mount old-char, field char
+  mount new-char, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share old-char
+    drive factor, share new-char
+    throw build, field string
+
+force replace
+  mount build, field string
+  mount target, field char-sequence
+  mount replacement, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share target
+    drive factor, share replacement
+    throw build, field string
+
+force replace-all
+  mount build, field string
+  mount regex, field string
+  mount replacement, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceAll|
+    drive factor, share regex
+    drive factor, share replacement
+    throw build, field string
+
+force replace-first
+  mount build, field string
+  mount regex, field string
+  mount replacement, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceFirst|
+    drive factor, share regex
+    drive factor, share replacement
+    throw build, field string
+
+force split
+  mount build, field string
+  mount regex, field string
+  mount limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |split|
+    drive factor, share regex
+    drive factor, share limit
+    throw build, field array
+
+force split
+  mount build, field string
+  mount regex, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |split|
+    drive factor, share regex
+    throw build, field array
+
+force starts-with
+  mount build, field string
+  mount prefix, field string
+  mount toffset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startsWith|
+    drive factor, share prefix
+    drive factor, share toffset
+    throw build, field boolean
+
+force starts-with
+  mount build, field string
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startsWith|
+    drive factor, share prefix
+    throw build, field boolean
+
+force sub-sequence
+  mount build, field string
+  mount start-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |subSequence|
+    drive factor, share start-index
+    drive factor, share end-index
+    throw build, field char-sequence
+
+force substring
+  mount build, field string
+  mount begin-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |substring|
+    drive factor, share begin-index
+    throw build, field string
+
+force substring
+  mount build, field string
+  mount begin-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |substring|
+    drive factor, share begin-index
+    drive factor, share end-index
+    throw build, field string
+
+force to-char-array
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toCharArray|
+    throw build, field char-array
+
+force to-lower-case
+  mount build, field string
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |toLowerCase|
+    drive factor, share locale
+    throw build, field string
+
+force to-lower-case
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toLowerCase|
+    throw build, field string
+
+force to-string
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-upper-case
+  mount build, field string
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |toUpperCase|
+    drive factor, share locale
+    throw build, field string
+
+force to-upper-case
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toUpperCase|
+    throw build, field string
+
+force trim
+  mount build, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |trim|
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share obj
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount data, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share data
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount data, field char-array
+  mount offset, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share count
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount b, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share b
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share c
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share i
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount l, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share l
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount f, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share f
+    throw build, field string
+
+force value-of
+  mount build, field string
+  mount d, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share d
+    throw build, field string

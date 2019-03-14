@@ -1,0 +1,323 @@
+
+force get-ordering-sequential
+  mount build, field transition-set
+
+  cause get-property
+    drive object, share build
+    drive property, |ORDERING_SEQUENTIAL|
+    throw build, field int
+
+force get-ordering-together
+  mount build, field transition-set
+
+  cause get-property
+    drive object, share build
+    drive property, |ORDERING_TOGETHER|
+    throw build, field int
+
+force build-transition-set
+  cause invoke-constructor
+    drive constructor, |TransitionSet|
+    throw build, field transition-set
+
+force build-transition-set
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TransitionSet|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field transition-set
+
+force add-listener
+  mount build, field transition-set
+  mount listener, field transition-transition-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addListener|
+    drive factor, share listener
+    throw build, field transition-set
+
+force add-target
+  mount build, field transition-set
+  mount target, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |addTarget|
+    drive factor, share target
+    throw build, field transition-set
+
+force add-target
+  mount build, field transition-set
+  mount target-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addTarget|
+    drive factor, share target-id
+    throw build, field transition-set
+
+force add-target
+  mount build, field transition-set
+  mount target-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addTarget|
+    drive factor, share target-name
+    throw build, field transition-set
+
+force add-target
+  mount build, field transition-set
+  mount target-type, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |addTarget|
+    drive factor, share target-type
+    throw build, field transition-set
+
+force add-transition
+  mount build, field transition-set
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |addTransition|
+    drive factor, share transition
+    throw build, field transition-set
+
+force capture-end-values
+  mount build, field transition-set
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureEndValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force capture-start-values
+  mount build, field transition-set
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureStartValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force clone
+  mount build, field transition-set
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field transition-set
+
+force exclude-target
+  mount build, field transition-set
+  mount target, field view
+  mount exclude, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |excludeTarget|
+    drive factor, share target
+    drive factor, share exclude
+    throw build, field transition
+
+force exclude-target
+  mount build, field transition-set
+  mount target-name, field string
+  mount exclude, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |excludeTarget|
+    drive factor, share target-name
+    drive factor, share exclude
+    throw build, field transition
+
+force exclude-target
+  mount build, field transition-set
+  mount target-id, field int
+  mount exclude, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |excludeTarget|
+    drive factor, share target-id
+    drive factor, share exclude
+    throw build, field transition
+
+force exclude-target
+  mount build, field transition-set
+  mount type, field class-any
+  mount exclude, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |excludeTarget|
+    drive factor, share type
+    drive factor, share exclude
+    throw build, field transition
+
+force get-ordering
+  mount build, field transition-set
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrdering|
+    throw build, field int
+
+force get-transition-at
+  mount build, field transition-set
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionAt|
+    drive factor, share index
+    throw build, field transition
+
+force get-transition-count
+  mount build, field transition-set
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionCount|
+    throw build, field int
+
+force remove-listener
+  mount build, field transition-set
+  mount listener, field transition-transition-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeListener|
+    drive factor, share listener
+    throw build, field transition-set
+
+force remove-target
+  mount build, field transition-set
+  mount target-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTarget|
+    drive factor, share target-id
+    throw build, field transition-set
+
+force remove-target
+  mount build, field transition-set
+  mount target, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTarget|
+    drive factor, share target
+    throw build, field transition-set
+
+force remove-target
+  mount build, field transition-set
+  mount target, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTarget|
+    drive factor, share target
+    throw build, field transition-set
+
+force remove-target
+  mount build, field transition-set
+  mount target, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTarget|
+    drive factor, share target
+    throw build, field transition-set
+
+force remove-transition
+  mount build, field transition-set
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTransition|
+    drive factor, share transition
+    throw build, field transition-set
+
+force set-duration
+  mount build, field transition-set
+  mount duration, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setDuration|
+    drive factor, share duration
+    throw build, field transition-set
+
+force set-epicenter-callback
+  mount build, field transition-set
+  mount epicenter-callback, field transition-epicenter-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setEpicenterCallback|
+    drive factor, share epicenter-callback
+    throw build, field unit
+
+force set-interpolator
+  mount build, field transition-set
+  mount interpolator, field time-interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterpolator|
+    drive factor, share interpolator
+    throw build, field transition-set
+
+force set-ordering
+  mount build, field transition-set
+  mount ordering, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrdering|
+    drive factor, share ordering
+    throw build, field transition-set
+
+force set-path-motion
+  mount build, field transition-set
+  mount path-motion, field path-motion
+
+  cause call-method
+    drive object, share build
+    drive method, |setPathMotion|
+    drive factor, share path-motion
+    throw build, field unit
+
+force set-propagation
+  mount build, field transition-set
+  mount propagation, field transition-propagation
+
+  cause call-method
+    drive object, share build
+    drive method, |setPropagation|
+    drive factor, share propagation
+    throw build, field unit
+
+force set-start-delay
+  mount build, field transition-set
+  mount start-delay, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartDelay|
+    drive factor, share start-delay
+    throw build, field transition-set

@@ -1,0 +1,87 @@
+
+force get-action-view-wallet
+  mount build, field quick-access-wallet-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_VIEW_WALLET|
+    raise build, field string
+
+force get-action-view-wallet-settings
+  mount build, field quick-access-wallet-service
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_VIEW_WALLET_SETTINGS|
+    raise build, field string
+
+force get-service-interface
+  mount build, field quick-access-wallet-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force get-service-meta-data
+  mount build, field quick-access-wallet-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force build-quick-access-wallet-service
+  cause invoke-constructor
+    drive constructor, |QuickAccessWalletService|
+    raise build, field quick-access-wallet-service
+
+force on-bind
+  mount build, field quick-access-wallet-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-wallet-card-selected
+  mount build, field quick-access-wallet-service
+  mount request, field select-wallet-card-request
+
+  cause call-method
+    drive object, share build
+    drive method, |onWalletCardSelected|
+    drive factor, share request
+    raise build, field unit
+
+force on-wallet-cards-requested
+  mount build, field quick-access-wallet-service
+  mount request, field get-wallet-cards-request
+  mount callback, field get-wallet-cards-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onWalletCardsRequested|
+    drive factor, share request
+    drive factor, share callback
+    raise build, field unit
+
+force on-wallet-dismissed
+  mount build, field quick-access-wallet-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onWalletDismissed|
+    raise build, field unit
+
+force send-wallet-service-event
+  mount build, field quick-access-wallet-service
+  mount service-event, field wallet-service-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendWalletServiceEvent|
+    drive factor, share service-event
+    raise build, field unit

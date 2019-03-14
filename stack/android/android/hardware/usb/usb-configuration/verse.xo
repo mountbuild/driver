@@ -1,0 +1,86 @@
+
+force describe-contents
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-id
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field int
+
+force get-interface
+  mount build, field usb-configuration
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterface|
+    drive factor, share index
+    throw build, field usb-interface
+
+force get-interface-count
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterfaceCount|
+    throw build, field int
+
+force get-max-power
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxPower|
+    throw build, field int
+
+force get-name
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force is-remote-wakeup
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |isRemoteWakeup|
+    throw build, field boolean
+
+force is-self-powered
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |isSelfPowered|
+    throw build, field boolean
+
+force to-string
+  mount build, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field usb-configuration
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

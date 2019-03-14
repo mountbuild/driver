@@ -1,0 +1,26 @@
+
+force build-clipboard-item
+  start clipboard-item-data
+
+  cause invoke-constructor
+    mount constructor, |ClipboardItem|
+    mount factor, share clipboard-item-data
+    throw build
+
+force get-types
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |types|
+    throw build
+
+force get-type
+  start build
+  start type
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    mount factor, share type
+    throw build

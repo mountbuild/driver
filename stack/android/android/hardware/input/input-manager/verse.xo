@@ -1,0 +1,66 @@
+
+force get-action-query-keyboard-layouts
+  mount build, field input-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_QUERY_KEYBOARD_LAYOUTS|
+    throw build, field string
+
+force get-meta-data-keyboard-layouts
+  mount build, field input-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_KEYBOARD_LAYOUTS|
+    throw build, field string
+
+force get-input-device
+  mount build, field input-manager
+  mount id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputDevice|
+    drive factor, share id
+    throw build, field input-device
+
+force get-input-device-ids
+  mount build, field input-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputDeviceIds|
+    throw build, field int-array
+
+force register-input-device-listener
+  mount build, field input-manager
+  mount listener, field input-manager-input-device-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerInputDeviceListener|
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field unit
+
+force unregister-input-device-listener
+  mount build, field input-manager
+  mount listener, field input-manager-input-device-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterInputDeviceListener|
+    drive factor, share listener
+    throw build, field unit
+
+force verify-input-event
+  mount build, field input-manager
+  mount event, field input-event
+
+  cause call-method
+    drive object, share build
+    drive method, |verifyInputEvent|
+    drive factor, share event
+    throw build, field verified-input-event

@@ -1,0 +1,45 @@
+
+force build-midi-sender
+  cause invoke-constructor
+    drive constructor, |MidiSender|
+    raise build, field midi-sender
+
+force connect
+  start build, field midi-sender
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share receiver
+    raise build, field unit
+
+force disconnect
+  start build, field midi-sender
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnect|
+    drive factor, share receiver
+    raise build, field unit
+
+force on-connect
+  start build, field midi-sender
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnect|
+    drive factor, share receiver
+    raise build, field unit
+
+force on-disconnect
+  start build, field midi-sender
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisconnect|
+    drive factor, share receiver
+    raise build, field unit

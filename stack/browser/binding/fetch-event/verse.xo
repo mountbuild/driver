@@ -1,0 +1,65 @@
+
+force build-fetch-event
+  start type
+  start init
+
+  cause invoke-constructor
+    mount constructor, |FetchEvent|
+    mount factor, share type
+    mount factor, share init
+    throw build
+
+force get-client-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |clientId|
+    throw build
+
+force get-preload-response
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |preloadResponse|
+    throw build
+
+force get-replaces-client-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |replacesClientId|
+    throw build
+
+force get-resulting-client-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |resultingClientId|
+    throw build
+
+force get-request
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |request|
+    throw build
+
+force respond-with
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |respondWith|
+    throw build
+
+force wait-until
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |waitUntil|

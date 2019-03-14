@@ -1,0 +1,61 @@
+
+force build-rfc822-tokenizer
+  cause invoke-constructor
+    drive constructor, |Rfc822Tokenizer|
+    raise build, field rfc822-tokenizer
+
+force find-token-end
+  mount build, field rfc822-tokenizer
+  mount text, field char-sequence
+  mount cursor, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findTokenEnd|
+    drive factor, share text
+    drive factor, share cursor
+    raise build, field int
+
+force find-token-start
+  mount build, field rfc822-tokenizer
+  mount text, field char-sequence
+  mount cursor, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findTokenStart|
+    drive factor, share text
+    drive factor, share cursor
+    raise build, field int
+
+force terminate-token
+  mount build, field rfc822-tokenizer
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |terminateToken|
+    drive factor, share text
+    raise build, field char-sequence
+
+force tokenize
+  mount build, field rfc822-tokenizer
+  mount text, field char-sequence
+  mount out, field mutable-collection-rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |tokenize|
+    drive factor, share text
+    drive factor, share out
+    raise build, field unit
+
+force tokenize
+  mount build, field rfc822-tokenizer
+  mount text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |tokenize|
+    drive factor, share text
+    raise build, field array

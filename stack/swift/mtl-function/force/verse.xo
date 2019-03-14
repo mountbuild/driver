@@ -1,0 +1,180 @@
+force get-device
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |device|
+    raise build, field mtl-device
+
+force set-device
+  field build, field mtl-function
+  field value, field mtl-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |device|
+    drive factor, share value
+
+force get-label
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |label|
+    raise build, field string
+
+force set-label
+  field build, field mtl-function
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |label|
+    drive factor, share value
+
+force get-function-type
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |functionType|
+    raise build, field mtl-function-type
+
+force set-function-type
+  field build, field mtl-function
+  field value, field mtl-function-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |functionType|
+    drive factor, share value
+
+force get-name
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field mtl-function
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-patch-type
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |patchType|
+    raise build, field mtl-patch-type
+
+force set-patch-type
+  field build, field mtl-function
+  field value, field mtl-patch-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |patchType|
+    drive factor, share value
+
+force get-patch-control-point-count
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |patchControlPointCount|
+    raise build, field int
+
+force set-patch-control-point-count
+  field build, field mtl-function
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |patchControlPointCount|
+    drive factor, share value
+
+force get-vertex-attributes
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |vertexAttributes|
+    raise build, field mtl-vertex-attribute
+
+force set-vertex-attributes
+  field build, field mtl-function
+  field value, field mtl-vertex-attribute
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |vertexAttributes|
+    drive factor, share value
+
+force get-stage-input-attributes
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |stageInputAttributes|
+    raise build, field mtl-attribute
+
+force set-stage-input-attributes
+  field build, field mtl-function
+  field value, field mtl-attribute
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |stageInputAttributes|
+    drive factor, share value
+
+force get-function-constants-dictionary
+  field build, field mtl-function
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |functionConstantsDictionary|
+    raise build, field string
+
+force set-function-constants-dictionary
+  field build, field mtl-function
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |functionConstantsDictionary|
+    drive factor, share value
+
+force make-argument-encoder
+  field build, field mtl-function
+  field buffer-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeArgumentEncoder|
+    drive factor
+      brand buffer-index
+      share buffer-index
+    raise build, class mtl-argument-encoder
+
+force make-argument-encoder
+  field build, field mtl-function
+  field buffer-index, field int
+  field reflection, field autoreleasing-unsafe-mutable-pointer-mtl-autoreleased-argument
+
+  cause call-method
+    drive object, share build
+    drive method, |makeArgumentEncoder|
+    drive factor
+      brand buffer-index
+      share buffer-index
+    drive factor
+      brand reflection
+      share reflection
+    raise build, class mtl-argument-encoder

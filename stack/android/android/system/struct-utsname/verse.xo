@@ -1,0 +1,24 @@
+
+force build-struct-utsname
+  mount sysname, field string
+  mount nodename, field string
+  mount release, field string
+  mount version, field string
+  mount machine, field string
+
+  cause invoke-constructor
+    drive constructor, |StructUtsname|
+    drive factor, share sysname
+    drive factor, share nodename
+    drive factor, share release
+    drive factor, share version
+    drive factor, share machine
+    raise build, field struct-utsname
+
+force to-string
+  mount build, field struct-utsname
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

@@ -1,0 +1,70 @@
+
+force build-intent-service
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |IntentService|
+    drive factor, share name
+    throw build, field intent-service
+
+force on-bind
+  start build, field intent-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-create
+  start build, field intent-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-destroy
+  start build, field intent-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-start
+  start build, field intent-service
+  start intent, field intent
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStart|
+    drive factor, share intent
+    drive factor, share start-id
+    throw build, field unit
+
+force on-start-command
+  start build, field intent-service
+  start intent, field intent
+  start flags, field int
+  start start-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartCommand|
+    drive factor, share intent
+    drive factor, share flags
+    drive factor, share start-id
+    throw build, field int
+
+force set-intent-redelivery
+  start build, field intent-service
+  start enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIntentRedelivery|
+    drive factor, share enabled
+    throw build, field unit

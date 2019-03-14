@@ -1,0 +1,79 @@
+
+force build-piped-reader
+  mount src, field piped-writer
+
+  cause invoke-constructor
+    drive constructor, |PipedReader|
+    drive factor, share src
+    throw build, field piped-reader
+
+force build-piped-reader
+  mount src, field piped-writer
+  mount pipe-size, field int
+
+  cause invoke-constructor
+    drive constructor, |PipedReader|
+    drive factor, share src
+    drive factor, share pipe-size
+    throw build, field piped-reader
+
+force build-piped-reader
+  cause invoke-constructor
+    drive constructor, |PipedReader|
+    throw build, field piped-reader
+
+force build-piped-reader
+  mount pipe-size, field int
+
+  cause invoke-constructor
+    drive constructor, |PipedReader|
+    drive factor, share pipe-size
+    throw build, field piped-reader
+
+force close
+  mount build, field piped-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field piped-reader
+  mount src, field piped-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    drive factor, share src
+    throw build, field unit
+
+force read
+  mount build, field piped-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field piped-reader
+  mount cbuf, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share cbuf
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force ready
+  mount build, field piped-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |ready|
+    throw build, field boolean

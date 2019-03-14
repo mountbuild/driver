@@ -1,0 +1,95 @@
+
+force build-communication-blocking-access-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager|
+
+force is-blocked-number-async
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+  start number, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |IsBlockedNumberAsync|
+    drive factor, share number
+
+force get-is-blocking-active
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsBlockingActive|
+
+force set-is-blocking-active
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsBlockingActive|
+    drive factor, share value
+
+force show-blocked-calls-u-i
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowBlockedCallsUI|
+
+force show-blocked-messages-u-i
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowBlockedMessagesUI|
+
+force show-block-numbers-u-i
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+  start phone-numbers, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowBlockNumbersUI|
+    drive factor, share phone-numbers
+
+force show-unblock-numbers-u-i
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingaccessmanager
+  start phone-numbers, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowUnblockNumbersUI|
+    drive factor, share phone-numbers
+
+force build-communication-blocking-app-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager|
+
+force get-is-current-app-active-blocking-app
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingappmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsCurrentAppActiveBlockingApp|
+
+force set-is-current-app-active-blocking-app
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingappmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsCurrentAppActiveBlockingApp|
+    drive factor, share value
+
+force request-set-as-active-blocking-app-async
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingappmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestSetAsActiveBlockingAppAsync|
+
+force show-communication-blocking-settings-u-i
+  start build, field windows-applicationmodel-communicationblocking-communicationblockingappmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowCommunicationBlockingSettingsUI|

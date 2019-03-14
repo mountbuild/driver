@@ -1,0 +1,117 @@
+
+force get-east-asian-width-ambiguous
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_AMBIGUOUS|
+    raise build, field int
+
+force get-east-asian-width-full-width
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_FULL_WIDTH|
+    raise build, field int
+
+force get-east-asian-width-half-width
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_HALF_WIDTH|
+    raise build, field int
+
+force get-east-asian-width-narrow
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_NARROW|
+    raise build, field int
+
+force get-east-asian-width-neutral
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_NEUTRAL|
+    raise build, field int
+
+force get-east-asian-width-wide
+  mount build, field android-character
+
+  cause get-property
+    drive object, share build
+    drive property, |EAST_ASIAN_WIDTH_WIDE|
+    raise build, field int
+
+force build-android-character
+  cause invoke-constructor
+    drive constructor, |AndroidCharacter|
+    raise build, field android-character
+
+force get-directionalities
+  mount build, field android-character
+  mount src, field char-array
+  mount dest, field byte-array
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDirectionalities|
+    drive factor, share src
+    drive factor, share dest
+    drive factor, share count
+    raise build, field unit
+
+force get-east-asian-width
+  mount build, field android-character
+  mount input, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |getEastAsianWidth|
+    drive factor, share input
+    raise build, field int
+
+force get-east-asian-widths
+  mount build, field android-character
+  mount src, field char-array
+  mount start, field int
+  mount count, field int
+  mount dest, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getEastAsianWidths|
+    drive factor, share src
+    drive factor, share start
+    drive factor, share count
+    drive factor, share dest
+    raise build, field unit
+
+force get-mirror
+  mount build, field android-character
+  mount ch, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |getMirror|
+    drive factor, share ch
+    raise build, field char
+
+force mirror
+  mount build, field android-character
+  mount text, field char-array
+  mount start, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mirror|
+    drive factor, share text
+    drive factor, share start
+    drive factor, share count
+    raise build, field boolean

@@ -1,0 +1,65 @@
+
+force get-flag-required
+  mount build, field feature-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_REQUIRED|
+    throw build, field int
+
+force get-gl-es-version-undefined
+  mount build, field feature-info
+
+  cause get-property
+    drive object, share build
+    drive property, |GL_ES_VERSION_UNDEFINED|
+    throw build, field int
+
+force build-feature-info
+  cause invoke-constructor
+    drive constructor, |FeatureInfo|
+    throw build, field feature-info
+
+force build-feature-info
+  mount orig, field feature-info
+
+  cause invoke-constructor
+    drive constructor, |FeatureInfo|
+    drive factor, share orig
+    throw build, field feature-info
+
+force describe-contents
+  mount build, field feature-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-gl-es-version
+  mount build, field feature-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlEsVersion|
+    throw build, field string
+
+force to-string
+  mount build, field feature-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field feature-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

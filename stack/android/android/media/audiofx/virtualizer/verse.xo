@@ -1,0 +1,156 @@
+
+force get-param-strength
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_STRENGTH|
+    raise build, field int
+
+force get-param-strength-supported
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_STRENGTH_SUPPORTED|
+    raise build, field int
+
+force get-virtualization-mode-auto
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUALIZATION_MODE_AUTO|
+    raise build, field int
+
+force get-virtualization-mode-binaural
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUALIZATION_MODE_BINAURAL|
+    raise build, field int
+
+force get-virtualization-mode-off
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUALIZATION_MODE_OFF|
+    raise build, field int
+
+force get-virtualization-mode-transaural
+  mount build, field virtualizer
+
+  cause get-property
+    drive object, share build
+    drive property, |VIRTUALIZATION_MODE_TRANSAURAL|
+    raise build, field int
+
+force build-virtualizer
+  mount priority, field int
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |Virtualizer|
+    drive factor, share priority
+    drive factor, share audio-session
+    raise build, field virtualizer
+
+force can-virtualize
+  mount build, field virtualizer
+  mount input-channel-mask, field int
+  mount virtualization-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |canVirtualize|
+    drive factor, share input-channel-mask
+    drive factor, share virtualization-mode
+    raise build, field boolean
+
+force force-virtualization-mode
+  mount build, field virtualizer
+  mount virtualization-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |forceVirtualizationMode|
+    drive factor, share virtualization-mode
+    raise build, field boolean
+
+force get-properties
+  mount build, field virtualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    raise build, field virtualizer-settings
+
+force get-rounded-strength
+  mount build, field virtualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoundedStrength|
+    raise build, field short
+
+force get-speaker-angles
+  mount build, field virtualizer
+  mount input-channel-mask, field int
+  mount virtualization-mode, field int
+  mount angles, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpeakerAngles|
+    drive factor, share input-channel-mask
+    drive factor, share virtualization-mode
+    drive factor, share angles
+    raise build, field boolean
+
+force get-strength-supported
+  mount build, field virtualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getStrengthSupported|
+    raise build, field boolean
+
+force get-virtualization-mode
+  mount build, field virtualizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getVirtualizationMode|
+    raise build, field int
+
+force set-parameter-listener
+  mount build, field virtualizer
+  mount listener, field virtualizer-on-parameter-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameterListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-properties
+  mount build, field virtualizer
+  mount settings, field virtualizer-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperties|
+    drive factor, share settings
+    raise build, field unit
+
+force set-strength
+  mount build, field virtualizer
+  mount strength, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setStrength|
+    drive factor, share strength
+    raise build, field unit

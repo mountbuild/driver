@@ -1,0 +1,122 @@
+
+force get-type-install-automatic
+  start build, field system-update-policy
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_INSTALL_AUTOMATIC|
+    throw build, field int
+
+force get-type-install-windowed
+  start build, field system-update-policy
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_INSTALL_WINDOWED|
+    throw build, field int
+
+force get-type-postpone
+  start build, field system-update-policy
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_POSTPONE|
+    throw build, field int
+
+force create-automatic-install-policy
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |createAutomaticInstallPolicy|
+    throw build, field system-update-policy
+
+force create-postpone-install-policy
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |createPostponeInstallPolicy|
+    throw build, field system-update-policy
+
+force create-windowed-install-policy
+  start build, field system-update-policy
+  start start-time, field int
+  start end-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createWindowedInstallPolicy|
+    drive factor, share start-time
+    drive factor, share end-time
+    throw build, field system-update-policy
+
+force describe-contents
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-freeze-periods
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreezePeriods|
+    throw build, field mutable-list
+
+force get-install-window-end
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstallWindowEnd|
+    throw build, field int
+
+force get-install-window-start
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstallWindowStart|
+    throw build, field int
+
+force get-policy-type
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |getPolicyType|
+    throw build, field int
+
+force set-freeze-periods
+  start build, field system-update-policy
+  start freeze-periods, field mutable-list-freeze-period
+
+  cause call-method
+    drive object, share build
+    drive method, |setFreezePeriods|
+    drive factor, share freeze-periods
+    throw build, field system-update-policy
+
+force to-string
+  start build, field system-update-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field system-update-policy
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

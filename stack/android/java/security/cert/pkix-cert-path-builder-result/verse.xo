@@ -1,0 +1,30 @@
+
+force build-pkix-cert-path-builder-result
+  mount cert-path, field cert-path
+  mount trust-anchor, field trust-anchor
+  mount policy-tree, field policy-node
+  mount subject-public-key, field public-key
+
+  cause invoke-constructor
+    mount constructor, |PKIXCertPathBuilderResult|
+    mount factor, share cert-path
+    mount factor, share trust-anchor
+    mount factor, share policy-tree
+    mount factor, share subject-public-key
+    throw build, field pkix-cert-path-builder-result
+
+force get-cert-path
+  mount build, field pkix-cert-path-builder-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertPath|
+    throw build, field cert-path
+
+force to-string
+  mount build, field pkix-cert-path-builder-result
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

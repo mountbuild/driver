@@ -1,0 +1,80 @@
+
+force get-environment-blend-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |environmentBlendMode|
+    throw build
+
+force get-input-sources
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |inputSources|
+    throw build
+
+force get-render-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |renderState|
+    throw build
+
+force get-visibility-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |visibilityState|
+    throw build
+
+force cancel-animation-frame
+  start build
+  start handle
+
+  cause call-method
+    mount object, share build
+    mount method, |cancelAnimationFrame|
+    mount factor, share handle
+    throw build
+
+force end
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |end|
+    throw build
+
+force request-animation-frame
+  start build
+  start animation-frame-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |requestAnimationFrame|
+    mount factor, share animation-frame-callback
+    throw build
+
+force request-reference-space
+  start build
+  start type
+
+  cause call-method
+    mount object, share build
+    mount method, |requestReferenceSpace|
+    mount factor, share type
+    throw build
+
+force update-render-state
+  start build
+  start new-state
+
+  cause call-method
+    mount object, share build
+    mount method, |updateRenderState|
+    mount factor, share new-state
+    throw build

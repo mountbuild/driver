@@ -1,0 +1,130 @@
+
+force get-auth-crypt-aes-gcm
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_CRYPT_AES_GCM|
+    throw build, field string
+
+force get-auth-hmac-md5
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_HMAC_MD5|
+    throw build, field string
+
+force get-auth-hmac-sha1
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_HMAC_SHA1|
+    throw build, field string
+
+force get-auth-hmac-sha256
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_HMAC_SHA256|
+    throw build, field string
+
+force get-auth-hmac-sha384
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_HMAC_SHA384|
+    throw build, field string
+
+force get-auth-hmac-sha512
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTH_HMAC_SHA512|
+    throw build, field string
+
+force get-crypt-aes-cbc
+  start build, field ip-sec-algorithm
+
+  cause get-property
+    drive object, share build
+    drive property, |CRYPT_AES_CBC|
+    throw build, field string
+
+force build-ip-sec-algorithm
+  start algorithm, field string
+  start key, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |IpSecAlgorithm|
+    drive factor, share algorithm
+    drive factor, share key
+    throw build, field ip-sec-algorithm
+
+force build-ip-sec-algorithm
+  start algorithm, field string
+  start key, field byte-array
+  start trunc-len-bits, field int
+
+  cause invoke-constructor
+    drive constructor, |IpSecAlgorithm|
+    drive factor, share algorithm
+    drive factor, share key
+    drive factor, share trunc-len-bits
+    throw build, field ip-sec-algorithm
+
+force describe-contents
+  start build, field ip-sec-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-key
+  start build, field ip-sec-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field byte-array
+
+force get-name
+  start build, field ip-sec-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-truncation-length-bits
+  start build, field ip-sec-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |getTruncationLengthBits|
+    throw build, field int
+
+force to-string
+  start build, field ip-sec-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field ip-sec-algorithm
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,120 @@
+
+force get-param-preset
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_PRESET|
+    raise build, field int
+
+force get-preset-largehall
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_LARGEHALL|
+    raise build, field short
+
+force get-preset-largeroom
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_LARGEROOM|
+    raise build, field short
+
+force get-preset-mediumhall
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_MEDIUMHALL|
+    raise build, field short
+
+force get-preset-mediumroom
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_MEDIUMROOM|
+    raise build, field short
+
+force get-preset-none
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_NONE|
+    raise build, field short
+
+force get-preset-plate
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_PLATE|
+    raise build, field short
+
+force get-preset-smallroom
+  mount build, field preset-reverb
+
+  cause get-property
+    drive object, share build
+    drive property, |PRESET_SMALLROOM|
+    raise build, field short
+
+force build-preset-reverb
+  mount priority, field int
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |PresetReverb|
+    drive factor, share priority
+    drive factor, share audio-session
+    raise build, field preset-reverb
+
+force get-preset
+  mount build, field preset-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreset|
+    raise build, field short
+
+force get-properties
+  mount build, field preset-reverb
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    raise build, field preset-reverb-settings
+
+force set-parameter-listener
+  mount build, field preset-reverb
+  mount listener, field preset-reverb-on-parameter-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameterListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-preset
+  mount build, field preset-reverb
+  mount preset, field short
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreset|
+    drive factor, share preset
+    raise build, field unit
+
+force set-properties
+  mount build, field preset-reverb
+  mount settings, field preset-reverb-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperties|
+    drive factor, share settings
+    raise build, field unit

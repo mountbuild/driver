@@ -1,0 +1,36 @@
+
+force build-alpha-animation
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |AlphaAnimation|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field alpha-animation
+
+force build-alpha-animation
+  mount from-alpha, field float
+  mount to-alpha, field float
+
+  cause invoke-constructor
+    drive constructor, |AlphaAnimation|
+    drive factor, share from-alpha
+    drive factor, share to-alpha
+    raise build, field alpha-animation
+
+force will-change-bounds
+  mount build, field alpha-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |willChangeBounds|
+    raise build, field boolean
+
+force will-change-transformation-matrix
+  mount build, field alpha-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |willChangeTransformationMatrix|
+    raise build, field boolean

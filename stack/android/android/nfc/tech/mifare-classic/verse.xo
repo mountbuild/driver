@@ -1,0 +1,302 @@
+
+force get-block-size
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |BLOCK_SIZE|
+    throw build, field int
+
+force get-size-1-k
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |SIZE_1K|
+    throw build, field int
+
+force get-size-2-k
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |SIZE_2K|
+    throw build, field int
+
+force get-size-4-k
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |SIZE_4K|
+    throw build, field int
+
+force get-size-mini
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |SIZE_MINI|
+    throw build, field int
+
+force get-type-classic
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_CLASSIC|
+    throw build, field int
+
+force get-type-plus
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_PLUS|
+    throw build, field int
+
+force get-type-pro
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_PRO|
+    throw build, field int
+
+force get-type-unknown
+  mount build, field mifare-classic
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_UNKNOWN|
+    throw build, field int
+
+force authenticate-sector-with-key-a
+  mount build, field mifare-classic
+  mount sector-index, field int
+  mount key, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |authenticateSectorWithKeyA|
+    drive factor, share sector-index
+    drive factor, share key
+    throw build, field boolean
+
+force authenticate-sector-with-key-b
+  mount build, field mifare-classic
+  mount sector-index, field int
+  mount key, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |authenticateSectorWithKeyB|
+    drive factor, share sector-index
+    drive factor, share key
+    throw build, field boolean
+
+force block-to-sector
+  mount build, field mifare-classic
+  mount block-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |blockToSector|
+    drive factor, share block-index
+    throw build, field int
+
+force close
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    throw build, field unit
+
+force decrement
+  mount build, field mifare-classic
+  mount block-index, field int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decrement|
+    drive factor, share block-index
+    drive factor, share value
+    throw build, field unit
+
+force get
+  mount build, field mifare-classic
+  mount tag, field tag
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share tag
+    throw build, field mifare-classic
+
+force get-block-count
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockCount|
+    throw build, field int
+
+force get-block-count-in-sector
+  mount build, field mifare-classic
+  mount sector-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockCountInSector|
+    drive factor, share sector-index
+    throw build, field int
+
+force get-max-transceive-length
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxTransceiveLength|
+    throw build, field int
+
+force get-sector-count
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getSectorCount|
+    throw build, field int
+
+force get-size
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    throw build, field int
+
+force get-tag
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field tag
+
+force get-timeout
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeout|
+    throw build, field int
+
+force get-type
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force increment
+  mount build, field mifare-classic
+  mount block-index, field int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |increment|
+    drive factor, share block-index
+    drive factor, share value
+    throw build, field unit
+
+force is-connected
+  mount build, field mifare-classic
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean
+
+force read-block
+  mount build, field mifare-classic
+  mount block-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readBlock|
+    drive factor, share block-index
+    throw build, field byte-array
+
+force restore
+  mount build, field mifare-classic
+  mount block-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |restore|
+    drive factor, share block-index
+    throw build, field unit
+
+force sector-to-block
+  mount build, field mifare-classic
+  mount sector-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sectorToBlock|
+    drive factor, share sector-index
+    throw build, field int
+
+force set-timeout
+  mount build, field mifare-classic
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeout|
+    drive factor, share timeout
+    throw build, field unit
+
+force transceive
+  mount build, field mifare-classic
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |transceive|
+    drive factor, share data
+    throw build, field byte-array
+
+force transfer
+  mount build, field mifare-classic
+  mount block-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |transfer|
+    drive factor, share block-index
+    throw build, field unit
+
+force write-block
+  mount build, field mifare-classic
+  mount block-index, field int
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBlock|
+    drive factor, share block-index
+    drive factor, share data
+    throw build, field unit

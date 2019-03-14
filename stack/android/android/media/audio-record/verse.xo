@@ -1,0 +1,548 @@
+
+force get-error
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    raise build, field int
+
+force get-error-bad-value
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_BAD_VALUE|
+    raise build, field int
+
+force get-error-dead-object
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_DEAD_OBJECT|
+    raise build, field int
+
+force get-error-invalid-operation
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_OPERATION|
+    raise build, field int
+
+force get-read-blocking
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |READ_BLOCKING|
+    raise build, field int
+
+force get-read-non-blocking
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |READ_NON_BLOCKING|
+    raise build, field int
+
+force get-recordstate-recording
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |RECORDSTATE_RECORDING|
+    raise build, field int
+
+force get-recordstate-stopped
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |RECORDSTATE_STOPPED|
+    raise build, field int
+
+force get-state-initialized
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_INITIALIZED|
+    raise build, field int
+
+force get-state-uninitialized
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_UNINITIALIZED|
+    raise build, field int
+
+force get-success
+  start build, field audio-record
+
+  cause get-property
+    drive object, share build
+    drive property, |SUCCESS|
+    raise build, field int
+
+force build-audio-record
+  start audio-source, field int
+  start sample-rate-in-hz, field int
+  start channel-config, field int
+  start audio-format, field int
+  start buffer-size-in-bytes, field int
+
+  cause invoke-constructor
+    drive constructor, |AudioRecord|
+    drive factor, share audio-source
+    drive factor, share sample-rate-in-hz
+    drive factor, share channel-config
+    drive factor, share audio-format
+    drive factor, share buffer-size-in-bytes
+    raise build, field audio-record
+
+force add-on-routing-changed-listener
+  start build, field audio-record
+  start listener, field audio-routing-on-routing-changed-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnRoutingChangedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force add-on-routing-changed-listener
+  start build, field audio-record
+  start listener, field audio-record-on-routing-changed-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnRoutingChangedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force get-active-microphones
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveMicrophones|
+    raise build, field mutable-list
+
+force get-active-recording-configuration
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveRecordingConfiguration|
+    raise build, field audio-recording-configuration
+
+force get-audio-format
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioFormat|
+    raise build, field int
+
+force get-audio-session-id
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioSessionId|
+    raise build, field int
+
+force get-audio-source
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioSource|
+    raise build, field int
+
+force get-buffer-size-in-frames
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getBufferSizeInFrames|
+    raise build, field int
+
+force get-channel-configuration
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannelConfiguration|
+    raise build, field int
+
+force get-channel-count
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannelCount|
+    raise build, field int
+
+force get-format
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormat|
+    raise build, field audio-format
+
+force get-metrics
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetrics|
+    raise build, field persistable-bundle
+
+force get-min-buffer-size
+  start build, field audio-record
+  start sample-rate-in-hz, field int
+  start channel-config, field int
+  start audio-format, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMinBufferSize|
+    drive factor, share sample-rate-in-hz
+    drive factor, share channel-config
+    drive factor, share audio-format
+    raise build, field int
+
+force get-notification-marker-position
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getNotificationMarkerPosition|
+    raise build, field int
+
+force get-position-notification-period
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getPositionNotificationPeriod|
+    raise build, field int
+
+force get-preferred-device
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferredDevice|
+    raise build, field audio-device-info
+
+force get-recording-state
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecordingState|
+    raise build, field int
+
+force get-routed-device
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoutedDevice|
+    raise build, field audio-device-info
+
+force get-sample-rate
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleRate|
+    raise build, field int
+
+force get-state
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    raise build, field int
+
+force get-timestamp
+  start build, field audio-record
+  start out-timestamp, field audio-timestamp
+  start timebase, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    drive factor, share out-timestamp
+    drive factor, share timebase
+    raise build, field int
+
+force is-privacy-sensitive
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |isPrivacySensitive|
+    raise build, field boolean
+
+force read
+  start build, field audio-record
+  start audio-data, field byte-array
+  start offset-in-bytes, field int
+  start size-in-bytes, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-data
+    drive factor, share offset-in-bytes
+    drive factor, share size-in-bytes
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-data, field byte-array
+  start offset-in-bytes, field int
+  start size-in-bytes, field int
+  start read-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-data
+    drive factor, share offset-in-bytes
+    drive factor, share size-in-bytes
+    drive factor, share read-mode
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-data, field short-array
+  start offset-in-shorts, field int
+  start size-in-shorts, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-data
+    drive factor, share offset-in-shorts
+    drive factor, share size-in-shorts
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-data, field short-array
+  start offset-in-shorts, field int
+  start size-in-shorts, field int
+  start read-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-data
+    drive factor, share offset-in-shorts
+    drive factor, share size-in-shorts
+    drive factor, share read-mode
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-data, field float-array
+  start offset-in-floats, field int
+  start size-in-floats, field int
+  start read-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-data
+    drive factor, share offset-in-floats
+    drive factor, share size-in-floats
+    drive factor, share read-mode
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-buffer, field byte-buffer
+  start size-in-bytes, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-buffer
+    drive factor, share size-in-bytes
+    raise build, field int
+
+force read
+  start build, field audio-record
+  start audio-buffer, field byte-buffer
+  start size-in-bytes, field int
+  start read-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share audio-buffer
+    drive factor, share size-in-bytes
+    drive factor, share read-mode
+    raise build, field int
+
+force register-audio-recording-callback
+  start build, field audio-record
+  start executor, field executor
+  start cb, field audio-manager-audio-recording-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerAudioRecordingCallback|
+    drive factor, share executor
+    drive factor, share cb
+    raise build, field unit
+
+force release
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force remove-on-routing-changed-listener
+  start build, field audio-record
+  start listener, field audio-routing-on-routing-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnRoutingChangedListener|
+    drive factor, share listener
+    raise build, field unit
+
+force remove-on-routing-changed-listener
+  start build, field audio-record
+  start listener, field audio-record-on-routing-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnRoutingChangedListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-notification-marker-position
+  start build, field audio-record
+  start marker-in-frames, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setNotificationMarkerPosition|
+    drive factor, share marker-in-frames
+    raise build, field int
+
+force set-position-notification-period
+  start build, field audio-record
+  start period-in-frames, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPositionNotificationPeriod|
+    drive factor, share period-in-frames
+    raise build, field int
+
+force set-preferred-device
+  start build, field audio-record
+  start device-info, field audio-device-info
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredDevice|
+    drive factor, share device-info
+    raise build, field boolean
+
+force set-preferred-microphone-direction
+  start build, field audio-record
+  start direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredMicrophoneDirection|
+    drive factor, share direction
+    raise build, field boolean
+
+force set-preferred-microphone-field-dimension
+  start build, field audio-record
+  start zoom, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredMicrophoneFieldDimension|
+    drive factor, share zoom
+    raise build, field boolean
+
+force set-record-position-update-listener
+  start build, field audio-record
+  start listener, field audio-record-on-record-position-update-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setRecordPositionUpdateListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-record-position-update-listener
+  start build, field audio-record
+  start listener, field audio-record-on-record-position-update-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setRecordPositionUpdateListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force start-recording
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecording|
+    raise build, field unit
+
+force start-recording
+  start build, field audio-record
+  start sync-event, field media-sync-event
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecording|
+    drive factor, share sync-event
+    raise build, field unit
+
+force stop
+  start build, field audio-record
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit
+
+force unregister-audio-recording-callback
+  start build, field audio-record
+  start cb, field audio-manager-audio-recording-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterAudioRecordingCallback|
+    drive factor, share cb
+    raise build, field unit

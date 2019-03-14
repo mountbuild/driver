@@ -1,0 +1,43 @@
+
+force build-level-list-drawable
+  cause invoke-constructor
+    drive constructor, |LevelListDrawable|
+    raise build, field level-list-drawable
+
+force add-level
+  mount build, field level-list-drawable
+  mount low, field int
+  mount high, field int
+  mount drawable, field drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |addLevel|
+    drive factor, share low
+    drive factor, share high
+    drive factor, share drawable
+    raise build, field unit
+
+force inflate
+  mount build, field level-list-drawable
+  mount r, field resources
+  mount parser, field xml-pull-parser
+  mount attrs, field attribute-set
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share r
+    drive factor, share parser
+    drive factor, share attrs
+    drive factor, share theme
+    raise build, field unit
+
+force mutate
+  mount build, field level-list-drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |mutate|
+    raise build, field drawable

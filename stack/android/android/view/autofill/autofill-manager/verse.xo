@@ -1,0 +1,300 @@
+
+force get-extra-assist-structure
+  mount build, field autofill-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_ASSIST_STRUCTURE|
+    raise build, field string
+
+force get-extra-authentication-result
+  mount build, field autofill-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_AUTHENTICATION_RESULT|
+    raise build, field string
+
+force get-extra-client-state
+  mount build, field autofill-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CLIENT_STATE|
+    raise build, field string
+
+force cancel
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    raise build, field unit
+
+force commit
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |commit|
+    raise build, field unit
+
+force disable-autofill-services
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |disableAutofillServices|
+    raise build, field unit
+
+force get-autofill-service-component-name
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAutofillServiceComponentName|
+    raise build, field component-name
+
+force get-available-field-classification-algorithms
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableFieldClassificationAlgorithms|
+    raise build, field mutable-list
+
+force get-default-field-classification-algorithm
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultFieldClassificationAlgorithm|
+    raise build, field string
+
+force get-next-autofill-id
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getNextAutofillId|
+    raise build, field autofill-id
+
+force get-user-data
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserData|
+    raise build, field user-data
+
+force get-user-data-id
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserDataId|
+    raise build, field string
+
+force has-enabled-autofill-services
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |hasEnabledAutofillServices|
+    raise build, field boolean
+
+force is-autofill-supported
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAutofillSupported|
+    raise build, field boolean
+
+force is-enabled
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    raise build, field boolean
+
+force is-field-classification-enabled
+  mount build, field autofill-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isFieldClassificationEnabled|
+    raise build, field boolean
+
+force notify-value-changed
+  mount build, field autofill-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyValueChanged|
+    drive factor, share view
+    raise build, field unit
+
+force notify-value-changed
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+  mount value, field autofill-value
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyValueChanged|
+    drive factor, share view
+    drive factor, share virtual-id
+    drive factor, share value
+    raise build, field unit
+
+force notify-view-clicked
+  mount build, field autofill-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewClicked|
+    drive factor, share view
+    raise build, field unit
+
+force notify-view-clicked
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewClicked|
+    drive factor, share view
+    drive factor, share virtual-id
+    raise build, field unit
+
+force notify-view-entered
+  mount build, field autofill-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewEntered|
+    drive factor, share view
+    raise build, field unit
+
+force notify-view-entered
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+  mount abs-bounds, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewEntered|
+    drive factor, share view
+    drive factor, share virtual-id
+    drive factor, share abs-bounds
+    raise build, field unit
+
+force notify-view-exited
+  mount build, field autofill-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewExited|
+    drive factor, share view
+    raise build, field unit
+
+force notify-view-exited
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewExited|
+    drive factor, share view
+    drive factor, share virtual-id
+    raise build, field unit
+
+force notify-view-visibility-changed
+  mount build, field autofill-manager
+  mount view, field view
+  mount is-visible, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewVisibilityChanged|
+    drive factor, share view
+    drive factor, share is-visible
+    raise build, field unit
+
+force notify-view-visibility-changed
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+  mount is-visible, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyViewVisibilityChanged|
+    drive factor, share view
+    drive factor, share virtual-id
+    drive factor, share is-visible
+    raise build, field unit
+
+force register-callback
+  mount build, field autofill-manager
+  mount callback, field autofill-manager-autofill-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    raise build, field unit
+
+force request-autofill
+  mount build, field autofill-manager
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |requestAutofill|
+    drive factor, share view
+    raise build, field unit
+
+force request-autofill
+  mount build, field autofill-manager
+  mount view, field view
+  mount virtual-id, field int
+  mount abs-bounds, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |requestAutofill|
+    drive factor, share view
+    drive factor, share virtual-id
+    drive factor, share abs-bounds
+    raise build, field unit
+
+force set-user-data
+  mount build, field autofill-manager
+  mount user-data, field user-data
+
+  cause call-method
+    drive object, share build
+    drive method, |setUserData|
+    drive factor, share user-data
+    raise build, field unit
+
+force unregister-callback
+  mount build, field autofill-manager
+  mount callback, field autofill-manager-autofill-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterCallback|
+    drive factor, share callback
+    raise build, field unit

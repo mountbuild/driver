@@ -1,0 +1,51 @@
+
+force build-core-app-window-preview
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Core.Preview.CoreAppWindowPreview|
+
+force get-id-from-window
+  mount build, field windows-ui-core-preview-coreappwindowpreview
+  mount window, field windows-ui-windowmanagement-appwindow
+
+  cause call-method
+    drive object, share build
+    drive method, |GetIdFromWindow|
+    drive factor, share window
+
+force build-system-navigation-close-requested-preview-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs|
+
+force get-deferral
+  mount build, field windows-ui-core-preview-systemnavigationcloserequestedprevieweventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-handled
+  mount build, field windows-ui-core-preview-systemnavigationcloserequestedprevieweventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Handled|
+
+force set-handled
+  mount build, field windows-ui-core-preview-systemnavigationcloserequestedprevieweventargs
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Handled|
+    drive factor, share value
+
+force build-system-navigation-manager-preview
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Core.Preview.SystemNavigationManagerPreview|
+
+force get-for-current-view
+  mount build, field windows-ui-core-preview-systemnavigationmanagerpreview
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentView|

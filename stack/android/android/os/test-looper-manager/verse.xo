@@ -1,0 +1,72 @@
+
+force execute
+  mount build, field test-looper-manager
+  mount message, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share message
+    raise build, field unit
+
+force get-message-queue
+  mount build, field test-looper-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageQueue|
+    raise build, field message-queue
+
+force has-messages
+  mount build, field test-looper-manager
+  mount h, field handler
+  mount object, field any
+  mount what, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMessages|
+    drive factor, share h
+    drive factor, share object
+    drive factor, share what
+    raise build, field boolean
+
+force has-messages
+  mount build, field test-looper-manager
+  mount h, field handler
+  mount object, field any
+  mount r, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMessages|
+    drive factor, share h
+    drive factor, share object
+    drive factor, share r
+    raise build, field boolean
+
+force next
+  mount build, field test-looper-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |next|
+    raise build, field message
+
+force recycle
+  mount build, field test-looper-manager
+  mount msg, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |recycle|
+    drive factor, share msg
+    raise build, field unit
+
+force release
+  mount build, field test-looper-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit

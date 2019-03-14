@@ -1,0 +1,108 @@
+
+force get-type-builtin
+  mount build, field shared-library-info
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_BUILTIN|
+    throw build, field int
+
+force get-type-dynamic
+  mount build, field shared-library-info
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_DYNAMIC|
+    throw build, field int
+
+force get-type-static
+  mount build, field shared-library-info
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_STATIC|
+    throw build, field int
+
+force get-version-undefined
+  mount build, field shared-library-info
+
+  cause get-property
+    drive object, share build
+    drive property, |VERSION_UNDEFINED|
+    throw build, field int
+
+force describe-contents
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-declaring-package
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaringPackage|
+    throw build, field versioned-package
+
+force get-dependent-packages
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDependentPackages|
+    throw build, field mutable-list
+
+force get-long-version
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLongVersion|
+    throw build, field long
+
+force get-name
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-type
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force get-version
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getVersion|
+    throw build, field int
+
+force to-string
+  mount build, field shared-library-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field shared-library-info
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,45 @@
+force get-all-header-fields
+  field build, field httpurl-response
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allHeaderFields|
+    raise build, field any-hashable
+
+force set-all-header-fields
+  field build, field httpurl-response
+  field value, field any-hashable
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allHeaderFields|
+    drive factor, share value
+
+force value
+  field build, field httpurl-response
+  field for-http-header-field, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor
+      brand for-http-header-field
+      share for-http-header-field
+    raise build, class string
+
+force get-status-code
+  field build, field httpurl-response
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |statusCode|
+    raise build, field int
+
+force set-status-code
+  field build, field httpurl-response
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |statusCode|
+    drive factor, share value

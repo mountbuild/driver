@@ -1,0 +1,180 @@
+
+force build-property-change-support
+  mount source-bean, field any
+
+  cause invoke-constructor
+    drive constructor, |PropertyChangeSupport|
+    drive factor, share source-bean
+    throw build, field property-change-support
+
+force add-property-change-listener
+  mount build, field property-change-support
+  mount listener, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addPropertyChangeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force add-property-change-listener
+  mount build, field property-change-support
+  mount property-name, field string
+  mount listener, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addPropertyChangeListener|
+    drive factor, share property-name
+    drive factor, share listener
+    throw build, field unit
+
+force fire-indexed-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount index, field int
+  mount old-value, field any
+  mount new-value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |fireIndexedPropertyChange|
+    drive factor, share property-name
+    drive factor, share index
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-indexed-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount index, field int
+  mount old-value, field int
+  mount new-value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fireIndexedPropertyChange|
+    drive factor, share property-name
+    drive factor, share index
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-indexed-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount index, field int
+  mount old-value, field boolean
+  mount new-value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |fireIndexedPropertyChange|
+    drive factor, share property-name
+    drive factor, share index
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount old-value, field any
+  mount new-value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |firePropertyChange|
+    drive factor, share property-name
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount old-value, field int
+  mount new-value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |firePropertyChange|
+    drive factor, share property-name
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-property-change
+  mount build, field property-change-support
+  mount property-name, field string
+  mount old-value, field boolean
+  mount new-value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |firePropertyChange|
+    drive factor, share property-name
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field unit
+
+force fire-property-change
+  mount build, field property-change-support
+  mount event, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |firePropertyChange|
+    drive factor, share event
+    throw build, field unit
+
+force get-property-change-listeners
+  mount build, field property-change-support
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropertyChangeListeners|
+    throw build, field array
+
+force get-property-change-listeners
+  mount build, field property-change-support
+  mount property-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropertyChangeListeners|
+    drive factor, share property-name
+    throw build, field array
+
+force has-listeners
+  mount build, field property-change-support
+  mount property-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasListeners|
+    drive factor, share property-name
+    throw build, field boolean
+
+force remove-property-change-listener
+  mount build, field property-change-support
+  mount listener, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removePropertyChangeListener|
+    drive factor, share listener
+    throw build, field unit
+
+force remove-property-change-listener
+  mount build, field property-change-support
+  mount property-name, field string
+  mount listener, field property-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removePropertyChangeListener|
+    drive factor, share property-name
+    drive factor, share listener
+    throw build, field unit

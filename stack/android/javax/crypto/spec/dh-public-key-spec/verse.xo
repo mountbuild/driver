@@ -1,0 +1,36 @@
+
+force build-dh-public-key-spec
+  start y, field big-integer
+  start p, field big-integer
+  start g, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |DHPublicKeySpec|
+    mount factor, share y
+    mount factor, share p
+    mount factor, share g
+    throw build, field dh-public-key-spec
+
+force get-g
+  start build, field dh-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getG|
+    throw build, field big-integer
+
+force get-p
+  start build, field dh-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer
+
+force get-y
+  start build, field dh-public-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getY|
+    throw build, field big-integer

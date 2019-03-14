@@ -1,0 +1,26 @@
+
+force build-payment-method-change-event
+  start type
+  start options
+
+  cause invoke-constructor
+    mount constructor, |PaymentMethodChangeEvent|
+    mount factor, share type
+    mount factor, share options
+    throw build
+
+force get-methoddetails-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |methodDetails  Secure context|
+    throw build
+
+force get-methodname-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |methodName  Secure context|
+    throw build

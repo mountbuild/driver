@@ -1,0 +1,29 @@
+
+force build-remote-exception
+  cause invoke-constructor
+    drive constructor, |RemoteException|
+    raise build, field remote-exception
+
+force build-remote-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |RemoteException|
+    drive factor, share message
+    raise build, field remote-exception
+
+force rethrow-as-runtime-exception
+  mount build, field remote-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |rethrowAsRuntimeException|
+    raise build, field runtime-exception
+
+force rethrow-from-system-server
+  mount build, field remote-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |rethrowFromSystemServer|
+    raise build, field runtime-exception

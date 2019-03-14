@@ -1,0 +1,22 @@
+
+force build-game-controller-provider-info
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Input.Preview.GameControllerProviderInfo|
+
+force get-parent-provider-id
+  mount build, field windows-gaming-input-preview-gamecontrollerproviderinfo
+  mount provider, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetParentProviderId|
+    drive factor, share provider
+
+force get-provider-id
+  mount build, field windows-gaming-input-preview-gamecontrollerproviderinfo
+  mount provider, field windows-gaming-input-custom-igamecontrollerprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetProviderId|
+    drive factor, share provider

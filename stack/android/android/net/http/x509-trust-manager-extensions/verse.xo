@@ -1,0 +1,44 @@
+
+force build-x509-trust-manager-extensions
+  start tm, field x509-trust-manager
+
+  cause invoke-constructor
+    drive constructor, |X509TrustManagerExtensions|
+    drive factor, share tm
+    throw build, field x509-trust-manager-extensions
+
+force check-server-trusted
+  start build, field x509-trust-manager-extensions
+  start chain, field array-x509-certificate
+  start auth-type, field string
+  start host, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |checkServerTrusted|
+    drive factor, share chain
+    drive factor, share auth-type
+    drive factor, share host
+    throw build, field mutable-list
+
+force is-same-trust-configuration
+  start build, field x509-trust-manager-extensions
+  start hostname1, field string
+  start hostname2, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isSameTrustConfiguration|
+    drive factor, share hostname1
+    drive factor, share hostname2
+    throw build, field boolean
+
+force is-user-added-certificate
+  start build, field x509-trust-manager-extensions
+  start cert, field x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |isUserAddedCertificate|
+    drive factor, share cert
+    throw build, field boolean

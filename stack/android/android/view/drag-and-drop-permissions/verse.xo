@@ -1,0 +1,28 @@
+
+force describe-contents
+  mount build, field drag-and-drop-permissions
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force release
+  mount build, field drag-and-drop-permissions
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field drag-and-drop-permissions
+  mount destination, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share destination
+    drive factor, share flags
+    raise build, field unit

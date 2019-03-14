@@ -1,0 +1,92 @@
+
+force get-tag-code
+  mount build, field event-log
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTagCode|
+    drive factor, share name
+    throw build, field int
+
+force get-tag-name
+  mount build, field event-log
+  mount tag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTagName|
+    drive factor, share tag
+    throw build, field string
+
+force read-events
+  mount build, field event-log
+  mount tags, field int-array
+  mount output, field mutable-collection-event-log-event
+
+  cause call-method
+    drive object, share build
+    drive method, |readEvents|
+    drive factor, share tags
+    drive factor, share output
+    throw build, field unit
+
+force write-event
+  mount build, field event-log
+  mount tag, field int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEvent|
+    drive factor, share tag
+    drive factor, share value
+    throw build, field int
+
+force write-event
+  mount build, field event-log
+  mount tag, field int
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEvent|
+    drive factor, share tag
+    drive factor, share value
+    throw build, field int
+
+force write-event
+  mount build, field event-log
+  mount tag, field int
+  mount value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEvent|
+    drive factor, share tag
+    drive factor, share value
+    throw build, field int
+
+force write-event
+  mount build, field event-log
+  mount tag, field int
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEvent|
+    drive factor, share tag
+    drive factor, share str
+    throw build, field int
+
+force write-event
+  mount build, field event-log
+  mount tag, field int
+  mount vararg-list, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEvent|
+    drive factor, share tag
+    drive factor, share vararg-list
+    throw build, field int

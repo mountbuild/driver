@@ -1,0 +1,65 @@
+
+force get-db
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |db|
+    throw build
+
+force get-durability
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |durability|
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build
+
+force get-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mode|
+    throw build
+
+force get-object-store-names
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |objectStoreNames|
+    throw build
+
+force abort
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |abort|
+
+force object-store
+  start build
+  start name
+
+  cause call-method
+    mount object, share build
+    mount method, |objectStore|
+    mount factor, share name
+    throw build
+
+force commit
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |commit|
+    throw build

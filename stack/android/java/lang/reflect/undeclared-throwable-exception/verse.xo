@@ -1,0 +1,26 @@
+
+force build-undeclared-throwable-exception
+  mount undeclared-throwable, field throwable
+
+  cause invoke-constructor
+    drive constructor, |UndeclaredThrowableException|
+    drive factor, share undeclared-throwable
+    throw build, field undeclared-throwable-exception
+
+force build-undeclared-throwable-exception
+  mount undeclared-throwable, field throwable
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |UndeclaredThrowableException|
+    drive factor, share undeclared-throwable
+    drive factor, share s
+    throw build, field undeclared-throwable-exception
+
+force get-undeclared-throwable
+  mount build, field undeclared-throwable-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getUndeclaredThrowable|
+    throw build, field throwable

@@ -1,0 +1,42 @@
+
+force get
+  mount build, field capture-result
+  mount key, field capture-result-key-t
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field t
+
+force get-frame-number
+  mount build, field capture-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrameNumber|
+    throw build, field long
+
+force get-keys
+  mount build, field capture-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeys|
+    throw build, field mutable-list
+
+force get-request
+  mount build, field capture-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getRequest|
+    throw build, field capture-request
+
+force get-sequence-id
+  mount build, field capture-result
+
+  cause call-method
+    drive object, share build
+    drive method, |getSequenceId|
+    throw build, field int

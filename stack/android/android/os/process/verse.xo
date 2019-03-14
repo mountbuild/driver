@@ -1,0 +1,361 @@
+
+force get-bluetooth-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |BLUETOOTH_UID|
+    raise build, field int
+
+force get-first-application-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |FIRST_APPLICATION_UID|
+    raise build, field int
+
+force get-invalid-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_UID|
+    raise build, field int
+
+force get-last-application-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |LAST_APPLICATION_UID|
+    raise build, field int
+
+force get-phone-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |PHONE_UID|
+    raise build, field int
+
+force get-root-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |ROOT_UID|
+    raise build, field int
+
+force get-shell-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |SHELL_UID|
+    raise build, field int
+
+force get-signal-kill
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |SIGNAL_KILL|
+    raise build, field int
+
+force get-signal-quit
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |SIGNAL_QUIT|
+    raise build, field int
+
+force get-signal-usr1
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |SIGNAL_USR1|
+    raise build, field int
+
+force get-system-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |SYSTEM_UID|
+    raise build, field int
+
+force get-thread-priority-audio
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_AUDIO|
+    raise build, field int
+
+force get-thread-priority-background
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_BACKGROUND|
+    raise build, field int
+
+force get-thread-priority-default
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_DEFAULT|
+    raise build, field int
+
+force get-thread-priority-display
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_DISPLAY|
+    raise build, field int
+
+force get-thread-priority-foreground
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_FOREGROUND|
+    raise build, field int
+
+force get-thread-priority-less-favorable
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_LESS_FAVORABLE|
+    raise build, field int
+
+force get-thread-priority-lowest
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_LOWEST|
+    raise build, field int
+
+force get-thread-priority-more-favorable
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_MORE_FAVORABLE|
+    raise build, field int
+
+force get-thread-priority-urgent-audio
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_URGENT_AUDIO|
+    raise build, field int
+
+force get-thread-priority-urgent-display
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_URGENT_DISPLAY|
+    raise build, field int
+
+force get-thread-priority-video
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |THREAD_PRIORITY_VIDEO|
+    raise build, field int
+
+force get-wifi-uid
+  mount build, field process
+
+  cause get-property
+    drive object, share build
+    drive property, |WIFI_UID|
+    raise build, field int
+
+force build-process
+  cause invoke-constructor
+    drive constructor, |Process|
+    raise build, field process
+
+force get-elapsed-cpu-time
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getElapsedCpuTime|
+    raise build, field long
+
+force get-exclusive-cores
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getExclusiveCores|
+    raise build, field int-array
+
+force get-gid-for-name
+  mount build, field process
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getGidForName|
+    drive factor, share name
+    raise build, field int
+
+force get-start-elapsed-realtime
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartElapsedRealtime|
+    raise build, field long
+
+force get-start-uptime-millis
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartUptimeMillis|
+    raise build, field long
+
+force get-thread-priority
+  mount build, field process
+  mount tid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadPriority|
+    drive factor, share tid
+    raise build, field int
+
+force get-uid-for-name
+  mount build, field process
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getUidForName|
+    drive factor, share name
+    raise build, field int
+
+force is64-bit
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |is64Bit|
+    raise build, field boolean
+
+force is-application-uid
+  mount build, field process
+  mount uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isApplicationUid|
+    drive factor, share uid
+    raise build, field boolean
+
+force is-isolated
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |isIsolated|
+    raise build, field boolean
+
+force kill-process
+  mount build, field process
+  mount pid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |killProcess|
+    drive factor, share pid
+    raise build, field unit
+
+force my-pid
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |myPid|
+    raise build, field int
+
+force my-tid
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |myTid|
+    raise build, field int
+
+force my-uid
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |myUid|
+    raise build, field int
+
+force my-user-handle
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |myUserHandle|
+    raise build, field user-handle
+
+force send-signal
+  mount build, field process
+  mount pid, field int
+  mount signal, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendSignal|
+    drive factor, share pid
+    drive factor, share signal
+    raise build, field unit
+
+force set-thread-priority
+  mount build, field process
+  mount tid, field int
+  mount priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setThreadPriority|
+    drive factor, share tid
+    drive factor, share priority
+    raise build, field unit
+
+force set-thread-priority
+  mount build, field process
+  mount priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setThreadPriority|
+    drive factor, share priority
+    raise build, field unit
+
+force supports-processes
+  mount build, field process
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsProcesses|
+    raise build, field boolean

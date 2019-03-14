@@ -1,0 +1,249 @@
+
+force build-url-query-sanitizer
+  cause invoke-constructor
+    drive constructor, |UrlQuerySanitizer|
+    throw build, field url-query-sanitizer
+
+force build-url-query-sanitizer
+  mount url, field string
+
+  cause invoke-constructor
+    drive constructor, |UrlQuerySanitizer|
+    drive factor, share url
+    throw build, field url-query-sanitizer
+
+force get-all-but-nul-and-angle-brackets-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllButNulAndAngleBracketsLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-all-but-nul-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllButNulLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-all-but-whitespace-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllButWhitespaceLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-all-illegal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllIllegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-allow-unregistered-paramaters
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowUnregisteredParamaters|
+    throw build, field boolean
+
+force get-amp-and-space-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAmpAndSpaceLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-amp-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAmpLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-effective-value-sanitizer
+  mount build, field url-query-sanitizer
+  mount parameter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getEffectiveValueSanitizer|
+    drive factor, share parameter
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-parameter-list
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getParameterList|
+    throw build, field mutable-list
+
+force get-parameter-set
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getParameterSet|
+    throw build, field mutable-set
+
+force get-prefer-first-repeated-parameter
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferFirstRepeatedParameter|
+    throw build, field boolean
+
+force get-space-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpaceLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-unregistered-parameter-value-sanitizer
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnregisteredParameterValueSanitizer|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-url-and-space-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getUrlAndSpaceLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-url-legal
+  mount build, field url-query-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |getUrlLegal|
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force get-value
+  mount build, field url-query-sanitizer
+  mount parameter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    drive factor, share parameter
+    throw build, field string
+
+force get-value-sanitizer
+  mount build, field url-query-sanitizer
+  mount parameter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValueSanitizer|
+    drive factor, share parameter
+    throw build, field url-query-sanitizer-value-sanitizer
+
+force has-parameter
+  mount build, field url-query-sanitizer
+  mount parameter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasParameter|
+    drive factor, share parameter
+    throw build, field boolean
+
+force parse-query
+  mount build, field url-query-sanitizer
+  mount query, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parseQuery|
+    drive factor, share query
+    throw build, field unit
+
+force parse-url
+  mount build, field url-query-sanitizer
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parseUrl|
+    drive factor, share url
+    throw build, field unit
+
+force register-parameter
+  mount build, field url-query-sanitizer
+  mount parameter, field string
+  mount value-sanitizer, field url-query-sanitizer-value-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerParameter|
+    drive factor, share parameter
+    drive factor, share value-sanitizer
+    throw build, field unit
+
+force register-parameters
+  mount build, field url-query-sanitizer
+  mount parameters, field array-string
+  mount value-sanitizer, field url-query-sanitizer-value-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerParameters|
+    drive factor, share parameters
+    drive factor, share value-sanitizer
+    throw build, field unit
+
+force set-allow-unregistered-paramaters
+  mount build, field url-query-sanitizer
+  mount allow-unregistered-paramaters, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowUnregisteredParamaters|
+    drive factor, share allow-unregistered-paramaters
+    throw build, field unit
+
+force set-prefer-first-repeated-parameter
+  mount build, field url-query-sanitizer
+  mount prefer-first-repeated-parameter, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferFirstRepeatedParameter|
+    drive factor, share prefer-first-repeated-parameter
+    throw build, field unit
+
+force set-unregistered-parameter-value-sanitizer
+  mount build, field url-query-sanitizer
+  mount sanitizer, field url-query-sanitizer-value-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |setUnregisteredParameterValueSanitizer|
+    drive factor, share sanitizer
+    throw build, field unit
+
+force unescape
+  mount build, field url-query-sanitizer
+  mount string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unescape|
+    drive factor, share string
+    throw build, field string

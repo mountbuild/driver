@@ -1,0 +1,33 @@
+
+force build-observable
+  cause invoke-constructor
+    drive constructor, |Observable|
+    raise build, field observable
+
+force register-observer
+  mount build, field observable
+  mount observer, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |registerObserver|
+    drive factor, share observer
+    raise build, field unit
+
+force unregister-all
+  mount build, field observable
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterAll|
+    raise build, field unit
+
+force unregister-observer
+  mount build, field observable
+  mount observer, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterObserver|
+    drive factor, share observer
+    raise build, field unit

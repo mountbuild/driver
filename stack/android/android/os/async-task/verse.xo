@@ -1,0 +1,83 @@
+
+force build-async-task
+  cause invoke-constructor
+    drive constructor, |AsyncTask|
+    raise build, field async-task
+
+force cancel
+  mount build, field async-task
+  mount may-interrupt-if-running, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share may-interrupt-if-running
+    raise build, field boolean
+
+force execute
+  mount build, field async-task
+  mount vararg-params, field params
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share vararg-params
+    raise build, field async-task
+
+force execute
+  mount build, field async-task
+  mount runnable, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |execute|
+    drive factor, share runnable
+    raise build, field unit
+
+force execute-on-executor
+  mount build, field async-task
+  mount exec, field executor
+  mount vararg-params, field params
+
+  cause call-method
+    drive object, share build
+    drive method, |executeOnExecutor|
+    drive factor, share exec
+    drive factor, share vararg-params
+    raise build, field async-task
+
+force get
+  mount build, field async-task
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    raise build, field result
+
+force get
+  mount build, field async-task
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share timeout
+    drive factor, share unit
+    raise build, field result
+
+force get-status
+  mount build, field async-task
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatus|
+    raise build, field async-task-status
+
+force is-cancelled
+  mount build, field async-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isCancelled|
+    raise build, field boolean

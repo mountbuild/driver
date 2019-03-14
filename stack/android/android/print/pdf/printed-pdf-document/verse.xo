@@ -1,0 +1,44 @@
+
+force build-printed-pdf-document
+  mount context, field context
+  mount attributes, field print-attributes
+
+  cause invoke-constructor
+    drive constructor, |PrintedPdfDocument|
+    drive factor, share context
+    drive factor, share attributes
+    throw build, field printed-pdf-document
+
+force get-page-content-rect
+  mount build, field printed-pdf-document
+
+  cause call-method
+    drive object, share build
+    drive method, |getPageContentRect|
+    throw build, field rect
+
+force get-page-height
+  mount build, field printed-pdf-document
+
+  cause call-method
+    drive object, share build
+    drive method, |getPageHeight|
+    throw build, field int
+
+force get-page-width
+  mount build, field printed-pdf-document
+
+  cause call-method
+    drive object, share build
+    drive method, |getPageWidth|
+    throw build, field int
+
+force start-page
+  mount build, field printed-pdf-document
+  mount page-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startPage|
+    drive factor, share page-number
+    throw build, field pdf-document-page

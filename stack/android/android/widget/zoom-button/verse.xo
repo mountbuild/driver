@@ -1,0 +1,116 @@
+
+force build-zoom-button
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ZoomButton|
+    drive factor, share context
+    throw build, field zoom-button
+
+force build-zoom-button
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ZoomButton|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field zoom-button
+
+force build-zoom-button
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |ZoomButton|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field zoom-button
+
+force build-zoom-button
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |ZoomButton|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field zoom-button
+
+force dispatch-unhandled-move
+  mount build, field zoom-button
+  mount focused, field view
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchUnhandledMove|
+    drive factor, share focused
+    drive factor, share direction
+    throw build, field boolean
+
+force get-accessibility-class-name
+  mount build, field zoom-button
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force on-key-up
+  mount build, field zoom-button
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyUp|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-long-click
+  mount build, field zoom-button
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |onLongClick|
+    drive factor, share v
+    throw build, field boolean
+
+force on-touch-event
+  mount build, field zoom-button
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share event
+    throw build, field boolean
+
+force set-enabled
+  mount build, field zoom-button
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEnabled|
+    drive factor, share enabled
+    throw build, field unit
+
+force set-zoom-speed
+  mount build, field zoom-button
+  mount speed, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setZoomSpeed|
+    drive factor, share speed
+    throw build, field unit

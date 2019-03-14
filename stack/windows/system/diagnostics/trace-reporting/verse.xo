@@ -1,0 +1,236 @@
+
+force build-platform-diagnostic-actions
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions|
+
+force download-latest-settings-for-namespace
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start partner, field system-string
+  start feature, field system-string
+  start is-scenario-namespace, field system-boolean
+  start download-over-costed-network, field system-boolean
+  start download-over-battery, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |DownloadLatestSettingsForNamespace|
+    drive factor, share partner
+    drive factor, share feature
+    drive factor, share is-scenario-namespace
+    drive factor, share download-over-costed-network
+    drive factor, share download-over-battery
+
+force force-upload
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start latency, field windows-system-diagnostics-tracereporting-platformdiagnosticeventbufferlatencies
+  start upload-over-costed-network, field system-boolean
+  start upload-over-battery, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |ForceUpload|
+    drive factor, share latency
+    drive factor, share upload-over-costed-network
+    drive factor, share upload-over-battery
+
+force get-active-scenario-list
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+
+  cause call-method
+    drive object, share build
+    drive method, |GetActiveScenarioList|
+
+force get-active-trace-runtime
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start slot-type, field windows-system-diagnostics-tracereporting-platformdiagnostictraceslottype
+
+  cause call-method
+    drive object, share build
+    drive method, |GetActiveTraceRuntime|
+    drive factor, share slot-type
+
+force get-known-trace-list
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start slot-type, field windows-system-diagnostics-tracereporting-platformdiagnostictraceslottype
+
+  cause call-method
+    drive object, share build
+    drive method, |GetKnownTraceList|
+    drive factor, share slot-type
+
+force is-scenario-enabled
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start scenario-id, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |IsScenarioEnabled|
+    drive factor, share scenario-id
+
+force is-trace-running
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start slot-type, field windows-system-diagnostics-tracereporting-platformdiagnostictraceslottype
+  start scenario-id, field system-guid
+  start trace-profile-hash, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |IsTraceRunning|
+    drive factor, share slot-type
+    drive factor, share scenario-id
+    drive factor, share trace-profile-hash
+
+force try-escalate-scenario
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnosticactions
+  start scenario-id, field system-guid
+  start escalation-type, field windows-system-diagnostics-tracereporting-platformdiagnosticescalationtype
+  start output-directory, field system-string
+  start timestamp-output-directory, field system-boolean
+  start force-escalation-upload, field system-boolean
+  start triggers, field windows-foundation-collections-imapview-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TryEscalateScenario|
+    drive factor, share scenario-id
+    drive factor, share escalation-type
+    drive factor, share output-directory
+    drive factor, share timestamp-output-directory
+    drive factor, share force-escalation-upload
+    drive factor, share triggers
+
+force build-platform-diagnostic-trace-info
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo|
+
+force get-is-auto-logger
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsAutoLogger|
+
+force set-is-auto-logger
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsAutoLogger|
+    drive factor, share value
+
+force get-is-exclusive
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsExclusive|
+
+force set-is-exclusive
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsExclusive|
+    drive factor, share value
+
+force get-max-trace-duration-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxTraceDurationFileTime|
+
+force set-max-trace-duration-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxTraceDurationFileTime|
+    drive factor, share value
+
+force get-priority
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Priority|
+
+force set-priority
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Priority|
+    drive factor, share value
+
+force get-profile-hash
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProfileHash|
+
+force set-profile-hash
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProfileHash|
+    drive factor, share value
+
+force get-scenario-id
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ScenarioId|
+
+force set-scenario-id
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ScenarioId|
+    drive factor, share value
+
+force build-platform-diagnostic-trace-runtime-info
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo|
+
+force get-etw-runtime-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceruntimeinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EtwRuntimeFileTime|
+
+force set-etw-runtime-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceruntimeinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EtwRuntimeFileTime|
+    drive factor, share value
+
+force get-runtime-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceruntimeinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RuntimeFileTime|
+
+force set-runtime-file-time
+  start build, field windows-system-diagnostics-tracereporting-platformdiagnostictraceruntimeinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RuntimeFileTime|
+    drive factor, share value

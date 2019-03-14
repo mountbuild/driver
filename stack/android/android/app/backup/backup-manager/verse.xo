@@ -1,0 +1,46 @@
+
+force build-backup-manager
+  start context, field context
+
+  cause invoke-constructor
+    drive constructor, |BackupManager|
+    drive factor, share context
+    throw build, field backup-manager
+
+force data-changed
+  start build, field backup-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |dataChanged|
+    throw build, field unit
+
+force data-changed
+  start build, field backup-manager
+  start package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dataChanged|
+    drive factor, share package-name
+    throw build, field unit
+
+force get-user-for-ancestral-serial-number
+  start build, field backup-manager
+  start ancestral-serial-number, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserForAncestralSerialNumber|
+    drive factor, share ancestral-serial-number
+    throw build, field user-handle
+
+force request-restore
+  start build, field backup-manager
+  start observer, field restore-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |requestRestore|
+    drive factor, share observer
+    throw build, field int

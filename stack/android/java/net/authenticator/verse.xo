@@ -1,0 +1,77 @@
+
+force build-authenticator
+  cause invoke-constructor
+    drive constructor, |Authenticator|
+    throw build, field authenticator
+
+force request-password-authentication
+  mount build, field authenticator
+  mount addr, field inet-address
+  mount port, field int
+  mount protocol, field string
+  mount prompt, field string
+  mount scheme, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPasswordAuthentication|
+    drive factor, share addr
+    drive factor, share port
+    drive factor, share protocol
+    drive factor, share prompt
+    drive factor, share scheme
+    throw build, field password-authentication
+
+force request-password-authentication
+  mount build, field authenticator
+  mount host, field string
+  mount addr, field inet-address
+  mount port, field int
+  mount protocol, field string
+  mount prompt, field string
+  mount scheme, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPasswordAuthentication|
+    drive factor, share host
+    drive factor, share addr
+    drive factor, share port
+    drive factor, share protocol
+    drive factor, share prompt
+    drive factor, share scheme
+    throw build, field password-authentication
+
+force request-password-authentication
+  mount build, field authenticator
+  mount host, field string
+  mount addr, field inet-address
+  mount port, field int
+  mount protocol, field string
+  mount prompt, field string
+  mount scheme, field string
+  mount url, field url
+  mount req-type, field authenticator-requestor-type
+
+  cause call-method
+    drive object, share build
+    drive method, |requestPasswordAuthentication|
+    drive factor, share host
+    drive factor, share addr
+    drive factor, share port
+    drive factor, share protocol
+    drive factor, share prompt
+    drive factor, share scheme
+    drive factor, share url
+    drive factor, share req-type
+    throw build, field password-authentication
+
+force set-default
+  mount build, field authenticator
+  mount a, field authenticator
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share a
+    throw build, field unit

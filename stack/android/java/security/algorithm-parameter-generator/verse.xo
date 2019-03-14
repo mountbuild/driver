@@ -1,0 +1,102 @@
+
+force generate-parameters
+  mount build, field algorithm-parameter-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |generateParameters|
+    throw build, field algorithm-parameters
+
+force get-algorithm
+  mount build, field algorithm-parameter-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-instance
+  mount build, field algorithm-parameter-generator
+  mount algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field algorithm-parameter-generator
+
+force get-instance
+  mount build, field algorithm-parameter-generator
+  mount algorithm, field string
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field algorithm-parameter-generator
+
+force get-instance
+  mount build, field algorithm-parameter-generator
+  mount algorithm, field string
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field algorithm-parameter-generator
+
+force get-provider
+  mount build, field algorithm-parameter-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  mount build, field algorithm-parameter-generator
+  mount size, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share size
+    throw build, field unit
+
+force init
+  mount build, field algorithm-parameter-generator
+  mount size, field int
+  mount random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share size
+    mount factor, share random
+    throw build, field unit
+
+force init
+  mount build, field algorithm-parameter-generator
+  mount gen-param-spec, field algorithm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share gen-param-spec
+    throw build, field unit
+
+force init
+  mount build, field algorithm-parameter-generator
+  mount gen-param-spec, field algorithm-parameter-spec
+  mount random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share gen-param-spec
+    mount factor, share random
+    throw build, field unit

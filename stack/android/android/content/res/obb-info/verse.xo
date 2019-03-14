@@ -1,0 +1,36 @@
+
+force get-obb-overlay
+  mount build, field obb-info
+
+  cause get-property
+    drive object, share build
+    drive property, |OBB_OVERLAY|
+    throw build, field int
+
+force describe-contents
+  mount build, field obb-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field obb-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field obb-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

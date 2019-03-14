@@ -1,0 +1,51 @@
+
+force build-resources-loader
+  cause invoke-constructor
+    drive constructor, |ResourcesLoader|
+    throw build, field resources-loader
+
+force add-provider
+  mount build, field resources-loader
+  mount resources-provider, field resources-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |addProvider|
+    drive factor, share resources-provider
+    throw build, field unit
+
+force clear-providers
+  mount build, field resources-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |clearProviders|
+    throw build, field unit
+
+force get-providers
+  mount build, field resources-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getProviders|
+    throw build, field mutable-list
+
+force remove-provider
+  mount build, field resources-loader
+  mount resources-provider, field resources-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |removeProvider|
+    drive factor, share resources-provider
+    throw build, field unit
+
+force set-providers
+  mount build, field resources-loader
+  mount resources-providers, field mutable-list-resources-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |setProviders|
+    drive factor, share resources-providers
+    throw build, field unit

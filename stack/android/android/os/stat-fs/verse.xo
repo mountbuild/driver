@@ -1,0 +1,106 @@
+
+force build-stat-fs
+  mount path, field string
+
+  cause invoke-constructor
+    drive constructor, |StatFs|
+    drive factor, share path
+    raise build, field stat-fs
+
+force get-available-blocks
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableBlocks|
+    raise build, field int
+
+force get-available-blocks-long
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableBlocksLong|
+    raise build, field long
+
+force get-available-bytes
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableBytes|
+    raise build, field long
+
+force get-block-count
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockCount|
+    raise build, field int
+
+force get-block-count-long
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockCountLong|
+    raise build, field long
+
+force get-block-size
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockSize|
+    raise build, field int
+
+force get-block-size-long
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlockSizeLong|
+    raise build, field long
+
+force get-free-blocks
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreeBlocks|
+    raise build, field int
+
+force get-free-blocks-long
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreeBlocksLong|
+    raise build, field long
+
+force get-free-bytes
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreeBytes|
+    raise build, field long
+
+force get-total-bytes
+  mount build, field stat-fs
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalBytes|
+    raise build, field long
+
+force restat
+  mount build, field stat-fs
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |restat|
+    drive factor, share path
+    raise build, field unit

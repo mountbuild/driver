@@ -1,0 +1,92 @@
+
+force build-atomic-stamped-reference
+  mount initial-ref, field v
+  mount initial-stamp, field int
+
+  cause invoke-constructor
+    drive constructor, |AtomicStampedReference|
+    drive factor, share initial-ref
+    drive factor, share initial-stamp
+    throw build, field atomic-stamped-reference
+
+force attempt-stamp
+  mount build, field atomic-stamped-reference
+  mount expected-reference, field v
+  mount new-stamp, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |attemptStamp|
+    drive factor, share expected-reference
+    drive factor, share new-stamp
+    throw build, field boolean
+
+force compare-and-set
+  mount build, field atomic-stamped-reference
+  mount expected-reference, field v
+  mount new-reference, field v
+  mount expected-stamp, field int
+  mount new-stamp, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSet|
+    drive factor, share expected-reference
+    drive factor, share new-reference
+    drive factor, share expected-stamp
+    drive factor, share new-stamp
+    throw build, field boolean
+
+force get
+  mount build, field atomic-stamped-reference
+  mount stamp-holder, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share stamp-holder
+    throw build, field v
+
+force get-reference
+  mount build, field atomic-stamped-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |getReference|
+    throw build, field v
+
+force get-stamp
+  mount build, field atomic-stamped-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |getStamp|
+    throw build, field int
+
+force set
+  mount build, field atomic-stamped-reference
+  mount new-reference, field v
+  mount new-stamp, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share new-reference
+    drive factor, share new-stamp
+    throw build, field unit
+
+force weak-compare-and-set
+  mount build, field atomic-stamped-reference
+  mount expected-reference, field v
+  mount new-reference, field v
+  mount expected-stamp, field int
+  mount new-stamp, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |weakCompareAndSet|
+    drive factor, share expected-reference
+    drive factor, share new-reference
+    drive factor, share expected-stamp
+    drive factor, share new-stamp
+    throw build, field boolean

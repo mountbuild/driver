@@ -1,0 +1,142 @@
+
+force get-connection-none
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_NONE|
+    throw build, field int
+
+force get-connection-primary-serving
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_PRIMARY_SERVING|
+    throw build, field int
+
+force get-connection-secondary-serving
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_SECONDARY_SERVING|
+    throw build, field int
+
+force get-connection-unknown
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_UNKNOWN|
+    throw build, field int
+
+force get-unavailable
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |UNAVAILABLE|
+    throw build, field int
+
+force get-unavailable-long
+  mount build, field cell-info
+
+  cause get-property
+    drive object, share build
+    drive property, |UNAVAILABLE_LONG|
+    throw build, field long
+
+force describe-contents
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field cell-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-cell-connection-status
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCellConnectionStatus|
+    throw build, field int
+
+force get-cell-identity
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCellIdentity|
+    throw build, field cell-identity
+
+force get-cell-signal-strength
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCellSignalStrength|
+    throw build, field cell-signal-strength
+
+force get-time-stamp
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeStamp|
+    throw build, field long
+
+force get-timestamp-millis
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestampMillis|
+    throw build, field long
+
+force hash-code
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-registered
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isRegistered|
+    throw build, field boolean
+
+force to-string
+  mount build, field cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field cell-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

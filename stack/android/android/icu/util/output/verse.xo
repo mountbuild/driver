@@ -1,0 +1,21 @@
+
+force build-output
+  cause invoke-constructor
+    drive constructor, |Output|
+    raise build, field output
+
+force build-output
+  mount value, field t
+
+  cause invoke-constructor
+    drive constructor, |Output|
+    drive factor, share value
+    raise build, field output
+
+force to-string
+  mount build, field output
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

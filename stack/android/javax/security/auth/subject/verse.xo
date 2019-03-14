@@ -1,0 +1,177 @@
+
+force build-subject
+  cause invoke-constructor
+    mount constructor, |Subject|
+    throw build, field subject
+
+force build-subject
+  start read-only, field boolean
+  start principals, field mutable-set-out-principal
+  start pub-credentials, field mutable-set
+  start priv-credentials, field mutable-set
+
+  cause invoke-constructor
+    mount constructor, |Subject|
+    mount factor, share read-only
+    mount factor, share principals
+    mount factor, share pub-credentials
+    mount factor, share priv-credentials
+    throw build, field subject
+
+force do-as
+  start build, field subject
+  start subject, field subject
+  start action, field privileged-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doAs|
+    mount factor, share subject
+    mount factor, share action
+    throw build, field t
+
+force do-as
+  start build, field subject
+  start subject, field subject
+  start action, field privileged-exception-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doAs|
+    mount factor, share subject
+    mount factor, share action
+    throw build, field t
+
+force do-as-privileged
+  start build, field subject
+  start subject, field subject
+  start action, field privileged-action-t
+  start acc, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |doAsPrivileged|
+    mount factor, share subject
+    mount factor, share action
+    mount factor, share acc
+    throw build, field t
+
+force do-as-privileged
+  start build, field subject
+  start subject, field subject
+  start action, field privileged-exception-action-t
+  start acc, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |doAsPrivileged|
+    mount factor, share subject
+    mount factor, share action
+    mount factor, share acc
+    throw build, field t
+
+force equals
+  start build, field subject
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-principals
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrincipals|
+    throw build, field mutable-set
+
+force get-principals
+  start build, field subject
+  start c, field class-t
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrincipals|
+    mount factor, share c
+    throw build, field mutable-set
+
+force get-private-credentials
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrivateCredentials|
+    throw build, field mutable-set
+
+force get-private-credentials
+  start build, field subject
+  start c, field class-t
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrivateCredentials|
+    mount factor, share c
+    throw build, field mutable-set
+
+force get-public-credentials
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicCredentials|
+    throw build, field mutable-set
+
+force get-public-credentials
+  start build, field subject
+  start c, field class-t
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicCredentials|
+    mount factor, share c
+    throw build, field mutable-set
+
+force get-subject
+  start build, field subject
+  start acc, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getSubject|
+    mount factor, share acc
+    throw build, field subject
+
+force hash-code
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force is-read-only
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |isReadOnly|
+    throw build, field boolean
+
+force set-read-only
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |setReadOnly|
+    throw build, field unit
+
+force to-string
+  start build, field subject
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

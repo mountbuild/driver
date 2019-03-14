@@ -1,0 +1,147 @@
+
+force get-feature
+  start build, field stream-source
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-stream-source
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    throw build, field stream-source
+
+force build-stream-source
+  start input-stream, field input-stream
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share input-stream
+    throw build, field stream-source
+
+force build-stream-source
+  start input-stream, field input-stream
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share input-stream
+    mount factor, share system-id
+    throw build, field stream-source
+
+force build-stream-source
+  start reader, field reader
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share reader
+    throw build, field stream-source
+
+force build-stream-source
+  start reader, field reader
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share reader
+    mount factor, share system-id
+    throw build, field stream-source
+
+force build-stream-source
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share system-id
+    throw build, field stream-source
+
+force build-stream-source
+  start f, field file
+
+  cause invoke-constructor
+    mount constructor, |StreamSource|
+    mount factor, share f
+    throw build, field stream-source
+
+force get-input-stream
+  start build, field stream-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getInputStream|
+    throw build, field input-stream
+
+force get-public-id
+  start build, field stream-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicId|
+    throw build, field string
+
+force get-reader
+  start build, field stream-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getReader|
+    throw build, field reader
+
+force get-system-id
+  start build, field stream-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force set-input-stream
+  start build, field stream-source
+  start input-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |setInputStream|
+    mount factor, share input-stream
+    throw build, field unit
+
+force set-public-id
+  start build, field stream-source
+  start public-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setPublicId|
+    mount factor, share public-id
+    throw build, field unit
+
+force set-reader
+  start build, field stream-source
+  start reader, field reader
+
+  cause call-method
+    mount object, share build
+    mount method, |setReader|
+    mount factor, share reader
+    throw build, field unit
+
+force set-system-id
+  start build, field stream-source
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit
+
+force set-system-id
+  start build, field stream-source
+  start f, field file
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share f
+    throw build, field unit

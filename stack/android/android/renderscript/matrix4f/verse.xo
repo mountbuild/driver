@@ -1,0 +1,279 @@
+
+force build-matrix4f
+  cause invoke-constructor
+    drive constructor, |Matrix4f|
+    raise build, field matrix4f
+
+force build-matrix4f
+  mount data-array, field float-array
+
+  cause invoke-constructor
+    drive constructor, |Matrix4f|
+    drive factor, share data-array
+    raise build, field matrix4f
+
+force get
+  mount build, field matrix4f
+  mount x, field int
+  mount y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share x
+    drive factor, share y
+    raise build, field float
+
+force get-array
+  mount build, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |getArray|
+    raise build, field float-array
+
+force inverse
+  mount build, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |inverse|
+    raise build, field boolean
+
+force inverse-transpose
+  mount build, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |inverseTranspose|
+    raise build, field boolean
+
+force load
+  mount build, field matrix4f
+  mount src, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share src
+    raise build, field unit
+
+force load-frustum
+  mount build, field matrix4f
+  mount l, field float
+  mount r, field float
+  mount b, field float
+  mount t, field float
+  mount n, field float
+  mount f, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFrustum|
+    drive factor, share l
+    drive factor, share r
+    drive factor, share b
+    drive factor, share t
+    drive factor, share n
+    drive factor, share f
+    raise build, field unit
+
+force load-identity
+  mount build, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIdentity|
+    raise build, field unit
+
+force load-multiply
+  mount build, field matrix4f
+  mount lhs, field matrix4f
+  mount rhs, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |loadMultiply|
+    drive factor, share lhs
+    drive factor, share rhs
+    raise build, field unit
+
+force load-ortho
+  mount build, field matrix4f
+  mount l, field float
+  mount r, field float
+  mount b, field float
+  mount t, field float
+  mount n, field float
+  mount f, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadOrtho|
+    drive factor, share l
+    drive factor, share r
+    drive factor, share b
+    drive factor, share t
+    drive factor, share n
+    drive factor, share f
+    raise build, field unit
+
+force load-ortho-window
+  mount build, field matrix4f
+  mount w, field int
+  mount h, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadOrthoWindow|
+    drive factor, share w
+    drive factor, share h
+    raise build, field unit
+
+force load-perspective
+  mount build, field matrix4f
+  mount fovy, field float
+  mount aspect, field float
+  mount near, field float
+  mount far, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadPerspective|
+    drive factor, share fovy
+    drive factor, share aspect
+    drive factor, share near
+    drive factor, share far
+    raise build, field unit
+
+force load-projection-normalized
+  mount build, field matrix4f
+  mount w, field int
+  mount h, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |loadProjectionNormalized|
+    drive factor, share w
+    drive factor, share h
+    raise build, field unit
+
+force load-rotate
+  mount build, field matrix4f
+  mount rot, field float
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadRotate|
+    drive factor, share rot
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force load-scale
+  mount build, field matrix4f
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadScale|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force load-translate
+  mount build, field matrix4f
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |loadTranslate|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force multiply
+  mount build, field matrix4f
+  mount rhs, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |multiply|
+    drive factor, share rhs
+    raise build, field unit
+
+force rotate
+  mount build, field matrix4f
+  mount rot, field float
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |rotate|
+    drive factor, share rot
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force scale
+  mount build, field matrix4f
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |scale|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force set
+  mount build, field matrix4f
+  mount x, field int
+  mount y, field int
+  mount v, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share v
+    raise build, field unit
+
+force translate
+  mount build, field matrix4f
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |translate|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force transpose
+  mount build, field matrix4f
+
+  cause call-method
+    drive object, share build
+    drive method, |transpose|
+    raise build, field unit

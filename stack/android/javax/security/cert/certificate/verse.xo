@@ -1,0 +1,69 @@
+
+force build-certificate
+  cause invoke-constructor
+    mount constructor, |Certificate|
+    throw build, field certificate
+
+force equals
+  start build, field certificate
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-encoded
+  start build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-public-key
+  start build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicKey|
+    throw build, field public-key
+
+force hash-code
+  start build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force verify
+  start build, field certificate
+  start key, field public-key
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    throw build, field unit
+
+force verify
+  start build, field certificate
+  start key, field public-key
+  start sig-provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    mount factor, share sig-provider
+    throw build, field unit

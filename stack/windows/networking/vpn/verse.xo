@@ -1,0 +1,3285 @@
+
+force process-event-async
+  start build, field windows-networking-vpn-ivpnchannelstatics
+  start third-party-plug-in, field system-object
+  start event, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |ProcessEventAsync|
+    drive factor, share third-party-plug-in
+    drive factor, share event
+
+force get-additional-pin
+  start build, field windows-networking-vpn-ivpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+
+force set-additional-pin
+  start build, field windows-networking-vpn-ivpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+    drive factor, share value
+
+force get-certificate-credential
+  start build, field windows-networking-vpn-ivpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CertificateCredential|
+
+force set-certificate-credential
+  start build, field windows-networking-vpn-ivpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CertificateCredential|
+    drive factor, share value
+
+force get-old-password-credential
+  start build, field windows-networking-vpn-ivpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+
+force set-old-password-credential
+  start build, field windows-networking-vpn-ivpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+    drive factor, share value
+
+force get-passkey-credential
+  start build, field windows-networking-vpn-ivpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+
+force set-passkey-credential
+  start build, field windows-networking-vpn-ivpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+    drive factor, share value
+
+force get-bordered
+  start build, field windows-networking-vpn-ivpncustomprompt
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-ivpncustomprompt
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-ivpncustomprompt
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-ivpncustomprompt
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-ivpncustomprompt
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-ivpncustomprompt
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-ivpncustompromptelement
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-ivpncustompromptelement
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-networking-vpn-ivpncustompromptelement
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-vpn-ivpncustompromptelement
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-emphasized
+  start build, field windows-networking-vpn-ivpncustompromptelement
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+
+force set-emphasized
+  start build, field windows-networking-vpn-ivpncustompromptelement
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+    drive factor, share value
+
+force create-vpn-domain-name-info
+  start build, field windows-networking-vpn-ivpndomainnameinfofactory
+  start name, field system-string
+  start name-type, field windows-networking-vpn-vpndomainnametype
+  start dns-server-list, field windows-foundation-collections-iiterable-windows-networking-hostname
+  start proxy-server-list, field windows-foundation-collections-iiterable-windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateVpnDomainNameInfo|
+    drive factor, share name
+    drive factor, share name-type
+    drive factor, share dns-server-list
+    drive factor, share proxy-server-list
+
+force create-vpn-interface-id
+  start build, field windows-networking-vpn-ivpninterfaceidfactory
+  start address, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateVpnInterfaceId|
+    drive factor, share address
+
+force create-vpn-namespace-info
+  start build, field windows-networking-vpn-ivpnnamespaceinfofactory
+  start name, field system-string
+  start dns-server-list, field windows-foundation-collections-ivector-windows-networking-hostname
+  start proxy-server-list, field windows-foundation-collections-ivector-windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateVpnNamespaceInfo|
+    drive factor, share name
+    drive factor, share dns-server-list
+    drive factor, share proxy-server-list
+
+force create-vpn-packet-buffer
+  start build, field windows-networking-vpn-ivpnpacketbufferfactory
+  start parent-buffer, field windows-networking-vpn-vpnpacketbuffer
+  start offset, field system-uint32
+  start length, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateVpnPacketBuffer|
+    drive factor, share parent-buffer
+    drive factor, share offset
+    drive factor, share length
+
+force connect
+  start build, field windows-networking-vpn-ivpnplugin
+  start channel, field windows-networking-vpn-vpnchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |Connect|
+    drive factor, share channel
+
+force decapsulate
+  start build, field windows-networking-vpn-ivpnplugin
+  start channel, field windows-networking-vpn-vpnchannel
+  start encap-buffer, field windows-networking-vpn-vpnpacketbuffer
+  start decapsulated-packets, field windows-networking-vpn-vpnpacketbufferlist
+  start control-packets-to-send, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |Decapsulate|
+    drive factor, share channel
+    drive factor, share encap-buffer
+    drive factor, share decapsulated-packets
+    drive factor, share control-packets-to-send
+
+force disconnect
+  start build, field windows-networking-vpn-ivpnplugin
+  start channel, field windows-networking-vpn-vpnchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |Disconnect|
+    drive factor, share channel
+
+force encapsulate
+  start build, field windows-networking-vpn-ivpnplugin
+  start channel, field windows-networking-vpn-vpnchannel
+  start packets, field windows-networking-vpn-vpnpacketbufferlist
+  start encapulated-packets, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |Encapsulate|
+    drive factor, share channel
+    drive factor, share packets
+    drive factor, share encapulated-packets
+
+force get-keep-alive-payload
+  start build, field windows-networking-vpn-ivpnplugin
+  start channel, field windows-networking-vpn-vpnchannel
+  start keep-alive-packet, field windows-networking-vpn-vpnpacketbuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |GetKeepAlivePayload|
+    drive factor, share channel
+    drive factor, share keep-alive-packet
+
+force get-always-on
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+
+force set-always-on
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+    drive factor, share value
+
+force get-app-triggers
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+
+force set-app-triggers
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+    drive factor, share value
+
+force get-domain-name-info-list
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+
+force set-domain-name-info-list
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+    drive factor, share value
+
+force get-profile-name
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+
+force set-profile-name
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+    drive factor, share value
+
+force get-remember-credentials
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+
+force set-remember-credentials
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+    drive factor, share value
+
+force get-routes
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Routes|
+
+force set-routes
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Routes|
+    drive factor, share value
+
+force get-traffic-filters
+  start build, field windows-networking-vpn-ivpnprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+
+force set-traffic-filters
+  start build, field windows-networking-vpn-ivpnprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+    drive factor, share value
+
+force create-vpn-route
+  start build, field windows-networking-vpn-ivpnroutefactory
+  start address, field windows-networking-hostname
+  start prefix-size, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateVpnRoute|
+    drive factor, share address
+    drive factor, share prefix-size
+
+force build-vpn-app-id
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnAppId|
+
+force get-type
+  start build, field windows-networking-vpn-vpnappid
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-networking-vpn-vpnappid
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-value
+  start build, field windows-networking-vpn-vpnappid
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-networking-vpn-vpnappid
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnappid
+  start type, field windows-networking-vpn-vpnappidtype
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share type
+    drive factor, share value
+
+force get-vpn-app-id-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnAppIdType|
+
+force get-vpn-authentication-method
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnAuthenticationMethod|
+
+force build-vpn-channel
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnChannel|
+
+force add-and-associate-transport
+  start build, field windows-networking-vpn-vpnchannel
+  start transport, field system-object
+  start context, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |AddAndAssociateTransport|
+    drive factor, share transport
+    drive factor, share context
+
+force associate-transport
+  start build, field windows-networking-vpn-vpnchannel
+  start main-outer-tunnel-transport, field system-object
+  start optional-outer-tunnel-transport, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |AssociateTransport|
+    drive factor, share main-outer-tunnel-transport
+    drive factor, share optional-outer-tunnel-transport
+
+force get-configuration
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Configuration|
+
+force set-configuration
+  start build, field windows-networking-vpn-vpnchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Configuration|
+    drive factor, share value
+
+force get-current-request-transport-context
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CurrentRequestTransportContext|
+
+force set-current-request-transport-context
+  start build, field windows-networking-vpn-vpnchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CurrentRequestTransportContext|
+    drive factor, share value
+
+force get-slot-type-for-transport-context
+  start build, field windows-networking-vpn-vpnchannel
+  start context, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSlotTypeForTransportContext|
+    drive factor, share context
+
+force get-vpn-receive-packet-buffer
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |GetVpnReceivePacketBuffer|
+
+force get-vpn-send-packet-buffer
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |GetVpnSendPacketBuffer|
+
+force get-id
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-networking-vpn-vpnchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force log-diagnostic-message
+  start build, field windows-networking-vpn-vpnchannel
+  start message, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogDiagnosticMessage|
+    drive factor, share message
+
+force get-plug-in-context
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PlugInContext|
+
+force set-plug-in-context
+  start build, field windows-networking-vpn-vpnchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PlugInContext|
+    drive factor, share value
+
+force process-event-async
+  start build, field windows-networking-vpn-vpnchannel
+  start third-party-plug-in, field system-object
+  start event, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |ProcessEventAsync|
+    drive factor, share third-party-plug-in
+    drive factor, share event
+
+force replace-and-associate-transport
+  start build, field windows-networking-vpn-vpnchannel
+  start transport, field system-object
+  start context, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |ReplaceAndAssociateTransport|
+    drive factor, share transport
+    drive factor, share context
+
+force request-credentials
+  start build, field windows-networking-vpn-vpnchannel
+  start cred-type, field windows-networking-vpn-vpncredentialtype
+  start is-retry, field system-boolean
+  start is-single-sign-on-credential, field system-boolean
+  start certificate, field windows-security-cryptography-certificates-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCredentials|
+    drive factor, share cred-type
+    drive factor, share is-retry
+    drive factor, share is-single-sign-on-credential
+    drive factor, share certificate
+
+force request-credentials-async
+  start build, field windows-networking-vpn-vpnchannel
+  start cred-type, field windows-networking-vpn-vpncredentialtype
+  start cred-options, field system-uint32
+  start certificate, field windows-security-cryptography-certificates-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCredentialsAsync|
+    drive factor, share cred-type
+    drive factor, share cred-options
+    drive factor, share certificate
+
+force request-credentials-async
+  start build, field windows-networking-vpn-vpnchannel
+  start cred-type, field windows-networking-vpn-vpncredentialtype
+  start cred-options, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCredentialsAsync|
+    drive factor, share cred-type
+    drive factor, share cred-options
+
+force request-credentials-async
+  start build, field windows-networking-vpn-vpnchannel
+  start cred-type, field windows-networking-vpn-vpncredentialtype
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCredentialsAsync|
+    drive factor, share cred-type
+
+force request-custom-prompt
+  start build, field windows-networking-vpn-vpnchannel
+  start custom-prompt, field windows-foundation-collections-ivectorview-windows-networking-vpn-ivpncustomprompt
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCustomPrompt|
+    drive factor, share custom-prompt
+
+force request-custom-prompt-async
+  start build, field windows-networking-vpn-vpnchannel
+  start custom-prompt-element, field windows-foundation-collections-ivectorview-windows-networking-vpn-ivpncustompromptelement
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestCustomPromptAsync|
+    drive factor, share custom-prompt-element
+
+force request-vpn-packet-buffer
+  start build, field windows-networking-vpn-vpnchannel
+  start type, field windows-networking-vpn-vpndatapathtype
+  start vpn-packet-buffer, field windows-networking-vpn-vpnpacketbuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestVpnPacketBuffer|
+    drive factor, share type
+    drive factor, share vpn-packet-buffer
+
+force set-allowed-ssl-tls-versions
+  start build, field windows-networking-vpn-vpnchannel
+  start tunnel-transport, field system-object
+  start use-tls12, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAllowedSslTlsVersions|
+    drive factor, share tunnel-transport
+    drive factor, share use-tls12
+
+force set-error-message
+  start build, field windows-networking-vpn-vpnchannel
+  start message, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetErrorMessage|
+    drive factor, share message
+
+force start
+  start build, field windows-networking-vpn-vpnchannel
+  start assigned-client-i-pv4list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start assigned-client-i-pv6list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start vpn-interface-id, field windows-networking-vpn-vpninterfaceid
+  start route-scope, field windows-networking-vpn-vpnrouteassignment
+  start namespace-scope, field windows-networking-vpn-vpnnamespaceassignment
+  start mtu-size, field system-uint32
+  start max-frame-size, field system-uint32
+  start optimize-for-low-cost-network, field system-boolean
+  start main-outer-tunnel-transport, field system-object
+  start optional-outer-tunnel-transport, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |Start|
+    drive factor, share assigned-client-i-pv4list
+    drive factor, share assigned-client-i-pv6list
+    drive factor, share vpn-interface-id
+    drive factor, share route-scope
+    drive factor, share namespace-scope
+    drive factor, share mtu-size
+    drive factor, share max-frame-size
+    drive factor, share optimize-for-low-cost-network
+    drive factor, share main-outer-tunnel-transport
+    drive factor, share optional-outer-tunnel-transport
+
+force start-existing-transports
+  start build, field windows-networking-vpn-vpnchannel
+  start assigned-client-i-pv4list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start assigned-client-i-pv6list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start vpn-interface-id, field windows-networking-vpn-vpninterfaceid
+  start assigned-routes, field windows-networking-vpn-vpnrouteassignment
+  start assigned-domain-name, field windows-networking-vpn-vpndomainnameassignment
+  start mtu-size, field system-uint32
+  start max-frame-size, field system-uint32
+  start reserved, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |StartExistingTransports|
+    drive factor, share assigned-client-i-pv4list
+    drive factor, share assigned-client-i-pv6list
+    drive factor, share vpn-interface-id
+    drive factor, share assigned-routes
+    drive factor, share assigned-domain-name
+    drive factor, share mtu-size
+    drive factor, share max-frame-size
+    drive factor, share reserved
+
+force start-reconnecting-transport
+  start build, field windows-networking-vpn-vpnchannel
+  start transport, field system-object
+  start context, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |StartReconnectingTransport|
+    drive factor, share transport
+    drive factor, share context
+
+force start-with-main-transport
+  start build, field windows-networking-vpn-vpnchannel
+  start assigned-client-i-pv4list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start assigned-client-i-pv6list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start vpn-interface-id, field windows-networking-vpn-vpninterfaceid
+  start assigned-routes, field windows-networking-vpn-vpnrouteassignment
+  start assigned-domain-name, field windows-networking-vpn-vpndomainnameassignment
+  start mtu-size, field system-uint32
+  start max-frame-size, field system-uint32
+  start reserved, field system-boolean
+  start main-outer-tunnel-transport, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |StartWithMainTransport|
+    drive factor, share assigned-client-i-pv4list
+    drive factor, share assigned-client-i-pv6list
+    drive factor, share vpn-interface-id
+    drive factor, share assigned-routes
+    drive factor, share assigned-domain-name
+    drive factor, share mtu-size
+    drive factor, share max-frame-size
+    drive factor, share reserved
+    drive factor, share main-outer-tunnel-transport
+
+force start-with-traffic-filter
+  start build, field windows-networking-vpn-vpnchannel
+  start assigned-client-ipv4-list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start assigned-client-ipv6-list, field windows-foundation-collections-ivectorview-windows-networking-hostname
+  start vpn-interface-id, field windows-networking-vpn-vpninterfaceid
+  start assigned-routes, field windows-networking-vpn-vpnrouteassignment
+  start assigned-namespace, field windows-networking-vpn-vpndomainnameassignment
+  start mtu-size, field system-uint32
+  start max-frame-size, field system-uint32
+  start reserved, field system-boolean
+  start main-outer-tunnel-transport, field system-object
+  start optional-outer-tunnel-transport, field system-object
+  start assigned-traffic-filters, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |StartWithTrafficFilter|
+    drive factor, share assigned-client-ipv4-list
+    drive factor, share assigned-client-ipv6-list
+    drive factor, share vpn-interface-id
+    drive factor, share assigned-routes
+    drive factor, share assigned-namespace
+    drive factor, share mtu-size
+    drive factor, share max-frame-size
+    drive factor, share reserved
+    drive factor, share main-outer-tunnel-transport
+    drive factor, share optional-outer-tunnel-transport
+    drive factor, share assigned-traffic-filters
+
+force start-with-traffic-filter
+  start build, field windows-networking-vpn-vpnchannel
+  start assigned-client-ipv4-addresses, field windows-foundation-collections-iiterable-windows-networking-hostname
+  start assigned-client-ipv6-addresses, field windows-foundation-collections-iiterable-windows-networking-hostname
+  start vpninterface-id, field windows-networking-vpn-vpninterfaceid
+  start assigned-routes, field windows-networking-vpn-vpnrouteassignment
+  start assigned-namespace, field windows-networking-vpn-vpndomainnameassignment
+  start mtu-size, field system-uint32
+  start max-frame-size, field system-uint32
+  start reserved, field system-boolean
+  start transports, field windows-foundation-collections-iiterable-system-object
+  start assigned-traffic-filters, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |StartWithTrafficFilter|
+    drive factor, share assigned-client-ipv4-addresses
+    drive factor, share assigned-client-ipv6-addresses
+    drive factor, share vpninterface-id
+    drive factor, share assigned-routes
+    drive factor, share assigned-namespace
+    drive factor, share mtu-size
+    drive factor, share max-frame-size
+    drive factor, share reserved
+    drive factor, share transports
+    drive factor, share assigned-traffic-filters
+
+force stop
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |Stop|
+
+force get-system-health
+  start build, field windows-networking-vpn-vpnchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemHealth|
+
+force set-system-health
+  start build, field windows-networking-vpn-vpnchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemHealth|
+    drive factor, share value
+
+force terminate-connection
+  start build, field windows-networking-vpn-vpnchannel
+  start message, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |TerminateConnection|
+    drive factor, share message
+
+force build-vpn-channel-activity-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnChannelActivityEventArgs|
+
+force get-type
+  start build, field windows-networking-vpn-vpnchannelactivityeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-networking-vpn-vpnchannelactivityeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-vpn-channel-activity-event-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnChannelActivityEventType|
+
+force build-vpn-channel-activity-state-changed-args
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs|
+
+force get-activity-state
+  start build, field windows-networking-vpn-vpnchannelactivitystatechangedargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ActivityState|
+
+force set-activity-state
+  start build, field windows-networking-vpn-vpnchannelactivitystatechangedargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ActivityState|
+    drive factor, share value
+
+force build-vpn-channel-configuration
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnChannelConfiguration|
+
+force get-custom-field
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CustomField|
+
+force set-custom-field
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CustomField|
+    drive factor, share value
+
+force get-server-host-name-list
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServerHostNameList|
+
+force set-server-host-name-list
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServerHostNameList|
+    drive factor, share value
+
+force get-server-service-name
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServerServiceName|
+
+force set-server-service-name
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServerServiceName|
+    drive factor, share value
+
+force get-server-uris
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServerUris|
+
+force set-server-uris
+  start build, field windows-networking-vpn-vpnchannelconfiguration
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServerUris|
+    drive factor, share value
+
+force get-vpn-channel-request-credentials-options
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions|
+
+force build-vpn-credential
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCredential|
+
+force get-additional-pin
+  start build, field windows-networking-vpn-vpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+
+force set-additional-pin
+  start build, field windows-networking-vpn-vpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+    drive factor, share value
+
+force get-certificate-credential
+  start build, field windows-networking-vpn-vpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CertificateCredential|
+
+force set-certificate-credential
+  start build, field windows-networking-vpn-vpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CertificateCredential|
+    drive factor, share value
+
+force get-old-password-credential
+  start build, field windows-networking-vpn-vpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+
+force set-old-password-credential
+  start build, field windows-networking-vpn-vpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+    drive factor, share value
+
+force get-passkey-credential
+  start build, field windows-networking-vpn-vpncredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+
+force set-passkey-credential
+  start build, field windows-networking-vpn-vpncredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+    drive factor, share value
+
+force get-vpn-credential-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnCredentialType|
+
+force build-vpn-custom-check-box
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomCheckBox|
+
+force get-bordered
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-vpncustomcheckbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-checked
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Checked|
+
+force set-checked
+  start build, field windows-networking-vpn-vpncustomcheckbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Checked|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomcheckbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-initial-check-state
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InitialCheckState|
+
+force set-initial-check-state
+  start build, field windows-networking-vpn-vpncustomcheckbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InitialCheckState|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-vpncustomcheckbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomcheckbox
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-combo-box
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomComboBox|
+
+force get-bordered
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-vpncustomcombobox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomcombobox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-vpncustomcombobox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force get-options-text
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OptionsText|
+
+force set-options-text
+  start build, field windows-networking-vpn-vpncustomcombobox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OptionsText|
+    drive factor, share value
+
+force get-selected
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Selected|
+
+force set-selected
+  start build, field windows-networking-vpn-vpncustomcombobox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Selected|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomcombobox
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-edit-box
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomEditBox|
+
+force get-bordered
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-default-text
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DefaultText|
+
+force set-default-text
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DefaultText|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force get-no-echo
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NoEcho|
+
+force set-no-echo
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NoEcho|
+    drive factor, share value
+
+force get-text
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-networking-vpn-vpncustomeditbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomeditbox
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-error-box
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomErrorBox|
+
+force get-bordered
+  start build, field windows-networking-vpn-vpncustomerrorbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-vpncustomerrorbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomerrorbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomerrorbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-vpncustomerrorbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-vpncustomerrorbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomerrorbox
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-prompt-boolean-input
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomPromptBooleanInput|
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-emphasized
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+
+force set-emphasized
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+    drive factor, share value
+
+force get-initial-value
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InitialValue|
+
+force set-initial-value
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InitialValue|
+    drive factor, share value
+
+force get-value
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustompromptbooleaninput
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-prompt-option-selector
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomPromptOptionSelector|
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-emphasized
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+
+force set-emphasized
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+    drive factor, share value
+
+force get-options
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Options|
+
+force set-options
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Options|
+    drive factor, share value
+
+force get-selected-index
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SelectedIndex|
+
+force set-selected-index
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SelectedIndex|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustompromptoptionselector
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-prompt-text
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomPromptText|
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomprompttext
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomprompttext
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-networking-vpn-vpncustomprompttext
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-vpn-vpncustomprompttext
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-emphasized
+  start build, field windows-networking-vpn-vpncustomprompttext
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+
+force set-emphasized
+  start build, field windows-networking-vpn-vpncustomprompttext
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+    drive factor, share value
+
+force get-text
+  start build, field windows-networking-vpn-vpncustomprompttext
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-networking-vpn-vpncustomprompttext
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomprompttext
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-prompt-text-input
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomPromptTextInput|
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-name
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-emphasized
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+
+force set-emphasized
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Emphasized|
+    drive factor, share value
+
+force get-is-text-hidden
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsTextHidden|
+
+force set-is-text-hidden
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsTextHidden|
+    drive factor, share value
+
+force get-placeholder-text
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PlaceholderText|
+
+force set-placeholder-text
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PlaceholderText|
+    drive factor, share value
+
+force get-text
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Text|
+
+force set-text
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Text|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomprompttextinput
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-custom-text-box
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnCustomTextBox|
+
+force get-bordered
+  start build, field windows-networking-vpn-vpncustomtextbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+
+force set-bordered
+  start build, field windows-networking-vpn-vpncustomtextbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Bordered|
+    drive factor, share value
+
+force get-compulsory
+  start build, field windows-networking-vpn-vpncustomtextbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+
+force set-compulsory
+  start build, field windows-networking-vpn-vpncustomtextbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compulsory|
+    drive factor, share value
+
+force get-display-text
+  start build, field windows-networking-vpn-vpncustomtextbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+
+force set-display-text
+  start build, field windows-networking-vpn-vpncustomtextbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayText|
+    drive factor, share value
+
+force get-label
+  start build, field windows-networking-vpn-vpncustomtextbox
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Label|
+
+force set-label
+  start build, field windows-networking-vpn-vpncustomtextbox
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Label|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpncustomtextbox
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-vpn-data-path-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnDataPathType|
+
+force build-vpn-domain-name-assignment
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnDomainNameAssignment|
+
+force get-domain-name-list
+  start build, field windows-networking-vpn-vpndomainnameassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainNameList|
+
+force set-domain-name-list
+  start build, field windows-networking-vpn-vpndomainnameassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainNameList|
+    drive factor, share value
+
+force get-proxy-auto-configuration-uri
+  start build, field windows-networking-vpn-vpndomainnameassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProxyAutoConfigurationUri|
+
+force set-proxy-auto-configuration-uri
+  start build, field windows-networking-vpn-vpndomainnameassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProxyAutoConfigurationUri|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpndomainnameassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-domain-name-info
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnDomainNameInfo|
+
+force get-dns-servers
+  start build, field windows-networking-vpn-vpndomainnameinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DnsServers|
+
+force set-dns-servers
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DnsServers|
+    drive factor, share value
+
+force get-domain-name
+  start build, field windows-networking-vpn-vpndomainnameinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainName|
+
+force set-domain-name
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainName|
+    drive factor, share value
+
+force get-domain-name-type
+  start build, field windows-networking-vpn-vpndomainnameinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainNameType|
+
+force set-domain-name-type
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainNameType|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start name, field system-string
+  start name-type, field windows-networking-vpn-vpndomainnametype
+  start dns-server-list, field windows-foundation-collections-iiterable-windows-networking-hostname
+  start proxy-server-list, field windows-foundation-collections-iiterable-windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+    drive factor, share name-type
+    drive factor, share dns-server-list
+    drive factor, share proxy-server-list
+
+force get-web-proxy-servers
+  start build, field windows-networking-vpn-vpndomainnameinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WebProxyServers|
+
+force set-web-proxy-servers
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WebProxyServers|
+    drive factor, share value
+
+force get-web-proxy-uris
+  start build, field windows-networking-vpn-vpndomainnameinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WebProxyUris|
+
+force set-web-proxy-uris
+  start build, field windows-networking-vpn-vpndomainnameinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WebProxyUris|
+    drive factor, share value
+
+force get-vpn-domain-name-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnDomainNameType|
+
+force build-vpn-interface-id
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnInterfaceId|
+
+force get-address-info
+  start build, field windows-networking-vpn-vpninterfaceid
+  start id, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAddressInfo|
+    drive factor, share id
+
+force ctor
+  start build, field windows-networking-vpn-vpninterfaceid
+  start address, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share address
+
+force get-vpn-i-p-protocol
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnIPProtocol|
+
+force build-vpn-management-agent
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnManagementAgent|
+
+force add-profile-from-object-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |AddProfileFromObjectAsync|
+    drive factor, share profile
+
+force add-profile-from-xml-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start xml, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddProfileFromXmlAsync|
+    drive factor, share xml
+
+force connect-profile-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectProfileAsync|
+    drive factor, share profile
+
+force connect-profile-with-password-credential-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+  start password-credential, field windows-security-credentials-passwordcredential
+
+  cause call-method
+    drive object, share build
+    drive method, |ConnectProfileWithPasswordCredentialAsync|
+    drive factor, share profile
+    drive factor, share password-credential
+
+force delete-profile-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteProfileAsync|
+    drive factor, share profile
+
+force disconnect-profile-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |DisconnectProfileAsync|
+    drive factor, share profile
+
+force get-profiles-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+
+  cause call-method
+    drive object, share build
+    drive method, |GetProfilesAsync|
+
+force update-profile-from-object-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start profile, field windows-networking-vpn-ivpnprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateProfileFromObjectAsync|
+    drive factor, share profile
+
+force update-profile-from-xml-async
+  start build, field windows-networking-vpn-vpnmanagementagent
+  start xml, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateProfileFromXmlAsync|
+    drive factor, share xml
+
+force ctor
+  start build, field windows-networking-vpn-vpnmanagementagent
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-vpn-management-connection-status
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnManagementConnectionStatus|
+
+force get-vpn-management-error-status
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnManagementErrorStatus|
+
+force build-vpn-namespace-assignment
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnNamespaceAssignment|
+
+force get-namespace-list
+  start build, field windows-networking-vpn-vpnnamespaceassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NamespaceList|
+
+force set-namespace-list
+  start build, field windows-networking-vpn-vpnnamespaceassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NamespaceList|
+    drive factor, share value
+
+force get-proxy-auto-config-uri
+  start build, field windows-networking-vpn-vpnnamespaceassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProxyAutoConfigUri|
+
+force set-proxy-auto-config-uri
+  start build, field windows-networking-vpn-vpnnamespaceassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProxyAutoConfigUri|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnnamespaceassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-namespace-info
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnNamespaceInfo|
+
+force get-dns-servers
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DnsServers|
+
+force set-dns-servers
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DnsServers|
+    drive factor, share value
+
+force get-namespace
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Namespace|
+
+force set-namespace
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Namespace|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+  start name, field system-string
+  start dns-server-list, field windows-foundation-collections-ivector-windows-networking-hostname
+  start proxy-server-list, field windows-foundation-collections-ivector-windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+    drive factor, share dns-server-list
+    drive factor, share proxy-server-list
+
+force get-web-proxy-servers
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WebProxyServers|
+
+force set-web-proxy-servers
+  start build, field windows-networking-vpn-vpnnamespaceinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WebProxyServers|
+    drive factor, share value
+
+force build-vpn-native-profile
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnNativeProfile|
+
+force get-always-on
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+
+force set-always-on
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+    drive factor, share value
+
+force get-app-triggers
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+
+force set-app-triggers
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+    drive factor, share value
+
+force get-connection-status
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+
+force set-connection-status
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+    drive factor, share value
+
+force get-domain-name-info-list
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+
+force set-domain-name-info-list
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+    drive factor, share value
+
+force get-eap-configuration
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |EapConfiguration|
+
+force set-eap-configuration
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |EapConfiguration|
+    drive factor, share value
+
+force get-native-protocol-type
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NativeProtocolType|
+
+force set-native-protocol-type
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NativeProtocolType|
+    drive factor, share value
+
+force get-profile-name
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+
+force set-profile-name
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+    drive factor, share value
+
+force get-remember-credentials
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+
+force set-remember-credentials
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+    drive factor, share value
+
+force get-require-vpn-client-app-u-i
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RequireVpnClientAppUI|
+
+force set-require-vpn-client-app-u-i
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RequireVpnClientAppUI|
+    drive factor, share value
+
+force get-routes
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Routes|
+
+force set-routes
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Routes|
+    drive factor, share value
+
+force get-routing-policy-type
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RoutingPolicyType|
+
+force set-routing-policy-type
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RoutingPolicyType|
+    drive factor, share value
+
+force get-servers
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Servers|
+
+force set-servers
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Servers|
+    drive factor, share value
+
+force get-traffic-filters
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+
+force set-traffic-filters
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+    drive factor, share value
+
+force get-tunnel-authentication-method
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TunnelAuthenticationMethod|
+
+force set-tunnel-authentication-method
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TunnelAuthenticationMethod|
+    drive factor, share value
+
+force get-user-authentication-method
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserAuthenticationMethod|
+
+force set-user-authentication-method
+  start build, field windows-networking-vpn-vpnnativeprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserAuthenticationMethod|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnnativeprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-vpn-native-protocol-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnNativeProtocolType|
+
+force build-vpn-packet-buffer
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnPacketBuffer|
+
+force get-app-id
+  start build, field windows-networking-vpn-vpnpacketbuffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppId|
+
+force set-app-id
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppId|
+    drive factor, share value
+
+force get-buffer
+  start build, field windows-networking-vpn-vpnpacketbuffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Buffer|
+
+force set-buffer
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Buffer|
+    drive factor, share value
+
+force get-status
+  start build, field windows-networking-vpn-vpnpacketbuffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-transport-affinity
+  start build, field windows-networking-vpn-vpnpacketbuffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TransportAffinity|
+
+force set-transport-affinity
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TransportAffinity|
+    drive factor, share value
+
+force get-transport-context
+  start build, field windows-networking-vpn-vpnpacketbuffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TransportContext|
+
+force set-transport-context
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TransportContext|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnpacketbuffer
+  start parent-buffer, field windows-networking-vpn-vpnpacketbuffer
+  start offset, field system-uint32
+  start length, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share parent-buffer
+    drive factor, share offset
+    drive factor, share length
+
+force build-vpn-packet-buffer-list
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnPacketBufferList|
+
+force add-at-begin
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+  start next-vpn-packet-buffer, field windows-networking-vpn-vpnpacketbuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |AddAtBegin|
+    drive factor, share next-vpn-packet-buffer
+
+force append
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+  start next-vpn-packet-buffer, field windows-networking-vpn-vpnpacketbuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |Append|
+    drive factor, share next-vpn-packet-buffer
+
+force clear
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |Clear|
+
+force first
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |First|
+
+force remove-at-begin
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveAtBegin|
+
+force remove-at-end
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveAtEnd|
+
+force get-size
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force get-status
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-networking-vpn-vpnpacketbufferlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-vpn-packet-buffer-status
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnPacketBufferStatus|
+
+force build-vpn-picked-credential
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnPickedCredential|
+
+force get-additional-pin
+  start build, field windows-networking-vpn-vpnpickedcredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+
+force set-additional-pin
+  start build, field windows-networking-vpn-vpnpickedcredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AdditionalPin|
+    drive factor, share value
+
+force get-old-password-credential
+  start build, field windows-networking-vpn-vpnpickedcredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+
+force set-old-password-credential
+  start build, field windows-networking-vpn-vpnpickedcredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OldPasswordCredential|
+    drive factor, share value
+
+force get-passkey-credential
+  start build, field windows-networking-vpn-vpnpickedcredential
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+
+force set-passkey-credential
+  start build, field windows-networking-vpn-vpnpickedcredential
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PasskeyCredential|
+    drive factor, share value
+
+force build-vpn-plug-in-profile
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnPlugInProfile|
+
+force get-always-on
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+
+force set-always-on
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlwaysOn|
+    drive factor, share value
+
+force get-app-triggers
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+
+force set-app-triggers
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppTriggers|
+    drive factor, share value
+
+force get-connection-status
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+
+force set-connection-status
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectionStatus|
+    drive factor, share value
+
+force get-custom-configuration
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CustomConfiguration|
+
+force set-custom-configuration
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CustomConfiguration|
+    drive factor, share value
+
+force get-domain-name-info-list
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+
+force set-domain-name-info-list
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DomainNameInfoList|
+    drive factor, share value
+
+force get-profile-name
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+
+force set-profile-name
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ProfileName|
+    drive factor, share value
+
+force get-remember-credentials
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+
+force set-remember-credentials
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RememberCredentials|
+    drive factor, share value
+
+force get-require-vpn-client-app-u-i
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RequireVpnClientAppUI|
+
+force set-require-vpn-client-app-u-i
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RequireVpnClientAppUI|
+    drive factor, share value
+
+force get-routes
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Routes|
+
+force set-routes
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Routes|
+    drive factor, share value
+
+force get-server-uris
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServerUris|
+
+force set-server-uris
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServerUris|
+    drive factor, share value
+
+force get-traffic-filters
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+
+force set-traffic-filters
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrafficFilters|
+    drive factor, share value
+
+force get-vpn-plugin-package-family-name
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |VpnPluginPackageFamilyName|
+
+force set-vpn-plugin-package-family-name
+  start build, field windows-networking-vpn-vpnpluginprofile
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |VpnPluginPackageFamilyName|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnpluginprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force build-vpn-route
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnRoute|
+
+force get-address
+  start build, field windows-networking-vpn-vpnroute
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Address|
+
+force set-address
+  start build, field windows-networking-vpn-vpnroute
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Address|
+    drive factor, share value
+
+force get-prefix-size
+  start build, field windows-networking-vpn-vpnroute
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PrefixSize|
+
+force set-prefix-size
+  start build, field windows-networking-vpn-vpnroute
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PrefixSize|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnroute
+  start address, field windows-networking-hostname
+  start prefix-size, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share address
+    drive factor, share prefix-size
+
+force build-vpn-route-assignment
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnRouteAssignment|
+
+force get-exclude-local-subnets
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExcludeLocalSubnets|
+
+force set-exclude-local-subnets
+  start build, field windows-networking-vpn-vpnrouteassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExcludeLocalSubnets|
+    drive factor, share value
+
+force get-ipv4-exclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ipv4ExclusionRoutes|
+
+force set-ipv4-exclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ipv4ExclusionRoutes|
+    drive factor, share value
+
+force get-ipv4-inclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ipv4InclusionRoutes|
+
+force set-ipv4-inclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ipv4InclusionRoutes|
+    drive factor, share value
+
+force get-ipv6-exclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ipv6ExclusionRoutes|
+
+force set-ipv6-exclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ipv6ExclusionRoutes|
+    drive factor, share value
+
+force get-ipv6-inclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Ipv6InclusionRoutes|
+
+force set-ipv6-inclusion-routes
+  start build, field windows-networking-vpn-vpnrouteassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Ipv6InclusionRoutes|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpnrouteassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-vpn-routing-policy-type
+  cause get-object
+    drive aspect, |Windows.Networking.Vpn.VpnRoutingPolicyType|
+
+force build-vpn-system-health
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnSystemHealth|
+
+force get-statement-of-health
+  start build, field windows-networking-vpn-vpnsystemhealth
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StatementOfHealth|
+
+force set-statement-of-health
+  start build, field windows-networking-vpn-vpnsystemhealth
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StatementOfHealth|
+    drive factor, share value
+
+force build-vpn-traffic-filter
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnTrafficFilter|
+
+force get-app-claims
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppClaims|
+
+force set-app-claims
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppClaims|
+    drive factor, share value
+
+force get-app-id
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppId|
+
+force set-app-id
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppId|
+    drive factor, share value
+
+force get-local-address-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LocalAddressRanges|
+
+force set-local-address-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LocalAddressRanges|
+    drive factor, share value
+
+force get-local-port-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LocalPortRanges|
+
+force set-local-port-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LocalPortRanges|
+    drive factor, share value
+
+force get-protocol
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Protocol|
+
+force set-protocol
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Protocol|
+    drive factor, share value
+
+force get-remote-address-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemoteAddressRanges|
+
+force set-remote-address-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemoteAddressRanges|
+    drive factor, share value
+
+force get-remote-port-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemotePortRanges|
+
+force set-remote-port-ranges
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemotePortRanges|
+    drive factor, share value
+
+force get-routing-policy-type
+  start build, field windows-networking-vpn-vpntrafficfilter
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RoutingPolicyType|
+
+force set-routing-policy-type
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RoutingPolicyType|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpntrafficfilter
+  start app-id, field windows-networking-vpn-vpnappid
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share app-id
+
+force build-vpn-traffic-filter-assignment
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.Vpn.VpnTrafficFilterAssignment|
+
+force get-allow-inbound
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AllowInbound|
+
+force set-allow-inbound
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AllowInbound|
+    drive factor, share value
+
+force get-allow-outbound
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AllowOutbound|
+
+force set-allow-outbound
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AllowOutbound|
+    drive factor, share value
+
+force get-traffic-filter-list
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrafficFilterList|
+
+force set-traffic-filter-list
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrafficFilterList|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-vpn-vpntrafficfilterassignment
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|

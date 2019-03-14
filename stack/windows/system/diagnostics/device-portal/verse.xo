@@ -1,0 +1,177 @@
+
+force build-device-portal-connection
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.DevicePortal.DevicePortalConnection|
+
+force get-for-app-service-connection
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start app-service-connection, field windows-applicationmodel-appservice-appserviceconnection
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForAppServiceConnection|
+    drive factor, share app-service-connection
+
+force get-server-message-web-socket-for-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start request, field windows-web-http-httprequestmessage
+
+  cause call-method
+    drive object, share build
+    drive method, |GetServerMessageWebSocketForRequest|
+    drive factor, share request
+
+force get-server-message-web-socket-for-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start request, field windows-web-http-httprequestmessage
+  start message-type, field windows-networking-sockets-socketmessagetype
+  start protocol, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetServerMessageWebSocketForRequest|
+    drive factor, share request
+    drive factor, share message-type
+    drive factor, share protocol
+
+force get-server-message-web-socket-for-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start request, field windows-web-http-httprequestmessage
+  start message-type, field windows-networking-sockets-socketmessagetype
+  start protocol, field system-string
+  start outbound-buffer-size-in-bytes, field system-uint32
+  start max-message-size, field system-uint32
+  start receive-mode, field windows-networking-sockets-messagewebsocketreceivemode
+
+  cause call-method
+    drive object, share build
+    drive method, |GetServerMessageWebSocketForRequest|
+    drive factor, share request
+    drive factor, share message-type
+    drive factor, share protocol
+    drive factor, share outbound-buffer-size-in-bytes
+    drive factor, share max-message-size
+    drive factor, share receive-mode
+
+force get-server-stream-web-socket-for-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start request, field windows-web-http-httprequestmessage
+
+  cause call-method
+    drive object, share build
+    drive method, |GetServerStreamWebSocketForRequest|
+    drive factor, share request
+
+force get-server-stream-web-socket-for-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnection
+  start request, field windows-web-http-httprequestmessage
+  start protocol, field system-string
+  start outbound-buffer-size-in-bytes, field system-uint32
+  start no-delay, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |GetServerStreamWebSocketForRequest|
+    drive factor, share request
+    drive factor, share protocol
+    drive factor, share outbound-buffer-size-in-bytes
+    drive factor, share no-delay
+
+force build-device-portal-connection-closed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs|
+
+force get-reason
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionclosedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Reason|
+
+force set-reason
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionclosedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Reason|
+    drive factor, share value
+
+force get-device-portal-connection-closed-reason
+  cause get-object
+    drive aspect, |Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason|
+
+force build-device-portal-connection-request-received-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs|
+
+force get-deferral
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force get-is-web-socket-upgrade-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsWebSocketUpgradeRequest|
+
+force set-is-web-socket-upgrade-request
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsWebSocketUpgradeRequest|
+    drive factor, share value
+
+force get-request-message
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RequestMessage|
+
+force set-request-message
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RequestMessage|
+    drive factor, share value
+
+force get-response-message
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResponseMessage|
+
+force set-response-message
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResponseMessage|
+    drive factor, share value
+
+force get-web-socket-protocols-requested
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |WebSocketProtocolsRequested|
+
+force set-web-socket-protocols-requested
+  start build, field windows-system-diagnostics-deviceportal-deviceportalconnectionrequestreceivedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |WebSocketProtocolsRequested|
+    drive factor, share value

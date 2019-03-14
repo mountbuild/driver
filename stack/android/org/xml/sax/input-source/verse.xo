@@ -1,0 +1,119 @@
+
+force build-input-source
+  cause invoke-constructor
+    drive constructor, |InputSource|
+    throw build, field input-source
+
+force build-input-source
+  mount system-id, field string
+
+  cause invoke-constructor
+    drive constructor, |InputSource|
+    drive factor, share system-id
+    throw build, field input-source
+
+force build-input-source
+  mount byte-stream, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |InputSource|
+    drive factor, share byte-stream
+    throw build, field input-source
+
+force build-input-source
+  mount character-stream, field reader
+
+  cause invoke-constructor
+    drive constructor, |InputSource|
+    drive factor, share character-stream
+    throw build, field input-source
+
+force get-byte-stream
+  mount build, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getByteStream|
+    throw build, field input-stream
+
+force get-character-stream
+  mount build, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacterStream|
+    throw build, field reader
+
+force get-encoding
+  mount build, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncoding|
+    throw build, field string
+
+force get-public-id
+  mount build, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getPublicId|
+    throw build, field string
+
+force get-system-id
+  mount build, field input-source
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemId|
+    throw build, field string
+
+force set-byte-stream
+  mount build, field input-source
+  mount byte-stream, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |setByteStream|
+    drive factor, share byte-stream
+    throw build, field unit
+
+force set-character-stream
+  mount build, field input-source
+  mount character-stream, field reader
+
+  cause call-method
+    drive object, share build
+    drive method, |setCharacterStream|
+    drive factor, share character-stream
+    throw build, field unit
+
+force set-encoding
+  mount build, field input-source
+  mount encoding, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setEncoding|
+    drive factor, share encoding
+    throw build, field unit
+
+force set-public-id
+  mount build, field input-source
+  mount public-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPublicId|
+    drive factor, share public-id
+    throw build, field unit
+
+force set-system-id
+  mount build, field input-source
+  mount system-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSystemId|
+    drive factor, share system-id
+    throw build, field unit

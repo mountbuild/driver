@@ -1,0 +1,16 @@
+
+force build-illegal-format-width-exception
+  mount w, field int
+
+  cause invoke-constructor
+    drive constructor, |IllegalFormatWidthException|
+    drive factor, share w
+    throw build, field illegal-format-width-exception
+
+force get-width
+  mount build, field illegal-format-width-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    throw build, field int

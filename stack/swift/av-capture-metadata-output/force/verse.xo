@@ -1,0 +1,97 @@
+force get-available-metadata-object-types
+  field build, field av-capture-metadata-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableMetadataObjectTypes|
+    raise build, field av-metadata-object-object-type
+
+force set-available-metadata-object-types
+  field build, field av-capture-metadata-output
+  field value, field av-metadata-object-object-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableMetadataObjectTypes|
+    drive factor, share value
+
+force get-metadata-object-types
+  field build, field av-capture-metadata-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |metadataObjectTypes|
+    raise build, field av-metadata-object-object-type
+
+force set-metadata-object-types
+  field build, field av-capture-metadata-output
+  field value, field av-metadata-object-object-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |metadataObjectTypes|
+    drive factor, share value
+
+force get-rect-of-interest
+  field build, field av-capture-metadata-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |rectOfInterest|
+    raise build, field cg-rect
+
+force set-rect-of-interest
+  field build, field av-capture-metadata-output
+  field value, field cg-rect
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |rectOfInterest|
+    drive factor, share value
+
+force set-metadata-objects-delegate
+  field build, field av-capture-metadata-output
+  field a, class av-capture-metadata-output-objects-delegate
+  field queue, field dispatch-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |setMetadataObjectsDelegate|
+    drive factor, share a
+    drive factor
+      brand queue
+      share queue
+
+force get-metadata-objects-delegate
+  field build, field av-capture-metadata-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |metadataObjectsDelegate|
+    raise build, field av-capture-metadata-output-objects-delegate
+
+force set-metadata-objects-delegate
+  field build, field av-capture-metadata-output
+  field value, field av-capture-metadata-output-objects-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |metadataObjectsDelegate|
+    drive factor, share value
+
+force get-metadata-objects-callback-queue
+  field build, field av-capture-metadata-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |metadataObjectsCallbackQueue|
+    raise build, field dispatch-queue
+
+force set-metadata-objects-callback-queue
+  field build, field av-capture-metadata-output
+  field value, field dispatch-queue
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |metadataObjectsCallbackQueue|
+    drive factor, share value

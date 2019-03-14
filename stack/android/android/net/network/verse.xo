@@ -1,0 +1,144 @@
+
+force bind-socket
+  start build, field network
+  start socket, field datagram-socket
+
+  cause call-method
+    drive object, share build
+    drive method, |bindSocket|
+    drive factor, share socket
+    throw build, field unit
+
+force bind-socket
+  start build, field network
+  start socket, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |bindSocket|
+    drive factor, share socket
+    throw build, field unit
+
+force bind-socket
+  start build, field network
+  start fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |bindSocket|
+    drive factor, share fd
+    throw build, field unit
+
+force describe-contents
+  start build, field network
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field network
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force from-network-handle
+  start build, field network
+  start network-handle, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |fromNetworkHandle|
+    drive factor, share network-handle
+    throw build, field network
+
+force get-all-by-name
+  start build, field network
+  start host, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllByName|
+    drive factor, share host
+    throw build, field array
+
+force get-by-name
+  start build, field network
+  start host, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getByName|
+    drive factor, share host
+    throw build, field inet-address
+
+force get-network-handle
+  start build, field network
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkHandle|
+    throw build, field long
+
+force get-socket-factory
+  start build, field network
+
+  cause call-method
+    drive object, share build
+    drive method, |getSocketFactory|
+    throw build, field socket-factory
+
+force hash-code
+  start build, field network
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force open-connection
+  start build, field network
+  start url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |openConnection|
+    drive factor, share url
+    throw build, field url-connection
+
+force open-connection
+  start build, field network
+  start url, field url
+  start proxy, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |openConnection|
+    drive factor, share url
+    drive factor, share proxy
+    throw build, field url-connection
+
+force to-string
+  start build, field network
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field network
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

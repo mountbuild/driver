@@ -1,0 +1,107 @@
+
+force get-feature
+  start build, field dom-result
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-dom-result
+  cause invoke-constructor
+    mount constructor, |DOMResult|
+    throw build, field dom-result
+
+force build-dom-result
+  start node, field node
+
+  cause invoke-constructor
+    mount constructor, |DOMResult|
+    mount factor, share node
+    throw build, field dom-result
+
+force build-dom-result
+  start node, field node
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |DOMResult|
+    mount factor, share node
+    mount factor, share system-id
+    throw build, field dom-result
+
+force build-dom-result
+  start node, field node
+  start next-sibling, field node
+
+  cause invoke-constructor
+    mount constructor, |DOMResult|
+    mount factor, share node
+    mount factor, share next-sibling
+    throw build, field dom-result
+
+force build-dom-result
+  start node, field node
+  start next-sibling, field node
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |DOMResult|
+    mount factor, share node
+    mount factor, share next-sibling
+    mount factor, share system-id
+    throw build, field dom-result
+
+force get-next-sibling
+  start build, field dom-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getNextSibling|
+    throw build, field node
+
+force get-node
+  start build, field dom-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getNode|
+    throw build, field node
+
+force get-system-id
+  start build, field dom-result
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force set-next-sibling
+  start build, field dom-result
+  start next-sibling, field node
+
+  cause call-method
+    mount object, share build
+    mount method, |setNextSibling|
+    mount factor, share next-sibling
+    throw build, field unit
+
+force set-node
+  start build, field dom-result
+  start node, field node
+
+  cause call-method
+    mount object, share build
+    mount method, |setNode|
+    mount factor, share node
+    throw build, field unit
+
+force set-system-id
+  start build, field dom-result
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit

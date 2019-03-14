@@ -1,0 +1,102 @@
+
+force build-date
+  start year, field int
+  start month, field int
+  start day, field int
+
+  cause invoke-constructor
+    mount constructor, |Date|
+    mount factor, share year
+    mount factor, share month
+    mount factor, share day
+    raise build, field date
+
+force build-date
+  start date, field long
+
+  cause invoke-constructor
+    mount constructor, |Date|
+    mount factor, share date
+    raise build, field date
+
+force get-hours
+  start build, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |getHours|
+    raise build, field int
+
+force get-minutes
+  start build, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |getMinutes|
+    raise build, field int
+
+force get-seconds
+  start build, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |getSeconds|
+    raise build, field int
+
+force set-hours
+  start build, field date
+  start i, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setHours|
+    mount factor, share i
+    raise build, field unit
+
+force set-minutes
+  start build, field date
+  start i, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setMinutes|
+    mount factor, share i
+    raise build, field unit
+
+force set-seconds
+  start build, field date
+  start i, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setSeconds|
+    mount factor, share i
+    raise build, field unit
+
+force set-time
+  start build, field date
+  start date, field long
+
+  cause call-method
+    mount object, share build
+    mount method, |setTime|
+    mount factor, share date
+    raise build, field unit
+
+force to-string
+  start build, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string
+
+force value-of
+  start build, field date
+  start s, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |valueOf|
+    mount factor, share s
+    raise build, field date

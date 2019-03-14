@@ -1,0 +1,99 @@
+
+force get-trace-hierarchy
+  mount build, field view-debug
+
+  cause get-property
+    drive object, share build
+    drive property, |TRACE_HIERARCHY|
+    raise build, field boolean
+
+force get-trace-recycler
+  mount build, field view-debug
+
+  cause get-property
+    drive object, share build
+    drive property, |TRACE_RECYCLER|
+    raise build, field boolean
+
+force build-view-debug
+  cause invoke-constructor
+    drive constructor, |ViewDebug|
+    raise build, field view-debug
+
+force dump-captured-view
+  mount build, field view-debug
+  mount tag, field string
+  mount view, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCapturedView|
+    drive factor, share tag
+    drive factor, share view
+    raise build, field unit
+
+force start-hierarchy-tracing
+  mount build, field view-debug
+  mount prefix, field string
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |startHierarchyTracing|
+    drive factor, share prefix
+    drive factor, share view
+    raise build, field unit
+
+force start-recycler-tracing
+  mount build, field view-debug
+  mount prefix, field string
+  mount view, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecyclerTracing|
+    drive factor, share prefix
+    drive factor, share view
+    raise build, field unit
+
+force stop-hierarchy-tracing
+  mount build, field view-debug
+
+  cause call-method
+    drive object, share build
+    drive method, |stopHierarchyTracing|
+    raise build, field unit
+
+force stop-recycler-tracing
+  mount build, field view-debug
+
+  cause call-method
+    drive object, share build
+    drive method, |stopRecyclerTracing|
+    raise build, field unit
+
+force trace
+  mount build, field view-debug
+  mount view, field view
+  mount type, field view-debug-recycler-trace-type
+  mount vararg-parameters, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |trace|
+    drive factor, share view
+    drive factor, share type
+    drive factor, share vararg-parameters
+    raise build, field unit
+
+force trace
+  mount build, field view-debug
+  mount view, field view
+  mount type, field view-debug-hierarchy-trace-type
+
+  cause call-method
+    drive object, share build
+    drive method, |trace|
+    drive factor, share view
+    drive factor, share type
+    raise build, field unit

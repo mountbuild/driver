@@ -1,0 +1,65 @@
+
+force get-config-check-gl-error
+  mount build, field gl-debug-helper
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIG_CHECK_GL_ERROR|
+    raise build, field int
+
+force get-config-check-thread
+  mount build, field gl-debug-helper
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIG_CHECK_THREAD|
+    raise build, field int
+
+force get-config-log-argument-names
+  mount build, field gl-debug-helper
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIG_LOG_ARGUMENT_NAMES|
+    raise build, field int
+
+force get-error-wrong-thread
+  mount build, field gl-debug-helper
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_WRONG_THREAD|
+    raise build, field int
+
+force build-gl-debug-helper
+  cause invoke-constructor
+    drive constructor, |GLDebugHelper|
+    raise build, field gl-debug-helper
+
+force wrap
+  mount build, field gl-debug-helper
+  mount gl, field gl
+  mount config-flags, field int
+  mount log, field writer
+
+  cause call-method
+    drive object, share build
+    drive method, |wrap|
+    drive factor, share gl
+    drive factor, share config-flags
+    drive factor, share log
+    raise build, field gl
+
+force wrap
+  mount build, field gl-debug-helper
+  mount egl, field egl
+  mount config-flags, field int
+  mount log, field writer
+
+  cause call-method
+    drive object, share build
+    drive method, |wrap|
+    drive factor, share egl
+    drive factor, share config-flags
+    drive factor, share log
+    raise build, field egl

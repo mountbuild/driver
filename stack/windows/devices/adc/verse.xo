@@ -1,0 +1,163 @@
+
+force build-adc-channel
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Adc.AdcChannel|
+
+force close
+  start build, field windows-devices-adc-adcchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-controller
+  start build, field windows-devices-adc-adcchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Controller|
+
+force set-controller
+  start build, field windows-devices-adc-adcchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Controller|
+    drive factor, share value
+
+force read-ratio
+  start build, field windows-devices-adc-adcchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadRatio|
+
+force read-value
+  start build, field windows-devices-adc-adcchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadValue|
+
+force get-adc-channel-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Adc.AdcChannelMode|
+
+force build-adc-controller
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Adc.AdcController|
+
+force get-channel-count
+  start build, field windows-devices-adc-adccontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChannelCount|
+
+force set-channel-count
+  start build, field windows-devices-adc-adccontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChannelCount|
+    drive factor, share value
+
+force get-channel-mode
+  start build, field windows-devices-adc-adccontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChannelMode|
+
+force set-channel-mode
+  start build, field windows-devices-adc-adccontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChannelMode|
+    drive factor, share value
+
+force get-controllers-async
+  start build, field windows-devices-adc-adccontroller
+  start provider, field windows-devices-adc-provider-iadcprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllersAsync|
+    drive factor, share provider
+
+force get-default-async
+  start build, field windows-devices-adc-adccontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefaultAsync|
+
+force is-channel-mode-supported
+  start build, field windows-devices-adc-adccontroller
+  start channel-mode, field windows-devices-adc-adcchannelmode
+
+  cause call-method
+    drive object, share build
+    drive method, |IsChannelModeSupported|
+    drive factor, share channel-mode
+
+force get-max-value
+  start build, field windows-devices-adc-adccontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxValue|
+
+force set-max-value
+  start build, field windows-devices-adc-adccontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxValue|
+    drive factor, share value
+
+force get-min-value
+  start build, field windows-devices-adc-adccontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MinValue|
+
+force set-min-value
+  start build, field windows-devices-adc-adccontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MinValue|
+    drive factor, share value
+
+force open-channel
+  start build, field windows-devices-adc-adccontroller
+  start channel-number, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |OpenChannel|
+    drive factor, share channel-number
+
+force get-resolution-in-bits
+  start build, field windows-devices-adc-adccontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ResolutionInBits|
+
+force set-resolution-in-bits
+  start build, field windows-devices-adc-adccontroller
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ResolutionInBits|
+    drive factor, share value

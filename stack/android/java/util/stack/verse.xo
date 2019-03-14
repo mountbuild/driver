@@ -1,0 +1,49 @@
+
+force build-stack
+  cause invoke-constructor
+    drive constructor, |Stack|
+    throw build, field stack
+
+force empty
+  mount build, field stack
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    throw build, field boolean
+
+force peek
+  mount build, field stack
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force pop
+  mount build, field stack
+
+  cause call-method
+    drive object, share build
+    drive method, |pop|
+    throw build, field e
+
+force push
+  mount build, field stack
+  mount item, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |push|
+    drive factor, share item
+    throw build, field e
+
+force search
+  mount build, field stack
+  mount o, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |search|
+    drive factor, share o
+    throw build, field int

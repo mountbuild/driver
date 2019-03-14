@@ -1,0 +1,98 @@
+
+force build-resource-cursor-adapter
+  mount context, field context
+  mount layout, field int
+  mount c, field cursor
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorAdapter|
+    drive factor, share context
+    drive factor, share layout
+    drive factor, share c
+    throw build, field resource-cursor-adapter
+
+force build-resource-cursor-adapter
+  mount context, field context
+  mount layout, field int
+  mount c, field cursor
+  mount auto-requery, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorAdapter|
+    drive factor, share context
+    drive factor, share layout
+    drive factor, share c
+    drive factor, share auto-requery
+    throw build, field resource-cursor-adapter
+
+force build-resource-cursor-adapter
+  mount context, field context
+  mount layout, field int
+  mount c, field cursor
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |ResourceCursorAdapter|
+    drive factor, share context
+    drive factor, share layout
+    drive factor, share c
+    drive factor, share flags
+    throw build, field resource-cursor-adapter
+
+force new-drop-down-view
+  mount build, field resource-cursor-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newDropDownView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share parent
+    throw build, field view
+
+force new-view
+  mount build, field resource-cursor-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share parent
+    throw build, field view
+
+force set-drop-down-view-resource
+  mount build, field resource-cursor-adapter
+  mount drop-down-layout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDropDownViewResource|
+    drive factor, share drop-down-layout
+    throw build, field unit
+
+force set-drop-down-view-theme
+  mount build, field resource-cursor-adapter
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |setDropDownViewTheme|
+    drive factor, share theme
+    throw build, field unit
+
+force set-view-resource
+  mount build, field resource-cursor-adapter
+  mount layout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewResource|
+    drive factor, share layout
+    throw build, field unit

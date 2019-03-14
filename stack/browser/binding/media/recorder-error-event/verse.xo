@@ -1,0 +1,16 @@
+
+force build-media-stream-recorder-event
+  start error-info
+
+  cause invoke-constructor
+    mount constructor, |MediaStreamRecorderEvent|
+    mount factor, share error-info
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build

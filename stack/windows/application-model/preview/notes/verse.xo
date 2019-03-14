@@ -1,0 +1,228 @@
+
+force build-note-placement-changed-preview-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs|
+
+force get-view-id
+  start build, field windows-applicationmodel-preview-notes-noteplacementchangedprevieweventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ViewId|
+
+force set-view-id
+  start build, field windows-applicationmodel-preview-notes-noteplacementchangedprevieweventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ViewId|
+    drive factor, share value
+
+force build-notes-window-manager-preview
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview|
+
+force get-for-current-app
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentApp|
+
+force get-note-placement
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetNotePlacement|
+    drive factor, share note-view-id
+
+force hide-note
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |HideNote|
+    drive factor, share note-view-id
+
+force get-is-screen-locked
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsScreenLocked|
+
+force set-is-screen-locked
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsScreenLocked|
+    drive factor, share value
+
+force set-focus-to-next-view
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+
+  cause call-method
+    drive object, share build
+    drive method, |SetFocusToNextView|
+
+force set-focus-to-previous-view
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+
+  cause call-method
+    drive object, share build
+    drive method, |SetFocusToPreviousView|
+
+force set-notes-thumbnail-async
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start thumbnail, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |SetNotesThumbnailAsync|
+    drive factor, share thumbnail
+
+force set-thumbnail-image-for-task-switcher-async
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start bitmap, field windows-graphics-imaging-softwarebitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |SetThumbnailImageForTaskSwitcherAsync|
+    drive factor, share bitmap
+
+force show-note
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowNote|
+    drive factor, share note-view-id
+
+force show-note-relative-to
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+  start anchor-note-view-id, field system-int32
+  start options, field windows-applicationmodel-preview-notes-noteswindowmanagerpreviewshownoteoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowNoteRelativeTo|
+    drive factor, share note-view-id
+    drive factor, share anchor-note-view-id
+    drive factor, share options
+
+force show-note-relative-to
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+  start anchor-note-view-id, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowNoteRelativeTo|
+    drive factor, share note-view-id
+    drive factor, share anchor-note-view-id
+
+force show-note-with-placement
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+  start data, field windows-storage-streams-ibuffer
+  start options, field windows-applicationmodel-preview-notes-noteswindowmanagerpreviewshownoteoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowNoteWithPlacement|
+    drive factor, share note-view-id
+    drive factor, share data
+    drive factor, share options
+
+force show-note-with-placement
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+  start data, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |ShowNoteWithPlacement|
+    drive factor, share note-view-id
+    drive factor, share data
+
+force try-set-note-size
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreview
+  start note-view-id, field system-int32
+  start size, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySetNoteSize|
+    drive factor, share note-view-id
+    drive factor, share size
+
+force build-notes-window-manager-preview-show-note-options
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions|
+
+force ctor
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreviewshownoteoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-show-with-focus
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreviewshownoteoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ShowWithFocus|
+
+force set-show-with-focus
+  start build, field windows-applicationmodel-preview-notes-noteswindowmanagerpreviewshownoteoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ShowWithFocus|
+    drive factor, share value
+
+force build-note-visibility-changed-preview-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs|
+
+force get-is-visible
+  start build, field windows-applicationmodel-preview-notes-notevisibilitychangedprevieweventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsVisible|
+
+force set-is-visible
+  start build, field windows-applicationmodel-preview-notes-notevisibilitychangedprevieweventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsVisible|
+    drive factor, share value
+
+force get-view-id
+  start build, field windows-applicationmodel-preview-notes-notevisibilitychangedprevieweventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ViewId|
+
+force set-view-id
+  start build, field windows-applicationmodel-preview-notes-notevisibilitychangedprevieweventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ViewId|
+    drive factor, share value

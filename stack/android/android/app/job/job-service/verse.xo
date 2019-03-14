@@ -1,0 +1,45 @@
+
+force get-permission-bind
+  start build, field job-service
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_BIND|
+    throw build, field string
+
+force build-job-service
+  cause invoke-constructor
+    drive constructor, |JobService|
+    throw build, field job-service
+
+force job-finished
+  start build, field job-service
+  start params, field job-parameters
+  start wants-reschedule, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |jobFinished|
+    drive factor, share params
+    drive factor, share wants-reschedule
+    throw build, field unit
+
+force on-start-job
+  start build, field job-service
+  start params, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartJob|
+    drive factor, share params
+    throw build, field boolean
+
+force on-stop-job
+  start build, field job-service
+  start params, field job-parameters
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopJob|
+    drive factor, share params
+    throw build, field boolean

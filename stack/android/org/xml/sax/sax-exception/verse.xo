@@ -1,0 +1,47 @@
+
+force build-sax-exception
+  cause invoke-constructor
+    drive constructor, |SAXException|
+    throw build, field sax-exception
+
+force build-sax-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |SAXException|
+    drive factor, share message
+    throw build, field sax-exception
+
+force build-sax-exception
+  mount e, field exception
+
+  cause invoke-constructor
+    drive constructor, |SAXException|
+    drive factor, share e
+    throw build, field sax-exception
+
+force build-sax-exception
+  mount message, field string
+  mount e, field exception
+
+  cause invoke-constructor
+    drive constructor, |SAXException|
+    drive factor, share message
+    drive factor, share e
+    throw build, field sax-exception
+
+force get-exception
+  mount build, field sax-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getException|
+    throw build, field exception
+
+force to-string
+  mount build, field sax-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

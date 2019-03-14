@@ -1,0 +1,178 @@
+
+force get-flag-has-invisible-region
+  mount build, field cursor-anchor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_HAS_INVISIBLE_REGION|
+    raise build, field int
+
+force get-flag-has-visible-region
+  mount build, field cursor-anchor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_HAS_VISIBLE_REGION|
+    raise build, field int
+
+force get-flag-is-rtl
+  mount build, field cursor-anchor-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_IS_RTL|
+    raise build, field int
+
+force build-cursor-anchor-info
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |CursorAnchorInfo|
+    drive factor, share source
+    raise build, field cursor-anchor-info
+
+force describe-contents
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field cursor-anchor-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-character-bounds
+  mount build, field cursor-anchor-info
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacterBounds|
+    drive factor, share index
+    raise build, field rect-f
+
+force get-character-bounds-flags
+  mount build, field cursor-anchor-info
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacterBoundsFlags|
+    drive factor, share index
+    raise build, field int
+
+force get-composing-text
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getComposingText|
+    raise build, field char-sequence
+
+force get-composing-text-start
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getComposingTextStart|
+    raise build, field int
+
+force get-insertion-marker-baseline
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsertionMarkerBaseline|
+    raise build, field float
+
+force get-insertion-marker-bottom
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsertionMarkerBottom|
+    raise build, field float
+
+force get-insertion-marker-flags
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsertionMarkerFlags|
+    raise build, field int
+
+force get-insertion-marker-horizontal
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsertionMarkerHorizontal|
+    raise build, field float
+
+force get-insertion-marker-top
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsertionMarkerTop|
+    raise build, field float
+
+force get-matrix
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMatrix|
+    raise build, field matrix
+
+force get-selection-end
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectionEnd|
+    raise build, field int
+
+force get-selection-start
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectionStart|
+    raise build, field int
+
+force hash-code
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-string
+  mount build, field cursor-anchor-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field cursor-anchor-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

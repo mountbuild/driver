@@ -1,0 +1,13 @@
+
+force build-not-serializable-exception
+  mount classname, field string
+
+  cause invoke-constructor
+    drive constructor, |NotSerializableException|
+    drive factor, share classname
+    throw build, field not-serializable-exception
+
+force build-not-serializable-exception
+  cause invoke-constructor
+    drive constructor, |NotSerializableException|
+    throw build, field not-serializable-exception

@@ -1,0 +1,100 @@
+force make-texture
+  field build, field mtl-buffer
+  field descriptor, field mtl-texture-descriptor
+  field offset, field int
+  field bytes-per-row, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeTexture|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand offset
+      share offset
+    drive factor
+      brand bytes-per-row
+      share bytes-per-row
+    raise build, class mtl-texture
+
+force contents
+  field build, field mtl-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |contents|
+    raise build, class unsafe-mutable-raw-pointer
+
+force did-modify-range
+  field build, field mtl-buffer
+  field a, class range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |didModifyRange|
+    drive factor, share a
+
+force add-debug-marker
+  field build, field mtl-buffer
+  field a, class string
+  field range, field range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |addDebugMarker|
+    drive factor, share a
+    drive factor
+      brand range
+      share range
+
+force remove-all-debug-markers
+  field build, field mtl-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAllDebugMarkers|
+
+force get-length
+  field build, field mtl-buffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |length|
+    raise build, field int
+
+force set-length
+  field build, field mtl-buffer
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |length|
+    drive factor, share value
+
+force make-remote-buffer-view
+  field build, field mtl-buffer
+  field a, class mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRemoteBufferView|
+    drive factor, share a
+    raise build, class mtl-buffer
+
+force get-remote-storage-buffer
+  field build, field mtl-buffer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |remoteStorageBuffer|
+    raise build, field mtl-buffer
+
+force set-remote-storage-buffer
+  field build, field mtl-buffer
+  field value, field mtl-buffer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |remoteStorageBuffer|
+    drive factor, share value

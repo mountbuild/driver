@@ -1,0 +1,685 @@
+
+force get-statement-abort
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_ABORT|
+    raise build, field int
+
+force get-statement-attach
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_ATTACH|
+    raise build, field int
+
+force get-statement-begin
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_BEGIN|
+    raise build, field int
+
+force get-statement-commit
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_COMMIT|
+    raise build, field int
+
+force get-statement-ddl
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_DDL|
+    raise build, field int
+
+force get-statement-other
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_OTHER|
+    raise build, field int
+
+force get-statement-pragma
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_PRAGMA|
+    raise build, field int
+
+force get-statement-select
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_SELECT|
+    raise build, field int
+
+force get-statement-unprepared
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_UNPREPARED|
+    raise build, field int
+
+force get-statement-update
+  mount build, field database-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |STATEMENT_UPDATE|
+    raise build, field int
+
+force build-database-utils
+  cause invoke-constructor
+    drive constructor, |DatabaseUtils|
+    raise build, field database-utils
+
+force append-escaped-sql-string
+  mount build, field database-utils
+  mount sb, field string-builder
+  mount sql-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |appendEscapedSQLString|
+    drive factor, share sb
+    drive factor, share sql-string
+    raise build, field unit
+
+force append-selection-args
+  mount build, field database-utils
+  mount original-values, field array-string
+  mount new-values, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |appendSelectionArgs|
+    drive factor, share original-values
+    drive factor, share new-values
+    raise build, field array
+
+force append-value-to-sql
+  mount build, field database-utils
+  mount sql, field string-builder
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |appendValueToSql|
+    drive factor, share sql
+    drive factor, share value
+    raise build, field unit
+
+force bind-object-to-program
+  mount build, field database-utils
+  mount prog, field sq-lite-program
+  mount index, field int
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |bindObjectToProgram|
+    drive factor, share prog
+    drive factor, share index
+    drive factor, share value
+    raise build, field unit
+
+force blob-file-descriptor-for-query
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount query, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |blobFileDescriptorForQuery|
+    drive factor, share db
+    drive factor, share query
+    drive factor, share selection-args
+    raise build, field parcel-file-descriptor
+
+force blob-file-descriptor-for-query
+  mount build, field database-utils
+  mount prog, field sq-lite-statement
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |blobFileDescriptorForQuery|
+    drive factor, share prog
+    drive factor, share selection-args
+    raise build, field parcel-file-descriptor
+
+force concatenate-where
+  mount build, field database-utils
+  mount a, field string
+  mount b, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |concatenateWhere|
+    drive factor, share a
+    drive factor, share b
+    raise build, field string
+
+force create-db-from-sql-statements
+  mount build, field database-utils
+  mount context, field context
+  mount db-name, field string
+  mount db-version, field int
+  mount sql-statements, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createDbFromSqlStatements|
+    drive factor, share context
+    drive factor, share db-name
+    drive factor, share db-version
+    drive factor, share sql-statements
+    raise build, field unit
+
+force cursor-double-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorDoubleToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    drive factor, share key
+    raise build, field unit
+
+force cursor-double-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorDoubleToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-double-to-cursor-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorDoubleToCursorValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    raise build, field unit
+
+force cursor-float-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorFloatToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-int-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorIntToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    raise build, field unit
+
+force cursor-int-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorIntToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    drive factor, share key
+    raise build, field unit
+
+force cursor-int-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorIntToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-long-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorLongToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    raise build, field unit
+
+force cursor-long-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorLongToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    drive factor, share key
+    raise build, field unit
+
+force cursor-long-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorLongToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-row-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorRowToContentValues|
+    drive factor, share cursor
+    drive factor, share values
+    raise build, field unit
+
+force cursor-short-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorShortToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-string-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorStringToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    raise build, field unit
+
+force cursor-string-to-content-values
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount values, field content-values
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorStringToContentValues|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share values
+    drive factor, share key
+    raise build, field unit
+
+force cursor-string-to-content-values-if-present
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount values, field content-values
+  mount column, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorStringToContentValuesIfPresent|
+    drive factor, share cursor
+    drive factor, share values
+    drive factor, share column
+    raise build, field unit
+
+force cursor-string-to-insert-helper
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount field, field string
+  mount inserter, field database-utils-insert-helper
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |cursorStringToInsertHelper|
+    drive factor, share cursor
+    drive factor, share field
+    drive factor, share inserter
+    drive factor, share index
+    raise build, field unit
+
+force dump-current-row
+  mount build, field database-utils
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCurrentRow|
+    drive factor, share cursor
+    raise build, field unit
+
+force dump-current-row
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount stream, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCurrentRow|
+    drive factor, share cursor
+    drive factor, share stream
+    raise build, field unit
+
+force dump-current-row
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount sb, field string-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCurrentRow|
+    drive factor, share cursor
+    drive factor, share sb
+    raise build, field unit
+
+force dump-current-row-to-string
+  mount build, field database-utils
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCurrentRowToString|
+    drive factor, share cursor
+    raise build, field string
+
+force dump-cursor
+  mount build, field database-utils
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCursor|
+    drive factor, share cursor
+    raise build, field unit
+
+force dump-cursor
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount stream, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCursor|
+    drive factor, share cursor
+    drive factor, share stream
+    raise build, field unit
+
+force dump-cursor
+  mount build, field database-utils
+  mount cursor, field cursor
+  mount sb, field string-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCursor|
+    drive factor, share cursor
+    drive factor, share sb
+    raise build, field unit
+
+force dump-cursor-to-string
+  mount build, field database-utils
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpCursorToString|
+    drive factor, share cursor
+    raise build, field string
+
+force get-collation-key
+  mount build, field database-utils
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getCollationKey|
+    drive factor, share name
+    raise build, field string
+
+force get-hex-collation-key
+  mount build, field database-utils
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getHexCollationKey|
+    drive factor, share name
+    raise build, field string
+
+force get-sql-statement-type
+  mount build, field database-utils
+  mount sql, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSqlStatementType|
+    drive factor, share sql
+    raise build, field int
+
+force long-for-query
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount query, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |longForQuery|
+    drive factor, share db
+    drive factor, share query
+    drive factor, share selection-args
+    raise build, field long
+
+force long-for-query
+  mount build, field database-utils
+  mount prog, field sq-lite-statement
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |longForQuery|
+    drive factor, share prog
+    drive factor, share selection-args
+    raise build, field long
+
+force query-num-entries
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount table, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryNumEntries|
+    drive factor, share db
+    drive factor, share table
+    raise build, field long
+
+force query-num-entries
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount table, field string
+  mount selection, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryNumEntries|
+    drive factor, share db
+    drive factor, share table
+    drive factor, share selection
+    raise build, field long
+
+force query-num-entries
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount table, field string
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |queryNumEntries|
+    drive factor, share db
+    drive factor, share table
+    drive factor, share selection
+    drive factor, share selection-args
+    raise build, field long
+
+force read-exception-from-parcel
+  mount build, field database-utils
+  mount reply, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readExceptionFromParcel|
+    drive factor, share reply
+    raise build, field unit
+
+force read-exception-with-file-not-found-exception-from-parcel
+  mount build, field database-utils
+  mount reply, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readExceptionWithFileNotFoundExceptionFromParcel|
+    drive factor, share reply
+    raise build, field unit
+
+force read-exception-with-operation-application-exception-from-parcel
+  mount build, field database-utils
+  mount reply, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readExceptionWithOperationApplicationExceptionFromParcel|
+    drive factor, share reply
+    raise build, field unit
+
+force sql-escape-string
+  mount build, field database-utils
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sqlEscapeString|
+    drive factor, share value
+    raise build, field string
+
+force string-for-query
+  mount build, field database-utils
+  mount db, field sq-lite-database
+  mount query, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |stringForQuery|
+    drive factor, share db
+    drive factor, share query
+    drive factor, share selection-args
+    raise build, field string
+
+force string-for-query
+  mount build, field database-utils
+  mount prog, field sq-lite-statement
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |stringForQuery|
+    drive factor, share prog
+    drive factor, share selection-args
+    raise build, field string
+
+force write-exception-to-parcel
+  mount build, field database-utils
+  mount reply, field parcel
+  mount e, field exception
+
+  cause call-method
+    drive object, share build
+    drive method, |writeExceptionToParcel|
+    drive factor, share reply
+    drive factor, share e
+    raise build, field unit

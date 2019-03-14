@@ -1,0 +1,25 @@
+
+force build-clickable-span
+  cause invoke-constructor
+    drive constructor, |ClickableSpan|
+    raise build, field clickable-span
+
+force on-click
+  mount build, field clickable-span
+  mount widget, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |onClick|
+    drive factor, share widget
+    raise build, field unit
+
+force update-draw-state
+  mount build, field clickable-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share ds
+    raise build, field unit

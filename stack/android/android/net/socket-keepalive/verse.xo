@@ -1,0 +1,106 @@
+
+force get-error-hardware-error
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_HARDWARE_ERROR|
+    throw build, field int
+
+force get-error-insufficient-resources
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INSUFFICIENT_RESOURCES|
+    throw build, field int
+
+force get-error-invalid-interval
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_INTERVAL|
+    throw build, field int
+
+force get-error-invalid-ip-address
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_IP_ADDRESS|
+    throw build, field int
+
+force get-error-invalid-length
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_LENGTH|
+    throw build, field int
+
+force get-error-invalid-network
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_NETWORK|
+    throw build, field int
+
+force get-error-invalid-port
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_PORT|
+    throw build, field int
+
+force get-error-invalid-socket
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_SOCKET|
+    throw build, field int
+
+force get-error-socket-not-idle
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SOCKET_NOT_IDLE|
+    throw build, field int
+
+force get-error-unsupported
+  start build, field socket-keepalive
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_UNSUPPORTED|
+    throw build, field int
+
+force close
+  start build, field socket-keepalive
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force start
+  start build, field socket-keepalive
+  start interval-sec, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    drive factor, share interval-sec
+    throw build, field unit
+
+force stop
+  start build, field socket-keepalive
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    throw build, field unit

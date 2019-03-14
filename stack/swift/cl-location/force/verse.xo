@@ -1,0 +1,181 @@
+force get-coordinate
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |coordinate|
+    raise build, field cl-location-coordinate2-d
+
+force set-coordinate
+  field build, field cl-location
+  field value, field cl-location-coordinate2-d
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |coordinate|
+    drive factor, share value
+
+force get-altitude
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |altitude|
+    raise build, field cl-location-distance
+
+force set-altitude
+  field build, field cl-location
+  field value, field cl-location-distance
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |altitude|
+    drive factor, share value
+
+force get-floor
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |floor|
+    raise build, field cl-floor
+
+force set-floor
+  field build, field cl-location
+  field value, field cl-floor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |floor|
+    drive factor, share value
+
+force get-horizontal-accuracy
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |horizontalAccuracy|
+    raise build, field cl-location-accuracy
+
+force set-horizontal-accuracy
+  field build, field cl-location
+  field value, field cl-location-accuracy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |horizontalAccuracy|
+    drive factor, share value
+
+force get-vertical-accuracy
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |verticalAccuracy|
+    raise build, field cl-location-accuracy
+
+force set-vertical-accuracy
+  field build, field cl-location
+  field value, field cl-location-accuracy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |verticalAccuracy|
+    drive factor, share value
+
+force get-timestamp
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timestamp|
+    raise build, field date
+
+force set-timestamp
+  field build, field cl-location
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timestamp|
+    drive factor, share value
+
+force distance
+  field build, field cl-location
+  field from, field cl-location
+
+  cause call-method
+    drive object, share build
+    drive method, |distance|
+    drive factor
+      brand from
+      share from
+    raise build, class cl-location-distance
+
+force get-speed
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |speed|
+    raise build, field cl-location-speed
+
+force set-speed
+  field build, field cl-location
+  field value, field cl-location-speed
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |speed|
+    drive factor, share value
+
+force get-course
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |course|
+    raise build, field cl-location-direction
+
+force set-course
+  field build, field cl-location
+  field value, field cl-location-direction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |course|
+    drive factor, share value
+
+force get-course-accuracy
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |courseAccuracy|
+    raise build, field cl-location-direction-accuracy
+
+force set-course-accuracy
+  field build, field cl-location
+  field value, field cl-location-direction-accuracy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |courseAccuracy|
+    drive factor, share value
+
+force get-speed-accuracy
+  field build, field cl-location
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |speedAccuracy|
+    raise build, field cl-location-speed-accuracy
+
+force set-speed-accuracy
+  field build, field cl-location
+  field value, field cl-location-speed-accuracy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |speedAccuracy|
+    drive factor, share value

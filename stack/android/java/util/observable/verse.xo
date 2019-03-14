@@ -1,0 +1,67 @@
+
+force build-observable
+  cause invoke-constructor
+    drive constructor, |Observable|
+    throw build, field observable
+
+force add-observer
+  mount build, field observable
+  mount o, field observer
+
+  cause call-method
+    drive object, share build
+    drive method, |addObserver|
+    drive factor, share o
+    throw build, field unit
+
+force count-observers
+  mount build, field observable
+
+  cause call-method
+    drive object, share build
+    drive method, |countObservers|
+    throw build, field int
+
+force delete-observer
+  mount build, field observable
+  mount o, field observer
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteObserver|
+    drive factor, share o
+    throw build, field unit
+
+force delete-observers
+  mount build, field observable
+
+  cause call-method
+    drive object, share build
+    drive method, |deleteObservers|
+    throw build, field unit
+
+force has-changed
+  mount build, field observable
+
+  cause call-method
+    drive object, share build
+    drive method, |hasChanged|
+    throw build, field boolean
+
+force notify-observers
+  mount build, field observable
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyObservers|
+    throw build, field unit
+
+force notify-observers
+  mount build, field observable
+  mount arg, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyObservers|
+    drive factor, share arg
+    throw build, field unit

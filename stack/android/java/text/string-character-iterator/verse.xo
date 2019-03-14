@@ -1,0 +1,142 @@
+
+force build-string-character-iterator
+  start text, field string
+
+  cause invoke-constructor
+    mount constructor, |StringCharacterIterator|
+    mount factor, share text
+    raise build, field string-character-iterator
+
+force build-string-character-iterator
+  start text, field string
+  start pos, field int
+
+  cause invoke-constructor
+    mount constructor, |StringCharacterIterator|
+    mount factor, share text
+    mount factor, share pos
+    raise build, field string-character-iterator
+
+force build-string-character-iterator
+  start text, field string
+  start begin, field int
+  start end, field int
+  start pos, field int
+
+  cause invoke-constructor
+    mount constructor, |StringCharacterIterator|
+    mount factor, share text
+    mount factor, share begin
+    mount factor, share end
+    mount factor, share pos
+    raise build, field string-character-iterator
+
+force clone
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    raise build, field any
+
+force current
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |current|
+    raise build, field char
+
+force equals
+  start build, field string-character-iterator
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force first
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |first|
+    raise build, field char
+
+force get-begin-index
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |getBeginIndex|
+    raise build, field int
+
+force get-end-index
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |getEndIndex|
+    raise build, field int
+
+force get-index
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |getIndex|
+    raise build, field int
+
+force hash-code
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force last
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |last|
+    raise build, field char
+
+force next
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |next|
+    raise build, field char
+
+force previous
+  start build, field string-character-iterator
+
+  cause call-method
+    mount object, share build
+    mount method, |previous|
+    raise build, field char
+
+force set-index
+  start build, field string-character-iterator
+  start p, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setIndex|
+    mount factor, share p
+    raise build, field char
+
+force set-text
+  start build, field string-character-iterator
+  start text, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setText|
+    mount factor, share text
+    raise build, field unit

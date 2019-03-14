@@ -1,0 +1,57 @@
+force reset
+  field build, field mtl-vertex-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+
+force get-attributes
+  field build, field mtl-vertex-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |attributes|
+    raise build, field mtl-vertex-attribute-descriptor-array
+
+force set-attributes
+  field build, field mtl-vertex-descriptor
+  field value, field mtl-vertex-attribute-descriptor-array
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |attributes|
+    drive factor, share value
+
+force get-layouts
+  field build, field mtl-vertex-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |layouts|
+    raise build, field mtl-vertex-buffer-layout-descriptor-array
+
+force set-layouts
+  field build, field mtl-vertex-descriptor
+  field value, field mtl-vertex-buffer-layout-descriptor-array
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |layouts|
+    drive factor, share value
+
+force get-vertex-descriptor
+  field build, field mtl-vertex-descriptor
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |vertexDescriptor|
+    raise build, field mtl-vertex-descriptor
+
+force set-vertex-descriptor
+  field build, field mtl-vertex-descriptor
+  field value, field mtl-vertex-descriptor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |vertexDescriptor|
+    drive factor, share value

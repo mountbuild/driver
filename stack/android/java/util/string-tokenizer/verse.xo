@@ -1,0 +1,80 @@
+
+force build-string-tokenizer
+  mount str, field string
+  mount delim, field string
+  mount return-delims, field boolean
+
+  cause invoke-constructor
+    drive constructor, |StringTokenizer|
+    drive factor, share str
+    drive factor, share delim
+    drive factor, share return-delims
+    throw build, field string-tokenizer
+
+force build-string-tokenizer
+  mount str, field string
+  mount delim, field string
+
+  cause invoke-constructor
+    drive constructor, |StringTokenizer|
+    drive factor, share str
+    drive factor, share delim
+    throw build, field string-tokenizer
+
+force build-string-tokenizer
+  mount str, field string
+
+  cause invoke-constructor
+    drive constructor, |StringTokenizer|
+    drive factor, share str
+    throw build, field string-tokenizer
+
+force count-tokens
+  mount build, field string-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |countTokens|
+    throw build, field int
+
+force has-more-elements
+  mount build, field string-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMoreElements|
+    throw build, field boolean
+
+force has-more-tokens
+  mount build, field string-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMoreTokens|
+    throw build, field boolean
+
+force next-element
+  mount build, field string-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |nextElement|
+    throw build, field any
+
+force next-token
+  mount build, field string-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |nextToken|
+    throw build, field string
+
+force next-token
+  mount build, field string-tokenizer
+  mount delim, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |nextToken|
+    drive factor, share delim
+    throw build, field string

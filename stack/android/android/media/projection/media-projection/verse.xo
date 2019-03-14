@@ -1,0 +1,54 @@
+
+force create-virtual-display
+  start build, field media-projection
+  start name, field string
+  start width, field int
+  start height, field int
+  start dpi, field int
+  start flags, field int
+  start surface, field surface
+  start callback, field virtual-display-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |createVirtualDisplay|
+    drive factor, share name
+    drive factor, share width
+    drive factor, share height
+    drive factor, share dpi
+    drive factor, share flags
+    drive factor, share surface
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field virtual-display
+
+force register-callback
+  start build, field media-projection
+  start callback, field media-projection-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerCallback|
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field unit
+
+force stop
+  start build, field media-projection
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit
+
+force unregister-callback
+  start build, field media-projection
+  start callback, field media-projection-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterCallback|
+    drive factor, share callback
+    raise build, field unit

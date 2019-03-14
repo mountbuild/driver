@@ -1,0 +1,66 @@
+
+force build-get-wallet-cards-request
+  mount card-width-px, field int
+  mount card-height-px, field int
+  mount icon-size-px, field int
+  mount max-cards, field int
+
+  cause invoke-constructor
+    drive constructor, |GetWalletCardsRequest|
+    drive factor, share card-width-px
+    drive factor, share card-height-px
+    drive factor, share icon-size-px
+    drive factor, share max-cards
+    raise build, field get-wallet-cards-request
+
+force describe-contents
+  mount build, field get-wallet-cards-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-card-height-px
+  mount build, field get-wallet-cards-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCardHeightPx|
+    raise build, field int
+
+force get-card-width-px
+  mount build, field get-wallet-cards-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCardWidthPx|
+    raise build, field int
+
+force get-icon-size-px
+  mount build, field get-wallet-cards-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconSizePx|
+    raise build, field int
+
+force get-max-cards
+  mount build, field get-wallet-cards-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxCards|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field get-wallet-cards-request
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

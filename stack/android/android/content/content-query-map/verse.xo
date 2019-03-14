@@ -1,0 +1,58 @@
+
+force build-content-query-map
+  mount cursor, field cursor
+  mount column-name-of-key, field string
+  mount keep-updated, field boolean
+  mount handler-for-update-notifications, field handler
+
+  cause invoke-constructor
+    drive constructor, |ContentQueryMap|
+    drive factor, share cursor
+    drive factor, share column-name-of-key
+    drive factor, share keep-updated
+    drive factor, share handler-for-update-notifications
+    throw build, field content-query-map
+
+force close
+  mount build, field content-query-map
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-rows
+  mount build, field content-query-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getRows|
+    throw build, field mutable-map
+
+force get-values
+  mount build, field content-query-map
+  mount row-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getValues|
+    drive factor, share row-name
+    throw build, field content-values
+
+force requery
+  mount build, field content-query-map
+
+  cause call-method
+    drive object, share build
+    drive method, |requery|
+    throw build, field unit
+
+force set-keep-updated
+  mount build, field content-query-map
+  mount keep-updated, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeepUpdated|
+    drive factor, share keep-updated
+    throw build, field unit

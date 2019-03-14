@@ -1,0 +1,30 @@
+
+force describe-contents
+  mount build, field supplicant-state
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force is-valid-state
+  mount build, field supplicant-state
+  mount state, field supplicant-state
+
+  cause call-method
+    drive object, share build
+    drive method, |isValidState|
+    drive factor, share state
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field supplicant-state
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

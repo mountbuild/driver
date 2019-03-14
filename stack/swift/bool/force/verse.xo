@@ -1,0 +1,127 @@
+force toggle
+  field build, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |toggle|
+
+force get-description
+  field build, field bool
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field bool
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field bool
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field bool
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-custom-playground-quick-look
+  field build, field bool
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field bool
+  field value, field playground-quick-look
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    drive factor, share value
+
+force get-hash-value
+  field build, field bool
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field bool
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force hash
+  field build, field bool
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force encode
+  field build, field bool
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force get-data-value
+  field build, field bool
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dataValue|
+    raise build, field ml-data-value
+
+force set-data-value
+  field build, field bool
+  field value, field ml-data-value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dataValue|
+    drive factor, share value
+
+force get-static-data-value-type
+  cause get aspect
+    drive object, |Bool|
+    drive aspect, |dataValueType|
+    raise build, class ml-data-value-value-type
+
+force set static data-value-type
+  field value, field ml-data-value-value-type
+
+  cause set aspect
+    drive object, |Bool|
+    drive aspect, |dataValueType|
+    drive factor, share value

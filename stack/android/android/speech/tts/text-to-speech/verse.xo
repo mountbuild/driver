@@ -1,0 +1,602 @@
+
+force get-action-tts-queue-processing-completed
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_TTS_QUEUE_PROCESSING_COMPLETED|
+    throw build, field string
+
+force get-error
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    throw build, field int
+
+force get-error-invalid-request
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_INVALID_REQUEST|
+    throw build, field int
+
+force get-error-network
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NETWORK|
+    throw build, field int
+
+force get-error-network-timeout
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NETWORK_TIMEOUT|
+    throw build, field int
+
+force get-error-not-installed-yet
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_NOT_INSTALLED_YET|
+    throw build, field int
+
+force get-error-output
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_OUTPUT|
+    throw build, field int
+
+force get-error-service
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SERVICE|
+    throw build, field int
+
+force get-error-synthesis
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR_SYNTHESIS|
+    throw build, field int
+
+force get-lang-available
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |LANG_AVAILABLE|
+    throw build, field int
+
+force get-lang-country-available
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |LANG_COUNTRY_AVAILABLE|
+    throw build, field int
+
+force get-lang-country-var-available
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |LANG_COUNTRY_VAR_AVAILABLE|
+    throw build, field int
+
+force get-lang-missing-data
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |LANG_MISSING_DATA|
+    throw build, field int
+
+force get-lang-not-supported
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |LANG_NOT_SUPPORTED|
+    throw build, field int
+
+force get-queue-add
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |QUEUE_ADD|
+    throw build, field int
+
+force get-queue-flush
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |QUEUE_FLUSH|
+    throw build, field int
+
+force get-stopped
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |STOPPED|
+    throw build, field int
+
+force get-success
+  mount build, field text-to-speech
+
+  cause get-property
+    drive object, share build
+    drive property, |SUCCESS|
+    throw build, field int
+
+force build-text-to-speech
+  mount context, field context
+  mount listener, field text-to-speech-on-init-listener
+
+  cause invoke-constructor
+    drive constructor, |TextToSpeech|
+    drive factor, share context
+    drive factor, share listener
+    throw build, field text-to-speech
+
+force build-text-to-speech
+  mount context, field context
+  mount listener, field text-to-speech-on-init-listener
+  mount engine, field string
+
+  cause invoke-constructor
+    drive constructor, |TextToSpeech|
+    drive factor, share context
+    drive factor, share listener
+    drive factor, share engine
+    throw build, field text-to-speech
+
+force add-earcon
+  mount build, field text-to-speech
+  mount earcon, field string
+  mount packagename, field string
+  mount resource-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addEarcon|
+    drive factor, share earcon
+    drive factor, share packagename
+    drive factor, share resource-id
+    throw build, field int
+
+force add-earcon
+  mount build, field text-to-speech
+  mount earcon, field string
+  mount filename, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addEarcon|
+    drive factor, share earcon
+    drive factor, share filename
+    throw build, field int
+
+force add-earcon
+  mount build, field text-to-speech
+  mount earcon, field string
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |addEarcon|
+    drive factor, share earcon
+    drive factor, share file
+    throw build, field int
+
+force add-speech
+  mount build, field text-to-speech
+  mount text, field string
+  mount packagename, field string
+  mount resource-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addSpeech|
+    drive factor, share text
+    drive factor, share packagename
+    drive factor, share resource-id
+    throw build, field int
+
+force add-speech
+  mount build, field text-to-speech
+  mount text, field char-sequence
+  mount packagename, field string
+  mount resource-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addSpeech|
+    drive factor, share text
+    drive factor, share packagename
+    drive factor, share resource-id
+    throw build, field int
+
+force add-speech
+  mount build, field text-to-speech
+  mount text, field string
+  mount filename, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addSpeech|
+    drive factor, share text
+    drive factor, share filename
+    throw build, field int
+
+force add-speech
+  mount build, field text-to-speech
+  mount text, field char-sequence
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |addSpeech|
+    drive factor, share text
+    drive factor, share file
+    throw build, field int
+
+force are-defaults-enforced
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |areDefaultsEnforced|
+    throw build, field boolean
+
+force get-available-languages
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableLanguages|
+    throw build, field mutable-set
+
+force get-default-engine
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultEngine|
+    throw build, field string
+
+force get-default-language
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultLanguage|
+    throw build, field locale
+
+force get-default-voice
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultVoice|
+    throw build, field voice
+
+force get-engines
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getEngines|
+    throw build, field mutable-list
+
+force get-features
+  mount build, field text-to-speech
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeatures|
+    drive factor, share locale
+    throw build, field mutable-set
+
+force get-language
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getLanguage|
+    throw build, field locale
+
+force get-max-speech-input-length
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSpeechInputLength|
+    throw build, field int
+
+force get-voice
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getVoice|
+    throw build, field voice
+
+force get-voices
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |getVoices|
+    throw build, field mutable-set
+
+force is-language-available
+  mount build, field text-to-speech
+  mount loc, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |isLanguageAvailable|
+    drive factor, share loc
+    throw build, field int
+
+force is-speaking
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |isSpeaking|
+    throw build, field boolean
+
+force play-earcon
+  mount build, field text-to-speech
+  mount earcon, field string
+  mount queue-mode, field int
+  mount params, field bundle
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |playEarcon|
+    drive factor, share earcon
+    drive factor, share queue-mode
+    drive factor, share params
+    drive factor, share utterance-id
+    throw build, field int
+
+force play-earcon
+  mount build, field text-to-speech
+  mount earcon, field string
+  mount queue-mode, field int
+  mount params, field hash-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |playEarcon|
+    drive factor, share earcon
+    drive factor, share queue-mode
+    drive factor, share params
+    drive factor, share string
+    throw build, field int
+
+force play-silence
+  mount build, field text-to-speech
+  mount duration-in-ms, field long
+  mount queue-mode, field int
+  mount params, field hash-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |playSilence|
+    drive factor, share duration-in-ms
+    drive factor, share queue-mode
+    drive factor, share params
+    drive factor, share string
+    throw build, field int
+
+force play-silent-utterance
+  mount build, field text-to-speech
+  mount duration-in-ms, field long
+  mount queue-mode, field int
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |playSilentUtterance|
+    drive factor, share duration-in-ms
+    drive factor, share queue-mode
+    drive factor, share utterance-id
+    throw build, field int
+
+force set-audio-attributes
+  mount build, field text-to-speech
+  mount audio-attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioAttributes|
+    drive factor, share audio-attributes
+    throw build, field int
+
+force set-engine-by-package-name
+  mount build, field text-to-speech
+  mount engine-package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setEngineByPackageName|
+    drive factor, share engine-package-name
+    throw build, field int
+
+force set-language
+  mount build, field text-to-speech
+  mount loc, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |setLanguage|
+    drive factor, share loc
+    throw build, field int
+
+force set-on-utterance-completed-listener
+  mount build, field text-to-speech
+  mount listener, field text-to-speech-on-utterance-completed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnUtteranceCompletedListener|
+    drive factor, share listener
+    throw build, field int
+
+force set-on-utterance-progress-listener
+  mount build, field text-to-speech
+  mount listener, field utterance-progress-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnUtteranceProgressListener|
+    drive factor, share listener
+    throw build, field int
+
+force set-pitch
+  mount build, field text-to-speech
+  mount pitch, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPitch|
+    drive factor, share pitch
+    throw build, field int
+
+force set-speech-rate
+  mount build, field text-to-speech
+  mount speech-rate, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpeechRate|
+    drive factor, share speech-rate
+    throw build, field int
+
+force set-voice
+  mount build, field text-to-speech
+  mount voice, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |setVoice|
+    drive factor, share voice
+    throw build, field int
+
+force shutdown
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    throw build, field unit
+
+force speak
+  mount build, field text-to-speech
+  mount text, field char-sequence
+  mount queue-mode, field int
+  mount params, field bundle
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |speak|
+    drive factor, share text
+    drive factor, share queue-mode
+    drive factor, share params
+    drive factor, share utterance-id
+    throw build, field int
+
+force speak
+  mount build, field text-to-speech
+  mount text, field string
+  mount queue-mode, field int
+  mount params, field hash-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |speak|
+    drive factor, share text
+    drive factor, share queue-mode
+    drive factor, share params
+    drive factor, share string
+    throw build, field int
+
+force stop
+  mount build, field text-to-speech
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    throw build, field int
+
+force synthesize-to-file
+  mount build, field text-to-speech
+  mount text, field char-sequence
+  mount params, field bundle
+  mount file-descriptor, field parcel-file-descriptor
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |synthesizeToFile|
+    drive factor, share text
+    drive factor, share params
+    drive factor, share file-descriptor
+    drive factor, share utterance-id
+    throw build, field int
+
+force synthesize-to-file
+  mount build, field text-to-speech
+  mount text, field char-sequence
+  mount params, field bundle
+  mount file, field file
+  mount utterance-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |synthesizeToFile|
+    drive factor, share text
+    drive factor, share params
+    drive factor, share file
+    drive factor, share utterance-id
+    throw build, field int
+
+force synthesize-to-file
+  mount build, field text-to-speech
+  mount text, field string
+  mount params, field hash-map-string
+  mount string, field undefined
+  mount filename, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |synthesizeToFile|
+    drive factor, share text
+    drive factor, share params
+    drive factor, share string
+    drive factor, share filename
+    throw build, field int

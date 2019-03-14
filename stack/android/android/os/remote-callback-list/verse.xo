@@ -1,0 +1,131 @@
+
+force build-remote-callback-list
+  cause invoke-constructor
+    drive constructor, |RemoteCallbackList|
+    raise build, field remote-callback-list
+
+force begin-broadcast
+  mount build, field remote-callback-list
+
+  cause call-method
+    drive object, share build
+    drive method, |beginBroadcast|
+    raise build, field int
+
+force finish-broadcast
+  mount build, field remote-callback-list
+
+  cause call-method
+    drive object, share build
+    drive method, |finishBroadcast|
+    raise build, field unit
+
+force get-broadcast-cookie
+  mount build, field remote-callback-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBroadcastCookie|
+    drive factor, share index
+    raise build, field any
+
+force get-broadcast-item
+  mount build, field remote-callback-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBroadcastItem|
+    drive factor, share index
+    raise build, field e
+
+force get-registered-callback-cookie
+  mount build, field remote-callback-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRegisteredCallbackCookie|
+    drive factor, share index
+    raise build, field any
+
+force get-registered-callback-count
+  mount build, field remote-callback-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getRegisteredCallbackCount|
+    raise build, field int
+
+force get-registered-callback-item
+  mount build, field remote-callback-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRegisteredCallbackItem|
+    drive factor, share index
+    raise build, field e
+
+force kill
+  mount build, field remote-callback-list
+
+  cause call-method
+    drive object, share build
+    drive method, |kill|
+    raise build, field unit
+
+force on-callback-died
+  mount build, field remote-callback-list
+  mount callback, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallbackDied|
+    drive factor, share callback
+    raise build, field unit
+
+force on-callback-died
+  mount build, field remote-callback-list
+  mount callback, field e
+  mount cookie, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallbackDied|
+    drive factor, share callback
+    drive factor, share cookie
+    raise build, field unit
+
+force register
+  mount build, field remote-callback-list
+  mount callback, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |register|
+    drive factor, share callback
+    raise build, field boolean
+
+force register
+  mount build, field remote-callback-list
+  mount callback, field e
+  mount cookie, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |register|
+    drive factor, share callback
+    drive factor, share cookie
+    raise build, field boolean
+
+force unregister
+  mount build, field remote-callback-list
+  mount callback, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |unregister|
+    drive factor, share callback
+    raise build, field boolean

@@ -1,0 +1,54 @@
+
+force get-adapter
+  mount build, field bluetooth-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdapter|
+    throw build, field bluetooth-adapter
+
+force get-connected-devices
+  mount build, field bluetooth-manager
+  mount profile, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedDevices|
+    drive factor, share profile
+    throw build, field mutable-list
+
+force get-connection-state
+  mount build, field bluetooth-manager
+  mount device, field bluetooth-device
+  mount profile, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    drive factor, share device
+    drive factor, share profile
+    throw build, field int
+
+force get-devices-matching-connection-states
+  mount build, field bluetooth-manager
+  mount profile, field int
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevicesMatchingConnectionStates|
+    drive factor, share profile
+    drive factor, share states
+    throw build, field mutable-list
+
+force open-gatt-server
+  mount build, field bluetooth-manager
+  mount context, field context
+  mount callback, field bluetooth-gatt-server-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |openGattServer|
+    drive factor, share context
+    drive factor, share callback
+    throw build, field bluetooth-gatt-server

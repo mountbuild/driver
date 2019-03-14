@@ -1,0 +1,327 @@
+
+force get-sample-flag-encrypted
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SAMPLE_FLAG_ENCRYPTED|
+    raise build, field int
+
+force get-sample-flag-partial-frame
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SAMPLE_FLAG_PARTIAL_FRAME|
+    raise build, field int
+
+force get-sample-flag-sync
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SAMPLE_FLAG_SYNC|
+    raise build, field int
+
+force get-seek-to-closest-sync
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SEEK_TO_CLOSEST_SYNC|
+    raise build, field int
+
+force get-seek-to-next-sync
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SEEK_TO_NEXT_SYNC|
+    raise build, field int
+
+force get-seek-to-previous-sync
+  start build, field media-extractor
+
+  cause get-property
+    drive object, share build
+    drive property, |SEEK_TO_PREVIOUS_SYNC|
+    raise build, field int
+
+force build-media-extractor
+  cause invoke-constructor
+    drive constructor, |MediaExtractor|
+    raise build, field media-extractor
+
+force advance
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |advance|
+    raise build, field boolean
+
+force get-audio-presentations
+  start build, field media-extractor
+  start track-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioPresentations|
+    drive factor, share track-index
+    raise build, field mutable-list
+
+force get-cached-duration
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getCachedDuration|
+    raise build, field long
+
+force get-cas-info
+  start build, field media-extractor
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCasInfo|
+    drive factor, share index
+    raise build, field media-extractor-cas-info
+
+force get-drm-init-data
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getDrmInitData|
+    raise build, field drm-init-data
+
+force get-metrics
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetrics|
+    raise build, field persistable-bundle
+
+force get-pssh-info
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getPsshInfo|
+    raise build, field mutable-map
+
+force get-sample-crypto-info
+  start build, field media-extractor
+  start info, field media-codec-crypto-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleCryptoInfo|
+    drive factor, share info
+    raise build, field boolean
+
+force get-sample-flags
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleFlags|
+    raise build, field int
+
+force get-sample-size
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleSize|
+    raise build, field long
+
+force get-sample-time
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleTime|
+    raise build, field long
+
+force get-sample-track-index
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getSampleTrackIndex|
+    raise build, field int
+
+force get-track-count
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrackCount|
+    raise build, field int
+
+force get-track-format
+  start build, field media-extractor
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrackFormat|
+    drive factor, share index
+    raise build, field media-format
+
+force has-cache-reached-end-of-stream
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCacheReachedEndOfStream|
+    raise build, field boolean
+
+force read-sample-data
+  start build, field media-extractor
+  start byte-buf, field byte-buffer
+  start offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readSampleData|
+    drive factor, share byte-buf
+    drive factor, share offset
+    raise build, field int
+
+force release
+  start build, field media-extractor
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force seek-to
+  start build, field media-extractor
+  start time-us, field long
+  start mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |seekTo|
+    drive factor, share time-us
+    drive factor, share mode
+    raise build, field unit
+
+force select-track
+  start build, field media-extractor
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |selectTrack|
+    drive factor, share index
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start data-source, field media-data-source
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share data-source
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start context, field context
+  start uri, field uri
+  start headers, field mutable-map-string
+  start string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share context
+    drive factor, share uri
+    drive factor, share headers
+    drive factor, share string
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start path, field string
+  start headers, field mutable-map-string
+  start string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share path
+    drive factor, share headers
+    drive factor, share string
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share path
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start afd, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share afd
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share fd
+    raise build, field unit
+
+force set-data-source
+  start build, field media-extractor
+  start fd, field file-descriptor
+  start offset, field long
+  start length, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setDataSource|
+    drive factor, share fd
+    drive factor, share offset
+    drive factor, share length
+    raise build, field unit
+
+force set-media-cas
+  start build, field media-extractor
+  start media-cas, field media-cas
+
+  cause call-method
+    drive object, share build
+    drive method, |setMediaCas|
+    drive factor, share media-cas
+    raise build, field unit
+
+force unselect-track
+  start build, field media-extractor
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |unselectTrack|
+    drive factor, share index
+    raise build, field unit

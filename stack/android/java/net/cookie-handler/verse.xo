@@ -1,0 +1,51 @@
+
+force build-cookie-handler
+  cause invoke-constructor
+    drive constructor, |CookieHandler|
+    throw build, field cookie-handler
+
+force get
+  mount build, field cookie-handler
+  mount uri, field uri
+  mount request-headers, field mutable-map-string
+  mount mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share uri
+    drive factor, share request-headers
+    drive factor, share mutable-list-string
+    throw build, field mutable-map
+
+force get-default
+  mount build, field cookie-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field cookie-handler
+
+force put
+  mount build, field cookie-handler
+  mount uri, field uri
+  mount response-headers, field mutable-map-string
+  mount mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share uri
+    drive factor, share response-headers
+    drive factor, share mutable-list-string
+    throw build, field unit
+
+force set-default
+  mount build, field cookie-handler
+  mount c-handler, field cookie-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share c-handler
+    throw build, field unit

@@ -1,0 +1,18 @@
+
+force build-cursor-index-out-of-bounds-exception
+  mount index, field int
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |CursorIndexOutOfBoundsException|
+    drive factor, share index
+    drive factor, share size
+    raise build, field cursor-index-out-of-bounds-exception
+
+force build-cursor-index-out-of-bounds-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |CursorIndexOutOfBoundsException|
+    drive factor, share message
+    raise build, field cursor-index-out-of-bounds-exception

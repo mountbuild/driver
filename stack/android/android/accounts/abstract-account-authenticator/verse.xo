@@ -1,0 +1,224 @@
+
+force get-key-custom-token-expiry
+  mount build, field abstract-account-authenticator
+
+  cause get-property
+    drive object, share build
+    drive property, |KEY_CUSTOM_TOKEN_EXPIRY|
+    throw build, field string
+
+force build-abstract-account-authenticator
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |AbstractAccountAuthenticator|
+    drive factor, share context
+    throw build, field abstract-account-authenticator
+
+force add-account
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account-type, field string
+  mount auth-token-type, field string
+  mount required-features, field array-string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |addAccount|
+    drive factor, share response
+    drive factor, share account-type
+    drive factor, share auth-token-type
+    drive factor, share required-features
+    drive factor, share options
+    throw build, field bundle
+
+force add-account-from-credentials
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount account-credentials, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |addAccountFromCredentials|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share account-credentials
+    throw build, field bundle
+
+force confirm-credentials
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |confirmCredentials|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share options
+    throw build, field bundle
+
+force edit-properties
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |editProperties|
+    drive factor, share response
+    drive factor, share account-type
+    throw build, field bundle
+
+force finish-session
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account-type, field string
+  mount session-bundle, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |finishSession|
+    drive factor, share response
+    drive factor, share account-type
+    drive factor, share session-bundle
+    throw build, field bundle
+
+force get-account-credentials-for-cloning
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccountCredentialsForCloning|
+    drive factor, share response
+    drive factor, share account
+    throw build, field bundle
+
+force get-account-removal-allowed
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccountRemovalAllowed|
+    drive factor, share response
+    drive factor, share account
+    throw build, field bundle
+
+force get-auth-token
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount auth-token-type, field string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthToken|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share auth-token-type
+    drive factor, share options
+    throw build, field bundle
+
+force get-auth-token-label
+  mount build, field abstract-account-authenticator
+  mount auth-token-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthTokenLabel|
+    drive factor, share auth-token-type
+    throw build, field string
+
+force get-i-binder
+  mount build, field abstract-account-authenticator
+
+  cause call-method
+    drive object, share build
+    drive method, |getIBinder|
+    throw build, field i-binder
+
+force has-features
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount features, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasFeatures|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share features
+    throw build, field bundle
+
+force is-credentials-update-suggested
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount status-token, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isCredentialsUpdateSuggested|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share status-token
+    throw build, field bundle
+
+force start-add-account-session
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account-type, field string
+  mount auth-token-type, field string
+  mount required-features, field array-string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startAddAccountSession|
+    drive factor, share response
+    drive factor, share account-type
+    drive factor, share auth-token-type
+    drive factor, share required-features
+    drive factor, share options
+    throw build, field bundle
+
+force start-update-credentials-session
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount auth-token-type, field string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startUpdateCredentialsSession|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share auth-token-type
+    drive factor, share options
+    throw build, field bundle
+
+force update-credentials
+  mount build, field abstract-account-authenticator
+  mount response, field account-authenticator-response
+  mount account, field account
+  mount auth-token-type, field string
+  mount options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |updateCredentials|
+    drive factor, share response
+    drive factor, share account
+    drive factor, share auth-token-type
+    drive factor, share options
+    throw build, field bundle

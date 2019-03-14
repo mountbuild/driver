@@ -1,0 +1,93 @@
+
+force build-gsm-cell-location
+  cause invoke-constructor
+    drive constructor, |GsmCellLocation|
+    throw build, field gsm-cell-location
+
+force build-gsm-cell-location
+  mount bundle, field bundle
+
+  cause invoke-constructor
+    drive constructor, |GsmCellLocation|
+    drive factor, share bundle
+    throw build, field gsm-cell-location
+
+force equals
+  mount build, field gsm-cell-location
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force fill-in-notifier-bundle
+  mount build, field gsm-cell-location
+  mount m, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |fillInNotifierBundle|
+    drive factor, share m
+    throw build, field unit
+
+force get-cid
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getCid|
+    throw build, field int
+
+force get-lac
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getLac|
+    throw build, field int
+
+force get-psc
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |getPsc|
+    throw build, field int
+
+force hash-code
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force set-lac-and-cid
+  mount build, field gsm-cell-location
+  mount lac, field int
+  mount cid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLacAndCid|
+    drive factor, share lac
+    drive factor, share cid
+    throw build, field unit
+
+force set-state-invalid
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |setStateInvalid|
+    throw build, field unit
+
+force to-string
+  mount build, field gsm-cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

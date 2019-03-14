@@ -1,0 +1,41 @@
+
+force get-flag-selecting
+  mount build, field extracted-text
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_SELECTING|
+    raise build, field int
+
+force get-flag-single-line
+  mount build, field extracted-text
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_SINGLE_LINE|
+    raise build, field int
+
+force build-extracted-text
+  cause invoke-constructor
+    drive constructor, |ExtractedText|
+    raise build, field extracted-text
+
+force describe-contents
+  mount build, field extracted-text
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force write-to-parcel
+  mount build, field extracted-text
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

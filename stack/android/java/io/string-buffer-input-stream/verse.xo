@@ -1,0 +1,56 @@
+
+force build-string-buffer-input-stream
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |StringBufferInputStream|
+    drive factor, share s
+    throw build, field string-buffer-input-stream
+
+force available
+  mount build, field string-buffer-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force read
+  mount build, field string-buffer-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field string-buffer-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force reset
+  mount build, field string-buffer-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force skip
+  mount build, field string-buffer-input-stream
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

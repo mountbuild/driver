@@ -1,0 +1,162 @@
+
+force get-error-handler
+  start build, field schema-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getErrorHandler|
+    throw build, field error-handler
+
+force get-feature
+  start build, field schema-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getFeature|
+    mount factor, share name
+    throw build, field boolean
+
+force get-property
+  start build, field schema-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getProperty|
+    mount factor, share name
+    throw build, field any
+
+force get-resource-resolver
+  start build, field schema-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getResourceResolver|
+    throw build, field ls-resource-resolver
+
+force is-schema-language-supported
+  start build, field schema-factory
+  start schema-language, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |isSchemaLanguageSupported|
+    mount factor, share schema-language
+    throw build, field boolean
+
+force new-instance
+  start build, field schema-factory
+  start schema-language, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share schema-language
+    throw build, field schema-factory
+
+force new-instance
+  start build, field schema-factory
+  start schema-language, field string
+  start factory-class-name, field string
+  start class-loader, field class-loader
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share schema-language
+    mount factor, share factory-class-name
+    mount factor, share class-loader
+    throw build, field schema-factory
+
+force new-schema
+  start build, field schema-factory
+  start schema, field source
+
+  cause call-method
+    mount object, share build
+    mount method, |newSchema|
+    mount factor, share schema
+    throw build, field schema
+
+force new-schema
+  start build, field schema-factory
+  start schema, field file
+
+  cause call-method
+    mount object, share build
+    mount method, |newSchema|
+    mount factor, share schema
+    throw build, field schema
+
+force new-schema
+  start build, field schema-factory
+  start schema, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |newSchema|
+    mount factor, share schema
+    throw build, field schema
+
+force new-schema
+  start build, field schema-factory
+  start schemas, field array-source
+
+  cause call-method
+    mount object, share build
+    mount method, |newSchema|
+    mount factor, share schemas
+    throw build, field schema
+
+force new-schema
+  start build, field schema-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newSchema|
+    throw build, field schema
+
+force set-error-handler
+  start build, field schema-factory
+  start error-handler, field error-handler
+
+  cause call-method
+    mount object, share build
+    mount method, |setErrorHandler|
+    mount factor, share error-handler
+    throw build, field unit
+
+force set-feature
+  start build, field schema-factory
+  start name, field string
+  start value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setFeature|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-property
+  start build, field schema-factory
+  start name, field string
+  start object, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |setProperty|
+    mount factor, share name
+    mount factor, share object
+    throw build, field unit
+
+force set-resource-resolver
+  start build, field schema-factory
+  start resource-resolver, field ls-resource-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |setResourceResolver|
+    mount factor, share resource-resolver
+    throw build, field unit

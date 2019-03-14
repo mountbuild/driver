@@ -1,0 +1,69 @@
+
+force build-dictionary
+  cause invoke-constructor
+    drive constructor, |Dictionary|
+    throw build, field dictionary
+
+force elements
+  mount build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |elements|
+    throw build, field enumeration
+
+force get
+  mount build, field dictionary
+  mount key, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force is-empty
+  mount build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force keys
+  mount build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |keys|
+    throw build, field enumeration
+
+force put
+  mount build, field dictionary
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force remove
+  mount build, field dictionary
+  mount key, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force size
+  mount build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field int

@@ -1,0 +1,41 @@
+
+force build-wifi-p2p-info
+  cause invoke-constructor
+    drive constructor, |WifiP2pInfo|
+    throw build, field wifi-p2p-info
+
+force build-wifi-p2p-info
+  mount source, field wifi-p2p-info
+
+  cause invoke-constructor
+    drive constructor, |WifiP2pInfo|
+    drive factor, share source
+    throw build, field wifi-p2p-info
+
+force describe-contents
+  mount build, field wifi-p2p-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field wifi-p2p-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-p2p-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

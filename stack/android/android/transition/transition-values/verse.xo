@@ -1,0 +1,39 @@
+
+force build-transition-values
+  cause invoke-constructor
+    drive constructor, |TransitionValues|
+    throw build, field transition-values
+
+force build-transition-values
+  mount view, field view
+
+  cause invoke-constructor
+    drive constructor, |TransitionValues|
+    drive factor, share view
+    throw build, field transition-values
+
+force equals
+  mount build, field transition-values
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

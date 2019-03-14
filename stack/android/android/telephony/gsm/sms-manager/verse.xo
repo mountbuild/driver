@@ -1,0 +1,146 @@
+
+force get-result-error-generic-failure
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ERROR_GENERIC_FAILURE|
+    throw build, field int
+
+force get-result-error-no-service
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ERROR_NO_SERVICE|
+    throw build, field int
+
+force get-result-error-null-pdu
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ERROR_NULL_PDU|
+    throw build, field int
+
+force get-result-error-radio-off
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RESULT_ERROR_RADIO_OFF|
+    throw build, field int
+
+force get-status-on-sim-free
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ON_SIM_FREE|
+    throw build, field int
+
+force get-status-on-sim-read
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ON_SIM_READ|
+    throw build, field int
+
+force get-status-on-sim-sent
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ON_SIM_SENT|
+    throw build, field int
+
+force get-status-on-sim-unread
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ON_SIM_UNREAD|
+    throw build, field int
+
+force get-status-on-sim-unsent
+  mount build, field sms-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ON_SIM_UNSENT|
+    throw build, field int
+
+force divide-message
+  mount build, field sms-manager
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |divideMessage|
+    drive factor, share text
+    throw build, field array-list
+
+force get-default
+  mount build, field sms-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field sms-manager
+
+force send-data-message
+  mount build, field sms-manager
+  mount destination-address, field string
+  mount sc-address, field string
+  mount destination-port, field short
+  mount data, field byte-array
+  mount sent-intent, field pending-intent
+  mount delivery-intent, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDataMessage|
+    drive factor, share destination-address
+    drive factor, share sc-address
+    drive factor, share destination-port
+    drive factor, share data
+    drive factor, share sent-intent
+    drive factor, share delivery-intent
+    throw build, field unit
+
+force send-multipart-text-message
+  mount build, field sms-manager
+  mount destination-address, field string
+  mount sc-address, field string
+  mount parts, field array-list-string
+  mount sent-intents, field array-list-pending-intent
+  mount delivery-intents, field array-list-pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendMultipartTextMessage|
+    drive factor, share destination-address
+    drive factor, share sc-address
+    drive factor, share parts
+    drive factor, share sent-intents
+    drive factor, share delivery-intents
+    throw build, field unit
+
+force send-text-message
+  mount build, field sms-manager
+  mount destination-address, field string
+  mount sc-address, field string
+  mount text, field string
+  mount sent-intent, field pending-intent
+  mount delivery-intent, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |sendTextMessage|
+    drive factor, share destination-address
+    drive factor, share sc-address
+    drive factor, share text
+    drive factor, share sent-intent
+    drive factor, share delivery-intent
+    throw build, field unit

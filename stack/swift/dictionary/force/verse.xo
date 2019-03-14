@@ -1,0 +1,344 @@
+force get-is-empty
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    raise build, field bool
+
+force set-is-empty
+  field build, field dictionary
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isEmpty|
+    drive factor, share value
+
+force get-count
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |count|
+    raise build, field int
+
+force set-count
+  field build, field dictionary
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |count|
+    drive factor, share value
+
+force get-capacity
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |capacity|
+    raise build, field int
+
+force set-capacity
+  field build, field dictionary
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |capacity|
+    drive factor, share value
+
+force index
+  field build, field dictionary
+  field for-key, field key
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class dictionary-key-value-index
+
+force get-keys
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |keys|
+    raise build, field dictionary-key
+
+force set-keys
+  field build, field dictionary
+  field value, field dictionary-key
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |keys|
+    drive factor, share value
+
+force get-values
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |values|
+    raise build, field dictionary-key
+
+force set-values
+  field build, field dictionary
+  field value, field dictionary-key
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |values|
+    drive factor, share value
+
+force get-first
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |first|
+    raise build, field key
+
+force set-first
+  field build, field dictionary
+  field value, field key
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |first|
+    drive factor, share value
+
+force update-value
+  field build, field dictionary
+  field a, class value
+  field for-key, field key
+
+  cause call-method
+    drive object, share build
+    drive method, |updateValue|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class value
+
+force reserve-capacity
+  field build, field dictionary
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |reserveCapacity|
+    drive factor, share a
+
+force remove-value
+  field build, field dictionary
+  field for-key, field key
+
+  cause call-method
+    drive object, share build
+    drive method, |removeValue|
+    drive factor
+      brand for-key
+      share for-key
+    raise build, class value
+
+force remove
+  field build, field dictionary
+  field at, field dictionary-key
+  field a, class value-index
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand at
+      share at
+    drive factor, share a
+    raise build, class dictionary-key-value-element
+
+force remove-all
+  field build, field dictionary
+  field keeping-capacity, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor
+      brand keeping-capacity
+      share keeping-capacity
+
+force enumerated
+  field build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerated|
+    raise build, class enumerated-sequence-dictionary-key-value
+
+force get-lazy
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    raise build, field lazy-sequence-dictionary-key
+
+force set-lazy
+  field build, field dictionary
+  field value, field lazy-sequence-dictionary-key
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |lazy|
+    drive factor, share value
+
+force make-iterator
+  field build, field dictionary
+
+  cause call-method
+    drive object, share build
+    drive method, |makeIterator|
+    raise build, class dictionary-key-value-iterator
+
+force get-underestimated-count
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    raise build, field int
+
+force set-underestimated-count
+  field build, field dictionary
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |underestimatedCount|
+    drive factor, share value
+
+force encode
+  field build, field dictionary
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to
+
+force get-description
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field dictionary
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field dictionary
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field dictionary
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force hash
+  field build, field dictionary
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force get-data-value
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dataValue|
+    raise build, field ml-data-value
+
+force set-data-value
+  field build, field dictionary
+  field value, field ml-data-value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dataValue|
+    drive factor, share value
+
+force get-static-data-value-type
+  cause get aspect
+    drive object, |Dictionary|
+    drive aspect, |dataValueType|
+    raise build, class ml-data-value-value-type
+
+force set static data-value-type
+  field value, field ml-data-value-value-type
+
+  cause set aspect
+    drive object, |Dictionary|
+    drive aspect, |dataValueType|
+    drive factor, share value
+
+force get-hash-value
+  field build, field dictionary
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field dictionary
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value

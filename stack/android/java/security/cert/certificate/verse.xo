@@ -1,0 +1,84 @@
+
+force equals
+  mount build, field certificate
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-encoded
+  mount build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-public-key
+  mount build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublicKey|
+    throw build, field public-key
+
+force get-type
+  mount build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    throw build, field string
+
+force hash-code
+  mount build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force verify
+  mount build, field certificate
+  mount key, field public-key
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    throw build, field unit
+
+force verify
+  mount build, field certificate
+  mount key, field public-key
+  mount sig-provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    mount factor, share sig-provider
+    throw build, field unit
+
+force verify
+  mount build, field certificate
+  mount key, field public-key
+  mount sig-provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share key
+    mount factor, share sig-provider
+    throw build, field unit

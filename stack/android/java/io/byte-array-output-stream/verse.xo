@@ -1,0 +1,107 @@
+
+force build-byte-array-output-stream
+  cause invoke-constructor
+    drive constructor, |ByteArrayOutputStream|
+    throw build, field byte-array-output-stream
+
+force build-byte-array-output-stream
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |ByteArrayOutputStream|
+    drive factor, share size
+    throw build, field byte-array-output-stream
+
+force close
+  mount build, field byte-array-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force reset
+  mount build, field byte-array-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force size
+  mount build, field byte-array-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field int
+
+force to-byte-array
+  mount build, field byte-array-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |toByteArray|
+    throw build, field byte-array
+
+force to-string
+  mount build, field byte-array-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-string
+  mount build, field byte-array-output-stream
+  mount charset-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share charset-name
+    throw build, field string
+
+force to-string
+  mount build, field byte-array-output-stream
+  mount hibyte, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share hibyte
+    throw build, field string
+
+force write
+  mount build, field byte-array-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field byte-array-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write-to
+  mount build, field byte-array-output-stream
+  mount out, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |writeTo|
+    drive factor, share out
+    throw build, field unit

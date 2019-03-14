@@ -1,0 +1,86 @@
+
+force build-completion-info
+  mount id, field long
+  mount index, field int
+  mount text, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |CompletionInfo|
+    drive factor, share id
+    drive factor, share index
+    drive factor, share text
+    raise build, field completion-info
+
+force build-completion-info
+  mount id, field long
+  mount index, field int
+  mount text, field char-sequence
+  mount label, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |CompletionInfo|
+    drive factor, share id
+    drive factor, share index
+    drive factor, share text
+    drive factor, share label
+    raise build, field completion-info
+
+force describe-contents
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-id
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field long
+
+force get-label
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    raise build, field char-sequence
+
+force get-position
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPosition|
+    raise build, field int
+
+force get-text
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getText|
+    raise build, field char-sequence
+
+force to-string
+  mount build, field completion-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field completion-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

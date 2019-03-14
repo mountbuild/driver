@@ -1,0 +1,58 @@
+
+force get-extension-from-mime-type
+  mount build, field mime-type-map
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtensionFromMimeType|
+    drive factor, share mime-type
+    throw build, field string
+
+force get-file-extension-from-url
+  mount build, field mime-type-map
+  mount url, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileExtensionFromUrl|
+    drive factor, share url
+    throw build, field string
+
+force get-mime-type-from-extension
+  mount build, field mime-type-map
+  mount extension, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeTypeFromExtension|
+    drive factor, share extension
+    throw build, field string
+
+force get-singleton
+  mount build, field mime-type-map
+
+  cause call-method
+    drive object, share build
+    drive method, |getSingleton|
+    throw build, field mime-type-map
+
+force has-extension
+  mount build, field mime-type-map
+  mount extension, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasExtension|
+    drive factor, share extension
+    throw build, field boolean
+
+force has-mime-type
+  mount build, field mime-type-map
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMimeType|
+    drive factor, share mime-type
+    throw build, field boolean

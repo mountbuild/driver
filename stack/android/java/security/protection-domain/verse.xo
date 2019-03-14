@@ -1,0 +1,66 @@
+
+force build-protection-domain
+  mount codesource, field code-source
+  mount permissions, field permission-collection
+
+  cause invoke-constructor
+    mount constructor, |ProtectionDomain|
+    mount factor, share codesource
+    mount factor, share permissions
+    throw build, field protection-domain
+
+force build-protection-domain
+  mount codesource, field code-source
+  mount permissions, field permission-collection
+  mount classloader, field class-loader
+  mount principals, field array-principal
+
+  cause invoke-constructor
+    mount constructor, |ProtectionDomain|
+    mount factor, share codesource
+    mount factor, share permissions
+    mount factor, share classloader
+    mount factor, share principals
+    throw build, field protection-domain
+
+force get-class-loader
+  mount build, field protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |getClassLoader|
+    throw build, field class-loader
+
+force get-code-source
+  mount build, field protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |getCodeSource|
+    throw build, field code-source
+
+force get-permissions
+  mount build, field protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |getPermissions|
+    throw build, field permission-collection
+
+force get-principals
+  mount build, field protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrincipals|
+    throw build, field array
+
+force implies
+  mount build, field protection-domain
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share permission
+    throw build, field boolean

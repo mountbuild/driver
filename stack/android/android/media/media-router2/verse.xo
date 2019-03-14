@@ -1,0 +1,130 @@
+
+force get-controllers
+  start build, field media-router2
+
+  cause call-method
+    drive object, share build
+    drive method, |getControllers|
+    raise build, field mutable-list
+
+force get-instance
+  start build, field media-router2
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share context
+    raise build, field media-router2
+
+force get-routes
+  start build, field media-router2
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoutes|
+    raise build, field mutable-list
+
+force get-system-controller
+  start build, field media-router2
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemController|
+    raise build, field media-router2-routing-controller
+
+force register-controller-callback
+  start build, field media-router2
+  start executor, field executor
+  start callback, field media-router2-controller-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerControllerCallback|
+    drive factor, share executor
+    drive factor, share callback
+    raise build, field unit
+
+force register-route-callback
+  start build, field media-router2
+  start executor, field executor
+  start route-callback, field media-router2-route-callback
+  start preference, field route-discovery-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |registerRouteCallback|
+    drive factor, share executor
+    drive factor, share route-callback
+    drive factor, share preference
+    raise build, field unit
+
+force register-transfer-callback
+  start build, field media-router2
+  start executor, field executor
+  start callback, field media-router2-transfer-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerTransferCallback|
+    drive factor, share executor
+    drive factor, share callback
+    raise build, field unit
+
+force set-on-get-controller-hints-listener
+  start build, field media-router2
+  start listener, field media-router2-on-get-controller-hints-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnGetControllerHintsListener|
+    drive factor, share listener
+    raise build, field unit
+
+force stop
+  start build, field media-router2
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit
+
+force transfer-to
+  start build, field media-router2
+  start route, field media-route2-info
+
+  cause call-method
+    drive object, share build
+    drive method, |transferTo|
+    drive factor, share route
+    raise build, field unit
+
+force unregister-controller-callback
+  start build, field media-router2
+  start callback, field media-router2-controller-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterControllerCallback|
+    drive factor, share callback
+    raise build, field unit
+
+force unregister-route-callback
+  start build, field media-router2
+  start route-callback, field media-router2-route-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterRouteCallback|
+    drive factor, share route-callback
+    raise build, field unit
+
+force unregister-transfer-callback
+  start build, field media-router2
+  start callback, field media-router2-transfer-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterTransferCallback|
+    drive factor, share callback
+    raise build, field unit

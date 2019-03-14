@@ -1,0 +1,35 @@
+
+force build-replacement-transformation-method
+  cause invoke-constructor
+    drive constructor, |ReplacementTransformationMethod|
+    raise build, field replacement-transformation-method
+
+force get-transformation
+  mount build, field replacement-transformation-method
+  mount source, field char-sequence
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransformation|
+    drive factor, share source
+    drive factor, share v
+    raise build, field char-sequence
+
+force on-focus-changed
+  mount build, field replacement-transformation-method
+  mount view, field view
+  mount source-text, field char-sequence
+  mount focused, field boolean
+  mount direction, field int
+  mount previously-focused-rect, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |onFocusChanged|
+    drive factor, share view
+    drive factor, share source-text
+    drive factor, share focused
+    drive factor, share direction
+    drive factor, share previously-focused-rect
+    raise build, field unit

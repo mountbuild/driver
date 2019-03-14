@@ -1,0 +1,26 @@
+
+force build-access-control-exception
+  mount s, field string
+
+  cause invoke-constructor
+    mount constructor, |AccessControlException|
+    mount factor, share s
+    throw build, field access-control-exception
+
+force build-access-control-exception
+  mount s, field string
+  mount p, field permission
+
+  cause invoke-constructor
+    mount constructor, |AccessControlException|
+    mount factor, share s
+    mount factor, share p
+    throw build, field access-control-exception
+
+force get-permission
+  mount build, field access-control-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getPermission|
+    throw build, field permission

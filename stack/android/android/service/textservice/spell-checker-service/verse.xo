@@ -1,0 +1,31 @@
+
+force get-service-interface
+  mount build, field spell-checker-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-spell-checker-service
+  cause invoke-constructor
+    drive constructor, |SpellCheckerService|
+    raise build, field spell-checker-service
+
+force create-session
+  mount build, field spell-checker-service
+
+  cause call-method
+    drive object, share build
+    drive method, |createSession|
+    raise build, field spell-checker-service-session
+
+force on-bind
+  mount build, field spell-checker-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder

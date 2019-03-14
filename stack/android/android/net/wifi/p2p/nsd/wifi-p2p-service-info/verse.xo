@@ -1,0 +1,70 @@
+
+force get-service-type-all
+  mount build, field wifi-p2p-service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_ALL|
+    throw build, field int
+
+force get-service-type-bonjour
+  mount build, field wifi-p2p-service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_BONJOUR|
+    throw build, field int
+
+force get-service-type-upnp
+  mount build, field wifi-p2p-service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_UPNP|
+    throw build, field int
+
+force get-service-type-vendor-specific
+  mount build, field wifi-p2p-service-info
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_VENDOR_SPECIFIC|
+    throw build, field int
+
+force describe-contents
+  mount build, field wifi-p2p-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field wifi-p2p-service-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field wifi-p2p-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field wifi-p2p-service-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

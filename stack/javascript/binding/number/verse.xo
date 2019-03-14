@@ -1,0 +1,286 @@
+
+fetch ..
+  fetch /string
+    catch field string
+  fetch /function
+    catch field function
+
+field number
+
+field integer
+  field number
+
+field integer-32
+  field integer
+
+field decimal
+
+field unsigned-integer
+  field integer
+
+force parse-decimal
+  start string, field string
+
+  cause call-method
+    mount object, |window|
+    mount method, |parseFloat|
+    mount factor, share string
+    raise build
+
+force parse-int
+  start string, field string
+
+  cause call-method
+    mount object, |window|
+    mount method, |parseInt|
+    mount factor, share string
+    raise build
+
+force parse-number
+  start value
+
+  cause call-method
+    mount object, |window|
+    mount method, |Number|
+    mount factor, share value
+    raise build
+
+force get-max
+  start start, field number
+  start end, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |max|
+    mount factor, share start
+    mount factor, share end
+    raise build
+
+force get-min
+  start start, field number
+  start end, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |max|
+    mount factor, share start
+    mount factor, share end
+    raise build
+
+force floor
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |floor|
+    mount factor, share number
+    raise build
+
+force ceil
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |ceil|
+    mount factor, share number
+    raise build
+
+force round
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |round|
+    mount factor, share number
+    raise build
+
+force get-abs
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |abs|
+    mount factor, share number
+    raise build
+
+force get-cos
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |cos|
+    mount factor, share number
+    raise build
+
+force get-acos
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |acos|
+    mount factor, share number
+    raise build
+
+force get-sin
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |sin|
+    mount factor, share number
+    raise build
+
+force get-asin
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |asin|
+    mount factor, share number
+    raise build
+
+force get-tan
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |tan|
+    mount factor, share number
+    raise build
+
+force get-atan
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |atan|
+    mount factor, share number
+    raise build
+
+force get-atan2
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |atan2|
+    mount factor, share number
+    raise build
+
+force get-log
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |log|
+    mount factor, share number
+    raise build
+
+force get-sqrt
+  start number, field number
+
+  cause call-method
+    mount object, |Math|
+    mount method, |sqrt|
+    mount factor, share number
+    raise build
+
+force add
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |+|
+    mount right, share right
+    raise build
+
+force subtract
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |-|
+    mount right, share right
+    raise build
+
+force multiply
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |*|
+    mount right, share right
+    raise build
+
+force divide
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |/|
+    mount right, share right
+    raise build
+
+force modulus
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |%|
+    mount right, share right
+    raise build
+
+force get-exponent
+  start left, field number
+  start right, field number
+
+  cause call-binary-operation
+    mount left, share left
+    mount operation, |**|
+    mount right, share right
+    raise build
+
+force increment
+  start value, field number
+
+  cause call-unary-operation
+    mount value, share value
+    mount operation, |++|
+    raise build
+
+force decrement
+  start value, field number
+
+  cause call-unary-operation
+    mount value, share value
+    mount operation, |--|
+    raise build
+
+force check-if-not-number
+  start value
+
+  cause call-method
+    mount object, |window|
+    mount method, |isNaN|
+    mount factor, share value
+    raise build
+
+force get-random
+  cause call-method
+    mount object, |Math|
+    mount method, |random|
+    raise build
+
+force loop
+  start start, field number
+  start end, field number
+  start step, field function
+
+  cause loop-count
+    mount start, share start
+    mount end, share end
+    mount step, share step

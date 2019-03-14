@@ -1,0 +1,298 @@
+force write
+  field build, field ns-data
+  field to-file, field string
+  field atomically, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to-file
+      share to-file
+    drive factor
+      brand atomically
+      share atomically
+    raise build, class bool
+
+force write
+  field build, field ns-data
+  field to-file, field string
+  field options, field ns-data-writing-options
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to-file
+      share to-file
+    drive factor
+      brand options
+      share options
+
+force write
+  field build, field ns-data
+  field to, field url
+  field atomically, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand atomically
+      share atomically
+    raise build, class bool
+
+force write
+  field build, field ns-data
+  field to, field url
+  field options, field ns-data-writing-options
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand options
+      share options
+
+force base64-encoded-data
+  field build, field ns-data
+  field options, field ns-data-base64-encoding-options
+
+  cause call-method
+    drive object, share build
+    drive method, |base64EncodedData|
+    drive factor
+      brand options
+      share options
+    raise build, class data
+
+force base64-encoded-string
+  field build, field ns-data
+  field options, field ns-data-base64-encoding-options
+
+  cause call-method
+    drive object, share build
+    drive method, |base64EncodedString|
+    drive factor
+      brand options
+      share options
+    raise build, class string
+
+force base64-encoding
+  field build, field ns-data
+
+  cause call-method
+    drive object, share build
+    drive method, |base64Encoding|
+    raise build, class string
+
+force get-bytes
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bytes|
+    raise build, field unsafe-raw-pointer
+
+force set-bytes
+  field build, field ns-data
+  field value, field unsafe-raw-pointer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bytes|
+    drive factor, share value
+
+force get-bytes
+  field build, field ns-data
+  field a, class unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share a
+
+force get-bytes
+  field build, field ns-data
+  field a, class unsafe-mutable-raw-pointer
+  field length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share a
+    drive factor
+      brand length
+      share length
+
+force get-bytes
+  field build, field ns-data
+  field a, class unsafe-mutable-raw-pointer
+  field range, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytes|
+    drive factor, share a
+    drive factor
+      brand range
+      share range
+
+force subdata
+  field build, field ns-data
+  field with, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |subdata|
+    drive factor
+      brand with
+      share with
+    raise build, class data
+
+force range
+  field build, field ns-data
+  field of, field data
+  field options, field ns-data-search-options
+  field in, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor
+      brand of
+      share of
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand in
+      share in
+    raise build, class ns-range
+
+force is-equal
+  field build, field ns-data
+  field to, field data
+
+  cause call-method
+    drive object, share build
+    drive method, |isEqual|
+    drive factor
+      brand to
+      share to
+    raise build, class bool
+
+force get-length
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |length|
+    raise build, field int
+
+force set-length
+  field build, field ns-data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |length|
+    drive factor, share value
+
+force get-description
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field ns-data
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-end-index
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    raise build, field int
+
+force set-end-index
+  field build, field ns-data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |endIndex|
+    drive factor, share value
+
+force get-regions
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |regions|
+    raise build, field data
+
+force set-regions
+  field build, field ns-data
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |regions|
+    drive factor, share value
+
+force get-start-index
+  field build, field ns-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    raise build, field int
+
+force set-start-index
+  field build, field ns-data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |startIndex|
+    drive factor, share value
+
+force compressed
+  field build, field ns-data
+  field using, field ns-data-compression-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |compressed|
+    drive factor
+      brand using
+      share using
+    raise build, class self
+
+force decompressed
+  field build, field ns-data
+  field using, field ns-data-compression-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |decompressed|
+    drive factor
+      brand using
+      share using
+    raise build, class self

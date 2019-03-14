@@ -1,0 +1,108 @@
+
+force get-service-type-primary
+  mount build, field bluetooth-gatt-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_PRIMARY|
+    throw build, field int
+
+force get-service-type-secondary
+  mount build, field bluetooth-gatt-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_TYPE_SECONDARY|
+    throw build, field int
+
+force build-bluetooth-gatt-service
+  mount uuid, field uuid
+  mount service-type, field int
+
+  cause invoke-constructor
+    drive constructor, |BluetoothGattService|
+    drive factor, share uuid
+    drive factor, share service-type
+    throw build, field bluetooth-gatt-service
+
+force add-characteristic
+  mount build, field bluetooth-gatt-service
+  mount characteristic, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |addCharacteristic|
+    drive factor, share characteristic
+    throw build, field boolean
+
+force add-service
+  mount build, field bluetooth-gatt-service
+  mount service, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |addService|
+    drive factor, share service
+    throw build, field boolean
+
+force get-characteristic
+  mount build, field bluetooth-gatt-service
+  mount uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacteristic|
+    drive factor, share uuid
+    throw build, field bluetooth-gatt-characteristic
+
+force get-characteristics
+  mount build, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacteristics|
+    throw build, field mutable-list
+
+force get-included-services
+  mount build, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncludedServices|
+    throw build, field mutable-list
+
+force get-instance-id
+  mount build, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstanceId|
+    throw build, field int
+
+force get-type
+  mount build, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force get-uuid
+  mount build, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getUuid|
+    throw build, field uuid
+
+force write-to-parcel
+  mount build, field bluetooth-gatt-service
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

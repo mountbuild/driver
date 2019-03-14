@@ -1,0 +1,20 @@
+
+force build-ink-workspace-hosted-app-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager|
+
+force get-for-current-app
+  start build, field windows-applicationmodel-preview-inkworkspace-inkworkspacehostedappmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentApp|
+
+force set-thumbnail-async
+  start build, field windows-applicationmodel-preview-inkworkspace-inkworkspacehostedappmanager
+  start bitmap, field windows-graphics-imaging-softwarebitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |SetThumbnailAsync|
+    drive factor, share bitmap

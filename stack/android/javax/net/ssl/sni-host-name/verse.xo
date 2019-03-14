@@ -1,0 +1,60 @@
+
+force build-sni-host-name
+  start hostname, field string
+
+  cause invoke-constructor
+    mount constructor, |SNIHostName|
+    mount factor, share hostname
+    throw build, field sni-host-name
+
+force build-sni-host-name
+  start encoded, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |SNIHostName|
+    mount factor, share encoded
+    throw build, field sni-host-name
+
+force create-sni-matcher
+  start build, field sni-host-name
+  start regex, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |createSNIMatcher|
+    mount factor, share regex
+    throw build, field sni-matcher
+
+force equals
+  start build, field sni-host-name
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    throw build, field boolean
+
+force get-ascii-name
+  start build, field sni-host-name
+
+  cause call-method
+    mount object, share build
+    mount method, |getAsciiName|
+    throw build, field string
+
+force hash-code
+  start build, field sni-host-name
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    throw build, field int
+
+force to-string
+  start build, field sni-host-name
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

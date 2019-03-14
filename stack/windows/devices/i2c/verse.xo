@@ -1,0 +1,257 @@
+
+force get-i2c-bus-speed
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.I2cBusSpeed|
+
+force build-i2c-connection-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.I2c.I2cConnectionSettings|
+
+force get-bus-speed
+  start build, field windows-devices-i2c-i2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BusSpeed|
+
+force set-bus-speed
+  start build, field windows-devices-i2c-i2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BusSpeed|
+    drive factor, share value
+
+force ctor
+  start build, field windows-devices-i2c-i2cconnectionsettings
+  start slave-address, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share slave-address
+
+force get-sharing-mode
+  start build, field windows-devices-i2c-i2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+
+force set-sharing-mode
+  start build, field windows-devices-i2c-i2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+    drive factor, share value
+
+force get-slave-address
+  start build, field windows-devices-i2c-i2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SlaveAddress|
+
+force set-slave-address
+  start build, field windows-devices-i2c-i2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SlaveAddress|
+    drive factor, share value
+
+force build-i2c-controller
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.I2c.I2cController|
+
+force get-controllers-async
+  start build, field windows-devices-i2c-i2ccontroller
+  start provider, field windows-devices-i2c-provider-ii2cprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllersAsync|
+    drive factor, share provider
+
+force get-default-async
+  start build, field windows-devices-i2c-i2ccontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefaultAsync|
+
+force get-device
+  start build, field windows-devices-i2c-i2ccontroller
+  start settings, field windows-devices-i2c-i2cconnectionsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDevice|
+    drive factor, share settings
+
+force build-i2c-device
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.I2c.I2cDevice|
+
+force close
+  start build, field windows-devices-i2c-i2cdevice
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-connection-settings
+  start build, field windows-devices-i2c-i2cdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectionSettings|
+
+force set-connection-settings
+  start build, field windows-devices-i2c-i2cdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectionSettings|
+    drive factor, share value
+
+force get-device-id
+  start build, field windows-devices-i2c-i2cdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+
+force set-device-id
+  start build, field windows-devices-i2c-i2cdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+    drive factor, share value
+
+force from-id-async
+  start build, field windows-devices-i2c-i2cdevice
+  start device-id, field system-string
+  start settings, field windows-devices-i2c-i2cconnectionsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+    drive factor, share settings
+
+force get-device-selector
+  start build, field windows-devices-i2c-i2cdevice
+  start friendly-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share friendly-name
+
+force get-device-selector
+  start build, field windows-devices-i2c-i2cdevice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force read
+  start build, field windows-devices-i2c-i2cdevice
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Read|
+    drive factor, share buffer
+
+force read-partial
+  start build, field windows-devices-i2c-i2cdevice
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadPartial|
+    drive factor, share buffer
+
+force write
+  start build, field windows-devices-i2c-i2cdevice
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Write|
+    drive factor, share buffer
+
+force write-partial
+  start build, field windows-devices-i2c-i2cdevice
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WritePartial|
+    drive factor, share buffer
+
+force write-read
+  start build, field windows-devices-i2c-i2cdevice
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteRead|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force write-read-partial
+  start build, field windows-devices-i2c-i2cdevice
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteReadPartial|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force get-i2c-sharing-mode
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.I2cSharingMode|
+
+force get-i2c-transfer-status
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.I2cTransferStatus|
+
+force from-id-async
+  start build, field windows-devices-i2c-ii2cdevicestatics
+  start device-id, field system-string
+  start settings, field windows-devices-i2c-i2cconnectionsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+    drive factor, share settings
+
+force get-device-selector
+  start build, field windows-devices-i2c-ii2cdevicestatics
+  start friendly-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share friendly-name
+
+force get-device-selector
+  start build, field windows-devices-i2c-ii2cdevicestatics
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|

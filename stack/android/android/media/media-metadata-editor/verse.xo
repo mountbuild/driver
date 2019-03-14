@@ -1,0 +1,162 @@
+
+force get-bitmap-key-artwork
+  start build, field media-metadata-editor
+
+  cause get-property
+    drive object, share build
+    drive property, |BITMAP_KEY_ARTWORK|
+    raise build, field int
+
+force get-rating-key-by-others
+  start build, field media-metadata-editor
+
+  cause get-property
+    drive object, share build
+    drive property, |RATING_KEY_BY_OTHERS|
+    raise build, field int
+
+force get-rating-key-by-user
+  start build, field media-metadata-editor
+
+  cause get-property
+    drive object, share build
+    drive property, |RATING_KEY_BY_USER|
+    raise build, field int
+
+force add-editable-key
+  start build, field media-metadata-editor
+  start key, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addEditableKey|
+    drive factor, share key
+    raise build, field unit
+
+force apply
+  start build, field media-metadata-editor
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    raise build, field unit
+
+force clear
+  start build, field media-metadata-editor
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    raise build, field unit
+
+force get-bitmap
+  start build, field media-metadata-editor
+  start key, field int
+  start default-value, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |getBitmap|
+    drive factor, share key
+    drive factor, share default-value
+    raise build, field bitmap
+
+force get-editable-keys
+  start build, field media-metadata-editor
+
+  cause call-method
+    drive object, share build
+    drive method, |getEditableKeys|
+    raise build, field int-array
+
+force get-long
+  start build, field media-metadata-editor
+  start key, field int
+  start default-value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getLong|
+    drive factor, share key
+    drive factor, share default-value
+    raise build, field long
+
+force get-object
+  start build, field media-metadata-editor
+  start key, field int
+  start default-value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getObject|
+    drive factor, share key
+    drive factor, share default-value
+    raise build, field any
+
+force get-string
+  start build, field media-metadata-editor
+  start key, field int
+  start default-value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getString|
+    drive factor, share key
+    drive factor, share default-value
+    raise build, field string
+
+force put-bitmap
+  start build, field media-metadata-editor
+  start key, field int
+  start bitmap, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |putBitmap|
+    drive factor, share key
+    drive factor, share bitmap
+    raise build, field media-metadata-editor
+
+force put-long
+  start build, field media-metadata-editor
+  start key, field int
+  start value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |putLong|
+    drive factor, share key
+    drive factor, share value
+    raise build, field media-metadata-editor
+
+force put-object
+  start build, field media-metadata-editor
+  start key, field int
+  start value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |putObject|
+    drive factor, share key
+    drive factor, share value
+    raise build, field media-metadata-editor
+
+force put-string
+  start build, field media-metadata-editor
+  start key, field int
+  start value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |putString|
+    drive factor, share key
+    drive factor, share value
+    raise build, field media-metadata-editor
+
+force remove-editable-keys
+  start build, field media-metadata-editor
+
+  cause call-method
+    drive object, share build
+    drive method, |removeEditableKeys|
+    raise build, field unit

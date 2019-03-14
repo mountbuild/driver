@@ -1,0 +1,234 @@
+
+force build-thread-group
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |ThreadGroup|
+    drive factor, share name
+    throw build, field thread-group
+
+force build-thread-group
+  mount parent, field thread-group
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |ThreadGroup|
+    drive factor, share parent
+    drive factor, share name
+    throw build, field thread-group
+
+force active-count
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |activeCount|
+    throw build, field int
+
+force active-group-count
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |activeGroupCount|
+    throw build, field int
+
+force allow-thread-suspension
+  mount build, field thread-group
+  mount b, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |allowThreadSuspension|
+    drive factor, share b
+    throw build, field boolean
+
+force check-access
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |checkAccess|
+    throw build, field unit
+
+force destroy
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    throw build, field unit
+
+force enumerate
+  mount build, field thread-group
+  mount list, field array-thread
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerate|
+    drive factor, share list
+    throw build, field int
+
+force enumerate
+  mount build, field thread-group
+  mount list, field array-thread
+  mount recurse, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerate|
+    drive factor, share list
+    drive factor, share recurse
+    throw build, field int
+
+force enumerate
+  mount build, field thread-group
+  mount list, field array-thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerate|
+    drive factor, share list
+    throw build, field int
+
+force enumerate
+  mount build, field thread-group
+  mount list, field array-thread-group
+  mount recurse, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enumerate|
+    drive factor, share list
+    drive factor, share recurse
+    throw build, field int
+
+force get-max-priority
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxPriority|
+    throw build, field int
+
+force get-name
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-parent
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field thread-group
+
+force interrupt
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |interrupt|
+    throw build, field unit
+
+force is-daemon
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |isDaemon|
+    throw build, field boolean
+
+force is-destroyed
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |isDestroyed|
+    throw build, field boolean
+
+force list
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    throw build, field unit
+
+force parent-of
+  mount build, field thread-group
+  mount g, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |parentOf|
+    drive factor, share g
+    throw build, field boolean
+
+force resume
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    throw build, field unit
+
+force set-daemon
+  mount build, field thread-group
+  mount daemon, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDaemon|
+    drive factor, share daemon
+    throw build, field unit
+
+force set-max-priority
+  mount build, field thread-group
+  mount pri, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxPriority|
+    drive factor, share pri
+    throw build, field unit
+
+force stop
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    throw build, field unit
+
+force suspend
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |suspend|
+    throw build, field unit
+
+force to-string
+  mount build, field thread-group
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force uncaught-exception
+  mount build, field thread-group
+  mount t, field thread
+  mount e, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |uncaughtException|
+    drive factor, share t
+    drive factor, share e
+    throw build, field unit

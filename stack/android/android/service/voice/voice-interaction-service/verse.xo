@@ -1,0 +1,131 @@
+
+force get-service-interface
+  mount build, field voice-interaction-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force get-service-meta-data
+  mount build, field voice-interaction-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force build-voice-interaction-service
+  cause invoke-constructor
+    drive constructor, |VoiceInteractionService|
+    raise build, field voice-interaction-service
+
+force create-always-on-hotword-detector
+  mount build, field voice-interaction-service
+  mount keyphrase, field string
+  mount locale, field locale
+  mount callback, field always-on-hotword-detector-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |createAlwaysOnHotwordDetector|
+    drive factor, share keyphrase
+    drive factor, share locale
+    drive factor, share callback
+    raise build, field always-on-hotword-detector
+
+force get-disabled-show-context
+  mount build, field voice-interaction-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisabledShowContext|
+    raise build, field int
+
+force is-active-service
+  mount build, field voice-interaction-service
+  mount context, field context
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |isActiveService|
+    drive factor, share context
+    drive factor, share service
+    raise build, field boolean
+
+force on-bind
+  mount build, field voice-interaction-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-get-supported-voice-actions
+  mount build, field voice-interaction-service
+  mount voice-actions, field mutable-set-string
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetSupportedVoiceActions|
+    drive factor, share voice-actions
+    raise build, field mutable-set
+
+force on-launch-voice-assist-from-keyguard
+  mount build, field voice-interaction-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onLaunchVoiceAssistFromKeyguard|
+    raise build, field unit
+
+force on-ready
+  mount build, field voice-interaction-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onReady|
+    raise build, field unit
+
+force on-shutdown
+  mount build, field voice-interaction-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onShutdown|
+    raise build, field unit
+
+force set-disabled-show-context
+  mount build, field voice-interaction-service
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDisabledShowContext|
+    drive factor, share flags
+    raise build, field unit
+
+force set-ui-hints
+  mount build, field voice-interaction-service
+  mount hints, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setUiHints|
+    drive factor, share hints
+    raise build, field unit
+
+force show-session
+  mount build, field voice-interaction-service
+  mount args, field bundle
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |showSession|
+    drive factor, share args
+    drive factor, share flags
+    raise build, field unit

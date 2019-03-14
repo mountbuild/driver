@@ -1,0 +1,72 @@
+
+force create-socket
+  start build, field socket-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    throw build, field socket
+
+force create-socket
+  start build, field socket-factory
+  start host, field string
+  start port, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    mount factor, share host
+    mount factor, share port
+    throw build, field socket
+
+force create-socket
+  start build, field socket-factory
+  start host, field string
+  start port, field int
+  start local-host, field inet-address
+  start local-port, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    mount factor, share host
+    mount factor, share port
+    mount factor, share local-host
+    mount factor, share local-port
+    throw build, field socket
+
+force create-socket
+  start build, field socket-factory
+  start host, field inet-address
+  start port, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    mount factor, share host
+    mount factor, share port
+    throw build, field socket
+
+force create-socket
+  start build, field socket-factory
+  start address, field inet-address
+  start port, field int
+  start local-address, field inet-address
+  start local-port, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    mount factor, share address
+    mount factor, share port
+    mount factor, share local-address
+    mount factor, share local-port
+    throw build, field socket
+
+force get-default
+  start build, field socket-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefault|
+    throw build, field socket-factory

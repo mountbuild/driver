@@ -1,0 +1,31 @@
+
+force build-operation-canceled-exception
+  cause invoke-constructor
+    drive constructor, |OperationCanceledException|
+    throw build, field operation-canceled-exception
+
+force build-operation-canceled-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |OperationCanceledException|
+    drive factor, share message
+    throw build, field operation-canceled-exception
+
+force build-operation-canceled-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |OperationCanceledException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field operation-canceled-exception
+
+force build-operation-canceled-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |OperationCanceledException|
+    drive factor, share cause
+    throw build, field operation-canceled-exception

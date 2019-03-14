@@ -1,0 +1,13 @@
+
+force build-file-system-not-found-exception
+  cause invoke-constructor
+    drive constructor, |FileSystemNotFoundException|
+    throw build, field file-system-not-found-exception
+
+force build-file-system-not-found-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |FileSystemNotFoundException|
+    drive factor, share msg
+    throw build, field file-system-not-found-exception

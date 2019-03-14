@@ -1,0 +1,296 @@
+force get-class-current
+
+  cause get-aspect
+    mount object, |NSRunningApplication|
+    mount aspect, |current|
+    raise build, field ns-running-application
+
+force set-class-current
+  field value, field ns-running-application
+
+  cause set-aspect
+    mount object, |NSRunningApplication|
+    mount aspect, |current|
+    mount factor, share value
+
+force get-is-active
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isActive|
+    raise build, field bool
+
+force set-is-active
+  field build, field ns-running-application
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isActive|
+    mount factor, share value
+
+force activate
+  field build, field ns-running-application
+  field options, field ns-application-activation-options
+
+  cause call-method
+    mount object, share build
+    mount method, |activate|
+    mount factor
+      brand options
+      share options
+    raise build, class bool
+
+force get-activation-policy
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |activationPolicy|
+    raise build, field ns-application-activation-policy
+
+force set-activation-policy
+  field build, field ns-running-application
+  field value, field ns-application-activation-policy
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |activationPolicy|
+    mount factor, share value
+
+force hide
+  field build, field ns-running-application
+
+  cause call-method
+    mount object, share build
+    mount method, |hide|
+    raise build, class bool
+
+force unhide
+  field build, field ns-running-application
+
+  cause call-method
+    mount object, share build
+    mount method, |unhide|
+    raise build, class bool
+
+force get-is-hidden
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isHidden|
+    raise build, field bool
+
+force set-is-hidden
+  field build, field ns-running-application
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isHidden|
+    mount factor, share value
+
+force get-localized-name
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    raise build, field string
+
+force set-localized-name
+  field build, field ns-running-application
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    mount factor, share value
+
+force get-icon
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |icon|
+    raise build, field ns-image
+
+force set-icon
+  field build, field ns-running-application
+  field value, field ns-image
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |icon|
+    mount factor, share value
+
+force get-bundle-identifier
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |bundleIdentifier|
+    raise build, field string
+
+force set-bundle-identifier
+  field build, field ns-running-application
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |bundleIdentifier|
+    mount factor, share value
+
+force get-bundle-url
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |bundleURL|
+    raise build, field url
+
+force set-bundle-url
+  field build, field ns-running-application
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |bundleURL|
+    mount factor, share value
+
+force get-executable-architecture
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |executableArchitecture|
+    raise build, field int
+
+force set-executable-architecture
+  field build, field ns-running-application
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |executableArchitecture|
+    mount factor, share value
+
+force get-executable-url
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |executableURL|
+    raise build, field url
+
+force set-executable-url
+  field build, field ns-running-application
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |executableURL|
+    mount factor, share value
+
+force get-launch-date
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |launchDate|
+    raise build, field date
+
+force set-launch-date
+  field build, field ns-running-application
+  field value, field date
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |launchDate|
+    mount factor, share value
+
+force get-is-finished-launching
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isFinishedLaunching|
+    raise build, field bool
+
+force set-is-finished-launching
+  field build, field ns-running-application
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isFinishedLaunching|
+    mount factor, share value
+
+force get-process-identifier
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |processIdentifier|
+    raise build, field pid-t
+
+force set-process-identifier
+  field build, field ns-running-application
+  field value, field pid-t
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |processIdentifier|
+    mount factor, share value
+
+force get-owns-menu-bar
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ownsMenuBar|
+    raise build, field bool
+
+force set-owns-menu-bar
+  field build, field ns-running-application
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |ownsMenuBar|
+    mount factor, share value
+
+force force-terminate
+  field build, field ns-running-application
+
+  cause call-method
+    mount object, share build
+    mount method, |forceTerminate|
+    raise build, class bool
+
+force terminate
+  field build, field ns-running-application
+
+  cause call-method
+    mount object, share build
+    mount method, |terminate|
+    raise build, class bool
+
+force get-is-terminated
+  field build, field ns-running-application
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isTerminated|
+    raise build, field bool
+
+force set-is-terminated
+  field build, field ns-running-application
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isTerminated|
+    mount factor, share value

@@ -1,0 +1,36 @@
+
+force read
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    throw build
+
+force read-text
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |readText|
+    throw build
+
+force write
+  start build
+  start data
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share data
+    throw build
+
+force write-text
+  start build
+  start new-clip-text
+
+  cause call-method
+    mount object, share build
+    mount method, |writeText|
+    mount factor, share new-clip-text
+    throw build

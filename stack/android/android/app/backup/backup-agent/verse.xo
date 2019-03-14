@@ -1,0 +1,157 @@
+
+force get-flag-client-side-encryption-enabled
+  start build, field backup-agent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED|
+    throw build, field int
+
+force get-flag-device-to-device-transfer
+  start build, field backup-agent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_DEVICE_TO_DEVICE_TRANSFER|
+    throw build, field int
+
+force get-type-directory
+  start build, field backup-agent
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_DIRECTORY|
+    throw build, field int
+
+force get-type-file
+  start build, field backup-agent
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_FILE|
+    throw build, field int
+
+force build-backup-agent
+  cause invoke-constructor
+    drive constructor, |BackupAgent|
+    throw build, field backup-agent
+
+force full-backup-file
+  start build, field backup-agent
+  start file, field file
+  start output, field full-backup-data-output
+
+  cause call-method
+    drive object, share build
+    drive method, |fullBackupFile|
+    drive factor, share file
+    drive factor, share output
+    throw build, field unit
+
+force on-backup
+  start build, field backup-agent
+  start old-state, field parcel-file-descriptor
+  start data, field backup-data-output
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onBackup|
+    drive factor, share old-state
+    drive factor, share data
+    drive factor, share new-state
+    throw build, field unit
+
+force on-create
+  start build, field backup-agent
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-destroy
+  start build, field backup-agent
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-full-backup
+  start build, field backup-agent
+  start data, field full-backup-data-output
+
+  cause call-method
+    drive object, share build
+    drive method, |onFullBackup|
+    drive factor, share data
+    throw build, field unit
+
+force on-quota-exceeded
+  start build, field backup-agent
+  start backup-data-bytes, field long
+  start quota-bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onQuotaExceeded|
+    drive factor, share backup-data-bytes
+    drive factor, share quota-bytes
+    throw build, field unit
+
+force on-restore
+  start build, field backup-agent
+  start data, field backup-data-input
+  start app-version-code, field int
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestore|
+    drive factor, share data
+    drive factor, share app-version-code
+    drive factor, share new-state
+    throw build, field unit
+
+force on-restore
+  start build, field backup-agent
+  start data, field backup-data-input
+  start app-version-code, field long
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestore|
+    drive factor, share data
+    drive factor, share app-version-code
+    drive factor, share new-state
+    throw build, field unit
+
+force on-restore-file
+  start build, field backup-agent
+  start data, field parcel-file-descriptor
+  start size, field long
+  start destination, field file
+  start type, field int
+  start mode, field long
+  start mtime, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestoreFile|
+    drive factor, share data
+    drive factor, share size
+    drive factor, share destination
+    drive factor, share type
+    drive factor, share mode
+    drive factor, share mtime
+    throw build, field unit
+
+force on-restore-finished
+  start build, field backup-agent
+
+  cause call-method
+    drive object, share build
+    drive method, |onRestoreFinished|
+    throw build, field unit

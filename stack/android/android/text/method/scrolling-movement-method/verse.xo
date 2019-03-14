@@ -1,0 +1,41 @@
+
+force build-scrolling-movement-method
+  cause invoke-constructor
+    drive constructor, |ScrollingMovementMethod|
+    raise build, field scrolling-movement-method
+
+force get-instance
+  mount build, field scrolling-movement-method
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    raise build, field movement-method
+
+force on-take-focus
+  mount build, field scrolling-movement-method
+  mount widget, field text-view
+  mount text, field spannable
+  mount dir, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTakeFocus|
+    drive factor, share widget
+    drive factor, share text
+    drive factor, share dir
+    raise build, field unit
+
+force on-touch-event
+  mount build, field scrolling-movement-method
+  mount widget, field text-view
+  mount buffer, field spannable
+  mount event, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share widget
+    drive factor, share buffer
+    drive factor, share event
+    raise build, field boolean

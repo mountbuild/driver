@@ -1,0 +1,26 @@
+
+force build-key-pair
+  mount public-key, field public-key
+  mount private-key, field private-key
+
+  cause invoke-constructor
+    mount constructor, |KeyPair|
+    mount factor, share public-key
+    mount factor, share private-key
+    throw build, field key-pair
+
+force get-private
+  mount build, field key-pair
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrivate|
+    throw build, field private-key
+
+force get-public
+  mount build, field key-pair
+
+  cause call-method
+    mount object, share build
+    mount method, |getPublic|
+    throw build, field public-key

@@ -1,0 +1,96 @@
+force get-url
+  field build, field avurl-asset
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |url|
+    raise build, field url
+
+force set-url
+  field build, field avurl-asset
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |url|
+    mount factor, share value
+
+force get-resource-loader
+  field build, field avurl-asset
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |resourceLoader|
+    raise build, field av-asset-resource-loader
+
+force set-resource-loader
+  field build, field avurl-asset
+  field value, field av-asset-resource-loader
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |resourceLoader|
+    mount factor, share value
+
+force compatible-track
+  field build, field avurl-asset
+  field for, field av-composition-track
+
+  cause call-method
+    mount object, share build
+    mount method, |compatibleTrack|
+    mount factor
+      brand for
+      share for
+    raise build, class av-asset-track
+
+force get-asset-cache
+  field build, field avurl-asset
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |assetCache|
+    raise build, field av-asset-cache
+
+force set-asset-cache
+  field build, field avurl-asset
+  field value, field av-asset-cache
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |assetCache|
+    mount factor, share value
+
+force get-may-require-content-keys-for-media-data-processing
+  field build, field avurl-asset
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mayRequireContentKeysForMediaDataProcessing|
+    raise build, field bool
+
+force set-may-require-content-keys-for-media-data-processing
+  field build, field avurl-asset
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |mayRequireContentKeysForMediaDataProcessing|
+    mount factor, share value
+
+force get-response
+  field build, field avurl-asset
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |response|
+    raise build, field url-response
+
+force set-response
+  field build, field avurl-asset
+  field value, field url-response
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |response|
+    mount factor, share value

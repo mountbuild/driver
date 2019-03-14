@@ -1,0 +1,87 @@
+
+force get-deactivation-deselected
+  mount build, field host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DEACTIVATION_DESELECTED|
+    throw build, field int
+
+force get-deactivation-link-loss
+  mount build, field host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |DEACTIVATION_LINK_LOSS|
+    throw build, field int
+
+force get-service-interface
+  mount build, field host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force get-service-meta-data
+  mount build, field host-apdu-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    throw build, field string
+
+force build-host-apdu-service
+  cause invoke-constructor
+    drive constructor, |HostApduService|
+    throw build, field host-apdu-service
+
+force notify-unhandled
+  mount build, field host-apdu-service
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyUnhandled|
+    throw build, field unit
+
+force on-bind
+  mount build, field host-apdu-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-deactivated
+  mount build, field host-apdu-service
+  mount reason, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDeactivated|
+    drive factor, share reason
+    throw build, field unit
+
+force process-command-apdu
+  mount build, field host-apdu-service
+  mount command-apdu, field byte-array
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |processCommandApdu|
+    drive factor, share command-apdu
+    drive factor, share extras
+    throw build, field byte-array
+
+force send-response-apdu
+  mount build, field host-apdu-service
+  mount response-apdu, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |sendResponseApdu|
+    drive factor, share response-apdu
+    throw build, field unit

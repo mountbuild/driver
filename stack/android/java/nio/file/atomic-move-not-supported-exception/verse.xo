@@ -1,0 +1,12 @@
+
+force build-atomic-move-not-supported-exception
+  mount source, field string
+  mount target, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |AtomicMoveNotSupportedException|
+    drive factor, share source
+    drive factor, share target
+    drive factor, share reason
+    throw build, field atomic-move-not-supported-exception

@@ -1,0 +1,354 @@
+force get-cache-policy
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |cachePolicy|
+    raise build, field url-request-cache-policy
+
+force set-cache-policy
+  field build, field url-request
+  field value, field url-request-cache-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |cachePolicy|
+    drive factor, share value
+
+force get-http-method
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |httpMethod|
+    raise build, field string
+
+force set-http-method
+  field build, field url-request
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |httpMethod|
+    drive factor, share value
+
+force get-url
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |url|
+    raise build, field url
+
+force set-url
+  field build, field url-request
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |url|
+    drive factor, share value
+
+force get-http-body
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |httpBody|
+    raise build, field data
+
+force set-http-body
+  field build, field url-request
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |httpBody|
+    drive factor, share value
+
+force get-http-body-stream
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |httpBodyStream|
+    raise build, field input-stream
+
+force set-http-body-stream
+  field build, field url-request
+  field value, field input-stream
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |httpBodyStream|
+    drive factor, share value
+
+force get-main-document-url
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mainDocumentURL|
+    raise build, field url
+
+force set-main-document-url
+  field build, field url-request
+  field value, field url
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mainDocumentURL|
+    drive factor, share value
+
+force get-all-http-header-fields
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allHTTPHeaderFields|
+    raise build, field string
+
+force set-all-http-header-fields
+  field build, field url-request
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allHTTPHeaderFields|
+    drive factor, share value
+
+force add-value
+  field build, field url-request
+  field a, class string
+  field for-http-header-field, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addValue|
+    drive factor, share a
+    drive factor
+      brand for-http-header-field
+      share for-http-header-field
+
+force set-value
+  field build, field url-request
+  field a, class string
+  field for-http-header-field, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share a
+    drive factor
+      brand for-http-header-field
+      share for-http-header-field
+
+force value
+  field build, field url-request
+  field for-http-header-field, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor
+      brand for-http-header-field
+      share for-http-header-field
+    raise build, class string
+
+force get-timeout-interval
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timeoutInterval|
+    raise build, field time-interval
+
+force set-timeout-interval
+  field build, field url-request
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timeoutInterval|
+    drive factor, share value
+
+force get-http-should-handle-cookies
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |httpShouldHandleCookies|
+    raise build, field bool
+
+force set-http-should-handle-cookies
+  field build, field url-request
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |httpShouldHandleCookies|
+    drive factor, share value
+
+force get-http-should-use-pipelining
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |httpShouldUsePipelining|
+    raise build, field bool
+
+force set-http-should-use-pipelining
+  field build, field url-request
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |httpShouldUsePipelining|
+    drive factor, share value
+
+force get-allows-cellular-access
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsCellularAccess|
+    raise build, field bool
+
+force set-allows-cellular-access
+  field build, field url-request
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsCellularAccess|
+    drive factor, share value
+
+force get-allows-constrained-network-access
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsConstrainedNetworkAccess|
+    raise build, field bool
+
+force set-allows-constrained-network-access
+  field build, field url-request
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsConstrainedNetworkAccess|
+    drive factor, share value
+
+force get-allows-expensive-network-access
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowsExpensiveNetworkAccess|
+    raise build, field bool
+
+force set-allows-expensive-network-access
+  field build, field url-request
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowsExpensiveNetworkAccess|
+    drive factor, share value
+
+force get-network-service-type
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |networkServiceType|
+    raise build, field url-request-network-service-type
+
+force set-network-service-type
+  field build, field url-request
+  field value, field url-request-network-service-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |networkServiceType|
+    drive factor, share value
+
+force get-description
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field url-request
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field url-request
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field url-request
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-hash-value
+  field build, field url-request
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field url-request
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force hash
+  field build, field url-request
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into

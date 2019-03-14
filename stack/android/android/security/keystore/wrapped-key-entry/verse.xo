@@ -1,0 +1,46 @@
+
+force build-wrapped-key-entry
+  mount wrapped-key-bytes, field byte-array
+  mount wrapping-key-alias, field string
+  mount transformation, field string
+  mount algorithm-parameter-spec, field algorithm-parameter-spec
+
+  cause invoke-constructor
+    drive constructor, |WrappedKeyEntry|
+    drive factor, share wrapped-key-bytes
+    drive factor, share wrapping-key-alias
+    drive factor, share transformation
+    drive factor, share algorithm-parameter-spec
+    throw build, field wrapped-key-entry
+
+force get-algorithm-parameter-spec
+  mount build, field wrapped-key-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getAlgorithmParameterSpec|
+    throw build, field algorithm-parameter-spec
+
+force get-transformation
+  mount build, field wrapped-key-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransformation|
+    throw build, field string
+
+force get-wrapped-key-bytes
+  mount build, field wrapped-key-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getWrappedKeyBytes|
+    throw build, field byte-array
+
+force get-wrapping-key-alias
+  mount build, field wrapped-key-entry
+
+  cause call-method
+    drive object, share build
+    drive method, |getWrappingKeyAlias|
+    throw build, field string

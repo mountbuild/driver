@@ -1,0 +1,143 @@
+
+force build-battery
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Power.Battery|
+
+force get-aggregate-battery
+  start build, field windows-devices-power-battery
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AggregateBattery|
+
+force set-aggregate-battery
+  start build, field windows-devices-power-battery
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AggregateBattery|
+    drive factor, share value
+
+force get-device-id
+  start build, field windows-devices-power-battery
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+
+force set-device-id
+  start build, field windows-devices-power-battery
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+    drive factor, share value
+
+force from-id-async
+  start build, field windows-devices-power-battery
+  start device-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+
+force get-device-selector
+  start build, field windows-devices-power-battery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+
+force get-report
+  start build, field windows-devices-power-battery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetReport|
+
+force build-battery-report
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Power.BatteryReport|
+
+force get-charge-rate-in-milliwatts
+  start build, field windows-devices-power-batteryreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChargeRateInMilliwatts|
+
+force set-charge-rate-in-milliwatts
+  start build, field windows-devices-power-batteryreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChargeRateInMilliwatts|
+    drive factor, share value
+
+force get-design-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DesignCapacityInMilliwattHours|
+
+force set-design-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DesignCapacityInMilliwattHours|
+    drive factor, share value
+
+force get-full-charge-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FullChargeCapacityInMilliwattHours|
+
+force set-full-charge-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FullChargeCapacityInMilliwattHours|
+    drive factor, share value
+
+force get-remaining-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemainingCapacityInMilliwattHours|
+
+force set-remaining-capacity-in-milliwatt-hours
+  start build, field windows-devices-power-batteryreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemainingCapacityInMilliwattHours|
+    drive factor, share value
+
+force get-status
+  start build, field windows-devices-power-batteryreport
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-devices-power-batteryreport
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value

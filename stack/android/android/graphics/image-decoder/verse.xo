@@ -1,0 +1,352 @@
+
+force get-allocator-default
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |ALLOCATOR_DEFAULT|
+    raise build, field int
+
+force get-allocator-hardware
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |ALLOCATOR_HARDWARE|
+    raise build, field int
+
+force get-allocator-shared-memory
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |ALLOCATOR_SHARED_MEMORY|
+    raise build, field int
+
+force get-allocator-software
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |ALLOCATOR_SOFTWARE|
+    raise build, field int
+
+force get-memory-policy-default
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEMORY_POLICY_DEFAULT|
+    raise build, field int
+
+force get-memory-policy-low-ram
+  mount build, field image-decoder
+
+  cause get-property
+    drive object, share build
+    drive property, |MEMORY_POLICY_LOW_RAM|
+    raise build, field int
+
+force close
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force create-source
+  mount build, field image-decoder
+  mount res, field resources
+  mount res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share res
+    drive factor, share res-id
+    raise build, field image-decoder-source
+
+force create-source
+  mount build, field image-decoder
+  mount cr, field content-resolver
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share cr
+    drive factor, share uri
+    raise build, field image-decoder-source
+
+force create-source
+  mount build, field image-decoder
+  mount assets, field asset-manager
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share assets
+    drive factor, share file-name
+    raise build, field image-decoder-source
+
+force create-source
+  mount build, field image-decoder
+  mount buffer, field byte-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share buffer
+    raise build, field image-decoder-source
+
+force create-source
+  mount build, field image-decoder
+  mount file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share file
+    raise build, field image-decoder-source
+
+force create-source
+  mount build, field image-decoder
+  mount callable, field callable-asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |createSource|
+    drive factor, share callable
+    raise build, field image-decoder-source
+
+force decode-bitmap
+  mount build, field image-decoder
+  mount src, field image-decoder-source
+  mount listener, field image-decoder-on-header-decoded-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeBitmap|
+    drive factor, share src
+    drive factor, share listener
+    raise build, field bitmap
+
+force decode-bitmap
+  mount build, field image-decoder
+  mount src, field image-decoder-source
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeBitmap|
+    drive factor, share src
+    raise build, field bitmap
+
+force decode-drawable
+  mount build, field image-decoder
+  mount src, field image-decoder-source
+  mount listener, field image-decoder-on-header-decoded-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeDrawable|
+    drive factor, share src
+    drive factor, share listener
+    raise build, field drawable
+
+force decode-drawable
+  mount build, field image-decoder
+  mount src, field image-decoder-source
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeDrawable|
+    drive factor, share src
+    raise build, field drawable
+
+force get-allocator
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllocator|
+    raise build, field int
+
+force get-crop
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getCrop|
+    raise build, field rect
+
+force get-memory-size-policy
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getMemorySizePolicy|
+    raise build, field int
+
+force get-on-partial-image-listener
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getOnPartialImageListener|
+    raise build, field image-decoder-on-partial-image-listener
+
+force get-post-processor
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getPostProcessor|
+    raise build, field post-processor
+
+force is-decode-as-alpha-mask-enabled
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |isDecodeAsAlphaMaskEnabled|
+    raise build, field boolean
+
+force is-mime-type-supported
+  mount build, field image-decoder
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isMimeTypeSupported|
+    drive factor, share mime-type
+    raise build, field boolean
+
+force is-mutable-required
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |isMutableRequired|
+    raise build, field boolean
+
+force is-unpremultiplied-required
+  mount build, field image-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |isUnpremultipliedRequired|
+    raise build, field boolean
+
+force set-allocator
+  mount build, field image-decoder
+  mount allocator, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllocator|
+    drive factor, share allocator
+    raise build, field unit
+
+force set-crop
+  mount build, field image-decoder
+  mount subset, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setCrop|
+    drive factor, share subset
+    raise build, field unit
+
+force set-decode-as-alpha-mask-enabled
+  mount build, field image-decoder
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDecodeAsAlphaMaskEnabled|
+    drive factor, share enabled
+    raise build, field unit
+
+force set-memory-size-policy
+  mount build, field image-decoder
+  mount policy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMemorySizePolicy|
+    drive factor, share policy
+    raise build, field unit
+
+force set-mutable-required
+  mount build, field image-decoder
+  mount mutable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setMutableRequired|
+    drive factor, share mutable
+    raise build, field unit
+
+force set-on-partial-image-listener
+  mount build, field image-decoder
+  mount listener, field image-decoder-on-partial-image-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnPartialImageListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-post-processor
+  mount build, field image-decoder
+  mount post-processor, field post-processor
+
+  cause call-method
+    drive object, share build
+    drive method, |setPostProcessor|
+    drive factor, share post-processor
+    raise build, field unit
+
+force set-target-color-space
+  mount build, field image-decoder
+  mount color-space, field color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |setTargetColorSpace|
+    drive factor, share color-space
+    raise build, field unit
+
+force set-target-sample-size
+  mount build, field image-decoder
+  mount sample-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTargetSampleSize|
+    drive factor, share sample-size
+    raise build, field unit
+
+force set-target-size
+  mount build, field image-decoder
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTargetSize|
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit
+
+force set-unpremultiplied-required
+  mount build, field image-decoder
+  mount unpremultiplied-required, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setUnpremultipliedRequired|
+    drive factor, share unpremultiplied-required
+    raise build, field unit

@@ -1,0 +1,301 @@
+
+force get-arg-name-not-number
+  start build, field message-pattern
+
+  cause get-property
+    drive object, share build
+    drive property, |ARG_NAME_NOT_NUMBER|
+    raise build, field int
+
+force get-arg-name-not-valid
+  start build, field message-pattern
+
+  cause get-property
+    drive object, share build
+    drive property, |ARG_NAME_NOT_VALID|
+    raise build, field int
+
+force get-no-numeric-value
+  start build, field message-pattern
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_NUMERIC_VALUE|
+    raise build, field double
+
+force build-message-pattern
+  cause invoke-constructor
+    drive constructor, |MessagePattern|
+    raise build, field message-pattern
+
+force build-message-pattern
+  start mode, field message-pattern-apostrophe-mode
+
+  cause invoke-constructor
+    drive constructor, |MessagePattern|
+    drive factor, share mode
+    raise build, field message-pattern
+
+force build-message-pattern
+  start pattern, field string
+
+  cause invoke-constructor
+    drive constructor, |MessagePattern|
+    drive factor, share pattern
+    raise build, field message-pattern
+
+force auto-quote-apostrophe-deep
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |autoQuoteApostropheDeep|
+    raise build, field string
+
+force clear
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    raise build, field unit
+
+force clear-pattern-and-set-apostrophe-mode
+  start build, field message-pattern
+  start mode, field message-pattern-apostrophe-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |clearPatternAndSetApostropheMode|
+    drive factor, share mode
+    raise build, field unit
+
+force clone
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    raise build, field any
+
+force clone-as-thawed
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |cloneAsThawed|
+    raise build, field message-pattern
+
+force count-parts
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |countParts|
+    raise build, field int
+
+force equals
+  start build, field message-pattern
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force freeze
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |freeze|
+    raise build, field message-pattern
+
+force get-apostrophe-mode
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |getApostropheMode|
+    raise build, field message-pattern-apostrophe-mode
+
+force get-limit-part-index
+  start build, field message-pattern
+  start start, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLimitPartIndex|
+    drive factor, share start
+    raise build, field int
+
+force get-numeric-value
+  start build, field message-pattern
+  start part, field message-pattern-part
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumericValue|
+    drive factor, share part
+    raise build, field double
+
+force get-part
+  start build, field message-pattern
+  start i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPart|
+    drive factor, share i
+    raise build, field message-pattern-part
+
+force get-part-type
+  start build, field message-pattern
+  start i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPartType|
+    drive factor, share i
+    raise build, field message-pattern-part-type
+
+force get-pattern-index
+  start build, field message-pattern
+  start part-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPatternIndex|
+    drive factor, share part-index
+    raise build, field int
+
+force get-pattern-string
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |getPatternString|
+    raise build, field string
+
+force get-plural-offset
+  start build, field message-pattern
+  start plural-start, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPluralOffset|
+    drive factor, share plural-start
+    raise build, field double
+
+force get-substring
+  start build, field message-pattern
+  start part, field message-pattern-part
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubstring|
+    drive factor, share part
+    raise build, field string
+
+force has-named-arguments
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |hasNamedArguments|
+    raise build, field boolean
+
+force has-numbered-arguments
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |hasNumberedArguments|
+    raise build, field boolean
+
+force hash-code
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-frozen
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |isFrozen|
+    raise build, field boolean
+
+force parse
+  start build, field message-pattern
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share pattern
+    raise build, field message-pattern
+
+force parse-choice-style
+  start build, field message-pattern
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parseChoiceStyle|
+    drive factor, share pattern
+    raise build, field message-pattern
+
+force parse-plural-style
+  start build, field message-pattern
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parsePluralStyle|
+    drive factor, share pattern
+    raise build, field message-pattern
+
+force parse-select-style
+  start build, field message-pattern
+  start pattern, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |parseSelectStyle|
+    drive factor, share pattern
+    raise build, field message-pattern
+
+force part-substring-matches
+  start build, field message-pattern
+  start part, field message-pattern-part
+  start s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |partSubstringMatches|
+    drive factor, share part
+    drive factor, share s
+    raise build, field boolean
+
+force to-string
+  start build, field message-pattern
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force validate-argument-name
+  start build, field message-pattern
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |validateArgumentName|
+    drive factor, share name
+    raise build, field int

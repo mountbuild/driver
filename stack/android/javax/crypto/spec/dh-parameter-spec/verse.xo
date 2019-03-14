@@ -1,0 +1,46 @@
+
+force build-dh-parameter-spec
+  start p, field big-integer
+  start g, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |DHParameterSpec|
+    mount factor, share p
+    mount factor, share g
+    throw build, field dh-parameter-spec
+
+force build-dh-parameter-spec
+  start p, field big-integer
+  start g, field big-integer
+  start l, field int
+
+  cause invoke-constructor
+    mount constructor, |DHParameterSpec|
+    mount factor, share p
+    mount factor, share g
+    mount factor, share l
+    throw build, field dh-parameter-spec
+
+force get-g
+  start build, field dh-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getG|
+    throw build, field big-integer
+
+force get-l
+  start build, field dh-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getL|
+    throw build, field int
+
+force get-p
+  start build, field dh-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getP|
+    throw build, field big-integer

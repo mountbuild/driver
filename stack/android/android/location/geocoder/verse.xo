@@ -1,0 +1,72 @@
+
+force build-geocoder
+  mount context, field context
+  mount locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |Geocoder|
+    drive factor, share context
+    drive factor, share locale
+    raise build, field geocoder
+
+force build-geocoder
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |Geocoder|
+    drive factor, share context
+    raise build, field geocoder
+
+force get-from-location
+  mount build, field geocoder
+  mount latitude, field double
+  mount longitude, field double
+  mount max-results, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getFromLocation|
+    drive factor, share latitude
+    drive factor, share longitude
+    drive factor, share max-results
+    raise build, field mutable-list
+
+force get-from-location-name
+  mount build, field geocoder
+  mount location-name, field string
+  mount max-results, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getFromLocationName|
+    drive factor, share location-name
+    drive factor, share max-results
+    raise build, field mutable-list
+
+force get-from-location-name
+  mount build, field geocoder
+  mount location-name, field string
+  mount max-results, field int
+  mount lower-left-latitude, field double
+  mount lower-left-longitude, field double
+  mount upper-right-latitude, field double
+  mount upper-right-longitude, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |getFromLocationName|
+    drive factor, share location-name
+    drive factor, share max-results
+    drive factor, share lower-left-latitude
+    drive factor, share lower-left-longitude
+    drive factor, share upper-right-latitude
+    drive factor, share upper-right-longitude
+    raise build, field mutable-list
+
+force is-present
+  mount build, field geocoder
+
+  cause call-method
+    drive object, share build
+    drive method, |isPresent|
+    raise build, field boolean

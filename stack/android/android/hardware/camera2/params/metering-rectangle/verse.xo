@@ -1,0 +1,162 @@
+
+force get-metering-weight-dont-care
+  mount build, field metering-rectangle
+
+  cause get-property
+    drive object, share build
+    drive property, |METERING_WEIGHT_DONT_CARE|
+    throw build, field int
+
+force get-metering-weight-max
+  mount build, field metering-rectangle
+
+  cause get-property
+    drive object, share build
+    drive property, |METERING_WEIGHT_MAX|
+    throw build, field int
+
+force get-metering-weight-min
+  mount build, field metering-rectangle
+
+  cause get-property
+    drive object, share build
+    drive property, |METERING_WEIGHT_MIN|
+    throw build, field int
+
+force build-metering-rectangle
+  mount x, field int
+  mount y, field int
+  mount width, field int
+  mount height, field int
+  mount metering-weight, field int
+
+  cause invoke-constructor
+    drive constructor, |MeteringRectangle|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share width
+    drive factor, share height
+    drive factor, share metering-weight
+    throw build, field metering-rectangle
+
+force build-metering-rectangle
+  mount xy, field point
+  mount dimensions, field size
+  mount metering-weight, field int
+
+  cause invoke-constructor
+    drive constructor, |MeteringRectangle|
+    drive factor, share xy
+    drive factor, share dimensions
+    drive factor, share metering-weight
+    throw build, field metering-rectangle
+
+force build-metering-rectangle
+  mount rect, field rect
+  mount metering-weight, field int
+
+  cause invoke-constructor
+    drive constructor, |MeteringRectangle|
+    drive factor, share rect
+    drive factor, share metering-weight
+    throw build, field metering-rectangle
+
+force equals
+  mount build, field metering-rectangle
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force equals
+  mount build, field metering-rectangle
+  mount other, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-height
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    throw build, field int
+
+force get-metering-weight
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getMeteringWeight|
+    throw build, field int
+
+force get-rect
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getRect|
+    throw build, field rect
+
+force get-size
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    throw build, field size
+
+force get-upper-left-point
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getUpperLeftPoint|
+    throw build, field point
+
+force get-width
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    throw build, field int
+
+force get-x
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getX|
+    throw build, field int
+
+force get-y
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |getY|
+    throw build, field int
+
+force hash-code
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field metering-rectangle
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

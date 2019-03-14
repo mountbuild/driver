@@ -1,0 +1,28 @@
+
+force build-property-change-listener-proxy
+  mount property-name, field string
+  mount listener, field property-change-listener
+
+  cause invoke-constructor
+    drive constructor, |PropertyChangeListenerProxy|
+    drive factor, share property-name
+    drive factor, share listener
+    throw build, field property-change-listener-proxy
+
+force get-property-name
+  mount build, field property-change-listener-proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |getPropertyName|
+    throw build, field string
+
+force property-change
+  mount build, field property-change-listener-proxy
+  mount event, field property-change-event
+
+  cause call-method
+    drive object, share build
+    drive method, |propertyChange|
+    drive factor, share event
+    throw build, field unit

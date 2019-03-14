@@ -1,0 +1,65 @@
+
+force build-client-cert-request
+  cause invoke-constructor
+    drive constructor, |ClientCertRequest|
+    throw build, field client-cert-request
+
+force cancel
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field unit
+
+force get-host
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    throw build, field string
+
+force get-key-types
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyTypes|
+    throw build, field array
+
+force get-port
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-principals
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrincipals|
+    throw build, field array
+
+force ignore
+  mount build, field client-cert-request
+
+  cause call-method
+    drive object, share build
+    drive method, |ignore|
+    throw build, field unit
+
+force proceed
+  mount build, field client-cert-request
+  mount private-key, field private-key
+  mount chain, field array-x509-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |proceed|
+    drive factor, share private-key
+    drive factor, share chain
+    throw build, field unit

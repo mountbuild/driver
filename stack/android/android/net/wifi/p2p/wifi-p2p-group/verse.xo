@@ -1,0 +1,121 @@
+
+force get-network-id-persistent
+  mount build, field wifi-p2p-group
+
+  cause get-property
+    drive object, share build
+    drive property, |NETWORK_ID_PERSISTENT|
+    throw build, field int
+
+force get-network-id-temporary
+  mount build, field wifi-p2p-group
+
+  cause get-property
+    drive object, share build
+    drive property, |NETWORK_ID_TEMPORARY|
+    throw build, field int
+
+force build-wifi-p2p-group
+  cause invoke-constructor
+    drive constructor, |WifiP2pGroup|
+    throw build, field wifi-p2p-group
+
+force build-wifi-p2p-group
+  mount source, field wifi-p2p-group
+
+  cause invoke-constructor
+    drive constructor, |WifiP2pGroup|
+    drive factor, share source
+    throw build, field wifi-p2p-group
+
+force describe-contents
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-client-list
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientList|
+    throw build, field mutable-collection
+
+force get-frequency
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrequency|
+    throw build, field int
+
+force get-interface
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterface|
+    throw build, field string
+
+force get-network-id
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkId|
+    throw build, field int
+
+force get-network-name
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkName|
+    throw build, field string
+
+force get-owner
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getOwner|
+    throw build, field wifi-p2p-device
+
+force get-passphrase
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getPassphrase|
+    throw build, field string
+
+force is-group-owner
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |isGroupOwner|
+    throw build, field boolean
+
+force to-string
+  mount build, field wifi-p2p-group
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-p2p-group
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

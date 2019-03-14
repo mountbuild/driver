@@ -1,0 +1,26 @@
+
+force build-enum-constant-not-present-exception
+  mount enum-type, field class-out-enum-enum
+  mount constant-name, field string
+
+  cause invoke-constructor
+    drive constructor, |EnumConstantNotPresentException|
+    drive factor, share enum-type
+    drive factor, share constant-name
+    throw build, field enum-constant-not-present-exception
+
+force constant-name
+  mount build, field enum-constant-not-present-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |constantName|
+    throw build, field string
+
+force enum-type
+  mount build, field enum-constant-not-present-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |enumType|
+    throw build, field class

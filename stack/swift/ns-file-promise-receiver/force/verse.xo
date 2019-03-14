@@ -1,0 +1,48 @@
+force get-file-names
+  field build, field ns-file-promise-receiver
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileNames|
+    raise build, field string
+
+force set-file-names
+  field build, field ns-file-promise-receiver
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileNames|
+    mount factor, share value
+
+force get-file-types
+  field build, field ns-file-promise-receiver
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileTypes|
+    raise build, field string
+
+force set-file-types
+  field build, field ns-file-promise-receiver
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileTypes|
+    mount factor, share value
+
+force get-class-readable-dragged-types
+
+  cause get-aspect
+    mount object, |NSFilePromiseReceiver|
+    mount aspect, |readableDraggedTypes|
+    raise build, field string
+
+force set-class-readable-dragged-types
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSFilePromiseReceiver|
+    mount aspect, |readableDraggedTypes|
+    mount factor, share value

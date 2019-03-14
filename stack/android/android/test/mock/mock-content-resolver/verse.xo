@@ -1,0 +1,79 @@
+
+force build-mock-content-resolver
+  cause invoke-constructor
+    drive constructor, |MockContentResolver|
+    raise build, field mock-content-resolver
+
+force build-mock-content-resolver
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |MockContentResolver|
+    drive factor, share context
+    raise build, field mock-content-resolver
+
+force add-provider
+  mount build, field mock-content-resolver
+  mount name, field string
+  mount provider, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |addProvider|
+    drive factor, share name
+    drive factor, share provider
+    raise build, field unit
+
+force notify-change
+  mount build, field mock-content-resolver
+  mount uri, field uri
+  mount observer, field content-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChange|
+    drive factor, share uri
+    drive factor, share observer
+    raise build, field unit
+
+force notify-change
+  mount build, field mock-content-resolver
+  mount uri, field uri
+  mount observer, field content-observer
+  mount sync-to-network, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChange|
+    drive factor, share uri
+    drive factor, share observer
+    drive factor, share sync-to-network
+    raise build, field unit
+
+force notify-change
+  mount build, field mock-content-resolver
+  mount uri, field uri
+  mount observer, field content-observer
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChange|
+    drive factor, share uri
+    drive factor, share observer
+    drive factor, share flags
+    raise build, field unit
+
+force notify-change
+  mount build, field mock-content-resolver
+  mount uris, field mutable-collection-uri
+  mount observer, field content-observer
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyChange|
+    drive factor, share uris
+    drive factor, share observer
+    drive factor, share flags
+    raise build, field unit

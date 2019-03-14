@@ -1,0 +1,170 @@
+
+force get-mimetype-text-html
+  mount build, field clip-description
+
+  cause get-property
+    drive object, share build
+    drive property, |MIMETYPE_TEXT_HTML|
+    throw build, field string
+
+force get-mimetype-text-intent
+  mount build, field clip-description
+
+  cause get-property
+    drive object, share build
+    drive property, |MIMETYPE_TEXT_INTENT|
+    throw build, field string
+
+force get-mimetype-text-plain
+  mount build, field clip-description
+
+  cause get-property
+    drive object, share build
+    drive property, |MIMETYPE_TEXT_PLAIN|
+    throw build, field string
+
+force get-mimetype-text-urilist
+  mount build, field clip-description
+
+  cause get-property
+    drive object, share build
+    drive property, |MIMETYPE_TEXT_URILIST|
+    throw build, field string
+
+force get-mimetype-unknown
+  mount build, field clip-description
+
+  cause get-property
+    drive object, share build
+    drive property, |MIMETYPE_UNKNOWN|
+    throw build, field string
+
+force build-clip-description
+  mount label, field char-sequence
+  mount mime-types, field array-string
+
+  cause invoke-constructor
+    drive constructor, |ClipDescription|
+    drive factor, share label
+    drive factor, share mime-types
+    throw build, field clip-description
+
+force build-clip-description
+  mount o, field clip-description
+
+  cause invoke-constructor
+    drive constructor, |ClipDescription|
+    drive factor, share o
+    throw build, field clip-description
+
+force compare-mime-types
+  mount build, field clip-description
+  mount concrete-type, field string
+  mount desired-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |compareMimeTypes|
+    drive factor, share concrete-type
+    drive factor, share desired-type
+    throw build, field boolean
+
+force describe-contents
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force filter-mime-types
+  mount build, field clip-description
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |filterMimeTypes|
+    drive factor, share mime-type
+    throw build, field array
+
+force get-extras
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field persistable-bundle
+
+force get-label
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force get-mime-type
+  mount build, field clip-description
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    drive factor, share index
+    throw build, field string
+
+force get-mime-type-count
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeTypeCount|
+    throw build, field int
+
+force get-timestamp
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    throw build, field long
+
+force has-mime-type
+  mount build, field clip-description
+  mount mime-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMimeType|
+    drive factor, share mime-type
+    throw build, field boolean
+
+force set-extras
+  mount build, field clip-description
+  mount extras, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtras|
+    drive factor, share extras
+    throw build, field unit
+
+force to-string
+  mount build, field clip-description
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field clip-description
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

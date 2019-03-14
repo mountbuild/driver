@@ -1,0 +1,104 @@
+
+force build-encrypted-private-key-info
+  start encoded, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |EncryptedPrivateKeyInfo|
+    mount factor, share encoded
+    throw build, field encrypted-private-key-info
+
+force build-encrypted-private-key-info
+  start alg-name, field string
+  start encrypted-data, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |EncryptedPrivateKeyInfo|
+    mount factor, share alg-name
+    mount factor, share encrypted-data
+    throw build, field encrypted-private-key-info
+
+force build-encrypted-private-key-info
+  start alg-params, field algorithm-parameters
+  start encrypted-data, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |EncryptedPrivateKeyInfo|
+    mount factor, share alg-params
+    mount factor, share encrypted-data
+    throw build, field encrypted-private-key-info
+
+force get-alg-name
+  start build, field encrypted-private-key-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgName|
+    throw build, field string
+
+force get-alg-parameters
+  start build, field encrypted-private-key-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgParameters|
+    throw build, field algorithm-parameters
+
+force get-encoded
+  start build, field encrypted-private-key-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-encrypted-data
+  start build, field encrypted-private-key-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncryptedData|
+    throw build, field byte-array
+
+force get-key-spec
+  start build, field encrypted-private-key-info
+  start cipher, field cipher
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share cipher
+    throw build, field pkcs8-encoded-key-spec
+
+force get-key-spec
+  start build, field encrypted-private-key-info
+  start decrypt-key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share decrypt-key
+    throw build, field pkcs8-encoded-key-spec
+
+force get-key-spec
+  start build, field encrypted-private-key-info
+  start decrypt-key, field key
+  start provider-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share decrypt-key
+    mount factor, share provider-name
+    throw build, field pkcs8-encoded-key-spec
+
+force get-key-spec
+  start build, field encrypted-private-key-info
+  start decrypt-key, field key
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share decrypt-key
+    mount factor, share provider
+    throw build, field pkcs8-encoded-key-spec

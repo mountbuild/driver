@@ -1,0 +1,68 @@
+
+force get-invalid-time
+  mount build, field uri-permission
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_TIME|
+    throw build, field long
+
+force describe-contents
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-persisted-time
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |getPersistedTime|
+    throw build, field long
+
+force get-uri
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |getUri|
+    throw build, field uri
+
+force is-read-permission
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |isReadPermission|
+    throw build, field boolean
+
+force is-write-permission
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |isWritePermission|
+    throw build, field boolean
+
+force to-string
+  mount build, field uri-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field uri-permission
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

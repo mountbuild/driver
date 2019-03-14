@@ -1,0 +1,122 @@
+
+force build-remote-action
+  start icon, field icon
+  start title, field char-sequence
+  start content-description, field char-sequence
+  start intent, field pending-intent
+
+  cause invoke-constructor
+    drive constructor, |RemoteAction|
+    drive factor, share icon
+    drive factor, share title
+    drive factor, share content-description
+    drive factor, share intent
+    throw build, field remote-action
+
+force clone
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field remote-action
+
+force describe-contents
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  start build, field remote-action
+  start prefix, field string
+  start pw, field print-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share prefix
+    drive factor, share pw
+    throw build, field unit
+
+force get-action-intent
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionIntent|
+    throw build, field pending-intent
+
+force get-content-description
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentDescription|
+    throw build, field char-sequence
+
+force get-icon
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    throw build, field icon
+
+force get-title
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getTitle|
+    throw build, field char-sequence
+
+force is-enabled
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    throw build, field boolean
+
+force set-enabled
+  start build, field remote-action
+  start enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEnabled|
+    drive factor, share enabled
+    throw build, field unit
+
+force set-should-show-icon
+  start build, field remote-action
+  start should-show-icon, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setShouldShowIcon|
+    drive factor, share should-show-icon
+    throw build, field unit
+
+force should-show-icon
+  start build, field remote-action
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldShowIcon|
+    throw build, field boolean
+
+force write-to-parcel
+  start build, field remote-action
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,72 @@
+
+force build-relative-size-span
+  mount proportion, field float
+
+  cause invoke-constructor
+    drive constructor, |RelativeSizeSpan|
+    drive factor, share proportion
+    raise build, field relative-size-span
+
+force build-relative-size-span
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |RelativeSizeSpan|
+    drive factor, share src
+    raise build, field relative-size-span
+
+force describe-contents
+  mount build, field relative-size-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-size-change
+  mount build, field relative-size-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSizeChange|
+    raise build, field float
+
+force get-span-type-id
+  mount build, field relative-size-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force update-draw-state
+  mount build, field relative-size-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share ds
+    raise build, field unit
+
+force update-measure-state
+  mount build, field relative-size-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateMeasureState|
+    drive factor, share ds
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field relative-size-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

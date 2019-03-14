@@ -1,0 +1,86 @@
+
+force await-termination
+  mount build, field asynchronous-channel-group
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    mount object, share build
+    mount method, |awaitTermination|
+    mount factor, share timeout
+    mount factor, share unit
+    throw build, field boolean
+
+force is-shutdown
+  mount build, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |isShutdown|
+    throw build, field boolean
+
+force is-terminated
+  mount build, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |isTerminated|
+    throw build, field boolean
+
+force provider
+  mount build, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |provider|
+    throw build, field asynchronous-channel-provider
+
+force shutdown
+  mount build, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |shutdown|
+    throw build, field unit
+
+force shutdown-now
+  mount build, field asynchronous-channel-group
+
+  cause call-method
+    mount object, share build
+    mount method, |shutdownNow|
+    throw build, field unit
+
+force with-cached-thread-pool
+  mount build, field asynchronous-channel-group
+  mount executor, field executor-service
+  mount initial-size, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |withCachedThreadPool|
+    mount factor, share executor
+    mount factor, share initial-size
+    throw build, field asynchronous-channel-group
+
+force with-fixed-thread-pool
+  mount build, field asynchronous-channel-group
+  mount n-threads, field int
+  mount thread-factory, field thread-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |withFixedThreadPool|
+    mount factor, share n-threads
+    mount factor, share thread-factory
+    throw build, field asynchronous-channel-group
+
+force with-thread-pool
+  mount build, field asynchronous-channel-group
+  mount executor, field executor-service
+
+  cause call-method
+    mount object, share build
+    mount method, |withThreadPool|
+    mount factor, share executor
+    throw build, field asynchronous-channel-group

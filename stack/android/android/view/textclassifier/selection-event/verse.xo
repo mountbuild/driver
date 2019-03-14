@@ -1,0 +1,418 @@
+
+force get-action-abandon
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_ABANDON|
+    raise build, field int
+
+force get-action-copy
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_COPY|
+    raise build, field int
+
+force get-action-cut
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CUT|
+    raise build, field int
+
+force get-action-drag
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DRAG|
+    raise build, field int
+
+force get-action-other
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_OTHER|
+    raise build, field int
+
+force get-action-overtype
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_OVERTYPE|
+    raise build, field int
+
+force get-action-paste
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PASTE|
+    raise build, field int
+
+force get-action-reset
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_RESET|
+    raise build, field int
+
+force get-action-select-all
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SELECT_ALL|
+    raise build, field int
+
+force get-action-share
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SHARE|
+    raise build, field int
+
+force get-action-smart-share
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SMART_SHARE|
+    raise build, field int
+
+force get-event-auto-selection
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |EVENT_AUTO_SELECTION|
+    raise build, field int
+
+force get-event-selection-modified
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |EVENT_SELECTION_MODIFIED|
+    raise build, field int
+
+force get-event-selection-started
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |EVENT_SELECTION_STARTED|
+    raise build, field int
+
+force get-event-smart-selection-multi
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |EVENT_SMART_SELECTION_MULTI|
+    raise build, field int
+
+force get-event-smart-selection-single
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |EVENT_SMART_SELECTION_SINGLE|
+    raise build, field int
+
+force get-invocation-link
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |INVOCATION_LINK|
+    raise build, field int
+
+force get-invocation-manual
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |INVOCATION_MANUAL|
+    raise build, field int
+
+force get-invocation-unknown
+  mount build, field selection-event
+
+  cause get-property
+    drive object, share build
+    drive property, |INVOCATION_UNKNOWN|
+    raise build, field int
+
+force create-selection-action-event
+  mount build, field selection-event
+  mount start, field int
+  mount end, field int
+  mount action-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionActionEvent|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share action-type
+    raise build, field selection-event
+
+force create-selection-action-event
+  mount build, field selection-event
+  mount start, field int
+  mount end, field int
+  mount action-type, field int
+  mount classification, field text-classification
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionActionEvent|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share action-type
+    drive factor, share classification
+    raise build, field selection-event
+
+force create-selection-modified-event
+  mount build, field selection-event
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionModifiedEvent|
+    drive factor, share start
+    drive factor, share end
+    raise build, field selection-event
+
+force create-selection-modified-event
+  mount build, field selection-event
+  mount start, field int
+  mount end, field int
+  mount classification, field text-classification
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionModifiedEvent|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share classification
+    raise build, field selection-event
+
+force create-selection-modified-event
+  mount build, field selection-event
+  mount start, field int
+  mount end, field int
+  mount selection, field text-selection
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionModifiedEvent|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share selection
+    raise build, field selection-event
+
+force create-selection-started-event
+  mount build, field selection-event
+  mount invocation-method, field int
+  mount start, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSelectionStartedEvent|
+    drive factor, share invocation-method
+    drive factor, share start
+    raise build, field selection-event
+
+force describe-contents
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field selection-event
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-duration-since-previous-event
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getDurationSincePreviousEvent|
+    raise build, field long
+
+force get-duration-since-session-start
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getDurationSinceSessionStart|
+    raise build, field long
+
+force get-end
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnd|
+    raise build, field int
+
+force get-entity-type
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntityType|
+    raise build, field string
+
+force get-event-index
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEventIndex|
+    raise build, field int
+
+force get-event-time
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEventTime|
+    raise build, field long
+
+force get-event-type
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getEventType|
+    raise build, field int
+
+force get-invocation-method
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getInvocationMethod|
+    raise build, field int
+
+force get-package-name
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    raise build, field string
+
+force get-result-id
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultId|
+    raise build, field string
+
+force get-session-id
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionId|
+    raise build, field text-classification-session-id
+
+force get-smart-end
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getSmartEnd|
+    raise build, field int
+
+force get-smart-start
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getSmartStart|
+    raise build, field int
+
+force get-start
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getStart|
+    raise build, field int
+
+force get-widget-type
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidgetType|
+    raise build, field string
+
+force get-widget-version
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidgetVersion|
+    raise build, field string
+
+force hash-code
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-terminal
+  mount build, field selection-event
+  mount event-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isTerminal|
+    drive factor, share event-type
+    raise build, field boolean
+
+force to-string
+  mount build, field selection-event
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field selection-event
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

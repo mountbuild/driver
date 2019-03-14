@@ -1,0 +1,413 @@
+force set-compute-pipeline-state
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-compute-pipeline-state
+
+  cause call-method
+    drive object, share build
+    drive method, |setComputePipelineState|
+    drive factor, share a
+
+force set-buffer
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-buffer
+  field offset, field int
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBuffer|
+    drive factor, share a
+    drive factor
+      brand offset
+      share offset
+    drive factor
+      brand index
+      share index
+
+force set-buffers
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-buffer
+  field offsets, field int
+  field range, field range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBuffers|
+    drive factor, share a
+    drive factor
+      brand offsets
+      share offsets
+    drive factor
+      brand range
+      share range
+
+force set-buffer-offset
+  field build, field mtl-compute-command-encoder
+  field a, class int
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBufferOffset|
+    drive factor, share a
+    drive factor
+      brand index
+      share index
+
+force set-bytes
+  field build, field mtl-compute-command-encoder
+  field a, class unsafe-raw-pointer
+  field length, field int
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBytes|
+    drive factor, share a
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand index
+      share index
+
+force set-sampler-state
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-sampler-state
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSamplerState|
+    drive factor, share a
+    drive factor
+      brand index
+      share index
+
+force set-sampler-state
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-sampler-state
+  field lod-min-clamp, field float
+  field lod-max-clamp, field float
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSamplerState|
+    drive factor, share a
+    drive factor
+      brand lod-min-clamp
+      share lod-min-clamp
+    drive factor
+      brand lod-max-clamp
+      share lod-max-clamp
+    drive factor
+      brand index
+      share index
+
+force set-sampler-states
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-sampler-state
+  field range, field range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSamplerStates|
+    drive factor, share a
+    drive factor
+      brand range
+      share range
+
+force set-sampler-states
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-sampler-state
+  field lod-min-clamps, field float
+  field lod-max-clamps, field float
+  field range, field range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSamplerStates|
+    drive factor, share a
+    drive factor
+      brand lod-min-clamps
+      share lod-min-clamps
+    drive factor
+      brand lod-max-clamps
+      share lod-max-clamps
+    drive factor
+      brand range
+      share range
+
+force set-texture
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-texture
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTexture|
+    drive factor, share a
+    drive factor
+      brand index
+      share index
+
+force set-textures
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-texture
+  field range, field range-int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextures|
+    drive factor, share a
+    drive factor
+      brand range
+      share range
+
+force set-threadgroup-memory-length
+  field build, field mtl-compute-command-encoder
+  field a, class int
+  field index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setThreadgroupMemoryLength|
+    drive factor, share a
+    drive factor
+      brand index
+      share index
+
+force dispatch-threadgroups
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-size
+  field threads-per-threadgroup, field mtl-size
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchThreadgroups|
+    drive factor, share a
+    drive factor
+      brand threads-per-threadgroup
+      share threads-per-threadgroup
+
+force dispatch-threads
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-size
+  field threads-per-threadgroup, field mtl-size
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchThreads|
+    drive factor, share a
+    drive factor
+      brand threads-per-threadgroup
+      share threads-per-threadgroup
+
+force dispatch-threadgroups
+  field build, field mtl-compute-command-encoder
+  field indirect-buffer, field mtl-buffer
+  field indirect-buffer-offset, field int
+  field threads-per-threadgroup, field mtl-size
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchThreadgroups|
+    drive factor
+      brand indirect-buffer
+      share indirect-buffer
+    drive factor
+      brand indirect-buffer-offset
+      share indirect-buffer-offset
+    drive factor
+      brand threads-per-threadgroup
+      share threads-per-threadgroup
+
+force use-resource
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-resource
+  field usage, field mtl-resource-usage
+
+  cause call-method
+    drive object, share build
+    drive method, |useResource|
+    drive factor, share a
+    drive factor
+      brand usage
+      share usage
+
+force use-resources
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-resource
+  field usage, field mtl-resource-usage
+
+  cause call-method
+    drive object, share build
+    drive method, |useResources|
+    drive factor, share a
+    drive factor
+      brand usage
+      share usage
+
+force use-heap
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-heap
+
+  cause call-method
+    drive object, share build
+    drive method, |useHeap|
+    drive factor, share a
+
+force use-heaps
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-heap
+
+  cause call-method
+    drive object, share build
+    drive method, |useHeaps|
+    drive factor, share a
+
+force set-imageblock-width
+  field build, field mtl-compute-command-encoder
+  field a, class int
+  field height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setImageblockWidth|
+    drive factor, share a
+    drive factor
+      brand height
+      share height
+
+force set-stage-in-region
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-region
+
+  cause call-method
+    drive object, share build
+    drive method, |setStageInRegion|
+    drive factor, share a
+
+force set-stage-in-region-with-indirect-buffer
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-buffer
+  field indirect-buffer-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStageInRegionWithIndirectBuffer|
+    drive factor, share a
+    drive factor
+      brand indirect-buffer-offset
+      share indirect-buffer-offset
+
+force get-dispatch-type
+  field build, field mtl-compute-command-encoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dispatchType|
+    raise build, field mtl-dispatch-type
+
+force set-dispatch-type
+  field build, field mtl-compute-command-encoder
+  field value, field mtl-dispatch-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dispatchType|
+    drive factor, share value
+
+force memory-barrier
+  field build, field mtl-compute-command-encoder
+  field scope, field mtl-barrier-scope
+
+  cause call-method
+    drive object, share build
+    drive method, |memoryBarrier|
+    drive factor
+      brand scope
+      share scope
+
+force memory-barrier
+  field build, field mtl-compute-command-encoder
+  field resources, field mtl-resource
+
+  cause call-method
+    drive object, share build
+    drive method, |memoryBarrier|
+    drive factor
+      brand resources
+      share resources
+
+force execute-commands
+  field build, field mtl-compute-command-encoder
+  field in, field mtl-indirect-command-buffer
+  field indirect-buffer, field mtl-buffer
+  field indirect-buffer-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |executeCommands|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand indirect-buffer
+      share indirect-buffer
+    drive factor
+      brand indirect-buffer-offset
+      share indirect-buffer-offset
+
+force execute-commands
+  field build, field mtl-compute-command-encoder
+  field in, field mtl-indirect-command-buffer
+  field with, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |executeCommands|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand with
+      share with
+
+force update-fence
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-fence
+
+  cause call-method
+    drive object, share build
+    drive method, |updateFence|
+    drive factor, share a
+
+force wait-for-fence
+  field build, field mtl-compute-command-encoder
+  field a, class mtl-fence
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForFence|
+    drive factor, share a
+
+force sample-counters
+  field build, field mtl-compute-command-encoder
+  field sample-buffer, field mtl-counter-sample-buffer
+  field sample-index, field int
+  field barrier, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |sampleCounters|
+    drive factor
+      brand sample-buffer
+      share sample-buffer
+    drive factor
+      brand sample-index
+      share sample-index
+    drive factor
+      brand barrier
+      share barrier

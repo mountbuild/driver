@@ -1,0 +1,62 @@
+
+force build-annotation
+  mount key, field string
+  mount value, field string
+
+  cause invoke-constructor
+    drive constructor, |Annotation|
+    drive factor, share key
+    drive factor, share value
+    raise build, field annotation
+
+force build-annotation
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |Annotation|
+    drive factor, share src
+    raise build, field annotation
+
+force describe-contents
+  mount build, field annotation
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-key
+  mount build, field annotation
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    raise build, field string
+
+force get-span-type-id
+  mount build, field annotation
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force get-value
+  mount build, field annotation
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field annotation
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

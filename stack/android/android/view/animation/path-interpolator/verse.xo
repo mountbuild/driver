@@ -1,0 +1,52 @@
+
+force build-path-interpolator
+  mount path, field path
+
+  cause invoke-constructor
+    drive constructor, |PathInterpolator|
+    drive factor, share path
+    raise build, field path-interpolator
+
+force build-path-interpolator
+  mount control-x, field float
+  mount control-y, field float
+
+  cause invoke-constructor
+    drive constructor, |PathInterpolator|
+    drive factor, share control-x
+    drive factor, share control-y
+    raise build, field path-interpolator
+
+force build-path-interpolator
+  mount control-x1, field float
+  mount control-y1, field float
+  mount control-x2, field float
+  mount control-y2, field float
+
+  cause invoke-constructor
+    drive constructor, |PathInterpolator|
+    drive factor, share control-x1
+    drive factor, share control-y1
+    drive factor, share control-x2
+    drive factor, share control-y2
+    raise build, field path-interpolator
+
+force build-path-interpolator
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |PathInterpolator|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field path-interpolator
+
+force get-interpolation
+  mount build, field path-interpolator
+  mount t, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolation|
+    drive factor, share t
+    raise build, field float

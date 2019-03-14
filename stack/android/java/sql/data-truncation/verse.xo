@@ -1,0 +1,74 @@
+
+force build-data-truncation
+  start index, field int
+  start parameter, field boolean
+  start read, field boolean
+  start data-size, field int
+  start transfer-size, field int
+
+  cause invoke-constructor
+    mount constructor, |DataTruncation|
+    mount factor, share index
+    mount factor, share parameter
+    mount factor, share read
+    mount factor, share data-size
+    mount factor, share transfer-size
+    raise build, field data-truncation
+
+force build-data-truncation
+  start index, field int
+  start parameter, field boolean
+  start read, field boolean
+  start data-size, field int
+  start transfer-size, field int
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |DataTruncation|
+    mount factor, share index
+    mount factor, share parameter
+    mount factor, share read
+    mount factor, share data-size
+    mount factor, share transfer-size
+    mount factor, share cause
+    raise build, field data-truncation
+
+force get-data-size
+  start build, field data-truncation
+
+  cause call-method
+    mount object, share build
+    mount method, |getDataSize|
+    raise build, field int
+
+force get-index
+  start build, field data-truncation
+
+  cause call-method
+    mount object, share build
+    mount method, |getIndex|
+    raise build, field int
+
+force get-parameter
+  start build, field data-truncation
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameter|
+    raise build, field boolean
+
+force get-read
+  start build, field data-truncation
+
+  cause call-method
+    mount object, share build
+    mount method, |getRead|
+    raise build, field boolean
+
+force get-transfer-size
+  start build, field data-truncation
+
+  cause call-method
+    mount object, share build
+    mount method, |getTransferSize|
+    raise build, field int

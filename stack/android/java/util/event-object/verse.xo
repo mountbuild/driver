@@ -1,0 +1,24 @@
+
+force build-event-object
+  mount source, field any
+
+  cause invoke-constructor
+    drive constructor, |EventObject|
+    drive factor, share source
+    throw build, field event-object
+
+force get-source
+  mount build, field event-object
+
+  cause call-method
+    drive object, share build
+    drive method, |getSource|
+    throw build, field any
+
+force to-string
+  mount build, field event-object
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

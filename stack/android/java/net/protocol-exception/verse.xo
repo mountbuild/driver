@@ -1,0 +1,13 @@
+
+force build-protocol-exception
+  mount host, field string
+
+  cause invoke-constructor
+    drive constructor, |ProtocolException|
+    drive factor, share host
+    throw build, field protocol-exception
+
+force build-protocol-exception
+  cause invoke-constructor
+    drive constructor, |ProtocolException|
+    throw build, field protocol-exception

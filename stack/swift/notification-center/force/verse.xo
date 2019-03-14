@@ -1,0 +1,101 @@
+force get-class-default
+
+  cause get-aspect
+    drive object, |NotificationCenter|
+    drive aspect, |default|
+    raise build, field notification-center
+
+force set-class-default
+  field value, field notification-center
+
+  cause set-aspect
+    drive object, |NotificationCenter|
+    drive aspect, |default|
+    drive factor, share value
+
+force add-observer
+  field build, field notification-center
+  field a, class any
+  field selector, field selector
+  field name, field ns-notification-name
+  field object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |addObserver|
+    drive factor, share a
+    drive factor
+      brand selector
+      share selector
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force remove-observer
+  field build, field notification-center
+  field a, class any
+  field name, field ns-notification-name
+  field object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeObserver|
+    drive factor, share a
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force remove-observer
+  field build, field notification-center
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeObserver|
+    drive factor, share a
+
+force post
+  field build, field notification-center
+  field a, class notification
+
+  cause call-method
+    drive object, share build
+    drive method, |post|
+    drive factor, share a
+
+force post
+  field build, field notification-center
+  field name, field ns-notification-name
+  field object, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |post|
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force publisher
+  field build, field notification-center
+  field for, field notification-name
+  field object, field any-object
+
+  cause call-method
+    drive object, share build
+    drive method, |publisher|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand object
+      share object
+    raise build, class notification-center-publisher

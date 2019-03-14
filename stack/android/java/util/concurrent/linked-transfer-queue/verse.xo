@@ -1,0 +1,243 @@
+
+force build-linked-transfer-queue
+  cause invoke-constructor
+    drive constructor, |LinkedTransferQueue|
+    throw build, field linked-transfer-queue
+
+force build-linked-transfer-queue
+  mount c, field mutable-collection-out-e
+
+  cause invoke-constructor
+    drive constructor, |LinkedTransferQueue|
+    drive factor, share c
+    throw build, field linked-transfer-queue
+
+force add
+  mount build, field linked-transfer-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share element
+    throw build, field boolean
+
+force contains
+  mount build, field linked-transfer-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |contains|
+    drive factor, share element
+    throw build, field boolean
+
+force drain-to
+  mount build, field linked-transfer-queue
+  mount c, field mutable-collection-in-e
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    throw build, field int
+
+force drain-to
+  mount build, field linked-transfer-queue
+  mount c, field mutable-collection-in-e
+  mount max-elements, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |drainTo|
+    drive factor, share c
+    drive factor, share max-elements
+    throw build, field int
+
+force get-waiting-consumer-count
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |getWaitingConsumerCount|
+    throw build, field int
+
+force has-waiting-consumer
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |hasWaitingConsumer|
+    throw build, field boolean
+
+force is-empty
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force iterator
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    throw build, field mutable-iterator
+
+force offer
+  mount build, field linked-transfer-queue
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force offer
+  mount build, field linked-transfer-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |offer|
+    drive factor, share e
+    throw build, field boolean
+
+force peek
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |peek|
+    throw build, field e
+
+force poll
+  mount build, field linked-transfer-queue
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field e
+
+force poll
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field e
+
+force put
+  mount build, field linked-transfer-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share e
+    throw build, field unit
+
+force remaining-capacity
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |remainingCapacity|
+    throw build, field int
+
+force remove
+  mount build, field linked-transfer-queue
+  mount element, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share element
+    throw build, field boolean
+
+force spliterator
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |spliterator|
+    throw build, field spliterator
+
+force take
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |take|
+    throw build, field e
+
+force to-array
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    throw build, field array
+
+force to-array
+  mount build, field linked-transfer-queue
+  mount a, field array-t
+
+  cause call-method
+    drive object, share build
+    drive method, |toArray|
+    drive factor, share a
+    throw build, field array
+
+force to-string
+  mount build, field linked-transfer-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force transfer
+  mount build, field linked-transfer-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |transfer|
+    drive factor, share e
+    throw build, field unit
+
+force try-transfer
+  mount build, field linked-transfer-queue
+  mount e, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |tryTransfer|
+    drive factor, share e
+    throw build, field boolean
+
+force try-transfer
+  mount build, field linked-transfer-queue
+  mount e, field e
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |tryTransfer|
+    drive factor, share e
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean

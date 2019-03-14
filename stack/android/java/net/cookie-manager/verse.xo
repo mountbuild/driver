@@ -1,0 +1,61 @@
+
+force build-cookie-manager
+  cause invoke-constructor
+    drive constructor, |CookieManager|
+    throw build, field cookie-manager
+
+force build-cookie-manager
+  mount store, field cookie-store
+  mount cookie-policy, field cookie-policy
+
+  cause invoke-constructor
+    drive constructor, |CookieManager|
+    drive factor, share store
+    drive factor, share cookie-policy
+    throw build, field cookie-manager
+
+force get
+  mount build, field cookie-manager
+  mount uri, field uri
+  mount request-headers, field mutable-map-string
+  mount mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share uri
+    drive factor, share request-headers
+    drive factor, share mutable-list-string
+    throw build, field mutable-map
+
+force get-cookie-store
+  mount build, field cookie-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCookieStore|
+    throw build, field cookie-store
+
+force put
+  mount build, field cookie-manager
+  mount uri, field uri
+  mount response-headers, field mutable-map-string
+  mount mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share uri
+    drive factor, share response-headers
+    drive factor, share mutable-list-string
+    throw build, field unit
+
+force set-cookie-policy
+  mount build, field cookie-manager
+  mount cookie-policy, field cookie-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |setCookiePolicy|
+    drive factor, share cookie-policy
+    throw build, field unit

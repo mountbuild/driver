@@ -1,0 +1,64 @@
+
+force build-correction-info
+  mount offset, field int
+  mount old-text, field char-sequence
+  mount new-text, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |CorrectionInfo|
+    drive factor, share offset
+    drive factor, share old-text
+    drive factor, share new-text
+    raise build, field correction-info
+
+force describe-contents
+  mount build, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-new-text
+  mount build, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getNewText|
+    raise build, field char-sequence
+
+force get-offset
+  mount build, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    raise build, field int
+
+force get-old-text
+  mount build, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getOldText|
+    raise build, field char-sequence
+
+force to-string
+  mount build, field correction-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field correction-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

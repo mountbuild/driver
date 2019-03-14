@@ -1,0 +1,146 @@
+
+force build-nine-patch
+  mount bitmap, field bitmap
+  mount chunk, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |NinePatch|
+    drive factor, share bitmap
+    drive factor, share chunk
+    raise build, field nine-patch
+
+force build-nine-patch
+  mount bitmap, field bitmap
+  mount chunk, field byte-array
+  mount src-name, field string
+
+  cause invoke-constructor
+    drive constructor, |NinePatch|
+    drive factor, share bitmap
+    drive factor, share chunk
+    drive factor, share src-name
+    raise build, field nine-patch
+
+force draw
+  mount build, field nine-patch
+  mount canvas, field canvas
+  mount location, field rect-f
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share location
+    raise build, field unit
+
+force draw
+  mount build, field nine-patch
+  mount canvas, field canvas
+  mount location, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share location
+    raise build, field unit
+
+force draw
+  mount build, field nine-patch
+  mount canvas, field canvas
+  mount location, field rect
+  mount paint, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share location
+    drive factor, share paint
+    raise build, field unit
+
+force get-bitmap
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getBitmap|
+    raise build, field bitmap
+
+force get-density
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getDensity|
+    raise build, field int
+
+force get-height
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-name
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force get-paint
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getPaint|
+    raise build, field paint
+
+force get-transparent-region
+  mount build, field nine-patch
+  mount bounds, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransparentRegion|
+    drive factor, share bounds
+    raise build, field region
+
+force get-width
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    raise build, field int
+
+force has-alpha
+  mount build, field nine-patch
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAlpha|
+    raise build, field boolean
+
+force is-nine-patch-chunk
+  mount build, field nine-patch
+  mount chunk, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |isNinePatchChunk|
+    drive factor, share chunk
+    raise build, field boolean
+
+force set-paint
+  mount build, field nine-patch
+  mount p, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |setPaint|
+    drive factor, share p
+    raise build, field unit

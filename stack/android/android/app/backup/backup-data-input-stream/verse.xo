@@ -1,0 +1,48 @@
+
+force get-key
+  start build, field backup-data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field string
+
+force read
+  start build, field backup-data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  start build, field backup-data-input-stream
+  start b, field byte-array
+  start offset, field int
+  start size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share offset
+    drive factor, share size
+    throw build, field int
+
+force read
+  start build, field backup-data-input-stream
+  start b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    throw build, field int
+
+force size
+  start build, field backup-data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field int

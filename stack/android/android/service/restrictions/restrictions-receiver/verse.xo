@@ -1,0 +1,35 @@
+
+force build-restrictions-receiver
+  cause invoke-constructor
+    drive constructor, |RestrictionsReceiver|
+    raise build, field restrictions-receiver
+
+force on-receive
+  mount build, field restrictions-receiver
+  mount context, field context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    raise build, field unit
+
+force on-request-permission
+  mount build, field restrictions-receiver
+  mount context, field context
+  mount package-name, field string
+  mount request-type, field string
+  mount request-id, field string
+  mount request, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestPermission|
+    drive factor, share context
+    drive factor, share package-name
+    drive factor, share request-type
+    drive factor, share request-id
+    drive factor, share request
+    raise build, field unit

@@ -1,0 +1,45 @@
+
+force get-service-interface
+  mount build, field vr-listener-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-vr-listener-service
+  cause invoke-constructor
+    drive constructor, |VrListenerService|
+    raise build, field vr-listener-service
+
+force is-vr-mode-package-enabled
+  mount build, field vr-listener-service
+  mount context, field context
+  mount requested-component, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |isVrModePackageEnabled|
+    drive factor, share context
+    drive factor, share requested-component
+    raise build, field boolean
+
+force on-bind
+  mount build, field vr-listener-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-current-vr-activity-changed
+  mount build, field vr-listener-service
+  mount component, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |onCurrentVrActivityChanged|
+    drive factor, share component
+    raise build, field unit

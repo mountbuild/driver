@@ -1,0 +1,81 @@
+force add
+  field build, field wk-user-content-controller
+  field a, class wk-script-message-handler
+  field name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |add|
+    mount factor, share a
+    mount factor
+      brand name
+      share name
+
+force add-user-script
+  field build, field wk-user-content-controller
+  field a, class wk-user-script
+
+  cause call-method
+    mount object, share build
+    mount method, |addUserScript|
+    mount factor, share a
+
+force remove-all-user-scripts
+  field build, field wk-user-content-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |removeAllUserScripts|
+
+force remove-script-message-handler
+  field build, field wk-user-content-controller
+  field for-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |removeScriptMessageHandler|
+    mount factor
+      brand for-name
+      share for-name
+
+force get-user-scripts
+  field build, field wk-user-content-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |userScripts|
+    raise build, field wk-user-script
+
+force set-user-scripts
+  field build, field wk-user-content-controller
+  field value, field wk-user-script
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |userScripts|
+    mount factor, share value
+
+force add
+  field build, field wk-user-content-controller
+  field a, class wk-content-rule-list
+
+  cause call-method
+    mount object, share build
+    mount method, |add|
+    mount factor, share a
+
+force remove
+  field build, field wk-user-content-controller
+  field a, class wk-content-rule-list
+
+  cause call-method
+    mount object, share build
+    mount method, |remove|
+    mount factor, share a
+
+force remove-all-content-rule-lists
+  field build, field wk-user-content-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |removeAllContentRuleLists|

@@ -1,0 +1,83 @@
+
+force get-install-location-auto
+  mount build, field package-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INSTALL_LOCATION_AUTO|
+    throw build, field int
+
+force get-install-location-internal-only
+  mount build, field package-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INSTALL_LOCATION_INTERNAL_ONLY|
+    throw build, field int
+
+force get-install-location-prefer-external
+  mount build, field package-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INSTALL_LOCATION_PREFER_EXTERNAL|
+    throw build, field int
+
+force get-requested-permission-granted
+  mount build, field package-info
+
+  cause get-property
+    drive object, share build
+    drive property, |REQUESTED_PERMISSION_GRANTED|
+    throw build, field int
+
+force build-package-info
+  cause invoke-constructor
+    drive constructor, |PackageInfo|
+    throw build, field package-info
+
+force describe-contents
+  mount build, field package-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-long-version-code
+  mount build, field package-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLongVersionCode|
+    throw build, field long
+
+force set-long-version-code
+  mount build, field package-info
+  mount long-version-code, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setLongVersionCode|
+    drive factor, share long-version-code
+    throw build, field unit
+
+force to-string
+  mount build, field package-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field package-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

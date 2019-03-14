@@ -1,0 +1,48 @@
+
+force build-signed-object
+  mount object, field serializable
+  mount signing-key, field private-key
+  mount signing-engine, field signature
+
+  cause invoke-constructor
+    mount constructor, |SignedObject|
+    mount factor, share object
+    mount factor, share signing-key
+    mount factor, share signing-engine
+    throw build, field signed-object
+
+force get-algorithm
+  mount build, field signed-object
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-object
+  mount build, field signed-object
+
+  cause call-method
+    mount object, share build
+    mount method, |getObject|
+    throw build, field any
+
+force get-signature
+  mount build, field signed-object
+
+  cause call-method
+    mount object, share build
+    mount method, |getSignature|
+    throw build, field byte-array
+
+force verify
+  mount build, field signed-object
+  mount verification-key, field public-key
+  mount verification-engine, field signature
+
+  cause call-method
+    mount object, share build
+    mount method, |verify|
+    mount factor, share verification-key
+    mount factor, share verification-engine
+    throw build, field boolean

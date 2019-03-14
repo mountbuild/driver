@@ -1,0 +1,89 @@
+force get-delegate
+  field build, field ic-device-browser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ic-device-browser-delegate
+
+force set-delegate
+  field build, field ic-device-browser
+  field value, field ic-device-browser-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-is-browsing
+  field build, field ic-device-browser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isBrowsing|
+    raise build, field bool
+
+force set-is-browsing
+  field build, field ic-device-browser
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isBrowsing|
+    drive factor, share value
+
+force get-devices
+  field build, field ic-device-browser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |devices|
+    raise build, field ic-device
+
+force set-devices
+  field build, field ic-device-browser
+  field value, field ic-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |devices|
+    drive factor, share value
+
+force get-browsed-device-type-mask
+  field build, field ic-device-browser
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |browsedDeviceTypeMask|
+    raise build, field ic-device-type-mask
+
+force set-browsed-device-type-mask
+  field build, field ic-device-browser
+  field value, field ic-device-type-mask
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |browsedDeviceTypeMask|
+    drive factor, share value
+
+force start
+  field build, field ic-device-browser
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+
+force stop
+  field build, field ic-device-browser
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+
+force preferred-device
+  field build, field ic-device-browser
+
+  cause call-method
+    drive object, share build
+    drive method, |preferredDevice|
+    raise build, class ic-device

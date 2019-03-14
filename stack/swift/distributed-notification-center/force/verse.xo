@@ -1,0 +1,94 @@
+force add-observer
+  field build, field distributed-notification-center
+  field a, class any
+  field selector, field selector
+  field name, field ns-notification-name
+  field object, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addObserver|
+    drive factor, share a
+    drive factor
+      brand selector
+      share selector
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force add-observer
+  field build, field distributed-notification-center
+  field a, class any
+  field selector, field selector
+  field name, field ns-notification-name
+  field object, field string
+  field suspension-behavior, field distributed-notification-center-suspension-behavior
+
+  cause call-method
+    drive object, share build
+    drive method, |addObserver|
+    drive factor, share a
+    drive factor
+      brand selector
+      share selector
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+    drive factor
+      brand suspension-behavior
+      share suspension-behavior
+
+force remove-observer
+  field build, field distributed-notification-center
+  field a, class any
+  field name, field ns-notification-name
+  field object, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeObserver|
+    drive factor, share a
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force post
+  field build, field distributed-notification-center
+  field name, field ns-notification-name
+  field object, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |post|
+    drive factor
+      brand name
+      share name
+    drive factor
+      brand object
+      share object
+
+force get-suspended
+  field build, field distributed-notification-center
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |suspended|
+    raise build, field bool
+
+force set-suspended
+  field build, field distributed-notification-center
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |suspended|
+    drive factor, share value

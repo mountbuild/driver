@@ -1,0 +1,16 @@
+
+force get-action-show-capability-discovery-opt-in
+  mount build, field ims-rcs-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SHOW_CAPABILITY_DISCOVERY_OPT_IN|
+    throw build, field string
+
+force get-uce-adapter
+  mount build, field ims-rcs-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getUceAdapter|
+    throw build, field rcs-uce-adapter

@@ -1,0 +1,96 @@
+
+force decode-region
+  mount build, field bitmap-region-decoder
+  mount rect, field rect
+  mount options, field bitmap-factory-options
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeRegion|
+    drive factor, share rect
+    drive factor, share options
+    raise build, field bitmap
+
+force get-height
+  mount build, field bitmap-region-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-width
+  mount build, field bitmap-region-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    raise build, field int
+
+force is-recycled
+  mount build, field bitmap-region-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |isRecycled|
+    raise build, field boolean
+
+force new-instance
+  mount build, field bitmap-region-decoder
+  mount data, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount is-shareable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share data
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share is-shareable
+    raise build, field bitmap-region-decoder
+
+force new-instance
+  mount build, field bitmap-region-decoder
+  mount fd, field file-descriptor
+  mount is-shareable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share fd
+    drive factor, share is-shareable
+    raise build, field bitmap-region-decoder
+
+force new-instance
+  mount build, field bitmap-region-decoder
+  mount is, field input-stream
+  mount is-shareable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share is
+    drive factor, share is-shareable
+    raise build, field bitmap-region-decoder
+
+force new-instance
+  mount build, field bitmap-region-decoder
+  mount path-name, field string
+  mount is-shareable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share path-name
+    drive factor, share is-shareable
+    raise build, field bitmap-region-decoder
+
+force recycle
+  mount build, field bitmap-region-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |recycle|
+    raise build, field unit

@@ -1,0 +1,1503 @@
+force read
+  field build, field ns-document
+  field from, field url
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand of-type
+      share of-type
+
+force read
+  field build, field ns-document
+  field from, field file-wrapper
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand of-type
+      share of-type
+
+force read
+  field build, field ns-document
+  field from, field data
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    mount factor
+      brand from
+      share from
+    mount factor
+      brand of-type
+      share of-type
+
+force can-asynchronously-write
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |canAsynchronouslyWrite|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+    mount factor
+      brand for
+      share for
+    raise build, class bool
+
+force unblock-user-interaction
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |unblockUserInteraction|
+
+force write
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+
+force write-safely
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |writeSafely|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+    mount factor
+      brand for
+      share for
+
+force file-wrapper
+  field build, field ns-document
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |fileWrapper|
+    mount factor
+      brand of-type
+      share of-type
+    raise build, class file-wrapper
+
+force data
+  field build, field ns-document
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |data|
+    mount factor
+      brand of-type
+      share of-type
+    raise build, class data
+
+force write
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+  field original-contents-url, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand original-contents-url
+      share original-contents-url
+
+force save
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+  field delegate, field any
+  field did-save, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |save|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-save
+      share did-save
+    mount factor
+      brand context-info
+      share context-info
+
+force file-attributes-to-write
+  field build, field ns-document
+  field to, field url
+  field of-type, field string
+  field for, field ns-document-save-operation-type
+  field original-contents-url, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |fileAttributesToWrite|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand of-type
+      share of-type
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand original-contents-url
+      share original-contents-url
+    raise build, class string-any
+
+force get-file-url
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileURL|
+    raise build, field url
+
+force set-file-url
+  field build, field ns-document
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileURL|
+    mount factor, share value
+
+force get-is-entire-file-loaded
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isEntireFileLoaded|
+    raise build, field bool
+
+force set-is-entire-file-loaded
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isEntireFileLoaded|
+    mount factor, share value
+
+force get-file-modification-date
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileModificationDate|
+    raise build, field date
+
+force set-file-modification-date
+  field build, field ns-document
+  field value, field date
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileModificationDate|
+    mount factor, share value
+
+force get-keep-backup-file
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |keepBackupFile|
+    raise build, field bool
+
+force set-keep-backup-file
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |keepBackupFile|
+    mount factor, share value
+
+force get-is-draft
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isDraft|
+    raise build, field bool
+
+force set-is-draft
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isDraft|
+    mount factor, share value
+
+force get-file-type
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileType|
+    raise build, field string
+
+force set-file-type
+  field build, field ns-document
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileType|
+    mount factor, share value
+
+force get-is-document-edited
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isDocumentEdited|
+    raise build, field bool
+
+force set-is-document-edited
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isDocumentEdited|
+    mount factor, share value
+
+force get-is-in-viewing-mode
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isInViewingMode|
+    raise build, field bool
+
+force set-is-in-viewing-mode
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isInViewingMode|
+    mount factor, share value
+
+force get-class-readable-types
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |readableTypes|
+    raise build, field string
+
+force set-class-readable-types
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |readableTypes|
+    mount factor, share value
+
+force get-class-writable-types
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |writableTypes|
+    raise build, field string
+
+force set-class-writable-types
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |writableTypes|
+    mount factor, share value
+
+force writable-types
+  field build, field ns-document
+  field for, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |writableTypes|
+    mount factor
+      brand for
+      share for
+    raise build, class string
+
+force file-name-extension
+  field build, field ns-document
+  field for-type, field string
+  field save-operation, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |fileNameExtension|
+    mount factor
+      brand for-type
+      share for-type
+    mount factor
+      brand save-operation
+      share save-operation
+    raise build, class string
+
+force make-window-controllers
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |makeWindowControllers|
+
+force add-window-controller
+  field build, field ns-document
+  field a, class ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |addWindowController|
+    mount factor, share a
+
+force remove-window-controller
+  field build, field ns-document
+  field a, class ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |removeWindowController|
+    mount factor, share a
+
+force get-window-controllers
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowControllers|
+    raise build, field ns-window-controller
+
+force set-window-controllers
+  field build, field ns-document
+  field value, field ns-window-controller
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowControllers|
+    mount factor, share value
+
+force get-window-nib-name
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowNibName|
+    raise build, field ns-nib-name
+
+force set-window-nib-name
+  field build, field ns-document
+  field value, field ns-nib-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowNibName|
+    mount factor, share value
+
+force window-controller-did-load-nib
+  field build, field ns-document
+  field a, class ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |windowControllerDidLoadNib|
+    mount factor, share a
+
+force window-controller-will-load-nib
+  field build, field ns-document
+  field a, class ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |windowControllerWillLoadNib|
+    mount factor, share a
+
+force should-close-window-controller
+  field build, field ns-document
+  field a, class ns-window-controller
+  field delegate, field any
+  field should-close, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |shouldCloseWindowController|
+    mount factor, share a
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand should-close
+      share should-close
+    mount factor
+      brand context-info
+      share context-info
+
+force show-windows
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |showWindows|
+
+force set-window
+  field build, field ns-document
+  field a, class ns-window
+
+  cause call-method
+    mount object, share build
+    mount method, |setWindow|
+    mount factor, share a
+
+force get-window-for-sheet
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowForSheet|
+    raise build, field ns-window
+
+force set-window-for-sheet
+  field build, field ns-document
+  field value, field ns-window
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowForSheet|
+    mount factor, share value
+
+force get-display-name
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |displayName|
+    raise build, field string
+
+force set-display-name
+  field build, field ns-document
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |displayName|
+    mount factor, share value
+
+force default-draft-name
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |defaultDraftName|
+    raise build, class string
+
+force encode-restorable-state
+  field build, field ns-document
+  field with, field ns-coder
+  field background-queue, field operation-queue
+
+  cause call-method
+    mount object, share build
+    mount method, |encodeRestorableState|
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand background-queue
+      share background-queue
+
+force get-class-autosaves-in-place
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |autosavesInPlace|
+    raise build, field bool
+
+force set-class-autosaves-in-place
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |autosavesInPlace|
+    mount factor, share value
+
+force get-class-autosaves-drafts
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |autosavesDrafts|
+    raise build, field bool
+
+force set-class-autosaves-drafts
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |autosavesDrafts|
+    mount factor, share value
+
+force get-class-preserves-versions
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |preservesVersions|
+    raise build, field bool
+
+force set-class-preserves-versions
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |preservesVersions|
+    mount factor, share value
+
+force get-autosaved-contents-file-url
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |autosavedContentsFileURL|
+    raise build, field url
+
+force set-autosaved-contents-file-url
+  field build, field ns-document
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |autosavedContentsFileURL|
+    mount factor, share value
+
+force get-autosaving-file-type
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |autosavingFileType|
+    raise build, field string
+
+force set-autosaving-file-type
+  field build, field ns-document
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |autosavingFileType|
+    mount factor, share value
+
+force get-autosaving-is-implicitly-cancellable
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |autosavingIsImplicitlyCancellable|
+    raise build, field bool
+
+force set-autosaving-is-implicitly-cancellable
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |autosavingIsImplicitlyCancellable|
+    mount factor, share value
+
+force check-autosaving-safety
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |checkAutosavingSafety|
+
+force get-has-unautosaved-changes
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hasUnautosavedChanges|
+    raise build, field bool
+
+force set-has-unautosaved-changes
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hasUnautosavedChanges|
+    mount factor, share value
+
+force schedule-autosaving
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |scheduleAutosaving|
+
+force autosave
+  field build, field ns-document
+  field with-delegate, field any
+  field did-autosave, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |autosave|
+    mount factor
+      brand with-delegate
+      share with-delegate
+    mount factor
+      brand did-autosave
+      share did-autosave
+    mount factor
+      brand context-info
+      share context-info
+
+force get-backup-file-url
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |backupFileURL|
+    raise build, field url
+
+force set-backup-file-url
+  field build, field ns-document
+  field value, field url
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |backupFileURL|
+    mount factor, share value
+
+force browse-versions
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |browseVersions|
+    mount factor, share a
+
+force get-is-browsing-versions
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isBrowsingVersions|
+    raise build, field bool
+
+force set-is-browsing-versions
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isBrowsingVersions|
+    mount factor, share value
+
+force move-to-ubiquity-container
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |moveToUbiquityContainer|
+    mount factor, share a
+
+force get-class-uses-ubiquitous-storage
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |usesUbiquitousStorage|
+    raise build, field bool
+
+force set-class-uses-ubiquitous-storage
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |usesUbiquitousStorage|
+    mount factor, share value
+
+force get-undo-manager
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |undoManager|
+    raise build, field undo-manager
+
+force set-undo-manager
+  field build, field ns-document
+  field value, field undo-manager
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |undoManager|
+    mount factor, share value
+
+force get-has-undo-manager
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hasUndoManager|
+    raise build, field bool
+
+force set-has-undo-manager
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hasUndoManager|
+    mount factor, share value
+
+force update-change-count
+  field build, field ns-document
+  field with-token, field any
+  field for, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |updateChangeCount|
+    mount factor
+      brand with-token
+      share with-token
+    mount factor
+      brand for
+      share for
+
+force update-change-count
+  field build, field ns-document
+  field a, class ns-document-change-type
+
+  cause call-method
+    mount object, share build
+    mount method, |updateChangeCount|
+    mount factor, share a
+
+force change-count-token
+  field build, field ns-document
+  field for, field ns-document-save-operation-type
+
+  cause call-method
+    mount object, share build
+    mount method, |changeCountToken|
+    mount factor
+      brand for
+      share for
+    raise build, class any
+
+force encode-restorable-state
+  field build, field ns-document
+  field with, field ns-coder
+
+  cause call-method
+    mount object, share build
+    mount method, |encodeRestorableState|
+    mount factor
+      brand with
+      share with
+
+force restore-state
+  field build, field ns-document
+  field with, field ns-coder
+
+  cause call-method
+    mount object, share build
+    mount method, |restoreState|
+    mount factor
+      brand with
+      share with
+
+force get-class-restorable-state-key-paths
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |restorableStateKeyPaths|
+    raise build, field string
+
+force set-class-restorable-state-key-paths
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |restorableStateKeyPaths|
+    mount factor, share value
+
+force invalidate-restorable-state
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |invalidateRestorableState|
+
+force run-modal-save-panel
+  field build, field ns-document
+  field for, field ns-document-save-operation-type
+  field delegate, field any
+  field did-save, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |runModalSavePanel|
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-save
+      share did-save
+    mount factor
+      brand context-info
+      share context-info
+
+force prepare-save-panel
+  field build, field ns-document
+  field a, class ns-save-panel
+
+  cause call-method
+    mount object, share build
+    mount method, |prepareSavePanel|
+    mount factor, share a
+    raise build, class bool
+
+force get-should-run-save-panel-with-accessory-view
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shouldRunSavePanelWithAccessoryView|
+    raise build, field bool
+
+force set-should-run-save-panel-with-accessory-view
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |shouldRunSavePanelWithAccessoryView|
+    mount factor, share value
+
+force get-file-type-from-last-run-save-panel
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileTypeFromLastRunSavePanel|
+    raise build, field string
+
+force set-file-type-from-last-run-save-panel
+  field build, field ns-document
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileTypeFromLastRunSavePanel|
+    mount factor, share value
+
+force get-file-name-extension-was-hidden-in-last-run-save-panel
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileNameExtensionWasHiddenInLastRunSavePanel|
+    raise build, field bool
+
+force set-file-name-extension-was-hidden-in-last-run-save-panel
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileNameExtensionWasHiddenInLastRunSavePanel|
+    mount factor, share value
+
+force get-user-activity
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |userActivity|
+    raise build, field ns-user-activity
+
+force set-user-activity
+  field build, field ns-document
+  field value, field ns-user-activity
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |userActivity|
+    mount factor, share value
+
+force update-user-activity-state
+  field build, field ns-document
+  field a, class ns-user-activity
+
+  cause call-method
+    mount object, share build
+    mount method, |updateUserActivityState|
+    mount factor, share a
+
+force get-class-user-activity-url-key
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |userActivityURLKey|
+    raise build, field string
+
+force set-class-user-activity-url-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |userActivityURLKey|
+    mount factor, share value
+
+force get-class-user-activity-url-key
+
+  cause get-aspect
+    mount object, |NSDocument|
+    mount aspect, |userActivityURLKey|
+    raise build, field string
+
+force set-class-user-activity-url-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSDocument|
+    mount aspect, |userActivityURLKey|
+    mount factor, share value
+
+force validate-user-interface-item
+  field build, field ns-document
+  field a, class ns-validated-user-interface-item
+
+  cause call-method
+    mount object, share build
+    mount method, |validateUserInterfaceItem|
+    mount factor, share a
+    raise build, class bool
+
+force print-document
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |printDocument|
+    mount factor, share a
+
+force run-page-layout
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |runPageLayout|
+    mount factor, share a
+
+force revert-to-saved
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |revertToSaved|
+    mount factor, share a
+
+force save
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |save|
+    mount factor, share a
+
+force save-as
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |saveAs|
+    mount factor, share a
+
+force save-to
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |saveTo|
+    mount factor, share a
+
+force save
+  field build, field ns-document
+  field with-delegate, field any
+  field did-save, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |save|
+    mount factor
+      brand with-delegate
+      share with-delegate
+    mount factor
+      brand did-save
+      share did-save
+    mount factor
+      brand context-info
+      share context-info
+
+force can-close
+  field build, field ns-document
+  field with-delegate, field any
+  field should-close, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |canClose|
+    mount factor
+      brand with-delegate
+      share with-delegate
+    mount factor
+      brand should-close
+      share should-close
+    mount factor
+      brand context-info
+      share context-info
+
+force close
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+
+force revert
+  field build, field ns-document
+  field to-contents-of, field url
+  field of-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |revert|
+    mount factor
+      brand to-contents-of
+      share to-contents-of
+    mount factor
+      brand of-type
+      share of-type
+
+force duplicate
+  field build, field ns-document
+
+  cause call-method
+    mount object, share build
+    mount method, |duplicate|
+    raise build, class ns-document
+
+force duplicate
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |duplicate|
+    mount factor, share a
+
+force duplicate
+  field build, field ns-document
+  field with-delegate, field any
+  field did-duplicate, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |duplicate|
+    mount factor
+      brand with-delegate
+      share with-delegate
+    mount factor
+      brand did-duplicate
+      share did-duplicate
+    mount factor
+      brand context-info
+      share context-info
+
+force rename
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |rename|
+    mount factor, share a
+
+force move
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |move|
+    mount factor, share a
+
+force lock
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |lock|
+    mount factor, share a
+
+force unlock
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |unlock|
+    mount factor, share a
+
+force get-is-locked
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isLocked|
+    raise build, field bool
+
+force set-is-locked
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isLocked|
+    mount factor, share value
+
+force get-print-info
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |printInfo|
+    raise build, field ns-print-info
+
+force set-print-info
+  field build, field ns-document
+  field value, field ns-print-info
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |printInfo|
+    mount factor, share value
+
+force prepare-page-layout
+  field build, field ns-document
+  field a, class ns-page-layout
+
+  cause call-method
+    mount object, share build
+    mount method, |preparePageLayout|
+    mount factor, share a
+    raise build, class bool
+
+force run-modal-page-layout
+  field build, field ns-document
+  field with, field ns-print-info
+  field delegate, field any
+  field did-run, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |runModalPageLayout|
+    mount factor
+      brand with
+      share with
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-run
+      share did-run
+    mount factor
+      brand context-info
+      share context-info
+
+force run-modal-print-operation
+  field build, field ns-document
+  field a, class ns-print-operation
+  field delegate, field any
+  field did-run, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |runModalPrintOperation|
+    mount factor, share a
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-run
+      share did-run
+    mount factor
+      brand context-info
+      share context-info
+
+force should-change-print-info
+  field build, field ns-document
+  field a, class ns-print-info
+
+  cause call-method
+    mount object, share build
+    mount method, |shouldChangePrintInfo|
+    mount factor, share a
+    raise build, class bool
+
+force get-pdf-print-operation
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |pdfPrintOperation|
+    raise build, field ns-print-operation
+
+force set-pdf-print-operation
+  field build, field ns-document
+  field value, field ns-print-operation
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |pdfPrintOperation|
+    mount factor, share value
+
+force save-to-pdf
+  field build, field ns-document
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |saveToPDF|
+    mount factor, share a
+
+force get-allows-document-sharing
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |allowsDocumentSharing|
+    raise build, field bool
+
+force set-allows-document-sharing
+  field build, field ns-document
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |allowsDocumentSharing|
+    mount factor, share value
+
+force prepare
+  field build, field ns-document
+  field a, class ns-sharing-service-picker
+
+  cause call-method
+    mount object, share build
+    mount method, |prepare|
+    mount factor, share a
+
+force handle-close
+  field build, field ns-document
+  field a, class ns-close-command
+
+  cause call-method
+    mount object, share build
+    mount method, |handleClose|
+    mount factor, share a
+    raise build, class any
+
+force handle-print
+  field build, field ns-document
+  field a, class ns-script-command
+
+  cause call-method
+    mount object, share build
+    mount method, |handlePrint|
+    mount factor, share a
+    raise build, class any
+
+force handle-save
+  field build, field ns-document
+  field a, class ns-script-command
+
+  cause call-method
+    mount object, share build
+    mount method, |handleSave|
+    mount factor, share a
+    raise build, class any
+
+force get-object-specifier
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |objectSpecifier|
+    raise build, field ns-script-object-specifier
+
+force set-object-specifier
+  field build, field ns-document
+  field value, field ns-script-object-specifier
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |objectSpecifier|
+    mount factor, share value
+
+force get-last-component-of-file-name
+  field build, field ns-document
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |lastComponentOfFileName|
+    raise build, field string
+
+force set-last-component-of-file-name
+  field build, field ns-document
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |lastComponentOfFileName|
+    mount factor, share value
+
+force present-error
+  field build, field ns-document
+  field a, class error
+  field modal-for, field ns-window
+  field delegate, field any
+  field did-present, field selector
+  field context-info, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    mount object, share build
+    mount method, |presentError|
+    mount factor, share a
+    mount factor
+      brand modal-for
+      share modal-for
+    mount factor
+      brand delegate
+      share delegate
+    mount factor
+      brand did-present
+      share did-present
+    mount factor
+      brand context-info
+      share context-info
+
+force present-error
+  field build, field ns-document
+  field a, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |presentError|
+    mount factor, share a
+    raise build, class bool
+
+force will-present-error
+  field build, field ns-document
+  field a, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |willPresentError|
+    mount factor, share a
+    raise build, class error
+
+force will-not-present-error
+  field build, field ns-document
+  field a, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |willNotPresentError|
+    mount factor, share a

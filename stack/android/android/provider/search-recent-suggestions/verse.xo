@@ -1,0 +1,64 @@
+
+force get-queries-projection-date-index
+  mount build, field search-recent-suggestions
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERIES_PROJECTION_DATE_INDEX|
+    raise build, field int
+
+force get-queries-projection-display1-index
+  mount build, field search-recent-suggestions
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERIES_PROJECTION_DISPLAY1_INDEX|
+    raise build, field int
+
+force get-queries-projection-display2-index
+  mount build, field search-recent-suggestions
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERIES_PROJECTION_DISPLAY2_INDEX|
+    raise build, field int
+
+force get-queries-projection-query-index
+  mount build, field search-recent-suggestions
+
+  cause get-property
+    drive object, share build
+    drive property, |QUERIES_PROJECTION_QUERY_INDEX|
+    raise build, field int
+
+force build-search-recent-suggestions
+  mount context, field context
+  mount authority, field string
+  mount mode, field int
+
+  cause invoke-constructor
+    drive constructor, |SearchRecentSuggestions|
+    drive factor, share context
+    drive factor, share authority
+    drive factor, share mode
+    raise build, field search-recent-suggestions
+
+force clear-history
+  mount build, field search-recent-suggestions
+
+  cause call-method
+    drive object, share build
+    drive method, |clearHistory|
+    raise build, field unit
+
+force save-recent-query
+  mount build, field search-recent-suggestions
+  mount query-string, field string
+  mount line2, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |saveRecentQuery|
+    drive factor, share query-string
+    drive factor, share line2
+    raise build, field unit

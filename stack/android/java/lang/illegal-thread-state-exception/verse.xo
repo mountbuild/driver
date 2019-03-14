@@ -1,0 +1,13 @@
+
+force build-illegal-thread-state-exception
+  cause invoke-constructor
+    drive constructor, |IllegalThreadStateException|
+    throw build, field illegal-thread-state-exception
+
+force build-illegal-thread-state-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |IllegalThreadStateException|
+    drive factor, share s
+    throw build, field illegal-thread-state-exception

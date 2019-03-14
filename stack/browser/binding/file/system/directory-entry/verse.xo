@@ -1,0 +1,40 @@
+
+force create-reader
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |createReader|
+    throw build
+
+force get-directory
+  start build
+  start path
+  start options
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getDirectory|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force get-file
+  start build
+  start path
+  start options
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getFile|
+    mount factor, share path
+    mount factor, share options
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build

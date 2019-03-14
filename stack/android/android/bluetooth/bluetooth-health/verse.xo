@@ -1,0 +1,186 @@
+
+force get-app-config-registration-failure
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |APP_CONFIG_REGISTRATION_FAILURE|
+    throw build, field int
+
+force get-app-config-registration-success
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |APP_CONFIG_REGISTRATION_SUCCESS|
+    throw build, field int
+
+force get-app-config-unregistration-failure
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |APP_CONFIG_UNREGISTRATION_FAILURE|
+    throw build, field int
+
+force get-app-config-unregistration-success
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |APP_CONFIG_UNREGISTRATION_SUCCESS|
+    throw build, field int
+
+force get-channel-type-reliable
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_TYPE_RELIABLE|
+    throw build, field int
+
+force get-channel-type-streaming
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_TYPE_STREAMING|
+    throw build, field int
+
+force get-sink-role
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |SINK_ROLE|
+    throw build, field int
+
+force get-source-role
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |SOURCE_ROLE|
+    throw build, field int
+
+force get-state-channel-connected
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CHANNEL_CONNECTED|
+    throw build, field int
+
+force get-state-channel-connecting
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CHANNEL_CONNECTING|
+    throw build, field int
+
+force get-state-channel-disconnected
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CHANNEL_DISCONNECTED|
+    throw build, field int
+
+force get-state-channel-disconnecting
+  mount build, field bluetooth-health
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CHANNEL_DISCONNECTING|
+    throw build, field int
+
+force connect-channel-to-source
+  mount build, field bluetooth-health
+  mount device, field bluetooth-device
+  mount config, field bluetooth-health-app-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |connectChannelToSource|
+    drive factor, share device
+    drive factor, share config
+    throw build, field boolean
+
+force disconnect-channel
+  mount build, field bluetooth-health
+  mount device, field bluetooth-device
+  mount config, field bluetooth-health-app-configuration
+  mount channel-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |disconnectChannel|
+    drive factor, share device
+    drive factor, share config
+    drive factor, share channel-id
+    throw build, field boolean
+
+force get-connected-devices
+  mount build, field bluetooth-health
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedDevices|
+    throw build, field mutable-list
+
+force get-connection-state
+  mount build, field bluetooth-health
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    drive factor, share device
+    throw build, field int
+
+force get-devices-matching-connection-states
+  mount build, field bluetooth-health
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevicesMatchingConnectionStates|
+    drive factor, share states
+    throw build, field mutable-list
+
+force get-main-channel-fd
+  mount build, field bluetooth-health
+  mount device, field bluetooth-device
+  mount config, field bluetooth-health-app-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getMainChannelFd|
+    drive factor, share device
+    drive factor, share config
+    throw build, field parcel-file-descriptor
+
+force register-sink-app-configuration
+  mount build, field bluetooth-health
+  mount name, field string
+  mount data-type, field int
+  mount callback, field bluetooth-health-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerSinkAppConfiguration|
+    drive factor, share name
+    drive factor, share data-type
+    drive factor, share callback
+    throw build, field boolean
+
+force unregister-app-configuration
+  mount build, field bluetooth-health
+  mount config, field bluetooth-health-app-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterAppConfiguration|
+    drive factor, share config
+    throw build, field boolean

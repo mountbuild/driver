@@ -1,0 +1,102 @@
+
+force get-property-name
+  mount build, field xml-pull-parser-factory
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_NAME|
+    throw build, field string
+
+force get-feature
+  mount build, field xml-pull-parser-factory
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeature|
+    drive factor, share name
+    throw build, field boolean
+
+force is-namespace-aware
+  mount build, field xml-pull-parser-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |isNamespaceAware|
+    throw build, field boolean
+
+force is-validating
+  mount build, field xml-pull-parser-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |isValidating|
+    throw build, field boolean
+
+force new-instance
+  mount build, field xml-pull-parser-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    throw build, field xml-pull-parser-factory
+
+force new-instance
+  mount build, field xml-pull-parser-factory
+  mount unused, field string
+  mount unused2, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share unused
+    drive factor, share unused2
+    throw build, field xml-pull-parser-factory
+
+force new-pull-parser
+  mount build, field xml-pull-parser-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newPullParser|
+    throw build, field xml-pull-parser
+
+force new-serializer
+  mount build, field xml-pull-parser-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |newSerializer|
+    throw build, field xml-serializer
+
+force set-feature
+  mount build, field xml-pull-parser-factory
+  mount name, field string
+  mount state, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setFeature|
+    drive factor, share name
+    drive factor, share state
+    throw build, field unit
+
+force set-namespace-aware
+  mount build, field xml-pull-parser-factory
+  mount awareness, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setNamespaceAware|
+    drive factor, share awareness
+    throw build, field unit
+
+force set-validating
+  mount build, field xml-pull-parser-factory
+  mount validating, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setValidating|
+    drive factor, share validating
+    throw build, field unit

@@ -1,0 +1,92 @@
+
+force build-phone-account-handle
+  mount component-name, field component-name
+  mount id, field string
+
+  cause invoke-constructor
+    drive constructor, |PhoneAccountHandle|
+    drive factor, share component-name
+    drive factor, share id
+    throw build, field phone-account-handle
+
+force build-phone-account-handle
+  mount component-name, field component-name
+  mount id, field string
+  mount user-handle, field user-handle
+
+  cause invoke-constructor
+    drive constructor, |PhoneAccountHandle|
+    drive factor, share component-name
+    drive factor, share id
+    drive factor, share user-handle
+    throw build, field phone-account-handle
+
+force describe-contents
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field phone-account-handle
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-component-name
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponentName|
+    throw build, field component-name
+
+force get-id
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force get-user-handle
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserHandle|
+    throw build, field user-handle
+
+force hash-code
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field phone-account-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field phone-account-handle
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

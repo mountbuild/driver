@@ -1,0 +1,65 @@
+
+force build-signing-info
+  cause invoke-constructor
+    drive constructor, |SigningInfo|
+    throw build, field signing-info
+
+force build-signing-info
+  mount orig, field signing-info
+
+  cause invoke-constructor
+    drive constructor, |SigningInfo|
+    drive factor, share orig
+    throw build, field signing-info
+
+force describe-contents
+  mount build, field signing-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-apk-contents-signers
+  mount build, field signing-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getApkContentsSigners|
+    throw build, field array
+
+force get-signing-certificate-history
+  mount build, field signing-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSigningCertificateHistory|
+    throw build, field array
+
+force has-multiple-signers
+  mount build, field signing-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hasMultipleSigners|
+    throw build, field boolean
+
+force has-past-signing-certificates
+  mount build, field signing-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hasPastSigningCertificates|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field signing-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

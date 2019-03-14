@@ -1,0 +1,1244 @@
+
+force get-common-file-query
+  cause get-object
+    drive aspect, |Windows.Storage.Search.CommonFileQuery|
+
+force get-common-folder-query
+  cause get-object
+    drive aspect, |Windows.Storage.Search.CommonFolderQuery|
+
+force build-content-indexer
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.ContentIndexer|
+
+force add-async
+  start build, field windows-storage-search-contentindexer
+  start indexable-content, field windows-storage-search-iindexablecontent
+
+  cause call-method
+    drive object, share build
+    drive method, |AddAsync|
+    drive factor, share indexable-content
+
+force create-query
+  start build, field windows-storage-search-contentindexer
+  start search-filter, field system-string
+  start properties-to-retrieve, field windows-foundation-collections-iiterable-system-string
+  start sort-order, field windows-foundation-collections-iiterable-windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateQuery|
+    drive factor, share search-filter
+    drive factor, share properties-to-retrieve
+    drive factor, share sort-order
+
+force create-query
+  start build, field windows-storage-search-contentindexer
+  start search-filter, field system-string
+  start properties-to-retrieve, field windows-foundation-collections-iiterable-system-string
+  start sort-order, field windows-foundation-collections-iiterable-windows-storage-search-sortentry
+  start search-filter-language, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateQuery|
+    drive factor, share search-filter
+    drive factor, share properties-to-retrieve
+    drive factor, share sort-order
+    drive factor, share search-filter-language
+
+force create-query
+  start build, field windows-storage-search-contentindexer
+  start search-filter, field system-string
+  start properties-to-retrieve, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateQuery|
+    drive factor, share search-filter
+    drive factor, share properties-to-retrieve
+
+force delete-all-async
+  start build, field windows-storage-search-contentindexer
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAllAsync|
+
+force delete-async
+  start build, field windows-storage-search-contentindexer
+  start content-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAsync|
+    drive factor, share content-id
+
+force delete-multiple-async
+  start build, field windows-storage-search-contentindexer
+  start content-ids, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteMultipleAsync|
+    drive factor, share content-ids
+
+force get-indexer
+  start build, field windows-storage-search-contentindexer
+  start index-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetIndexer|
+    drive factor, share index-name
+
+force get-indexer
+  start build, field windows-storage-search-contentindexer
+
+  cause call-method
+    drive object, share build
+    drive method, |GetIndexer|
+
+force retrieve-properties-async
+  start build, field windows-storage-search-contentindexer
+  start content-id, field system-string
+  start properties-to-retrieve, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RetrievePropertiesAsync|
+    drive factor, share content-id
+    drive factor, share properties-to-retrieve
+
+force get-revision
+  start build, field windows-storage-search-contentindexer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Revision|
+
+force set-revision
+  start build, field windows-storage-search-contentindexer
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Revision|
+    drive factor, share value
+
+force update-async
+  start build, field windows-storage-search-contentindexer
+  start indexable-content, field windows-storage-search-iindexablecontent
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateAsync|
+    drive factor, share indexable-content
+
+force build-content-indexer-query
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.ContentIndexerQuery|
+
+force get-async
+  start build, field windows-storage-search-contentindexerquery
+  start start-index, field system-uint32
+  start max-items, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAsync|
+    drive factor, share start-index
+    drive factor, share max-items
+
+force get-async
+  start build, field windows-storage-search-contentindexerquery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAsync|
+
+force get-count-async
+  start build, field windows-storage-search-contentindexerquery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCountAsync|
+
+force get-properties-async
+  start build, field windows-storage-search-contentindexerquery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPropertiesAsync|
+
+force get-properties-async
+  start build, field windows-storage-search-contentindexerquery
+  start start-index, field system-uint32
+  start max-items, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPropertiesAsync|
+    drive factor, share start-index
+    drive factor, share max-items
+
+force get-query-folder
+  start build, field windows-storage-search-contentindexerquery
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |QueryFolder|
+
+force set-query-folder
+  start build, field windows-storage-search-contentindexerquery
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |QueryFolder|
+    drive factor, share value
+
+force get-date-stack-option
+  cause get-object
+    drive aspect, |Windows.Storage.Search.DateStackOption|
+
+force get-folder-depth
+  cause get-object
+    drive aspect, |Windows.Storage.Search.FolderDepth|
+
+force get-id
+  start build, field windows-storage-search-iindexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-storage-search-iindexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-properties
+  start build, field windows-storage-search-iindexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  start build, field windows-storage-search-iindexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force get-stream
+  start build, field windows-storage-search-iindexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Stream|
+
+force set-stream
+  start build, field windows-storage-search-iindexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Stream|
+    drive factor, share value
+
+force get-stream-content-type
+  start build, field windows-storage-search-iindexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StreamContentType|
+
+force set-stream-content-type
+  start build, field windows-storage-search-iindexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StreamContentType|
+    drive factor, share value
+
+force build-indexable-content
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.IndexableContent|
+
+force get-id
+  start build, field windows-storage-search-indexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-storage-search-indexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-search-indexablecontent
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-properties
+  start build, field windows-storage-search-indexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  start build, field windows-storage-search-indexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force get-stream
+  start build, field windows-storage-search-indexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Stream|
+
+force set-stream
+  start build, field windows-storage-search-indexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Stream|
+    drive factor, share value
+
+force get-stream-content-type
+  start build, field windows-storage-search-indexablecontent
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StreamContentType|
+
+force set-stream-content-type
+  start build, field windows-storage-search-indexablecontent
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StreamContentType|
+    drive factor, share value
+
+force get-indexed-state
+  cause get-object
+    drive aspect, |Windows.Storage.Search.IndexedState|
+
+force get-indexer-option
+  cause get-object
+    drive aspect, |Windows.Storage.Search.IndexerOption|
+
+force are-query-options-supported
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |AreQueryOptionsSupported|
+    drive factor, share query-options
+
+force create-file-query
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfilequery
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFileQuery|
+    drive factor, share query
+
+force create-file-query
+  start build, field windows-storage-search-istoragefolderqueryoperations
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFileQuery|
+
+force create-file-query-with-options
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFileQueryWithOptions|
+    drive factor, share query-options
+
+force create-folder-query
+  start build, field windows-storage-search-istoragefolderqueryoperations
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFolderQuery|
+
+force create-folder-query
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfolderquery
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFolderQuery|
+    drive factor, share query
+
+force create-folder-query-with-options
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFolderQueryWithOptions|
+    drive factor, share query-options
+
+force create-item-query
+  start build, field windows-storage-search-istoragefolderqueryoperations
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateItemQuery|
+
+force create-item-query-with-options
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateItemQueryWithOptions|
+    drive factor, share query-options
+
+force get-files-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfilequery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFilesAsync|
+    drive factor, share query
+
+force get-files-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfilequery
+  start start-index, field system-uint32
+  start max-items-to-retrieve, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFilesAsync|
+    drive factor, share query
+    drive factor, share start-index
+    drive factor, share max-items-to-retrieve
+
+force get-folders-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfolderquery
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFoldersAsync|
+    drive factor, share query
+
+force get-folders-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfolderquery
+  start start-index, field system-uint32
+  start max-items-to-retrieve, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFoldersAsync|
+    drive factor, share query
+    drive factor, share start-index
+    drive factor, share max-items-to-retrieve
+
+force get-indexed-state-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+
+  cause call-method
+    drive object, share build
+    drive method, |GetIndexedStateAsync|
+
+force get-items-async
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start start-index, field system-uint32
+  start max-items-to-retrieve, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemsAsync|
+    drive factor, share start-index
+    drive factor, share max-items-to-retrieve
+
+force is-common-file-query-supported
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfilequery
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCommonFileQuerySupported|
+    drive factor, share query
+
+force is-common-folder-query-supported
+  start build, field windows-storage-search-istoragefolderqueryoperations
+  start query, field windows-storage-search-commonfolderquery
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCommonFolderQuerySupported|
+    drive factor, share query
+
+force apply-new-query-options
+  start build, field windows-storage-search-istoragequeryresultbase
+  start new-query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ApplyNewQueryOptions|
+    drive factor, share new-query-options
+
+force find-start-index-async
+  start build, field windows-storage-search-istoragequeryresultbase
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |FindStartIndexAsync|
+    drive factor, share value
+
+force get-folder
+  start build, field windows-storage-search-istoragequeryresultbase
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-istoragequeryresultbase
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force get-current-query-options
+  start build, field windows-storage-search-istoragequeryresultbase
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentQueryOptions|
+
+force get-item-count-async
+  start build, field windows-storage-search-istoragequeryresultbase
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemCountAsync|
+
+force build-query-options
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.QueryOptions|
+
+force get-application-search-filter
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ApplicationSearchFilter|
+
+force set-application-search-filter
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ApplicationSearchFilter|
+    drive factor, share value
+
+force get-date-stack-option
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DateStackOption|
+
+force set-date-stack-option
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DateStackOption|
+    drive factor, share value
+
+force get-file-type-filter
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FileTypeFilter|
+
+force set-file-type-filter
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FileTypeFilter|
+    drive factor, share value
+
+force get-folder-depth
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FolderDepth|
+
+force set-folder-depth
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FolderDepth|
+    drive factor, share value
+
+force get-group-property-name
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |GroupPropertyName|
+
+force set-group-property-name
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |GroupPropertyName|
+    drive factor, share value
+
+force get-indexer-option
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IndexerOption|
+
+force set-indexer-option
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IndexerOption|
+    drive factor, share value
+
+force get-language
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Language|
+
+force set-language
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Language|
+    drive factor, share value
+
+force load-from-string
+  start build, field windows-storage-search-queryoptions
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadFromString|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-search-queryoptions
+  start query, field windows-storage-search-commonfolderquery
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share query
+
+force ctor
+  start build, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ctor
+  start build, field windows-storage-search-queryoptions
+  start query, field windows-storage-search-commonfilequery
+  start file-type-filter, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share query
+    drive factor, share file-type-filter
+
+force save-to-string
+  start build, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveToString|
+
+force set-property-prefetch
+  start build, field windows-storage-search-queryoptions
+  start options, field windows-storage-fileproperties-propertyprefetchoptions
+  start properties-to-retrieve, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPropertyPrefetch|
+    drive factor, share options
+    drive factor, share properties-to-retrieve
+
+force set-thumbnail-prefetch
+  start build, field windows-storage-search-queryoptions
+  start mode, field windows-storage-fileproperties-thumbnailmode
+  start requested-size, field system-uint32
+  start options, field windows-storage-fileproperties-thumbnailoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |SetThumbnailPrefetch|
+    drive factor, share mode
+    drive factor, share requested-size
+    drive factor, share options
+
+force get-sort-order
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SortOrder|
+
+force set-sort-order
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SortOrder|
+    drive factor, share value
+
+force get-storage-provider-id-filter
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |StorageProviderIdFilter|
+
+force set-storage-provider-id-filter
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |StorageProviderIdFilter|
+    drive factor, share value
+
+force get-user-search-filter
+  start build, field windows-storage-search-queryoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserSearchFilter|
+
+force set-user-search-filter
+  start build, field windows-storage-search-queryoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserSearchFilter|
+    drive factor, share value
+
+force build-sort-entry-vector
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.SortEntryVector|
+
+force append
+  start build, field windows-storage-search-sortentryvector
+  start value, field windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |Append|
+    drive factor, share value
+
+force clear
+  start build, field windows-storage-search-sortentryvector
+
+  cause call-method
+    drive object, share build
+    drive method, |Clear|
+
+force first
+  start build, field windows-storage-search-sortentryvector
+
+  cause call-method
+    drive object, share build
+    drive method, |First|
+
+force get-at
+  start build, field windows-storage-search-sortentryvector
+  start index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAt|
+    drive factor, share index
+
+force get-many
+  start build, field windows-storage-search-sortentryvector
+  start start-index, field system-uint32
+  start items, field windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMany|
+    drive factor, share start-index
+    drive factor, share items
+
+force get-view
+  start build, field windows-storage-search-sortentryvector
+
+  cause call-method
+    drive object, share build
+    drive method, |GetView|
+
+force index-of
+  start build, field windows-storage-search-sortentryvector
+  start value, field windows-storage-search-sortentry
+  start index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IndexOf|
+    drive factor, share value
+    drive factor, share index
+
+force insert-at
+  start build, field windows-storage-search-sortentryvector
+  start index, field system-uint32
+  start value, field windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |InsertAt|
+    drive factor, share index
+    drive factor, share value
+
+force remove-at
+  start build, field windows-storage-search-sortentryvector
+  start index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveAt|
+    drive factor, share index
+
+force remove-at-end
+  start build, field windows-storage-search-sortentryvector
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveAtEnd|
+
+force replace-all
+  start build, field windows-storage-search-sortentryvector
+  start items, field windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |ReplaceAll|
+    drive factor, share items
+
+force set-at
+  start build, field windows-storage-search-sortentryvector
+  start index, field system-uint32
+  start value, field windows-storage-search-sortentry
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAt|
+    drive factor, share index
+    drive factor, share value
+
+force get-size
+  start build, field windows-storage-search-sortentryvector
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-storage-search-sortentryvector
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force build-storage-file-query-result
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.StorageFileQueryResult|
+
+force apply-new-query-options
+  start build, field windows-storage-search-storagefilequeryresult
+  start new-query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ApplyNewQueryOptions|
+    drive factor, share new-query-options
+
+force find-start-index-async
+  start build, field windows-storage-search-storagefilequeryresult
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |FindStartIndexAsync|
+    drive factor, share value
+
+force get-folder
+  start build, field windows-storage-search-storagefilequeryresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-storagefilequeryresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force get-current-query-options
+  start build, field windows-storage-search-storagefilequeryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentQueryOptions|
+
+force get-files-async
+  start build, field windows-storage-search-storagefilequeryresult
+  start start-index, field system-uint32
+  start max-number-of-items, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFilesAsync|
+    drive factor, share start-index
+    drive factor, share max-number-of-items
+
+force get-files-async
+  start build, field windows-storage-search-storagefilequeryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFilesAsync|
+
+force get-item-count-async
+  start build, field windows-storage-search-storagefilequeryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemCountAsync|
+
+force get-matching-properties-with-ranges
+  start build, field windows-storage-search-storagefilequeryresult
+  start file, field windows-storage-storagefile
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMatchingPropertiesWithRanges|
+    drive factor, share file
+
+force build-storage-folder-query-result
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.StorageFolderQueryResult|
+
+force apply-new-query-options
+  start build, field windows-storage-search-storagefolderqueryresult
+  start new-query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ApplyNewQueryOptions|
+    drive factor, share new-query-options
+
+force find-start-index-async
+  start build, field windows-storage-search-storagefolderqueryresult
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |FindStartIndexAsync|
+    drive factor, share value
+
+force get-folder
+  start build, field windows-storage-search-storagefolderqueryresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-storagefolderqueryresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force get-current-query-options
+  start build, field windows-storage-search-storagefolderqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentQueryOptions|
+
+force get-folders-async
+  start build, field windows-storage-search-storagefolderqueryresult
+  start start-index, field system-uint32
+  start max-number-of-items, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFoldersAsync|
+    drive factor, share start-index
+    drive factor, share max-number-of-items
+
+force get-folders-async
+  start build, field windows-storage-search-storagefolderqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFoldersAsync|
+
+force get-item-count-async
+  start build, field windows-storage-search-storagefolderqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemCountAsync|
+
+force build-storage-item-query-result
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.StorageItemQueryResult|
+
+force apply-new-query-options
+  start build, field windows-storage-search-storageitemqueryresult
+  start new-query-options, field windows-storage-search-queryoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |ApplyNewQueryOptions|
+    drive factor, share new-query-options
+
+force find-start-index-async
+  start build, field windows-storage-search-storageitemqueryresult
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |FindStartIndexAsync|
+    drive factor, share value
+
+force get-folder
+  start build, field windows-storage-search-storageitemqueryresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-storageitemqueryresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force get-current-query-options
+  start build, field windows-storage-search-storageitemqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentQueryOptions|
+
+force get-item-count-async
+  start build, field windows-storage-search-storageitemqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemCountAsync|
+
+force get-items-async
+  start build, field windows-storage-search-storageitemqueryresult
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemsAsync|
+
+force get-items-async
+  start build, field windows-storage-search-storageitemqueryresult
+  start start-index, field system-uint32
+  start max-number-of-items, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemsAsync|
+    drive factor, share start-index
+    drive factor, share max-number-of-items
+
+force build-storage-library-change-tracker-trigger-details
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails|
+
+force get-change-tracker
+  start build, field windows-storage-search-storagelibrarychangetrackertriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+
+force set-change-tracker
+  start build, field windows-storage-search-storagelibrarychangetrackertriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChangeTracker|
+    drive factor, share value
+
+force get-folder
+  start build, field windows-storage-search-storagelibrarychangetrackertriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-storagelibrarychangetrackertriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force build-storage-library-content-changed-trigger-details
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails|
+
+force create-modified-since-query
+  start build, field windows-storage-search-storagelibrarycontentchangedtriggerdetails
+  start last-query-time, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateModifiedSinceQuery|
+    drive factor, share last-query-time
+
+force get-folder
+  start build, field windows-storage-search-storagelibrarycontentchangedtriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Folder|
+
+force set-folder
+  start build, field windows-storage-search-storagelibrarycontentchangedtriggerdetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Folder|
+    drive factor, share value
+
+force build-value-and-language
+  cause invoke-constructor
+    drive constructor, |Windows.Storage.Search.ValueAndLanguage|
+
+force get-language
+  start build, field windows-storage-search-valueandlanguage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Language|
+
+force set-language
+  start build, field windows-storage-search-valueandlanguage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Language|
+    drive factor, share value
+
+force get-value
+  start build, field windows-storage-search-valueandlanguage
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-storage-search-valueandlanguage
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force ctor
+  start build, field windows-storage-search-valueandlanguage
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|

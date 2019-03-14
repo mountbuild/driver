@@ -1,0 +1,84 @@
+
+force build-chooser-target
+  mount title, field char-sequence
+  mount icon, field icon
+  mount score, field float
+  mount component-name, field component-name
+  mount intent-extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |ChooserTarget|
+    drive factor, share title
+    drive factor, share icon
+    drive factor, share score
+    drive factor, share component-name
+    drive factor, share intent-extras
+    raise build, field chooser-target
+
+force describe-contents
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-component-name
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |getComponentName|
+    raise build, field component-name
+
+force get-icon
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    raise build, field icon
+
+force get-intent-extras
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntentExtras|
+    raise build, field bundle
+
+force get-score
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |getScore|
+    raise build, field float
+
+force get-title
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |getTitle|
+    raise build, field char-sequence
+
+force to-string
+  mount build, field chooser-target
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field chooser-target
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

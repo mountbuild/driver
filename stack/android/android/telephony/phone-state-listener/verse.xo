@@ -1,0 +1,377 @@
+
+force get-listen-active-data-subscription-id-change
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_ACTIVE_DATA_SUBSCRIPTION_ID_CHANGE|
+    throw build, field int
+
+force get-listen-barring-info
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_BARRING_INFO|
+    throw build, field int
+
+force get-listen-call-disconnect-causes
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_CALL_DISCONNECT_CAUSES|
+    throw build, field int
+
+force get-listen-call-forwarding-indicator
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_CALL_FORWARDING_INDICATOR|
+    throw build, field int
+
+force get-listen-call-state
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_CALL_STATE|
+    throw build, field int
+
+force get-listen-cell-info
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_CELL_INFO|
+    throw build, field int
+
+force get-listen-cell-location
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_CELL_LOCATION|
+    throw build, field int
+
+force get-listen-data-activity
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_DATA_ACTIVITY|
+    throw build, field int
+
+force get-listen-data-connection-state
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_DATA_CONNECTION_STATE|
+    throw build, field int
+
+force get-listen-display-info-changed
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_DISPLAY_INFO_CHANGED|
+    throw build, field int
+
+force get-listen-emergency-number-list
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_EMERGENCY_NUMBER_LIST|
+    throw build, field int
+
+force get-listen-ims-call-disconnect-causes
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_IMS_CALL_DISCONNECT_CAUSES|
+    throw build, field int
+
+force get-listen-message-waiting-indicator
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_MESSAGE_WAITING_INDICATOR|
+    throw build, field int
+
+force get-listen-none
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_NONE|
+    throw build, field int
+
+force get-listen-precise-data-connection-state
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_PRECISE_DATA_CONNECTION_STATE|
+    throw build, field int
+
+force get-listen-registration-failure
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_REGISTRATION_FAILURE|
+    throw build, field int
+
+force get-listen-service-state
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_SERVICE_STATE|
+    throw build, field int
+
+force get-listen-signal-strength
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_SIGNAL_STRENGTH|
+    throw build, field int
+
+force get-listen-signal-strengths
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_SIGNAL_STRENGTHS|
+    throw build, field int
+
+force get-listen-user-mobile-data-state
+  mount build, field phone-state-listener
+
+  cause get-property
+    drive object, share build
+    drive property, |LISTEN_USER_MOBILE_DATA_STATE|
+    throw build, field int
+
+force build-phone-state-listener
+  cause invoke-constructor
+    drive constructor, |PhoneStateListener|
+    throw build, field phone-state-listener
+
+force build-phone-state-listener
+  mount executor, field executor
+
+  cause invoke-constructor
+    drive constructor, |PhoneStateListener|
+    drive factor, share executor
+    throw build, field phone-state-listener
+
+force on-active-data-subscription-id-changed
+  mount build, field phone-state-listener
+  mount sub-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onActiveDataSubscriptionIdChanged|
+    drive factor, share sub-id
+    throw build, field unit
+
+force on-barring-info-changed
+  mount build, field phone-state-listener
+  mount barring-info, field barring-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onBarringInfoChanged|
+    drive factor, share barring-info
+    throw build, field unit
+
+force on-call-disconnect-cause-changed
+  mount build, field phone-state-listener
+  mount disconnect-cause, field int
+  mount precise-disconnect-cause, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallDisconnectCauseChanged|
+    drive factor, share disconnect-cause
+    drive factor, share precise-disconnect-cause
+    throw build, field unit
+
+force on-call-forwarding-indicator-changed
+  mount build, field phone-state-listener
+  mount cfi, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallForwardingIndicatorChanged|
+    drive factor, share cfi
+    throw build, field unit
+
+force on-call-state-changed
+  mount build, field phone-state-listener
+  mount state, field int
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallStateChanged|
+    drive factor, share state
+    drive factor, share phone-number
+    throw build, field unit
+
+force on-cell-info-changed
+  mount build, field phone-state-listener
+  mount cell-info, field mutable-list-cell-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onCellInfoChanged|
+    drive factor, share cell-info
+    throw build, field unit
+
+force on-cell-location-changed
+  mount build, field phone-state-listener
+  mount location, field cell-location
+
+  cause call-method
+    drive object, share build
+    drive method, |onCellLocationChanged|
+    drive factor, share location
+    throw build, field unit
+
+force on-data-activity
+  mount build, field phone-state-listener
+  mount direction, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDataActivity|
+    drive factor, share direction
+    throw build, field unit
+
+force on-data-connection-state-changed
+  mount build, field phone-state-listener
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDataConnectionStateChanged|
+    drive factor, share state
+    throw build, field unit
+
+force on-data-connection-state-changed
+  mount build, field phone-state-listener
+  mount state, field int
+  mount network-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDataConnectionStateChanged|
+    drive factor, share state
+    drive factor, share network-type
+    throw build, field unit
+
+force on-display-info-changed
+  mount build, field phone-state-listener
+  mount telephony-display-info, field telephony-display-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisplayInfoChanged|
+    drive factor, share telephony-display-info
+    throw build, field unit
+
+force on-ims-call-disconnect-cause-changed
+  mount build, field phone-state-listener
+  mount ims-reason-info, field ims-reason-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onImsCallDisconnectCauseChanged|
+    drive factor, share ims-reason-info
+    throw build, field unit
+
+force on-message-waiting-indicator-changed
+  mount build, field phone-state-listener
+  mount mwi, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onMessageWaitingIndicatorChanged|
+    drive factor, share mwi
+    throw build, field unit
+
+force on-precise-data-connection-state-changed
+  mount build, field phone-state-listener
+  mount data-connection-state, field precise-data-connection-state
+
+  cause call-method
+    drive object, share build
+    drive method, |onPreciseDataConnectionStateChanged|
+    drive factor, share data-connection-state
+    throw build, field unit
+
+force on-registration-failed
+  mount build, field phone-state-listener
+  mount cell-identity, field cell-identity
+  mount chosen-plmn, field string
+  mount domain, field int
+  mount cause-code, field int
+  mount additional-cause-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onRegistrationFailed|
+    drive factor, share cell-identity
+    drive factor, share chosen-plmn
+    drive factor, share domain
+    drive factor, share cause-code
+    drive factor, share additional-cause-code
+    throw build, field unit
+
+force on-service-state-changed
+  mount build, field phone-state-listener
+  mount service-state, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceStateChanged|
+    drive factor, share service-state
+    throw build, field unit
+
+force on-signal-strength-changed
+  mount build, field phone-state-listener
+  mount asu, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSignalStrengthChanged|
+    drive factor, share asu
+    throw build, field unit
+
+force on-signal-strengths-changed
+  mount build, field phone-state-listener
+  mount signal-strength, field signal-strength
+
+  cause call-method
+    drive object, share build
+    drive method, |onSignalStrengthsChanged|
+    drive factor, share signal-strength
+    throw build, field unit
+
+force on-user-mobile-data-state-changed
+  mount build, field phone-state-listener
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserMobileDataStateChanged|
+    drive factor, share enabled
+    throw build, field unit

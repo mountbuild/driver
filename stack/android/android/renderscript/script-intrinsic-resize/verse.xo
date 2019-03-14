@@ -1,0 +1,58 @@
+
+force create
+  mount build, field script-intrinsic-resize
+  mount rs, field render-script
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share rs
+    raise build, field script-intrinsic-resize
+
+force for-each-bicubic
+  mount build, field script-intrinsic-resize
+  mount aout, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach_bicubic|
+    drive factor, share aout
+    raise build, field unit
+
+force for-each-bicubic
+  mount build, field script-intrinsic-resize
+  mount aout, field allocation
+  mount opt, field script-launch-options
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach_bicubic|
+    drive factor, share aout
+    drive factor, share opt
+    raise build, field unit
+
+force get-field-id-input
+  mount build, field script-intrinsic-resize
+
+  cause call-method
+    drive object, share build
+    drive method, |getFieldID_Input|
+    raise build, field script-field-id
+
+force get-kernel-id-bicubic
+  mount build, field script-intrinsic-resize
+
+  cause call-method
+    drive object, share build
+    drive method, |getKernelID_bicubic|
+    raise build, field script-kernel-id
+
+force set-input
+  mount build, field script-intrinsic-resize
+  mount ain, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share ain
+    raise build, field unit

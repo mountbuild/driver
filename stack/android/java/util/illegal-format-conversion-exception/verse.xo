@@ -1,0 +1,26 @@
+
+force build-illegal-format-conversion-exception
+  mount c, field char
+  mount arg, field class
+
+  cause invoke-constructor
+    drive constructor, |IllegalFormatConversionException|
+    drive factor, share c
+    drive factor, share arg
+    throw build, field illegal-format-conversion-exception
+
+force get-argument-class
+  mount build, field illegal-format-conversion-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getArgumentClass|
+    throw build, field class
+
+force get-conversion
+  mount build, field illegal-format-conversion-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getConversion|
+    throw build, field char

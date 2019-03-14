@@ -1,0 +1,30 @@
+
+force login
+  mount build, field auth-provider
+  mount subject, field subject
+  mount handler, field callback-handler
+
+  cause call-method
+    mount object, share build
+    mount method, |login|
+    mount factor, share subject
+    mount factor, share handler
+    throw build, field unit
+
+force logout
+  mount build, field auth-provider
+
+  cause call-method
+    mount object, share build
+    mount method, |logout|
+    throw build, field unit
+
+force set-callback-handler
+  mount build, field auth-provider
+  mount handler, field callback-handler
+
+  cause call-method
+    mount object, share build
+    mount method, |setCallbackHandler|
+    mount factor, share handler
+    throw build, field unit

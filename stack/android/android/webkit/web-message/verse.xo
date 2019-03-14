@@ -1,0 +1,34 @@
+
+force build-web-message
+  mount data, field string
+
+  cause invoke-constructor
+    drive constructor, |WebMessage|
+    drive factor, share data
+    throw build, field web-message
+
+force build-web-message
+  mount data, field string
+  mount ports, field array-web-message-port
+
+  cause invoke-constructor
+    drive constructor, |WebMessage|
+    drive factor, share data
+    drive factor, share ports
+    throw build, field web-message
+
+force get-data
+  mount build, field web-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    throw build, field string
+
+force get-ports
+  mount build, field web-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getPorts|
+    throw build, field array

@@ -1,0 +1,33 @@
+
+force build-socket-handler
+  cause invoke-constructor
+    drive constructor, |SocketHandler|
+    throw build, field socket-handler
+
+force build-socket-handler
+  mount host, field string
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |SocketHandler|
+    drive factor, share host
+    drive factor, share port
+    throw build, field socket-handler
+
+force close
+  mount build, field socket-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force publish
+  mount build, field socket-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share record
+    throw build, field unit

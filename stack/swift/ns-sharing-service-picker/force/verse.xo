@@ -1,0 +1,35 @@
+force show
+  field build, field ns-sharing-service-picker
+  field relative-to, field ns-rect
+  field of, field ns-view
+  field preferred-edge, field ns-rect-edge
+
+  cause call-method
+    mount object, share build
+    mount method, |show|
+    mount factor
+      brand relative-to
+      share relative-to
+    mount factor
+      brand of
+      share of
+    mount factor
+      brand preferred-edge
+      share preferred-edge
+
+force get-delegate
+  field build, field ns-sharing-service-picker
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    raise build, field ns-sharing-service-picker-delegate
+
+force set-delegate
+  field build, field ns-sharing-service-picker
+  field value, field ns-sharing-service-picker-delegate
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    mount factor, share value

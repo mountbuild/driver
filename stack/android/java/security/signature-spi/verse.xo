@@ -1,0 +1,13 @@
+
+force build-signature-spi
+  cause invoke-constructor
+    mount constructor, |SignatureSpi|
+    throw build, field signature-spi
+
+force clone
+  mount build, field signature-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any

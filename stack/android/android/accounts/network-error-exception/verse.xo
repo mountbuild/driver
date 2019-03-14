@@ -1,0 +1,31 @@
+
+force build-network-error-exception
+  cause invoke-constructor
+    drive constructor, |NetworkErrorException|
+    throw build, field network-error-exception
+
+force build-network-error-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |NetworkErrorException|
+    drive factor, share message
+    throw build, field network-error-exception
+
+force build-network-error-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |NetworkErrorException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field network-error-exception
+
+force build-network-error-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |NetworkErrorException|
+    drive factor, share cause
+    throw build, field network-error-exception

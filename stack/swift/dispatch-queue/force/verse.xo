@@ -1,0 +1,168 @@
+force get-class-main
+
+  cause get-aspect
+    drive object, |DispatchQueue|
+    drive aspect, |main|
+    raise build, field dispatch-queue
+
+force set-class-main
+  field value, field dispatch-queue
+
+  cause set-aspect
+    drive object, |DispatchQueue|
+    drive aspect, |main|
+    drive factor, share value
+
+force async
+  field build, field dispatch-queue
+  field execute, field dispatch-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |async|
+    drive factor
+      brand execute
+      share execute
+
+force async-after
+  field build, field dispatch-queue
+  field deadline, field dispatch-time
+  field execute, field dispatch-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |asyncAfter|
+    drive factor
+      brand deadline
+      share deadline
+    drive factor
+      brand execute
+      share execute
+
+force async-after
+  field build, field dispatch-queue
+  field wall-deadline, field dispatch-wall-time
+  field execute, field dispatch-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |asyncAfter|
+    drive factor
+      brand wall-deadline
+      share wall-deadline
+    drive factor
+      brand execute
+      share execute
+
+force sync
+  field build, field dispatch-queue
+  field execute, field dispatch-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |sync|
+    drive factor
+      brand execute
+      share execute
+
+force async
+  field build, field dispatch-queue
+  field group, field dispatch-group
+  field execute, field dispatch-work-item
+
+  cause call-method
+    drive object, share build
+    drive method, |async|
+    drive factor
+      brand group
+      share group
+    drive factor
+      brand execute
+      share execute
+
+force get-label
+  field build, field dispatch-queue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |label|
+    raise build, field string
+
+force set-label
+  field build, field dispatch-queue
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |label|
+    drive factor, share value
+
+force get-qos
+  field build, field dispatch-queue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |qos|
+    raise build, field dispatch-qo-s
+
+force set-qos
+  field build, field dispatch-queue
+  field value, field dispatch-qo-s
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |qos|
+    drive factor, share value
+
+force set-target
+  field build, field dispatch-queue
+  field queue, field dispatch-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor
+      brand queue
+      share queue
+
+force dispatch-main
+  field build, field dispatch-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |dispatchMain|
+    raise build, class never
+
+force get-minimum-tolerance
+  field build, field dispatch-queue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |minimumTolerance|
+    raise build, field dispatch-queue-scheduler-time-type-stride
+
+force set-minimum-tolerance
+  field build, field dispatch-queue
+  field value, field dispatch-queue-scheduler-time-type-stride
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |minimumTolerance|
+    drive factor, share value
+
+force get-now
+  field build, field dispatch-queue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |now|
+    raise build, field dispatch-queue-scheduler-time-type
+
+force set-now
+  field build, field dispatch-queue
+  field value, field dispatch-queue-scheduler-time-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |now|
+    drive factor, share value

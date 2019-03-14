@@ -1,0 +1,127 @@
+
+force build-policy
+  cause invoke-constructor
+    mount constructor, |Policy|
+    throw build, field policy
+
+force get-instance
+  mount build, field policy
+  mount type, field string
+  mount params, field policy-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    throw build, field policy
+
+force get-instance
+  mount build, field policy
+  mount type, field string
+  mount params, field policy-parameters
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    mount factor, share provider
+    throw build, field policy
+
+force get-instance
+  mount build, field policy
+  mount type, field string
+  mount params, field policy-parameters
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share type
+    mount factor, share params
+    mount factor, share provider
+    throw build, field policy
+
+force get-parameters
+  mount build, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameters|
+    throw build, field policy-parameters
+
+force get-permissions
+  mount build, field policy
+  mount codesource, field code-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getPermissions|
+    mount factor, share codesource
+    throw build, field permission-collection
+
+force get-permissions
+  mount build, field policy
+  mount domain, field protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |getPermissions|
+    mount factor, share domain
+    throw build, field permission-collection
+
+force get-policy
+  mount build, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |getPolicy|
+    throw build, field policy
+
+force get-provider
+  mount build, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force get-type
+  mount build, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |getType|
+    throw build, field string
+
+force implies
+  mount build, field policy
+  mount domain, field protection-domain
+  mount permission, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share domain
+    mount factor, share permission
+    throw build, field boolean
+
+force refresh
+  mount build, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |refresh|
+    throw build, field unit
+
+force set-policy
+  mount build, field policy
+  mount p, field policy
+
+  cause call-method
+    mount object, share build
+    mount method, |setPolicy|
+    mount factor, share p
+    throw build, field unit

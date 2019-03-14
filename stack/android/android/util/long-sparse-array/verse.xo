@@ -1,0 +1,173 @@
+
+force build-long-sparse-array
+  cause invoke-constructor
+    drive constructor, |LongSparseArray|
+    throw build, field long-sparse-array
+
+force build-long-sparse-array
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |LongSparseArray|
+    drive factor, share initial-capacity
+    throw build, field long-sparse-array
+
+force append
+  mount build, field long-sparse-array
+  mount key, field long
+  mount value, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit
+
+force clear
+  mount build, field long-sparse-array
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field long-sparse-array
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field long-sparse-array
+
+force delete
+  mount build, field long-sparse-array
+  mount key, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share key
+    throw build, field unit
+
+force get
+  mount build, field long-sparse-array
+  mount key, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field e
+
+force get
+  mount build, field long-sparse-array
+  mount key, field long
+  mount value-if-key-not-found, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    drive factor, share value-if-key-not-found
+    throw build, field e
+
+force index-of-key
+  mount build, field long-sparse-array
+  mount key, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfKey|
+    drive factor, share key
+    throw build, field int
+
+force index-of-value
+  mount build, field long-sparse-array
+  mount value, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfValue|
+    drive factor, share value
+    throw build, field int
+
+force key-at
+  mount build, field long-sparse-array
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |keyAt|
+    drive factor, share index
+    throw build, field long
+
+force put
+  mount build, field long-sparse-array
+  mount key, field long
+  mount value, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field unit
+
+force remove
+  mount build, field long-sparse-array
+  mount key, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field unit
+
+force remove-at
+  mount build, field long-sparse-array
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAt|
+    drive factor, share index
+    throw build, field unit
+
+force set-value-at
+  mount build, field long-sparse-array
+  mount index, field int
+  mount value, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |setValueAt|
+    drive factor, share index
+    drive factor, share value
+    throw build, field unit
+
+force size
+  mount build, field long-sparse-array
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field int
+
+force to-string
+  mount build, field long-sparse-array
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-at
+  mount build, field long-sparse-array
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueAt|
+    drive factor, share index
+    throw build, field e

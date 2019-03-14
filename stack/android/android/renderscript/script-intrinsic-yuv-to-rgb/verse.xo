@@ -1,0 +1,48 @@
+
+force create
+  mount build, field script-intrinsic-yuv-to-rgb
+  mount rs, field render-script
+  mount e, field element
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share rs
+    drive factor, share e
+    raise build, field script-intrinsic-yuv-to-rgb
+
+force for-each
+  mount build, field script-intrinsic-yuv-to-rgb
+  mount aout, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share aout
+    raise build, field unit
+
+force get-field-id-input
+  mount build, field script-intrinsic-yuv-to-rgb
+
+  cause call-method
+    drive object, share build
+    drive method, |getFieldID_Input|
+    raise build, field script-field-id
+
+force get-kernel-id
+  mount build, field script-intrinsic-yuv-to-rgb
+
+  cause call-method
+    drive object, share build
+    drive method, |getKernelID|
+    raise build, field script-kernel-id
+
+force set-input
+  mount build, field script-intrinsic-yuv-to-rgb
+  mount ain, field allocation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share ain
+    raise build, field unit

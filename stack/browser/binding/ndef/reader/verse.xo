@@ -1,0 +1,39 @@
+
+force build-ndef-reader
+  cause invoke-constructor
+    mount constructor, |NDEFReader|
+    throw build
+
+force get-onreading
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |onreading|
+    throw build
+
+force set-onreading
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |onreading|
+    mount factor, share value
+
+force get-onreadingerror
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |onreadingerror|
+    throw build
+
+force set-onreadingerror
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |onreadingerror|
+    mount factor, share value

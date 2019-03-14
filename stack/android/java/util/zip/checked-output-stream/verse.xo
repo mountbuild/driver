@@ -1,0 +1,42 @@
+
+force build-checked-output-stream
+  mount out, field output-stream
+  mount cksum, field checksum
+
+  cause invoke-constructor
+    drive constructor, |CheckedOutputStream|
+    drive factor, share out
+    drive factor, share cksum
+    throw build, field checked-output-stream
+
+force get-checksum
+  mount build, field checked-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getChecksum|
+    throw build, field checksum
+
+force write
+  mount build, field checked-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field checked-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

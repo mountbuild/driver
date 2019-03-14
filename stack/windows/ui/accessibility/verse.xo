@@ -1,0 +1,63 @@
+
+force build-screen-reader-position-changed-event-args
+  cause invoke-constructor
+    mount constructor, |Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs|
+
+force get-is-reading-text
+  start build, field windows-ui-accessibility-screenreaderpositionchangedeventargs
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |IsReadingText|
+
+force set-is-reading-text
+  start build, field windows-ui-accessibility-screenreaderpositionchangedeventargs
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |IsReadingText|
+    mount factor, share value
+
+force get-screen-position-in-raw-pixels
+  start build, field windows-ui-accessibility-screenreaderpositionchangedeventargs
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ScreenPositionInRawPixels|
+
+force set-screen-position-in-raw-pixels
+  start build, field windows-ui-accessibility-screenreaderpositionchangedeventargs
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |ScreenPositionInRawPixels|
+    mount factor, share value
+
+force build-screen-reader-service
+  cause invoke-constructor
+    mount constructor, |Windows.UI.Accessibility.ScreenReaderService|
+
+force get-current-screen-reader-position
+  start build, field windows-ui-accessibility-screenreaderservice
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |CurrentScreenReaderPosition|
+
+force set-current-screen-reader-position
+  start build, field windows-ui-accessibility-screenreaderservice
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |CurrentScreenReaderPosition|
+    mount factor, share value
+
+force ctor
+  start build, field windows-ui-accessibility-screenreaderservice
+
+  cause call-method
+    mount object, share build
+    mount method, |#ctor|

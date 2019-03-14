@@ -1,0 +1,418 @@
+
+force build-microsoft-account-multi-factor-authentication-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager|
+
+force add-device-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id, field system-string
+  start authentication-token, field system-string
+  start wns-channel-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDeviceAsync|
+    drive factor, share user-account-id
+    drive factor, share authentication-token
+    drive factor, share wns-channel-id
+
+force approve-session-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start session-authentiction-status, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessionauthenticationstatus
+  start user-account-id, field system-string
+  start session-id, field system-string
+  start session-authentication-type, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationtype
+
+  cause call-method
+    drive object, share build
+    drive method, |ApproveSessionAsync|
+    drive factor, share session-authentiction-status
+    drive factor, share user-account-id
+    drive factor, share session-id
+    drive factor, share session-authentication-type
+
+force approve-session-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start session-authentiction-status, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessionauthenticationstatus
+  start authentication-session-info, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause call-method
+    drive object, share build
+    drive method, |ApproveSessionAsync|
+    drive factor, share session-authentiction-status
+    drive factor, share authentication-session-info
+
+force get-current
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Current|
+
+force set-current
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Current|
+    drive factor, share value
+
+force deny-session-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id, field system-string
+  start session-id, field system-string
+  start session-authentication-type, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationtype
+
+  cause call-method
+    drive object, share build
+    drive method, |DenySessionAsync|
+    drive factor, share user-account-id
+    drive factor, share session-id
+    drive factor, share session-authentication-type
+
+force deny-session-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start authentication-session-info, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause call-method
+    drive object, share build
+    drive method, |DenySessionAsync|
+    drive factor, share authentication-session-info
+
+force get-one-time-pass-code-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id, field system-string
+  start code-length, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetOneTimePassCodeAsync|
+    drive factor, share user-account-id
+    drive factor, share code-length
+
+force get-sessions-and-unregistered-accounts-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id-list, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSessionsAndUnregisteredAccountsAsync|
+    drive factor, share user-account-id-list
+
+force get-sessions-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id-list, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSessionsAsync|
+    drive factor, share user-account-id-list
+
+force remove-device-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveDeviceAsync|
+    drive factor, share user-account-id
+
+force update-wns-channel-async
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorauthenticationmanager
+  start user-account-id, field system-string
+  start channel-uri, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateWnsChannelAsync|
+    drive factor, share user-account-id
+    drive factor, share channel-uri
+
+force get-microsoft-account-multi-factor-authentication-type
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType|
+
+force build-microsoft-account-multi-factor-get-sessions-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult|
+
+force get-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorgetsessionsresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+
+force set-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorgetsessionsresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+    drive factor, share value
+
+force get-sessions
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorgetsessionsresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Sessions|
+
+force set-sessions
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorgetsessionsresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Sessions|
+    drive factor, share value
+
+force build-microsoft-account-multi-factor-one-time-coded-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo|
+
+force get-code
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Code|
+
+force set-code
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Code|
+    drive factor, share value
+
+force get-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+
+force set-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+    drive factor, share value
+
+force get-time-interval
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TimeInterval|
+
+force set-time-interval
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TimeInterval|
+    drive factor, share value
+
+force get-time-to-live
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TimeToLive|
+
+force set-time-to-live
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactoronetimecodedinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TimeToLive|
+    drive factor, share value
+
+force get-microsoft-account-multi-factor-service-response
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse|
+
+force get-microsoft-account-multi-factor-session-approval-status
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus|
+
+force get-microsoft-account-multi-factor-session-authentication-status
+  cause get-object
+    drive aspect, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus|
+
+force build-microsoft-account-multi-factor-session-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo|
+
+force get-approval-status
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ApprovalStatus|
+
+force set-approval-status
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ApprovalStatus|
+    drive factor, share value
+
+force get-authentication-type
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AuthenticationType|
+
+force set-authentication-type
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AuthenticationType|
+    drive factor, share value
+
+force get-display-session-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplaySessionId|
+
+force set-display-session-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplaySessionId|
+    drive factor, share value
+
+force get-expiration-time
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExpirationTime|
+
+force set-expiration-time
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExpirationTime|
+    drive factor, share value
+
+force get-request-time
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RequestTime|
+
+force set-request-time
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RequestTime|
+    drive factor, share value
+
+force get-session-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SessionId|
+
+force set-session-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SessionId|
+    drive factor, share value
+
+force get-user-account-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserAccountId|
+
+force set-user-account-id
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserAccountId|
+    drive factor, share value
+
+force build-microsoft-account-multi-factor-unregistered-accounts-and-session-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo|
+
+force get-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+
+force set-service-response
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServiceResponse|
+    drive factor, share value
+
+force get-sessions
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Sessions|
+
+force set-sessions
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Sessions|
+    drive factor, share value
+
+force get-unregistered-accounts
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UnregisteredAccounts|
+
+force set-unregistered-accounts
+  start build, field windows-security-authentication-identity-core-microsoftaccountmultifactorunregisteredaccountsandsessioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UnregisteredAccounts|
+    drive factor, share value

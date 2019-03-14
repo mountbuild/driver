@@ -1,0 +1,56 @@
+
+force get-display
+  mount build, field virtual-display
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplay|
+    throw build, field display
+
+force get-surface
+  mount build, field virtual-display
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurface|
+    throw build, field surface
+
+force release
+  mount build, field virtual-display
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force resize
+  mount build, field virtual-display
+  mount width, field int
+  mount height, field int
+  mount density-dpi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resize|
+    drive factor, share width
+    drive factor, share height
+    drive factor, share density-dpi
+    throw build, field unit
+
+force set-surface
+  mount build, field virtual-display
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setSurface|
+    drive factor, share surface
+    throw build, field unit
+
+force to-string
+  mount build, field virtual-display
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

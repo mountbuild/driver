@@ -1,0 +1,132 @@
+force get-identifier
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |identifier|
+    raise build, field ns-window-tabbing-identifier
+
+force set-identifier
+  field build, field ns-window-tab-group
+  field value, field ns-window-tabbing-identifier
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |identifier|
+    mount factor, share value
+
+force get-is-overview-visible
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isOverviewVisible|
+    raise build, field bool
+
+force set-is-overview-visible
+  field build, field ns-window-tab-group
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isOverviewVisible|
+    mount factor, share value
+
+force get-is-tab-bar-visible
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isTabBarVisible|
+    raise build, field bool
+
+force set-is-tab-bar-visible
+  field build, field ns-window-tab-group
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isTabBarVisible|
+    mount factor, share value
+
+force get-windows
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windows|
+    raise build, field ns-window
+
+force set-windows
+  field build, field ns-window-tab-group
+  field value, field ns-window
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windows|
+    mount factor, share value
+
+force get-selected-window
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |selectedWindow|
+    raise build, field ns-window
+
+force set-selected-window
+  field build, field ns-window-tab-group
+  field value, field ns-window
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |selectedWindow|
+    mount factor, share value
+
+force add-window
+  field build, field ns-window-tab-group
+  field a, class ns-window
+
+  cause call-method
+    mount object, share build
+    mount method, |addWindow|
+    mount factor, share a
+
+force insert-window
+  field build, field ns-window-tab-group
+  field a, class ns-window
+  field at, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |insertWindow|
+    mount factor, share a
+    mount factor
+      brand at
+      share at
+
+force remove-window
+  field build, field ns-window-tab-group
+  field a, class ns-window
+
+  cause call-method
+    mount object, share build
+    mount method, |removeWindow|
+    mount factor, share a
+
+force get-tab-group
+  field build, field ns-window-tab-group
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tabGroup|
+    raise build, field ns-window-tab-group
+
+force set-tab-group
+  field build, field ns-window-tab-group
+  field value, field ns-window-tab-group
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |tabGroup|
+    mount factor, share value

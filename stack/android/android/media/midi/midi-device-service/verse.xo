@@ -1,0 +1,73 @@
+
+force get-service-interface
+  start build, field midi-device-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-midi-device-service
+  cause invoke-constructor
+    drive constructor, |MidiDeviceService|
+    raise build, field midi-device-service
+
+force get-device-info
+  start build, field midi-device-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceInfo|
+    raise build, field midi-device-info
+
+force get-output-port-receivers
+  start build, field midi-device-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputPortReceivers|
+    raise build, field array
+
+force on-bind
+  start build, field midi-device-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-close
+  start build, field midi-device-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onClose|
+    raise build, field unit
+
+force on-create
+  mount build, field midi-device-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-device-status-changed
+  mount build, field midi-device-service
+  mount status, field midi-device-status
+
+  cause call-method
+    drive object, share build
+    drive method, |onDeviceStatusChanged|
+    drive factor, share status
+    raise build, field unit
+
+force on-get-input-port-receivers
+  mount build, field midi-device-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetInputPortReceivers|
+    raise build, field array

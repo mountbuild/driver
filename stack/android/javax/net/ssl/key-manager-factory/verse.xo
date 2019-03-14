@@ -1,0 +1,88 @@
+
+force get-algorithm
+  start build, field key-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-default-algorithm
+  start build, field key-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefaultAlgorithm|
+    throw build, field string
+
+force get-instance
+  start build, field key-manager-factory
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field key-manager-factory
+
+force get-instance
+  start build, field key-manager-factory
+  start algorithm, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-manager-factory
+
+force get-instance
+  start build, field key-manager-factory
+  start algorithm, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-manager-factory
+
+force get-key-managers
+  start build, field key-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeyManagers|
+    throw build, field array
+
+force get-provider
+  start build, field key-manager-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  start build, field key-manager-factory
+  start ks, field key-store
+  start password, field char-array
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share ks
+    mount factor, share password
+    throw build, field unit
+
+force init
+  start build, field key-manager-factory
+  start spec, field manager-factory-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share spec
+    throw build, field unit

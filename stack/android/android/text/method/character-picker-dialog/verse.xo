@@ -1,0 +1,42 @@
+
+force build-character-picker-dialog
+  mount context, field context
+  mount view, field view
+  mount text, field editable
+  mount options, field string
+  mount insert, field boolean
+
+  cause invoke-constructor
+    drive constructor, |CharacterPickerDialog|
+    drive factor, share context
+    drive factor, share view
+    drive factor, share text
+    drive factor, share options
+    drive factor, share insert
+    raise build, field character-picker-dialog
+
+force on-click
+  mount build, field character-picker-dialog
+  mount v, field view
+
+  cause call-method
+    drive object, share build
+    drive method, |onClick|
+    drive factor, share v
+    raise build, field unit
+
+force on-item-click
+  mount build, field character-picker-dialog
+  mount parent, field adapter-view-adapter
+  mount view, field view
+  mount position, field int
+  mount id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onItemClick|
+    drive factor, share parent
+    drive factor, share view
+    drive factor, share position
+    drive factor, share id
+    raise build, field unit

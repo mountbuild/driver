@@ -1,0 +1,18 @@
+
+force build-content-index-event
+  start type
+  start event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |ContentIndexEvent|
+    mount factor, share type
+    mount factor, share event-init-dict
+    throw build
+
+force get-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |id|
+    throw build

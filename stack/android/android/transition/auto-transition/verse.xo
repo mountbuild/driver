@@ -1,0 +1,15 @@
+
+force build-auto-transition
+  cause invoke-constructor
+    drive constructor, |AutoTransition|
+    throw build, field auto-transition
+
+force build-auto-transition
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |AutoTransition|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field auto-transition

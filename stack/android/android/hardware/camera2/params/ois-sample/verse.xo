@@ -1,0 +1,62 @@
+
+force build-ois-sample
+  mount timestamp, field long
+  mount x-shift, field float
+  mount y-shift, field float
+
+  cause invoke-constructor
+    drive constructor, |OisSample|
+    drive factor, share timestamp
+    drive factor, share x-shift
+    drive factor, share y-shift
+    throw build, field ois-sample
+
+force equals
+  mount build, field ois-sample
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-timestamp
+  mount build, field ois-sample
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    throw build, field long
+
+force get-xshift
+  mount build, field ois-sample
+
+  cause call-method
+    drive object, share build
+    drive method, |getXshift|
+    throw build, field float
+
+force get-yshift
+  mount build, field ois-sample
+
+  cause call-method
+    drive object, share build
+    drive method, |getYshift|
+    throw build, field float
+
+force hash-code
+  mount build, field ois-sample
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field ois-sample
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

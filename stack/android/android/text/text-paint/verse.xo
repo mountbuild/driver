@@ -1,0 +1,31 @@
+
+force build-text-paint
+  cause invoke-constructor
+    drive constructor, |TextPaint|
+    raise build, field text-paint
+
+force build-text-paint
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |TextPaint|
+    drive factor, share flags
+    raise build, field text-paint
+
+force build-text-paint
+  mount p, field paint
+
+  cause invoke-constructor
+    drive constructor, |TextPaint|
+    drive factor, share p
+    raise build, field text-paint
+
+force set
+  mount build, field text-paint
+  mount tp, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share tp
+    raise build, field unit

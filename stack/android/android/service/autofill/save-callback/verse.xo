@@ -1,0 +1,28 @@
+
+force on-failure
+  mount build, field save-callback
+  mount message, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |onFailure|
+    drive factor, share message
+    raise build, field unit
+
+force on-success
+  mount build, field save-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onSuccess|
+    raise build, field unit
+
+force on-success
+  mount build, field save-callback
+  mount intent-sender, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |onSuccess|
+    drive factor, share intent-sender
+    raise build, field unit

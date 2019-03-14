@@ -1,0 +1,33 @@
+
+force build-character-style
+  cause invoke-constructor
+    drive constructor, |CharacterStyle|
+    raise build, field character-style
+
+force get-underlying
+  mount build, field character-style
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnderlying|
+    raise build, field character-style
+
+force update-draw-state
+  mount build, field character-style
+  mount tp, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share tp
+    raise build, field unit
+
+force wrap
+  mount build, field character-style
+  mount cs, field character-style
+
+  cause call-method
+    drive object, share build
+    drive method, |wrap|
+    drive factor, share cs
+    raise build, field character-style

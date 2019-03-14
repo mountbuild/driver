@@ -1,0 +1,13 @@
+
+force build-connect-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |ConnectException|
+    drive factor, share msg
+    throw build, field connect-exception
+
+force build-connect-exception
+  cause invoke-constructor
+    drive constructor, |ConnectException|
+    throw build, field connect-exception

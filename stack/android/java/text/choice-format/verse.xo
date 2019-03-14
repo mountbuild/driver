@@ -1,0 +1,162 @@
+
+force build-choice-format
+  start new-pattern, field string
+
+  cause invoke-constructor
+    mount constructor, |ChoiceFormat|
+    mount factor, share new-pattern
+    raise build, field choice-format
+
+force build-choice-format
+  start limits, field double-array
+  start formats, field array-string
+
+  cause invoke-constructor
+    mount constructor, |ChoiceFormat|
+    mount factor, share limits
+    mount factor, share formats
+    raise build, field choice-format
+
+force apply-pattern
+  start build, field choice-format
+  start new-pattern, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |applyPattern|
+    mount factor, share new-pattern
+    raise build, field unit
+
+force clone
+  start build, field choice-format
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    raise build, field any
+
+force equals
+  start build, field choice-format
+  start other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force format
+  start build, field choice-format
+  start number, field long
+  start to-append-to, field string-buffer
+  start status, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share number
+    mount factor, share to-append-to
+    mount factor, share status
+    raise build, field string-buffer
+
+force format
+  start build, field choice-format
+  start number, field double
+  start to-append-to, field string-buffer
+  start status, field field-position
+
+  cause call-method
+    mount object, share build
+    mount method, |format|
+    mount factor, share number
+    mount factor, share to-append-to
+    mount factor, share status
+    raise build, field string-buffer
+
+force get-formats
+  start build, field choice-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getFormats|
+    raise build, field array
+
+force get-limits
+  start build, field choice-format
+
+  cause call-method
+    mount object, share build
+    mount method, |getLimits|
+    raise build, field double-array
+
+force hash-code
+  start build, field choice-format
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force next-double
+  start build, field choice-format
+  start d, field double
+
+  cause call-method
+    mount object, share build
+    mount method, |nextDouble|
+    mount factor, share d
+    raise build, field double
+
+force next-double
+  start build, field choice-format
+  start d, field double
+  start positive, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |nextDouble|
+    mount factor, share d
+    mount factor, share positive
+    raise build, field double
+
+force parse
+  start build, field choice-format
+  start text, field string
+  start status, field parse-position
+
+  cause call-method
+    mount object, share build
+    mount method, |parse|
+    mount factor, share text
+    mount factor, share status
+    raise build, field number
+
+force previous-double
+  start build, field choice-format
+  start d, field double
+
+  cause call-method
+    mount object, share build
+    mount method, |previousDouble|
+    mount factor, share d
+    raise build, field double
+
+force set-choices
+  start build, field choice-format
+  start limits, field double-array
+  start formats, field array-string
+
+  cause call-method
+    mount object, share build
+    mount method, |setChoices|
+    mount factor, share limits
+    mount factor, share formats
+    raise build, field unit
+
+force to-pattern
+  start build, field choice-format
+
+  cause call-method
+    mount object, share build
+    mount method, |toPattern|
+    raise build, field string

@@ -1,0 +1,60 @@
+
+force build-cipher-output-stream
+  start os, field output-stream
+  start c, field cipher
+
+  cause invoke-constructor
+    mount constructor, |CipherOutputStream|
+    mount factor, share os
+    mount factor, share c
+    throw build, field cipher-output-stream
+
+force close
+  start build, field cipher-output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build, field unit
+
+force flush
+  start build, field cipher-output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |flush|
+    throw build, field unit
+
+force write
+  start build, field cipher-output-stream
+  start b, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share b
+    throw build, field unit
+
+force write
+  start build, field cipher-output-stream
+  start b, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share b
+    throw build, field unit
+
+force write
+  start build, field cipher-output-stream
+  start b, field byte-array
+  start off, field int
+  start len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share b
+    mount factor, share off
+    mount factor, share len
+    throw build, field unit

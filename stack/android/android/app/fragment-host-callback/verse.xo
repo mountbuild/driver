@@ -1,0 +1,168 @@
+
+force build-fragment-host-callback
+  start context, field context
+  start handler, field handler
+  start window-animations, field int
+
+  cause invoke-constructor
+    drive constructor, |FragmentHostCallback|
+    drive factor, share context
+    drive factor, share handler
+    drive factor, share window-animations
+    throw build, field fragment-host-callback
+
+force on-attach-fragment
+  start build, field fragment-host-callback
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |onAttachFragment|
+    drive factor, share fragment
+    throw build, field unit
+
+force on-dump
+  start build, field fragment-host-callback
+  start prefix, field string
+  start fd, field file-descriptor
+  start writer, field print-writer
+  start args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |onDump|
+    drive factor, share prefix
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    throw build, field unit
+
+force on-find-view-by-id
+  start build, field fragment-host-callback
+  start id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onFindViewById|
+    drive factor, share id
+    throw build, field t
+
+force on-get-host
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetHost|
+    throw build, field e
+
+force on-get-layout-inflater
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetLayoutInflater|
+    throw build, field layout-inflater
+
+force on-get-window-animations
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetWindowAnimations|
+    throw build, field int
+
+force on-has-view
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onHasView|
+    throw build, field boolean
+
+force on-has-window-animations
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onHasWindowAnimations|
+    throw build, field boolean
+
+force on-invalidate-options-menu
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onInvalidateOptionsMenu|
+    throw build, field unit
+
+force on-request-permissions-from-fragment
+  start build, field fragment-host-callback
+  start fragment, field fragment
+  start permissions, field array-string
+  start request-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestPermissionsFromFragment|
+    drive factor, share fragment
+    drive factor, share permissions
+    drive factor, share request-code
+    throw build, field unit
+
+force on-should-save-fragment-state
+  start build, field fragment-host-callback
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |onShouldSaveFragmentState|
+    drive factor, share fragment
+    throw build, field boolean
+
+force on-start-activity-from-fragment
+  start build, field fragment-host-callback
+  start fragment, field fragment
+  start intent, field intent
+  start request-code, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartActivityFromFragment|
+    drive factor, share fragment
+    drive factor, share intent
+    drive factor, share request-code
+    drive factor, share options
+    throw build, field unit
+
+force on-start-intent-sender-from-fragment
+  start build, field fragment-host-callback
+  start fragment, field fragment
+  start intent, field intent-sender
+  start request-code, field int
+  start fill-in-intent, field intent
+  start flags-mask, field int
+  start flags-values, field int
+  start extra-flags, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartIntentSenderFromFragment|
+    drive factor, share fragment
+    drive factor, share intent
+    drive factor, share request-code
+    drive factor, share fill-in-intent
+    drive factor, share flags-mask
+    drive factor, share flags-values
+    drive factor, share extra-flags
+    drive factor, share options
+    throw build, field unit
+
+force on-use-fragment-manager-inflater-factory
+  start build, field fragment-host-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onUseFragmentManagerInflaterFactory|
+    throw build, field boolean

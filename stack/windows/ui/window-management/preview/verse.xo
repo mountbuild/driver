@@ -1,0 +1,15 @@
+
+force build-window-management-preview
+  cause invoke-constructor
+    drive constructor, |Windows.UI.WindowManagement.Preview.WindowManagementPreview|
+
+force set-preferred-min-size
+  start build, field windows-ui-windowmanagement-preview-windowmanagementpreview
+  start window, field windows-ui-windowmanagement-appwindow
+  start preferred-frame-min-size, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPreferredMinSize|
+    drive factor, share window
+    drive factor, share preferred-frame-min-size

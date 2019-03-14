@@ -1,0 +1,314 @@
+
+force build-uri
+  mount str, field string
+
+  cause invoke-constructor
+    drive constructor, |URI|
+    drive factor, share str
+    throw build, field uri
+
+force build-uri
+  mount scheme, field string
+  mount user-info, field string
+  mount host, field string
+  mount port, field int
+  mount path, field string
+  mount query, field string
+  mount fragment, field string
+
+  cause invoke-constructor
+    drive constructor, |URI|
+    drive factor, share scheme
+    drive factor, share user-info
+    drive factor, share host
+    drive factor, share port
+    drive factor, share path
+    drive factor, share query
+    drive factor, share fragment
+    throw build, field uri
+
+force build-uri
+  mount scheme, field string
+  mount authority, field string
+  mount path, field string
+  mount query, field string
+  mount fragment, field string
+
+  cause invoke-constructor
+    drive constructor, |URI|
+    drive factor, share scheme
+    drive factor, share authority
+    drive factor, share path
+    drive factor, share query
+    drive factor, share fragment
+    throw build, field uri
+
+force build-uri
+  mount scheme, field string
+  mount host, field string
+  mount path, field string
+  mount fragment, field string
+
+  cause invoke-constructor
+    drive constructor, |URI|
+    drive factor, share scheme
+    drive factor, share host
+    drive factor, share path
+    drive factor, share fragment
+    throw build, field uri
+
+force build-uri
+  mount scheme, field string
+  mount ssp, field string
+  mount fragment, field string
+
+  cause invoke-constructor
+    drive constructor, |URI|
+    drive factor, share scheme
+    drive factor, share ssp
+    drive factor, share fragment
+    throw build, field uri
+
+force compare-to
+  mount build, field uri
+  mount other, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force create
+  mount build, field uri
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share str
+    throw build, field uri
+
+force equals
+  mount build, field uri
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-authority
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthority|
+    throw build, field string
+
+force get-fragment
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getFragment|
+    throw build, field string
+
+force get-host
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    throw build, field string
+
+force get-path
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    throw build, field string
+
+force get-port
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-query
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuery|
+    throw build, field string
+
+force get-raw-authority
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawAuthority|
+    throw build, field string
+
+force get-raw-fragment
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawFragment|
+    throw build, field string
+
+force get-raw-path
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawPath|
+    throw build, field string
+
+force get-raw-query
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawQuery|
+    throw build, field string
+
+force get-raw-scheme-specific-part
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawSchemeSpecificPart|
+    throw build, field string
+
+force get-raw-user-info
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawUserInfo|
+    throw build, field string
+
+force get-scheme
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getScheme|
+    throw build, field string
+
+force get-scheme-specific-part
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getSchemeSpecificPart|
+    throw build, field string
+
+force get-user-info
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserInfo|
+    throw build, field string
+
+force hash-code
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-absolute
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isAbsolute|
+    throw build, field boolean
+
+force is-opaque
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpaque|
+    throw build, field boolean
+
+force normalize
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |normalize|
+    throw build, field uri
+
+force parse-server-authority
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |parseServerAuthority|
+    throw build, field uri
+
+force relativize
+  mount build, field uri
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |relativize|
+    drive factor, share uri
+    throw build, field uri
+
+force resolve
+  mount build, field uri
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |resolve|
+    drive factor, share uri
+    throw build, field uri
+
+force resolve
+  mount build, field uri
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |resolve|
+    drive factor, share str
+    throw build, field uri
+
+force to-ascii-string
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |toASCIIString|
+    throw build, field string
+
+force to-string
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-url
+  mount build, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |toURL|
+    throw build, field url

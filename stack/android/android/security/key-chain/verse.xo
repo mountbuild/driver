@@ -1,0 +1,179 @@
+
+force get-action-keychain-changed
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_KEYCHAIN_CHANGED|
+    throw build, field string
+
+force get-action-key-access-changed
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_KEY_ACCESS_CHANGED|
+    throw build, field string
+
+force get-action-storage-changed
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_STORAGE_CHANGED|
+    throw build, field string
+
+force get-action-trust-store-changed
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_TRUST_STORE_CHANGED|
+    throw build, field string
+
+force get-extra-certificate
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CERTIFICATE|
+    throw build, field string
+
+force get-extra-key-accessible
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_KEY_ACCESSIBLE|
+    throw build, field string
+
+force get-extra-key-alias
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_KEY_ALIAS|
+    throw build, field string
+
+force get-extra-name
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_NAME|
+    throw build, field string
+
+force get-extra-pkcs12
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PKCS12|
+    throw build, field string
+
+force get-key-alias-selection-denied
+  mount build, field key-chain
+
+  cause get-property
+    drive object, share build
+    drive property, |KEY_ALIAS_SELECTION_DENIED|
+    throw build, field string
+
+force build-key-chain
+  cause invoke-constructor
+    drive constructor, |KeyChain|
+    throw build, field key-chain
+
+force choose-private-key-alias
+  mount build, field key-chain
+  mount activity, field activity
+  mount response, field key-chain-alias-callback
+  mount key-types, field array-string
+  mount issuers, field array-principal
+  mount host, field string
+  mount port, field int
+  mount alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |choosePrivateKeyAlias|
+    drive factor, share activity
+    drive factor, share response
+    drive factor, share key-types
+    drive factor, share issuers
+    drive factor, share host
+    drive factor, share port
+    drive factor, share alias
+    throw build, field unit
+
+force choose-private-key-alias
+  mount build, field key-chain
+  mount activity, field activity
+  mount response, field key-chain-alias-callback
+  mount key-types, field array-string
+  mount issuers, field array-principal
+  mount uri, field uri
+  mount alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |choosePrivateKeyAlias|
+    drive factor, share activity
+    drive factor, share response
+    drive factor, share key-types
+    drive factor, share issuers
+    drive factor, share uri
+    drive factor, share alias
+    throw build, field unit
+
+force create-install-intent
+  mount build, field key-chain
+
+  cause call-method
+    drive object, share build
+    drive method, |createInstallIntent|
+    throw build, field intent
+
+force get-certificate-chain
+  mount build, field key-chain
+  mount context, field context
+  mount alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getCertificateChain|
+    drive factor, share context
+    drive factor, share alias
+    throw build, field array
+
+force get-private-key
+  mount build, field key-chain
+  mount context, field context
+  mount alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrivateKey|
+    drive factor, share context
+    drive factor, share alias
+    throw build, field private-key
+
+force is-bound-key-algorithm
+  mount build, field key-chain
+  mount algorithm, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isBoundKeyAlgorithm|
+    drive factor, share algorithm
+    throw build, field boolean
+
+force is-key-algorithm-supported
+  mount build, field key-chain
+  mount algorithm, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isKeyAlgorithmSupported|
+    drive factor, share algorithm
+    throw build, field boolean

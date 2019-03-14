@@ -1,0 +1,128 @@
+
+force clear-assertion-status
+  mount build, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |clearAssertionStatus|
+    throw build, field unit
+
+force get-parent
+  mount build, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getParent|
+    throw build, field class-loader
+
+force get-resource
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getResource|
+    drive factor, share name
+    throw build, field url
+
+force get-resource-as-stream
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getResourceAsStream|
+    drive factor, share name
+    throw build, field input-stream
+
+force get-resources
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getResources|
+    drive factor, share name
+    throw build, field enumeration
+
+force get-system-class-loader
+  mount build, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemClassLoader|
+    throw build, field class-loader
+
+force get-system-resource
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemResource|
+    drive factor, share name
+    throw build, field url
+
+force get-system-resource-as-stream
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemResourceAsStream|
+    drive factor, share name
+    throw build, field input-stream
+
+force get-system-resources
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemResources|
+    drive factor, share name
+    throw build, field enumeration
+
+force load-class
+  mount build, field class-loader
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |loadClass|
+    drive factor, share name
+    throw build, field class
+
+force set-class-assertion-status
+  mount build, field class-loader
+  mount class-name, field string
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setClassAssertionStatus|
+    drive factor, share class-name
+    drive factor, share enabled
+    throw build, field unit
+
+force set-default-assertion-status
+  mount build, field class-loader
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultAssertionStatus|
+    drive factor, share enabled
+    throw build, field unit
+
+force set-package-assertion-status
+  mount build, field class-loader
+  mount package-name, field string
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setPackageAssertionStatus|
+    drive factor, share package-name
+    drive factor, share enabled
+    throw build, field unit

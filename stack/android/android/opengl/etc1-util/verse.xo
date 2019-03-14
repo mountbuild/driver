@@ -1,0 +1,93 @@
+
+force build-etc1-util
+  cause invoke-constructor
+    drive constructor, |ETC1Util|
+    raise build, field etc1-util
+
+force compress-texture
+  mount build, field etc1-util
+  mount input, field buffer
+  mount width, field int
+  mount height, field int
+  mount pixel-size, field int
+  mount stride, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |compressTexture|
+    drive factor, share input
+    drive factor, share width
+    drive factor, share height
+    drive factor, share pixel-size
+    drive factor, share stride
+    raise build, field etc1-util-etc1-texture
+
+force create-texture
+  mount build, field etc1-util
+  mount input, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |createTexture|
+    drive factor, share input
+    raise build, field etc1-util-etc1-texture
+
+force is-etc1-supported
+  mount build, field etc1-util
+
+  cause call-method
+    drive object, share build
+    drive method, |isETC1Supported|
+    raise build, field boolean
+
+force load-texture
+  mount build, field etc1-util
+  mount target, field int
+  mount level, field int
+  mount border, field int
+  mount fallback-format, field int
+  mount fallback-type, field int
+  mount input, field input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |loadTexture|
+    drive factor, share target
+    drive factor, share level
+    drive factor, share border
+    drive factor, share fallback-format
+    drive factor, share fallback-type
+    drive factor, share input
+    raise build, field unit
+
+force load-texture
+  mount build, field etc1-util
+  mount target, field int
+  mount level, field int
+  mount border, field int
+  mount fallback-format, field int
+  mount fallback-type, field int
+  mount texture, field etc1-util-etc1-texture
+
+  cause call-method
+    drive object, share build
+    drive method, |loadTexture|
+    drive factor, share target
+    drive factor, share level
+    drive factor, share border
+    drive factor, share fallback-format
+    drive factor, share fallback-type
+    drive factor, share texture
+    raise build, field unit
+
+force write-texture
+  mount build, field etc1-util
+  mount texture, field etc1-util-etc1-texture
+  mount output, field output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |writeTexture|
+    drive factor, share texture
+    drive factor, share output
+    raise build, field unit

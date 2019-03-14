@@ -1,0 +1,36 @@
+
+force build-pattern-syntax-exception
+  mount desc, field string
+  mount regex, field string
+  mount index, field int
+
+  cause invoke-constructor
+    drive constructor, |PatternSyntaxException|
+    drive factor, share desc
+    drive factor, share regex
+    drive factor, share index
+    throw build, field pattern-syntax-exception
+
+force get-description
+  mount build, field pattern-syntax-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-index
+  mount build, field pattern-syntax-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndex|
+    throw build, field int
+
+force get-pattern
+  mount build, field pattern-syntax-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getPattern|
+    throw build, field string

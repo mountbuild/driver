@@ -1,0 +1,26 @@
+
+force build-lighting-color-filter
+  mount mul, field int
+  mount add, field int
+
+  cause invoke-constructor
+    drive constructor, |LightingColorFilter|
+    drive factor, share mul
+    drive factor, share add
+    raise build, field lighting-color-filter
+
+force get-color-add
+  mount build, field lighting-color-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getColorAdd|
+    raise build, field int
+
+force get-color-multiply
+  mount build, field lighting-color-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getColorMultiply|
+    raise build, field int

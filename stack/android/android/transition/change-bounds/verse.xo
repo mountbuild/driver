@@ -1,0 +1,85 @@
+
+force build-change-bounds
+  cause invoke-constructor
+    drive constructor, |ChangeBounds|
+    throw build, field change-bounds
+
+force build-change-bounds
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ChangeBounds|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field change-bounds
+
+force capture-end-values
+  mount build, field change-bounds
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureEndValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force capture-start-values
+  mount build, field change-bounds
+  mount transition-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |captureStartValues|
+    drive factor, share transition-values
+    throw build, field unit
+
+force create-animator
+  mount build, field change-bounds
+  mount scene-root, field view-group
+  mount start-values, field transition-values
+  mount end-values, field transition-values
+
+  cause call-method
+    drive object, share build
+    drive method, |createAnimator|
+    drive factor, share scene-root
+    drive factor, share start-values
+    drive factor, share end-values
+    throw build, field animator
+
+force get-resize-clip
+  mount build, field change-bounds
+
+  cause call-method
+    drive object, share build
+    drive method, |getResizeClip|
+    throw build, field boolean
+
+force get-transition-properties
+  mount build, field change-bounds
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionProperties|
+    throw build, field array
+
+force set-reparent
+  mount build, field change-bounds
+  mount reparent, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReparent|
+    drive factor, share reparent
+    throw build, field unit
+
+force set-resize-clip
+  mount build, field change-bounds
+  mount resize-clip, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setResizeClip|
+    drive factor, share resize-clip
+    throw build, field unit

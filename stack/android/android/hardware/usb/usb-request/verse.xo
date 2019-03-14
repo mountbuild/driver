@@ -1,0 +1,81 @@
+
+force build-usb-request
+  cause invoke-constructor
+    drive constructor, |UsbRequest|
+    throw build, field usb-request
+
+force cancel
+  mount build, field usb-request
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field boolean
+
+force close
+  mount build, field usb-request
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-client-data
+  mount build, field usb-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getClientData|
+    throw build, field any
+
+force get-endpoint
+  mount build, field usb-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getEndpoint|
+    throw build, field usb-endpoint
+
+force initialize
+  mount build, field usb-request
+  mount connection, field usb-device-connection
+  mount endpoint, field usb-endpoint
+
+  cause call-method
+    drive object, share build
+    drive method, |initialize|
+    drive factor, share connection
+    drive factor, share endpoint
+    throw build, field boolean
+
+force queue
+  mount build, field usb-request
+  mount buffer, field byte-buffer
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queue|
+    drive factor, share buffer
+    drive factor, share length
+    throw build, field boolean
+
+force queue
+  mount build, field usb-request
+  mount buffer, field byte-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |queue|
+    drive factor, share buffer
+    throw build, field boolean
+
+force set-client-data
+  mount build, field usb-request
+  mount data, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setClientData|
+    drive factor, share data
+    throw build, field unit

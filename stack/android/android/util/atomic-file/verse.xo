@@ -1,0 +1,68 @@
+
+force build-atomic-file
+  mount base-name, field file
+
+  cause invoke-constructor
+    drive constructor, |AtomicFile|
+    drive factor, share base-name
+    throw build, field atomic-file
+
+force delete
+  mount build, field atomic-file
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    throw build, field unit
+
+force fail-write
+  mount build, field atomic-file
+  mount str, field file-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |failWrite|
+    drive factor, share str
+    throw build, field unit
+
+force finish-write
+  mount build, field atomic-file
+  mount str, field file-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |finishWrite|
+    drive factor, share str
+    throw build, field unit
+
+force get-base-file
+  mount build, field atomic-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getBaseFile|
+    throw build, field file
+
+force open-read
+  mount build, field atomic-file
+
+  cause call-method
+    drive object, share build
+    drive method, |openRead|
+    throw build, field file-input-stream
+
+force read-fully
+  mount build, field atomic-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readFully|
+    throw build, field byte-array
+
+force start-write
+  mount build, field atomic-file
+
+  cause call-method
+    drive object, share build
+    drive method, |startWrite|
+    throw build, field file-output-stream

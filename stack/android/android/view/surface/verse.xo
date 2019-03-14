@@ -1,0 +1,168 @@
+
+force get-frame-rate-compatibility-default
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |FRAME_RATE_COMPATIBILITY_DEFAULT|
+    raise build, field int
+
+force get-frame-rate-compatibility-fixed-source
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |FRAME_RATE_COMPATIBILITY_FIXED_SOURCE|
+    raise build, field int
+
+force get-rotation-0
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |ROTATION_0|
+    raise build, field int
+
+force get-rotation-180
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |ROTATION_180|
+    raise build, field int
+
+force get-rotation-270
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |ROTATION_270|
+    raise build, field int
+
+force get-rotation-90
+  mount build, field surface
+
+  cause get-property
+    drive object, share build
+    drive property, |ROTATION_90|
+    raise build, field int
+
+force build-surface
+  mount from, field surface-control
+
+  cause invoke-constructor
+    drive constructor, |Surface|
+    drive factor, share from
+    raise build, field surface
+
+force build-surface
+  mount surface-texture, field surface-texture
+
+  cause invoke-constructor
+    drive constructor, |Surface|
+    drive factor, share surface-texture
+    raise build, field surface
+
+force describe-contents
+  mount build, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force is-valid
+  mount build, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |isValid|
+    raise build, field boolean
+
+force lock-canvas
+  mount build, field surface
+  mount in-out-dirty, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |lockCanvas|
+    drive factor, share in-out-dirty
+    raise build, field canvas
+
+force lock-hardware-canvas
+  mount build, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |lockHardwareCanvas|
+    raise build, field canvas
+
+force read-from-parcel
+  mount build, field surface
+  mount source, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share source
+    raise build, field unit
+
+force release
+  mount build, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-frame-rate
+  mount build, field surface
+  mount frame-rate, field float
+  mount compatibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFrameRate|
+    drive factor, share frame-rate
+    drive factor, share compatibility
+    raise build, field unit
+
+force to-string
+  mount build, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force unlock-canvas
+  mount build, field surface
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockCanvas|
+    drive factor, share canvas
+    raise build, field unit
+
+force unlock-canvas-and-post
+  mount build, field surface
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |unlockCanvasAndPost|
+    drive factor, share canvas
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field surface
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

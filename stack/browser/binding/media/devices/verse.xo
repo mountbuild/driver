@@ -1,0 +1,36 @@
+
+force enumerate-devices
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |enumerateDevices|
+    throw build
+
+force get-supported-constraints
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedConstraints|
+    throw build
+
+force get-display-media
+  start build
+  start constraints
+
+  cause call-method
+    mount object, share build
+    mount method, |getDisplayMedia|
+    mount factor, share constraints
+    throw build
+
+force get-user-media
+  start build
+  start constraints
+
+  cause call-method
+    mount object, share build
+    mount method, |getUserMedia|
+    mount factor, share constraints
+    throw build

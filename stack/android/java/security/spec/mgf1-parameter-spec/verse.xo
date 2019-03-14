@@ -1,0 +1,16 @@
+
+force build-mgf1-parameter-spec
+  mount md-name, field string
+
+  cause invoke-constructor
+    mount constructor, |MGF1ParameterSpec|
+    mount factor, share md-name
+    throw build, field mgf1-parameter-spec
+
+force get-digest-algorithm
+  mount build, field mgf1-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getDigestAlgorithm|
+    throw build, field string

@@ -1,0 +1,81 @@
+
+force get-display
+  mount build, field wps-info
+
+  cause get-property
+    drive object, share build
+    drive property, |DISPLAY|
+    throw build, field int
+
+force get-invalid
+  mount build, field wps-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID|
+    throw build, field int
+
+force get-keypad
+  mount build, field wps-info
+
+  cause get-property
+    drive object, share build
+    drive property, |KEYPAD|
+    throw build, field int
+
+force get-label
+  mount build, field wps-info
+
+  cause get-property
+    drive object, share build
+    drive property, |LABEL|
+    throw build, field int
+
+force get-pbc
+  mount build, field wps-info
+
+  cause get-property
+    drive object, share build
+    drive property, |PBC|
+    throw build, field int
+
+force build-wps-info
+  cause invoke-constructor
+    drive constructor, |WpsInfo|
+    throw build, field wps-info
+
+force build-wps-info
+  mount source, field wps-info
+
+  cause invoke-constructor
+    drive constructor, |WpsInfo|
+    drive factor, share source
+    throw build, field wps-info
+
+force describe-contents
+  mount build, field wps-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field wps-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wps-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

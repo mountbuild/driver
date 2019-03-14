@@ -1,0 +1,84 @@
+
+force available
+  mount build, field filter-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force close
+  mount build, field filter-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force mark
+  mount build, field filter-input-stream
+  mount readlimit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mark|
+    drive factor, share readlimit
+    throw build, field unit
+
+force mark-supported
+  mount build, field filter-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |markSupported|
+    throw build, field boolean
+
+force read
+  mount build, field filter-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field filter-input-stream
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    throw build, field int
+
+force read
+  mount build, field filter-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force reset
+  mount build, field filter-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force skip
+  mount build, field filter-input-stream
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

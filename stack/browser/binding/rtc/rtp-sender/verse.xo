@@ -1,0 +1,70 @@
+
+force get-dtmf
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |dtmf|
+    throw build
+
+force get-track
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |track|
+    throw build
+
+force get-transport
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |transport|
+    throw build
+
+force get-parameters
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameters|
+    throw build
+
+force get-stats
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getStats|
+    throw build
+
+force set-parameters
+  start build
+  start parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |setParameters|
+    mount factor, share parameters
+    throw build
+
+force set-streams
+  start build
+  start media-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |setStreams|
+    mount factor, share media-stream
+    throw build
+
+force replace-track
+  start build
+  start new-track
+
+  cause call-method
+    mount object, share build
+    mount method, |replaceTrack|
+    mount factor, share new-track
+    throw build

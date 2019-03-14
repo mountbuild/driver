@@ -1,0 +1,265 @@
+force get-class-main
+
+  cause get-aspect
+    mount object, |OperationQueue|
+    mount aspect, |main|
+    raise build, field operation-queue
+
+force set-class-main
+  field value, field operation-queue
+
+  cause set-aspect
+    mount object, |OperationQueue|
+    mount aspect, |main|
+    mount factor, share value
+
+force get-class-current
+
+  cause get-aspect
+    mount object, |OperationQueue|
+    mount aspect, |current|
+    raise build, field operation-queue
+
+force set-class-current
+  field value, field operation-queue
+
+  cause set-aspect
+    mount object, |OperationQueue|
+    mount aspect, |current|
+    mount factor, share value
+
+force add-operation
+  field build, field operation-queue
+  field a, class operation
+
+  cause call-method
+    mount object, share build
+    mount method, |addOperation|
+    mount factor, share a
+
+force add-operations
+  field build, field operation-queue
+  field a, class operation
+  field wait-until-finished, field bool
+
+  cause call-method
+    mount object, share build
+    mount method, |addOperations|
+    mount factor, share a
+    mount factor
+      brand wait-until-finished
+      share wait-until-finished
+
+force get-operations
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |operations|
+    raise build, field operation
+
+force set-operations
+  field build, field operation-queue
+  field value, field operation
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |operations|
+    mount factor, share value
+
+force get-operation-count
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |operationCount|
+    raise build, field int
+
+force set-operation-count
+  field build, field operation-queue
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |operationCount|
+    mount factor, share value
+
+force cancel-all-operations
+  field build, field operation-queue
+
+  cause call-method
+    mount object, share build
+    mount method, |cancelAllOperations|
+
+force wait-until-all-operations-are-finished
+  field build, field operation-queue
+
+  cause call-method
+    mount object, share build
+    mount method, |waitUntilAllOperationsAreFinished|
+
+force get-quality-of-service
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |qualityOfService|
+    raise build, field quality-of-service
+
+force set-quality-of-service
+  field build, field operation-queue
+  field value, field quality-of-service
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |qualityOfService|
+    mount factor, share value
+
+force get-max-concurrent-operation-count
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |maxConcurrentOperationCount|
+    raise build, field int
+
+force set-max-concurrent-operation-count
+  field build, field operation-queue
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |maxConcurrentOperationCount|
+    mount factor, share value
+
+force get-class-default-max-concurrent-operation-count
+
+  cause get-aspect
+    mount object, |OperationQueue|
+    mount aspect, |defaultMaxConcurrentOperationCount|
+    raise build, field int
+
+force set-class-default-max-concurrent-operation-count
+  field value, field int
+
+  cause set-aspect
+    mount object, |OperationQueue|
+    mount aspect, |defaultMaxConcurrentOperationCount|
+    mount factor, share value
+
+force get-class-default-max-concurrent-operation-count
+
+  cause get-aspect
+    mount object, |OperationQueue|
+    mount aspect, |defaultMaxConcurrentOperationCount|
+    raise build, field int
+
+force set-class-default-max-concurrent-operation-count
+  field value, field int
+
+  cause set-aspect
+    mount object, |OperationQueue|
+    mount aspect, |defaultMaxConcurrentOperationCount|
+    mount factor, share value
+
+force get-is-suspended
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isSuspended|
+    raise build, field bool
+
+force set-is-suspended
+  field build, field operation-queue
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isSuspended|
+    mount factor, share value
+
+force get-name
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field operation-queue
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |name|
+    mount factor, share value
+
+force get-underlying-queue
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |underlyingQueue|
+    raise build, field dispatch-queue
+
+force set-underlying-queue
+  field build, field operation-queue
+  field value, field dispatch-queue
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |underlyingQueue|
+    mount factor, share value
+
+force get-minimum-tolerance
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |minimumTolerance|
+    raise build, field operation-queue-scheduler-time-type-stride
+
+force set-minimum-tolerance
+  field build, field operation-queue
+  field value, field operation-queue-scheduler-time-type-stride
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |minimumTolerance|
+    mount factor, share value
+
+force get-now
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |now|
+    raise build, field operation-queue-scheduler-time-type
+
+force set-now
+  field build, field operation-queue
+  field value, field operation-queue-scheduler-time-type
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |now|
+    mount factor, share value
+
+force get-progress
+  field build, field operation-queue
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |progress|
+    raise build, field progress
+
+force set-progress
+  field build, field operation-queue
+  field value, field progress
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |progress|
+    mount factor, share value

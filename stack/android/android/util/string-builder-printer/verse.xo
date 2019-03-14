@@ -1,0 +1,18 @@
+
+force build-string-builder-printer
+  mount builder, field string-builder
+
+  cause invoke-constructor
+    drive constructor, |StringBuilderPrinter|
+    drive factor, share builder
+    throw build, field string-builder-printer
+
+force println
+  mount build, field string-builder-printer
+  mount x, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit

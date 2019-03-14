@@ -1,0 +1,207 @@
+force finish-encoding
+  field build, field ns-keyed-archiver
+
+  cause call-method
+    drive object, share build
+    drive method, |finishEncoding|
+
+force get-encoded-data
+  field build, field ns-keyed-archiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |encodedData|
+    raise build, field data
+
+force set-encoded-data
+  field build, field ns-keyed-archiver
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |encodedData|
+    drive factor, share value
+
+force get-output-format
+  field build, field ns-keyed-archiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputFormat|
+    raise build, field property-list-serialization-property-list-format
+
+force set-output-format
+  field build, field ns-keyed-archiver
+  field value, field property-list-serialization-property-list-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputFormat|
+    drive factor, share value
+
+force get-requires-secure-coding
+  field build, field ns-keyed-archiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |requiresSecureCoding|
+    raise build, field bool
+
+force set-requires-secure-coding
+  field build, field ns-keyed-archiver
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |requiresSecureCoding|
+    drive factor, share value
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class bool
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode-bytes
+  field build, field ns-keyed-archiver
+  field a, class unsafe-pointer-u-int8
+  field length, field int
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeBytes|
+    drive factor, share a
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand for-key
+      share for-key
+
+force encode-conditional-object
+  field build, field ns-keyed-archiver
+  field a, class any
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeConditionalObject|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class double
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class float
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class int32
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class int64
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force encode
+  field build, field ns-keyed-archiver
+  field a, class any
+  field for-key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor, share a
+    drive factor
+      brand for-key
+      share for-key
+
+force get-delegate
+  field build, field ns-keyed-archiver
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-keyed-archiver-delegate
+
+force set-delegate
+  field build, field ns-keyed-archiver
+  field value, field ns-keyed-archiver-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force set-class-name
+  field build, field ns-keyed-archiver
+  field a, class string
+  field for, field any-class
+
+  cause call-method
+    drive object, share build
+    drive method, |setClassName|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force class-name
+  field build, field ns-keyed-archiver
+  field for, field any-class
+
+  cause call-method
+    drive object, share build
+    drive method, |className|
+    drive factor
+      brand for
+      share for
+    raise build, class string

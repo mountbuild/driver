@@ -1,0 +1,26 @@
+
+force build-single-launch-activity-test-case
+  mount pkg, field string
+  mount activity-class, field class-t
+
+  cause invoke-constructor
+    drive constructor, |SingleLaunchActivityTestCase|
+    drive factor, share pkg
+    drive factor, share activity-class
+    raise build, field single-launch-activity-test-case
+
+force get-activity
+  mount build, field single-launch-activity-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivity|
+    raise build, field t
+
+force test-activity-test-case-set-up-properly
+  mount build, field single-launch-activity-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |testActivityTestCaseSetUpProperly|
+    raise build, field unit

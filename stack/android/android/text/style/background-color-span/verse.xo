@@ -1,0 +1,62 @@
+
+force build-background-color-span
+  mount color, field int
+
+  cause invoke-constructor
+    drive constructor, |BackgroundColorSpan|
+    drive factor, share color
+    raise build, field background-color-span
+
+force build-background-color-span
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |BackgroundColorSpan|
+    drive factor, share src
+    raise build, field background-color-span
+
+force describe-contents
+  mount build, field background-color-span
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-background-color
+  mount build, field background-color-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getBackgroundColor|
+    raise build, field int
+
+force get-span-type-id
+  mount build, field background-color-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanTypeId|
+    raise build, field int
+
+force update-draw-state
+  mount build, field background-color-span
+  mount text-paint, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share text-paint
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field background-color-span
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

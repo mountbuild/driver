@@ -1,0 +1,138 @@
+
+force deregister-driver
+  start build, field driver-manager
+  start driver, field driver
+
+  cause call-method
+    mount object, share build
+    mount method, |deregisterDriver|
+    mount factor, share driver
+    raise build, field unit
+
+force get-connection
+  start build, field driver-manager
+  start url, field string
+  start info, field properties
+
+  cause call-method
+    mount object, share build
+    mount method, |getConnection|
+    mount factor, share url
+    mount factor, share info
+    raise build, field connection
+
+force get-connection
+  start build, field driver-manager
+  start url, field string
+  start user, field string
+  start password, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getConnection|
+    mount factor, share url
+    mount factor, share user
+    mount factor, share password
+    raise build, field connection
+
+force get-connection
+  start build, field driver-manager
+  start url, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getConnection|
+    mount factor, share url
+    raise build, field connection
+
+force get-driver
+  start build, field driver-manager
+  start url, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getDriver|
+    mount factor, share url
+    raise build, field driver
+
+force get-drivers
+  start build, field driver-manager
+
+  cause call-method
+    mount object, share build
+    mount method, |getDrivers|
+    raise build, field enumeration
+
+force get-log-stream
+  start build, field driver-manager
+
+  cause call-method
+    mount object, share build
+    mount method, |getLogStream|
+    raise build, field print-stream
+
+force get-log-writer
+  start build, field driver-manager
+
+  cause call-method
+    mount object, share build
+    mount method, |getLogWriter|
+    raise build, field print-writer
+
+force get-login-timeout
+  start build, field driver-manager
+
+  cause call-method
+    mount object, share build
+    mount method, |getLoginTimeout|
+    raise build, field int
+
+force println
+  start build, field driver-manager
+  start message, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |println|
+    mount factor, share message
+    raise build, field unit
+
+force register-driver
+  start build, field driver-manager
+  start driver, field driver
+
+  cause call-method
+    mount object, share build
+    mount method, |registerDriver|
+    mount factor, share driver
+    raise build, field unit
+
+force set-log-stream
+  start build, field driver-manager
+  start out, field print-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |setLogStream|
+    mount factor, share out
+    raise build, field unit
+
+force set-log-writer
+  start build, field driver-manager
+  start out, field print-writer
+
+  cause call-method
+    mount object, share build
+    mount method, |setLogWriter|
+    mount factor, share out
+    raise build, field unit
+
+force set-login-timeout
+  start build, field driver-manager
+  start seconds, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |setLoginTimeout|
+    mount factor, share seconds
+    raise build, field unit

@@ -1,0 +1,92 @@
+
+force build-memory-file
+  mount name, field string
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |MemoryFile|
+    drive factor, share name
+    drive factor, share length
+    raise build, field memory-file
+
+force allow-purging
+  mount build, field memory-file
+  mount allow-purging, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |allowPurging|
+    drive factor, share allow-purging
+    raise build, field boolean
+
+force close
+  mount build, field memory-file
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-input-stream
+  mount build, field memory-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputStream|
+    raise build, field input-stream
+
+force get-output-stream
+  mount build, field memory-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputStream|
+    raise build, field output-stream
+
+force is-purging-allowed
+  mount build, field memory-file
+
+  cause call-method
+    drive object, share build
+    drive method, |isPurgingAllowed|
+    raise build, field boolean
+
+force length
+  mount build, field memory-file
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    raise build, field int
+
+force read-bytes
+  mount build, field memory-file
+  mount buffer, field byte-array
+  mount src-offset, field int
+  mount dest-offset, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readBytes|
+    drive factor, share buffer
+    drive factor, share src-offset
+    drive factor, share dest-offset
+    drive factor, share count
+    raise build, field int
+
+force write-bytes
+  mount build, field memory-file
+  mount buffer, field byte-array
+  mount src-offset, field int
+  mount dest-offset, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share buffer
+    drive factor, share src-offset
+    drive factor, share dest-offset
+    drive factor, share count
+    raise build, field unit

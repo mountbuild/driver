@@ -1,0 +1,38 @@
+
+force build-mutation-observer
+  start callback
+
+  cause invoke-constructor
+    mount constructor, |MutationObserver|
+    mount factor, share callback
+    throw build
+
+force disconnect
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |disconnect|
+    throw build
+
+force observe
+  start build
+  start target
+  start options
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |observe|
+    mount factor, share target
+    mount factor, share options
+    mount factor, share options
+    throw build
+
+force take-records
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |takeRecords|
+    throw build

@@ -1,0 +1,61 @@
+
+force get-flag-single-user
+  mount build, field provider-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_SINGLE_USER|
+    throw build, field int
+
+force build-provider-info
+  cause invoke-constructor
+    drive constructor, |ProviderInfo|
+    throw build, field provider-info
+
+force build-provider-info
+  mount orig, field provider-info
+
+  cause invoke-constructor
+    drive constructor, |ProviderInfo|
+    drive factor, share orig
+    throw build, field provider-info
+
+force describe-contents
+  mount build, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  mount build, field provider-info
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    throw build, field unit
+
+force to-string
+  mount build, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field provider-info
+  mount out, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share parcelable-flags
+    throw build, field unit

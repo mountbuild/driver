@@ -1,0 +1,108 @@
+
+force clone
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field pkix-revocation-checker
+
+force get-ocsp-extensions
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getOcspExtensions|
+    throw build, field mutable-list
+
+force get-ocsp-responder
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getOcspResponder|
+    throw build, field uri
+
+force get-ocsp-responder-cert
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getOcspResponderCert|
+    throw build, field x509-certificate
+
+force get-ocsp-responses
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getOcspResponses|
+    throw build, field mutable-map
+
+force get-options
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getOptions|
+    throw build, field mutable-set
+
+force get-soft-fail-exceptions
+  mount build, field pkix-revocation-checker
+
+  cause call-method
+    mount object, share build
+    mount method, |getSoftFailExceptions|
+    throw build, field mutable-list
+
+force set-ocsp-extensions
+  mount build, field pkix-revocation-checker
+  mount extensions, field mutable-list-extension
+
+  cause call-method
+    mount object, share build
+    mount method, |setOcspExtensions|
+    mount factor, share extensions
+    throw build, field unit
+
+force set-ocsp-responder
+  mount build, field pkix-revocation-checker
+  mount uri, field uri
+
+  cause call-method
+    mount object, share build
+    mount method, |setOcspResponder|
+    mount factor, share uri
+    throw build, field unit
+
+force set-ocsp-responder-cert
+  mount build, field pkix-revocation-checker
+  mount cert, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |setOcspResponderCert|
+    mount factor, share cert
+    throw build, field unit
+
+force set-ocsp-responses
+  mount build, field pkix-revocation-checker
+  mount responses, field mutable-map-x509-certificate
+  mount byte-array, field undefined
+
+  cause call-method
+    mount object, share build
+    mount method, |setOcspResponses|
+    mount factor, share responses
+    mount factor, share byte-array
+    throw build, field unit
+
+force set-options
+  mount build, field pkix-revocation-checker
+  mount options, field mutable-set-pkix-revocation-checker-option
+
+  cause call-method
+    mount object, share build
+    mount method, |setOptions|
+    mount factor, share options
+    throw build, field unit

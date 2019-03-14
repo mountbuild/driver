@@ -1,0 +1,42 @@
+
+force build-volatile-call-site
+  mount type, field method-type
+
+  cause invoke-constructor
+    drive constructor, |VolatileCallSite|
+    drive factor, share type
+    throw build, field volatile-call-site
+
+force build-volatile-call-site
+  mount target, field method-handle
+
+  cause invoke-constructor
+    drive constructor, |VolatileCallSite|
+    drive factor, share target
+    throw build, field volatile-call-site
+
+force dynamic-invoker
+  mount build, field volatile-call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |dynamicInvoker|
+    throw build, field method-handle
+
+force get-target
+  mount build, field volatile-call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |getTarget|
+    throw build, field method-handle
+
+force set-target
+  mount build, field volatile-call-site
+  mount new-target, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor, share new-target
+    throw build, field unit

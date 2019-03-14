@@ -1,0 +1,129 @@
+force get-name
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field notification-name
+
+force set-name
+  field build, field notification
+  field value, field notification-name
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-object
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |object|
+    raise build, field any
+
+force set-object
+  field build, field notification
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |object|
+    drive factor, share value
+
+force get-user-info
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInfo|
+    raise build, field any-hashable
+
+force set-user-info
+  field build, field notification
+  field value, field any-hashable
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInfo|
+    drive factor, share value
+
+force get-description
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |description|
+    raise build, field string
+
+force set-description
+  field build, field notification
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |description|
+    drive factor, share value
+
+force get-debug-description
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field notification
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field notification
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-hash-value
+  field build, field notification
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field notification
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force hash
+  field build, field notification
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into

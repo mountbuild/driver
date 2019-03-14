@@ -1,0 +1,94 @@
+
+force build-fragment-bread-crumbs
+  start context, field context
+
+  cause invoke-constructor
+    drive constructor, |FragmentBreadCrumbs|
+    drive factor, share context
+    throw build, field fragment-bread-crumbs
+
+force build-fragment-bread-crumbs
+  start context, field context
+  start attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |FragmentBreadCrumbs|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field fragment-bread-crumbs
+
+force build-fragment-bread-crumbs
+  start context, field context
+  start attrs, field attribute-set
+  start def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |FragmentBreadCrumbs|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field fragment-bread-crumbs
+
+force on-back-stack-changed
+  mount build, field fragment-bread-crumbs
+
+  cause call-method
+    drive object, share build
+    drive method, |onBackStackChanged|
+    throw build, field unit
+
+force set-activity
+  mount build, field fragment-bread-crumbs
+  mount a, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |setActivity|
+    drive factor, share a
+    throw build, field unit
+
+force set-max-visible
+  mount build, field fragment-bread-crumbs
+  mount visible-crumbs, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxVisible|
+    drive factor, share visible-crumbs
+    throw build, field unit
+
+force set-on-bread-crumb-click-listener
+  mount build, field fragment-bread-crumbs
+  mount listener, field fragment-bread-crumbs-on-bread-crumb-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnBreadCrumbClickListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-parent-title
+  mount build, field fragment-bread-crumbs
+  mount title, field char-sequence
+  mount short-title, field char-sequence
+  mount listener, field view-on-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setParentTitle|
+    drive factor, share title
+    drive factor, share short-title
+    drive factor, share listener
+    throw build, field unit
+
+force set-title
+  mount build, field fragment-bread-crumbs
+  mount title, field char-sequence
+  mount short-title, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setTitle|
+    drive factor, share title
+    drive factor, share short-title
+    throw build, field unit

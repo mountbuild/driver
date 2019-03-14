@@ -1,0 +1,172 @@
+
+force bulk-transfer
+  mount build, field usb-device-connection
+  mount endpoint, field usb-endpoint
+  mount buffer, field byte-array
+  mount length, field int
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bulkTransfer|
+    drive factor, share endpoint
+    drive factor, share buffer
+    drive factor, share length
+    drive factor, share timeout
+    throw build, field int
+
+force bulk-transfer
+  mount build, field usb-device-connection
+  mount endpoint, field usb-endpoint
+  mount buffer, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |bulkTransfer|
+    drive factor, share endpoint
+    drive factor, share buffer
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share timeout
+    throw build, field int
+
+force claim-interface
+  mount build, field usb-device-connection
+  mount intf, field usb-interface
+  mount force, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |claimInterface|
+    drive factor, share intf
+    drive factor, share force
+    throw build, field boolean
+
+force close
+  mount build, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force control-transfer
+  mount build, field usb-device-connection
+  mount request-type, field int
+  mount request, field int
+  mount value, field int
+  mount index, field int
+  mount buffer, field byte-array
+  mount length, field int
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |controlTransfer|
+    drive factor, share request-type
+    drive factor, share request
+    drive factor, share value
+    drive factor, share index
+    drive factor, share buffer
+    drive factor, share length
+    drive factor, share timeout
+    throw build, field int
+
+force control-transfer
+  mount build, field usb-device-connection
+  mount request-type, field int
+  mount request, field int
+  mount value, field int
+  mount index, field int
+  mount buffer, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |controlTransfer|
+    drive factor, share request-type
+    drive factor, share request
+    drive factor, share value
+    drive factor, share index
+    drive factor, share buffer
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share timeout
+    throw build, field int
+
+force get-file-descriptor
+  mount build, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |getFileDescriptor|
+    throw build, field int
+
+force get-raw-descriptors
+  mount build, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawDescriptors|
+    throw build, field byte-array
+
+force get-serial
+  mount build, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |getSerial|
+    throw build, field string
+
+force release-interface
+  mount build, field usb-device-connection
+  mount intf, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseInterface|
+    drive factor, share intf
+    throw build, field boolean
+
+force request-wait
+  mount build, field usb-device-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |requestWait|
+    throw build, field usb-request
+
+force request-wait
+  mount build, field usb-device-connection
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |requestWait|
+    drive factor, share timeout
+    throw build, field usb-request
+
+force set-configuration
+  mount build, field usb-device-connection
+  mount configuration, field usb-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |setConfiguration|
+    drive factor, share configuration
+    throw build, field boolean
+
+force set-interface
+  mount build, field usb-device-connection
+  mount intf, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |setInterface|
+    drive factor, share intf
+    throw build, field boolean

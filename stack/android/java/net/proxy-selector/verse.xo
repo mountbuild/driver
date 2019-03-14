@@ -1,0 +1,47 @@
+
+force build-proxy-selector
+  cause invoke-constructor
+    drive constructor, |ProxySelector|
+    throw build, field proxy-selector
+
+force connect-failed
+  mount build, field proxy-selector
+  mount uri, field uri
+  mount sa, field socket-address
+  mount ioe, field io-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |connectFailed|
+    drive factor, share uri
+    drive factor, share sa
+    drive factor, share ioe
+    throw build, field unit
+
+force get-default
+  mount build, field proxy-selector
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    throw build, field proxy-selector
+
+force select
+  mount build, field proxy-selector
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |select|
+    drive factor, share uri
+    throw build, field mutable-list
+
+force set-default
+  mount build, field proxy-selector
+  mount ps, field proxy-selector
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefault|
+    drive factor, share ps
+    throw build, field unit

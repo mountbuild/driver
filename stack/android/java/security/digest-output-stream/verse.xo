@@ -1,0 +1,70 @@
+
+force build-digest-output-stream
+  mount stream, field output-stream
+  mount digest, field message-digest
+
+  cause invoke-constructor
+    mount constructor, |DigestOutputStream|
+    mount factor, share stream
+    mount factor, share digest
+    throw build, field digest-output-stream
+
+force get-message-digest
+  mount build, field digest-output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |getMessageDigest|
+    throw build, field message-digest
+
+force on
+  mount build, field digest-output-stream
+  mount on, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |on|
+    mount factor, share on
+    throw build, field unit
+
+force set-message-digest
+  mount build, field digest-output-stream
+  mount digest, field message-digest
+
+  cause call-method
+    mount object, share build
+    mount method, |setMessageDigest|
+    mount factor, share digest
+    throw build, field unit
+
+force to-string
+  mount build, field digest-output-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string
+
+force write
+  mount build, field digest-output-stream
+  mount b, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share b
+    throw build, field unit
+
+force write
+  mount build, field digest-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share b
+    mount factor, share off
+    mount factor, share len
+    throw build, field unit

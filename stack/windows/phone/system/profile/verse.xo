@@ -1,0 +1,20 @@
+
+force build-retail-mode
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.System.Profile.RetailMode|
+
+force get-retail-mode-enabled
+  start build, field windows-phone-system-profile-retailmode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RetailModeEnabled|
+
+force set-retail-mode-enabled
+  start build, field windows-phone-system-profile-retailmode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RetailModeEnabled|
+    drive factor, share value

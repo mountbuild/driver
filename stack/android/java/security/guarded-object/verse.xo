@@ -1,0 +1,18 @@
+
+force build-guarded-object
+  mount object, field any
+  mount guard, field guard
+
+  cause invoke-constructor
+    mount constructor, |GuardedObject|
+    mount factor, share object
+    mount factor, share guard
+    throw build, field guarded-object
+
+force get-object
+  mount build, field guarded-object
+
+  cause call-method
+    mount object, share build
+    mount method, |getObject|
+    throw build, field any

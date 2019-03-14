@@ -1,0 +1,68 @@
+
+force build-background-energy-diagnostics
+  cause invoke-constructor
+    drive constructor, |Windows.System.Power.Diagnostics.BackgroundEnergyDiagnostics|
+
+force compute-total-energy-usage
+  start build, field windows-system-power-diagnostics-backgroundenergydiagnostics
+
+  cause call-method
+    drive object, share build
+    drive method, |ComputeTotalEnergyUsage|
+
+force get-device-specific-conversion-factor
+  start build, field windows-system-power-diagnostics-backgroundenergydiagnostics
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceSpecificConversionFactor|
+
+force set-device-specific-conversion-factor
+  start build, field windows-system-power-diagnostics-backgroundenergydiagnostics
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceSpecificConversionFactor|
+    drive factor, share value
+
+force reset-total-energy-usage
+  start build, field windows-system-power-diagnostics-backgroundenergydiagnostics
+
+  cause call-method
+    drive object, share build
+    drive method, |ResetTotalEnergyUsage|
+
+force build-foreground-energy-diagnostics
+  cause invoke-constructor
+    drive constructor, |Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics|
+
+force compute-total-energy-usage
+  start build, field windows-system-power-diagnostics-foregroundenergydiagnostics
+
+  cause call-method
+    drive object, share build
+    drive method, |ComputeTotalEnergyUsage|
+
+force get-device-specific-conversion-factor
+  start build, field windows-system-power-diagnostics-foregroundenergydiagnostics
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceSpecificConversionFactor|
+
+force set-device-specific-conversion-factor
+  start build, field windows-system-power-diagnostics-foregroundenergydiagnostics
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceSpecificConversionFactor|
+    drive factor, share value
+
+force reset-total-energy-usage
+  start build, field windows-system-power-diagnostics-foregroundenergydiagnostics
+
+  cause call-method
+    drive object, share build
+    drive method, |ResetTotalEnergyUsage|

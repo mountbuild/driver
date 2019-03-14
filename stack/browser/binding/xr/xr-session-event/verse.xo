@@ -1,0 +1,18 @@
+
+force build-x-r-session-event
+  start type
+  start event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |XRSessionEvent|
+    mount factor, share type
+    mount factor, share event-init-dict
+    throw build
+
+force get-session
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |session|
+    throw build

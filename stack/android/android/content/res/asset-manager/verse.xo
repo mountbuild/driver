@@ -1,0 +1,134 @@
+
+force get-access-buffer
+  mount build, field asset-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCESS_BUFFER|
+    throw build, field int
+
+force get-access-random
+  mount build, field asset-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCESS_RANDOM|
+    throw build, field int
+
+force get-access-streaming
+  mount build, field asset-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCESS_STREAMING|
+    throw build, field int
+
+force get-access-unknown
+  mount build, field asset-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACCESS_UNKNOWN|
+    throw build, field int
+
+force close
+  mount build, field asset-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-locales
+  mount build, field asset-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocales|
+    throw build, field array
+
+force list
+  mount build, field asset-manager
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |list|
+    drive factor, share path
+    throw build, field array
+
+force open
+  mount build, field asset-manager
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share file-name
+    throw build, field input-stream
+
+force open
+  mount build, field asset-manager
+  mount file-name, field string
+  mount access-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |open|
+    drive factor, share file-name
+    drive factor, share access-mode
+    throw build, field input-stream
+
+force open-fd
+  mount build, field asset-manager
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openFd|
+    drive factor, share file-name
+    throw build, field asset-file-descriptor
+
+force open-non-asset-fd
+  mount build, field asset-manager
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openNonAssetFd|
+    drive factor, share file-name
+    throw build, field asset-file-descriptor
+
+force open-non-asset-fd
+  mount build, field asset-manager
+  mount cookie, field int
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openNonAssetFd|
+    drive factor, share cookie
+    drive factor, share file-name
+    throw build, field asset-file-descriptor
+
+force open-xml-resource-parser
+  mount build, field asset-manager
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openXmlResourceParser|
+    drive factor, share file-name
+    throw build, field xml-resource-parser
+
+force open-xml-resource-parser
+  mount build, field asset-manager
+  mount cookie, field int
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openXmlResourceParser|
+    drive factor, share cookie
+    drive factor, share file-name
+    throw build, field xml-resource-parser

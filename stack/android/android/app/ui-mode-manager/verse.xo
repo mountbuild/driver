@@ -1,0 +1,138 @@
+
+force get-disable-car-mode-go-home
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DISABLE_CAR_MODE_GO_HOME|
+    throw build, field int
+
+force get-enable-car-mode-allow-sleep
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ENABLE_CAR_MODE_ALLOW_SLEEP|
+    throw build, field int
+
+force get-enable-car-mode-go-car-home
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ENABLE_CAR_MODE_GO_CAR_HOME|
+    throw build, field int
+
+force get-mode-night-auto
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NIGHT_AUTO|
+    throw build, field int
+
+force get-mode-night-custom
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NIGHT_CUSTOM|
+    throw build, field int
+
+force get-mode-night-no
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NIGHT_NO|
+    throw build, field int
+
+force get-mode-night-yes
+  start build, field ui-mode-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NIGHT_YES|
+    throw build, field int
+
+force disable-car-mode
+  start build, field ui-mode-manager
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |disableCarMode|
+    drive factor, share flags
+    throw build, field unit
+
+force enable-car-mode
+  start build, field ui-mode-manager
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |enableCarMode|
+    drive factor, share flags
+    throw build, field unit
+
+force get-current-mode-type
+  start build, field ui-mode-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentModeType|
+    throw build, field int
+
+force get-custom-night-mode-end
+  start build, field ui-mode-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCustomNightModeEnd|
+    throw build, field local-time
+
+force get-custom-night-mode-start
+  start build, field ui-mode-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCustomNightModeStart|
+    throw build, field local-time
+
+force get-night-mode
+  start build, field ui-mode-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getNightMode|
+    throw build, field int
+
+force set-custom-night-mode-end
+  start build, field ui-mode-manager
+  start time, field local-time
+
+  cause call-method
+    drive object, share build
+    drive method, |setCustomNightModeEnd|
+    drive factor, share time
+    throw build, field unit
+
+force set-custom-night-mode-start
+  start build, field ui-mode-manager
+  start time, field local-time
+
+  cause call-method
+    drive object, share build
+    drive method, |setCustomNightModeStart|
+    drive factor, share time
+    throw build, field unit
+
+force set-night-mode
+  start build, field ui-mode-manager
+  start mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setNightMode|
+    drive factor, share mode
+    throw build, field unit

@@ -1,0 +1,36 @@
+
+force build-domain-load-store-parameter
+  mount configuration, field uri
+  mount protection-params, field mutable-map-string
+  mount key-store-protection-parameter, field undefined
+
+  cause invoke-constructor
+    mount constructor, |DomainLoadStoreParameter|
+    mount factor, share configuration
+    mount factor, share protection-params
+    mount factor, share key-store-protection-parameter
+    throw build, field domain-load-store-parameter
+
+force get-configuration
+  mount build, field domain-load-store-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |getConfiguration|
+    throw build, field uri
+
+force get-protection-parameter
+  mount build, field domain-load-store-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |getProtectionParameter|
+    throw build, field key-store-protection-parameter
+
+force get-protection-params
+  mount build, field domain-load-store-parameter
+
+  cause call-method
+    mount object, share build
+    mount method, |getProtectionParams|
+    throw build, field mutable-map

@@ -1,0 +1,44 @@
+
+force build-count-down-timer
+  mount millis-in-future, field long
+  mount count-down-interval, field long
+
+  cause invoke-constructor
+    drive constructor, |CountDownTimer|
+    drive factor, share millis-in-future
+    drive factor, share count-down-interval
+    raise build, field count-down-timer
+
+force cancel
+  mount build, field count-down-timer
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    raise build, field unit
+
+force on-finish
+  mount build, field count-down-timer
+
+  cause call-method
+    drive object, share build
+    drive method, |onFinish|
+    raise build, field unit
+
+force on-tick
+  mount build, field count-down-timer
+  mount millis-until-finished, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onTick|
+    drive factor, share millis-until-finished
+    raise build, field unit
+
+force start
+  mount build, field count-down-timer
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field count-down-timer

@@ -1,0 +1,671 @@
+
+force get-mpersp-0
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MPERSP_0|
+    raise build, field int
+
+force get-mpersp-1
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MPERSP_1|
+    raise build, field int
+
+force get-mpersp-2
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MPERSP_2|
+    raise build, field int
+
+force get-mscale-x
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MSCALE_X|
+    raise build, field int
+
+force get-mscale-y
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MSCALE_Y|
+    raise build, field int
+
+force get-mskew-x
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MSKEW_X|
+    raise build, field int
+
+force get-mskew-y
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MSKEW_Y|
+    raise build, field int
+
+force get-mtrans-x
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MTRANS_X|
+    raise build, field int
+
+force get-mtrans-y
+  mount build, field matrix
+
+  cause get-property
+    drive object, share build
+    drive property, |MTRANS_Y|
+    raise build, field int
+
+force build-matrix
+  cause invoke-constructor
+    drive constructor, |Matrix|
+    raise build, field matrix
+
+force build-matrix
+  mount src, field matrix
+
+  cause invoke-constructor
+    drive constructor, |Matrix|
+    drive factor, share src
+    raise build, field matrix
+
+force equals
+  mount build, field matrix
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-values
+  mount build, field matrix
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getValues|
+    drive factor, share values
+    raise build, field unit
+
+force hash-code
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force invert
+  mount build, field matrix
+  mount inverse, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |invert|
+    drive factor, share inverse
+    raise build, field boolean
+
+force is-affine
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |isAffine|
+    raise build, field boolean
+
+force is-identity
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |isIdentity|
+    raise build, field boolean
+
+force map-points
+  mount build, field matrix
+  mount dst, field float-array
+  mount dst-index, field int
+  mount src, field float-array
+  mount src-index, field int
+  mount point-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mapPoints|
+    drive factor, share dst
+    drive factor, share dst-index
+    drive factor, share src
+    drive factor, share src-index
+    drive factor, share point-count
+    raise build, field unit
+
+force map-points
+  mount build, field matrix
+  mount dst, field float-array
+  mount src, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |mapPoints|
+    drive factor, share dst
+    drive factor, share src
+    raise build, field unit
+
+force map-points
+  mount build, field matrix
+  mount pts, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |mapPoints|
+    drive factor, share pts
+    raise build, field unit
+
+force map-radius
+  mount build, field matrix
+  mount radius, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |mapRadius|
+    drive factor, share radius
+    raise build, field float
+
+force map-rect
+  mount build, field matrix
+  mount dst, field rect-f
+  mount src, field rect-f
+
+  cause call-method
+    drive object, share build
+    drive method, |mapRect|
+    drive factor, share dst
+    drive factor, share src
+    raise build, field boolean
+
+force map-rect
+  mount build, field matrix
+  mount rect, field rect-f
+
+  cause call-method
+    drive object, share build
+    drive method, |mapRect|
+    drive factor, share rect
+    raise build, field boolean
+
+force map-vectors
+  mount build, field matrix
+  mount dst, field float-array
+  mount dst-index, field int
+  mount src, field float-array
+  mount src-index, field int
+  mount vector-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mapVectors|
+    drive factor, share dst
+    drive factor, share dst-index
+    drive factor, share src
+    drive factor, share src-index
+    drive factor, share vector-count
+    raise build, field unit
+
+force map-vectors
+  mount build, field matrix
+  mount dst, field float-array
+  mount src, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |mapVectors|
+    drive factor, share dst
+    drive factor, share src
+    raise build, field unit
+
+force map-vectors
+  mount build, field matrix
+  mount vecs, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |mapVectors|
+    drive factor, share vecs
+    raise build, field unit
+
+force post-concat
+  mount build, field matrix
+  mount other, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |postConcat|
+    drive factor, share other
+    raise build, field boolean
+
+force post-rotate
+  mount build, field matrix
+  mount degrees, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postRotate|
+    drive factor, share degrees
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force post-rotate
+  mount build, field matrix
+  mount degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postRotate|
+    drive factor, share degrees
+    raise build, field boolean
+
+force post-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postScale|
+    drive factor, share sx
+    drive factor, share sy
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force post-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postScale|
+    drive factor, share sx
+    drive factor, share sy
+    raise build, field boolean
+
+force post-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postSkew|
+    drive factor, share kx
+    drive factor, share ky
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force post-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postSkew|
+    drive factor, share kx
+    drive factor, share ky
+    raise build, field boolean
+
+force post-translate
+  mount build, field matrix
+  mount dx, field float
+  mount dy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |postTranslate|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field boolean
+
+force pre-concat
+  mount build, field matrix
+  mount other, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |preConcat|
+    drive factor, share other
+    raise build, field boolean
+
+force pre-rotate
+  mount build, field matrix
+  mount degrees, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preRotate|
+    drive factor, share degrees
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force pre-rotate
+  mount build, field matrix
+  mount degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preRotate|
+    drive factor, share degrees
+    raise build, field boolean
+
+force pre-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preScale|
+    drive factor, share sx
+    drive factor, share sy
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force pre-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preScale|
+    drive factor, share sx
+    drive factor, share sy
+    raise build, field boolean
+
+force pre-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preSkew|
+    drive factor, share kx
+    drive factor, share ky
+    drive factor, share px
+    drive factor, share py
+    raise build, field boolean
+
+force pre-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preSkew|
+    drive factor, share kx
+    drive factor, share ky
+    raise build, field boolean
+
+force pre-translate
+  mount build, field matrix
+  mount dx, field float
+  mount dy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |preTranslate|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field boolean
+
+force rect-stays-rect
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |rectStaysRect|
+    raise build, field boolean
+
+force reset
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force set
+  mount build, field matrix
+  mount src, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share src
+    raise build, field unit
+
+force set-concat
+  mount build, field matrix
+  mount a, field matrix
+  mount b, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |setConcat|
+    drive factor, share a
+    drive factor, share b
+    raise build, field boolean
+
+force set-poly-to-poly
+  mount build, field matrix
+  mount src, field float-array
+  mount src-index, field int
+  mount dst, field float-array
+  mount dst-index, field int
+  mount point-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPolyToPoly|
+    drive factor, share src
+    drive factor, share src-index
+    drive factor, share dst
+    drive factor, share dst-index
+    drive factor, share point-count
+    raise build, field boolean
+
+force set-rect-to-rect
+  mount build, field matrix
+  mount src, field rect-f
+  mount dst, field rect-f
+  mount stf, field matrix-scale-to-fit
+
+  cause call-method
+    drive object, share build
+    drive method, |setRectToRect|
+    drive factor, share src
+    drive factor, share dst
+    drive factor, share stf
+    raise build, field boolean
+
+force set-rotate
+  mount build, field matrix
+  mount degrees, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotate|
+    drive factor, share degrees
+    drive factor, share px
+    drive factor, share py
+    raise build, field unit
+
+force set-rotate
+  mount build, field matrix
+  mount degrees, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotate|
+    drive factor, share degrees
+    raise build, field unit
+
+force set-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setScale|
+    drive factor, share sx
+    drive factor, share sy
+    drive factor, share px
+    drive factor, share py
+    raise build, field unit
+
+force set-scale
+  mount build, field matrix
+  mount sx, field float
+  mount sy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setScale|
+    drive factor, share sx
+    drive factor, share sy
+    raise build, field unit
+
+force set-sin-cos
+  mount build, field matrix
+  mount sin-value, field float
+  mount cos-value, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSinCos|
+    drive factor, share sin-value
+    drive factor, share cos-value
+    drive factor, share px
+    drive factor, share py
+    raise build, field unit
+
+force set-sin-cos
+  mount build, field matrix
+  mount sin-value, field float
+  mount cos-value, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSinCos|
+    drive factor, share sin-value
+    drive factor, share cos-value
+    raise build, field unit
+
+force set-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+  mount px, field float
+  mount py, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSkew|
+    drive factor, share kx
+    drive factor, share ky
+    drive factor, share px
+    drive factor, share py
+    raise build, field unit
+
+force set-skew
+  mount build, field matrix
+  mount kx, field float
+  mount ky, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setSkew|
+    drive factor, share kx
+    drive factor, share ky
+    raise build, field unit
+
+force set-translate
+  mount build, field matrix
+  mount dx, field float
+  mount dy, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTranslate|
+    drive factor, share dx
+    drive factor, share dy
+    raise build, field unit
+
+force set-values
+  mount build, field matrix
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setValues|
+    drive factor, share values
+    raise build, field unit
+
+force to-short-string
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |toShortString|
+    raise build, field string
+
+force to-string
+  mount build, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

@@ -1,0 +1,85 @@
+
+force build-passwordcredentialsecure-context
+  start password-credential-data
+  start html-form-element
+
+  cause invoke-constructor
+    mount constructor, |PasswordCredentialSecure context|
+    mount factor, share password-credential-data
+    mount factor, share html-form-element
+    throw build
+
+force get-additional-data
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |additionalData|
+    throw build
+
+force set-additional-data
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |additionalData|
+    mount factor, share value
+
+force get-iconurl-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |iconURL Secure context|
+    throw build
+
+force get-id-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |idName|
+    throw build
+
+force set-id-name
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |idName|
+    mount factor, share value
+
+force get-name-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name Secure context|
+    throw build
+
+force get-password-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |password Secure context|
+    throw build
+
+force get-password-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |passwordName|
+    throw build
+
+force set-password-name
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |passwordName|
+    mount factor, share value

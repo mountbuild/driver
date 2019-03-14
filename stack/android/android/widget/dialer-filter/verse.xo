@@ -1,0 +1,190 @@
+
+force get-digits-and-letters
+  mount build, field dialer-filter
+
+  cause get-property
+    drive object, share build
+    drive property, |DIGITS_AND_LETTERS|
+    throw build, field int
+
+force get-digits-and-letters-no-digits
+  mount build, field dialer-filter
+
+  cause get-property
+    drive object, share build
+    drive property, |DIGITS_AND_LETTERS_NO_DIGITS|
+    throw build, field int
+
+force get-digits-and-letters-no-letters
+  mount build, field dialer-filter
+
+  cause get-property
+    drive object, share build
+    drive property, |DIGITS_AND_LETTERS_NO_LETTERS|
+    throw build, field int
+
+force get-digits-only
+  mount build, field dialer-filter
+
+  cause get-property
+    drive object, share build
+    drive property, |DIGITS_ONLY|
+    throw build, field int
+
+force get-letters-only
+  mount build, field dialer-filter
+
+  cause get-property
+    drive object, share build
+    drive property, |LETTERS_ONLY|
+    throw build, field int
+
+force build-dialer-filter
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |DialerFilter|
+    drive factor, share context
+    throw build, field dialer-filter
+
+force build-dialer-filter
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |DialerFilter|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field dialer-filter
+
+force append
+  mount build, field dialer-filter
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share text
+    throw build, field unit
+
+force clear-text
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |clearText|
+    throw build, field unit
+
+force get-digits
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getDigits|
+    throw build, field char-sequence
+
+force get-filter-text
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilterText|
+    throw build, field char-sequence
+
+force get-letters
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getLetters|
+    throw build, field char-sequence
+
+force get-mode
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |getMode|
+    throw build, field int
+
+force is-qwerty-keyboard
+  mount build, field dialer-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |isQwertyKeyboard|
+    throw build, field boolean
+
+force on-key-down
+  mount build, field dialer-filter
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-key-up
+  mount build, field dialer-filter
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyUp|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force remove-filter-watcher
+  mount build, field dialer-filter
+  mount watcher, field text-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |removeFilterWatcher|
+    drive factor, share watcher
+    throw build, field unit
+
+force set-digits-watcher
+  mount build, field dialer-filter
+  mount watcher, field text-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |setDigitsWatcher|
+    drive factor, share watcher
+    throw build, field unit
+
+force set-filter-watcher
+  mount build, field dialer-filter
+  mount watcher, field text-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |setFilterWatcher|
+    drive factor, share watcher
+    throw build, field unit
+
+force set-letters-watcher
+  mount build, field dialer-filter
+  mount watcher, field text-watcher
+
+  cause call-method
+    drive object, share build
+    drive method, |setLettersWatcher|
+    drive factor, share watcher
+    throw build, field unit
+
+force set-mode
+  mount build, field dialer-filter
+  mount new-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMode|
+    drive factor, share new-mode
+    throw build, field unit

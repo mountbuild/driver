@@ -1,0 +1,68 @@
+
+force get-gps-event-first-fix
+  mount build, field gps-status
+
+  cause get-property
+    drive object, share build
+    drive property, |GPS_EVENT_FIRST_FIX|
+    raise build, field int
+
+force get-gps-event-satellite-status
+  mount build, field gps-status
+
+  cause get-property
+    drive object, share build
+    drive property, |GPS_EVENT_SATELLITE_STATUS|
+    raise build, field int
+
+force get-gps-event-started
+  mount build, field gps-status
+
+  cause get-property
+    drive object, share build
+    drive property, |GPS_EVENT_STARTED|
+    raise build, field int
+
+force get-gps-event-stopped
+  mount build, field gps-status
+
+  cause get-property
+    drive object, share build
+    drive property, |GPS_EVENT_STOPPED|
+    raise build, field int
+
+force create
+  mount build, field gps-status
+  mount gnss-status, field gnss-status
+  mount time-to-first-fix, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share gnss-status
+    drive factor, share time-to-first-fix
+    raise build, field gps-status
+
+force get-max-satellites
+  mount build, field gps-status
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSatellites|
+    raise build, field int
+
+force get-satellites
+  mount build, field gps-status
+
+  cause call-method
+    drive object, share build
+    drive method, |getSatellites|
+    raise build, field mutable-iterable
+
+force get-time-to-first-fix
+  mount build, field gps-status
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeToFirstFix|
+    raise build, field int

@@ -1,0 +1,26 @@
+
+force close
+  start build, field network-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-next-bucket
+  start build, field network-stats
+  start bucket-out, field network-stats-bucket
+
+  cause call-method
+    drive object, share build
+    drive method, |getNextBucket|
+    drive factor, share bucket-out
+    throw build, field boolean
+
+force has-next-bucket
+  start build, field network-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |hasNextBucket|
+    throw build, field boolean

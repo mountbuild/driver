@@ -1,0 +1,71 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |shared|
+    raise build, field bg-task-scheduler
+
+force set-class-shared
+  field value, field bg-task-scheduler
+
+  cause set-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |shared|
+    drive factor, share value
+
+force submit
+  field build, field bg-task-scheduler
+  field a, class bg-task-request
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share a
+
+force cancel
+  field build, field bg-task-scheduler
+  field task-request-with-identifier, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor
+      brand task-request-with-identifier
+      share task-request-with-identifier
+
+force cancel-all-task-requests
+  field build, field bg-task-scheduler
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelAllTaskRequests|
+
+force get-class-error-domain
+
+  cause get-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |errorDomain|
+    raise build, field string
+
+force set-class-error-domain
+  field value, field string
+
+  cause set-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |errorDomain|
+    drive factor, share value
+
+force get-class-error-domain
+
+  cause get-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |errorDomain|
+    raise build, field string
+
+force set-class-error-domain
+  field value, field string
+
+  cause set-aspect
+    drive object, |BGTaskScheduler|
+    drive aspect, |errorDomain|
+    drive factor, share value

@@ -1,0 +1,179 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |shared|
+    raise build, field ns-help-manager
+
+force set-class-shared
+  field value, field ns-help-manager
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |shared|
+    drive factor, share value
+
+force find
+  field build, field ns-help-manager
+  field a, class string
+  field in-book, field ns-help-manager-book-name
+
+  cause call-method
+    drive object, share build
+    drive method, |find|
+    drive factor, share a
+    drive factor
+      brand in-book
+      share in-book
+
+force open-help-anchor
+  field build, field ns-help-manager
+  field a, class ns-help-manager-anchor-name
+  field in-book, field ns-help-manager-book-name
+
+  cause call-method
+    drive object, share build
+    drive method, |openHelpAnchor|
+    drive factor, share a
+    drive factor
+      brand in-book
+      share in-book
+
+force register-books
+  field build, field ns-help-manager
+  field in, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |registerBooks|
+    drive factor
+      brand in
+      share in
+    raise build, class bool
+
+force set-context-help
+  field build, field ns-help-manager
+  field a, class ns-attributed-string
+  field for, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setContextHelp|
+    drive factor, share a
+    drive factor
+      brand for
+      share for
+
+force remove-context-help
+  field build, field ns-help-manager
+  field for, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeContextHelp|
+    drive factor
+      brand for
+      share for
+
+force context-help
+  field build, field ns-help-manager
+  field for, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |contextHelp|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-attributed-string
+
+force show-context-help
+  field build, field ns-help-manager
+  field for, field any
+  field location-hint, field ns-point
+
+  cause call-method
+    drive object, share build
+    drive method, |showContextHelp|
+    drive factor
+      brand for
+      share for
+    drive factor
+      brand location-hint
+      share location-hint
+    raise build, class bool
+
+force get-class-is-context-help-mode-active
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |isContextHelpModeActive|
+    raise build, field bool
+
+force set-class-is-context-help-mode-active
+  field value, field bool
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |isContextHelpModeActive|
+    drive factor, share value
+
+force get-class-context-help-mode-did-activate-notification
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidActivateNotification|
+    raise build, field ns-notification-name
+
+force set-class-context-help-mode-did-activate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidActivateNotification|
+    drive factor, share value
+
+force get-class-context-help-mode-did-activate-notification
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidActivateNotification|
+    raise build, field ns-notification-name
+
+force set-class-context-help-mode-did-activate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidActivateNotification|
+    drive factor, share value
+
+force get-class-context-help-mode-did-deactivate-notification
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidDeactivateNotification|
+    raise build, field ns-notification-name
+
+force set-class-context-help-mode-did-deactivate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidDeactivateNotification|
+    drive factor, share value
+
+force get-class-context-help-mode-did-deactivate-notification
+
+  cause get-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidDeactivateNotification|
+    raise build, field ns-notification-name
+
+force set-class-context-help-mode-did-deactivate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSHelpManager|
+    drive aspect, |contextHelpModeDidDeactivateNotification|
+    drive factor, share value

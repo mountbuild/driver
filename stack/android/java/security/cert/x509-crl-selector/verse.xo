@@ -1,0 +1,169 @@
+
+force build-x509-crl-selector
+  cause invoke-constructor
+    mount constructor, |X509CRLSelector|
+    throw build, field x509-crl-selector
+
+force add-issuer
+  mount build, field x509-crl-selector
+  mount issuer, field x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |addIssuer|
+    mount factor, share issuer
+    throw build, field unit
+
+force add-issuer-name
+  mount build, field x509-crl-selector
+  mount name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |addIssuerName|
+    mount factor, share name
+    throw build, field unit
+
+force add-issuer-name
+  mount build, field x509-crl-selector
+  mount name, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |addIssuerName|
+    mount factor, share name
+    throw build, field unit
+
+force clone
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |clone|
+    throw build, field any
+
+force get-certificate-checking
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getCertificateChecking|
+    throw build, field x509-certificate
+
+force get-date-and-time
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getDateAndTime|
+    throw build, field date
+
+force get-issuer-names
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getIssuerNames|
+    throw build, field mutable-collection
+
+force get-issuers
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getIssuers|
+    throw build, field mutable-collection
+
+force get-max-crl
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getMaxCRL|
+    throw build, field big-integer
+
+force get-min-crl
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |getMinCRL|
+    throw build, field big-integer
+
+force match
+  mount build, field x509-crl-selector
+  mount crl, field crl
+
+  cause call-method
+    mount object, share build
+    mount method, |match|
+    mount factor, share crl
+    throw build, field boolean
+
+force set-certificate-checking
+  mount build, field x509-crl-selector
+  mount cert, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |setCertificateChecking|
+    mount factor, share cert
+    throw build, field unit
+
+force set-date-and-time
+  mount build, field x509-crl-selector
+  mount date-and-time, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |setDateAndTime|
+    mount factor, share date-and-time
+    throw build, field unit
+
+force set-issuer-names
+  mount build, field x509-crl-selector
+  mount names, field mutable-collection
+
+  cause call-method
+    mount object, share build
+    mount method, |setIssuerNames|
+    mount factor, share names
+    throw build, field unit
+
+force set-issuers
+  mount build, field x509-crl-selector
+  mount issuers, field mutable-collection-x500-principal
+
+  cause call-method
+    mount object, share build
+    mount method, |setIssuers|
+    mount factor, share issuers
+    throw build, field unit
+
+force set-max-crl-number
+  mount build, field x509-crl-selector
+  mount max-crl, field big-integer
+
+  cause call-method
+    mount object, share build
+    mount method, |setMaxCRLNumber|
+    mount factor, share max-crl
+    throw build, field unit
+
+force set-min-crl-number
+  mount build, field x509-crl-selector
+  mount min-crl, field big-integer
+
+  cause call-method
+    mount object, share build
+    mount method, |setMinCRLNumber|
+    mount factor, share min-crl
+    throw build, field unit
+
+force to-string
+  mount build, field x509-crl-selector
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

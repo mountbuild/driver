@@ -1,0 +1,76 @@
+
+force build-bluetooth-hid-device-app-sdp-settings
+  mount name, field string
+  mount description, field string
+  mount provider, field string
+  mount subclass, field byte
+  mount descriptors, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |BluetoothHidDeviceAppSdpSettings|
+    drive factor, share name
+    drive factor, share description
+    drive factor, share provider
+    drive factor, share subclass
+    drive factor, share descriptors
+    throw build, field bluetooth-hid-device-app-sdp-settings
+
+force describe-contents
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-description
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-descriptors
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescriptors|
+    throw build, field byte-array
+
+force get-name
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-provider
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getProvider|
+    throw build, field string
+
+force get-subclass
+  mount build, field bluetooth-hid-device-app-sdp-settings
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubclass|
+    throw build, field byte
+
+force write-to-parcel
+  mount build, field bluetooth-hid-device-app-sdp-settings
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

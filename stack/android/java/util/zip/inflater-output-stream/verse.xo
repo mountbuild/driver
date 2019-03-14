@@ -1,0 +1,78 @@
+
+force build-inflater-output-stream
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |InflaterOutputStream|
+    drive factor, share out
+    throw build, field inflater-output-stream
+
+force build-inflater-output-stream
+  mount out, field output-stream
+  mount infl, field inflater
+
+  cause invoke-constructor
+    drive constructor, |InflaterOutputStream|
+    drive factor, share out
+    drive factor, share infl
+    throw build, field inflater-output-stream
+
+force build-inflater-output-stream
+  mount out, field output-stream
+  mount infl, field inflater
+  mount buf-len, field int
+
+  cause invoke-constructor
+    drive constructor, |InflaterOutputStream|
+    drive factor, share out
+    drive factor, share infl
+    drive factor, share buf-len
+    throw build, field inflater-output-stream
+
+force close
+  mount build, field inflater-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force finish
+  mount build, field inflater-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    throw build, field unit
+
+force flush
+  mount build, field inflater-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force write
+  mount build, field inflater-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field inflater-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

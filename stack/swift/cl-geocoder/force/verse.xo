@@ -1,0 +1,149 @@
+force reverse-geocode-location
+  field build, field cl-geocoder
+  field a, class cl-location
+  field preferred-locale, field locale
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |reverseGeocodeLocation|
+    drive factor, share a
+    drive factor
+      brand preferred-locale
+      share preferred-locale
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force reverse-geocode-location
+  field build, field cl-geocoder
+  field a, class cl-location
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |reverseGeocodeLocation|
+    drive factor, share a
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-address-string
+  field build, field cl-geocoder
+  field a, class string
+  field in, field cl-region
+  field preferred-locale, field locale
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodeAddressString|
+    drive factor, share a
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand preferred-locale
+      share preferred-locale
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-address-string
+  field build, field cl-geocoder
+  field a, class string
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodeAddressString|
+    drive factor, share a
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-address-string
+  field build, field cl-geocoder
+  field a, class string
+  field in, field cl-region
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodeAddressString|
+    drive factor, share a
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-postal-address
+  field build, field cl-geocoder
+  field a, class cn-postal-address
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodePostalAddress|
+    drive factor, share a
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-postal-address
+  field build, field cl-geocoder
+  field a, class cn-postal-address
+  field preferred-locale, field locale
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodePostalAddress|
+    drive factor, share a
+    drive factor
+      brand preferred-locale
+      share preferred-locale
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force geocode-address-dictionary
+  field build, field cl-geocoder
+  field any-hashable, field any
+  field completion-handler, field cl-geocode-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |geocodeAddressDictionary|
+    drive factor
+      brand any-hashable
+      share any-hashable
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force cancel-geocode
+  field build, field cl-geocoder
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelGeocode|
+
+force get-is-geocoding
+  field build, field cl-geocoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isGeocoding|
+    raise build, field bool
+
+force set-is-geocoding
+  field build, field cl-geocoder
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isGeocoding|
+    drive factor, share value

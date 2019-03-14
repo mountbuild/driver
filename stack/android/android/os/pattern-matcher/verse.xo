@@ -1,0 +1,104 @@
+
+force get-pattern-advanced-glob
+  mount build, field pattern-matcher
+
+  cause get-property
+    drive object, share build
+    drive property, |PATTERN_ADVANCED_GLOB|
+    raise build, field int
+
+force get-pattern-literal
+  mount build, field pattern-matcher
+
+  cause get-property
+    drive object, share build
+    drive property, |PATTERN_LITERAL|
+    raise build, field int
+
+force get-pattern-prefix
+  mount build, field pattern-matcher
+
+  cause get-property
+    drive object, share build
+    drive property, |PATTERN_PREFIX|
+    raise build, field int
+
+force get-pattern-simple-glob
+  mount build, field pattern-matcher
+
+  cause get-property
+    drive object, share build
+    drive property, |PATTERN_SIMPLE_GLOB|
+    raise build, field int
+
+force build-pattern-matcher
+  mount pattern, field string
+  mount type, field int
+
+  cause invoke-constructor
+    drive constructor, |PatternMatcher|
+    drive factor, share pattern
+    drive factor, share type
+    raise build, field pattern-matcher
+
+force build-pattern-matcher
+  mount src, field parcel
+
+  cause invoke-constructor
+    drive constructor, |PatternMatcher|
+    drive factor, share src
+    raise build, field pattern-matcher
+
+force describe-contents
+  mount build, field pattern-matcher
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-path
+  mount build, field pattern-matcher
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    raise build, field string
+
+force get-type
+  mount build, field pattern-matcher
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    raise build, field int
+
+force match
+  mount build, field pattern-matcher
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |match|
+    drive factor, share str
+    raise build, field boolean
+
+force to-string
+  mount build, field pattern-matcher
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field pattern-matcher
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,303 @@
+force get-class-general
+
+  cause get-aspect
+    drive object, |NSPasteboard|
+    drive aspect, |general|
+    raise build, field ns-pasteboard
+
+force set-class-general
+  field value, field ns-pasteboard
+
+  cause set-aspect
+    drive object, |NSPasteboard|
+    drive aspect, |general|
+    drive factor, share value
+
+force release-globally
+  field build, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseGlobally|
+
+force clear-contents
+  field build, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |clearContents|
+    raise build, class int
+
+force write-objects
+  field build, field ns-pasteboard
+  field a, class ns-pasteboard-writing
+
+  cause call-method
+    drive object, share build
+    drive method, |writeObjects|
+    drive factor, share a
+    raise build, class bool
+
+force set-data
+  field build, field ns-pasteboard
+  field a, class data
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |setData|
+    drive factor, share a
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class bool
+
+force set-property-list
+  field build, field ns-pasteboard
+  field a, class any
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |setPropertyList|
+    drive factor, share a
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class bool
+
+force set-string
+  field build, field ns-pasteboard
+  field a, class string
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |setString|
+    drive factor, share a
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class bool
+
+force get-pasteboard-items
+  field build, field ns-pasteboard
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |pasteboardItems|
+    raise build, field ns-pasteboard-item
+
+force set-pasteboard-items
+  field build, field ns-pasteboard
+  field value, field ns-pasteboard-item
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |pasteboardItems|
+    drive factor, share value
+
+force index
+  field build, field ns-pasteboard
+  field of, field ns-pasteboard-item
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand of
+      share of
+    raise build, class int
+
+force data
+  field build, field ns-pasteboard
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |data|
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class data
+
+force property-list
+  field build, field ns-pasteboard
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |propertyList|
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class any
+
+force string
+  field build, field ns-pasteboard
+  field for-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |string|
+    drive factor
+      brand for-type
+      share for-type
+    raise build, class string
+
+force available-type
+  field build, field ns-pasteboard
+  field from, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |availableType|
+    drive factor
+      brand from
+      share from
+    raise build, class ns-pasteboard-pasteboard-type
+
+force can-read-item
+  field build, field ns-pasteboard
+  field with-data-conforming-to-types, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |canReadItem|
+    drive factor
+      brand with-data-conforming-to-types
+      share with-data-conforming-to-types
+    raise build, class bool
+
+force get-types
+  field build, field ns-pasteboard
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |types|
+    raise build, field ns-pasteboard-pasteboard-type
+
+force set-types
+  field build, field ns-pasteboard
+  field value, field ns-pasteboard-pasteboard-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |types|
+    drive factor, share value
+
+force prepare-for-new-contents
+  field build, field ns-pasteboard
+  field with, field ns-pasteboard-contents-options
+
+  cause call-method
+    drive object, share build
+    drive method, |prepareForNewContents|
+    drive factor
+      brand with
+      share with
+    raise build, class int
+
+force get-name
+  field build, field ns-pasteboard
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field ns-pasteboard-name
+
+force set-name
+  field build, field ns-pasteboard
+  field value, field ns-pasteboard-name
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-change-count
+  field build, field ns-pasteboard
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |changeCount|
+    raise build, field int
+
+force set-change-count
+  field build, field ns-pasteboard
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |changeCount|
+    drive factor, share value
+
+force declare-types
+  field build, field ns-pasteboard
+  field a, class ns-pasteboard-pasteboard-type
+  field owner, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |declareTypes|
+    drive factor, share a
+    drive factor
+      brand owner
+      share owner
+    raise build, class int
+
+force add-types
+  field build, field ns-pasteboard
+  field a, class ns-pasteboard-pasteboard-type
+  field owner, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |addTypes|
+    drive factor, share a
+    drive factor
+      brand owner
+      share owner
+    raise build, class int
+
+force write-file-contents
+  field build, field ns-pasteboard
+  field a, class string
+
+  cause call-method
+    drive object, share build
+    drive method, |writeFileContents|
+    drive factor, share a
+    raise build, class bool
+
+force write
+  field build, field ns-pasteboard
+  field a, class file-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share a
+    raise build, class bool
+
+force read-file-contents-type
+  field build, field ns-pasteboard
+  field a, class ns-pasteboard-pasteboard-type
+  field to-file, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |readFileContentsType|
+    drive factor, share a
+    drive factor
+      brand to-file
+      share to-file
+    raise build, class string
+
+force read-file-wrapper
+  field build, field ns-pasteboard
+
+  cause call-method
+    drive object, share build
+    drive method, |readFileWrapper|
+    raise build, class file-wrapper

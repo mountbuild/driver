@@ -1,0 +1,88 @@
+
+force get-command-code-custom
+  start build, field session2-command
+
+  cause get-property
+    drive object, share build
+    drive property, |COMMAND_CODE_CUSTOM|
+    raise build, field int
+
+force build-session2-command
+  start command-code, field int
+
+  cause invoke-constructor
+    drive constructor, |Session2Command|
+    drive factor, share command-code
+    raise build, field session2-command
+
+force build-session2-command
+  start action, field string
+  start extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |Session2Command|
+    drive factor, share action
+    drive factor, share extras
+    raise build, field session2-command
+
+force describe-contents
+  start build, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  start build, field session2-command
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-command-code
+  start build, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |getCommandCode|
+    raise build, field int
+
+force get-custom-action
+  start build, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |getCustomAction|
+    raise build, field string
+
+force get-custom-extras
+  start build, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |getCustomExtras|
+    raise build, field bundle
+
+force hash-code
+  start build, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force write-to-parcel
+  start build, field session2-command
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

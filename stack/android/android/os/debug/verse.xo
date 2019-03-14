@@ -1,0 +1,620 @@
+
+force get-show-classloader
+  mount build, field debug
+
+  cause get-property
+    drive object, share build
+    drive property, |SHOW_CLASSLOADER|
+    raise build, field int
+
+force get-show-full-detail
+  mount build, field debug
+
+  cause get-property
+    drive object, share build
+    drive property, |SHOW_FULL_DETAIL|
+    raise build, field int
+
+force get-show-initialized
+  mount build, field debug
+
+  cause get-property
+    drive object, share build
+    drive property, |SHOW_INITIALIZED|
+    raise build, field int
+
+force get-trace-count-allocs
+  mount build, field debug
+
+  cause get-property
+    drive object, share build
+    drive property, |TRACE_COUNT_ALLOCS|
+    raise build, field int
+
+force attach-jvmti-agent
+  mount build, field debug
+  mount library, field string
+  mount options, field string
+  mount class-loader, field class-loader
+
+  cause call-method
+    drive object, share build
+    drive method, |attachJvmtiAgent|
+    drive factor, share library
+    drive factor, share options
+    drive factor, share class-loader
+    raise build, field unit
+
+force change-debug-port
+  mount build, field debug
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |changeDebugPort|
+    drive factor, share port
+    raise build, field unit
+
+force dump-hprof-data
+  mount build, field debug
+  mount file-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpHprofData|
+    drive factor, share file-name
+    raise build, field unit
+
+force dump-service
+  mount build, field debug
+  mount name, field string
+  mount fd, field file-descriptor
+  mount args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dumpService|
+    drive factor, share name
+    drive factor, share fd
+    drive factor, share args
+    raise build, field boolean
+
+force enable-emulator-trace-output
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |enableEmulatorTraceOutput|
+    raise build, field unit
+
+force get-binder-death-object-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderDeathObjectCount|
+    raise build, field int
+
+force get-binder-local-object-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderLocalObjectCount|
+    raise build, field int
+
+force get-binder-proxy-object-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderProxyObjectCount|
+    raise build, field int
+
+force get-binder-received-transactions
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderReceivedTransactions|
+    raise build, field int
+
+force get-binder-sent-transactions
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getBinderSentTransactions|
+    raise build, field int
+
+force get-global-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalAllocCount|
+    raise build, field int
+
+force get-global-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalAllocSize|
+    raise build, field int
+
+force get-global-class-init-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalClassInitCount|
+    raise build, field int
+
+force get-global-class-init-time
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalClassInitTime|
+    raise build, field int
+
+force get-global-external-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalExternalAllocCount|
+    raise build, field int
+
+force get-global-external-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalExternalAllocSize|
+    raise build, field int
+
+force get-global-external-freed-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalExternalFreedCount|
+    raise build, field int
+
+force get-global-external-freed-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalExternalFreedSize|
+    raise build, field int
+
+force get-global-freed-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalFreedCount|
+    raise build, field int
+
+force get-global-freed-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalFreedSize|
+    raise build, field int
+
+force get-global-gc-invocation-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlobalGcInvocationCount|
+    raise build, field int
+
+force get-loaded-class-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoadedClassCount|
+    raise build, field int
+
+force get-memory-info
+  mount build, field debug
+  mount memory-info, field debug-memory-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMemoryInfo|
+    drive factor, share memory-info
+    raise build, field unit
+
+force get-native-heap-allocated-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getNativeHeapAllocatedSize|
+    raise build, field long
+
+force get-native-heap-free-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getNativeHeapFreeSize|
+    raise build, field long
+
+force get-native-heap-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getNativeHeapSize|
+    raise build, field long
+
+force get-pss
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getPss|
+    raise build, field long
+
+force get-runtime-stat
+  mount build, field debug
+  mount stat-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getRuntimeStat|
+    drive factor, share stat-name
+    raise build, field string
+
+force get-runtime-stats
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getRuntimeStats|
+    raise build, field mutable-map
+
+force get-thread-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadAllocCount|
+    raise build, field int
+
+force get-thread-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadAllocSize|
+    raise build, field int
+
+force get-thread-external-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadExternalAllocCount|
+    raise build, field int
+
+force get-thread-external-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadExternalAllocSize|
+    raise build, field int
+
+force get-thread-gc-invocation-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |getThreadGcInvocationCount|
+    raise build, field int
+
+force is-debugger-connected
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |isDebuggerConnected|
+    raise build, field boolean
+
+force print-loaded-classes
+  mount build, field debug
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |printLoadedClasses|
+    drive factor, share flags
+    raise build, field unit
+
+force reset-all-counts
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetAllCounts|
+    raise build, field unit
+
+force reset-global-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalAllocCount|
+    raise build, field unit
+
+force reset-global-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalAllocSize|
+    raise build, field unit
+
+force reset-global-class-init-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalClassInitCount|
+    raise build, field unit
+
+force reset-global-class-init-time
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalClassInitTime|
+    raise build, field unit
+
+force reset-global-external-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalExternalAllocCount|
+    raise build, field unit
+
+force reset-global-external-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalExternalAllocSize|
+    raise build, field unit
+
+force reset-global-external-freed-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalExternalFreedCount|
+    raise build, field unit
+
+force reset-global-external-freed-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalExternalFreedSize|
+    raise build, field unit
+
+force reset-global-freed-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalFreedCount|
+    raise build, field unit
+
+force reset-global-freed-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalFreedSize|
+    raise build, field unit
+
+force reset-global-gc-invocation-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetGlobalGcInvocationCount|
+    raise build, field unit
+
+force reset-thread-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetThreadAllocCount|
+    raise build, field unit
+
+force reset-thread-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetThreadAllocSize|
+    raise build, field unit
+
+force reset-thread-external-alloc-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetThreadExternalAllocCount|
+    raise build, field unit
+
+force reset-thread-external-alloc-size
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetThreadExternalAllocSize|
+    raise build, field unit
+
+force reset-thread-gc-invocation-count
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |resetThreadGcInvocationCount|
+    raise build, field unit
+
+force set-allocation-limit
+  mount build, field debug
+  mount limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllocationLimit|
+    drive factor, share limit
+    raise build, field int
+
+force set-global-allocation-limit
+  mount build, field debug
+  mount limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setGlobalAllocationLimit|
+    drive factor, share limit
+    raise build, field int
+
+force start-alloc-counting
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |startAllocCounting|
+    raise build, field unit
+
+force start-method-tracing
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |startMethodTracing|
+    raise build, field unit
+
+force start-method-tracing
+  mount build, field debug
+  mount trace-path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |startMethodTracing|
+    drive factor, share trace-path
+    raise build, field unit
+
+force start-method-tracing
+  mount build, field debug
+  mount trace-path, field string
+  mount buffer-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startMethodTracing|
+    drive factor, share trace-path
+    drive factor, share buffer-size
+    raise build, field unit
+
+force start-method-tracing
+  mount build, field debug
+  mount trace-path, field string
+  mount buffer-size, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startMethodTracing|
+    drive factor, share trace-path
+    drive factor, share buffer-size
+    drive factor, share flags
+    raise build, field unit
+
+force start-method-tracing-sampling
+  mount build, field debug
+  mount trace-path, field string
+  mount buffer-size, field int
+  mount interval-us, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startMethodTracingSampling|
+    drive factor, share trace-path
+    drive factor, share buffer-size
+    drive factor, share interval-us
+    raise build, field unit
+
+force start-native-tracing
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |startNativeTracing|
+    raise build, field unit
+
+force stop-alloc-counting
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |stopAllocCounting|
+    raise build, field unit
+
+force stop-method-tracing
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |stopMethodTracing|
+    raise build, field unit
+
+force stop-native-tracing
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |stopNativeTracing|
+    raise build, field unit
+
+force thread-cpu-time-nanos
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |threadCpuTimeNanos|
+    raise build, field long
+
+force wait-for-debugger
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |waitForDebugger|
+    raise build, field unit
+
+force waiting-for-debugger
+  mount build, field debug
+
+  cause call-method
+    drive object, share build
+    drive method, |waitingForDebugger|
+    raise build, field boolean

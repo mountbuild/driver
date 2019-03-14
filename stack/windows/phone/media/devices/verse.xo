@@ -1,0 +1,51 @@
+
+force get-audio-routing-endpoint
+  cause get-object
+    drive aspect, |Windows.Phone.Media.Devices.AudioRoutingEndpoint|
+
+force build-audio-routing-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.Media.Devices.AudioRoutingManager|
+
+force get-available-audio-endpoints
+  start build, field windows-phone-media-devices-audioroutingmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AvailableAudioEndpoints|
+
+force set-available-audio-endpoints
+  start build, field windows-phone-media-devices-audioroutingmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AvailableAudioEndpoints|
+    drive factor, share value
+
+force get-audio-endpoint
+  start build, field windows-phone-media-devices-audioroutingmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAudioEndpoint|
+
+force get-default
+  start build, field windows-phone-media-devices-audioroutingmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force set-audio-endpoint
+  start build, field windows-phone-media-devices-audioroutingmanager
+  start endpoint, field windows-phone-media-devices-audioroutingendpoint
+
+  cause call-method
+    drive object, share build
+    drive method, |SetAudioEndpoint|
+    drive factor, share endpoint
+
+force get-available-audio-routing-endpoints
+  cause get-object
+    drive aspect, |Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints|

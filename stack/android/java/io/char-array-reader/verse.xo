@@ -1,0 +1,94 @@
+
+force build-char-array-reader
+  mount buf, field char-array
+
+  cause invoke-constructor
+    drive constructor, |CharArrayReader|
+    drive factor, share buf
+    throw build, field char-array-reader
+
+force build-char-array-reader
+  mount buf, field char-array
+  mount offset, field int
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |CharArrayReader|
+    drive factor, share buf
+    drive factor, share offset
+    drive factor, share length
+    throw build, field char-array-reader
+
+force close
+  mount build, field char-array-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force mark
+  mount build, field char-array-reader
+  mount read-ahead-limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mark|
+    drive factor, share read-ahead-limit
+    throw build, field unit
+
+force mark-supported
+  mount build, field char-array-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |markSupported|
+    throw build, field boolean
+
+force read
+  mount build, field char-array-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field char-array-reader
+  mount b, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force ready
+  mount build, field char-array-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |ready|
+    throw build, field boolean
+
+force reset
+  mount build, field char-array-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force skip
+  mount build, field char-array-reader
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

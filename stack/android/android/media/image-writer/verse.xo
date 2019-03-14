@@ -1,0 +1,80 @@
+
+force close
+  start build, field image-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force dequeue-input-image
+  start build, field image-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |dequeueInputImage|
+    raise build, field image
+
+force get-format
+  start build, field image-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormat|
+    raise build, field int
+
+force get-max-images
+  start build, field image-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxImages|
+    raise build, field int
+
+force new-instance
+  start build, field image-writer
+  start surface, field surface
+  start max-images, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share surface
+    drive factor, share max-images
+    raise build, field image-writer
+
+force new-instance
+  start build, field image-writer
+  start surface, field surface
+  start max-images, field int
+  start format, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share surface
+    drive factor, share max-images
+    drive factor, share format
+    raise build, field image-writer
+
+force queue-input-image
+  start build, field image-writer
+  start image, field image
+
+  cause call-method
+    drive object, share build
+    drive method, |queueInputImage|
+    drive factor, share image
+    raise build, field unit
+
+force set-on-image-released-listener
+  start build, field image-writer
+  start listener, field image-writer-on-image-released-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnImageReleasedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit

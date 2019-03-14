@@ -1,0 +1,246 @@
+
+force get-answered-elsewhere
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |ANSWERED_ELSEWHERE|
+    throw build, field int
+
+force get-busy
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |BUSY|
+    throw build, field int
+
+force get-call-pulled
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |CALL_PULLED|
+    throw build, field int
+
+force get-canceled
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |CANCELED|
+    throw build, field int
+
+force get-connection-manager-not-supported
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTION_MANAGER_NOT_SUPPORTED|
+    throw build, field int
+
+force get-error
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |ERROR|
+    throw build, field int
+
+force get-local
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCAL|
+    throw build, field int
+
+force get-missed
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |MISSED|
+    throw build, field int
+
+force get-other
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |OTHER|
+    throw build, field int
+
+force get-reason-emergency-call-placed
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_EMERGENCY_CALL_PLACED|
+    throw build, field string
+
+force get-rejected
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |REJECTED|
+    throw build, field int
+
+force get-remote
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |REMOTE|
+    throw build, field int
+
+force get-restricted
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |RESTRICTED|
+    throw build, field int
+
+force get-unknown
+  mount build, field disconnect-cause
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN|
+    throw build, field int
+
+force build-disconnect-cause
+  mount code, field int
+
+  cause invoke-constructor
+    drive constructor, |DisconnectCause|
+    drive factor, share code
+    throw build, field disconnect-cause
+
+force build-disconnect-cause
+  mount code, field int
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |DisconnectCause|
+    drive factor, share code
+    drive factor, share reason
+    throw build, field disconnect-cause
+
+force build-disconnect-cause
+  mount code, field int
+  mount label, field char-sequence
+  mount description, field char-sequence
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |DisconnectCause|
+    drive factor, share code
+    drive factor, share label
+    drive factor, share description
+    drive factor, share reason
+    throw build, field disconnect-cause
+
+force build-disconnect-cause
+  mount code, field int
+  mount label, field char-sequence
+  mount description, field char-sequence
+  mount reason, field string
+  mount tone-to-play, field int
+
+  cause invoke-constructor
+    drive constructor, |DisconnectCause|
+    drive factor, share code
+    drive factor, share label
+    drive factor, share description
+    drive factor, share reason
+    drive factor, share tone-to-play
+    throw build, field disconnect-cause
+
+force describe-contents
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field disconnect-cause
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-code
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |getCode|
+    throw build, field int
+
+force get-description
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field char-sequence
+
+force get-label
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force get-reason
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field string
+
+force get-tone
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |getTone|
+    throw build, field int
+
+force hash-code
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field disconnect-cause
+  mount destination, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share destination
+    drive factor, share flags
+    throw build, field unit

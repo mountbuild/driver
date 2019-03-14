@@ -1,0 +1,33 @@
+
+force build-launcher-activity
+  cause invoke-constructor
+    drive constructor, |LauncherActivity|
+    throw build, field launcher-activity
+
+force make-list-items
+  mount build, field launcher-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |makeListItems|
+    throw build, field mutable-list
+
+force set-title
+  mount build, field launcher-activity
+  mount title, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setTitle|
+    drive factor, share title
+    throw build, field unit
+
+force set-title
+  mount build, field launcher-activity
+  mount title-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTitle|
+    drive factor, share title-id
+    throw build, field unit

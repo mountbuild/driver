@@ -1,0 +1,168 @@
+
+force build-gpio-pin-provider-value-changed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs|
+
+force get-edge
+  start build, field windows-devices-gpio-provider-gpiopinprovidervaluechangedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Edge|
+
+force set-edge
+  start build, field windows-devices-gpio-provider-gpiopinprovidervaluechangedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Edge|
+    drive factor, share value
+
+force ctor
+  start build, field windows-devices-gpio-provider-gpiopinprovidervaluechangedeventargs
+  start edge, field windows-devices-gpio-provider-providergpiopinedge
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share edge
+
+force open-pin-provider
+  start build, field windows-devices-gpio-provider-igpiocontrollerprovider
+  start pin, field system-int32
+  start sharing-mode, field windows-devices-gpio-provider-providergpiosharingmode
+
+  cause call-method
+    drive object, share build
+    drive method, |OpenPinProvider|
+    drive factor, share pin
+    drive factor, share sharing-mode
+
+force get-pin-count
+  start build, field windows-devices-gpio-provider-igpiocontrollerprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+
+force set-pin-count
+  start build, field windows-devices-gpio-provider-igpiocontrollerprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PinCount|
+    drive factor, share value
+
+force get-debounce-timeout
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DebounceTimeout|
+
+force set-debounce-timeout
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DebounceTimeout|
+    drive factor, share value
+
+force get-drive-mode
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDriveMode|
+
+force is-drive-mode-supported
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start drive-mode, field windows-devices-gpio-provider-providergpiopindrivemode
+
+  cause call-method
+    drive object, share build
+    drive method, |IsDriveModeSupported|
+    drive factor, share drive-mode
+
+force get-pin-number
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PinNumber|
+
+force set-pin-number
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PinNumber|
+    drive factor, share value
+
+force read
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |Read|
+
+force set-drive-mode
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start value, field windows-devices-gpio-provider-providergpiopindrivemode
+
+  cause call-method
+    drive object, share build
+    drive method, |SetDriveMode|
+    drive factor, share value
+
+force get-sharing-mode
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+
+force set-sharing-mode
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+    drive factor, share value
+
+force write
+  start build, field windows-devices-gpio-provider-igpiopinprovider
+  start value, field windows-devices-gpio-provider-providergpiopinvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |Write|
+    drive factor, share value
+
+force get-controllers
+  start build, field windows-devices-gpio-provider-igpioprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllers|
+
+force get-provider-gpio-pin-drive-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode|
+
+force get-provider-gpio-pin-edge
+  cause get-object
+    drive aspect, |Windows.Devices.Gpio.Provider.ProviderGpioPinEdge|
+
+force get-provider-gpio-pin-value
+  cause get-object
+    drive aspect, |Windows.Devices.Gpio.Provider.ProviderGpioPinValue|
+
+force get-provider-gpio-sharing-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Gpio.Provider.ProviderGpioSharingMode|

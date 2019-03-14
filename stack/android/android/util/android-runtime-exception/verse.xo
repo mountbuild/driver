@@ -1,0 +1,31 @@
+
+force build-android-runtime-exception
+  cause invoke-constructor
+    drive constructor, |AndroidRuntimeException|
+    throw build, field android-runtime-exception
+
+force build-android-runtime-exception
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |AndroidRuntimeException|
+    drive factor, share name
+    throw build, field android-runtime-exception
+
+force build-android-runtime-exception
+  mount name, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |AndroidRuntimeException|
+    drive factor, share name
+    drive factor, share cause
+    throw build, field android-runtime-exception
+
+force build-android-runtime-exception
+  mount cause, field exception
+
+  cause invoke-constructor
+    drive constructor, |AndroidRuntimeException|
+    drive factor, share cause
+    throw build, field android-runtime-exception

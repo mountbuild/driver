@@ -1,0 +1,1200 @@
+force get-class-shared
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |shared|
+    raise build, field ns-application
+
+force set-class-shared
+  field value, field ns-application
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |shared|
+    drive factor, share value
+
+force get-ns-app
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |NSApp|
+    raise build, field ns-application
+
+force set-ns-app
+  field build, field ns-application
+  field value, field ns-application
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |NSApp|
+    drive factor, share value
+
+force get-delegate
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-application-delegate
+
+force set-delegate
+  field build, field ns-application
+  field value, field ns-application-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force next-event
+  field build, field ns-application
+  field matching, field ns-event-event-type-mask
+  field until, field date
+  field in-mode, field run-loop-mode
+  field dequeue, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |nextEvent|
+    drive factor
+      brand matching
+      share matching
+    drive factor
+      brand until
+      share until
+    drive factor
+      brand in-mode
+      share in-mode
+    drive factor
+      brand dequeue
+      share dequeue
+    raise build, class ns-event
+
+force discard-events
+  field build, field ns-application
+  field matching, field ns-event-event-type-mask
+  field before, field ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |discardEvents|
+    drive factor
+      brand matching
+      share matching
+    drive factor
+      brand before
+      share before
+
+force get-current-event
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentEvent|
+    raise build, field ns-event
+
+force set-current-event
+  field build, field ns-application
+  field value, field ns-event
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentEvent|
+    drive factor, share value
+
+force get-is-running
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRunning|
+    raise build, field bool
+
+force set-is-running
+  field build, field ns-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRunning|
+    drive factor, share value
+
+force run
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+
+force finish-launching
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |finishLaunching|
+
+force stop
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    drive factor, share a
+
+force send-event
+  field build, field ns-application
+  field a, class ns-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendEvent|
+    drive factor, share a
+
+force post-event
+  field build, field ns-application
+  field a, class ns-event
+  field at-start, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |postEvent|
+    drive factor, share a
+    drive factor
+      brand at-start
+      share at-start
+
+force try-to-perform
+  field build, field ns-application
+  field a, class selector
+  field with, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |tryToPerform|
+    drive factor, share a
+    drive factor
+      brand with
+      share with
+    raise build, class bool
+
+force send-action
+  field build, field ns-application
+  field a, class selector
+  field to, field any
+  field from, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAction|
+    drive factor, share a
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand from
+      share from
+    raise build, class bool
+
+force target
+  field build, field ns-application
+  field for-action, field selector
+
+  cause call-method
+    drive object, share build
+    drive method, |target|
+    drive factor
+      brand for-action
+      share for-action
+    raise build, class any
+
+force target
+  field build, field ns-application
+  field for-action, field selector
+  field to, field any
+  field from, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |target|
+    drive factor
+      brand for-action
+      share for-action
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand from
+      share from
+    raise build, class any
+
+force terminate
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |terminate|
+    drive factor, share a
+
+force reply
+  field build, field ns-application
+  field to-application-should-terminate, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |reply|
+    drive factor
+      brand to-application-should-terminate
+      share to-application-should-terminate
+
+force get-is-active
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isActive|
+    raise build, field bool
+
+force set-is-active
+  field build, field ns-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isActive|
+    drive factor, share value
+
+force activate
+  field build, field ns-application
+  field ignoring-other-apps, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |activate|
+    drive factor
+      brand ignoring-other-apps
+      share ignoring-other-apps
+
+force deactivate
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |deactivate|
+
+force disable-relaunch-on-login
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |disableRelaunchOnLogin|
+
+force enable-relaunch-on-login
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |enableRelaunchOnLogin|
+
+force register-for-remote-notifications
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |registerForRemoteNotifications|
+
+force unregister-for-remote-notifications
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterForRemoteNotifications|
+
+force get-enabled-remote-notification-types
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enabledRemoteNotificationTypes|
+    raise build, field ns-application-remote-notification-type
+
+force set-enabled-remote-notification-types
+  field build, field ns-application
+  field value, field ns-application-remote-notification-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enabledRemoteNotificationTypes|
+    drive factor, share value
+
+force register-for-remote-notifications
+  field build, field ns-application
+  field matching, field ns-application-remote-notification-type
+
+  cause call-method
+    drive object, share build
+    drive method, |registerForRemoteNotifications|
+    drive factor
+      brand matching
+      share matching
+
+force get-is-registered-for-remote-notifications
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRegisteredForRemoteNotifications|
+    raise build, field bool
+
+force set-is-registered-for-remote-notifications
+  field build, field ns-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRegisteredForRemoteNotifications|
+    drive factor, share value
+
+force get-appearance
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |appearance|
+    raise build, field ns-appearance
+
+force set-appearance
+  field build, field ns-application
+  field value, field ns-appearance
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |appearance|
+    drive factor, share value
+
+force get-effective-appearance
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |effectiveAppearance|
+    raise build, field ns-appearance
+
+force set-effective-appearance
+  field build, field ns-application
+  field value, field ns-appearance
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |effectiveAppearance|
+    drive factor, share value
+
+force get-current-system-presentation-options
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentSystemPresentationOptions|
+    raise build, field ns-application-presentation-options
+
+force set-current-system-presentation-options
+  field build, field ns-application
+  field value, field ns-application-presentation-options
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentSystemPresentationOptions|
+    drive factor, share value
+
+force get-presentation-options
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |presentationOptions|
+    raise build, field ns-application-presentation-options
+
+force set-presentation-options
+  field build, field ns-application
+  field value, field ns-application-presentation-options
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |presentationOptions|
+    drive factor, share value
+
+force get-user-interface-layout-direction
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    raise build, field ns-user-interface-layout-direction
+
+force set-user-interface-layout-direction
+  field build, field ns-application
+  field value, field ns-user-interface-layout-direction
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInterfaceLayoutDirection|
+    drive factor, share value
+
+force get-dock-tile
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dockTile|
+    raise build, field ns-dock-tile
+
+force set-dock-tile
+  field build, field ns-application
+  field value, field ns-dock-tile
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dockTile|
+    drive factor, share value
+
+force get-application-icon-image
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |applicationIconImage|
+    raise build, field ns-image
+
+force set-application-icon-image
+  field build, field ns-application
+  field value, field ns-image
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |applicationIconImage|
+    drive factor, share value
+
+force toggle-touch-bar-customization-palette
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |toggleTouchBarCustomizationPalette|
+    drive factor, share a
+
+force request-user-attention
+  field build, field ns-application
+  field a, class ns-application-request-user-attention-type
+
+  cause call-method
+    drive object, share build
+    drive method, |requestUserAttention|
+    drive factor, share a
+    raise build, class int
+
+force cancel-user-attention-request
+  field build, field ns-application
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelUserAttentionRequest|
+    drive factor, share a
+
+force reply
+  field build, field ns-application
+  field to-open-or-print, field ns-application-delegate-reply
+
+  cause call-method
+    drive object, share build
+    drive method, |reply|
+    drive factor
+      brand to-open-or-print
+      share to-open-or-print
+
+force register-user-interface-item-search-handler
+  field build, field ns-application
+  field a, class ns-user-interface-item-searching
+
+  cause call-method
+    drive object, share build
+    drive method, |registerUserInterfaceItemSearchHandler|
+    drive factor, share a
+
+force search-string
+  field build, field ns-application
+  field a, class string
+  field in-user-interface-item-string, field string
+  field range, field ns-range
+  field found, field unsafe-mutable-pointer-ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |searchString|
+    drive factor, share a
+    drive factor
+      brand in-user-interface-item-string
+      share in-user-interface-item-string
+    drive factor
+      brand range
+      share range
+    drive factor
+      brand found
+      share found
+    raise build, class bool
+
+force unregister-user-interface-item-search-handler
+  field build, field ns-application
+  field a, class ns-user-interface-item-searching
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterUserInterfaceItemSearchHandler|
+    drive factor, share a
+
+force show-help
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |showHelp|
+    drive factor, share a
+
+force activate-context-help-mode
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |activateContextHelpMode|
+    drive factor, share a
+
+force get-help-menu
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |helpMenu|
+    raise build, field ns-menu
+
+force set-help-menu
+  field build, field ns-application
+  field value, field ns-menu
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |helpMenu|
+    drive factor, share value
+
+force valid-requestor
+  field build, field ns-application
+  field for-send-type, field ns-pasteboard-pasteboard-type
+  field return-type, field ns-pasteboard-pasteboard-type
+
+  cause call-method
+    drive object, share build
+    drive method, |validRequestor|
+    drive factor
+      brand for-send-type
+      share for-send-type
+    drive factor
+      brand return-type
+      share return-type
+    raise build, class any
+
+force get-services-provider
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |servicesProvider|
+    raise build, field any
+
+force set-services-provider
+  field build, field ns-application
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |servicesProvider|
+    drive factor, share value
+
+force get-is-full-keyboard-access-enabled
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isFullKeyboardAccessEnabled|
+    raise build, field bool
+
+force set-is-full-keyboard-access-enabled
+  field build, field ns-application
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isFullKeyboardAccessEnabled|
+    drive factor, share value
+
+force hide-other-applications
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |hideOtherApplications|
+    drive factor, share a
+
+force unhide-all-applications
+  field build, field ns-application
+  field a, class any
+
+  cause call-method
+    drive object, share build
+    drive method, |unhideAllApplications|
+    drive factor, share a
+
+force report-exception
+  field build, field ns-application
+  field a, class ns-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |reportException|
+    drive factor, share a
+
+force activation-policy
+  field build, field ns-application
+
+  cause call-method
+    drive object, share build
+    drive method, |activationPolicy|
+    raise build, class ns-application-activation-policy
+
+force set-activation-policy
+  field build, field ns-application
+  field a, class ns-application-activation-policy
+
+  cause call-method
+    drive object, share build
+    drive method, |setActivationPolicy|
+    drive factor, share a
+    raise build, class bool
+
+force get-ordered-documents
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |orderedDocuments|
+    raise build, field ns-document
+
+force set-ordered-documents
+  field build, field ns-application
+  field value, field ns-document
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |orderedDocuments|
+    drive factor, share value
+
+force get-ordered-windows
+  field build, field ns-application
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |orderedWindows|
+    raise build, field ns-window
+
+force set-ordered-windows
+  field build, field ns-application
+  field value, field ns-window
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |orderedWindows|
+    drive factor, share value
+
+force get-class-did-become-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didBecomeActiveNotification|
+    drive factor, share value
+
+force get-class-did-become-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didBecomeActiveNotification|
+    drive factor, share value
+
+force get-class-did-change-screen-parameters-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeScreenParametersNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-screen-parameters-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeScreenParametersNotification|
+    drive factor, share value
+
+force get-class-did-change-screen-parameters-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeScreenParametersNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-screen-parameters-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeScreenParametersNotification|
+    drive factor, share value
+
+force get-class-did-finish-launching-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishLaunchingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-finish-launching-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishLaunchingNotification|
+    drive factor, share value
+
+force get-class-did-finish-launching-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishLaunchingNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-finish-launching-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishLaunchingNotification|
+    drive factor, share value
+
+force get-class-did-hide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didHideNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-hide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didHideNotification|
+    drive factor, share value
+
+force get-class-did-hide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didHideNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-hide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didHideNotification|
+    drive factor, share value
+
+force get-class-did-resign-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didResignActiveNotification|
+    drive factor, share value
+
+force get-class-did-resign-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didResignActiveNotification|
+    drive factor, share value
+
+force get-class-did-unhide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUnhideNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unhide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUnhideNotification|
+    drive factor, share value
+
+force get-class-did-unhide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUnhideNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unhide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUnhideNotification|
+    drive factor, share value
+
+force get-class-did-update-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUpdateNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-update-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUpdateNotification|
+    drive factor, share value
+
+force get-class-did-update-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUpdateNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-update-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didUpdateNotification|
+    drive factor, share value
+
+force get-class-will-become-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willBecomeActiveNotification|
+    drive factor, share value
+
+force get-class-will-become-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willBecomeActiveNotification|
+    drive factor, share value
+
+force get-class-will-finish-launching-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willFinishLaunchingNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-finish-launching-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willFinishLaunchingNotification|
+    drive factor, share value
+
+force get-class-will-finish-launching-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willFinishLaunchingNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-finish-launching-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willFinishLaunchingNotification|
+    drive factor, share value
+
+force get-class-will-hide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willHideNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-hide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willHideNotification|
+    drive factor, share value
+
+force get-class-will-hide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willHideNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-hide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willHideNotification|
+    drive factor, share value
+
+force get-class-will-resign-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willResignActiveNotification|
+    drive factor, share value
+
+force get-class-will-resign-active-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willResignActiveNotification|
+    drive factor, share value
+
+force get-class-will-terminate-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willTerminateNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-terminate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willTerminateNotification|
+    drive factor, share value
+
+force get-class-will-terminate-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willTerminateNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-terminate-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willTerminateNotification|
+    drive factor, share value
+
+force get-class-will-unhide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUnhideNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-unhide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUnhideNotification|
+    drive factor, share value
+
+force get-class-will-unhide-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUnhideNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-unhide-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUnhideNotification|
+    drive factor, share value
+
+force get-class-will-update-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUpdateNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-update-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUpdateNotification|
+    drive factor, share value
+
+force get-class-will-update-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUpdateNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-update-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |willUpdateNotification|
+    drive factor, share value
+
+force get-class-did-finish-restoring-windows-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishRestoringWindowsNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-finish-restoring-windows-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishRestoringWindowsNotification|
+    drive factor, share value
+
+force get-class-did-finish-restoring-windows-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishRestoringWindowsNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-finish-restoring-windows-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didFinishRestoringWindowsNotification|
+    drive factor, share value
+
+force get-class-did-change-occlusion-state-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeOcclusionStateNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-occlusion-state-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeOcclusionStateNotification|
+    drive factor, share value
+
+force get-class-did-change-occlusion-state-notification
+
+  cause get-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeOcclusionStateNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-occlusion-state-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |NSApplication|
+    drive aspect, |didChangeOcclusionStateNotification|
+    drive factor, share value

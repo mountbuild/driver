@@ -1,0 +1,40 @@
+
+force build-policy-qualifier-info
+  mount encoded, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |PolicyQualifierInfo|
+    mount factor, share encoded
+    throw build, field policy-qualifier-info
+
+force get-encoded
+  mount build, field policy-qualifier-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-policy-qualifier
+  mount build, field policy-qualifier-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getPolicyQualifier|
+    throw build, field byte-array
+
+force get-policy-qualifier-id
+  mount build, field policy-qualifier-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getPolicyQualifierId|
+    throw build, field string
+
+force to-string
+  mount build, field policy-qualifier-info
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

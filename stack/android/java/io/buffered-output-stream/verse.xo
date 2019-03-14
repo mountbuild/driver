@@ -1,0 +1,50 @@
+
+force build-buffered-output-stream
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |BufferedOutputStream|
+    drive factor, share out
+    throw build, field buffered-output-stream
+
+force build-buffered-output-stream
+  mount out, field output-stream
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |BufferedOutputStream|
+    drive factor, share out
+    drive factor, share size
+    throw build, field buffered-output-stream
+
+force flush
+  mount build, field buffered-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force write
+  mount build, field buffered-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field buffered-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

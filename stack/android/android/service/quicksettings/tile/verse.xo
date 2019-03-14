@@ -1,0 +1,160 @@
+
+force get-state-active
+  mount build, field tile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_ACTIVE|
+    raise build, field int
+
+force get-state-inactive
+  mount build, field tile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_INACTIVE|
+    raise build, field int
+
+force get-state-unavailable
+  mount build, field tile
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_UNAVAILABLE|
+    raise build, field int
+
+force describe-contents
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-content-description
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentDescription|
+    raise build, field char-sequence
+
+force get-icon
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    raise build, field icon
+
+force get-label
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    raise build, field char-sequence
+
+force get-state
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    raise build, field int
+
+force get-state-description
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getStateDescription|
+    raise build, field char-sequence
+
+force get-subtitle
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubtitle|
+    raise build, field char-sequence
+
+force set-content-description
+  mount build, field tile
+  mount content-description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentDescription|
+    drive factor, share content-description
+    raise build, field unit
+
+force set-icon
+  mount build, field tile
+  mount icon, field icon
+
+  cause call-method
+    drive object, share build
+    drive method, |setIcon|
+    drive factor, share icon
+    raise build, field unit
+
+force set-label
+  mount build, field tile
+  mount label, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setLabel|
+    drive factor, share label
+    raise build, field unit
+
+force set-state
+  mount build, field tile
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setState|
+    drive factor, share state
+    raise build, field unit
+
+force set-state-description
+  mount build, field tile
+  mount state-description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setStateDescription|
+    drive factor, share state-description
+    raise build, field unit
+
+force set-subtitle
+  mount build, field tile
+  mount subtitle, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setSubtitle|
+    drive factor, share subtitle
+    raise build, field unit
+
+force update-tile
+  mount build, field tile
+
+  cause call-method
+    drive object, share build
+    drive method, |updateTile|
+    raise build, field unit
+
+force write-to-parcel
+  mount build, field tile
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

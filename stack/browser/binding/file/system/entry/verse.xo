@@ -1,0 +1,118 @@
+
+force get-filesystem
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |filesystem|
+    throw build
+
+force get-full-path
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fullPath|
+    throw build
+
+force get-is-directory
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isDirectory|
+    throw build
+
+force get-is-file
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isFile|
+    throw build
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build
+
+force copy-to
+  start build
+  start new-parent
+  start new-name
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |copyTo|
+    mount factor, share new-parent
+    mount factor, share new-name
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force get-metadata
+  start build
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getMetadata|
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force get-parent
+  start build
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |getParent|
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force move-to
+  start build
+  start new-parent
+  start new-name
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |moveTo|
+    mount factor, share new-parent
+    mount factor, share new-name
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force remove
+  start build
+  start success-callback
+  start error-callback
+
+  cause call-method
+    mount object, share build
+    mount method, |remove|
+    mount factor, share success-callback
+    mount factor, share error-callback
+    throw build
+
+force to-url
+  start build
+  start mime-type
+
+  cause call-method
+    mount object, share build
+    mount method, |toURL|
+    mount factor, share mime-type
+    throw build

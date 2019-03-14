@@ -1,0 +1,917 @@
+force get-category
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |category|
+    raise build, field av-audio-session-category
+
+force set-category
+  field build, field av-audio-session
+  field value, field av-audio-session-category
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |category|
+    drive factor, share value
+
+force set-category
+  field build, field av-audio-session
+  field a, class av-audio-session-category
+
+  cause call-method
+    drive object, share build
+    drive method, |setCategory|
+    drive factor, share a
+
+force get-available-categories
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableCategories|
+    raise build, field av-audio-session-category
+
+force set-available-categories
+  field build, field av-audio-session
+  field value, field av-audio-session-category
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableCategories|
+    drive factor, share value
+
+force get-category-options
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |categoryOptions|
+    raise build, field av-audio-session-category-options
+
+force set-category-options
+  field build, field av-audio-session
+  field value, field av-audio-session-category-options
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |categoryOptions|
+    drive factor, share value
+
+force set-category
+  field build, field av-audio-session
+  field a, class av-audio-session-category
+  field options, field av-audio-session-category-options
+
+  cause call-method
+    drive object, share build
+    drive method, |setCategory|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+
+force get-mode
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mode|
+    raise build, field av-audio-session-mode
+
+force set-mode
+  field build, field av-audio-session
+  field value, field av-audio-session-mode
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mode|
+    drive factor, share value
+
+force set-mode
+  field build, field av-audio-session
+  field a, class av-audio-session-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |setMode|
+    drive factor, share a
+
+force set-category
+  field build, field av-audio-session
+  field a, class av-audio-session-category
+  field mode, field av-audio-session-mode
+  field options, field av-audio-session-category-options
+
+  cause call-method
+    drive object, share build
+    drive method, |setCategory|
+    drive factor, share a
+    drive factor
+      brand mode
+      share mode
+    drive factor
+      brand options
+      share options
+
+force get-available-modes
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableModes|
+    raise build, field av-audio-session-mode
+
+force set-available-modes
+  field build, field av-audio-session
+  field value, field av-audio-session-mode
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableModes|
+    drive factor, share value
+
+force get-route-sharing-policy
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |routeSharingPolicy|
+    raise build, field av-audio-session-route-sharing-policy
+
+force set-route-sharing-policy
+  field build, field av-audio-session
+  field value, field av-audio-session-route-sharing-policy
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |routeSharingPolicy|
+    drive factor, share value
+
+force set-category
+  field build, field av-audio-session
+  field a, class av-audio-session-category
+  field mode, field av-audio-session-mode
+  field policy, field av-audio-session-route-sharing-policy
+  field options, field av-audio-session-category-options
+
+  cause call-method
+    drive object, share build
+    drive method, |setCategory|
+    drive factor, share a
+    drive factor
+      brand mode
+      share mode
+    drive factor
+      brand policy
+      share policy
+    drive factor
+      brand options
+      share options
+
+force set-active
+  field build, field av-audio-session
+  field a, class bool
+  field options, field av-audio-session-set-active-options
+
+  cause call-method
+    drive object, share build
+    drive method, |setActive|
+    drive factor, share a
+    drive factor
+      brand options
+      share options
+
+force get-record-permission
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |recordPermission|
+    raise build, field av-audio-session-record-permission
+
+force set-record-permission
+  field build, field av-audio-session
+  field value, field av-audio-session-record-permission
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |recordPermission|
+    drive factor, share value
+
+force request-record-permission
+  field build, field av-audio-session
+  field a, class permission-block
+
+  cause call-method
+    drive object, share build
+    drive method, |requestRecordPermission|
+    drive factor, share a
+
+force get-is-other-audio-playing
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isOtherAudioPlaying|
+    raise build, field bool
+
+force set-is-other-audio-playing
+  field build, field av-audio-session
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isOtherAudioPlaying|
+    drive factor, share value
+
+force get-secondary-audio-should-be-silenced-hint
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |secondaryAudioShouldBeSilencedHint|
+    raise build, field bool
+
+force set-secondary-audio-should-be-silenced-hint
+  field build, field av-audio-session
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |secondaryAudioShouldBeSilencedHint|
+    drive factor, share value
+
+force get-allow-haptics-and-system-sounds-during-recording
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |allowHapticsAndSystemSoundsDuringRecording|
+    raise build, field bool
+
+force set-allow-haptics-and-system-sounds-during-recording
+  field build, field av-audio-session
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |allowHapticsAndSystemSoundsDuringRecording|
+    drive factor, share value
+
+force set-allow-haptics-and-system-sounds-during-recording
+  field build, field av-audio-session
+  field a, class bool
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowHapticsAndSystemSoundsDuringRecording|
+    drive factor, share a
+
+force get-prompt-style
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |promptStyle|
+    raise build, field av-audio-session-prompt-style
+
+force set-prompt-style
+  field build, field av-audio-session
+  field value, field av-audio-session-prompt-style
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |promptStyle|
+    drive factor, share value
+
+force get-class-interruption-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |interruptionNotification|
+    raise build, field ns-notification-name
+
+force set-class-interruption-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |interruptionNotification|
+    drive factor, share value
+
+force get-class-interruption-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |interruptionNotification|
+    raise build, field ns-notification-name
+
+force set-class-interruption-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |interruptionNotification|
+    drive factor, share value
+
+force get-class-route-change-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |routeChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-route-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |routeChangeNotification|
+    drive factor, share value
+
+force get-class-route-change-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |routeChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-route-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |routeChangeNotification|
+    drive factor, share value
+
+force get-class-silence-secondary-audio-hint-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |silenceSecondaryAudioHintNotification|
+    raise build, field ns-notification-name
+
+force set-class-silence-secondary-audio-hint-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |silenceSecondaryAudioHintNotification|
+    drive factor, share value
+
+force get-class-silence-secondary-audio-hint-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |silenceSecondaryAudioHintNotification|
+    raise build, field ns-notification-name
+
+force set-class-silence-secondary-audio-hint-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |silenceSecondaryAudioHintNotification|
+    drive factor, share value
+
+force get-class-media-services-were-lost-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereLostNotification|
+    raise build, field ns-notification-name
+
+force set-class-media-services-were-lost-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereLostNotification|
+    drive factor, share value
+
+force get-class-media-services-were-lost-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereLostNotification|
+    raise build, field ns-notification-name
+
+force set-class-media-services-were-lost-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereLostNotification|
+    drive factor, share value
+
+force get-class-media-services-were-reset-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereResetNotification|
+    raise build, field ns-notification-name
+
+force set-class-media-services-were-reset-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereResetNotification|
+    drive factor, share value
+
+force get-class-media-services-were-reset-notification
+
+  cause get-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereResetNotification|
+    raise build, field ns-notification-name
+
+force set-class-media-services-were-reset-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |AVAudioSession|
+    drive aspect, |mediaServicesWereResetNotification|
+    drive factor, share value
+
+force get-current-route
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentRoute|
+    raise build, field av-audio-session-route-description
+
+force set-current-route
+  field build, field av-audio-session
+  field value, field av-audio-session-route-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentRoute|
+    drive factor, share value
+
+force get-is-input-available
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isInputAvailable|
+    raise build, field bool
+
+force set-is-input-available
+  field build, field av-audio-session
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isInputAvailable|
+    drive factor, share value
+
+force get-available-inputs
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableInputs|
+    raise build, field av-audio-session-port-description
+
+force set-available-inputs
+  field build, field av-audio-session
+  field value, field av-audio-session-port-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableInputs|
+    drive factor, share value
+
+force get-preferred-input
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredInput|
+    raise build, field av-audio-session-port-description
+
+force set-preferred-input
+  field build, field av-audio-session
+  field value, field av-audio-session-port-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredInput|
+    drive factor, share value
+
+force set-preferred-input
+  field build, field av-audio-session
+  field a, class av-audio-session-port-description
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredInput|
+    drive factor, share a
+
+force get-input-data-source
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputDataSource|
+    raise build, field av-audio-session-data-source-description
+
+force set-input-data-source
+  field build, field av-audio-session
+  field value, field av-audio-session-data-source-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputDataSource|
+    drive factor, share value
+
+force get-input-data-sources
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputDataSources|
+    raise build, field av-audio-session-data-source-description
+
+force set-input-data-sources
+  field build, field av-audio-session
+  field value, field av-audio-session-data-source-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputDataSources|
+    drive factor, share value
+
+force set-input-data-source
+  field build, field av-audio-session
+  field a, class av-audio-session-data-source-description
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputDataSource|
+    drive factor, share a
+
+force get-output-data-sources
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputDataSources|
+    raise build, field av-audio-session-data-source-description
+
+force set-output-data-sources
+  field build, field av-audio-session
+  field value, field av-audio-session-data-source-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputDataSources|
+    drive factor, share value
+
+force get-output-data-source
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputDataSource|
+    raise build, field av-audio-session-data-source-description
+
+force set-output-data-source
+  field build, field av-audio-session
+  field value, field av-audio-session-data-source-description
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputDataSource|
+    drive factor, share value
+
+force set-output-data-source
+  field build, field av-audio-session
+  field a, class av-audio-session-data-source-description
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputDataSource|
+    drive factor, share a
+
+force override-output-audio-port
+  field build, field av-audio-session
+  field a, class av-audio-session-port-override
+
+  cause call-method
+    drive object, share build
+    drive method, |overrideOutputAudioPort|
+    drive factor, share a
+
+force get-input-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputNumberOfChannels|
+    raise build, field int
+
+force set-input-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputNumberOfChannels|
+    drive factor, share value
+
+force get-maximum-input-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maximumInputNumberOfChannels|
+    raise build, field int
+
+force set-maximum-input-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maximumInputNumberOfChannels|
+    drive factor, share value
+
+force get-preferred-input-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredInputNumberOfChannels|
+    raise build, field int
+
+force set-preferred-input-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredInputNumberOfChannels|
+    drive factor, share value
+
+force set-preferred-input-number-of-channels
+  field build, field av-audio-session
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredInputNumberOfChannels|
+    drive factor, share a
+
+force get-output-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputNumberOfChannels|
+    raise build, field int
+
+force set-output-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputNumberOfChannels|
+    drive factor, share value
+
+force get-maximum-output-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maximumOutputNumberOfChannels|
+    raise build, field int
+
+force set-maximum-output-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maximumOutputNumberOfChannels|
+    drive factor, share value
+
+force get-preferred-output-number-of-channels
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredOutputNumberOfChannels|
+    raise build, field int
+
+force set-preferred-output-number-of-channels
+  field build, field av-audio-session
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredOutputNumberOfChannels|
+    drive factor, share value
+
+force set-preferred-output-number-of-channels
+  field build, field av-audio-session
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredOutputNumberOfChannels|
+    drive factor, share a
+
+force get-input-gain
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputGain|
+    raise build, field float
+
+force set-input-gain
+  field build, field av-audio-session
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputGain|
+    drive factor, share value
+
+force get-is-input-gain-settable
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isInputGainSettable|
+    raise build, field bool
+
+force set-is-input-gain-settable
+  field build, field av-audio-session
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isInputGainSettable|
+    drive factor, share value
+
+force set-input-gain
+  field build, field av-audio-session
+  field a, class float
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputGain|
+    drive factor, share a
+
+force get-output-volume
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputVolume|
+    raise build, field float
+
+force set-output-volume
+  field build, field av-audio-session
+  field value, field float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputVolume|
+    drive factor, share value
+
+force get-sample-rate
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |sampleRate|
+    raise build, field double
+
+force set-sample-rate
+  field build, field av-audio-session
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |sampleRate|
+    drive factor, share value
+
+force get-preferred-sample-rate
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredSampleRate|
+    raise build, field double
+
+force set-preferred-sample-rate
+  field build, field av-audio-session
+  field value, field double
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredSampleRate|
+    drive factor, share value
+
+force set-preferred-sample-rate
+  field build, field av-audio-session
+  field a, class double
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredSampleRate|
+    drive factor, share a
+
+force get-input-latency
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |inputLatency|
+    raise build, field time-interval
+
+force set-input-latency
+  field build, field av-audio-session
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |inputLatency|
+    drive factor, share value
+
+force get-output-latency
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |outputLatency|
+    raise build, field time-interval
+
+force set-output-latency
+  field build, field av-audio-session
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |outputLatency|
+    drive factor, share value
+
+force get-io-buffer-duration
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ioBufferDuration|
+    raise build, field time-interval
+
+force set-io-buffer-duration
+  field build, field av-audio-session
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ioBufferDuration|
+    drive factor, share value
+
+force get-preferred-io-buffer-duration
+  field build, field av-audio-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredIOBufferDuration|
+    raise build, field time-interval
+
+force set-preferred-io-buffer-duration
+  field build, field av-audio-session
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredIOBufferDuration|
+    drive factor, share value
+
+force set-preferred-io-buffer-duration
+  field build, field av-audio-session
+  field a, class time-interval
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferredIOBufferDuration|
+    drive factor, share a
+
+force set-aggregated-io-preference
+  field build, field av-audio-session
+  field a, class av-audio-session-io-type
+
+  cause call-method
+    drive object, share build
+    drive method, |setAggregatedIOPreference|
+    drive factor, share a

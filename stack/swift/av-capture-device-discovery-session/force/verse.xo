@@ -1,0 +1,63 @@
+force get-devices
+  field build, field av-capture-device-discovery-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |devices|
+    raise build, field av-capture-device
+
+force set-devices
+  field build, field av-capture-device-discovery-session
+  field value, field av-capture-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |devices|
+    drive factor, share value
+
+force get-supported-multi-cam-device-sets
+  field build, field av-capture-device-discovery-session
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportedMultiCamDeviceSets|
+    raise build, field set-av-capture-device
+
+force set-supported-multi-cam-device-sets
+  field build, field av-capture-device-discovery-session
+  field value, field set-av-capture-device
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportedMultiCamDeviceSets|
+    drive factor, share value
+
+force get-static-av-capture-device-was-connected
+
+  cause get-aspect
+    drive object, |AVCaptureDevice.DiscoverySession|
+    drive aspect, |AVCaptureDeviceWasConnected|
+    raise build, field NSNotification.Name
+
+force set-static-av-capture-device-was-connected
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |AVCaptureDevice.DiscoverySession|
+    drive aspect, |AVCaptureDeviceWasConnected|
+    drive factor, share value
+
+force get-static-av-capture-device-was-disconnected
+
+  cause get-aspect
+    drive object, |AVCaptureDevice.DiscoverySession|
+    drive aspect, |AVCaptureDeviceWasDisconnected|
+    raise build, field NSNotification.Name
+
+force set-static-av-capture-device-was-disconnected
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |AVCaptureDevice.DiscoverySession|
+    drive aspect, |AVCaptureDeviceWasDisconnected|
+    drive factor, share value

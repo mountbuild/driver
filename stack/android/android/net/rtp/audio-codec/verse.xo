@@ -1,0 +1,22 @@
+
+force get-codec
+  start build, field audio-codec
+  start type, field int
+  start rtpmap, field string
+  start fmtp, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodec|
+    drive factor, share type
+    drive factor, share rtpmap
+    drive factor, share fmtp
+    throw build, field audio-codec
+
+force get-codecs
+  start build, field audio-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodecs|
+    throw build, field array

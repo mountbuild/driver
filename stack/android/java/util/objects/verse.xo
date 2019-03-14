@@ -1,0 +1,198 @@
+
+force check-from-index-size
+  mount build, field objects
+  mount from-index, field int
+  mount size, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkFromIndexSize|
+    drive factor, share from-index
+    drive factor, share size
+    drive factor, share length
+    throw build, field int
+
+force check-from-to-index
+  mount build, field objects
+  mount from-index, field int
+  mount to-index, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkFromToIndex|
+    drive factor, share from-index
+    drive factor, share to-index
+    drive factor, share length
+    throw build, field int
+
+force check-index
+  mount build, field objects
+  mount index, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |checkIndex|
+    drive factor, share index
+    drive factor, share length
+    throw build, field int
+
+force compare
+  mount build, field objects
+  mount a, field t
+  mount b, field t
+  mount c, field comparator-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    throw build, field int
+
+force deep-equals
+  mount build, field objects
+  mount a, field any
+  mount b, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |deepEquals|
+    drive factor, share a
+    drive factor, share b
+    throw build, field boolean
+
+force equals
+  mount build, field objects
+  mount a, field any
+  mount b, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share a
+    drive factor, share b
+    throw build, field boolean
+
+force hash
+  mount build, field objects
+  mount vararg-values, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor, share vararg-values
+    throw build, field int
+
+force hash-code
+  mount build, field objects
+  mount o, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    drive factor, share o
+    throw build, field int
+
+force is-null
+  mount build, field objects
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |isNull|
+    drive factor, share obj
+    throw build, field boolean
+
+force non-null
+  mount build, field objects
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |nonNull|
+    drive factor, share obj
+    throw build, field boolean
+
+force require-non-null
+  mount build, field objects
+  mount obj, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |requireNonNull|
+    drive factor, share obj
+    throw build, field t
+
+force require-non-null
+  mount build, field objects
+  mount obj, field t
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |requireNonNull|
+    drive factor, share obj
+    drive factor, share message
+    throw build, field t
+
+force require-non-null
+  mount build, field objects
+  mount obj, field t
+  mount message-supplier, field supplier-string
+
+  cause call-method
+    drive object, share build
+    drive method, |requireNonNull|
+    drive factor, share obj
+    drive factor, share message-supplier
+    throw build, field t
+
+force require-non-null-else
+  mount build, field objects
+  mount obj, field t
+  mount default-obj, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |requireNonNullElse|
+    drive factor, share obj
+    drive factor, share default-obj
+    throw build, field t
+
+force require-non-null-else-get
+  mount build, field objects
+  mount obj, field t
+  mount supplier, field supplier-out-t
+
+  cause call-method
+    drive object, share build
+    drive method, |requireNonNullElseGet|
+    drive factor, share obj
+    drive factor, share supplier
+    throw build, field t
+
+force to-string
+  mount build, field objects
+  mount o, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share o
+    throw build, field string
+
+force to-string
+  mount build, field objects
+  mount o, field any
+  mount null-default, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    drive factor, share o
+    drive factor, share null-default
+    throw build, field string

@@ -1,0 +1,117 @@
+
+force build-batch-update-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start update-counts, field int-array
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share update-counts
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start reason, field string
+  start sql-state, field string
+  start update-counts, field int-array
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share update-counts
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start reason, field string
+  start update-counts, field int-array
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share update-counts
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start update-counts, field int-array
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share update-counts
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share cause
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start update-counts, field int-array
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share update-counts
+    mount factor, share cause
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start reason, field string
+  start update-counts, field int-array
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share update-counts
+    mount factor, share cause
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start reason, field string
+  start sql-state, field string
+  start update-counts, field int-array
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share update-counts
+    mount factor, share cause
+    raise build, field batch-update-exception
+
+force build-batch-update-exception
+  start reason, field string
+  start sql-state, field string
+  start vendor-code, field int
+  start update-counts, field int-array
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |BatchUpdateException|
+    mount factor, share reason
+    mount factor, share sql-state
+    mount factor, share vendor-code
+    mount factor, share update-counts
+    mount factor, share cause
+    raise build, field batch-update-exception
+
+force get-update-counts
+  start build, field batch-update-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getUpdateCounts|
+    raise build, field int-array

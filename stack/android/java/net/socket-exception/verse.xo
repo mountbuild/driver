@@ -1,0 +1,13 @@
+
+force build-socket-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |SocketException|
+    drive factor, share msg
+    throw build, field socket-exception
+
+force build-socket-exception
+  cause invoke-constructor
+    drive constructor, |SocketException|
+    throw build, field socket-exception

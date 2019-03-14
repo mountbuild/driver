@@ -1,0 +1,69 @@
+
+force get-scan-failed-already-started
+  mount build, field scan-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_FAILED_ALREADY_STARTED|
+    throw build, field int
+
+force get-scan-failed-application-registration-failed
+  mount build, field scan-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_FAILED_APPLICATION_REGISTRATION_FAILED|
+    throw build, field int
+
+force get-scan-failed-feature-unsupported
+  mount build, field scan-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_FAILED_FEATURE_UNSUPPORTED|
+    throw build, field int
+
+force get-scan-failed-internal-error
+  mount build, field scan-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |SCAN_FAILED_INTERNAL_ERROR|
+    throw build, field int
+
+force build-scan-callback
+  cause invoke-constructor
+    drive constructor, |ScanCallback|
+    throw build, field scan-callback
+
+force on-batch-scan-results
+  mount build, field scan-callback
+  mount results, field mutable-list-scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onBatchScanResults|
+    drive factor, share results
+    throw build, field unit
+
+force on-scan-failed
+  mount build, field scan-callback
+  mount error-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onScanFailed|
+    drive factor, share error-code
+    throw build, field unit
+
+force on-scan-result
+  mount build, field scan-callback
+  mount callback-type, field int
+  mount result, field scan-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onScanResult|
+    drive factor, share callback-type
+    drive factor, share result
+    throw build, field unit

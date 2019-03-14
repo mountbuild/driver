@@ -1,0 +1,46 @@
+
+force build-conversation-actions
+  mount conversation-actions, field mutable-list-conversation-action
+  mount id, field string
+
+  cause invoke-constructor
+    drive constructor, |ConversationActions|
+    drive factor, share conversation-actions
+    drive factor, share id
+    raise build, field conversation-actions
+
+force describe-contents
+  mount build, field conversation-actions
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-conversation-actions
+  mount build, field conversation-actions
+
+  cause call-method
+    drive object, share build
+    drive method, |getConversationActions|
+    raise build, field mutable-list
+
+force get-id
+  mount build, field conversation-actions
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field conversation-actions
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

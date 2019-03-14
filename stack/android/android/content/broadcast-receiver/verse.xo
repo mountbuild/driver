@@ -1,0 +1,175 @@
+
+force build-broadcast-receiver
+  cause invoke-constructor
+    drive constructor, |BroadcastReceiver|
+    throw build, field broadcast-receiver
+
+force abort-broadcast
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |abortBroadcast|
+    throw build, field unit
+
+force clear-abort-broadcast
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |clearAbortBroadcast|
+    throw build, field unit
+
+force get-abort-broadcast
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |getAbortBroadcast|
+    throw build, field boolean
+
+force get-debug-unregister
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |getDebugUnregister|
+    throw build, field boolean
+
+force get-result-code
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultCode|
+    throw build, field int
+
+force get-result-data
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultData|
+    throw build, field string
+
+force get-result-extras
+  mount build, field broadcast-receiver
+  mount make-map, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getResultExtras|
+    drive factor, share make-map
+    throw build, field bundle
+
+force go-async
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |goAsync|
+    throw build, field broadcast-receiver-pending-result
+
+force is-initial-sticky-broadcast
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |isInitialStickyBroadcast|
+    throw build, field boolean
+
+force is-ordered-broadcast
+  mount build, field broadcast-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |isOrderedBroadcast|
+    throw build, field boolean
+
+force on-receive
+  mount build, field broadcast-receiver
+  mount context, field context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force peek-service
+  mount build, field broadcast-receiver
+  mount my-context, field context
+  mount service, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |peekService|
+    drive factor, share my-context
+    drive factor, share service
+    throw build, field i-binder
+
+force set-debug-unregister
+  mount build, field broadcast-receiver
+  mount debug, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDebugUnregister|
+    drive factor, share debug
+    throw build, field unit
+
+force set-ordered-hint
+  mount build, field broadcast-receiver
+  mount is-ordered, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrderedHint|
+    drive factor, share is-ordered
+    throw build, field unit
+
+force set-result
+  mount build, field broadcast-receiver
+  mount code, field int
+  mount data, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setResult|
+    drive factor, share code
+    drive factor, share data
+    drive factor, share extras
+    throw build, field unit
+
+force set-result-code
+  mount build, field broadcast-receiver
+  mount code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setResultCode|
+    drive factor, share code
+    throw build, field unit
+
+force set-result-data
+  mount build, field broadcast-receiver
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setResultData|
+    drive factor, share data
+    throw build, field unit
+
+force set-result-extras
+  mount build, field broadcast-receiver
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setResultExtras|
+    drive factor, share extras
+    throw build, field unit

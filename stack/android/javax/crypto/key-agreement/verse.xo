@@ -1,0 +1,140 @@
+
+force do-phase
+  start build, field key-agreement
+  start key, field key
+  start last-phase, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |doPhase|
+    mount factor, share key
+    mount factor, share last-phase
+    throw build, field key
+
+force generate-secret
+  start build, field key-agreement
+
+  cause call-method
+    mount object, share build
+    mount method, |generateSecret|
+    throw build, field byte-array
+
+force generate-secret
+  start build, field key-agreement
+  start shared-secret, field byte-array
+  start offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |generateSecret|
+    mount factor, share shared-secret
+    mount factor, share offset
+    throw build, field int
+
+force generate-secret
+  start build, field key-agreement
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |generateSecret|
+    mount factor, share algorithm
+    throw build, field secret-key
+
+force get-algorithm
+  start build, field key-agreement
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-instance
+  start build, field key-agreement
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field key-agreement
+
+force get-instance
+  start build, field key-agreement
+  start algorithm, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-agreement
+
+force get-instance
+  start build, field key-agreement
+  start algorithm, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-agreement
+
+force get-provider
+  start build, field key-agreement
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  start build, field key-agreement
+  start key, field key
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share key
+    throw build, field unit
+
+force init
+  start build, field key-agreement
+  start key, field key
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share key
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field key-agreement
+  start key, field key
+  start params, field algorithm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share key
+    mount factor, share params
+    throw build, field unit
+
+force init
+  start build, field key-agreement
+  start key, field key
+  start params, field algorithm-parameter-spec
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share key
+    mount factor, share params
+    mount factor, share random
+    throw build, field unit

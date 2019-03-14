@@ -1,0 +1,166 @@
+
+force build-spannable-string
+  mount source, field char-sequence
+
+  cause invoke-constructor
+    drive constructor, |SpannableString|
+    drive factor, share source
+    raise build, field spannable-string
+
+force equals
+  mount build, field spannable-string
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get
+  mount build, field spannable-string
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share i
+    raise build, field char
+
+force get-chars
+  mount build, field spannable-string
+  mount start, field int
+  mount end, field int
+  mount dest, field char-array
+  mount off, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getChars|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share dest
+    drive factor, share off
+    raise build, field unit
+
+force get-span-end
+  mount build, field spannable-string
+  mount what, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanEnd|
+    drive factor, share what
+    raise build, field int
+
+force get-span-flags
+  mount build, field spannable-string
+  mount what, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanFlags|
+    drive factor, share what
+    raise build, field int
+
+force get-span-start
+  mount build, field spannable-string
+  mount what, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanStart|
+    drive factor, share what
+    raise build, field int
+
+force get-spans
+  mount build, field spannable-string
+  mount query-start, field int
+  mount query-end, field int
+  mount kind, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpans|
+    drive factor, share query-start
+    drive factor, share query-end
+    drive factor, share kind
+    raise build, field array
+
+force hash-code
+  mount build, field spannable-string
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force next-span-transition
+  mount build, field spannable-string
+  mount start, field int
+  mount limit, field int
+  mount kind, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |nextSpanTransition|
+    drive factor, share start
+    drive factor, share limit
+    drive factor, share kind
+    raise build, field int
+
+force remove-span
+  mount build, field spannable-string
+  mount what, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSpan|
+    drive factor, share what
+    raise build, field unit
+
+force set-span
+  mount build, field spannable-string
+  mount what, field any
+  mount start, field int
+  mount end, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpan|
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    drive factor, share flags
+    raise build, field unit
+
+force sub-sequence
+  mount build, field spannable-string
+  mount start-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |subSequence|
+    drive factor, share start-index
+    drive factor, share end-index
+    raise build, field char-sequence
+
+force to-string
+  mount build, field spannable-string
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force value-of
+  mount build, field spannable-string
+  mount source, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share source
+    raise build, field spannable-string

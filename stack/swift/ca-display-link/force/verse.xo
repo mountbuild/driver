@@ -1,0 +1,146 @@
+force add
+  field build, field ca-display-link
+  field to, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand for-mode
+      share for-mode
+
+force remove
+  field build, field ca-display-link
+  field from, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand for-mode
+      share for-mode
+
+force invalidate
+  field build, field ca-display-link
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidate|
+
+force get-duration
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |duration|
+    raise build, field cf-time-interval
+
+force set-duration
+  field build, field ca-display-link
+  field value, field cf-time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |duration|
+    drive factor, share value
+
+force get-preferred-frames-per-second
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preferredFramesPerSecond|
+    raise build, field int
+
+force set-preferred-frames-per-second
+  field build, field ca-display-link
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preferredFramesPerSecond|
+    drive factor, share value
+
+force get-frame-interval
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |frameInterval|
+    raise build, field int
+
+force set-frame-interval
+  field build, field ca-display-link
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |frameInterval|
+    drive factor, share value
+
+force get-is-paused
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPaused|
+    raise build, field bool
+
+force set-is-paused
+  field build, field ca-display-link
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPaused|
+    drive factor, share value
+
+force get-timestamp
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timestamp|
+    raise build, field cf-time-interval
+
+force set-timestamp
+  field build, field ca-display-link
+  field value, field cf-time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timestamp|
+    drive factor, share value
+
+force get-target-timestamp
+  field build, field ca-display-link
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |targetTimestamp|
+    raise build, field cf-time-interval
+
+force set-target-timestamp
+  field build, field ca-display-link
+  field value, field cf-time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |targetTimestamp|
+    drive factor, share value
+
+force ca-current-media-time
+  field build, field ca-display-link
+
+  cause call-method
+    drive object, share build
+    drive method, |CACurrentMediaTime|
+    raise build, class cf-time-interval

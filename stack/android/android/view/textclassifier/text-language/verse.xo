@@ -1,0 +1,72 @@
+
+force describe-contents
+  mount build, field text-language
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-confidence-score
+  mount build, field text-language
+  mount locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getConfidenceScore|
+    drive factor, share locale
+    raise build, field float
+
+force get-extras
+  mount build, field text-language
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    raise build, field bundle
+
+force get-id
+  mount build, field text-language
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    raise build, field string
+
+force get-locale
+  mount build, field text-language
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocale|
+    drive factor, share index
+    raise build, field u-locale
+
+force get-locale-hypothesis-count
+  mount build, field text-language
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocaleHypothesisCount|
+    raise build, field int
+
+force to-string
+  mount build, field text-language
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field text-language
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

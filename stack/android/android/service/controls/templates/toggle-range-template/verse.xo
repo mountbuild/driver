@@ -1,0 +1,58 @@
+
+force build-toggle-range-template
+  mount template-id, field string
+  mount button, field control-button
+  mount range, field range-template
+
+  cause invoke-constructor
+    drive constructor, |ToggleRangeTemplate|
+    drive factor, share template-id
+    drive factor, share button
+    drive factor, share range
+    raise build, field toggle-range-template
+
+force build-toggle-range-template
+  mount template-id, field string
+  mount checked, field boolean
+  mount action-description, field char-sequence
+  mount range, field range-template
+
+  cause invoke-constructor
+    drive constructor, |ToggleRangeTemplate|
+    drive factor, share template-id
+    drive factor, share checked
+    drive factor, share action-description
+    drive factor, share range
+    raise build, field toggle-range-template
+
+force get-action-description
+  mount build, field toggle-range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionDescription|
+    raise build, field char-sequence
+
+force get-range
+  mount build, field toggle-range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getRange|
+    raise build, field range-template
+
+force get-template-type
+  mount build, field toggle-range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplateType|
+    raise build, field int
+
+force is-checked
+  mount build, field toggle-range-template
+
+  cause call-method
+    drive object, share build
+    drive method, |isChecked|
+    raise build, field boolean

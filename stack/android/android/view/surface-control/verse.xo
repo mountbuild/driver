@@ -1,0 +1,54 @@
+
+force describe-contents
+  mount build, field surface-control
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force is-valid
+  mount build, field surface-control
+
+  cause call-method
+    drive object, share build
+    drive method, |isValid|
+    throw build, field boolean
+
+force read-from-parcel
+  mount build, field surface-control
+  mount in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share in
+    throw build, field unit
+
+force release
+  mount build, field surface-control
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force to-string
+  mount build, field surface-control
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field surface-control
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

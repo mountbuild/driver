@@ -1,0 +1,46 @@
+
+force install-package
+  mount build, field recovery-system
+  mount context, field context
+  mount package-file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |installPackage|
+    drive factor, share context
+    drive factor, share package-file
+    raise build, field unit
+
+force reboot-wipe-cache
+  mount build, field recovery-system
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |rebootWipeCache|
+    drive factor, share context
+    raise build, field unit
+
+force reboot-wipe-user-data
+  mount build, field recovery-system
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |rebootWipeUserData|
+    drive factor, share context
+    raise build, field unit
+
+force verify-package
+  mount build, field recovery-system
+  mount package-file, field file
+  mount listener, field recovery-system-progress-listener
+  mount device-certs-zip-file, field file
+
+  cause call-method
+    drive object, share build
+    drive method, |verifyPackage|
+    drive factor, share package-file
+    drive factor, share listener
+    drive factor, share device-certs-zip-file
+    raise build, field unit

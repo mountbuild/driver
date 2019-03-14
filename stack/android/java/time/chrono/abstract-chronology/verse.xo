@@ -1,0 +1,50 @@
+
+force compare-to
+  mount build, field abstract-chronology
+  mount other, field chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force equals
+  mount build, field abstract-chronology
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field abstract-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force resolve-date
+  mount build, field abstract-chronology
+  mount field-values, field mutable-map-temporal-field
+  mount long, field undefined
+  mount resolver-style, field resolver-style
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveDate|
+    drive factor, share field-values
+    drive factor, share long
+    drive factor, share resolver-style
+    throw build, field chrono-local-date
+
+force to-string
+  mount build, field abstract-chronology
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

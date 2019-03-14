@@ -1,0 +1,75 @@
+
+force get-host-view-id
+  mount build, field accessibility-node-provider
+
+  cause get-property
+    drive object, share build
+    drive property, |HOST_VIEW_ID|
+    raise build, field int
+
+force build-accessibility-node-provider
+  cause invoke-constructor
+    drive constructor, |AccessibilityNodeProvider|
+    raise build, field accessibility-node-provider
+
+force add-extra-data-to-accessibility-node-info
+  mount build, field accessibility-node-provider
+  mount virtual-view-id, field int
+  mount info, field accessibility-node-info
+  mount extra-data-key, field string
+  mount arguments, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |addExtraDataToAccessibilityNodeInfo|
+    drive factor, share virtual-view-id
+    drive factor, share info
+    drive factor, share extra-data-key
+    drive factor, share arguments
+    raise build, field unit
+
+force create-accessibility-node-info
+  mount build, field accessibility-node-provider
+  mount virtual-view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createAccessibilityNodeInfo|
+    drive factor, share virtual-view-id
+    raise build, field accessibility-node-info
+
+force find-accessibility-node-infos-by-text
+  mount build, field accessibility-node-provider
+  mount text, field string
+  mount virtual-view-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findAccessibilityNodeInfosByText|
+    drive factor, share text
+    drive factor, share virtual-view-id
+    raise build, field mutable-list
+
+force find-focus
+  mount build, field accessibility-node-provider
+  mount focus, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |findFocus|
+    drive factor, share focus
+    raise build, field accessibility-node-info
+
+force perform-action
+  mount build, field accessibility-node-provider
+  mount virtual-view-id, field int
+  mount action, field int
+  mount arguments, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |performAction|
+    drive factor, share virtual-view-id
+    drive factor, share action
+    drive factor, share arguments
+    raise build, field boolean

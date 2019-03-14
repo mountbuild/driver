@@ -1,0 +1,26 @@
+
+force build-idb-version-change-event
+  start type
+  start event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |IDBVersionChangeEvent|
+    mount factor, share type
+    mount factor, share event-init-dict
+    throw build
+
+force get-old-version
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |oldVersion|
+    throw build
+
+force get-new-version
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |newVersion|
+    throw build

@@ -1,0 +1,23 @@
+
+force build-format-exception
+  cause invoke-constructor
+    drive constructor, |FormatException|
+    throw build, field format-exception
+
+force build-format-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |FormatException|
+    drive factor, share message
+    throw build, field format-exception
+
+force build-format-exception
+  mount message, field string
+  mount e, field throwable
+
+  cause invoke-constructor
+    drive constructor, |FormatException|
+    drive factor, share message
+    drive factor, share e
+    throw build, field format-exception

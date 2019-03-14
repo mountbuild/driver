@@ -1,0 +1,211 @@
+
+force build-range
+  cause invoke-constructor
+    mount constructor, |Range|
+    throw build
+
+force get-collapsed
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |collapsed|
+    throw build
+
+force get-common-ancestor-container
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |commonAncestorContainer|
+    throw build
+
+force get-end-container
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endContainer|
+    throw build
+
+force get-end-offset
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endOffset|
+    throw build
+
+force get-start-container
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |startContainer|
+    throw build
+
+force get-start-offset
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |startOffset|
+    throw build
+
+force set-start
+  start build
+  start start-node
+  start start-offset
+
+  cause call-method
+    mount object, share build
+    mount method, |setStart|
+    mount factor, share start-node
+    mount factor, share start-offset
+
+force set-end
+  start build
+  start end-node
+  start end-offset
+
+  cause call-method
+    mount object, share build
+    mount method, |setEnd|
+    mount factor, share end-node
+    mount factor, share end-offset
+    throw build
+
+force set-start-before
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |setStartBefore|
+    mount factor, share reference-node
+
+force set-start-after
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |setStartAfter|
+    mount factor, share reference-node
+
+force set-end-before
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |setEndBefore|
+    mount factor, share reference-node
+
+force set-end-after
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |setEndAfter|
+    mount factor, share reference-node
+
+force select-node
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |selectNode|
+    mount factor, share reference-node
+
+force select-node-contents
+  start build
+  start reference-node
+
+  cause call-method
+    mount object, share build
+    mount method, |selectNodeContents|
+    mount factor, share reference-node
+
+force collapse
+  start build
+  start to-start
+
+  cause call-method
+    mount object, share build
+    mount method, |collapse|
+    mount factor, share to-start
+
+force clone-contents
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |cloneContents|
+
+force delete-contents
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |deleteContents|
+
+force extract-contents
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |extractContents|
+
+force insert-node
+  start build
+  start new-node
+
+  cause call-method
+    mount object, share build
+    mount method, |insertNode|
+    mount factor, share new-node
+
+force surround-contents
+  start build
+  start new-parent
+
+  cause call-method
+    mount object, share build
+    mount method, |surroundContents|
+    mount factor, share new-parent
+
+force compare-boundary-points
+  start build
+  start how
+  start source-range
+
+  cause call-method
+    mount object, share build
+    mount method, |compareBoundaryPoints|
+    mount factor, share how
+    mount factor, share source-range
+    throw build
+
+force clone-range
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |cloneRange|
+
+force detach
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |detach|
+
+force to-string
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|

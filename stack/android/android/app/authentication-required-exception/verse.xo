@@ -1,0 +1,38 @@
+
+force build-authentication-required-exception
+  mount cause, field throwable
+  mount user-action, field pending-intent
+
+  cause invoke-constructor
+    drive constructor, |AuthenticationRequiredException|
+    drive factor, share cause
+    drive factor, share user-action
+    throw build, field authentication-required-exception
+
+force describe-contents
+  mount build, field authentication-required-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-user-action
+  mount build, field authentication-required-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserAction|
+    throw build, field pending-intent
+
+force write-to-parcel
+  mount build, field authentication-required-exception
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

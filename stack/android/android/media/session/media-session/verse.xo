@@ -1,0 +1,232 @@
+
+force get-flag-handles-media-buttons
+  start build, field media-session
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_HANDLES_MEDIA_BUTTONS|
+    raise build, field int
+
+force get-flag-handles-transport-controls
+  start build, field media-session
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_HANDLES_TRANSPORT_CONTROLS|
+    raise build, field int
+
+force build-media-session
+  start context, field context
+  start tag, field string
+
+  cause invoke-constructor
+    drive constructor, |MediaSession|
+    drive factor, share context
+    drive factor, share tag
+    raise build, field media-session
+
+force build-media-session
+  start context, field context
+  start tag, field string
+  start session-info, field bundle
+
+  cause invoke-constructor
+    drive constructor, |MediaSession|
+    drive factor, share context
+    drive factor, share tag
+    drive factor, share session-info
+    raise build, field media-session
+
+force get-controller
+  start build, field media-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getController|
+    raise build, field media-controller
+
+force get-current-controller-info
+  start build, field media-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentControllerInfo|
+    raise build, field media-session-manager-remote-user-info
+
+force get-session-token
+  start build, field media-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionToken|
+    raise build, field media-session-token
+
+force is-active
+  start build, field media-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isActive|
+    raise build, field boolean
+
+force release
+  start build, field media-session
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force send-session-event
+  start build, field media-session
+  start event, field string
+  start extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendSessionEvent|
+    drive factor, share event
+    drive factor, share extras
+    raise build, field unit
+
+force set-active
+  start build, field media-session
+  start active, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setActive|
+    drive factor, share active
+    raise build, field unit
+
+force set-callback
+  start build, field media-session
+  start callback, field media-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share callback
+    raise build, field unit
+
+force set-callback
+  start build, field media-session
+  start callback, field media-session-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field unit
+
+force set-extras
+  start build, field media-session
+  start extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtras|
+    drive factor, share extras
+    raise build, field unit
+
+force set-flags
+  start build, field media-session
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFlags|
+    drive factor, share flags
+    raise build, field unit
+
+force set-media-button-receiver
+  start build, field media-session
+  start mbr, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setMediaButtonReceiver|
+    drive factor, share mbr
+    raise build, field unit
+
+force set-metadata
+  start build, field media-session
+  start metadata, field media-metadata
+
+  cause call-method
+    drive object, share build
+    drive method, |setMetadata|
+    drive factor, share metadata
+    raise build, field unit
+
+force set-playback-state
+  start build, field media-session
+  start state, field playback-state
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackState|
+    drive factor, share state
+    raise build, field unit
+
+force set-playback-to-local
+  start build, field media-session
+  start attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackToLocal|
+    drive factor, share attributes
+    raise build, field unit
+
+force set-playback-to-remote
+  start build, field media-session
+  start volume-provider, field volume-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackToRemote|
+    drive factor, share volume-provider
+    raise build, field unit
+
+force set-queue
+  start build, field media-session
+  start queue, field mutable-list-media-session-queue-item
+
+  cause call-method
+    drive object, share build
+    drive method, |setQueue|
+    drive factor, share queue
+    raise build, field unit
+
+force set-queue-title
+  start build, field media-session
+  start title, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setQueueTitle|
+    drive factor, share title
+    raise build, field unit
+
+force set-rating-type
+  start build, field media-session
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRatingType|
+    drive factor, share type
+    raise build, field unit
+
+force set-session-activity
+  start build, field media-session
+  start pi, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setSessionActivity|
+    drive factor, share pi
+    raise build, field unit

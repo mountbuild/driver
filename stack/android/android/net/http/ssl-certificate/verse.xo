@@ -1,0 +1,120 @@
+
+force build-ssl-certificate
+  start issued-to, field string
+  start issued-by, field string
+  start valid-not-before, field string
+  start valid-not-after, field string
+
+  cause invoke-constructor
+    drive constructor, |SslCertificate|
+    drive factor, share issued-to
+    drive factor, share issued-by
+    drive factor, share valid-not-before
+    drive factor, share valid-not-after
+    throw build, field ssl-certificate
+
+force build-ssl-certificate
+  start issued-to, field string
+  start issued-by, field string
+  start valid-not-before, field date
+  start valid-not-after, field date
+
+  cause invoke-constructor
+    drive constructor, |SslCertificate|
+    drive factor, share issued-to
+    drive factor, share issued-by
+    drive factor, share valid-not-before
+    drive factor, share valid-not-after
+    throw build, field ssl-certificate
+
+force build-ssl-certificate
+  start certificate, field x509-certificate
+
+  cause invoke-constructor
+    drive constructor, |SslCertificate|
+    drive factor, share certificate
+    throw build, field ssl-certificate
+
+force get-issued-by
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getIssuedBy|
+    throw build, field ssl-certificate-d-name
+
+force get-issued-to
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getIssuedTo|
+    throw build, field ssl-certificate-d-name
+
+force get-valid-not-after
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidNotAfter|
+    throw build, field string
+
+force get-valid-not-after-date
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidNotAfterDate|
+    throw build, field date
+
+force get-valid-not-before
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidNotBefore|
+    throw build, field string
+
+force get-valid-not-before-date
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidNotBeforeDate|
+    throw build, field date
+
+force get-x509-certificate
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |getX509Certificate|
+    throw build, field x509-certificate
+
+force restore-state
+  start build, field ssl-certificate
+  start bundle, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreState|
+    drive factor, share bundle
+    throw build, field ssl-certificate
+
+force save-state
+  start build, field ssl-certificate
+  start certificate, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |saveState|
+    drive factor, share certificate
+    throw build, field bundle
+
+force to-string
+  start build, field ssl-certificate
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

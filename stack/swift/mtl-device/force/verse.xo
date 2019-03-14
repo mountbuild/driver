@@ -1,0 +1,1206 @@
+force mtl-create-system-default-device
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |MTLCreateSystemDefaultDevice|
+    raise build, class mtl-device
+
+force mtl-copy-all-devices
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |MTLCopyAllDevices|
+    raise build, class mtl-device
+
+force mtl-remove-device-observer
+  field build, field mtl-device
+  field a, class ns-object-protocol
+
+  cause call-method
+    drive object, share build
+    drive method, |MTLRemoveDeviceObserver|
+    drive factor, share a
+
+force get-name
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field mtl-device
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value
+
+force get-is-headless
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isHeadless|
+    raise build, field bool
+
+force set-is-headless
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isHeadless|
+    drive factor, share value
+
+force get-is-low-power
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLowPower|
+    raise build, field bool
+
+force set-is-low-power
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLowPower|
+    drive factor, share value
+
+force get-is-removable
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isRemovable|
+    raise build, field bool
+
+force set-is-removable
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isRemovable|
+    drive factor, share value
+
+force get-registry-id
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |registryID|
+    raise build, field u-int64
+
+force set-registry-id
+  field build, field mtl-device
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |registryID|
+    drive factor, share value
+
+force get-location
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |location|
+    raise build, field mtl-device-location
+
+force set-location
+  field build, field mtl-device
+  field value, field mtl-device-location
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |location|
+    drive factor, share value
+
+force get-location-number
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |locationNumber|
+    raise build, field int
+
+force set-location-number
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |locationNumber|
+    drive factor, share value
+
+force get-max-transfer-rate
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxTransferRate|
+    raise build, field u-int64
+
+force set-max-transfer-rate
+  field build, field mtl-device
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxTransferRate|
+    drive factor, share value
+
+force get-has-unified-memory
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasUnifiedMemory|
+    raise build, field bool
+
+force set-has-unified-memory
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasUnifiedMemory|
+    drive factor, share value
+
+force get-peer-group-id
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |peerGroupID|
+    raise build, field u-int64
+
+force set-peer-group-id
+  field build, field mtl-device
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |peerGroupID|
+    drive factor, share value
+
+force get-peer-count
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |peerCount|
+    raise build, field u-int32
+
+force set-peer-count
+  field build, field mtl-device
+  field value, field u-int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |peerCount|
+    drive factor, share value
+
+force get-peer-index
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |peerIndex|
+    raise build, field u-int32
+
+force set-peer-index
+  field build, field mtl-device
+  field value, field u-int32
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |peerIndex|
+    drive factor, share value
+
+force supports-family
+  field build, field mtl-device
+  field a, class mtlgpu-family
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsFamily|
+    drive factor, share a
+    raise build, class bool
+
+force supports-feature-set
+  field build, field mtl-device
+  field a, class mtl-feature-set
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsFeatureSet|
+    drive factor, share a
+    raise build, class bool
+
+force get-recommended-max-working-set-size
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |recommendedMaxWorkingSetSize|
+    raise build, field u-int64
+
+force set-recommended-max-working-set-size
+  field build, field mtl-device
+  field value, field u-int64
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |recommendedMaxWorkingSetSize|
+    drive factor, share value
+
+force get-current-allocated-size
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |currentAllocatedSize|
+    raise build, field int
+
+force set-current-allocated-size
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |currentAllocatedSize|
+    drive factor, share value
+
+force get-max-threadgroup-memory-length
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxThreadgroupMemoryLength|
+    raise build, field int
+
+force set-max-threadgroup-memory-length
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxThreadgroupMemoryLength|
+    drive factor, share value
+
+force get-max-threads-per-threadgroup
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxThreadsPerThreadgroup|
+    raise build, field mtl-size
+
+force set-max-threads-per-threadgroup
+  field build, field mtl-device
+  field value, field mtl-size
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxThreadsPerThreadgroup|
+    drive factor, share value
+
+force get-are-programmable-sample-positions-supported
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |areProgrammableSamplePositionsSupported|
+    raise build, field bool
+
+force set-are-programmable-sample-positions-supported
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |areProgrammableSamplePositionsSupported|
+    drive factor, share value
+
+force get-default-sample-positions
+  field build, field mtl-device
+  field sample-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultSamplePositions|
+    drive factor
+      brand sample-count
+      share sample-count
+    raise build, class mtl-sample-position
+
+force get-are-raster-order-groups-supported
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |areRasterOrderGroupsSupported|
+    raise build, field bool
+
+force set-are-raster-order-groups-supported
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |areRasterOrderGroupsSupported|
+    drive factor, share value
+
+force get-is-depth24-stencil8-pixel-format-supported
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDepth24Stencil8PixelFormatSupported|
+    raise build, field bool
+
+force set-is-depth24-stencil8-pixel-format-supported
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDepth24Stencil8PixelFormatSupported|
+    drive factor, share value
+
+force get-are-barycentric-coords-supported
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |areBarycentricCoordsSupported|
+    raise build, field bool
+
+force set-are-barycentric-coords-supported
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |areBarycentricCoordsSupported|
+    drive factor, share value
+
+force get-supports-shader-barycentric-coordinates
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportsShaderBarycentricCoordinates|
+    raise build, field bool
+
+force set-supports-shader-barycentric-coordinates
+  field build, field mtl-device
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportsShaderBarycentricCoordinates|
+    drive factor, share value
+
+force supports-vertex-amplification-count
+  field build, field mtl-device
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsVertexAmplificationCount|
+    drive factor, share a
+    raise build, class bool
+
+force make-command-queue
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCommandQueue|
+    raise build, class mtl-command-queue
+
+force make-command-queue
+  field build, field mtl-device
+  field max-command-buffer-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCommandQueue|
+    drive factor
+      brand max-command-buffer-count
+      share max-command-buffer-count
+    raise build, class mtl-command-queue
+
+force make-event
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeEvent|
+    raise build, class mtl-event
+
+force make-shared-event
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeSharedEvent|
+    raise build, class mtl-shared-event
+
+force make-shared-event
+  field build, field mtl-device
+  field handle, field mtl-shared-event-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |makeSharedEvent|
+    drive factor
+      brand handle
+      share handle
+    raise build, class mtl-shared-event
+
+force make-fence
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeFence|
+    raise build, class mtl-fence
+
+force make-default-library
+  field build, field mtl-device
+
+  cause call-method
+    drive object, share build
+    drive method, |makeDefaultLibrary|
+    raise build, class mtl-library
+
+force make-default-library
+  field build, field mtl-device
+  field bundle, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |makeDefaultLibrary|
+    drive factor
+      brand bundle
+      share bundle
+    raise build, class mtl-library
+
+force make-library
+  field build, field mtl-device
+  field filepath, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |makeLibrary|
+    drive factor
+      brand filepath
+      share filepath
+    raise build, class mtl-library
+
+force make-library
+  field build, field mtl-device
+  field url, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |makeLibrary|
+    drive factor
+      brand url
+      share url
+    raise build, class mtl-library
+
+force make-library
+  field build, field mtl-device
+  field data, field dispatch-data
+
+  cause call-method
+    drive object, share build
+    drive method, |makeLibrary|
+    drive factor
+      brand data
+      share data
+    raise build, class mtl-library
+
+force make-library
+  field build, field mtl-device
+  field source, field string
+  field options, field mtl-compile-options
+  field completion-handler, field mtl-new-library-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeLibrary|
+    drive factor
+      brand source
+      share source
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-library
+  field build, field mtl-device
+  field source, field string
+  field options, field mtl-compile-options
+
+  cause call-method
+    drive object, share build
+    drive method, |makeLibrary|
+    drive factor
+      brand source
+      share source
+    drive factor
+      brand options
+      share options
+    raise build, class mtl-library
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-render-pipeline-descriptor
+  field completion-handler, field mtl-new-render-pipeline-state-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-render-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field completion-handler, field mtl-new-render-pipeline-state-with-reflection-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-render-pipeline-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-render-pipeline-state
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-render-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field reflection, field autoreleasing-unsafe-mutable-pointer-mtl-autoreleased-render-pipeline-reflection
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand reflection
+      share reflection
+    raise build, class mtl-render-pipeline-state
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field tile-descriptor, field mtl-tile-render-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field completion-handler, field mtl-new-render-pipeline-state-with-reflection-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand tile-descriptor
+      share tile-descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-render-pipeline-state
+  field build, field mtl-device
+  field tile-descriptor, field mtl-tile-render-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field reflection, field autoreleasing-unsafe-mutable-pointer-mtl-autoreleased-render-pipeline-reflection
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRenderPipelineState|
+    drive factor
+      brand tile-descriptor
+      share tile-descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand reflection
+      share reflection
+    raise build, class mtl-render-pipeline-state
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-compute-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field completion-handler, field mtl-new-compute-pipeline-state-with-reflection-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field function, field mtl-function
+  field completion-handler, field mtl-new-compute-pipeline-state-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand function
+      share function
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field function, field mtl-function
+  field options, field mtl-pipeline-option
+  field completion-handler, field mtl-new-compute-pipeline-state-with-reflection-completion-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand function
+      share function
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand completion-handler
+      share completion-handler
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field descriptor, field mtl-compute-pipeline-descriptor
+  field options, field mtl-pipeline-option
+  field reflection, field autoreleasing-unsafe-mutable-pointer-mtl-autoreleased-compute-pipeline-reflection
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand reflection
+      share reflection
+    raise build, class mtl-compute-pipeline-state
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field function, field mtl-function
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand function
+      share function
+    raise build, class mtl-compute-pipeline-state
+
+force make-compute-pipeline-state
+  field build, field mtl-device
+  field function, field mtl-function
+  field options, field mtl-pipeline-option
+  field reflection, field autoreleasing-unsafe-mutable-pointer-mtl-autoreleased-compute-pipeline-reflection
+
+  cause call-method
+    drive object, share build
+    drive method, |makeComputePipelineState|
+    drive factor
+      brand function
+      share function
+    drive factor
+      brand options
+      share options
+    drive factor
+      brand reflection
+      share reflection
+    raise build, class mtl-compute-pipeline-state
+
+force get-max-buffer-length
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxBufferLength|
+    raise build, field int
+
+force set-max-buffer-length
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxBufferLength|
+    drive factor, share value
+
+force make-buffer
+  field build, field mtl-device
+  field length, field int
+  field options, field mtl-resource-options
+
+  cause call-method
+    drive object, share build
+    drive method, |makeBuffer|
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand options
+      share options
+    raise build, class mtl-buffer
+
+force make-buffer
+  field build, field mtl-device
+  field bytes, field unsafe-raw-pointer
+  field length, field int
+  field options, field mtl-resource-options
+
+  cause call-method
+    drive object, share build
+    drive method, |makeBuffer|
+    drive factor
+      brand bytes
+      share bytes
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand options
+      share options
+    raise build, class mtl-buffer
+
+force supports-texture-sample-count
+  field build, field mtl-device
+  field a, class int
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsTextureSampleCount|
+    drive factor, share a
+    raise build, class bool
+
+force minimum-linear-texture-alignment
+  field build, field mtl-device
+  field for, field mtl-pixel-format
+
+  cause call-method
+    drive object, share build
+    drive method, |minimumLinearTextureAlignment|
+    drive factor
+      brand for
+      share for
+    raise build, class int
+
+force minimum-texture-buffer-alignment
+  field build, field mtl-device
+  field for, field mtl-pixel-format
+
+  cause call-method
+    drive object, share build
+    drive method, |minimumTextureBufferAlignment|
+    drive factor
+      brand for
+      share for
+    raise build, class int
+
+force get-read-write-texture-support
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |readWriteTextureSupport|
+    raise build, field mtl-read-write-texture-tier
+
+force set-read-write-texture-support
+  field build, field mtl-device
+  field value, field mtl-read-write-texture-tier
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |readWriteTextureSupport|
+    drive factor, share value
+
+force make-texture
+  field build, field mtl-device
+  field descriptor, field mtl-texture-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeTexture|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-texture
+
+force make-texture
+  field build, field mtl-device
+  field descriptor, field mtl-texture-descriptor
+  field iosurface, field io-surface-ref
+  field plane, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeTexture|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand iosurface
+      share iosurface
+    drive factor
+      brand plane
+      share plane
+    raise build, class mtl-texture
+
+force make-shared-texture
+  field build, field mtl-device
+  field descriptor, field mtl-texture-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeSharedTexture|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-texture
+
+force make-shared-texture
+  field build, field mtl-device
+  field handle, field mtl-shared-texture-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |makeSharedTexture|
+    drive factor
+      brand handle
+      share handle
+    raise build, class mtl-texture
+
+force make-sampler-state
+  field build, field mtl-device
+  field descriptor, field mtl-sampler-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeSamplerState|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-sampler-state
+
+force get-argument-buffers-support
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |argumentBuffersSupport|
+    raise build, field mtl-argument-buffers-tier
+
+force set-argument-buffers-support
+  field build, field mtl-device
+  field value, field mtl-argument-buffers-tier
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |argumentBuffersSupport|
+    drive factor, share value
+
+force get-max-argument-buffer-sampler-count
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxArgumentBufferSamplerCount|
+    raise build, field int
+
+force set-max-argument-buffer-sampler-count
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxArgumentBufferSamplerCount|
+    drive factor, share value
+
+force make-argument-encoder
+  field build, field mtl-device
+  field arguments, field mtl-argument-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeArgumentEncoder|
+    drive factor
+      brand arguments
+      share arguments
+    raise build, class mtl-argument-encoder
+
+force make-indirect-command-buffer
+  field build, field mtl-device
+  field descriptor, field mtl-indirect-command-buffer-descriptor
+  field max-command-count, field int
+  field options, field mtl-resource-options
+
+  cause call-method
+    drive object, share build
+    drive method, |makeIndirectCommandBuffer|
+    drive factor
+      brand descriptor
+      share descriptor
+    drive factor
+      brand max-command-count
+      share max-command-count
+    drive factor
+      brand options
+      share options
+    raise build, class mtl-indirect-command-buffer
+
+force make-heap
+  field build, field mtl-device
+  field descriptor, field mtl-heap-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeHeap|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-heap
+
+force heap-buffer-size-and-align
+  field build, field mtl-device
+  field length, field int
+  field options, field mtl-resource-options
+
+  cause call-method
+    drive object, share build
+    drive method, |heapBufferSizeAndAlign|
+    drive factor
+      brand length
+      share length
+    drive factor
+      brand options
+      share options
+    raise build, class mtl-size-and-align
+
+force heap-texture-size-and-align
+  field build, field mtl-device
+  field descriptor, field mtl-texture-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |heapTextureSizeAndAlign|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-size-and-align
+
+force make-depth-stencil-state
+  field build, field mtl-device
+  field descriptor, field mtl-depth-stencil-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeDepthStencilState|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-depth-stencil-state
+
+force get-counter-sets
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |counterSets|
+    raise build, field mtl-counter-set
+
+force set-counter-sets
+  field build, field mtl-device
+  field value, field mtl-counter-set
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |counterSets|
+    drive factor, share value
+
+force make-counter-sample-buffer
+  field build, field mtl-device
+  field descriptor, field mtl-counter-sample-buffer-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCounterSampleBuffer|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-counter-sample-buffer
+
+force supports-rasterization-rate-map
+  field build, field mtl-device
+  field layer-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsRasterizationRateMap|
+    drive factor
+      brand layer-count
+      share layer-count
+    raise build, class bool
+
+force make-rasterization-rate-map
+  field build, field mtl-device
+  field descriptor, field mtl-rasterization-rate-map-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |makeRasterizationRateMap|
+    drive factor
+      brand descriptor
+      share descriptor
+    raise build, class mtl-rasterization-rate-map
+
+force get-sparse-tile-size-in-bytes
+  field build, field mtl-device
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |sparseTileSizeInBytes|
+    raise build, field int
+
+force set-sparse-tile-size-in-bytes
+  field build, field mtl-device
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |sparseTileSizeInBytes|
+    drive factor, share value
+
+force sparse-tile-size
+  field build, field mtl-device
+  field with, field mtl-texture-type
+  field pixel-format, field mtl-pixel-format
+  field sample-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sparseTileSize|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand pixel-format
+      share pixel-format
+    drive factor
+      brand sample-count
+      share sample-count
+    raise build, class mtl-size
+
+force convert-sparse-pixel-regions
+  field build, field mtl-device
+  field a, class unsafe-pointer-mtl-region
+  field to-tile-regions, field unsafe-mutable-pointer-mtl-region
+  field with-tile-size, field mtl-size
+  field alignment-mode, field mtl-sparse-texture-region-alignment-mode
+  field num-regions, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |convertSparsePixelRegions|
+    drive factor, share a
+    drive factor
+      brand to-tile-regions
+      share to-tile-regions
+    drive factor
+      brand with-tile-size
+      share with-tile-size
+    drive factor
+      brand alignment-mode
+      share alignment-mode
+    drive factor
+      brand num-regions
+      share num-regions
+
+force convert-sparse-tile-regions
+  field build, field mtl-device
+  field a, class unsafe-pointer-mtl-region
+  field to-pixel-regions, field unsafe-mutable-pointer-mtl-region
+  field with-tile-size, field mtl-size
+  field num-regions, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |convertSparseTileRegions|
+    drive factor, share a
+    drive factor
+      brand to-pixel-regions
+      share to-pixel-regions
+    drive factor
+      brand with-tile-size
+      share with-tile-size
+    drive factor
+      brand num-regions
+      share num-regions

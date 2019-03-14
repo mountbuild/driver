@@ -1,0 +1,521 @@
+
+force build-content-provider
+  cause invoke-constructor
+    drive constructor, |ContentProvider|
+    throw build, field content-provider
+
+force apply-batch
+  mount build, field content-provider
+  mount authority, field string
+  mount operations, field array-list-content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |applyBatch|
+    drive factor, share authority
+    drive factor, share operations
+    throw build, field array
+
+force apply-batch
+  mount build, field content-provider
+  mount operations, field array-list-content-provider-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |applyBatch|
+    drive factor, share operations
+    throw build, field array
+
+force attach-info
+  mount build, field content-provider
+  mount context, field context
+  mount info, field provider-info
+
+  cause call-method
+    drive object, share build
+    drive method, |attachInfo|
+    drive factor, share context
+    drive factor, share info
+    throw build, field unit
+
+force bulk-insert
+  mount build, field content-provider
+  mount uri, field uri
+  mount values, field array-content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |bulkInsert|
+    drive factor, share uri
+    drive factor, share values
+    throw build, field int
+
+force call
+  mount build, field content-provider
+  mount authority, field string
+  mount method, field string
+  mount arg, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |call|
+    drive factor, share authority
+    drive factor, share method
+    drive factor, share arg
+    drive factor, share extras
+    throw build, field bundle
+
+force call
+  mount build, field content-provider
+  mount method, field string
+  mount arg, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |call|
+    drive factor, share method
+    drive factor, share arg
+    drive factor, share extras
+    throw build, field bundle
+
+force canonicalize
+  mount build, field content-provider
+  mount url, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |canonicalize|
+    drive factor, share url
+    throw build, field uri
+
+force clear-calling-identity
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |clearCallingIdentity|
+    throw build, field content-provider-calling-identity
+
+force delete
+  mount build, field content-provider
+  mount uri, field uri
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int
+
+force delete
+  mount build, field content-provider
+  mount uri, field uri
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    drive factor, share uri
+    drive factor, share extras
+    throw build, field int
+
+force dump
+  mount build, field content-provider
+  mount fd, field file-descriptor
+  mount writer, field print-writer
+  mount args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    throw build, field unit
+
+force get-calling-attribution-tag
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallingAttributionTag|
+    throw build, field string
+
+force get-calling-package
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallingPackage|
+    throw build, field string
+
+force get-calling-package-unchecked
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallingPackageUnchecked|
+    throw build, field string
+
+force get-context
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getContext|
+    throw build, field context
+
+force get-path-permissions
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getPathPermissions|
+    throw build, field array
+
+force get-read-permission
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getReadPermission|
+    throw build, field string
+
+force get-stream-types
+  mount build, field content-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getStreamTypes|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    throw build, field array
+
+force get-type
+  mount build, field content-provider
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    drive factor, share uri
+    throw build, field string
+
+force get-write-permission
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |getWritePermission|
+    throw build, field string
+
+force insert
+  mount build, field content-provider
+  mount uri, field uri
+  mount values, field content-values
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    throw build, field uri
+
+force insert
+  mount build, field content-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |insert|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share extras
+    throw build, field uri
+
+force on-calling-package-changed
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallingPackageChanged|
+    throw build, field unit
+
+force on-configuration-changed
+  mount build, field content-provider
+  mount new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    throw build, field unit
+
+force on-create
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field boolean
+
+force on-low-memory
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |onLowMemory|
+    throw build, field unit
+
+force on-trim-memory
+  mount build, field content-provider
+  mount level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrimMemory|
+    drive factor, share level
+    throw build, field unit
+
+force open-asset-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mode, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openAssetFile|
+    drive factor, share uri
+    drive factor, share mode
+    throw build, field asset-file-descriptor
+
+force open-asset-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mode, field string
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openAssetFile|
+    drive factor, share uri
+    drive factor, share mode
+    drive factor, share signal
+    throw build, field asset-file-descriptor
+
+force open-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mode, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |openFile|
+    drive factor, share uri
+    drive factor, share mode
+    throw build, field parcel-file-descriptor
+
+force open-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mode, field string
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openFile|
+    drive factor, share uri
+    drive factor, share mode
+    drive factor, share signal
+    throw build, field parcel-file-descriptor
+
+force open-pipe-helper
+  mount build, field content-provider
+  mount uri, field uri
+  mount mime-type, field string
+  mount opts, field bundle
+  mount args, field t
+  mount func, field content-provider-pipe-data-writer-t
+
+  cause call-method
+    drive object, share build
+    drive method, |openPipeHelper|
+    drive factor, share uri
+    drive factor, share mime-type
+    drive factor, share opts
+    drive factor, share args
+    drive factor, share func
+    throw build, field parcel-file-descriptor
+
+force open-typed-asset-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+  mount opts, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedAssetFile|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    drive factor, share opts
+    throw build, field asset-file-descriptor
+
+force open-typed-asset-file
+  mount build, field content-provider
+  mount uri, field uri
+  mount mime-type-filter, field string
+  mount opts, field bundle
+  mount signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |openTypedAssetFile|
+    drive factor, share uri
+    drive factor, share mime-type-filter
+    drive factor, share opts
+    drive factor, share signal
+    throw build, field asset-file-descriptor
+
+force query
+  mount build, field content-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    throw build, field cursor
+
+force query
+  mount build, field content-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount selection, field string
+  mount selection-args, field array-string
+  mount sort-order, field string
+  mount cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share selection
+    drive factor, share selection-args
+    drive factor, share sort-order
+    drive factor, share cancellation-signal
+    throw build, field cursor
+
+force query
+  mount build, field content-provider
+  mount uri, field uri
+  mount projection, field array-string
+  mount query-args, field bundle
+  mount cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |query|
+    drive factor, share uri
+    drive factor, share projection
+    drive factor, share query-args
+    drive factor, share cancellation-signal
+    throw build, field cursor
+
+force refresh
+  mount build, field content-provider
+  mount uri, field uri
+  mount extras, field bundle
+  mount cancellation-signal, field cancellation-signal
+
+  cause call-method
+    drive object, share build
+    drive method, |refresh|
+    drive factor, share uri
+    drive factor, share extras
+    drive factor, share cancellation-signal
+    throw build, field boolean
+
+force require-context
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |requireContext|
+    throw build, field context
+
+force restore-calling-identity
+  mount build, field content-provider
+  mount identity, field content-provider-calling-identity
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreCallingIdentity|
+    drive factor, share identity
+    throw build, field unit
+
+force shutdown
+  mount build, field content-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |shutdown|
+    throw build, field unit
+
+force uncanonicalize
+  mount build, field content-provider
+  mount url, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |uncanonicalize|
+    drive factor, share url
+    throw build, field uri
+
+force update
+  mount build, field content-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount selection, field string
+  mount selection-args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share selection
+    drive factor, share selection-args
+    throw build, field int
+
+force update
+  mount build, field content-provider
+  mount uri, field uri
+  mount values, field content-values
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share uri
+    drive factor, share values
+    drive factor, share extras
+    throw build, field int

@@ -1,0 +1,130 @@
+
+force build-edge-effect
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |EdgeEffect|
+    drive factor, share context
+    throw build, field edge-effect
+
+force draw
+  mount build, field edge-effect
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    throw build, field boolean
+
+force finish
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    throw build, field unit
+
+force get-blend-mode
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |getBlendMode|
+    throw build, field blend-mode
+
+force get-color
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |getColor|
+    throw build, field int
+
+force get-max-height
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxHeight|
+    throw build, field int
+
+force is-finished
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |isFinished|
+    throw build, field boolean
+
+force on-absorb
+  mount build, field edge-effect
+  mount velocity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAbsorb|
+    drive factor, share velocity
+    throw build, field unit
+
+force on-pull
+  mount build, field edge-effect
+  mount delta-distance, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |onPull|
+    drive factor, share delta-distance
+    throw build, field unit
+
+force on-pull
+  mount build, field edge-effect
+  mount delta-distance, field float
+  mount displacement, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |onPull|
+    drive factor, share delta-distance
+    drive factor, share displacement
+    throw build, field unit
+
+force on-release
+  mount build, field edge-effect
+
+  cause call-method
+    drive object, share build
+    drive method, |onRelease|
+    throw build, field unit
+
+force set-blend-mode
+  mount build, field edge-effect
+  mount blendmode, field blend-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |setBlendMode|
+    drive factor, share blendmode
+    throw build, field unit
+
+force set-color
+  mount build, field edge-effect
+  mount color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setColor|
+    drive factor, share color
+    throw build, field unit
+
+force set-size
+  mount build, field edge-effect
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSize|
+    drive factor, share width
+    drive factor, share height
+    throw build, field unit

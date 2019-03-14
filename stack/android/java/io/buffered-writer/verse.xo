@@ -1,0 +1,80 @@
+
+force build-buffered-writer
+  mount out, field writer
+
+  cause invoke-constructor
+    drive constructor, |BufferedWriter|
+    drive factor, share out
+    throw build, field buffered-writer
+
+force build-buffered-writer
+  mount out, field writer
+  mount sz, field int
+
+  cause invoke-constructor
+    drive constructor, |BufferedWriter|
+    drive factor, share out
+    drive factor, share sz
+    throw build, field buffered-writer
+
+force close
+  mount build, field buffered-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field buffered-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force new-line
+  mount build, field buffered-writer
+
+  cause call-method
+    drive object, share build
+    drive method, |newLine|
+    throw build, field unit
+
+force write
+  mount build, field buffered-writer
+  mount c, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share c
+    throw build, field unit
+
+force write
+  mount build, field buffered-writer
+  mount cbuf, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share cbuf
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write
+  mount build, field buffered-writer
+  mount s, field string
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share s
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

@@ -1,0 +1,167 @@
+
+force get-advertise-failed-already-started
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_ALREADY_STARTED|
+    throw build, field int
+
+force get-advertise-failed-data-too-large
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_DATA_TOO_LARGE|
+    throw build, field int
+
+force get-advertise-failed-feature-unsupported
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_FEATURE_UNSUPPORTED|
+    throw build, field int
+
+force get-advertise-failed-internal-error
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_INTERNAL_ERROR|
+    throw build, field int
+
+force get-advertise-failed-too-many-advertisers
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_FAILED_TOO_MANY_ADVERTISERS|
+    throw build, field int
+
+force get-advertise-success
+  mount build, field advertising-set-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |ADVERTISE_SUCCESS|
+    throw build, field int
+
+force build-advertising-set-callback
+  cause invoke-constructor
+    drive constructor, |AdvertisingSetCallback|
+    throw build, field advertising-set-callback
+
+force on-advertising-data-set
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdvertisingDataSet|
+    drive factor, share advertising-set
+    drive factor, share status
+    throw build, field unit
+
+force on-advertising-enabled
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount enable, field boolean
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdvertisingEnabled|
+    drive factor, share advertising-set
+    drive factor, share enable
+    drive factor, share status
+    throw build, field unit
+
+force on-advertising-parameters-updated
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount tx-power, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdvertisingParametersUpdated|
+    drive factor, share advertising-set
+    drive factor, share tx-power
+    drive factor, share status
+    throw build, field unit
+
+force on-advertising-set-started
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount tx-power, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdvertisingSetStarted|
+    drive factor, share advertising-set
+    drive factor, share tx-power
+    drive factor, share status
+    throw build, field unit
+
+force on-advertising-set-stopped
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+
+  cause call-method
+    drive object, share build
+    drive method, |onAdvertisingSetStopped|
+    drive factor, share advertising-set
+    throw build, field unit
+
+force on-periodic-advertising-data-set
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPeriodicAdvertisingDataSet|
+    drive factor, share advertising-set
+    drive factor, share status
+    throw build, field unit
+
+force on-periodic-advertising-enabled
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount enable, field boolean
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPeriodicAdvertisingEnabled|
+    drive factor, share advertising-set
+    drive factor, share enable
+    drive factor, share status
+    throw build, field unit
+
+force on-periodic-advertising-parameters-updated
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPeriodicAdvertisingParametersUpdated|
+    drive factor, share advertising-set
+    drive factor, share status
+    throw build, field unit
+
+force on-scan-response-data-set
+  mount build, field advertising-set-callback
+  mount advertising-set, field advertising-set
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onScanResponseDataSet|
+    drive factor, share advertising-set
+    drive factor, share status
+    throw build, field unit

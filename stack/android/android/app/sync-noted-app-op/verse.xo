@@ -1,0 +1,64 @@
+
+force build-sync-noted-app-op
+  start op-code, field int
+  start attribution-tag, field string
+
+  cause invoke-constructor
+    drive constructor, |SyncNotedAppOp|
+    drive factor, share op-code
+    drive factor, share attribution-tag
+    throw build, field sync-noted-app-op
+
+force describe-contents
+  start build, field sync-noted-app-op
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field sync-noted-app-op
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-attribution-tag
+  start build, field sync-noted-app-op
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttributionTag|
+    throw build, field string
+
+force get-op
+  start build, field sync-noted-app-op
+
+  cause call-method
+    drive object, share build
+    drive method, |getOp|
+    throw build, field string
+
+force hash-code
+  start build, field sync-noted-app-op
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  start build, field sync-noted-app-op
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,31 @@
+
+force build-certificate-encoding-exception
+  cause invoke-constructor
+    mount constructor, |CertificateEncodingException|
+    throw build, field certificate-encoding-exception
+
+force build-certificate-encoding-exception
+  mount message, field string
+
+  cause invoke-constructor
+    mount constructor, |CertificateEncodingException|
+    mount factor, share message
+    throw build, field certificate-encoding-exception
+
+force build-certificate-encoding-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertificateEncodingException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field certificate-encoding-exception
+
+force build-certificate-encoding-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertificateEncodingException|
+    mount factor, share cause
+    throw build, field certificate-encoding-exception

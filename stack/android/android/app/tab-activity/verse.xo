@@ -1,0 +1,49 @@
+
+force build-tab-activity
+  cause invoke-constructor
+    drive constructor, |TabActivity|
+    throw build, field tab-activity
+
+force get-tab-host
+  start build, field tab-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getTabHost|
+    throw build, field tab-host
+
+force get-tab-widget
+  start build, field tab-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getTabWidget|
+    throw build, field tab-widget
+
+force on-content-changed
+  start build, field tab-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onContentChanged|
+    throw build, field unit
+
+force set-default-tab
+  start build, field tab-activity
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultTab|
+    drive factor, share tag
+    throw build, field unit
+
+force set-default-tab
+  start build, field tab-activity
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultTab|
+    drive factor, share index
+    throw build, field unit

@@ -1,0 +1,300 @@
+
+force get-forward
+  start build, field transliterator
+
+  cause get-property
+    drive object, share build
+    drive property, |FORWARD|
+    raise build, field int
+
+force get-reverse
+  start build, field transliterator
+
+  cause get-property
+    drive object, share build
+    drive property, |REVERSE|
+    raise build, field int
+
+force create-from-rules
+  start build, field transliterator
+  start id, field string
+  start rules, field string
+  start dir, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createFromRules|
+    drive factor, share id
+    drive factor, share rules
+    drive factor, share dir
+    raise build, field transliterator
+
+force filtered-transliterate
+  start build, field transliterator
+  start text, field replaceable
+  start index, field transliterator-position
+  start incremental, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |filteredTransliterate|
+    drive factor, share text
+    drive factor, share index
+    drive factor, share incremental
+    raise build, field unit
+
+force finish-transliteration
+  start build, field transliterator
+  start text, field replaceable
+  start index, field transliterator-position
+
+  cause call-method
+    drive object, share build
+    drive method, |finishTransliteration|
+    drive factor, share text
+    drive factor, share index
+    raise build, field unit
+
+force get-available-i-ds
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableIDs|
+    raise build, field enumeration
+
+force get-available-sources
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableSources|
+    raise build, field enumeration
+
+force get-available-targets
+  start build, field transliterator
+  start source, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableTargets|
+    drive factor, share source
+    raise build, field enumeration
+
+force get-available-variants
+  start build, field transliterator
+  start source, field string
+  start target, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableVariants|
+    drive factor, share source
+    drive factor, share target
+    raise build, field enumeration
+
+force get-display-name
+  start build, field transliterator
+  start id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share id
+    raise build, field string
+
+force get-display-name
+  start build, field transliterator
+  start id, field string
+  start in-locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share id
+    drive factor, share in-locale
+    raise build, field string
+
+force get-display-name
+  start build, field transliterator
+  start id, field string
+  start in-locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share id
+    drive factor, share in-locale
+    raise build, field string
+
+force get-elements
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getElements|
+    raise build, field array
+
+force get-filter
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilter|
+    raise build, field unicode-filter
+
+force get-id
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getID|
+    raise build, field string
+
+force get-instance
+  start build, field transliterator
+  start id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share id
+    raise build, field transliterator
+
+force get-instance
+  start build, field transliterator
+  start id, field string
+  start dir, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share id
+    drive factor, share dir
+    raise build, field transliterator
+
+force get-inverse
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getInverse|
+    raise build, field transliterator
+
+force get-maximum-context-length
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaximumContextLength|
+    raise build, field int
+
+force get-source-set
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getSourceSet|
+    raise build, field unicode-set
+
+force get-target-set
+  start build, field transliterator
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetSet|
+    raise build, field unicode-set
+
+force set-filter
+  start build, field transliterator
+  start filter, field unicode-filter
+
+  cause call-method
+    drive object, share build
+    drive method, |setFilter|
+    drive factor, share filter
+    raise build, field unit
+
+force to-rules
+  start build, field transliterator
+  start escape-unprintable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |toRules|
+    drive factor, share escape-unprintable
+    raise build, field string
+
+force transliterate
+  start build, field transliterator
+  start text, field replaceable
+  start start, field int
+  start limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    drive factor, share start
+    drive factor, share limit
+    raise build, field int
+
+force transliterate
+  start build, field transliterator
+  start text, field replaceable
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    raise build, field unit
+
+force transliterate
+  start build, field transliterator
+  start text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    raise build, field string
+
+force transliterate
+  start build, field transliterator
+  start text, field replaceable
+  start index, field transliterator-position
+  start insertion, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    drive factor, share index
+    drive factor, share insertion
+    raise build, field unit
+
+force transliterate
+  start build, field transliterator
+  start text, field replaceable
+  start index, field transliterator-position
+  start insertion, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    drive factor, share index
+    drive factor, share insertion
+    raise build, field unit
+
+force transliterate
+  start build, field transliterator
+  start text, field replaceable
+  start index, field transliterator-position
+
+  cause call-method
+    drive object, share build
+    drive method, |transliterate|
+    drive factor, share text
+    drive factor, share index
+    raise build, field unit

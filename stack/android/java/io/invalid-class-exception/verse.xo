@@ -1,0 +1,18 @@
+
+force build-invalid-class-exception
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |InvalidClassException|
+    drive factor, share reason
+    throw build, field invalid-class-exception
+
+force build-invalid-class-exception
+  mount cname, field string
+  mount reason, field string
+
+  cause invoke-constructor
+    drive constructor, |InvalidClassException|
+    drive factor, share cname
+    drive factor, share reason
+    throw build, field invalid-class-exception

@@ -1,0 +1,112 @@
+
+force build-gesture-detector
+  mount listener, field gesture-detector-on-gesture-listener
+  mount handler, field handler
+
+  cause invoke-constructor
+    drive constructor, |GestureDetector|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field gesture-detector
+
+force build-gesture-detector
+  mount listener, field gesture-detector-on-gesture-listener
+
+  cause invoke-constructor
+    drive constructor, |GestureDetector|
+    drive factor, share listener
+    raise build, field gesture-detector
+
+force build-gesture-detector
+  mount context, field context
+  mount listener, field gesture-detector-on-gesture-listener
+
+  cause invoke-constructor
+    drive constructor, |GestureDetector|
+    drive factor, share context
+    drive factor, share listener
+    raise build, field gesture-detector
+
+force build-gesture-detector
+  mount context, field context
+  mount listener, field gesture-detector-on-gesture-listener
+  mount handler, field handler
+
+  cause invoke-constructor
+    drive constructor, |GestureDetector|
+    drive factor, share context
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field gesture-detector
+
+force build-gesture-detector
+  mount context, field context
+  mount listener, field gesture-detector-on-gesture-listener
+  mount handler, field handler
+  mount unused, field boolean
+
+  cause invoke-constructor
+    drive constructor, |GestureDetector|
+    drive factor, share context
+    drive factor, share listener
+    drive factor, share handler
+    drive factor, share unused
+    raise build, field gesture-detector
+
+force is-longpress-enabled
+  mount build, field gesture-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |isLongpressEnabled|
+    raise build, field boolean
+
+force on-generic-motion-event
+  mount build, field gesture-detector
+  mount ev, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onGenericMotionEvent|
+    drive factor, share ev
+    raise build, field boolean
+
+force on-touch-event
+  mount build, field gesture-detector
+  mount ev, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share ev
+    raise build, field boolean
+
+force set-context-click-listener
+  mount build, field gesture-detector
+  mount on-context-click-listener, field gesture-detector-on-context-click-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setContextClickListener|
+    drive factor, share on-context-click-listener
+    raise build, field unit
+
+force set-is-longpress-enabled
+  mount build, field gesture-detector
+  mount is-longpress-enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIsLongpressEnabled|
+    drive factor, share is-longpress-enabled
+    raise build, field unit
+
+force set-on-double-tap-listener
+  mount build, field gesture-detector
+  mount on-double-tap-listener, field gesture-detector-on-double-tap-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnDoubleTapListener|
+    drive factor, share on-double-tap-listener
+    raise build, field unit

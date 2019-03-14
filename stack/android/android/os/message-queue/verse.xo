@@ -1,0 +1,52 @@
+
+force add-idle-handler
+  mount build, field message-queue
+  mount handler, field message-queue-idle-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addIdleHandler|
+    drive factor, share handler
+    raise build, field unit
+
+force add-on-file-descriptor-event-listener
+  mount build, field message-queue
+  mount fd, field file-descriptor
+  mount events, field int
+  mount listener, field message-queue-on-file-descriptor-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addOnFileDescriptorEventListener|
+    drive factor, share fd
+    drive factor, share events
+    drive factor, share listener
+    raise build, field unit
+
+force is-idle
+  mount build, field message-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |isIdle|
+    raise build, field boolean
+
+force remove-idle-handler
+  mount build, field message-queue
+  mount handler, field message-queue-idle-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |removeIdleHandler|
+    drive factor, share handler
+    raise build, field unit
+
+force remove-on-file-descriptor-event-listener
+  mount build, field message-queue
+  mount fd, field file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |removeOnFileDescriptorEventListener|
+    drive factor, share fd
+    raise build, field unit

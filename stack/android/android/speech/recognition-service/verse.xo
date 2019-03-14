@@ -1,0 +1,39 @@
+
+force get-service-interface
+  mount build, field recognition-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force get-service-meta-data
+  mount build, field recognition-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    throw build, field string
+
+force build-recognition-service
+  cause invoke-constructor
+    drive constructor, |RecognitionService|
+    throw build, field recognition-service
+
+force on-bind
+  mount build, field recognition-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-destroy
+  mount build, field recognition-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit

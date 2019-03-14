@@ -1,0 +1,34 @@
+
+force get-param-target-gain-mb
+  mount build, field loudness-enhancer
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAM_TARGET_GAIN_MB|
+    raise build, field int
+
+force build-loudness-enhancer
+  mount audio-session, field int
+
+  cause invoke-constructor
+    drive constructor, |LoudnessEnhancer|
+    drive factor, share audio-session
+    raise build, field loudness-enhancer
+
+force get-target-gain
+  mount build, field loudness-enhancer
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetGain|
+    raise build, field float
+
+force set-target-gain
+  mount build, field loudness-enhancer
+  mount gainm-b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTargetGain|
+    drive factor, share gainm-b
+    raise build, field unit

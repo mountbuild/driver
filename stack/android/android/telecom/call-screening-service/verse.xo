@@ -1,0 +1,55 @@
+
+force get-service-interface
+  mount build, field call-screening-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force build-call-screening-service
+  cause invoke-constructor
+    drive constructor, |CallScreeningService|
+    throw build, field call-screening-service
+
+force on-bind
+  mount build, field call-screening-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-screen-call
+  mount build, field call-screening-service
+  mount call-details, field call-details
+
+  cause call-method
+    drive object, share build
+    drive method, |onScreenCall|
+    drive factor, share call-details
+    throw build, field unit
+
+force on-unbind
+  mount build, field call-screening-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    throw build, field boolean
+
+force respond-to-call
+  mount build, field call-screening-service
+  mount call-details, field call-details
+  mount response, field call-screening-service-call-response
+
+  cause call-method
+    drive object, share build
+    drive method, |respondToCall|
+    drive factor, share call-details
+    drive factor, share response
+    throw build, field unit

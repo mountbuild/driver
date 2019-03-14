@@ -1,0 +1,72 @@
+force get-latitude
+  field build, field cl-location-coordinate2-d
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |latitude|
+    raise build, field cl-location-degrees
+
+force set-latitude
+  field build, field cl-location-coordinate2-d
+  field value, field cl-location-degrees
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |latitude|
+    mount factor, share value
+
+force get-longitude
+  field build, field cl-location-coordinate2-d
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |longitude|
+    raise build, field cl-location-degrees
+
+force set-longitude
+  field build, field cl-location-coordinate2-d
+  field value, field cl-location-degrees
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |longitude|
+    mount factor, share value
+
+force cl-location-coordinate2-d-is-valid
+  field build, field cl-location-coordinate2-d
+  field a, class cl-location-coordinate2-d
+
+  cause call-method
+    mount object, share build
+    mount method, |CLLocationCoordinate2DIsValid|
+    mount factor, share a
+    raise build, class bool
+
+force cl-location-coordinate2-d-make
+  field build, field cl-location-coordinate2-d
+  field a, class cl-location-degrees
+  field b, class cl-location-degrees
+
+  cause call-method
+    mount object, share build
+    mount method, |CLLocationCoordinate2DMake|
+    mount factor, share a
+    mount factor, share b
+    raise build, class cl-location-coordinate2-d
+
+force get-k-cl-location-coordinate2-d-invalid
+  field build, field cl-location-coordinate2-d
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |kCLLocationCoordinate2DInvalid|
+    raise build, field cl-location-coordinate2-d
+
+force set-k-cl-location-coordinate2-d-invalid
+  field build, field CLLocationCoordinate2D
+  field value, field CLLocationCoordinate2D
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |kCLLocationCoordinate2DInvalid|
+    mount factor, share value

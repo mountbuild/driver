@@ -1,0 +1,140 @@
+
+force get-route-bluetooth
+  mount build, field call-audio-state
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_BLUETOOTH|
+    throw build, field int
+
+force get-route-earpiece
+  mount build, field call-audio-state
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_EARPIECE|
+    throw build, field int
+
+force get-route-speaker
+  mount build, field call-audio-state
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_SPEAKER|
+    throw build, field int
+
+force get-route-wired-headset
+  mount build, field call-audio-state
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_WIRED_HEADSET|
+    throw build, field int
+
+force get-route-wired-or-earpiece
+  mount build, field call-audio-state
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_WIRED_OR_EARPIECE|
+    throw build, field int
+
+force build-call-audio-state
+  mount muted, field boolean
+  mount route, field int
+  mount supported-route-mask, field int
+
+  cause invoke-constructor
+    drive constructor, |CallAudioState|
+    drive factor, share muted
+    drive factor, share route
+    drive factor, share supported-route-mask
+    throw build, field call-audio-state
+
+force audio-route-to-string
+  mount build, field call-audio-state
+  mount route, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |audioRouteToString|
+    drive factor, share route
+    throw build, field string
+
+force describe-contents
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field call-audio-state
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-active-bluetooth-device
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveBluetoothDevice|
+    throw build, field bluetooth-device
+
+force get-route
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoute|
+    throw build, field int
+
+force get-supported-bluetooth-devices
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedBluetoothDevices|
+    throw build, field mutable-collection
+
+force get-supported-route-mask
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedRouteMask|
+    throw build, field int
+
+force is-muted
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |isMuted|
+    throw build, field boolean
+
+force to-string
+  mount build, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field call-audio-state
+  mount destination, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share destination
+    drive factor, share flags
+    throw build, field unit

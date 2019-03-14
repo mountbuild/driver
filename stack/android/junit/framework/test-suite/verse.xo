@@ -1,0 +1,183 @@
+
+force build-test-suite
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    throw build, field test-suite
+
+force build-test-suite
+  start the-class, field class
+
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    drive factor, share the-class
+    throw build, field test-suite
+
+force build-test-suite
+  start the-class, field class-out-test-case
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    drive factor, share the-class
+    drive factor, share name
+    throw build, field test-suite
+
+force build-test-suite
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    drive factor, share name
+    throw build, field test-suite
+
+force build-test-suite
+  start vararg-classes, field class
+
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    drive factor, share vararg-classes
+    throw build, field test-suite
+
+force build-test-suite
+  start classes, field array-class-out-test-case
+  start name, field string
+
+  cause invoke-constructor
+    drive constructor, |TestSuite|
+    drive factor, share classes
+    drive factor, share name
+    throw build, field test-suite
+
+force add-test
+  start build, field test-suite
+  start test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |addTest|
+    drive factor, share test
+    throw build, field unit
+
+force add-test-suite
+  start build, field test-suite
+  start test-class, field class-out-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |addTestSuite|
+    drive factor, share test-class
+    throw build, field unit
+
+force count-test-cases
+  start build, field test-suite
+
+  cause call-method
+    drive object, share build
+    drive method, |countTestCases|
+    throw build, field int
+
+force create-test
+  start build, field test-suite
+  start the-class, field class
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createTest|
+    drive factor, share the-class
+    drive factor, share name
+    throw build, field test
+
+force get-name
+  start build, field test-suite
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-test-constructor
+  start build, field test-suite
+  start the-class, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |getTestConstructor|
+    drive factor, share the-class
+    throw build, field constructor
+
+force run
+  start build, field test-suite
+  start result, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    drive factor, share result
+    throw build, field unit
+
+force run-test
+  start build, field test-suite
+  start test, field test
+  start result, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |runTest|
+    drive factor, share test
+    drive factor, share result
+    throw build, field unit
+
+force set-name
+  start build, field test-suite
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    throw build, field unit
+
+force test-at
+  start build, field test-suite
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |testAt|
+    drive factor, share index
+    throw build, field test
+
+force test-count
+  start build, field test-suite
+
+  cause call-method
+    drive object, share build
+    drive method, |testCount|
+    throw build, field int
+
+force tests
+  start build, field test-suite
+
+  cause call-method
+    drive object, share build
+    drive method, |tests|
+    throw build, field enumeration
+
+force to-string
+  start build, field test-suite
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force warning
+  start build, field test-suite
+  start message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |warning|
+    drive factor, share message
+    throw build, field test

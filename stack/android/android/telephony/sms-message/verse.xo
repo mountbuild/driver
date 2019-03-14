@@ -1,0 +1,378 @@
+
+force get-encoding-16-bit
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |ENCODING_16BIT|
+    throw build, field int
+
+force get-encoding-7-bit
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |ENCODING_7BIT|
+    throw build, field int
+
+force get-encoding-8-bit
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |ENCODING_8BIT|
+    throw build, field int
+
+force get-encoding-unknown
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |ENCODING_UNKNOWN|
+    throw build, field int
+
+force get-format-3-gpp
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_3GPP|
+    throw build, field string
+
+force get-format-3-gpp2
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_3GPP2|
+    throw build, field string
+
+force get-max-user-data-bytes
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_USER_DATA_BYTES|
+    throw build, field int
+
+force get-max-user-data-bytes-with-header
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_USER_DATA_BYTES_WITH_HEADER|
+    throw build, field int
+
+force get-max-user-data-septets
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_USER_DATA_SEPTETS|
+    throw build, field int
+
+force get-max-user-data-septets-with-header
+  mount build, field sms-message
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_USER_DATA_SEPTETS_WITH_HEADER|
+    throw build, field int
+
+force calculate-length
+  mount build, field sms-message
+  mount msg-body, field char-sequence
+  mount use7bit-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |calculateLength|
+    drive factor, share msg-body
+    drive factor, share use7bit-only
+    throw build, field int-array
+
+force calculate-length
+  mount build, field sms-message
+  mount message-body, field string
+  mount use7bit-only, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |calculateLength|
+    drive factor, share message-body
+    drive factor, share use7bit-only
+    throw build, field int-array
+
+force create-from-pdu
+  mount build, field sms-message
+  mount pdu, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |createFromPdu|
+    drive factor, share pdu
+    throw build, field sms-message
+
+force create-from-pdu
+  mount build, field sms-message
+  mount pdu, field byte-array
+  mount format, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createFromPdu|
+    drive factor, share pdu
+    drive factor, share format
+    throw build, field sms-message
+
+force get-display-message-body
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayMessageBody|
+    throw build, field string
+
+force get-display-originating-address
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayOriginatingAddress|
+    throw build, field string
+
+force get-email-body
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getEmailBody|
+    throw build, field string
+
+force get-email-from
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getEmailFrom|
+    throw build, field string
+
+force get-index-on-icc
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndexOnIcc|
+    throw build, field int
+
+force get-index-on-sim
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getIndexOnSim|
+    throw build, field int
+
+force get-message-body
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageBody|
+    throw build, field string
+
+force get-message-class
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getMessageClass|
+    throw build, field sms-message-message-class
+
+force get-originating-address
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getOriginatingAddress|
+    throw build, field string
+
+force get-pdu
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getPdu|
+    throw build, field byte-array
+
+force get-protocol-identifier
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getProtocolIdentifier|
+    throw build, field int
+
+force get-pseudo-subject
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getPseudoSubject|
+    throw build, field string
+
+force get-service-center-address
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceCenterAddress|
+    throw build, field string
+
+force get-status
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatus|
+    throw build, field int
+
+force get-status-on-icc
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatusOnIcc|
+    throw build, field int
+
+force get-status-on-sim
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatusOnSim|
+    throw build, field int
+
+force get-submit-pdu
+  mount build, field sms-message
+  mount sc-address, field string
+  mount destination-address, field string
+  mount message, field string
+  mount status-report-requested, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubmitPdu|
+    drive factor, share sc-address
+    drive factor, share destination-address
+    drive factor, share message
+    drive factor, share status-report-requested
+    throw build, field sms-message-submit-pdu
+
+force get-submit-pdu
+  mount build, field sms-message
+  mount sc-address, field string
+  mount destination-address, field string
+  mount destination-port, field short
+  mount data, field byte-array
+  mount status-report-requested, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubmitPdu|
+    drive factor, share sc-address
+    drive factor, share destination-address
+    drive factor, share destination-port
+    drive factor, share data
+    drive factor, share status-report-requested
+    throw build, field sms-message-submit-pdu
+
+force get-tp-layer-length-for-pdu
+  mount build, field sms-message
+  mount pdu, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getTPLayerLengthForPDU|
+    drive factor, share pdu
+    throw build, field int
+
+force get-timestamp-millis
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestampMillis|
+    throw build, field long
+
+force get-user-data
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserData|
+    throw build, field byte-array
+
+force is-cphs-mwi-message
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isCphsMwiMessage|
+    throw build, field boolean
+
+force is-email
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmail|
+    throw build, field boolean
+
+force is-mwi-clear-message
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isMWIClearMessage|
+    throw build, field boolean
+
+force is-mwi-set-message
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isMWISetMessage|
+    throw build, field boolean
+
+force is-mwi-dont-store
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isMwiDontStore|
+    throw build, field boolean
+
+force is-replace
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isReplace|
+    throw build, field boolean
+
+force is-reply-path-present
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isReplyPathPresent|
+    throw build, field boolean
+
+force is-status-report-message
+  mount build, field sms-message
+
+  cause call-method
+    drive object, share build
+    drive method, |isStatusReportMessage|
+    throw build, field boolean

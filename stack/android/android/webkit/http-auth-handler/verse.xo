@@ -1,0 +1,28 @@
+
+force cancel
+  mount build, field http-auth-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field unit
+
+force proceed
+  mount build, field http-auth-handler
+  mount username, field string
+  mount password, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |proceed|
+    drive factor, share username
+    drive factor, share password
+    throw build, field unit
+
+force use-http-auth-username-password
+  mount build, field http-auth-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |useHttpAuthUsernamePassword|
+    throw build, field boolean

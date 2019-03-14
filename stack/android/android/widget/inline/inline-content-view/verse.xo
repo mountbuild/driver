@@ -1,0 +1,64 @@
+
+force get-surface-control
+  mount build, field inline-content-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurfaceControl|
+    throw build, field surface-control
+
+force is-z-ordered-on-top
+  mount build, field inline-content-view
+
+  cause call-method
+    drive object, share build
+    drive method, |isZOrderedOnTop|
+    throw build, field boolean
+
+force on-layout
+  mount build, field inline-content-view
+  mount changed, field boolean
+  mount l, field int
+  mount t, field int
+  mount r, field int
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onLayout|
+    drive factor, share changed
+    drive factor, share l
+    drive factor, share t
+    drive factor, share r
+    drive factor, share b
+    throw build, field unit
+
+force set-clip-bounds
+  mount build, field inline-content-view
+  mount clip-bounds, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setClipBounds|
+    drive factor, share clip-bounds
+    throw build, field unit
+
+force set-surface-control-callback
+  mount build, field inline-content-view
+  mount callback, field inline-content-view-surface-control-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setSurfaceControlCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force set-z-ordered-on-top
+  mount build, field inline-content-view
+  mount on-top, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setZOrderedOnTop|
+    drive factor, share on-top
+    throw build, field boolean

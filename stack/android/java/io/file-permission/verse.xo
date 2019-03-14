@@ -1,0 +1,28 @@
+
+force build-file-permission
+  mount path, field string
+  mount actions, field string
+
+  cause invoke-constructor
+    drive constructor, |FilePermission|
+    drive factor, share path
+    drive factor, share actions
+    throw build, field file-permission
+
+force get-actions
+  mount build, field file-permission
+
+  cause call-method
+    drive object, share build
+    drive method, |getActions|
+    throw build, field string
+
+force implies
+  mount build, field file-permission
+  mount p, field permission
+
+  cause call-method
+    drive object, share build
+    drive method, |implies|
+    drive factor, share p
+    throw build, field boolean

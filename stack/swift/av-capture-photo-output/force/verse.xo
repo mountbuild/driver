@@ -1,0 +1,645 @@
+force capture-photo
+  field build, field av-capture-photo-output
+  field with, field av-capture-photo-settings
+  field delegate, field av-capture-photo-capture-delegate
+
+  cause call-method
+    drive object, share build
+    drive method, |capturePhoto|
+    drive factor
+      brand with
+      share with
+    drive factor
+      brand delegate
+      share delegate
+
+force get-available-photo-file-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availablePhotoFileTypes|
+    raise build, field av-file-type
+
+force set-available-photo-file-types
+  field build, field av-capture-photo-output
+  field value, field av-file-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availablePhotoFileTypes|
+    drive factor, share value
+
+force get-available-raw-photo-file-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableRawPhotoFileTypes|
+    raise build, field av-file-type
+
+force set-available-raw-photo-file-types
+  field build, field av-capture-photo-output
+  field value, field av-file-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableRawPhotoFileTypes|
+    drive factor, share value
+
+force supported-photo-codec-types
+  field build, field av-capture-photo-output
+  field for, field av-file-type
+
+  cause call-method
+    drive object, share build
+    drive method, |supportedPhotoCodecTypes|
+    drive factor
+      brand for
+      share for
+    raise build, class av-video-codec-type
+
+force supported-photo-pixel-format-types
+  field build, field av-capture-photo-output
+  field for, field av-file-type
+
+  cause call-method
+    drive object, share build
+    drive method, |supportedPhotoPixelFormatTypes|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-number
+
+force supported-raw-photo-pixel-format-types
+  field build, field av-capture-photo-output
+  field for, field av-file-type
+
+  cause call-method
+    drive object, share build
+    drive method, |supportedRawPhotoPixelFormatTypes|
+    drive factor
+      brand for
+      share for
+    raise build, class ns-number
+
+force get-available-photo-codec-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availablePhotoCodecTypes|
+    raise build, field av-video-codec-type
+
+force set-available-photo-codec-types
+  field build, field av-capture-photo-output
+  field value, field av-video-codec-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availablePhotoCodecTypes|
+    drive factor, share value
+
+force get-is-still-image-stabilization-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isStillImageStabilizationSupported|
+    raise build, field bool
+
+force set-is-still-image-stabilization-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isStillImageStabilizationSupported|
+    drive factor, share value
+
+force get-is-dual-camera-fusion-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDualCameraFusionSupported|
+    raise build, field bool
+
+force set-is-dual-camera-fusion-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDualCameraFusionSupported|
+    drive factor, share value
+
+force get-max-bracketed-capture-photo-count
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxBracketedCapturePhotoCount|
+    raise build, field int
+
+force set-max-bracketed-capture-photo-count
+  field build, field av-capture-photo-output
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxBracketedCapturePhotoCount|
+    drive factor, share value
+
+force get-is-lens-stabilization-during-bracketed-capture-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLensStabilizationDuringBracketedCaptureSupported|
+    raise build, field bool
+
+force set-is-lens-stabilization-during-bracketed-capture-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLensStabilizationDuringBracketedCaptureSupported|
+    drive factor, share value
+
+force get-supported-flash-modes
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |supportedFlashModes|
+    raise build, field av-capture-device-flash-mode
+
+force set-supported-flash-modes
+  field build, field av-capture-photo-output
+  field value, field av-capture-device-flash-mode
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |supportedFlashModes|
+    drive factor, share value
+
+force get-available-photo-pixel-format-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availablePhotoPixelFormatTypes|
+    raise build, field os-type
+
+force set-available-photo-pixel-format-types
+  field build, field av-capture-photo-output
+  field value, field os-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availablePhotoPixelFormatTypes|
+    drive factor, share value
+
+force get-available-raw-photo-pixel-format-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableRawPhotoPixelFormatTypes|
+    raise build, field os-type
+
+force set-available-raw-photo-pixel-format-types
+  field build, field av-capture-photo-output
+  field value, field os-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableRawPhotoPixelFormatTypes|
+    drive factor, share value
+
+force get-is-auto-red-eye-reduction-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isAutoRedEyeReductionSupported|
+    raise build, field bool
+
+force set-is-auto-red-eye-reduction-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isAutoRedEyeReductionSupported|
+    drive factor, share value
+
+force get-is-flash-scene
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isFlashScene|
+    raise build, field bool
+
+force set-is-flash-scene
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isFlashScene|
+    drive factor, share value
+
+force get-is-still-image-stabilization-scene
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isStillImageStabilizationScene|
+    raise build, field bool
+
+force set-is-still-image-stabilization-scene
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isStillImageStabilizationScene|
+    drive factor, share value
+
+force get-photo-settings-for-scene-monitoring
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |photoSettingsForSceneMonitoring|
+    raise build, field av-capture-photo-settings
+
+force set-photo-settings-for-scene-monitoring
+  field build, field av-capture-photo-output
+  field value, field av-capture-photo-settings
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |photoSettingsForSceneMonitoring|
+    drive factor, share value
+
+force get-is-high-resolution-capture-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isHighResolutionCaptureEnabled|
+    raise build, field bool
+
+force set-is-high-resolution-capture-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isHighResolutionCaptureEnabled|
+    drive factor, share value
+
+force get-is-live-photo-capture-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureSupported|
+    raise build, field bool
+
+force set-is-live-photo-capture-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureSupported|
+    drive factor, share value
+
+force get-is-live-photo-capture-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureEnabled|
+    raise build, field bool
+
+force set-is-live-photo-capture-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureEnabled|
+    drive factor, share value
+
+force get-is-live-photo-capture-suspended
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureSuspended|
+    raise build, field bool
+
+force set-is-live-photo-capture-suspended
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoCaptureSuspended|
+    drive factor, share value
+
+force get-is-live-photo-auto-trimming-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoAutoTrimmingEnabled|
+    raise build, field bool
+
+force set-is-live-photo-auto-trimming-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isLivePhotoAutoTrimmingEnabled|
+    drive factor, share value
+
+force get-available-live-photo-video-codec-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableLivePhotoVideoCodecTypes|
+    raise build, field av-video-codec-type
+
+force set-available-live-photo-video-codec-types
+  field build, field av-capture-photo-output
+  field value, field av-video-codec-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableLivePhotoVideoCodecTypes|
+    drive factor, share value
+
+force get-is-depth-data-delivery-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDepthDataDeliverySupported|
+    raise build, field bool
+
+force set-is-depth-data-delivery-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDepthDataDeliverySupported|
+    drive factor, share value
+
+force get-is-depth-data-delivery-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDepthDataDeliveryEnabled|
+    raise build, field bool
+
+force set-is-depth-data-delivery-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDepthDataDeliveryEnabled|
+    drive factor, share value
+
+force get-is-portrait-effects-matte-delivery-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPortraitEffectsMatteDeliveryEnabled|
+    raise build, field bool
+
+force set-is-portrait-effects-matte-delivery-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPortraitEffectsMatteDeliveryEnabled|
+    drive factor, share value
+
+force get-is-portrait-effects-matte-delivery-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPortraitEffectsMatteDeliverySupported|
+    raise build, field bool
+
+force set-is-portrait-effects-matte-delivery-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPortraitEffectsMatteDeliverySupported|
+    drive factor, share value
+
+force get-portrait-effects-matte
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |portraitEffectsMatte|
+    raise build, field av-portrait-effects-matte
+
+force set-portrait-effects-matte
+  field build, field av-capture-photo-output
+  field value, field av-portrait-effects-matte
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |portraitEffectsMatte|
+    drive factor, share value
+
+force get-is-dual-camera-dual-photo-delivery-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDualCameraDualPhotoDeliverySupported|
+    raise build, field bool
+
+force set-is-dual-camera-dual-photo-delivery-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDualCameraDualPhotoDeliverySupported|
+    drive factor, share value
+
+force get-is-camera-calibration-data-delivery-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isCameraCalibrationDataDeliverySupported|
+    raise build, field bool
+
+force set-is-camera-calibration-data-delivery-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isCameraCalibrationDataDeliverySupported|
+    drive factor, share value
+
+force get-is-dual-camera-dual-photo-delivery-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isDualCameraDualPhotoDeliveryEnabled|
+    raise build, field bool
+
+force set-is-dual-camera-dual-photo-delivery-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isDualCameraDualPhotoDeliveryEnabled|
+    drive factor, share value
+
+force get-is-virtual-device-constituent-photo-delivery-enabled
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceConstituentPhotoDeliveryEnabled|
+    raise build, field bool
+
+force set-is-virtual-device-constituent-photo-delivery-enabled
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceConstituentPhotoDeliveryEnabled|
+    drive factor, share value
+
+force get-is-virtual-device-constituent-photo-delivery-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceConstituentPhotoDeliverySupported|
+    raise build, field bool
+
+force set-is-virtual-device-constituent-photo-delivery-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceConstituentPhotoDeliverySupported|
+    drive factor, share value
+
+force get-is-virtual-device-fusion-supported
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceFusionSupported|
+    raise build, field bool
+
+force set-is-virtual-device-fusion-supported
+  field build, field av-capture-photo-output
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isVirtualDeviceFusionSupported|
+    drive factor, share value
+
+force get-prepared-photo-settings-array
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |preparedPhotoSettingsArray|
+    raise build, field av-capture-photo-settings
+
+force set-prepared-photo-settings-array
+  field build, field av-capture-photo-output
+  field value, field av-capture-photo-settings
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |preparedPhotoSettingsArray|
+    drive factor, share value
+
+force get-available-semantic-segmentation-matte-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |availableSemanticSegmentationMatteTypes|
+    raise build, field av-semantic-segmentation-matte-matte-type
+
+force set-available-semantic-segmentation-matte-types
+  field build, field av-capture-photo-output
+  field value, field av-semantic-segmentation-matte-matte-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |availableSemanticSegmentationMatteTypes|
+    drive factor, share value
+
+force get-enabled-semantic-segmentation-matte-types
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |enabledSemanticSegmentationMatteTypes|
+    raise build, field av-semantic-segmentation-matte-matte-type
+
+force set-enabled-semantic-segmentation-matte-types
+  field build, field av-capture-photo-output
+  field value, field av-semantic-segmentation-matte-matte-type
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |enabledSemanticSegmentationMatteTypes|
+    drive factor, share value
+
+force get-max-photo-quality-prioritization
+  field build, field av-capture-photo-output
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |maxPhotoQualityPrioritization|
+    raise build, field av-capture-photo-output-quality-prioritization
+
+force set-max-photo-quality-prioritization
+  field build, field av-capture-photo-output
+  field value, field av-capture-photo-output-quality-prioritization
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |maxPhotoQualityPrioritization|
+    drive factor, share value

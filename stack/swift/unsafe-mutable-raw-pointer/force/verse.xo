@@ -1,0 +1,140 @@
+force get-custom-mirror
+  field build, field unsafe-mutable-raw-pointer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field unsafe-mutable-raw-pointer
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-custom-playground-quick-look
+  field build, field unsafe-mutable-raw-pointer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field unsafe-mutable-raw-pointer
+  field value, field playground-quick-look
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    drive factor, share value
+
+force get-debug-description
+  field build, field unsafe-mutable-raw-pointer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field unsafe-mutable-raw-pointer
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-hash-value
+  field build, field unsafe-mutable-raw-pointer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field unsafe-mutable-raw-pointer
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force advanced
+  field build, field unsafe-mutable-raw-pointer
+  field by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |advanced|
+    drive factor
+      brand by
+      share by
+    raise build, class unsafe-mutable-raw-pointer
+
+force copy-memory
+  field build, field unsafe-mutable-raw-pointer
+  field from, field unsafe-raw-pointer
+  field byte-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyMemory|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand byte-count
+      share byte-count
+
+force deallocate
+  field build, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |deallocate|
+
+force distance
+  field build, field unsafe-mutable-raw-pointer
+  field to, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |distance|
+    drive factor
+      brand to
+      share to
+    raise build, class int
+
+force hash
+  field build, field unsafe-mutable-raw-pointer
+  field into, field inout-hasher
+
+  cause call-method
+    drive object, share build
+    drive method, |hash|
+    drive factor
+      brand into
+      share into
+
+force predecessor
+  field build, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |predecessor|
+    raise build, class unsafe-mutable-raw-pointer
+
+force successor
+  field build, field unsafe-mutable-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |successor|
+    raise build, class unsafe-mutable-raw-pointer

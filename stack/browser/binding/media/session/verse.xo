@@ -1,0 +1,56 @@
+
+force get-metadata
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |metadata|
+    throw build
+
+force set-metadata
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |metadata|
+    mount factor, share value
+
+force get-playback-state
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |playbackState|
+    throw build
+
+force set-playback-state
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |playbackState|
+    mount factor, share value
+
+force set-action-handler
+  start build
+  start type
+  start callback
+
+  cause call-method
+    mount object, share build
+    mount method, |setActionHandler|
+    mount factor, share type
+    mount factor, share callback
+    throw build
+
+force set-position-state
+  start build
+  start state-dict
+
+  cause call-method
+    mount object, share build
+    mount method, |setPositionState|
+    mount factor, share state-dict
+    throw build

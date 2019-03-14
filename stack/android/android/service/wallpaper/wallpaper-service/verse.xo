@@ -1,0 +1,55 @@
+
+force get-service-interface
+  mount build, field wallpaper-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force get-service-meta-data
+  mount build, field wallpaper-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force build-wallpaper-service
+  cause invoke-constructor
+    drive constructor, |WallpaperService|
+    raise build, field wallpaper-service
+
+force on-bind
+  mount build, field wallpaper-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-create
+  mount build, field wallpaper-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-create-engine
+  mount build, field wallpaper-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateEngine|
+    raise build, field wallpaper-service-engine
+
+force on-destroy
+  mount build, field wallpaper-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    raise build, field unit

@@ -1,0 +1,87 @@
+
+force build-replacement-span
+  cause invoke-constructor
+    drive constructor, |ReplacementSpan|
+    raise build, field replacement-span
+
+force draw
+  mount build, field replacement-span
+  mount canvas, field canvas
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount x, field float
+  mount top, field int
+  mount y, field int
+  mount bottom, field int
+  mount paint, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share x
+    drive factor, share top
+    drive factor, share y
+    drive factor, share bottom
+    drive factor, share paint
+    raise build, field unit
+
+force get-content-description
+  mount build, field replacement-span
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentDescription|
+    raise build, field char-sequence
+
+force get-size
+  mount build, field replacement-span
+  mount paint, field paint
+  mount text, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount fm, field paint-font-metrics-int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    drive factor, share paint
+    drive factor, share text
+    drive factor, share start
+    drive factor, share end
+    drive factor, share fm
+    raise build, field int
+
+force set-content-description
+  mount build, field replacement-span
+  mount content-description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentDescription|
+    drive factor, share content-description
+    raise build, field unit
+
+force update-draw-state
+  mount build, field replacement-span
+  mount ds, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateDrawState|
+    drive factor, share ds
+    raise build, field unit
+
+force update-measure-state
+  mount build, field replacement-span
+  mount p, field text-paint
+
+  cause call-method
+    drive object, share build
+    drive method, |updateMeasureState|
+    drive factor, share p
+    raise build, field unit

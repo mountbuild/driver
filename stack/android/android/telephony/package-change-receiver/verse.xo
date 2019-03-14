@@ -1,0 +1,107 @@
+
+force build-package-change-receiver
+  cause invoke-constructor
+    drive constructor, |PackageChangeReceiver|
+    throw build, field package-change-receiver
+
+force on-handle-force-stop
+  mount build, field package-change-receiver
+  mount packages, field array-string
+  mount doit, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onHandleForceStop|
+    drive factor, share packages
+    drive factor, share doit
+    throw build, field unit
+
+force on-package-added
+  mount build, field package-change-receiver
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageAdded|
+    drive factor, share package-name
+    throw build, field unit
+
+force on-package-appeared
+  mount build, field package-change-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageAppeared|
+    throw build, field unit
+
+force on-package-disappeared
+  mount build, field package-change-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageDisappeared|
+    throw build, field unit
+
+force on-package-modified
+  mount build, field package-change-receiver
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageModified|
+    drive factor, share package-name
+    throw build, field unit
+
+force on-package-removed
+  mount build, field package-change-receiver
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageRemoved|
+    drive factor, share package-name
+    throw build, field unit
+
+force on-package-update-finished
+  mount build, field package-change-receiver
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onPackageUpdateFinished|
+    drive factor, share package-name
+    throw build, field unit
+
+force on-receive
+  mount build, field package-change-receiver
+  mount context, field context
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force register
+  mount build, field package-change-receiver
+  mount context, field context
+  mount thread, field looper
+  mount user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |register|
+    drive factor, share context
+    drive factor, share thread
+    drive factor, share user
+    throw build, field unit
+
+force unregister
+  mount build, field package-change-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |unregister|
+    throw build, field unit

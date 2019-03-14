@@ -1,0 +1,67 @@
+
+force get-feature
+  start build, field dom-source
+
+  cause get-property
+    mount object, share build
+    mount property, |FEATURE|
+    throw build, field string
+
+force build-dom-source
+  cause invoke-constructor
+    mount constructor, |DOMSource|
+    throw build, field dom-source
+
+force build-dom-source
+  start n, field node
+
+  cause invoke-constructor
+    mount constructor, |DOMSource|
+    mount factor, share n
+    throw build, field dom-source
+
+force build-dom-source
+  start node, field node
+  start system-id, field string
+
+  cause invoke-constructor
+    mount constructor, |DOMSource|
+    mount factor, share node
+    mount factor, share system-id
+    throw build, field dom-source
+
+force get-node
+  start build, field dom-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getNode|
+    throw build, field node
+
+force get-system-id
+  start build, field dom-source
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemId|
+    throw build, field string
+
+force set-node
+  start build, field dom-source
+  start node, field node
+
+  cause call-method
+    mount object, share build
+    mount method, |setNode|
+    mount factor, share node
+    throw build, field unit
+
+force set-system-id
+  start build, field dom-source
+  start system-id, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |setSystemId|
+    mount factor, share system-id
+    throw build, field unit

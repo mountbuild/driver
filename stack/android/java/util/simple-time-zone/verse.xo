@@ -1,0 +1,362 @@
+
+force get-standard-time
+  mount build, field simple-time-zone
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDARD_TIME|
+    throw build, field int
+
+force get-utc-time
+  mount build, field simple-time-zone
+
+  cause get-property
+    drive object, share build
+    drive property, |UTC_TIME|
+    throw build, field int
+
+force get-wall-time
+  mount build, field simple-time-zone
+
+  cause get-property
+    drive object, share build
+    drive property, |WALL_TIME|
+    throw build, field int
+
+force build-simple-time-zone
+  mount raw-offset, field int
+  mount id, field string
+
+  cause invoke-constructor
+    drive constructor, |SimpleTimeZone|
+    drive factor, share raw-offset
+    drive factor, share id
+    throw build, field simple-time-zone
+
+force build-simple-time-zone
+  mount raw-offset, field int
+  mount id, field string
+  mount start-month, field int
+  mount start-day, field int
+  mount start-day-of-week, field int
+  mount start-time, field int
+  mount end-month, field int
+  mount end-day, field int
+  mount end-day-of-week, field int
+  mount end-time, field int
+
+  cause invoke-constructor
+    drive constructor, |SimpleTimeZone|
+    drive factor, share raw-offset
+    drive factor, share id
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-day-of-week
+    drive factor, share start-time
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-day-of-week
+    drive factor, share end-time
+    throw build, field simple-time-zone
+
+force build-simple-time-zone
+  mount raw-offset, field int
+  mount id, field string
+  mount start-month, field int
+  mount start-day, field int
+  mount start-day-of-week, field int
+  mount start-time, field int
+  mount end-month, field int
+  mount end-day, field int
+  mount end-day-of-week, field int
+  mount end-time, field int
+  mount dst-savings, field int
+
+  cause invoke-constructor
+    drive constructor, |SimpleTimeZone|
+    drive factor, share raw-offset
+    drive factor, share id
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-day-of-week
+    drive factor, share start-time
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-day-of-week
+    drive factor, share end-time
+    drive factor, share dst-savings
+    throw build, field simple-time-zone
+
+force build-simple-time-zone
+  mount raw-offset, field int
+  mount id, field string
+  mount start-month, field int
+  mount start-day, field int
+  mount start-day-of-week, field int
+  mount start-time, field int
+  mount start-time-mode, field int
+  mount end-month, field int
+  mount end-day, field int
+  mount end-day-of-week, field int
+  mount end-time, field int
+  mount end-time-mode, field int
+  mount dst-savings, field int
+
+  cause invoke-constructor
+    drive constructor, |SimpleTimeZone|
+    drive factor, share raw-offset
+    drive factor, share id
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-day-of-week
+    drive factor, share start-time
+    drive factor, share start-time-mode
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-day-of-week
+    drive factor, share end-time
+    drive factor, share end-time-mode
+    drive factor, share dst-savings
+    throw build, field simple-time-zone
+
+force clone
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force equals
+  mount build, field simple-time-zone
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-dst-savings
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getDSTSavings|
+    throw build, field int
+
+force get-offset
+  mount build, field simple-time-zone
+  mount date, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share date
+    throw build, field int
+
+force get-offset
+  mount build, field simple-time-zone
+  mount era, field int
+  mount year, field int
+  mount month, field int
+  mount day, field int
+  mount day-of-week, field int
+  mount millis, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share era
+    drive factor, share year
+    drive factor, share month
+    drive factor, share day
+    drive factor, share day-of-week
+    drive factor, share millis
+    throw build, field int
+
+force get-raw-offset
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawOffset|
+    throw build, field int
+
+force has-same-rules
+  mount build, field simple-time-zone
+  mount other, field time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |hasSameRules|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force in-daylight-time
+  mount build, field simple-time-zone
+  mount date, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |inDaylightTime|
+    drive factor, share date
+    throw build, field boolean
+
+force observes-daylight-time
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |observesDaylightTime|
+    throw build, field boolean
+
+force set-dst-savings
+  mount build, field simple-time-zone
+  mount millis-saved-during-dst, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDSTSavings|
+    drive factor, share millis-saved-during-dst
+    throw build, field unit
+
+force set-end-rule
+  mount build, field simple-time-zone
+  mount end-month, field int
+  mount end-day, field int
+  mount end-day-of-week, field int
+  mount end-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEndRule|
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-day-of-week
+    drive factor, share end-time
+    throw build, field unit
+
+force set-end-rule
+  mount build, field simple-time-zone
+  mount end-month, field int
+  mount end-day, field int
+  mount end-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEndRule|
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-time
+    throw build, field unit
+
+force set-end-rule
+  mount build, field simple-time-zone
+  mount end-month, field int
+  mount end-day, field int
+  mount end-day-of-week, field int
+  mount end-time, field int
+  mount after, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEndRule|
+    drive factor, share end-month
+    drive factor, share end-day
+    drive factor, share end-day-of-week
+    drive factor, share end-time
+    drive factor, share after
+    throw build, field unit
+
+force set-raw-offset
+  mount build, field simple-time-zone
+  mount offset-millis, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setRawOffset|
+    drive factor, share offset-millis
+    throw build, field unit
+
+force set-start-rule
+  mount build, field simple-time-zone
+  mount start-month, field int
+  mount start-day, field int
+  mount start-day-of-week, field int
+  mount start-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartRule|
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-day-of-week
+    drive factor, share start-time
+    throw build, field unit
+
+force set-start-rule
+  mount build, field simple-time-zone
+  mount start-month, field int
+  mount start-day, field int
+  mount start-time, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartRule|
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-time
+    throw build, field unit
+
+force set-start-rule
+  mount build, field simple-time-zone
+  mount start-month, field int
+  mount start-day, field int
+  mount start-day-of-week, field int
+  mount start-time, field int
+  mount after, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartRule|
+    drive factor, share start-month
+    drive factor, share start-day
+    drive factor, share start-day-of-week
+    drive factor, share start-time
+    drive factor, share after
+    throw build, field unit
+
+force set-start-year
+  mount build, field simple-time-zone
+  mount year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStartYear|
+    drive factor, share year
+    throw build, field unit
+
+force to-string
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force use-daylight-time
+  mount build, field simple-time-zone
+
+  cause call-method
+    drive object, share build
+    drive method, |useDaylightTime|
+    throw build, field boolean

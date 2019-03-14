@@ -1,0 +1,243 @@
+
+force build-array-map
+  cause invoke-constructor
+    drive constructor, |ArrayMap|
+    throw build, field array-map
+
+force build-array-map
+  mount capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |ArrayMap|
+    drive factor, share capacity
+    throw build, field array-map
+
+force build-array-map
+  mount map, field array-map-k
+  mount v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |ArrayMap|
+    drive factor, share map
+    drive factor, share v
+    throw build, field array-map
+
+force clear
+  mount build, field array-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force contains-all
+  mount build, field array-map
+  mount collection, field mutable-collection
+
+  cause call-method
+    drive object, share build
+    drive method, |containsAll|
+    drive factor, share collection
+    throw build, field boolean
+
+force contains-key
+  mount build, field array-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-value
+  mount build, field array-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force ensure-capacity
+  mount build, field array-map
+  mount minimum-capacity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ensureCapacity|
+    drive factor, share minimum-capacity
+    throw build, field unit
+
+force equals
+  mount build, field array-map
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get
+  mount build, field array-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force hash-code
+  mount build, field array-map
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force index-of-key
+  mount build, field array-map
+  mount key, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfKey|
+    drive factor, share key
+    throw build, field int
+
+force index-of-value
+  mount build, field array-map
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |indexOfValue|
+    drive factor, share value
+    throw build, field int
+
+force is-empty
+  mount build, field array-map
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force key-at
+  mount build, field array-map
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |keyAt|
+    drive factor, share index
+    throw build, field k
+
+force put
+  mount build, field array-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force put-all
+  mount build, field array-map
+  mount array, field array-map-out-k
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share array
+    drive factor, share out-v
+    throw build, field unit
+
+force put-all
+  mount build, field array-map
+  mount from, field map-out-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share from
+    drive factor, share v
+    throw build, field unit
+
+force remove
+  mount build, field array-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force remove-all
+  mount build, field array-map
+  mount collection, field mutable-collection
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    drive factor, share collection
+    throw build, field boolean
+
+force remove-at
+  mount build, field array-map
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAt|
+    drive factor, share index
+    throw build, field v
+
+force retain-all
+  mount build, field array-map
+  mount collection, field mutable-collection
+
+  cause call-method
+    drive object, share build
+    drive method, |retainAll|
+    drive factor, share collection
+    throw build, field boolean
+
+force set-value-at
+  mount build, field array-map
+  mount index, field int
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |setValueAt|
+    drive factor, share index
+    drive factor, share value
+    throw build, field v
+
+force to-string
+  mount build, field array-map
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-at
+  mount build, field array-map
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |valueAt|
+    drive factor, share index
+    throw build, field v

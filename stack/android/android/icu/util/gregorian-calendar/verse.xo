@@ -1,0 +1,197 @@
+
+force get-ad
+  mount build, field gregorian-calendar
+
+  cause get-property
+    drive object, share build
+    drive property, |AD|
+    raise build, field int
+
+force get-bc
+  mount build, field gregorian-calendar
+
+  cause get-property
+    drive object, share build
+    drive property, |BC|
+    raise build, field int
+
+force build-gregorian-calendar
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount zone, field time-zone
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share zone
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount a-locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share a-locale
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount locale, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share locale
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount zone, field time-zone
+  mount a-locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share zone
+    drive factor, share a-locale
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount zone, field time-zone
+  mount locale, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share zone
+    drive factor, share locale
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount year, field int
+  mount month, field int
+  mount date, field int
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share year
+    drive factor, share month
+    drive factor, share date
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount year, field int
+  mount month, field int
+  mount date, field int
+  mount hour, field int
+  mount minute, field int
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share year
+    drive factor, share month
+    drive factor, share date
+    drive factor, share hour
+    drive factor, share minute
+    raise build, field gregorian-calendar
+
+force build-gregorian-calendar
+  mount year, field int
+  mount month, field int
+  mount date, field int
+  mount hour, field int
+  mount minute, field int
+  mount second, field int
+
+  cause invoke-constructor
+    drive constructor, |GregorianCalendar|
+    drive factor, share year
+    drive factor, share month
+    drive factor, share date
+    drive factor, share hour
+    drive factor, share minute
+    drive factor, share second
+    raise build, field gregorian-calendar
+
+force get-actual-maximum
+  mount build, field gregorian-calendar
+  mount field, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActualMaximum|
+    drive factor, share field
+    raise build, field int
+
+force get-actual-minimum
+  mount build, field gregorian-calendar
+  mount field, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActualMinimum|
+    drive factor, share field
+    raise build, field int
+
+force get-gregorian-change
+  mount build, field gregorian-calendar
+
+  cause call-method
+    drive object, share build
+    drive method, |getGregorianChange|
+    raise build, field date
+
+force get-type
+  mount build, field gregorian-calendar
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    raise build, field string
+
+force hash-code
+  mount build, field gregorian-calendar
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-equivalent-to
+  mount build, field gregorian-calendar
+  mount other, field calendar
+
+  cause call-method
+    drive object, share build
+    drive method, |isEquivalentTo|
+    drive factor, share other
+    raise build, field boolean
+
+force is-leap-year
+  mount build, field gregorian-calendar
+  mount year, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isLeapYear|
+    drive factor, share year
+    raise build, field boolean
+
+force roll
+  mount build, field gregorian-calendar
+  mount field, field int
+  mount amount, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |roll|
+    drive factor, share field
+    drive factor, share amount
+    raise build, field unit
+
+force set-gregorian-change
+  mount build, field gregorian-calendar
+  mount date, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |setGregorianChange|
+    drive factor, share date
+    raise build, field unit

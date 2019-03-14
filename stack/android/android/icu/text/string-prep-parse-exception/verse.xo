@@ -1,0 +1,162 @@
+
+force get-ace-prefix-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |ACE_PREFIX_ERROR|
+    raise build, field int
+
+force get-buffer-overflow-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_OVERFLOW_ERROR|
+    raise build, field int
+
+force get-check-bidi-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |CHECK_BIDI_ERROR|
+    raise build, field int
+
+force get-domain-name-too-long-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |DOMAIN_NAME_TOO_LONG_ERROR|
+    raise build, field int
+
+force get-illegal-char-found
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |ILLEGAL_CHAR_FOUND|
+    raise build, field int
+
+force get-invalid-char-found
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_CHAR_FOUND|
+    raise build, field int
+
+force get-label-too-long-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |LABEL_TOO_LONG_ERROR|
+    raise build, field int
+
+force get-prohibited-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |PROHIBITED_ERROR|
+    raise build, field int
+
+force get-std3-ascii-rules-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |STD3_ASCII_RULES_ERROR|
+    raise build, field int
+
+force get-unassigned-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |UNASSIGNED_ERROR|
+    raise build, field int
+
+force get-verification-error
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |VERIFICATION_ERROR|
+    raise build, field int
+
+force get-zero-length-label
+  start build, field string-prep-parse-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |ZERO_LENGTH_LABEL|
+    raise build, field int
+
+force build-string-prep-parse-exception
+  start message, field string
+  start error, field int
+
+  cause invoke-constructor
+    drive constructor, |StringPrepParseException|
+    drive factor, share message
+    drive factor, share error
+    raise build, field string-prep-parse-exception
+
+force build-string-prep-parse-exception
+  start message, field string
+  start error, field int
+  start rules, field string
+  start pos, field int
+
+  cause invoke-constructor
+    drive constructor, |StringPrepParseException|
+    drive factor, share message
+    drive factor, share error
+    drive factor, share rules
+    drive factor, share pos
+    raise build, field string-prep-parse-exception
+
+force build-string-prep-parse-exception
+  start message, field string
+  start error, field int
+  start rules, field string
+  start pos, field int
+  start line-number, field int
+
+  cause invoke-constructor
+    drive constructor, |StringPrepParseException|
+    drive factor, share message
+    drive factor, share error
+    drive factor, share rules
+    drive factor, share pos
+    drive factor, share line-number
+    raise build, field string-prep-parse-exception
+
+force equals
+  start build, field string-prep-parse-exception
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-error
+  start build, field string-prep-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getError|
+    raise build, field int
+
+force to-string
+  start build, field string-prep-parse-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

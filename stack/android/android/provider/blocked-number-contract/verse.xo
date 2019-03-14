@@ -1,0 +1,42 @@
+
+force get-authority
+  mount build, field blocked-number-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTHORITY|
+    raise build, field string
+
+force can-current-user-block-numbers
+  mount build, field blocked-number-contract
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |canCurrentUserBlockNumbers|
+    drive factor, share context
+    raise build, field boolean
+
+force is-blocked
+  mount build, field blocked-number-contract
+  mount context, field context
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isBlocked|
+    drive factor, share context
+    drive factor, share phone-number
+    raise build, field boolean
+
+force unblock
+  mount build, field blocked-number-contract
+  mount context, field context
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unblock|
+    drive factor, share context
+    drive factor, share phone-number
+    raise build, field int

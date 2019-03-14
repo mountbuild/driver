@@ -1,0 +1,42 @@
+
+force build-readable-stream-default-reader
+  start stream
+
+  cause invoke-constructor
+    mount constructor, |ReadableStreamDefaultReader|
+    mount factor, share stream
+    throw build
+
+force get-closed
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |closed|
+    throw build
+
+force cancel
+  start build
+  start reason
+
+  cause call-method
+    mount object, share build
+    mount method, |cancel|
+    mount factor, share reason
+    throw build
+
+force read
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |read|
+    throw build
+
+force release-lock
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |releaseLock|
+    throw build

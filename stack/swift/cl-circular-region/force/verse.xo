@@ -1,0 +1,43 @@
+force get-center
+  field build, field cl-circular-region
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |center|
+    raise build, field cl-location-coordinate2-d
+
+force set-center
+  field build, field cl-circular-region
+  field value, field cl-location-coordinate2-d
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |center|
+    mount factor, share value
+
+force get-radius
+  field build, field cl-circular-region
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |radius|
+    raise build, field cl-location-distance
+
+force set-radius
+  field build, field cl-circular-region
+  field value, field cl-location-distance
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |radius|
+    mount factor, share value
+
+force contains
+  field build, field cl-circular-region
+  field a, class cl-location-coordinate2-d
+
+  cause call-method
+    mount object, share build
+    mount method, |contains|
+    mount factor, share a
+    raise build, class bool

@@ -1,0 +1,144 @@
+
+force average-chars-per-byte
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |averageCharsPerByte|
+    throw build, field float
+
+force charset
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |charset|
+    throw build, field charset
+
+force decode
+  mount build, field charset-decoder
+  mount in, field byte-buffer
+  mount out, field char-buffer
+  mount end-of-input, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |decode|
+    mount factor, share in
+    mount factor, share out
+    mount factor, share end-of-input
+    throw build, field coder-result
+
+force decode
+  mount build, field charset-decoder
+  mount in, field byte-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |decode|
+    mount factor, share in
+    throw build, field char-buffer
+
+force detected-charset
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |detectedCharset|
+    throw build, field charset
+
+force flush
+  mount build, field charset-decoder
+  mount out, field char-buffer
+
+  cause call-method
+    mount object, share build
+    mount method, |flush|
+    mount factor, share out
+    throw build, field coder-result
+
+force is-auto-detecting
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |isAutoDetecting|
+    throw build, field boolean
+
+force is-charset-detected
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |isCharsetDetected|
+    throw build, field boolean
+
+force malformed-input-action
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |malformedInputAction|
+    throw build, field coding-error-action
+
+force max-chars-per-byte
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |maxCharsPerByte|
+    throw build, field float
+
+force on-malformed-input
+  mount build, field charset-decoder
+  mount new-action, field coding-error-action
+
+  cause call-method
+    mount object, share build
+    mount method, |onMalformedInput|
+    mount factor, share new-action
+    throw build, field charset-decoder
+
+force on-unmappable-character
+  mount build, field charset-decoder
+  mount new-action, field coding-error-action
+
+  cause call-method
+    mount object, share build
+    mount method, |onUnmappableCharacter|
+    mount factor, share new-action
+    throw build, field charset-decoder
+
+force replace-with
+  mount build, field charset-decoder
+  mount new-replacement, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |replaceWith|
+    mount factor, share new-replacement
+    throw build, field charset-decoder
+
+force replacement
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    mount method, |replacement|
+    throw build, field string
+
+force reset
+  mount build, field charset-decoder
+
+  cause call-method
+    mount object, share build
+    drive method, |reset|
+    throw build, field charset-decoder
+
+force unmappable-character-action
+  mount build, field charset-decoder
+
+  cause call-method
+    drive object, share build
+    drive method, |unmappableCharacterAction|
+    throw build, field coding-error-action

@@ -1,0 +1,84 @@
+force get-copy-description
+  field build, field fs-event-stream-context
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |copyDescription|
+    raise build, field cf-allocator-copy-description-call-back
+
+force set-copy-description
+  field build, field fs-event-stream-context
+  field value, field cf-allocator-copy-description-call-back
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |copyDescription|
+    drive factor, share value
+
+force get-info
+  field build, field fs-event-stream-context
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |info|
+    raise build, field unsafe-mutable-raw-pointer
+
+force set-info
+  field build, field fs-event-stream-context
+  field value, field unsafe-mutable-raw-pointer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |info|
+    drive factor, share value
+
+force get-release
+  field build, field fs-event-stream-context
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |release|
+    raise build, field cf-allocator-release-call-back
+
+force set-release
+  field build, field fs-event-stream-context
+  field value, field cf-allocator-release-call-back
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |release|
+    drive factor, share value
+
+force get-retain
+  field build, field fs-event-stream-context
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |retain|
+    raise build, field cf-allocator-retain-call-back
+
+force set-retain
+  field build, field fs-event-stream-context
+  field value, field cf-allocator-retain-call-back
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |retain|
+    drive factor, share value
+
+force get-version
+  field build, field fs-event-stream-context
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |version|
+    raise build, field cf-index
+
+force set-version
+  field build, field fs-event-stream-context
+  field value, field cf-index
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |version|
+    drive factor, share value

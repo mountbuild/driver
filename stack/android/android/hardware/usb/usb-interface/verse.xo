@@ -1,0 +1,94 @@
+
+force describe-contents
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-alternate-setting
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getAlternateSetting|
+    throw build, field int
+
+force get-endpoint
+  mount build, field usb-interface
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEndpoint|
+    drive factor, share index
+    throw build, field usb-endpoint
+
+force get-endpoint-count
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getEndpointCount|
+    throw build, field int
+
+force get-id
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field int
+
+force get-interface-class
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterfaceClass|
+    throw build, field int
+
+force get-interface-protocol
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterfaceProtocol|
+    throw build, field int
+
+force get-interface-subclass
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterfaceSubclass|
+    throw build, field int
+
+force get-name
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force to-string
+  mount build, field usb-interface
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field usb-interface
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

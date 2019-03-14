@@ -1,0 +1,36 @@
+
+force build-media-stream
+  start stream
+  start tracks
+
+  cause invoke-constructor
+    mount constructor, |MediaStream|
+    mount factor, share stream
+    mount factor, share tracks
+    throw build
+
+force get-active
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |active|
+    throw build
+
+force get-ended
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ended|
+    throw build
+
+force add-track
+  start build
+  start track
+
+  cause call-method
+    mount object, share build
+    mount method, |addTrack|
+    mount factor, share track
+    throw build

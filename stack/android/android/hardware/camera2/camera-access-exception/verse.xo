@@ -1,0 +1,88 @@
+
+force get-camera-disabled
+  mount build, field camera-access-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_DISABLED|
+    throw build, field int
+
+force get-camera-disconnected
+  mount build, field camera-access-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_DISCONNECTED|
+    throw build, field int
+
+force get-camera-error
+  mount build, field camera-access-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_ERROR|
+    throw build, field int
+
+force get-camera-in-use
+  mount build, field camera-access-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |CAMERA_IN_USE|
+    throw build, field int
+
+force get-max-cameras-in-use
+  mount build, field camera-access-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |MAX_CAMERAS_IN_USE|
+    throw build, field int
+
+force build-camera-access-exception
+  mount problem, field int
+
+  cause invoke-constructor
+    drive constructor, |CameraAccessException|
+    drive factor, share problem
+    throw build, field camera-access-exception
+
+force build-camera-access-exception
+  mount problem, field int
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |CameraAccessException|
+    drive factor, share problem
+    drive factor, share message
+    throw build, field camera-access-exception
+
+force build-camera-access-exception
+  mount problem, field int
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |CameraAccessException|
+    drive factor, share problem
+    drive factor, share message
+    drive factor, share cause
+    throw build, field camera-access-exception
+
+force build-camera-access-exception
+  mount problem, field int
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |CameraAccessException|
+    drive factor, share problem
+    drive factor, share cause
+    throw build, field camera-access-exception
+
+force get-reason
+  mount build, field camera-access-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field int

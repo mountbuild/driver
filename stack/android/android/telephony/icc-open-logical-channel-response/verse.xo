@@ -1,0 +1,92 @@
+
+force get-invalid-channel
+  mount build, field icc-open-logical-channel-response
+
+  cause get-property
+    drive object, share build
+    drive property, |INVALID_CHANNEL|
+    throw build, field int
+
+force get-status-missing-resource
+  mount build, field icc-open-logical-channel-response
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_MISSING_RESOURCE|
+    throw build, field int
+
+force get-status-no-error
+  mount build, field icc-open-logical-channel-response
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_NO_ERROR|
+    throw build, field int
+
+force get-status-no-such-element
+  mount build, field icc-open-logical-channel-response
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_NO_SUCH_ELEMENT|
+    throw build, field int
+
+force get-status-unknown-error
+  mount build, field icc-open-logical-channel-response
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_UNKNOWN_ERROR|
+    throw build, field int
+
+force describe-contents
+  mount build, field icc-open-logical-channel-response
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-channel
+  mount build, field icc-open-logical-channel-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field int
+
+force get-select-response
+  mount build, field icc-open-logical-channel-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectResponse|
+    throw build, field byte-array
+
+force get-status
+  mount build, field icc-open-logical-channel-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatus|
+    throw build, field int
+
+force to-string
+  mount build, field icc-open-logical-channel-response
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field icc-open-logical-channel-response
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,16 @@
+
+force build-missing-format-argument-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |MissingFormatArgumentException|
+    drive factor, share s
+    throw build, field missing-format-argument-exception
+
+force get-format-specifier
+  mount build, field missing-format-argument-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormatSpecifier|
+    throw build, field string

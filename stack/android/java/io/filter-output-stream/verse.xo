@@ -1,0 +1,58 @@
+
+force build-filter-output-stream
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |FilterOutputStream|
+    drive factor, share out
+    throw build, field filter-output-stream
+
+force close
+  mount build, field filter-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field filter-output-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force write
+  mount build, field filter-output-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field filter-output-stream
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field filter-output-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

@@ -1,0 +1,90 @@
+
+force build-media-muxer
+  mount path, field string
+  mount format, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaMuxer|
+    drive factor, share path
+    drive factor, share format
+    raise build, field media-muxer
+
+force build-media-muxer
+  mount fd, field file-descriptor
+  mount format, field int
+
+  cause invoke-constructor
+    drive constructor, |MediaMuxer|
+    drive factor, share fd
+    drive factor, share format
+    raise build, field media-muxer
+
+force add-track
+  mount build, field media-muxer
+  mount format, field media-format
+
+  cause call-method
+    drive object, share build
+    drive method, |addTrack|
+    drive factor, share format
+    raise build, field int
+
+force release
+  mount build, field media-muxer
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-location
+  mount build, field media-muxer
+  mount latitude, field float
+  mount longitude, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setLocation|
+    drive factor, share latitude
+    drive factor, share longitude
+    raise build, field unit
+
+force set-orientation-hint
+  mount build, field media-muxer
+  mount degrees, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrientationHint|
+    drive factor, share degrees
+    raise build, field unit
+
+force start
+  mount build, field media-muxer
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field unit
+
+force stop
+  mount build, field media-muxer
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit
+
+force write-sample-data
+  mount build, field media-muxer
+  mount track-index, field int
+  mount byte-buf, field byte-buffer
+  mount buffer-info, field media-codec-buffer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |writeSampleData|
+    drive factor, share track-index
+    drive factor, share byte-buf
+    drive factor, share buffer-info
+    raise build, field unit

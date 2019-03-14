@@ -1,0 +1,31 @@
+
+force build-reference-queue
+  cause invoke-constructor
+    drive constructor, |ReferenceQueue|
+    throw build, field reference-queue
+
+force poll
+  mount build, field reference-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field reference
+
+force remove
+  mount build, field reference-queue
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share timeout
+    throw build, field reference
+
+force remove
+  mount build, field reference-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    throw build, field reference

@@ -1,0 +1,371 @@
+
+force get-transit-enter-mask
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_ENTER_MASK|
+    throw build, field int
+
+force get-transit-exit-mask
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_EXIT_MASK|
+    throw build, field int
+
+force get-transit-fragment-close
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_FRAGMENT_CLOSE|
+    throw build, field int
+
+force get-transit-fragment-fade
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_FRAGMENT_FADE|
+    throw build, field int
+
+force get-transit-fragment-open
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_FRAGMENT_OPEN|
+    throw build, field int
+
+force get-transit-none
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_NONE|
+    throw build, field int
+
+force get-transit-unset
+  start build, field fragment-transaction
+
+  cause get-property
+    drive object, share build
+    drive property, |TRANSIT_UNSET|
+    throw build, field int
+
+force build-fragment-transaction
+  cause invoke-constructor
+    drive constructor, |FragmentTransaction|
+    throw build, field fragment-transaction
+
+force add
+  start build, field fragment-transaction
+  start fragment, field fragment
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share fragment
+    drive factor, share tag
+    throw build, field fragment-transaction
+
+force add
+  start build, field fragment-transaction
+  start container-view-id, field int
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share container-view-id
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force add
+  start build, field fragment-transaction
+  start container-view-id, field int
+  start fragment, field fragment
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share container-view-id
+    drive factor, share fragment
+    drive factor, share tag
+    throw build, field fragment-transaction
+
+force add-shared-element
+  start build, field fragment-transaction
+  start shared-element, field view
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addSharedElement|
+    drive factor, share shared-element
+    drive factor, share name
+    throw build, field fragment-transaction
+
+force add-to-back-stack
+  start build, field fragment-transaction
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addToBackStack|
+    drive factor, share name
+    throw build, field fragment-transaction
+
+force attach
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |attach|
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force commit
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |commit|
+    throw build, field int
+
+force commit-allowing-state-loss
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |commitAllowingStateLoss|
+    throw build, field int
+
+force commit-now
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |commitNow|
+    throw build, field unit
+
+force commit-now-allowing-state-loss
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |commitNowAllowingStateLoss|
+    throw build, field unit
+
+force detach
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |detach|
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force disallow-add-to-back-stack
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |disallowAddToBackStack|
+    throw build, field fragment-transaction
+
+force hide
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |hide|
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force is-add-to-back-stack-allowed
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |isAddToBackStackAllowed|
+    throw build, field boolean
+
+force is-empty
+  start build, field fragment-transaction
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force remove
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force replace
+  start build, field fragment-transaction
+  start container-view-id, field int
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share container-view-id
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force replace
+  start build, field fragment-transaction
+  start container-view-id, field int
+  start fragment, field fragment
+  start tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share container-view-id
+    drive factor, share fragment
+    drive factor, share tag
+    throw build, field fragment-transaction
+
+force run-on-commit
+  start build, field fragment-transaction
+  start runnable, field runnable
+
+  cause call-method
+    drive object, share build
+    drive method, |runOnCommit|
+    drive factor, share runnable
+    throw build, field fragment-transaction
+
+force set-bread-crumb-short-title
+  start build, field fragment-transaction
+  start res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBreadCrumbShortTitle|
+    drive factor, share res
+    throw build, field fragment-transaction
+
+force set-bread-crumb-short-title
+  start build, field fragment-transaction
+  start text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setBreadCrumbShortTitle|
+    drive factor, share text
+    throw build, field fragment-transaction
+
+force set-bread-crumb-title
+  start build, field fragment-transaction
+  start res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setBreadCrumbTitle|
+    drive factor, share res
+    throw build, field fragment-transaction
+
+force set-bread-crumb-title
+  start build, field fragment-transaction
+  start text, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setBreadCrumbTitle|
+    drive factor, share text
+    throw build, field fragment-transaction
+
+force set-custom-animations
+  start build, field fragment-transaction
+  start enter, field int
+  start exit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCustomAnimations|
+    drive factor, share enter
+    drive factor, share exit
+    throw build, field fragment-transaction
+
+force set-custom-animations
+  start build, field fragment-transaction
+  start enter, field int
+  start exit, field int
+  start pop-enter, field int
+  start pop-exit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setCustomAnimations|
+    drive factor, share enter
+    drive factor, share exit
+    drive factor, share pop-enter
+    drive factor, share pop-exit
+    throw build, field fragment-transaction
+
+force set-primary-navigation-fragment
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |setPrimaryNavigationFragment|
+    drive factor, share fragment
+    throw build, field fragment-transaction
+
+force set-reordering-allowed
+  start build, field fragment-transaction
+  start reordering-allowed, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setReorderingAllowed|
+    drive factor, share reordering-allowed
+    throw build, field fragment-transaction
+
+force set-transition
+  start build, field fragment-transaction
+  start transit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTransition|
+    drive factor, share transit
+    throw build, field fragment-transaction
+
+force set-transition-style
+  start build, field fragment-transaction
+  start style-res, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setTransitionStyle|
+    drive factor, share style-res
+    throw build, field fragment-transaction
+
+force show
+  start build, field fragment-transaction
+  start fragment, field fragment
+
+  cause call-method
+    drive object, share build
+    drive method, |show|
+    drive factor, share fragment
+    throw build, field fragment-transaction

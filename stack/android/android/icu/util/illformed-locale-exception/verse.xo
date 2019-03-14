@@ -1,0 +1,31 @@
+
+force build-illformed-locale-exception
+  cause invoke-constructor
+    drive constructor, |IllformedLocaleException|
+    raise build, field illformed-locale-exception
+
+force build-illformed-locale-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |IllformedLocaleException|
+    drive factor, share message
+    raise build, field illformed-locale-exception
+
+force build-illformed-locale-exception
+  mount message, field string
+  mount error-index, field int
+
+  cause invoke-constructor
+    drive constructor, |IllformedLocaleException|
+    drive factor, share message
+    drive factor, share error-index
+    raise build, field illformed-locale-exception
+
+force get-error-index
+  mount build, field illformed-locale-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getErrorIndex|
+    raise build, field int

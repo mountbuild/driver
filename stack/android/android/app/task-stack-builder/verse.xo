@@ -1,0 +1,130 @@
+
+force add-next-intent
+  start build, field task-stack-builder
+  start next-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |addNextIntent|
+    drive factor, share next-intent
+    throw build, field task-stack-builder
+
+force add-next-intent-with-parent-stack
+  start build, field task-stack-builder
+  start next-intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |addNextIntentWithParentStack|
+    drive factor, share next-intent
+    throw build, field task-stack-builder
+
+force add-parent-stack
+  start build, field task-stack-builder
+  start source-activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |addParentStack|
+    drive factor, share source-activity
+    throw build, field task-stack-builder
+
+force add-parent-stack
+  start build, field task-stack-builder
+  start source-activity-class, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |addParentStack|
+    drive factor, share source-activity-class
+    throw build, field task-stack-builder
+
+force add-parent-stack
+  start build, field task-stack-builder
+  start source-activity-name, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |addParentStack|
+    drive factor, share source-activity-name
+    throw build, field task-stack-builder
+
+force create
+  start build, field task-stack-builder
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share context
+    throw build, field task-stack-builder
+
+force edit-intent-at
+  start build, field task-stack-builder
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |editIntentAt|
+    drive factor, share index
+    throw build, field intent
+
+force get-intent-count
+  start build, field task-stack-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntentCount|
+    throw build, field int
+
+force get-intents
+  start build, field task-stack-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntents|
+    throw build, field array
+
+force get-pending-intent
+  start build, field task-stack-builder
+  start request-code, field int
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPendingIntent|
+    drive factor, share request-code
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-pending-intent
+  start build, field task-stack-builder
+  start request-code, field int
+  start flags, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |getPendingIntent|
+    drive factor, share request-code
+    drive factor, share flags
+    drive factor, share options
+    throw build, field pending-intent
+
+force start-activities
+  start build, field task-stack-builder
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivities|
+    throw build, field unit
+
+force start-activities
+  start build, field task-stack-builder
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startActivities|
+    drive factor, share options
+    throw build, field unit

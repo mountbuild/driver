@@ -1,0 +1,160 @@
+
+force build-simple-cursor-adapter
+  mount context, field context
+  mount layout, field int
+  mount c, field cursor
+  mount from, field array-string
+  mount to, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SimpleCursorAdapter|
+    drive factor, share context
+    drive factor, share layout
+    drive factor, share c
+    drive factor, share from
+    drive factor, share to
+    throw build, field simple-cursor-adapter
+
+force build-simple-cursor-adapter
+  mount context, field context
+  mount layout, field int
+  mount c, field cursor
+  mount from, field array-string
+  mount to, field int-array
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |SimpleCursorAdapter|
+    drive factor, share context
+    drive factor, share layout
+    drive factor, share c
+    drive factor, share from
+    drive factor, share to
+    drive factor, share flags
+    throw build, field simple-cursor-adapter
+
+force bind-view
+  mount build, field simple-cursor-adapter
+  mount view, field view
+  mount context, field context
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |bindView|
+    drive factor, share view
+    drive factor, share context
+    drive factor, share cursor
+    throw build, field unit
+
+force change-cursor-and-columns
+  mount build, field simple-cursor-adapter
+  mount c, field cursor
+  mount from, field array-string
+  mount to, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |changeCursorAndColumns|
+    drive factor, share c
+    drive factor, share from
+    drive factor, share to
+    throw build, field unit
+
+force convert-to-string
+  mount build, field simple-cursor-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToString|
+    drive factor, share cursor
+    throw build, field char-sequence
+
+force get-cursor-to-string-converter
+  mount build, field simple-cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCursorToStringConverter|
+    throw build, field simple-cursor-adapter-cursor-to-string-converter
+
+force get-string-conversion-column
+  mount build, field simple-cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getStringConversionColumn|
+    throw build, field int
+
+force get-view-binder
+  mount build, field simple-cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getViewBinder|
+    throw build, field simple-cursor-adapter-view-binder
+
+force set-cursor-to-string-converter
+  mount build, field simple-cursor-adapter
+  mount cursor-to-string-converter, field simple-cursor-adapter-cursor-to-string-converter
+
+  cause call-method
+    drive object, share build
+    drive method, |setCursorToStringConverter|
+    drive factor, share cursor-to-string-converter
+    throw build, field unit
+
+force set-string-conversion-column
+  mount build, field simple-cursor-adapter
+  mount string-conversion-column, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStringConversionColumn|
+    drive factor, share string-conversion-column
+    throw build, field unit
+
+force set-view-binder
+  mount build, field simple-cursor-adapter
+  mount view-binder, field simple-cursor-adapter-view-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewBinder|
+    drive factor, share view-binder
+    throw build, field unit
+
+force set-view-image
+  mount build, field simple-cursor-adapter
+  mount v, field image-view
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewImage|
+    drive factor, share v
+    drive factor, share value
+    throw build, field unit
+
+force set-view-text
+  mount build, field simple-cursor-adapter
+  mount v, field text-view
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewText|
+    drive factor, share v
+    drive factor, share text
+    throw build, field unit
+
+force swap-cursor
+  mount build, field simple-cursor-adapter
+  mount c, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |swapCursor|
+    drive factor, share c
+    throw build, field cursor

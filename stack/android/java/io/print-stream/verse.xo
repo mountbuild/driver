@@ -1,0 +1,388 @@
+
+force build-print-stream
+  mount out, field output-stream
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share out
+    throw build, field print-stream
+
+force build-print-stream
+  mount out, field output-stream
+  mount auto-flush, field boolean
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share out
+    drive factor, share auto-flush
+    throw build, field print-stream
+
+force build-print-stream
+  mount out, field output-stream
+  mount auto-flush, field boolean
+  mount encoding, field string
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share out
+    drive factor, share auto-flush
+    drive factor, share encoding
+    throw build, field print-stream
+
+force build-print-stream
+  mount file-name, field string
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share file-name
+    throw build, field print-stream
+
+force build-print-stream
+  mount file-name, field string
+  mount csn, field string
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share file-name
+    drive factor, share csn
+    throw build, field print-stream
+
+force build-print-stream
+  mount file, field file
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share file
+    throw build, field print-stream
+
+force build-print-stream
+  mount file, field file
+  mount csn, field string
+
+  cause invoke-constructor
+    drive constructor, |PrintStream|
+    drive factor, share file
+    drive factor, share csn
+    throw build, field print-stream
+
+force append
+  mount build, field print-stream
+  mount csq, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share csq
+    throw build, field print-stream
+
+force append
+  mount build, field print-stream
+  mount csq, field char-sequence
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share csq
+    drive factor, share start
+    drive factor, share end
+    throw build, field print-stream
+
+force append
+  mount build, field print-stream
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share c
+    throw build, field print-stream
+
+force check-error
+  mount build, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |checkError|
+    throw build, field boolean
+
+force close
+  mount build, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force flush
+  mount build, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force format
+  mount build, field print-stream
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field print-stream
+
+force format
+  mount build, field print-stream
+  mount l, field locale
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share l
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field print-stream
+
+force print
+  mount build, field print-stream
+  mount b, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share b
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share c
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount i, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share i
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount l, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share l
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount f, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share f
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount d, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share d
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount s, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share s
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share s
+    throw build, field unit
+
+force print
+  mount build, field print-stream
+  mount obj, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |print|
+    drive factor, share obj
+    throw build, field unit
+
+force printf
+  mount build, field print-stream
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |printf|
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field print-stream
+
+force printf
+  mount build, field print-stream
+  mount l, field locale
+  mount format, field string
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |printf|
+    drive factor, share l
+    drive factor, share format
+    drive factor, share vararg-args
+    throw build, field print-stream
+
+force println
+  mount build, field print-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field char-array
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force println
+  mount build, field print-stream
+  mount x, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit
+
+force write
+  mount build, field print-stream
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field print-stream
+  mount buf, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share buf
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit

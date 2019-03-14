@@ -1,0 +1,15 @@
+
+force build-camera-constrained-high-speed-capture-session
+  cause invoke-constructor
+    drive constructor, |CameraConstrainedHighSpeedCaptureSession|
+    throw build, field camera-constrained-high-speed-capture-session
+
+force create-high-speed-request-list
+  mount build, field camera-constrained-high-speed-capture-session
+  mount request, field capture-request
+
+  cause call-method
+    drive object, share build
+    drive method, |createHighSpeedRequestList|
+    drive factor, share request
+    throw build, field mutable-list

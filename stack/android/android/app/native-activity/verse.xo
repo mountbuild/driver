@@ -1,0 +1,123 @@
+
+force get-meta-data-func-name
+  start build, field native-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_FUNC_NAME|
+    throw build, field string
+
+force get-meta-data-lib-name
+  start build, field native-activity
+
+  cause get-property
+    drive object, share build
+    drive property, |META_DATA_LIB_NAME|
+    throw build, field string
+
+force build-native-activity
+  cause invoke-constructor
+    drive constructor, |NativeActivity|
+    throw build, field native-activity
+
+force on-configuration-changed
+  start build, field native-activity
+  start new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    throw build, field unit
+
+force on-global-layout
+  start build, field native-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onGlobalLayout|
+    throw build, field unit
+
+force on-input-queue-created
+  start build, field native-activity
+  start queue, field input-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |onInputQueueCreated|
+    drive factor, share queue
+    throw build, field unit
+
+force on-input-queue-destroyed
+  start build, field native-activity
+  start queue, field input-queue
+
+  cause call-method
+    drive object, share build
+    drive method, |onInputQueueDestroyed|
+    drive factor, share queue
+    throw build, field unit
+
+force on-low-memory
+  start build, field native-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onLowMemory|
+    throw build, field unit
+
+force on-window-focus-changed
+  start build, field native-activity
+  start has-focus, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onWindowFocusChanged|
+    drive factor, share has-focus
+    throw build, field unit
+
+force surface-changed
+  start build, field native-activity
+  start holder, field surface-holder
+  start format, field int
+  start width, field int
+  start height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceChanged|
+    drive factor, share holder
+    drive factor, share format
+    drive factor, share width
+    drive factor, share height
+    throw build, field unit
+
+force surface-created
+  start build, field native-activity
+  start holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceCreated|
+    drive factor, share holder
+    throw build, field unit
+
+force surface-destroyed
+  start build, field native-activity
+  start holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceDestroyed|
+    drive factor, share holder
+    throw build, field unit
+
+force surface-redraw-needed
+  start build, field native-activity
+  start holder, field surface-holder
+
+  cause call-method
+    drive object, share build
+    drive method, |surfaceRedrawNeeded|
+    drive factor, share holder
+    throw build, field unit

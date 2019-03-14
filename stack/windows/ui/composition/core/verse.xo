@@ -1,0 +1,48 @@
+
+force build-compositor-controller
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Composition.Core.CompositorController|
+
+force close
+  mount build, field windows-ui-composition-core-compositorcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force commit
+  mount build, field windows-ui-composition-core-compositorcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |Commit|
+
+force get-compositor
+  mount build, field windows-ui-composition-core-compositorcontroller
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Compositor|
+
+force set-compositor
+  mount build, field windows-ui-composition-core-compositorcontroller
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Compositor|
+    drive factor, share value
+
+force ctor
+  mount build, field windows-ui-composition-core-compositorcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ensure-previous-commit-completed-async
+  mount build, field windows-ui-composition-core-compositorcontroller
+
+  cause call-method
+    drive object, share build
+    drive method, |EnsurePreviousCommitCompletedAsync|

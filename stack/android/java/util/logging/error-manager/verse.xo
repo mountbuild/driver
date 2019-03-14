@@ -1,0 +1,67 @@
+
+force get-close-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |CLOSE_FAILURE|
+    throw build, field int
+
+force get-flush-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLUSH_FAILURE|
+    throw build, field int
+
+force get-format-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_FAILURE|
+    throw build, field int
+
+force get-generic-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |GENERIC_FAILURE|
+    throw build, field int
+
+force get-open-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |OPEN_FAILURE|
+    throw build, field int
+
+force get-write-failure
+  mount build, field error-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |WRITE_FAILURE|
+    throw build, field int
+
+force build-error-manager
+  cause invoke-constructor
+    drive constructor, |ErrorManager|
+    throw build, field error-manager
+
+force error
+  mount build, field error-manager
+  mount msg, field string
+  mount ex, field exception
+  mount code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |error|
+    drive factor, share msg
+    drive factor, share ex
+    drive factor, share code
+    throw build, field unit

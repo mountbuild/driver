@@ -1,0 +1,15 @@
+
+force build-simple-formatter
+  cause invoke-constructor
+    drive constructor, |SimpleFormatter|
+    throw build, field simple-formatter
+
+force format
+  mount build, field simple-formatter
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share record
+    throw build, field string

@@ -1,0 +1,248 @@
+
+force get-flag-auto-requery
+  mount build, field cursor-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_AUTO_REQUERY|
+    throw build, field int
+
+force get-flag-register-content-observer
+  mount build, field cursor-adapter
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_REGISTER_CONTENT_OBSERVER|
+    throw build, field int
+
+force build-cursor-adapter
+  mount context, field context
+  mount c, field cursor
+
+  cause invoke-constructor
+    drive constructor, |CursorAdapter|
+    drive factor, share context
+    drive factor, share c
+    throw build, field cursor-adapter
+
+force build-cursor-adapter
+  mount context, field context
+  mount c, field cursor
+  mount auto-requery, field boolean
+
+  cause invoke-constructor
+    drive constructor, |CursorAdapter|
+    drive factor, share context
+    drive factor, share c
+    drive factor, share auto-requery
+    throw build, field cursor-adapter
+
+force build-cursor-adapter
+  mount context, field context
+  mount c, field cursor
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |CursorAdapter|
+    drive factor, share context
+    drive factor, share c
+    drive factor, share flags
+    throw build, field cursor-adapter
+
+force bind-view
+  mount build, field cursor-adapter
+  mount view, field view
+  mount context, field context
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |bindView|
+    drive factor, share view
+    drive factor, share context
+    drive factor, share cursor
+    throw build, field unit
+
+force change-cursor
+  mount build, field cursor-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |changeCursor|
+    drive factor, share cursor
+    throw build, field unit
+
+force convert-to-string
+  mount build, field cursor-adapter
+  mount cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |convertToString|
+    drive factor, share cursor
+    throw build, field char-sequence
+
+force get-count
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    throw build, field int
+
+force get-cursor
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCursor|
+    throw build, field cursor
+
+force get-drop-down-view
+  mount build, field cursor-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getDropDownView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-drop-down-view-theme
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getDropDownViewTheme|
+    throw build, field resources-theme
+
+force get-filter
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilter|
+    throw build, field filter
+
+force get-filter-query-provider
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilterQueryProvider|
+    throw build, field filter-query-provider
+
+force get-item
+  mount build, field cursor-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItem|
+    drive factor, share position
+    throw build, field any
+
+force get-item-id
+  mount build, field cursor-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemId|
+    drive factor, share position
+    throw build, field long
+
+force get-view
+  mount build, field cursor-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force has-stable-ids
+  mount build, field cursor-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |hasStableIds|
+    throw build, field boolean
+
+force new-drop-down-view
+  mount build, field cursor-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newDropDownView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share parent
+    throw build, field view
+
+force new-view
+  mount build, field cursor-adapter
+  mount context, field context
+  mount cursor, field cursor
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |newView|
+    drive factor, share context
+    drive factor, share cursor
+    drive factor, share parent
+    throw build, field view
+
+force run-query-on-background-thread
+  mount build, field cursor-adapter
+  mount constraint, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |runQueryOnBackgroundThread|
+    drive factor, share constraint
+    throw build, field cursor
+
+force set-drop-down-view-theme
+  mount build, field cursor-adapter
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |setDropDownViewTheme|
+    drive factor, share theme
+    throw build, field unit
+
+force set-filter-query-provider
+  mount build, field cursor-adapter
+  mount filter-query-provider, field filter-query-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |setFilterQueryProvider|
+    drive factor, share filter-query-provider
+    throw build, field unit
+
+force swap-cursor
+  mount build, field cursor-adapter
+  mount new-cursor, field cursor
+
+  cause call-method
+    drive object, share build
+    drive method, |swapCursor|
+    drive factor, share new-cursor
+    throw build, field cursor

@@ -1,0 +1,44 @@
+
+force build-convolver-node
+  start context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |ConvolverNode|
+    mount factor, share context
+    mount factor, share options
+    throw build
+
+force get-buffer
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |buffer|
+    throw build
+
+force set-buffer
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |buffer|
+    mount factor, share value
+
+force get-normalize
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |normalize|
+    throw build
+
+force set-normalize
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |normalize|
+    mount factor, share value

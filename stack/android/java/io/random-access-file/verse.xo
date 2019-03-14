@@ -1,0 +1,386 @@
+
+force build-random-access-file
+  mount name, field string
+  mount mode, field string
+
+  cause invoke-constructor
+    drive constructor, |RandomAccessFile|
+    drive factor, share name
+    drive factor, share mode
+    throw build, field random-access-file
+
+force build-random-access-file
+  mount file, field file
+  mount mode, field string
+
+  cause invoke-constructor
+    drive constructor, |RandomAccessFile|
+    drive factor, share file
+    drive factor, share mode
+    throw build, field random-access-file
+
+force close
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-channel
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannel|
+    throw build, field file-channel
+
+force get-fd
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getFD|
+    throw build, field file-descriptor
+
+force get-file-pointer
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilePointer|
+    throw build, field long
+
+force length
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    throw build, field long
+
+force read
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field random-access-file
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force read
+  mount build, field random-access-file
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    throw build, field int
+
+force read-boolean
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readBoolean|
+    throw build, field boolean
+
+force read-byte
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readByte|
+    throw build, field byte
+
+force read-char
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readChar|
+    throw build, field char
+
+force read-double
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readDouble|
+    throw build, field double
+
+force read-float
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readFloat|
+    throw build, field float
+
+force read-fully
+  mount build, field random-access-file
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |readFully|
+    drive factor, share b
+    throw build, field unit
+
+force read-fully
+  mount build, field random-access-file
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |readFully|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force read-int
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readInt|
+    throw build, field int
+
+force read-line
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readLine|
+    throw build, field string
+
+force read-long
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readLong|
+    throw build, field long
+
+force read-short
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readShort|
+    throw build, field short
+
+force read-utf
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readUTF|
+    throw build, field string
+
+force read-unsigned-byte
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readUnsignedByte|
+    throw build, field int
+
+force read-unsigned-short
+  mount build, field random-access-file
+
+  cause call-method
+    drive object, share build
+    drive method, |readUnsignedShort|
+    throw build, field int
+
+force seek
+  mount build, field random-access-file
+  mount pos, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |seek|
+    drive factor, share pos
+    throw build, field unit
+
+force set-length
+  mount build, field random-access-file
+  mount new-length, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setLength|
+    drive factor, share new-length
+    throw build, field unit
+
+force skip-bytes
+  mount build, field random-access-file
+  mount n, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |skipBytes|
+    drive factor, share n
+    throw build, field int
+
+force write
+  mount build, field random-access-file
+  mount b, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field random-access-file
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    throw build, field unit
+
+force write
+  mount build, field random-access-file
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force write-boolean
+  mount build, field random-access-file
+  mount v, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBoolean|
+    drive factor, share v
+    throw build, field unit
+
+force write-byte
+  mount build, field random-access-file
+  mount v, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeByte|
+    drive factor, share v
+    throw build, field unit
+
+force write-bytes
+  mount build, field random-access-file
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |writeBytes|
+    drive factor, share s
+    throw build, field unit
+
+force write-char
+  mount build, field random-access-file
+  mount v, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeChar|
+    drive factor, share v
+    throw build, field unit
+
+force write-chars
+  mount build, field random-access-file
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |writeChars|
+    drive factor, share s
+    throw build, field unit
+
+force write-double
+  mount build, field random-access-file
+  mount v, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |writeDouble|
+    drive factor, share v
+    throw build, field unit
+
+force write-float
+  mount build, field random-access-file
+  mount v, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |writeFloat|
+    drive factor, share v
+    throw build, field unit
+
+force write-int
+  mount build, field random-access-file
+  mount v, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeInt|
+    drive factor, share v
+    throw build, field unit
+
+force write-long
+  mount build, field random-access-file
+  mount v, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |writeLong|
+    drive factor, share v
+    throw build, field unit
+
+force write-short
+  mount build, field random-access-file
+  mount v, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeShort|
+    drive factor, share v
+    throw build, field unit
+
+force write-utf
+  mount build, field random-access-file
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |writeUTF|
+    drive factor, share str
+    throw build, field unit

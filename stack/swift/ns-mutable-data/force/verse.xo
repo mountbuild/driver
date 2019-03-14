@@ -1,0 +1,142 @@
+force get-mutable-bytes
+  field build, field ns-mutable-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |mutableBytes|
+    raise build, field unsafe-mutable-raw-pointer
+
+force set-mutable-bytes
+  field build, field ns-mutable-data
+  field value, field unsafe-mutable-raw-pointer
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |mutableBytes|
+    drive factor, share value
+
+force get-length
+  field build, field ns-mutable-data
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |length|
+    raise build, field int
+
+force set-length
+  field build, field ns-mutable-data
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |length|
+    drive factor, share value
+
+force append
+  field build, field ns-mutable-data
+  field a, class unsafe-raw-pointer
+  field length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+    drive factor
+      brand length
+      share length
+
+force append
+  field build, field ns-mutable-data
+  field a, class data
+
+  cause call-method
+    drive object, share build
+    drive method, |append|
+    drive factor, share a
+
+force increase-length
+  field build, field ns-mutable-data
+  field by, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |increaseLength|
+    drive factor
+      brand by
+      share by
+
+force replace-bytes
+  field build, field ns-mutable-data
+  field in, field ns-range
+  field with-bytes, field unsafe-raw-pointer
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceBytes|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand with-bytes
+      share with-bytes
+
+force replace-bytes
+  field build, field ns-mutable-data
+  field in, field ns-range
+  field with-bytes, field unsafe-raw-pointer
+  field length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceBytes|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand with-bytes
+      share with-bytes
+    drive factor
+      brand length
+      share length
+
+force reset-bytes
+  field build, field ns-mutable-data
+  field in, field ns-range
+
+  cause call-method
+    drive object, share build
+    drive method, |resetBytes|
+    drive factor
+      brand in
+      share in
+
+force set-data
+  field build, field ns-mutable-data
+  field a, class data
+
+  cause call-method
+    drive object, share build
+    drive method, |setData|
+    drive factor, share a
+
+force compress
+  field build, field ns-mutable-data
+  field using, field ns-data-compression-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |compress|
+    drive factor
+      brand using
+      share using
+
+force decompress
+  field build, field ns-mutable-data
+  field using, field ns-data-compression-algorithm
+
+  cause call-method
+    drive object, share build
+    drive method, |decompress|
+    drive factor
+      brand using
+      share using

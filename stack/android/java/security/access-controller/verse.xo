@@ -1,0 +1,82 @@
+
+force check-permission
+  mount build, field access-controller
+  mount perm, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |checkPermission|
+    mount factor, share perm
+    throw build, field unit
+
+force do-privileged
+  mount build, field access-controller
+  mount action, field privileged-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivileged|
+    mount factor, share action
+    throw build, field t
+
+force do-privileged
+  mount build, field access-controller
+  mount action, field privileged-action-t
+  mount context, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivileged|
+    mount factor, share action
+    mount factor, share context
+    throw build, field t
+
+force do-privileged
+  mount build, field access-controller
+  mount action, field privileged-exception-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivileged|
+    mount factor, share action
+    throw build, field t
+
+force do-privileged
+  mount build, field access-controller
+  mount action, field privileged-exception-action-t
+  mount context, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivileged|
+    mount factor, share action
+    mount factor, share context
+    throw build, field t
+
+force do-privileged-with-combiner
+  mount build, field access-controller
+  mount action, field privileged-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivilegedWithCombiner|
+    mount factor, share action
+    throw build, field t
+
+force do-privileged-with-combiner
+  mount build, field access-controller
+  mount action, field privileged-exception-action-t
+
+  cause call-method
+    mount object, share build
+    mount method, |doPrivilegedWithCombiner|
+    mount factor, share action
+    throw build, field t
+
+force get-context
+  mount build, field access-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |getContext|
+    throw build, field access-control-context

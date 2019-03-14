@@ -1,0 +1,82 @@
+
+force get-data-share-error-concurrent-request
+  mount build, field content-capture-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_SHARE_ERROR_CONCURRENT_REQUEST|
+    raise build, field int
+
+force get-data-share-error-timeout-interrupted
+  mount build, field content-capture-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_SHARE_ERROR_TIMEOUT_INTERRUPTED|
+    raise build, field int
+
+force get-data-share-error-unknown
+  mount build, field content-capture-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DATA_SHARE_ERROR_UNKNOWN|
+    raise build, field int
+
+force get-content-capture-conditions
+  mount build, field content-capture-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentCaptureConditions|
+    raise build, field mutable-set
+
+force get-service-component-name
+  mount build, field content-capture-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getServiceComponentName|
+    raise build, field component-name
+
+force is-content-capture-enabled
+  mount build, field content-capture-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isContentCaptureEnabled|
+    raise build, field boolean
+
+force remove-data
+  mount build, field content-capture-manager
+  mount request, field data-removal-request
+
+  cause call-method
+    drive object, share build
+    drive method, |removeData|
+    drive factor, share request
+    raise build, field unit
+
+force set-content-capture-enabled
+  mount build, field content-capture-manager
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentCaptureEnabled|
+    drive factor, share enabled
+    raise build, field unit
+
+force share-data
+  mount build, field content-capture-manager
+  mount request, field data-share-request
+  mount executor, field executor
+  mount data-share-write-adapter, field data-share-write-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |shareData|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share data-share-write-adapter
+    raise build, field unit

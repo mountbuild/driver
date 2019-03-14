@@ -1,0 +1,66 @@
+
+force get-display-name
+  mount build, field japanese-era
+  mount style, field text-style
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share style
+    drive factor, share locale
+    throw build, field string
+
+force get-value
+  mount build, field japanese-era
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field int
+
+force of
+  mount build, field japanese-era
+  mount japanese-era, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share japanese-era
+    throw build, field japanese-era
+
+force range
+  mount build, field japanese-era
+  mount field, field temporal-field
+
+  cause call-method
+    drive object, share build
+    drive method, |range|
+    drive factor, share field
+    throw build, field value-range
+
+force to-string
+  mount build, field japanese-era
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-of
+  mount build, field japanese-era
+  mount japanese-era, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share japanese-era
+    throw build, field japanese-era
+
+force values
+  mount build, field japanese-era
+
+  cause call-method
+    drive object, share build
+    drive method, |values|
+    throw build, field array

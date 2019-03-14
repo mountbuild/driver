@@ -1,0 +1,55 @@
+
+force get-undefined-time-nano
+  mount build, field frame-stats
+
+  cause get-property
+    drive object, share build
+    drive property, |UNDEFINED_TIME_NANO|
+    raise build, field long
+
+force build-frame-stats
+  cause invoke-constructor
+    drive constructor, |FrameStats|
+    raise build, field frame-stats
+
+force get-end-time-nano
+  mount build, field frame-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getEndTimeNano|
+    raise build, field long
+
+force get-frame-count
+  mount build, field frame-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getFrameCount|
+    raise build, field int
+
+force get-frame-presented-time-nano
+  mount build, field frame-stats
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getFramePresentedTimeNano|
+    drive factor, share index
+    raise build, field long
+
+force get-refresh-period-nano
+  mount build, field frame-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getRefreshPeriodNano|
+    raise build, field long
+
+force get-start-time-nano
+  mount build, field frame-stats
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartTimeNano|
+    raise build, field long

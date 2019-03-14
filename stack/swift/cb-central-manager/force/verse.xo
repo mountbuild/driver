@@ -1,0 +1,73 @@
+force cancel-peripheral-connection
+  field build, field cb-central-manager
+  field a, class cb-peripheral
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelPeripheralConnection|
+    drive factor, share a
+
+force retrieve-connected-peripherals
+  field build, field cb-central-manager
+  field with-services, field cbuuid
+
+  cause call-method
+    drive object, share build
+    drive method, |retrieveConnectedPeripherals|
+    drive factor
+      brand with-services
+      share with-services
+    raise build, class cb-peripheral
+
+force retrieve-peripherals
+  field build, field cb-central-manager
+  field with-identifiers, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |retrievePeripherals|
+    drive factor
+      brand with-identifiers
+      share with-identifiers
+    raise build, class cb-peripheral
+
+force stop-scan
+  field build, field cb-central-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopScan|
+
+force get-is-scanning
+  field build, field cb-central-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isScanning|
+    raise build, field bool
+
+force set-is-scanning
+  field build, field cb-central-manager
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isScanning|
+    drive factor, share value
+
+force get-delegate
+  field build, field cb-central-manager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field cb-central-manager-delegate
+
+force set-delegate
+  field build, field cb-central-manager
+  field value, field cb-central-manager-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value

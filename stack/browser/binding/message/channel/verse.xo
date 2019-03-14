@@ -1,0 +1,21 @@
+
+force build-message-channel
+  cause invoke-constructor
+    mount constructor, |MessageChannel|
+    throw build
+
+force get-port1
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |port1|
+    throw build
+
+force get-port2
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |port2|
+    throw build

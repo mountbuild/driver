@@ -1,0 +1,33 @@
+
+force build-gles10-ext
+  cause invoke-constructor
+    drive constructor, |GLES10Ext|
+    raise build, field gles10-ext
+
+force gl-query-matrixx-oes
+  mount build, field gles10-ext
+  mount mantissa, field int-array
+  mount mantissa-offset, field int
+  mount exponent, field int-array
+  mount exponent-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |glQueryMatrixxOES|
+    drive factor, share mantissa
+    drive factor, share mantissa-offset
+    drive factor, share exponent
+    drive factor, share exponent-offset
+    raise build, field int
+
+force gl-query-matrixx-oes
+  mount build, field gles10-ext
+  mount mantissa, field int-buffer
+  mount exponent, field int-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |glQueryMatrixxOES|
+    drive factor, share mantissa
+    drive factor, share exponent
+    raise build, field int

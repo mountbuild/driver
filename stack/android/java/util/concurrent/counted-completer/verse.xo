@@ -1,0 +1,162 @@
+
+force add-to-pending-count
+  mount build, field counted-completer
+  mount delta, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addToPendingCount|
+    drive factor, share delta
+    throw build, field unit
+
+force compare-and-set-pending-count
+  mount build, field counted-completer
+  mount expected, field int
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSetPendingCount|
+    drive factor, share expected
+    drive factor, share count
+    throw build, field boolean
+
+force complete
+  mount build, field counted-completer
+  mount raw-result, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |complete|
+    drive factor, share raw-result
+    throw build, field unit
+
+force compute
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |compute|
+    throw build, field unit
+
+force decrement-pending-count-unless-zero
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |decrementPendingCountUnlessZero|
+    throw build, field int
+
+force first-complete
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |firstComplete|
+    throw build, field counted-completer
+
+force get-completer
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |getCompleter|
+    throw build, field counted-completer
+
+force get-pending-count
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |getPendingCount|
+    throw build, field int
+
+force get-raw-result
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |getRawResult|
+    throw build, field t
+
+force get-root
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoot|
+    throw build, field counted-completer
+
+force help-complete
+  mount build, field counted-completer
+  mount max-tasks, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |helpComplete|
+    drive factor, share max-tasks
+    throw build, field unit
+
+force next-complete
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |nextComplete|
+    throw build, field counted-completer
+
+force on-completion
+  mount build, field counted-completer
+  mount caller, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |onCompletion|
+    drive factor, share caller
+    throw build, field unit
+
+force on-exceptional-completion
+  mount build, field counted-completer
+  mount ex, field throwable
+  mount caller, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |onExceptionalCompletion|
+    drive factor, share ex
+    drive factor, share caller
+    throw build, field boolean
+
+force propagate-completion
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |propagateCompletion|
+    throw build, field unit
+
+force quietly-complete-root
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |quietlyCompleteRoot|
+    throw build, field unit
+
+force set-pending-count
+  mount build, field counted-completer
+  mount count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPendingCount|
+    drive factor, share count
+    throw build, field unit
+
+force try-complete
+  mount build, field counted-completer
+
+  cause call-method
+    drive object, share build
+    drive method, |tryComplete|
+    throw build, field unit

@@ -1,0 +1,62 @@
+
+force get-wallet-item-app-association
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation|
+
+force build-wallet-item-system-store
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Wallet.System.WalletItemSystemStore|
+
+force delete-async
+  start build, field windows-applicationmodel-wallet-system-walletitemsystemstore
+  start item, field windows-applicationmodel-wallet-walletitem
+
+  cause call-method
+    drive object, share build
+    drive method, |DeleteAsync|
+    drive factor, share item
+
+force get-app-status-for-item
+  start build, field windows-applicationmodel-wallet-system-walletitemsystemstore
+  start item, field windows-applicationmodel-wallet-walletitem
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAppStatusForItem|
+    drive factor, share item
+
+force get-items-async
+  start build, field windows-applicationmodel-wallet-system-walletitemsystemstore
+
+  cause call-method
+    drive object, share build
+    drive method, |GetItemsAsync|
+
+force import-item-async
+  start build, field windows-applicationmodel-wallet-system-walletitemsystemstore
+  start stream, field windows-storage-streams-irandomaccessstreamreference
+
+  cause call-method
+    drive object, share build
+    drive method, |ImportItemAsync|
+    drive factor, share stream
+
+force launch-app-for-item-async
+  start build, field windows-applicationmodel-wallet-system-walletitemsystemstore
+  start item, field windows-applicationmodel-wallet-walletitem
+
+  cause call-method
+    drive object, share build
+    drive method, |LaunchAppForItemAsync|
+    drive factor, share item
+
+force build-wallet-manager-system
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Wallet.System.WalletManagerSystem|
+
+force request-store-async
+  start build, field windows-applicationmodel-wallet-system-walletmanagersystem
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestStoreAsync|

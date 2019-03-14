@@ -1,0 +1,89 @@
+
+force get-service-interface
+  mount build, field autofill-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force get-service-meta-data
+  mount build, field autofill-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_META_DATA|
+    raise build, field string
+
+force build-autofill-service
+  cause invoke-constructor
+    drive constructor, |AutofillService|
+    raise build, field autofill-service
+
+force get-fill-event-history
+  mount build, field autofill-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getFillEventHistory|
+    raise build, field fill-event-history
+
+force on-bind
+  mount build, field autofill-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-connected
+  mount build, field autofill-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnected|
+    raise build, field unit
+
+force on-create
+  mount build, field autofill-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-disconnected
+  mount build, field autofill-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisconnected|
+    raise build, field unit
+
+force on-fill-request
+  mount build, field autofill-service
+  mount request, field fill-request
+  mount cancellation-signal, field cancellation-signal
+  mount callback, field fill-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onFillRequest|
+    drive factor, share request
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    raise build, field unit
+
+force on-save-request
+  mount build, field autofill-service
+  mount request, field save-request
+  mount callback, field save-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onSaveRequest|
+    drive factor, share request
+    drive factor, share callback
+    raise build, field unit

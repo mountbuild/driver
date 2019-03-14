@@ -1,0 +1,232 @@
+
+force build-media-transcoder
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Transcoding.MediaTranscoder|
+
+force add-audio-effect
+  start build, field windows-media-transcoding-mediatranscoder
+  start activatable-class-id, field system-string
+  start effect-required, field system-boolean
+  start configuration, field windows-foundation-collections-ipropertyset
+
+  cause call-method
+    drive object, share build
+    drive method, |AddAudioEffect|
+    drive factor, share activatable-class-id
+    drive factor, share effect-required
+    drive factor, share configuration
+
+force add-audio-effect
+  start build, field windows-media-transcoding-mediatranscoder
+  start activatable-class-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddAudioEffect|
+    drive factor, share activatable-class-id
+
+force add-video-effect
+  start build, field windows-media-transcoding-mediatranscoder
+  start activatable-class-id, field system-string
+  start effect-required, field system-boolean
+  start configuration, field windows-foundation-collections-ipropertyset
+
+  cause call-method
+    drive object, share build
+    drive method, |AddVideoEffect|
+    drive factor, share activatable-class-id
+    drive factor, share effect-required
+    drive factor, share configuration
+
+force add-video-effect
+  start build, field windows-media-transcoding-mediatranscoder
+  start activatable-class-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddVideoEffect|
+    drive factor, share activatable-class-id
+
+force get-always-reencode
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AlwaysReencode|
+
+force set-always-reencode
+  start build, field windows-media-transcoding-mediatranscoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AlwaysReencode|
+    drive factor, share value
+
+force clear-effects
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause call-method
+    drive object, share build
+    drive method, |ClearEffects|
+
+force get-hardware-acceleration-enabled
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HardwareAccelerationEnabled|
+
+force set-hardware-acceleration-enabled
+  start build, field windows-media-transcoding-mediatranscoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HardwareAccelerationEnabled|
+    drive factor, share value
+
+force ctor
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force prepare-file-transcode-async
+  start build, field windows-media-transcoding-mediatranscoder
+  start source, field windows-storage-istoragefile
+  start destination, field windows-storage-istoragefile
+  start profile, field windows-media-mediaproperties-mediaencodingprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |PrepareFileTranscodeAsync|
+    drive factor, share source
+    drive factor, share destination
+    drive factor, share profile
+
+force prepare-media-stream-source-transcode-async
+  start build, field windows-media-transcoding-mediatranscoder
+  start source, field windows-media-core-imediasource
+  start destination, field windows-storage-streams-irandomaccessstream
+  start profile, field windows-media-mediaproperties-mediaencodingprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |PrepareMediaStreamSourceTranscodeAsync|
+    drive factor, share source
+    drive factor, share destination
+    drive factor, share profile
+
+force prepare-stream-transcode-async
+  start build, field windows-media-transcoding-mediatranscoder
+  start source, field windows-storage-streams-irandomaccessstream
+  start destination, field windows-storage-streams-irandomaccessstream
+  start profile, field windows-media-mediaproperties-mediaencodingprofile
+
+  cause call-method
+    drive object, share build
+    drive method, |PrepareStreamTranscodeAsync|
+    drive factor, share source
+    drive factor, share destination
+    drive factor, share profile
+
+force get-trim-start-time
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrimStartTime|
+
+force set-trim-start-time
+  start build, field windows-media-transcoding-mediatranscoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrimStartTime|
+    drive factor, share value
+
+force get-trim-stop-time
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TrimStopTime|
+
+force set-trim-stop-time
+  start build, field windows-media-transcoding-mediatranscoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TrimStopTime|
+    drive factor, share value
+
+force get-video-processing-algorithm
+  start build, field windows-media-transcoding-mediatranscoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |VideoProcessingAlgorithm|
+
+force set-video-processing-algorithm
+  start build, field windows-media-transcoding-mediatranscoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |VideoProcessingAlgorithm|
+    drive factor, share value
+
+force get-media-video-processing-algorithm
+  cause get-object
+    drive aspect, |Windows.Media.Transcoding.MediaVideoProcessingAlgorithm|
+
+force build-prepare-transcode-result
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Transcoding.PrepareTranscodeResult|
+
+force get-can-transcode
+  start build, field windows-media-transcoding-preparetranscoderesult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanTranscode|
+
+force set-can-transcode
+  start build, field windows-media-transcoding-preparetranscoderesult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanTranscode|
+    drive factor, share value
+
+force get-failure-reason
+  start build, field windows-media-transcoding-preparetranscoderesult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |FailureReason|
+
+force set-failure-reason
+  start build, field windows-media-transcoding-preparetranscoderesult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |FailureReason|
+    drive factor, share value
+
+force transcode-async
+  start build, field windows-media-transcoding-preparetranscoderesult
+
+  cause call-method
+    drive object, share build
+    drive method, |TranscodeAsync|
+
+force get-transcode-failure-reason
+  cause get-object
+    drive aspect, |Windows.Media.Transcoding.TranscodeFailureReason|

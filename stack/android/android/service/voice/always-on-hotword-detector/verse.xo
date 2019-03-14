@@ -1,0 +1,194 @@
+
+force get-audio-capability-echo-cancellation
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_CAPABILITY_ECHO_CANCELLATION|
+    raise build, field int
+
+force get-audio-capability-noise-suppression
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |AUDIO_CAPABILITY_NOISE_SUPPRESSION|
+    raise build, field int
+
+force get-model-param-threshold-factor
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |MODEL_PARAM_THRESHOLD_FACTOR|
+    raise build, field int
+
+force get-recognition-flag-allow-multiple-triggers
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_FLAG_ALLOW_MULTIPLE_TRIGGERS|
+    raise build, field int
+
+force get-recognition-flag-capture-trigger-audio
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_FLAG_CAPTURE_TRIGGER_AUDIO|
+    raise build, field int
+
+force get-recognition-flag-enable-audio-echo-cancellation
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_FLAG_ENABLE_AUDIO_ECHO_CANCELLATION|
+    raise build, field int
+
+force get-recognition-flag-enable-audio-noise-suppression
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_FLAG_ENABLE_AUDIO_NOISE_SUPPRESSION|
+    raise build, field int
+
+force get-recognition-mode-user-identification
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_MODE_USER_IDENTIFICATION|
+    raise build, field int
+
+force get-recognition-mode-voice-trigger
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |RECOGNITION_MODE_VOICE_TRIGGER|
+    raise build, field int
+
+force get-state-hardware-unavailable
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_HARDWARE_UNAVAILABLE|
+    raise build, field int
+
+force get-state-keyphrase-enrolled
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_KEYPHRASE_ENROLLED|
+    raise build, field int
+
+force get-state-keyphrase-unenrolled
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_KEYPHRASE_UNENROLLED|
+    raise build, field int
+
+force get-state-keyphrase-unsupported
+  mount build, field always-on-hotword-detector
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_KEYPHRASE_UNSUPPORTED|
+    raise build, field int
+
+force create-enroll-intent
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |createEnrollIntent|
+    raise build, field intent
+
+force create-re-enroll-intent
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |createReEnrollIntent|
+    raise build, field intent
+
+force create-un-enroll-intent
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |createUnEnrollIntent|
+    raise build, field intent
+
+force get-parameter
+  mount build, field always-on-hotword-detector
+  mount model-param, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParameter|
+    drive factor, share model-param
+    raise build, field int
+
+force get-supported-audio-capabilities
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedAudioCapabilities|
+    raise build, field int
+
+force get-supported-recognition-modes
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedRecognitionModes|
+    raise build, field int
+
+force query-parameter
+  mount build, field always-on-hotword-detector
+  mount model-param, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queryParameter|
+    drive factor, share model-param
+    raise build, field always-on-hotword-detector-model-param-range
+
+force set-parameter
+  mount build, field always-on-hotword-detector
+  mount model-param, field int
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameter|
+    drive factor, share model-param
+    drive factor, share value
+    raise build, field int
+
+force start-recognition
+  mount build, field always-on-hotword-detector
+  mount recognition-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecognition|
+    drive factor, share recognition-flags
+    raise build, field boolean
+
+force stop-recognition
+  mount build, field always-on-hotword-detector
+
+  cause call-method
+    drive object, share build
+    drive method, |stopRecognition|
+    raise build, field boolean

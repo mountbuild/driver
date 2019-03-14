@@ -1,0 +1,36 @@
+
+force close
+  start build, field midi-output-port
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-port-number
+  start build, field midi-output-port
+
+  cause call-method
+    drive object, share build
+    drive method, |getPortNumber|
+    raise build, field int
+
+force on-connect
+  start build, field midi-output-port
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnect|
+    drive factor, share receiver
+    raise build, field unit
+
+force on-disconnect
+  start build, field midi-output-port
+  start receiver, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisconnect|
+    drive factor, share receiver
+    raise build, field unit

@@ -1,0 +1,122 @@
+
+force get-feature
+  start build, field sax-parser-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getFeature|
+    mount factor, share name
+    throw build, field boolean
+
+force get-schema
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getSchema|
+    throw build, field schema
+
+force is-namespace-aware
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |isNamespaceAware|
+    throw build, field boolean
+
+force is-validating
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |isValidating|
+    throw build, field boolean
+
+force is-x-include-aware
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |isXIncludeAware|
+    throw build, field boolean
+
+force new-instance
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    throw build, field sax-parser-factory
+
+force new-instance
+  start build, field sax-parser-factory
+  start factory-class-name, field string
+  start class-loader, field class-loader
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share factory-class-name
+    mount factor, share class-loader
+    throw build, field sax-parser-factory
+
+force new-sax-parser
+  start build, field sax-parser-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newSAXParser|
+    throw build, field sax-parser
+
+force set-feature
+  start build, field sax-parser-factory
+  start name, field string
+  start value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setFeature|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-namespace-aware
+  start build, field sax-parser-factory
+  start awareness, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setNamespaceAware|
+    mount factor, share awareness
+    throw build, field unit
+
+force set-schema
+  start build, field sax-parser-factory
+  start schema, field schema
+
+  cause call-method
+    mount object, share build
+    mount method, |setSchema|
+    mount factor, share schema
+    throw build, field unit
+
+force set-validating
+  start build, field sax-parser-factory
+  start validating, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setValidating|
+    mount factor, share validating
+    throw build, field unit
+
+force set-x-include-aware
+  start build, field sax-parser-factory
+  start state, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setXIncludeAware|
+    mount factor, share state
+    throw build, field unit

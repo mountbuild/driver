@@ -1,0 +1,299 @@
+
+force get-best-compression
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |BEST_COMPRESSION|
+    throw build, field int
+
+force get-best-speed
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |BEST_SPEED|
+    throw build, field int
+
+force get-default-compression
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_COMPRESSION|
+    throw build, field int
+
+force get-default-strategy
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_STRATEGY|
+    throw build, field int
+
+force get-deflated
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFLATED|
+    throw build, field int
+
+force get-filtered
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |FILTERED|
+    throw build, field int
+
+force get-full-flush
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |FULL_FLUSH|
+    throw build, field int
+
+force get-huffman-only
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |HUFFMAN_ONLY|
+    throw build, field int
+
+force get-no-compression
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_COMPRESSION|
+    throw build, field int
+
+force get-no-flush
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |NO_FLUSH|
+    throw build, field int
+
+force get-sync-flush
+  mount build, field deflater
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_FLUSH|
+    throw build, field int
+
+force build-deflater
+  mount level, field int
+  mount nowrap, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Deflater|
+    drive factor, share level
+    drive factor, share nowrap
+    throw build, field deflater
+
+force build-deflater
+  mount level, field int
+
+  cause invoke-constructor
+    drive constructor, |Deflater|
+    drive factor, share level
+    throw build, field deflater
+
+force build-deflater
+  cause invoke-constructor
+    drive constructor, |Deflater|
+    throw build, field deflater
+
+force deflate
+  mount build, field deflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deflate|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force deflate
+  mount build, field deflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |deflate|
+    drive factor, share b
+    throw build, field int
+
+force deflate
+  mount build, field deflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+  mount flush, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |deflate|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    drive factor, share flush
+    throw build, field int
+
+force end
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |end|
+    throw build, field unit
+
+force finish
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |finish|
+    throw build, field unit
+
+force finished
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |finished|
+    throw build, field boolean
+
+force get-adler
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdler|
+    throw build, field int
+
+force get-bytes-read
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytesRead|
+    throw build, field long
+
+force get-bytes-written
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytesWritten|
+    throw build, field long
+
+force get-total-in
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalIn|
+    throw build, field int
+
+force get-total-out
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalOut|
+    throw build, field int
+
+force needs-input
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |needsInput|
+    throw build, field boolean
+
+force reset
+  mount build, field deflater
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force set-dictionary
+  mount build, field deflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDictionary|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force set-dictionary
+  mount build, field deflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setDictionary|
+    drive factor, share b
+    throw build, field unit
+
+force set-input
+  mount build, field deflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force set-input
+  mount build, field deflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share b
+    throw build, field unit
+
+force set-level
+  mount build, field deflater
+  mount level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLevel|
+    drive factor, share level
+    throw build, field unit
+
+force set-strategy
+  mount build, field deflater
+  mount strategy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setStrategy|
+    drive factor, share strategy
+    throw build, field unit

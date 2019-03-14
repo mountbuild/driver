@@ -1,0 +1,72 @@
+
+force compare-to
+  mount build, field enum
+  mount other, field e
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force equals
+  mount build, field enum
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-declaring-class
+  mount build, field enum
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaringClass|
+    throw build, field class
+
+force hash-code
+  mount build, field enum
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force name
+  mount build, field enum
+
+  cause call-method
+    drive object, share build
+    drive method, |name|
+    throw build, field string
+
+force ordinal
+  mount build, field enum
+
+  cause call-method
+    drive object, share build
+    drive method, |ordinal|
+    throw build, field int
+
+force to-string
+  mount build, field enum
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value-of
+  mount build, field enum
+  mount enum-type, field class-t
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |valueOf|
+    drive factor, share enum-type
+    drive factor, share name
+    throw build, field t

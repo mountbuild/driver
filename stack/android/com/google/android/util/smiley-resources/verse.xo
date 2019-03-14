@@ -1,0 +1,52 @@
+
+force build-smiley-resources
+  start smilies, field array-string
+  start smiley-res-ids, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SmileyResources|
+    drive factor, share smilies
+    drive factor, share smiley-res-ids
+    throw build, field smiley-resources
+
+force get-acronyms
+  start build, field smiley-resources
+
+  cause call-method
+    drive object, share build
+    drive method, |getAcronyms|
+    throw build, field abstract-message-parser-trie-node
+
+force get-domain-suffixes
+  start build, field smiley-resources
+
+  cause call-method
+    drive object, share build
+    drive method, |getDomainSuffixes|
+    throw build, field abstract-message-parser-trie-node
+
+force get-schemes
+  start build, field smiley-resources
+
+  cause call-method
+    drive object, share build
+    drive method, |getSchemes|
+    throw build, field mutable-set
+
+force get-smiley-res
+  start build, field smiley-resources
+  start smiley, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getSmileyRes|
+    drive factor, share smiley
+    throw build, field int
+
+force get-smileys
+  start build, field smiley-resources
+
+  cause call-method
+    drive object, share build
+    drive method, |getSmileys|
+    throw build, field abstract-message-parser-trie-node

@@ -1,0 +1,37 @@
+
+force build-palm-rejection-delay-zone-preview
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview|
+
+force close
+  mount build, field windows-ui-input-inking-preview-palmrejectiondelayzonepreview
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force create-for-visual
+  mount build, field windows-ui-input-inking-preview-palmrejectiondelayzonepreview
+  mount input-panel-visual, field windows-ui-composition-visual
+  mount input-panel-rect, field windows-foundation-rect
+  mount viewport-visual, field windows-ui-composition-visual
+  mount viewport-rect, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateForVisual|
+    drive factor, share input-panel-visual
+    drive factor, share input-panel-rect
+    drive factor, share viewport-visual
+    drive factor, share viewport-rect
+
+force create-for-visual
+  mount build, field windows-ui-input-inking-preview-palmrejectiondelayzonepreview
+  mount input-panel-visual, field windows-ui-composition-visual
+  mount input-panel-rect, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateForVisual|
+    drive factor, share input-panel-visual
+    drive factor, share input-panel-rect

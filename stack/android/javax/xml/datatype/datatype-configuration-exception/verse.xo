@@ -1,0 +1,59 @@
+
+force build-datatype-configuration-exception
+  cause invoke-constructor
+    mount constructor, |DatatypeConfigurationException|
+    throw build, field datatype-configuration-exception
+
+force build-datatype-configuration-exception
+  start message, field string
+
+  cause invoke-constructor
+    mount constructor, |DatatypeConfigurationException|
+    mount factor, share message
+    throw build, field datatype-configuration-exception
+
+force build-datatype-configuration-exception
+  start message, field string
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |DatatypeConfigurationException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field datatype-configuration-exception
+
+force build-datatype-configuration-exception
+  start cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |DatatypeConfigurationException|
+    mount factor, share cause
+    throw build, field datatype-configuration-exception
+
+force print-stack-trace
+  start build, field datatype-configuration-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    throw build, field unit
+
+force print-stack-trace
+  start build, field datatype-configuration-exception
+  start s, field print-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit
+
+force print-stack-trace
+  start build, field datatype-configuration-exception
+  start s, field print-writer
+
+  cause call-method
+    mount object, share build
+    mount method, |printStackTrace|
+    mount factor, share s
+    throw build, field unit

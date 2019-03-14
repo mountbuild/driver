@@ -1,0 +1,122 @@
+
+force build-rfc822-token
+  mount name, field string
+  mount address, field string
+  mount comment, field string
+
+  cause invoke-constructor
+    drive constructor, |Rfc822Token|
+    drive factor, share name
+    drive factor, share address
+    drive factor, share comment
+    raise build, field rfc822-token
+
+force equals
+  mount build, field rfc822-token
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-address
+  mount build, field rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    raise build, field string
+
+force get-comment
+  mount build, field rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |getComment|
+    raise build, field string
+
+force get-name
+  mount build, field rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force hash-code
+  mount build, field rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force quote-comment
+  mount build, field rfc822-token
+  mount comment, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |quoteComment|
+    drive factor, share comment
+    raise build, field string
+
+force quote-name
+  mount build, field rfc822-token
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |quoteName|
+    drive factor, share name
+    raise build, field string
+
+force quote-name-if-necessary
+  mount build, field rfc822-token
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |quoteNameIfNecessary|
+    drive factor, share name
+    raise build, field string
+
+force set-address
+  mount build, field rfc822-token
+  mount address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setAddress|
+    drive factor, share address
+    raise build, field unit
+
+force set-comment
+  mount build, field rfc822-token
+  mount comment, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setComment|
+    drive factor, share comment
+    raise build, field unit
+
+force set-name
+  mount build, field rfc822-token
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    raise build, field unit
+
+force to-string
+  mount build, field rfc822-token
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

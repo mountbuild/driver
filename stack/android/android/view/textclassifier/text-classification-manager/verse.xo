@@ -1,0 +1,38 @@
+
+force create-text-classification-session
+  mount build, field text-classification-manager
+  mount classification-context, field text-classification-context
+
+  cause call-method
+    drive object, share build
+    drive method, |createTextClassificationSession|
+    drive factor, share classification-context
+    raise build, field text-classifier
+
+force get-text-classifier
+  mount build, field text-classification-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getTextClassifier|
+    raise build, field text-classifier
+
+force set-text-classification-session-factory
+  mount build, field text-classification-manager
+  mount factory, field text-classification-session-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextClassificationSessionFactory|
+    drive factor, share factory
+    raise build, field unit
+
+force set-text-classifier
+  mount build, field text-classification-manager
+  mount text-classifier, field text-classifier
+
+  cause call-method
+    drive object, share build
+    drive method, |setTextClassifier|
+    drive factor, share text-classifier
+    raise build, field unit

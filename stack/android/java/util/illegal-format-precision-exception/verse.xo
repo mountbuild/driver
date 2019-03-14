@@ -1,0 +1,16 @@
+
+force build-illegal-format-precision-exception
+  mount p, field int
+
+  cause invoke-constructor
+    drive constructor, |IllegalFormatPrecisionException|
+    drive factor, share p
+    throw build, field illegal-format-precision-exception
+
+force get-precision
+  mount build, field illegal-format-precision-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrecision|
+    throw build, field int

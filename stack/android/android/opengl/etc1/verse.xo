@@ -1,0 +1,159 @@
+
+force get-decoded-block-size
+  mount build, field etc1
+
+  cause get-property
+    drive object, share build
+    drive property, |DECODED_BLOCK_SIZE|
+    raise build, field int
+
+force get-encoded-block-size
+  mount build, field etc1
+
+  cause get-property
+    drive object, share build
+    drive property, |ENCODED_BLOCK_SIZE|
+    raise build, field int
+
+force get-etc1-rgb8-oes
+  mount build, field etc1
+
+  cause get-property
+    drive object, share build
+    drive property, |ETC1_RGB8_OES|
+    raise build, field int
+
+force get-etc-pkm-header-size
+  mount build, field etc1
+
+  cause get-property
+    drive object, share build
+    drive property, |ETC_PKM_HEADER_SIZE|
+    raise build, field int
+
+force build-etc1
+  cause invoke-constructor
+    drive constructor, |ETC1|
+    raise build, field etc1
+
+force decode-block
+  mount build, field etc1
+  mount in, field buffer
+  mount out, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeBlock|
+    drive factor, share in
+    drive factor, share out
+    raise build, field unit
+
+force decode-image
+  mount build, field etc1
+  mount in, field buffer
+  mount out, field buffer
+  mount width, field int
+  mount height, field int
+  mount pixel-size, field int
+  mount stride, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |decodeImage|
+    drive factor, share in
+    drive factor, share out
+    drive factor, share width
+    drive factor, share height
+    drive factor, share pixel-size
+    drive factor, share stride
+    raise build, field unit
+
+force encode-block
+  mount build, field etc1
+  mount in, field buffer
+  mount valid-pixel-mask, field int
+  mount out, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeBlock|
+    drive factor, share in
+    drive factor, share valid-pixel-mask
+    drive factor, share out
+    raise build, field unit
+
+force encode-image
+  mount build, field etc1
+  mount in, field buffer
+  mount width, field int
+  mount height, field int
+  mount pixel-size, field int
+  mount stride, field int
+  mount out, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |encodeImage|
+    drive factor, share in
+    drive factor, share width
+    drive factor, share height
+    drive factor, share pixel-size
+    drive factor, share stride
+    drive factor, share out
+    raise build, field unit
+
+force format-header
+  mount build, field etc1
+  mount header, field buffer
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formatHeader|
+    drive factor, share header
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit
+
+force get-encoded-data-size
+  mount build, field etc1
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncodedDataSize|
+    drive factor, share width
+    drive factor, share height
+    raise build, field int
+
+force get-height
+  mount build, field etc1
+  mount header, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    drive factor, share header
+    raise build, field int
+
+force get-width
+  mount build, field etc1
+  mount header, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    drive factor, share header
+    raise build, field int
+
+force is-valid
+  mount build, field etc1
+  mount header, field buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |isValid|
+    drive factor, share header
+    raise build, field boolean

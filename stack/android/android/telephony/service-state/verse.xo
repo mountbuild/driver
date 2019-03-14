@@ -1,0 +1,295 @@
+
+force get-duplex-mode-fdd
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |DUPLEX_MODE_FDD|
+    throw build, field int
+
+force get-duplex-mode-tdd
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |DUPLEX_MODE_TDD|
+    throw build, field int
+
+force get-duplex-mode-unknown
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |DUPLEX_MODE_UNKNOWN|
+    throw build, field int
+
+force get-state-emergency-only
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_EMERGENCY_ONLY|
+    throw build, field int
+
+force get-state-in-service
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_IN_SERVICE|
+    throw build, field int
+
+force get-state-out-of-service
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_OUT_OF_SERVICE|
+    throw build, field int
+
+force get-state-power-off
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_POWER_OFF|
+    throw build, field int
+
+force get-unknown-id
+  mount build, field service-state
+
+  cause get-property
+    drive object, share build
+    drive property, |UNKNOWN_ID|
+    throw build, field int
+
+force build-service-state
+  cause invoke-constructor
+    drive constructor, |ServiceState|
+    throw build, field service-state
+
+force build-service-state
+  mount s, field service-state
+
+  cause invoke-constructor
+    drive constructor, |ServiceState|
+    drive factor, share s
+    throw build, field service-state
+
+force build-service-state
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |ServiceState|
+    drive factor, share in
+    throw build, field service-state
+
+force describe-contents
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field service-state
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-cdma-network-id
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getCdmaNetworkId|
+    throw build, field int
+
+force get-cdma-system-id
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getCdmaSystemId|
+    throw build, field int
+
+force get-cell-bandwidths
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getCellBandwidths|
+    throw build, field int-array
+
+force get-channel-number
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getChannelNumber|
+    throw build, field int
+
+force get-duplex-mode
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuplexMode|
+    throw build, field int
+
+force get-is-manual-selection
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getIsManualSelection|
+    throw build, field boolean
+
+force get-network-registration-info-list
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkRegistrationInfoList|
+    throw build, field mutable-list
+
+force get-operator-alpha-long
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getOperatorAlphaLong|
+    throw build, field string
+
+force get-operator-alpha-short
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getOperatorAlphaShort|
+    throw build, field string
+
+force get-operator-numeric
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getOperatorNumeric|
+    throw build, field string
+
+force get-roaming
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoaming|
+    throw build, field boolean
+
+force get-state
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force hash-code
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-searching
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |isSearching|
+    throw build, field boolean
+
+force set-is-manual-selection
+  mount build, field service-state
+  mount is-manual, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIsManualSelection|
+    drive factor, share is-manual
+    throw build, field unit
+
+force set-operator-name
+  mount build, field service-state
+  mount long-name, field string
+  mount short-name, field string
+  mount numeric, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setOperatorName|
+    drive factor, share long-name
+    drive factor, share short-name
+    drive factor, share numeric
+    throw build, field unit
+
+force set-roaming
+  mount build, field service-state
+  mount roaming, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoaming|
+    drive factor, share roaming
+    throw build, field unit
+
+force set-state
+  mount build, field service-state
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setState|
+    drive factor, share state
+    throw build, field unit
+
+force set-state-off
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |setStateOff|
+    throw build, field unit
+
+force set-state-out-of-service
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |setStateOutOfService|
+    throw build, field unit
+
+force to-string
+  mount build, field service-state
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field service-state
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

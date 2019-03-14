@@ -1,0 +1,24 @@
+
+fetch ../number
+  catch field integer-32
+fetch ../function
+  catch field function
+
+force create
+  start timeout, field integer-32
+  start callback, field function
+
+  cause call-method
+    mount object, |window|
+    mount method, |setTimeout|
+    mount factor, share callback
+    mount factor, share timeout
+    raise build
+
+force remove
+  start id, field integer-32
+
+  cause call-method
+    mount object, |window|
+    mount method, |clearTimeout|
+    mount factor, share id

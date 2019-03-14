@@ -1,0 +1,68 @@
+
+force build-preview-builds-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Update.PreviewBuildsManager|
+
+force get-are-preview-builds-allowed
+  start build, field windows-management-update-previewbuildsmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ArePreviewBuildsAllowed|
+
+force set-are-preview-builds-allowed
+  start build, field windows-management-update-previewbuildsmanager
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ArePreviewBuildsAllowed|
+    drive factor, share value
+
+force get-current-state
+  start build, field windows-management-update-previewbuildsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentState|
+
+force get-default
+  start build, field windows-management-update-previewbuildsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force is-supported
+  start build, field windows-management-update-previewbuildsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |IsSupported|
+
+force sync-async
+  start build, field windows-management-update-previewbuildsmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |SyncAsync|
+
+force build-preview-builds-state
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Update.PreviewBuildsState|
+
+force get-properties
+  start build, field windows-management-update-previewbuildsstate
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  start build, field windows-management-update-previewbuildsstate
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value

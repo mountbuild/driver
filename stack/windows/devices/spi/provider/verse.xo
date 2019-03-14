@@ -1,0 +1,189 @@
+
+force get-device-provider
+  start build, field windows-devices-spi-provider-ispicontrollerprovider
+  start settings, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceProvider|
+    drive factor, share settings
+
+force get-connection-settings
+  start build, field windows-devices-spi-provider-ispideviceprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ConnectionSettings|
+
+force set-connection-settings
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ConnectionSettings|
+    drive factor, share value
+
+force get-device-id
+  start build, field windows-devices-spi-provider-ispideviceprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+
+force set-device-id
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+    drive factor, share value
+
+force read
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Read|
+    drive factor, share buffer
+
+force transfer-full-duplex
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |TransferFullDuplex|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force transfer-sequential
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |TransferSequential|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force write
+  start build, field windows-devices-spi-provider-ispideviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Write|
+    drive factor, share buffer
+
+force get-controllers-async
+  start build, field windows-devices-spi-provider-ispiprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllersAsync|
+
+force build-provider-spi-connection-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings|
+
+force get-chip-select-line
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ChipSelectLine|
+
+force set-chip-select-line
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ChipSelectLine|
+    drive factor, share value
+
+force get-clock-frequency
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ClockFrequency|
+
+force set-clock-frequency
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ClockFrequency|
+    drive factor, share value
+
+force get-data-bit-length
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DataBitLength|
+
+force set-data-bit-length
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DataBitLength|
+    drive factor, share value
+
+force get-mode
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Mode|
+
+force set-mode
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Mode|
+    drive factor, share value
+
+force ctor
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start chip-select-line, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share chip-select-line
+
+force get-sharing-mode
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+
+force set-sharing-mode
+  start build, field windows-devices-spi-provider-providerspiconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+    drive factor, share value
+
+force get-provider-spi-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Spi.Provider.ProviderSpiMode|
+
+force get-provider-spi-sharing-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Spi.Provider.ProviderSpiSharingMode|

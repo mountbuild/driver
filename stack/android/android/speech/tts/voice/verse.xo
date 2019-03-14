@@ -1,0 +1,192 @@
+
+force get-latency-high
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |LATENCY_HIGH|
+    throw build, field int
+
+force get-latency-low
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |LATENCY_LOW|
+    throw build, field int
+
+force get-latency-normal
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |LATENCY_NORMAL|
+    throw build, field int
+
+force get-latency-very-high
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |LATENCY_VERY_HIGH|
+    throw build, field int
+
+force get-latency-very-low
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |LATENCY_VERY_LOW|
+    throw build, field int
+
+force get-quality-high
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_HIGH|
+    throw build, field int
+
+force get-quality-low
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_LOW|
+    throw build, field int
+
+force get-quality-normal
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_NORMAL|
+    throw build, field int
+
+force get-quality-very-high
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_VERY_HIGH|
+    throw build, field int
+
+force get-quality-very-low
+  mount build, field voice
+
+  cause get-property
+    drive object, share build
+    drive property, |QUALITY_VERY_LOW|
+    throw build, field int
+
+force build-voice
+  mount name, field string
+  mount locale, field locale
+  mount quality, field int
+  mount latency, field int
+  mount requires-network-connection, field boolean
+  mount features, field mutable-set-string
+
+  cause invoke-constructor
+    drive constructor, |Voice|
+    drive factor, share name
+    drive factor, share locale
+    drive factor, share quality
+    drive factor, share latency
+    drive factor, share requires-network-connection
+    drive factor, share features
+    throw build, field voice
+
+force describe-contents
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field voice
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-features
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |getFeatures|
+    throw build, field mutable-set
+
+force get-latency
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |getLatency|
+    throw build, field int
+
+force get-locale
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocale|
+    throw build, field locale
+
+force get-name
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field string
+
+force get-quality
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuality|
+    throw build, field int
+
+force hash-code
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-network-connection-required
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |isNetworkConnectionRequired|
+    throw build, field boolean
+
+force to-string
+  mount build, field voice
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field voice
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

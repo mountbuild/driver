@@ -1,0 +1,548 @@
+
+force build-app-list-entry
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.AppListEntry|
+
+force get-app-user-model-id
+  mount build, field windows-applicationmodel-core-applistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AppUserModelId|
+
+force set-app-user-model-id
+  mount build, field windows-applicationmodel-core-applistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AppUserModelId|
+    drive factor, share value
+
+force get-display-info
+  mount build, field windows-applicationmodel-core-applistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+
+force set-display-info
+  mount build, field windows-applicationmodel-core-applistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+    drive factor, share value
+
+force launch-async
+  mount build, field windows-applicationmodel-core-applistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |LaunchAsync|
+
+force launch-for-user-async
+  mount build, field windows-applicationmodel-core-applistentry
+  mount user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |LaunchForUserAsync|
+    drive factor, share user
+
+force get-app-restart-failure-reason
+  cause get-object
+    drive aspect, |Windows.ApplicationModel.Core.AppRestartFailureReason|
+
+force build-core-application
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.CoreApplication|
+
+force create-new-view
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount view-source, field windows-applicationmodel-core-iframeworkviewsource
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateNewView|
+    drive factor, share view-source
+
+force create-new-view
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount runtime-type, field system-string
+  mount entry-point, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateNewView|
+    drive factor, share runtime-type
+    drive factor, share entry-point
+
+force create-new-view
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateNewView|
+
+force decrement-application-use-count
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause call-method
+    drive object, share build
+    drive method, |DecrementApplicationUseCount|
+
+force enable-prelaunch
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |EnablePrelaunch|
+    drive factor, share value
+
+force exit
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause call-method
+    drive object, share build
+    drive method, |Exit|
+
+force get-current-view
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause call-method
+    drive object, share build
+    drive method, |GetCurrentView|
+
+force get-id
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force increment-application-use-count
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause call-method
+    drive object, share build
+    drive method, |IncrementApplicationUseCount|
+
+force get-main-view
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MainView|
+
+force set-main-view
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MainView|
+    drive factor, share value
+
+force get-properties
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force request-restart-async
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount launch-arguments, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestRestartAsync|
+    drive factor, share launch-arguments
+
+force request-restart-for-user-async
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount user, field windows-system-user
+  mount launch-arguments, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RequestRestartForUserAsync|
+    drive factor, share user
+    drive factor, share launch-arguments
+
+force run
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount view-source, field windows-applicationmodel-core-iframeworkviewsource
+
+  cause call-method
+    drive object, share build
+    drive method, |Run|
+    drive factor, share view-source
+
+force run-with-activation-factories
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount activation-factory-callback, field windows-foundation-igetactivationfactory
+
+  cause call-method
+    drive object, share build
+    drive method, |RunWithActivationFactories|
+    drive factor, share activation-factory-callback
+
+force get-views
+  mount build, field windows-applicationmodel-core-coreapplication
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Views|
+
+force set-views
+  mount build, field windows-applicationmodel-core-coreapplication
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Views|
+    drive factor, share value
+
+force build-core-application-view
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.CoreApplicationView|
+
+force get-core-window
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CoreWindow|
+
+force set-core-window
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CoreWindow|
+    drive factor, share value
+
+force get-dispatcher
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Dispatcher|
+
+force set-dispatcher
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Dispatcher|
+    drive factor, share value
+
+force get-dispatcher-queue
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DispatcherQueue|
+
+force set-dispatcher-queue
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DispatcherQueue|
+    drive factor, share value
+
+force get-is-component
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsComponent|
+
+force set-is-component
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsComponent|
+    drive factor, share value
+
+force get-is-hosted
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsHosted|
+
+force set-is-hosted
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsHosted|
+    drive factor, share value
+
+force get-is-main
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsMain|
+
+force set-is-main
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsMain|
+    drive factor, share value
+
+force get-properties
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force get-title-bar
+  mount build, field windows-applicationmodel-core-coreapplicationview
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TitleBar|
+
+force set-title-bar
+  mount build, field windows-applicationmodel-core-coreapplicationview
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TitleBar|
+    drive factor, share value
+
+force build-core-application-view-title-bar
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.CoreApplicationViewTitleBar|
+
+force get-extend-view-into-title-bar
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ExtendViewIntoTitleBar|
+
+force set-extend-view-into-title-bar
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ExtendViewIntoTitleBar|
+    drive factor, share value
+
+force get-height
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Height|
+
+force set-height
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Height|
+    drive factor, share value
+
+force get-is-visible
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsVisible|
+
+force set-is-visible
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsVisible|
+    drive factor, share value
+
+force get-system-overlay-left-inset
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemOverlayLeftInset|
+
+force set-system-overlay-left-inset
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemOverlayLeftInset|
+    drive factor, share value
+
+force get-system-overlay-right-inset
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SystemOverlayRightInset|
+
+force set-system-overlay-right-inset
+  mount build, field windows-applicationmodel-core-coreapplicationviewtitlebar
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SystemOverlayRightInset|
+    drive factor, share value
+
+force build-hosted-view-closing-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.HostedViewClosingEventArgs|
+
+force get-deferral
+  mount build, field windows-applicationmodel-core-hostedviewclosingeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force initialize
+  mount build, field windows-applicationmodel-core-iframeworkview
+  mount application-view, field windows-applicationmodel-core-coreapplicationview
+
+  cause call-method
+    drive object, share build
+    drive method, |Initialize|
+    drive factor, share application-view
+
+force load
+  mount build, field windows-applicationmodel-core-iframeworkview
+  mount entry-point, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Load|
+    drive factor, share entry-point
+
+force run
+  mount build, field windows-applicationmodel-core-iframeworkview
+
+  cause call-method
+    drive object, share build
+    drive method, |Run|
+
+force set-window
+  mount build, field windows-applicationmodel-core-iframeworkview
+  mount window, field windows-ui-core-corewindow
+
+  cause call-method
+    drive object, share build
+    drive method, |SetWindow|
+    drive factor, share window
+
+force uninitialize
+  mount build, field windows-applicationmodel-core-iframeworkview
+
+  cause call-method
+    drive object, share build
+    drive method, |Uninitialize|
+
+force create-view
+  mount build, field windows-applicationmodel-core-iframeworkviewsource
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateView|
+
+force build-unhandled-error
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.UnhandledError|
+
+force get-handled
+  mount build, field windows-applicationmodel-core-unhandlederror
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Handled|
+
+force set-handled
+  mount build, field windows-applicationmodel-core-unhandlederror
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Handled|
+    drive factor, share value
+
+force propagate
+  mount build, field windows-applicationmodel-core-unhandlederror
+
+  cause call-method
+    drive object, share build
+    drive method, |Propagate|
+
+force build-unhandled-error-detected-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs|
+
+force get-unhandled-error
+  mount build, field windows-applicationmodel-core-unhandlederrordetectedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UnhandledError|
+
+force set-unhandled-error
+  mount build, field windows-applicationmodel-core-unhandlederrordetectedeventargs
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UnhandledError|
+    drive factor, share value

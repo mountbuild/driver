@@ -1,0 +1,139 @@
+
+force build-glu
+  cause invoke-constructor
+    drive constructor, |GLU|
+    raise build, field glu
+
+force glu-error-string
+  mount build, field glu
+  mount error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |gluErrorString|
+    drive factor, share error
+    raise build, field string
+
+force glu-look-at
+  mount build, field glu
+  mount gl, field gl10
+  mount eye-x, field float
+  mount eye-y, field float
+  mount eye-z, field float
+  mount center-x, field float
+  mount center-y, field float
+  mount center-z, field float
+  mount up-x, field float
+  mount up-y, field float
+  mount up-z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |gluLookAt|
+    drive factor, share gl
+    drive factor, share eye-x
+    drive factor, share eye-y
+    drive factor, share eye-z
+    drive factor, share center-x
+    drive factor, share center-y
+    drive factor, share center-z
+    drive factor, share up-x
+    drive factor, share up-y
+    drive factor, share up-z
+    raise build, field unit
+
+force glu-ortho2-d
+  mount build, field glu
+  mount gl, field gl10
+  mount left, field float
+  mount right, field float
+  mount bottom, field float
+  mount top, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |gluOrtho2D|
+    drive factor, share gl
+    drive factor, share left
+    drive factor, share right
+    drive factor, share bottom
+    drive factor, share top
+    raise build, field unit
+
+force glu-perspective
+  mount build, field glu
+  mount gl, field gl10
+  mount fovy, field float
+  mount aspect, field float
+  mount z-near, field float
+  mount z-far, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |gluPerspective|
+    drive factor, share gl
+    drive factor, share fovy
+    drive factor, share aspect
+    drive factor, share z-near
+    drive factor, share z-far
+    raise build, field unit
+
+force glu-project
+  mount build, field glu
+  mount obj-x, field float
+  mount obj-y, field float
+  mount obj-z, field float
+  mount model, field float-array
+  mount model-offset, field int
+  mount project, field float-array
+  mount project-offset, field int
+  mount view, field int-array
+  mount view-offset, field int
+  mount win, field float-array
+  mount win-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |gluProject|
+    drive factor, share obj-x
+    drive factor, share obj-y
+    drive factor, share obj-z
+    drive factor, share model
+    drive factor, share model-offset
+    drive factor, share project
+    drive factor, share project-offset
+    drive factor, share view
+    drive factor, share view-offset
+    drive factor, share win
+    drive factor, share win-offset
+    raise build, field int
+
+force glu-un-project
+  mount build, field glu
+  mount win-x, field float
+  mount win-y, field float
+  mount win-z, field float
+  mount model, field float-array
+  mount model-offset, field int
+  mount project, field float-array
+  mount project-offset, field int
+  mount view, field int-array
+  mount view-offset, field int
+  mount obj, field float-array
+  mount obj-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |gluUnProject|
+    drive factor, share win-x
+    drive factor, share win-y
+    drive factor, share win-z
+    drive factor, share model
+    drive factor, share model-offset
+    drive factor, share project
+    drive factor, share project-offset
+    drive factor, share view
+    drive factor, share view-offset
+    drive factor, share obj
+    drive factor, share obj-offset
+    raise build, field int

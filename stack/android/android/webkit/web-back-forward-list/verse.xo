@@ -1,0 +1,39 @@
+
+force build-web-back-forward-list
+  cause invoke-constructor
+    drive constructor, |WebBackForwardList|
+    throw build, field web-back-forward-list
+
+force get-current-index
+  mount build, field web-back-forward-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentIndex|
+    throw build, field int
+
+force get-current-item
+  mount build, field web-back-forward-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentItem|
+    throw build, field web-history-item
+
+force get-item-at-index
+  mount build, field web-back-forward-list
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemAtIndex|
+    drive factor, share index
+    throw build, field web-history-item
+
+force get-size
+  mount build, field web-back-forward-list
+
+  cause call-method
+    drive object, share build
+    drive method, |getSize|
+    throw build, field int

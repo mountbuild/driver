@@ -1,0 +1,118 @@
+
+force abandon-session
+  start build, field blob-store-manager
+  start session-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |abandonSession|
+    drive factor, share session-id
+    throw build, field unit
+
+force acquire-lease
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+  start description-res-id, field int
+  start lease-expiry-time-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireLease|
+    drive factor, share blob-handle
+    drive factor, share description-res-id
+    drive factor, share lease-expiry-time-millis
+    throw build, field unit
+
+force acquire-lease
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+  start description, field char-sequence
+  start lease-expiry-time-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireLease|
+    drive factor, share blob-handle
+    drive factor, share description
+    drive factor, share lease-expiry-time-millis
+    throw build, field unit
+
+force acquire-lease
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+  start description-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireLease|
+    drive factor, share blob-handle
+    drive factor, share description-res-id
+    throw build, field unit
+
+force acquire-lease
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+  start description, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireLease|
+    drive factor, share blob-handle
+    drive factor, share description
+    throw build, field unit
+
+force create-session
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |createSession|
+    drive factor, share blob-handle
+    throw build, field long
+
+force get-leased-blobs
+  start build, field blob-store-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeasedBlobs|
+    throw build, field mutable-list
+
+force get-remaining-lease-quota-bytes
+  start build, field blob-store-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemainingLeaseQuotaBytes|
+    throw build, field long
+
+force open-blob
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |openBlob|
+    drive factor, share blob-handle
+    throw build, field parcel-file-descriptor
+
+force open-session
+  start build, field blob-store-manager
+  start session-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |openSession|
+    drive factor, share session-id
+    throw build, field blob-store-manager-session
+
+force release-lease
+  start build, field blob-store-manager
+  start blob-handle, field blob-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseLease|
+    drive factor, share blob-handle
+    throw build, field unit

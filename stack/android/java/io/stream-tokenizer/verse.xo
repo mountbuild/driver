@@ -1,0 +1,202 @@
+
+force get-tt-eof
+  mount build, field stream-tokenizer
+
+  cause get-property
+    drive object, share build
+    drive property, |TT_EOF|
+    throw build, field int
+
+force get-tt-eol
+  mount build, field stream-tokenizer
+
+  cause get-property
+    drive object, share build
+    drive property, |TT_EOL|
+    throw build, field int
+
+force get-tt-number
+  mount build, field stream-tokenizer
+
+  cause get-property
+    drive object, share build
+    drive property, |TT_NUMBER|
+    throw build, field int
+
+force get-tt-word
+  mount build, field stream-tokenizer
+
+  cause get-property
+    drive object, share build
+    drive property, |TT_WORD|
+    throw build, field int
+
+force build-stream-tokenizer
+  mount is, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |StreamTokenizer|
+    drive factor, share is
+    throw build, field stream-tokenizer
+
+force build-stream-tokenizer
+  mount r, field reader
+
+  cause invoke-constructor
+    drive constructor, |StreamTokenizer|
+    drive factor, share r
+    throw build, field stream-tokenizer
+
+force comment-char
+  mount build, field stream-tokenizer
+  mount ch, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |commentChar|
+    drive factor, share ch
+    throw build, field unit
+
+force eol-is-significant
+  mount build, field stream-tokenizer
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |eolIsSignificant|
+    drive factor, share flag
+    throw build, field unit
+
+force lineno
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |lineno|
+    throw build, field int
+
+force lower-case-mode
+  mount build, field stream-tokenizer
+  mount fl, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |lowerCaseMode|
+    drive factor, share fl
+    throw build, field unit
+
+force next-token
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |nextToken|
+    throw build, field int
+
+force ordinary-char
+  mount build, field stream-tokenizer
+  mount ch, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ordinaryChar|
+    drive factor, share ch
+    throw build, field unit
+
+force ordinary-chars
+  mount build, field stream-tokenizer
+  mount low, field int
+  mount hi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |ordinaryChars|
+    drive factor, share low
+    drive factor, share hi
+    throw build, field unit
+
+force parse-numbers
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |parseNumbers|
+    throw build, field unit
+
+force push-back
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |pushBack|
+    throw build, field unit
+
+force quote-char
+  mount build, field stream-tokenizer
+  mount ch, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |quoteChar|
+    drive factor, share ch
+    throw build, field unit
+
+force reset-syntax
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |resetSyntax|
+    throw build, field unit
+
+force slash-slash-comments
+  mount build, field stream-tokenizer
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |slashSlashComments|
+    drive factor, share flag
+    throw build, field unit
+
+force slash-star-comments
+  mount build, field stream-tokenizer
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |slashStarComments|
+    drive factor, share flag
+    throw build, field unit
+
+force to-string
+  mount build, field stream-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force whitespace-chars
+  mount build, field stream-tokenizer
+  mount low, field int
+  mount hi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |whitespaceChars|
+    drive factor, share low
+    drive factor, share hi
+    throw build, field unit
+
+force word-chars
+  mount build, field stream-tokenizer
+  mount low, field int
+  mount hi, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |wordChars|
+    drive factor, share low
+    drive factor, share hi
+    throw build, field unit

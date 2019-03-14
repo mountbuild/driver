@@ -1,0 +1,683 @@
+force with-system-effect
+  field build, field ns-color
+  field a, class ns-color-system-effect
+
+  cause call-method
+    mount object, share build
+    mount method, |withSystemEffect|
+    mount factor, share a
+    raise build, class ns-color
+
+force using-color-space
+  field build, field ns-color
+  field a, class ns-color-space
+
+  cause call-method
+    mount object, share build
+    mount method, |usingColorSpace|
+    mount factor, share a
+    raise build, class ns-color
+
+force blended
+  field build, field ns-color
+  field with-fraction, field cg-float
+  field of, field ns-color
+
+  cause call-method
+    mount object, share build
+    mount method, |blended|
+    mount factor
+      brand with-fraction
+      share with-fraction
+    mount factor
+      brand of
+      share of
+    raise build, class ns-color
+
+force with-alpha-component
+  field build, field ns-color
+  field a, class cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |withAlphaComponent|
+    mount factor, share a
+    raise build, class ns-color
+
+force highlight
+  field build, field ns-color
+  field with-level, field cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |highlight|
+    mount factor
+      brand with-level
+      share with-level
+    raise build, class ns-color
+
+force shadow
+  field build, field ns-color
+  field with-level, field cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |shadow|
+    mount factor
+      brand with-level
+      share with-level
+    raise build, class ns-color
+
+force using-color-space-name
+  field build, field ns-color
+  field a, class ns-color-space-name
+
+  cause call-method
+    mount object, share build
+    mount method, |usingColorSpaceName|
+    mount factor, share a
+    raise build, class ns-color
+
+force get-class-ignores-alpha
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |ignoresAlpha|
+    raise build, field bool
+
+force set-class-ignores-alpha
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |ignoresAlpha|
+    mount factor, share value
+
+force write
+  field build, field ns-color
+  field to, field ns-pasteboard
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor
+      brand to
+      share to
+
+force get-cyan
+  field build, field ns-color
+  field a, class unsafe-mutable-pointer-cg-float
+  field magenta, field unsafe-mutable-pointer-cg-float
+  field yellow, field unsafe-mutable-pointer-cg-float
+  field black, field unsafe-mutable-pointer-cg-float
+  field alpha, field unsafe-mutable-pointer-cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |getCyan|
+    mount factor, share a
+    mount factor
+      brand magenta
+      share magenta
+    mount factor
+      brand yellow
+      share yellow
+    mount factor
+      brand black
+      share black
+    mount factor
+      brand alpha
+      share alpha
+
+force get-hue
+  field build, field ns-color
+  field a, class unsafe-mutable-pointer-cg-float
+  field saturation, field unsafe-mutable-pointer-cg-float
+  field brightness, field unsafe-mutable-pointer-cg-float
+  field alpha, field unsafe-mutable-pointer-cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |getHue|
+    mount factor, share a
+    mount factor
+      brand saturation
+      share saturation
+    mount factor
+      brand brightness
+      share brightness
+    mount factor
+      brand alpha
+      share alpha
+
+force get-red
+  field build, field ns-color
+  field a, class unsafe-mutable-pointer-cg-float
+  field green, field unsafe-mutable-pointer-cg-float
+  field blue, field unsafe-mutable-pointer-cg-float
+  field alpha, field unsafe-mutable-pointer-cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |getRed|
+    mount factor, share a
+    mount factor
+      brand green
+      share green
+    mount factor
+      brand blue
+      share blue
+    mount factor
+      brand alpha
+      share alpha
+
+force get-white
+  field build, field ns-color
+  field a, class unsafe-mutable-pointer-cg-float
+  field alpha, field unsafe-mutable-pointer-cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |getWhite|
+    mount factor, share a
+    mount factor
+      brand alpha
+      share alpha
+
+force get-number-of-components
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |numberOfComponents|
+    raise build, field int
+
+force set-number-of-components
+  field build, field ns-color
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |numberOfComponents|
+    mount factor, share value
+
+force get-components
+  field build, field ns-color
+  field a, class unsafe-mutable-pointer-cg-float
+
+  cause call-method
+    mount object, share build
+    mount method, |getComponents|
+    mount factor, share a
+
+force get-alpha-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |alphaComponent|
+    raise build, field cg-float
+
+force set-alpha-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |alphaComponent|
+    mount factor, share value
+
+force get-white-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |whiteComponent|
+    raise build, field cg-float
+
+force set-white-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |whiteComponent|
+    mount factor, share value
+
+force get-red-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |redComponent|
+    raise build, field cg-float
+
+force set-red-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |redComponent|
+    mount factor, share value
+
+force get-green-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |greenComponent|
+    raise build, field cg-float
+
+force set-green-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |greenComponent|
+    mount factor, share value
+
+force get-blue-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |blueComponent|
+    raise build, field cg-float
+
+force set-blue-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |blueComponent|
+    mount factor, share value
+
+force get-cyan-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cyanComponent|
+    raise build, field cg-float
+
+force set-cyan-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |cyanComponent|
+    mount factor, share value
+
+force get-magenta-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |magentaComponent|
+    raise build, field cg-float
+
+force set-magenta-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |magentaComponent|
+    mount factor, share value
+
+force get-yellow-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |yellowComponent|
+    raise build, field cg-float
+
+force set-yellow-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |yellowComponent|
+    mount factor, share value
+
+force get-black-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |blackComponent|
+    raise build, field cg-float
+
+force set-black-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |blackComponent|
+    mount factor, share value
+
+force get-hue-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |hueComponent|
+    raise build, field cg-float
+
+force set-hue-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |hueComponent|
+    mount factor, share value
+
+force get-saturation-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |saturationComponent|
+    raise build, field cg-float
+
+force set-saturation-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |saturationComponent|
+    mount factor, share value
+
+force get-brightness-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |brightnessComponent|
+    raise build, field cg-float
+
+force set-brightness-component
+  field build, field ns-color
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |brightnessComponent|
+    mount factor, share value
+
+force get-catalog-name-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |catalogNameComponent|
+    raise build, field ns-color-list-name
+
+force set-catalog-name-component
+  field build, field ns-color
+  field value, field ns-color-list-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |catalogNameComponent|
+    mount factor, share value
+
+force get-localized-catalog-name-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedCatalogNameComponent|
+    raise build, field string
+
+force set-localized-catalog-name-component
+  field build, field ns-color
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedCatalogNameComponent|
+    mount factor, share value
+
+force get-color-name-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colorNameComponent|
+    raise build, field ns-color-name
+
+force set-color-name-component
+  field build, field ns-color
+  field value, field ns-color-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |colorNameComponent|
+    mount factor, share value
+
+force get-localized-color-name-component
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedColorNameComponent|
+    raise build, field string
+
+force set-localized-color-name-component
+  field build, field ns-color
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedColorNameComponent|
+    mount factor, share value
+
+force get-type
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |type|
+    raise build, field ns-color-color-type
+
+force set-type
+  field build, field ns-color
+  field value, field ns-color-color-type
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |type|
+    mount factor, share value
+
+force using-type
+  field build, field ns-color
+  field a, class ns-color-color-type
+
+  cause call-method
+    mount object, share build
+    mount method, |usingType|
+    mount factor, share a
+    raise build, class ns-color
+
+force get-color-space
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colorSpace|
+    raise build, field ns-color-space
+
+force set-color-space
+  field build, field ns-color
+  field value, field ns-color-space
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |colorSpace|
+    mount factor, share value
+
+force get-color-space-name
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colorSpaceName|
+    raise build, field ns-color-space-name
+
+force set-color-space-name
+  field build, field ns-color
+  field value, field ns-color-space-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |colorSpaceName|
+    mount factor, share value
+
+force get-cg-color
+  field build, field ns-color
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |cgColor|
+    raise build, field cg-color
+
+force set-cg-color
+  field build, field ns-color
+  field value, field cg-color
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |cgColor|
+    mount factor, share value
+
+force draw-swatch
+  field build, field ns-color
+  field in, field ns-rect
+
+  cause call-method
+    mount object, share build
+    mount method, |drawSwatch|
+    mount factor
+      brand in
+      share in
+
+force set
+  field build, field ns-color
+
+  cause call-method
+    mount object, share build
+    mount method, |set|
+
+force set-fill
+  field build, field ns-color
+
+  cause call-method
+    mount object, share build
+    mount method, |setFill|
+
+force set-stroke
+  field build, field ns-color
+
+  cause call-method
+    mount object, share build
+    mount method, |setStroke|
+
+force get-class-system-colors-did-change-notification
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |systemColorsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-system-colors-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |systemColorsDidChangeNotification|
+    mount factor, share value
+
+force get-class-system-colors-did-change-notification
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |systemColorsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-system-colors-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |systemColorsDidChangeNotification|
+    mount factor, share value
+
+force get-class-current-control-tint-did-change-notification
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |currentControlTintDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-current-control-tint-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |currentControlTintDidChangeNotification|
+    mount factor, share value
+
+force get-class-current-control-tint-did-change-notification
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |currentControlTintDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-current-control-tint-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |currentControlTintDidChangeNotification|
+    mount factor, share value
+
+force get-class-system-indigo
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |systemIndigo|
+    raise build, field ns-color
+
+force set-class-system-indigo
+  field value, field ns-color
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |systemIndigo|
+    mount factor, share value
+
+force get-class-system-teal
+
+  cause get-aspect
+    mount object, |NSColor|
+    mount aspect, |systemTeal|
+    raise build, field ns-color
+
+force set-class-system-teal
+  field value, field ns-color
+
+  cause set-aspect
+    mount object, |NSColor|
+    mount aspect, |systemTeal|
+    mount factor, share value

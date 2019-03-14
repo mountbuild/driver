@@ -1,0 +1,146 @@
+
+force get-camera-characteristics
+  mount build, field camera-manager
+  mount camera-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getCameraCharacteristics|
+    drive factor, share camera-id
+    throw build, field camera-characteristics
+
+force get-camera-id-list
+  mount build, field camera-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCameraIdList|
+    throw build, field array
+
+force get-concurrent-camera-ids
+  mount build, field camera-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getConcurrentCameraIds|
+    throw build, field mutable-set
+
+force is-concurrent-session-configuration-supported
+  mount build, field camera-manager
+  mount camera-id-and-session-config, field mutable-map-string
+  mount session-configuration, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |isConcurrentSessionConfigurationSupported|
+    drive factor, share camera-id-and-session-config
+    drive factor, share session-configuration
+    throw build, field boolean
+
+force open-camera
+  mount build, field camera-manager
+  mount camera-id, field string
+  mount callback, field camera-device-state-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openCamera|
+    drive factor, share camera-id
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force open-camera
+  mount build, field camera-manager
+  mount camera-id, field string
+  mount executor, field executor
+  mount callback, field camera-device-state-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |openCamera|
+    drive factor, share camera-id
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force register-availability-callback
+  mount build, field camera-manager
+  mount callback, field camera-manager-availability-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerAvailabilityCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force register-availability-callback
+  mount build, field camera-manager
+  mount executor, field executor
+  mount callback, field camera-manager-availability-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerAvailabilityCallback|
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force register-torch-callback
+  mount build, field camera-manager
+  mount callback, field camera-manager-torch-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerTorchCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force register-torch-callback
+  mount build, field camera-manager
+  mount executor, field executor
+  mount callback, field camera-manager-torch-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerTorchCallback|
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force set-torch-mode
+  mount build, field camera-manager
+  mount camera-id, field string
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setTorchMode|
+    drive factor, share camera-id
+    drive factor, share enabled
+    throw build, field unit
+
+force unregister-availability-callback
+  mount build, field camera-manager
+  mount callback, field camera-manager-availability-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterAvailabilityCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-torch-callback
+  mount build, field camera-manager
+  mount callback, field camera-manager-torch-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterTorchCallback|
+    drive factor, share callback
+    throw build, field unit

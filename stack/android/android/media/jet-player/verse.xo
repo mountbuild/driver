@@ -1,0 +1,194 @@
+
+force clear-queue
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |clearQueue|
+    raise build, field boolean
+
+force clone
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    raise build, field any
+
+force close-jet-file
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |closeJetFile|
+    raise build, field boolean
+
+force get-jet-player
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |getJetPlayer|
+    raise build, field jet-player
+
+force get-max-tracks
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxTracks|
+    raise build, field int
+
+force load-jet-file
+  start build, field jet-player
+  start path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |loadJetFile|
+    drive factor, share path
+    raise build, field boolean
+
+force load-jet-file
+  start build, field jet-player
+  start afd, field asset-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |loadJetFile|
+    drive factor, share afd
+    raise build, field boolean
+
+force pause
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+    raise build, field boolean
+
+force play
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    raise build, field boolean
+
+force queue-jet-segment
+  start build, field jet-player
+  start segment-num, field int
+  start lib-num, field int
+  start repeat-count, field int
+  start transpose, field int
+  start mute-flags, field int
+  start user-id, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |queueJetSegment|
+    drive factor, share segment-num
+    drive factor, share lib-num
+    drive factor, share repeat-count
+    drive factor, share transpose
+    drive factor, share mute-flags
+    drive factor, share user-id
+    raise build, field boolean
+
+force queue-jet-segment-mute-array
+  start build, field jet-player
+  start segment-num, field int
+  start lib-num, field int
+  start repeat-count, field int
+  start transpose, field int
+  start mute-array, field boolean-array
+  start user-id, field byte
+
+  cause call-method
+    drive object, share build
+    drive method, |queueJetSegmentMuteArray|
+    drive factor, share segment-num
+    drive factor, share lib-num
+    drive factor, share repeat-count
+    drive factor, share transpose
+    drive factor, share mute-array
+    drive factor, share user-id
+    raise build, field boolean
+
+force release
+  start build, field jet-player
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-event-listener
+  start build, field jet-player
+  start listener, field jet-player-on-jet-event-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setEventListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-event-listener
+  start build, field jet-player
+  start listener, field jet-player-on-jet-event-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setEventListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force set-mute-array
+  start build, field jet-player
+  start mute-array, field boolean-array
+  start sync, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setMuteArray|
+    drive factor, share mute-array
+    drive factor, share sync
+    raise build, field boolean
+
+force set-mute-flag
+  start build, field jet-player
+  start track-id, field int
+  start mute-flag, field boolean
+  start sync, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setMuteFlag|
+    drive factor, share track-id
+    drive factor, share mute-flag
+    drive factor, share sync
+    raise build, field boolean
+
+force set-mute-flags
+  start build, field jet-player
+  start mute-flags, field int
+  start sync, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setMuteFlags|
+    drive factor, share mute-flags
+    drive factor, share sync
+    raise build, field boolean
+
+force trigger-clip
+  start build, field jet-player
+  start clip-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |triggerClip|
+    drive factor, share clip-id
+    raise build, field boolean

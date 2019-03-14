@@ -1,0 +1,70 @@
+force get-button-mask
+  field build, field ns-pan-gesture-recognizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |buttonMask|
+    raise build, field int
+
+force set-button-mask
+  field build, field ns-pan-gesture-recognizer
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |buttonMask|
+    drive factor, share value
+
+force translation
+  field build, field ns-pan-gesture-recognizer
+  field in, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |translation|
+    drive factor
+      brand in
+      share in
+    raise build, class ns-point
+
+force set-translation
+  field build, field ns-pan-gesture-recognizer
+  field a, class ns-point
+  field in, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |setTranslation|
+    drive factor, share a
+    drive factor
+      brand in
+      share in
+
+force velocity
+  field build, field ns-pan-gesture-recognizer
+  field in, field ns-view
+
+  cause call-method
+    drive object, share build
+    drive method, |velocity|
+    drive factor
+      brand in
+      share in
+    raise build, class ns-point
+
+force get-number-of-touches-required
+  field build, field ns-pan-gesture-recognizer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfTouchesRequired|
+    raise build, field int
+
+force set-number-of-touches-required
+  field build, field ns-pan-gesture-recognizer
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfTouchesRequired|
+    drive factor, share value

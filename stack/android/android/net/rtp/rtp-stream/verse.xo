@@ -1,0 +1,102 @@
+
+force get-mode-normal
+  start build, field rtp-stream
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_NORMAL|
+    throw build, field int
+
+force get-mode-receive-only
+  start build, field rtp-stream
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_RECEIVE_ONLY|
+    throw build, field int
+
+force get-mode-send-only
+  start build, field rtp-stream
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_SEND_ONLY|
+    throw build, field int
+
+force associate
+  start build, field rtp-stream
+  start address, field inet-address
+  start port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |associate|
+    drive factor, share address
+    drive factor, share port
+    throw build, field unit
+
+force get-local-address
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalAddress|
+    throw build, field inet-address
+
+force get-local-port
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalPort|
+    throw build, field int
+
+force get-mode
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getMode|
+    throw build, field int
+
+force get-remote-address
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemoteAddress|
+    throw build, field inet-address
+
+force get-remote-port
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemotePort|
+    throw build, field int
+
+force is-busy
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |isBusy|
+    throw build, field boolean
+
+force release
+  start build, field rtp-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force set-mode
+  start build, field rtp-stream
+  start mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMode|
+    drive factor, share mode
+    throw build, field unit

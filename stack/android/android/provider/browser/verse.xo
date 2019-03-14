@@ -1,0 +1,49 @@
+
+force get-extra-application-id
+  mount build, field browser
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_APPLICATION_ID|
+    raise build, field string
+
+force get-extra-create-new-tab
+  mount build, field browser
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CREATE_NEW_TAB|
+    raise build, field string
+
+force get-extra-headers
+  mount build, field browser
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_HEADERS|
+    raise build, field string
+
+force get-initial-zoom-level
+  mount build, field browser
+
+  cause get-property
+    drive object, share build
+    drive property, |INITIAL_ZOOM_LEVEL|
+    raise build, field string
+
+force build-browser
+  cause invoke-constructor
+    drive constructor, |Browser|
+    raise build, field browser
+
+force send-string
+  mount build, field browser
+  mount context, field context
+  mount string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendString|
+    drive factor, share context
+    drive factor, share string
+    raise build, field unit

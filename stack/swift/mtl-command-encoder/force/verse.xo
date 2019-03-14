@@ -1,0 +1,65 @@
+force end-encoding
+  field build, field mtl-command-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |endEncoding|
+
+force insert-debug-signpost
+  field build, field mtl-command-encoder
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |insertDebugSignpost|
+    mount factor, share a
+
+force push-debug-group
+  field build, field mtl-command-encoder
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |pushDebugGroup|
+    mount factor, share a
+
+force pop-debug-group
+  field build, field mtl-command-encoder
+
+  cause call-method
+    mount object, share build
+    mount method, |popDebugGroup|
+
+force get-device
+  field build, field mtl-command-encoder
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |device|
+    raise build, field mtl-device
+
+force set-device
+  field build, field mtl-command-encoder
+  field value, field mtl-device
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |device|
+    mount factor, share value
+
+force get-label
+  field build, field mtl-command-encoder
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |label|
+    raise build, field string
+
+force set-label
+  field build, field mtl-command-encoder
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |label|
+    mount factor, share value

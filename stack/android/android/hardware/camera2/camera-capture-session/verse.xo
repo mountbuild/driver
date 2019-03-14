@@ -1,0 +1,219 @@
+
+force build-camera-capture-session
+  cause invoke-constructor
+    drive constructor, |CameraCaptureSession|
+    throw build, field camera-capture-session
+
+force abort-captures
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |abortCaptures|
+    throw build, field unit
+
+force capture
+  mount build, field camera-capture-session
+  mount request, field capture-request
+  mount listener, field camera-capture-session-capture-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |capture|
+    drive factor, share request
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field int
+
+force capture-burst
+  mount build, field camera-capture-session
+  mount requests, field mutable-list-capture-request
+  mount listener, field camera-capture-session-capture-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |captureBurst|
+    drive factor, share requests
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field int
+
+force capture-burst-requests
+  mount build, field camera-capture-session
+  mount requests, field mutable-list-capture-request
+  mount executor, field executor
+  mount listener, field camera-capture-session-capture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |captureBurstRequests|
+    drive factor, share requests
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field int
+
+force capture-single-request
+  mount build, field camera-capture-session
+  mount request, field capture-request
+  mount executor, field executor
+  mount listener, field camera-capture-session-capture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |captureSingleRequest|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field int
+
+force close
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force finalize-output-configurations
+  mount build, field camera-capture-session
+  mount output-configs, field mutable-list-output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |finalizeOutputConfigurations|
+    drive factor, share output-configs
+    throw build, field unit
+
+force get-device
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevice|
+    throw build, field camera-device
+
+force get-input-surface
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputSurface|
+    throw build, field surface
+
+force is-reprocessable
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isReprocessable|
+    throw build, field boolean
+
+force prepare
+  mount build, field camera-capture-session
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |prepare|
+    drive factor, share surface
+    throw build, field unit
+
+force set-repeating-burst
+  mount build, field camera-capture-session
+  mount requests, field mutable-list-capture-request
+  mount listener, field camera-capture-session-capture-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeatingBurst|
+    drive factor, share requests
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field int
+
+force set-repeating-burst-requests
+  mount build, field camera-capture-session
+  mount requests, field mutable-list-capture-request
+  mount executor, field executor
+  mount listener, field camera-capture-session-capture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeatingBurstRequests|
+    drive factor, share requests
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field int
+
+force set-repeating-request
+  mount build, field camera-capture-session
+  mount request, field capture-request
+  mount listener, field camera-capture-session-capture-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeatingRequest|
+    drive factor, share request
+    drive factor, share listener
+    drive factor, share handler
+    throw build, field int
+
+force set-single-repeating-request
+  mount build, field camera-capture-session
+  mount request, field capture-request
+  mount executor, field executor
+  mount listener, field camera-capture-session-capture-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setSingleRepeatingRequest|
+    drive factor, share request
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field int
+
+force stop-repeating
+  mount build, field camera-capture-session
+
+  cause call-method
+    drive object, share build
+    drive method, |stopRepeating|
+    throw build, field unit
+
+force supports-offline-processing
+  mount build, field camera-capture-session
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |supportsOfflineProcessing|
+    drive factor, share surface
+    throw build, field boolean
+
+force switch-to-offline
+  mount build, field camera-capture-session
+  mount offline-surfaces, field mutable-collection-surface
+  mount executor, field executor
+  mount listener, field camera-offline-session-camera-offline-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |switchToOffline|
+    drive factor, share offline-surfaces
+    drive factor, share executor
+    drive factor, share listener
+    throw build, field camera-offline-session
+
+force update-output-configuration
+  mount build, field camera-capture-session
+  mount config, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |updateOutputConfiguration|
+    drive factor, share config
+    throw build, field unit

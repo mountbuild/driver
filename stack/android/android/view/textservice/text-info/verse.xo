@@ -1,0 +1,96 @@
+
+force build-text-info
+  mount text, field string
+
+  cause invoke-constructor
+    drive constructor, |TextInfo|
+    drive factor, share text
+    raise build, field text-info
+
+force build-text-info
+  mount text, field string
+  mount cookie, field int
+  mount sequence-number, field int
+
+  cause invoke-constructor
+    drive constructor, |TextInfo|
+    drive factor, share text
+    drive factor, share cookie
+    drive factor, share sequence-number
+    raise build, field text-info
+
+force build-text-info
+  mount char-sequence, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount cookie, field int
+  mount sequence-number, field int
+
+  cause invoke-constructor
+    drive constructor, |TextInfo|
+    drive factor, share char-sequence
+    drive factor, share start
+    drive factor, share end
+    drive factor, share cookie
+    drive factor, share sequence-number
+    raise build, field text-info
+
+force build-text-info
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |TextInfo|
+    drive factor, share source
+    raise build, field text-info
+
+force describe-contents
+  mount build, field text-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-char-sequence
+  mount build, field text-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharSequence|
+    raise build, field char-sequence
+
+force get-cookie
+  mount build, field text-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCookie|
+    raise build, field int
+
+force get-sequence
+  mount build, field text-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSequence|
+    raise build, field int
+
+force get-text
+  mount build, field text-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getText|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field text-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

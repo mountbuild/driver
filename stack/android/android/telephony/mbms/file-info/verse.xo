@@ -1,0 +1,54 @@
+
+force describe-contents
+  mount build, field file-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field file-info
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-mime-type
+  mount build, field file-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMimeType|
+    throw build, field string
+
+force get-uri
+  mount build, field file-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getUri|
+    throw build, field uri
+
+force hash-code
+  mount build, field file-info
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field file-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

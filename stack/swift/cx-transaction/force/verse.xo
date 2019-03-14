@@ -1,0 +1,59 @@
+force get-uuid
+  field build, field cx-transaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |uuid|
+    raise build, field uuid
+
+force set-uuid
+  field build, field cx-transaction
+  field value, field uuid
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |uuid|
+    drive factor, share value
+
+force get-is-complete
+  field build, field cx-transaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isComplete|
+    raise build, field bool
+
+force set-is-complete
+  field build, field cx-transaction
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isComplete|
+    drive factor, share value
+
+force get-actions
+  field build, field cx-transaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |actions|
+    raise build, field cx-action
+
+force set-actions
+  field build, field cx-transaction
+  field value, field cx-action
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |actions|
+    drive factor, share value
+
+force add-action
+  field build, field cx-transaction
+  field a, class cx-action
+
+  cause call-method
+    drive object, share build
+    drive method, |addAction|
+    drive factor, share a

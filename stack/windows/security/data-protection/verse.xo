@@ -1,0 +1,148 @@
+
+force get-user-data-availability
+  cause get-object
+    drive aspect, |Windows.Security.DataProtection.UserDataAvailability|
+
+force build-user-data-availability-state-changed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs|
+
+force get-deferral
+  start build, field windows-security-dataprotection-userdataavailabilitystatechangedeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeferral|
+
+force build-user-data-buffer-unprotect-result
+  cause invoke-constructor
+    drive constructor, |Windows.Security.DataProtection.UserDataBufferUnprotectResult|
+
+force get-status
+  start build, field windows-security-dataprotection-userdatabufferunprotectresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-security-dataprotection-userdatabufferunprotectresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-unprotected-buffer
+  start build, field windows-security-dataprotection-userdatabufferunprotectresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UnprotectedBuffer|
+
+force set-unprotected-buffer
+  start build, field windows-security-dataprotection-userdatabufferunprotectresult
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UnprotectedBuffer|
+    drive factor, share value
+
+force get-user-data-buffer-unprotect-status
+  cause get-object
+    drive aspect, |Windows.Security.DataProtection.UserDataBufferUnprotectStatus|
+
+force build-user-data-protection-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Security.DataProtection.UserDataProtectionManager|
+
+force get-storage-item-protection-info-async
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start storage-item, field windows-storage-istorageitem
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStorageItemProtectionInfoAsync|
+    drive factor, share storage-item
+
+force is-continued-data-availability-expected
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start availability, field windows-security-dataprotection-userdataavailability
+
+  cause call-method
+    drive object, share build
+    drive method, |IsContinuedDataAvailabilityExpected|
+    drive factor, share availability
+
+force protect-buffer-async
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start unprotected-buffer, field windows-storage-streams-ibuffer
+  start availability, field windows-security-dataprotection-userdataavailability
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectBufferAsync|
+    drive factor, share unprotected-buffer
+    drive factor, share availability
+
+force protect-storage-item-async
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start storage-item, field windows-storage-istorageitem
+  start availability, field windows-security-dataprotection-userdataavailability
+
+  cause call-method
+    drive object, share build
+    drive method, |ProtectStorageItemAsync|
+    drive factor, share storage-item
+    drive factor, share availability
+
+force try-get-default
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |TryGetDefault|
+
+force try-get-for-user
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start user, field windows-system-user
+
+  cause call-method
+    drive object, share build
+    drive method, |TryGetForUser|
+    drive factor, share user
+
+force unprotect-buffer-async
+  start build, field windows-security-dataprotection-userdataprotectionmanager
+  start protected-buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |UnprotectBufferAsync|
+    drive factor, share protected-buffer
+
+force build-user-data-storage-item-protection-info
+  cause invoke-constructor
+    drive constructor, |Windows.Security.DataProtection.UserDataStorageItemProtectionInfo|
+
+force get-availability
+  start build, field windows-security-dataprotection-userdatastorageitemprotectioninfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Availability|
+
+force set-availability
+  start build, field windows-security-dataprotection-userdatastorageitemprotectioninfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Availability|
+    drive factor, share value
+
+force get-user-data-storage-item-protection-status
+  cause get-object
+    drive aspect, |Windows.Security.DataProtection.UserDataStorageItemProtectionStatus|

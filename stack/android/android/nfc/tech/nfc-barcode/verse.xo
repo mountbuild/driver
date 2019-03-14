@@ -1,0 +1,74 @@
+
+force get-type-kovio
+  mount build, field nfc-barcode
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_KOVIO|
+    throw build, field int
+
+force get-type-unknown
+  mount build, field nfc-barcode
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_UNKNOWN|
+    throw build, field int
+
+force close
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force connect
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |connect|
+    throw build, field unit
+
+force get
+  mount build, field nfc-barcode
+  mount tag, field tag
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share tag
+    throw build, field nfc-barcode
+
+force get-barcode
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |getBarcode|
+    throw build, field byte-array
+
+force get-tag
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |getTag|
+    throw build, field tag
+
+force get-type
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force is-connected
+  mount build, field nfc-barcode
+
+  cause call-method
+    drive object, share build
+    drive method, |isConnected|
+    throw build, field boolean

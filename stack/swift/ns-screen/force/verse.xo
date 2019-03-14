@@ -1,0 +1,320 @@
+force get-class-main
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |main|
+    raise build, field ns-screen
+
+force set-class-main
+  field value, field ns-screen
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |main|
+    mount factor, share value
+
+force get-class-deepest
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |deepest|
+    raise build, field ns-screen
+
+force set-class-deepest
+  field value, field ns-screen
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |deepest|
+    mount factor, share value
+
+force get-class-screens
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |screens|
+    raise build, field ns-screen
+
+force set-class-screens
+  field value, field ns-screen
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |screens|
+    mount factor, share value
+
+force get-depth
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |depth|
+    raise build, field ns-window-depth
+
+force set-depth
+  field build, field ns-screen
+  field value, field ns-window-depth
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |depth|
+    mount factor, share value
+
+force get-frame
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |frame|
+    raise build, field ns-rect
+
+force set-frame
+  field build, field ns-screen
+  field value, field ns-rect
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |frame|
+    mount factor, share value
+
+force get-supported-window-depths
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |supportedWindowDepths|
+    raise build, field unsafe-pointer-ns-window-depth
+
+force set-supported-window-depths
+  field build, field ns-screen
+  field value, field unsafe-pointer-ns-window-depth
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |supportedWindowDepths|
+    mount factor, share value
+
+force get-device-description
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |deviceDescription|
+    raise build, field ns-device-description-key
+
+force set-device-description
+  field build, field ns-screen
+  field value, field ns-device-description-key
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |deviceDescription|
+    mount factor, share value
+
+force get-visible-frame
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |visibleFrame|
+    raise build, field ns-rect
+
+force set-visible-frame
+  field build, field ns-screen
+  field value, field ns-rect
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |visibleFrame|
+    mount factor, share value
+
+force get-color-space
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colorSpace|
+    raise build, field ns-color-space
+
+force set-color-space
+  field build, field ns-screen
+  field value, field ns-color-space
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |colorSpace|
+    mount factor, share value
+
+force can-represent
+  field build, field ns-screen
+  field a, class ns-display-gamut
+
+  cause call-method
+    mount object, share build
+    mount method, |canRepresent|
+    mount factor, share a
+    raise build, class bool
+
+force get-class-screens-have-separate-spaces
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |screensHaveSeparateSpaces|
+    raise build, field bool
+
+force set-class-screens-have-separate-spaces
+  field value, field bool
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |screensHaveSeparateSpaces|
+    mount factor, share value
+
+force backing-aligned-rect
+  field build, field ns-screen
+  field a, class ns-rect
+  field options, field alignment-options
+
+  cause call-method
+    mount object, share build
+    mount method, |backingAlignedRect|
+    mount factor, share a
+    mount factor
+      brand options
+      share options
+    raise build, class ns-rect
+
+force get-backing-scale-factor
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |backingScaleFactor|
+    raise build, field cg-float
+
+force set-backing-scale-factor
+  field build, field ns-screen
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |backingScaleFactor|
+    mount factor, share value
+
+force convert-rect-from-backing
+  field build, field ns-screen
+  field a, class ns-rect
+
+  cause call-method
+    mount object, share build
+    mount method, |convertRectFromBacking|
+    mount factor, share a
+    raise build, class ns-rect
+
+force convert-rect-to-backing
+  field build, field ns-screen
+  field a, class ns-rect
+
+  cause call-method
+    mount object, share build
+    mount method, |convertRectToBacking|
+    mount factor, share a
+    raise build, class ns-rect
+
+force get-maximum-potential-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |maximumPotentialExtendedDynamicRangeColorComponentValue|
+    raise build, field cg-float
+
+force set-maximum-potential-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |maximumPotentialExtendedDynamicRangeColorComponentValue|
+    mount factor, share value
+
+force get-maximum-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |maximumExtendedDynamicRangeColorComponentValue|
+    raise build, field cg-float
+
+force set-maximum-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |maximumExtendedDynamicRangeColorComponentValue|
+    mount factor, share value
+
+force get-maximum-reference-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |maximumReferenceExtendedDynamicRangeColorComponentValue|
+    raise build, field cg-float
+
+force set-maximum-reference-extended-dynamic-range-color-component-value
+  field build, field ns-screen
+  field value, field cg-float
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |maximumReferenceExtendedDynamicRangeColorComponentValue|
+    mount factor, share value
+
+force get-class-color-space-did-change-notification
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |colorSpaceDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-color-space-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |colorSpaceDidChangeNotification|
+    mount factor, share value
+
+force get-class-color-space-did-change-notification
+
+  cause get-aspect
+    mount object, |NSScreen|
+    mount aspect, |colorSpaceDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-color-space-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSScreen|
+    mount aspect, |colorSpaceDidChangeNotification|
+    mount factor, share value
+
+force get-localized-name
+  field build, field ns-screen
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    raise build, field string
+
+force set-localized-name
+  field build, field ns-screen
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |localizedName|
+    mount factor, share value

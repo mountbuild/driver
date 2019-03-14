@@ -1,0 +1,34 @@
+
+force build-property-resource-bundle
+  mount stream, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |PropertyResourceBundle|
+    drive factor, share stream
+    throw build, field property-resource-bundle
+
+force build-property-resource-bundle
+  mount reader, field reader
+
+  cause invoke-constructor
+    drive constructor, |PropertyResourceBundle|
+    drive factor, share reader
+    throw build, field property-resource-bundle
+
+force get-keys
+  mount build, field property-resource-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeys|
+    throw build, field enumeration
+
+force handle-get-object
+  mount build, field property-resource-bundle
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |handleGetObject|
+    drive factor, share key
+    throw build, field any

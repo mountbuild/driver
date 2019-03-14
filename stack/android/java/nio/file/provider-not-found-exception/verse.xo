@@ -1,0 +1,13 @@
+
+force build-provider-not-found-exception
+  cause invoke-constructor
+    drive constructor, |ProviderNotFoundException|
+    throw build, field provider-not-found-exception
+
+force build-provider-not-found-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |ProviderNotFoundException|
+    drive factor, share msg
+    throw build, field provider-not-found-exception

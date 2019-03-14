@@ -1,0 +1,21 @@
+
+force build-data-set-observer
+  cause invoke-constructor
+    drive constructor, |DataSetObserver|
+    raise build, field data-set-observer
+
+force on-changed
+  mount build, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |onChanged|
+    raise build, field unit
+
+force on-invalidated
+  mount build, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |onInvalidated|
+    raise build, field unit

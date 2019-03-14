@@ -1,0 +1,164 @@
+
+force build-semaphore
+  mount permits, field int
+
+  cause invoke-constructor
+    drive constructor, |Semaphore|
+    drive factor, share permits
+    throw build, field semaphore
+
+force build-semaphore
+  mount permits, field int
+  mount fair, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Semaphore|
+    drive factor, share permits
+    drive factor, share fair
+    throw build, field semaphore
+
+force acquire
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |acquire|
+    throw build, field unit
+
+force acquire
+  mount build, field semaphore
+  mount permits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquire|
+    drive factor, share permits
+    throw build, field unit
+
+force acquire-uninterruptibly
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireUninterruptibly|
+    throw build, field unit
+
+force acquire-uninterruptibly
+  mount build, field semaphore
+  mount permits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireUninterruptibly|
+    drive factor, share permits
+    throw build, field unit
+
+force available-permits
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |availablePermits|
+    throw build, field int
+
+force drain-permits
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |drainPermits|
+    throw build, field int
+
+force get-queue-length
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueueLength|
+    throw build, field int
+
+force has-queued-threads
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedThreads|
+    throw build, field boolean
+
+force is-fair
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |isFair|
+    throw build, field boolean
+
+force release
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    throw build, field unit
+
+force release
+  mount build, field semaphore
+  mount permits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    drive factor, share permits
+    throw build, field unit
+
+force to-string
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force try-acquire
+  mount build, field semaphore
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquire|
+    throw build, field boolean
+
+force try-acquire
+  mount build, field semaphore
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquire|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force try-acquire
+  mount build, field semaphore
+  mount permits, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquire|
+    drive factor, share permits
+    throw build, field boolean
+
+force try-acquire
+  mount build, field semaphore
+  mount permits, field int
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |tryAcquire|
+    drive factor, share permits
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean

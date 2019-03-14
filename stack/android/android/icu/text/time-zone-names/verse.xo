@@ -1,0 +1,120 @@
+
+force get-available-meta-zone-i-ds
+  start build, field time-zone-names
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableMetaZoneIDs|
+    raise build, field mutable-set
+
+force get-available-meta-zone-i-ds
+  start build, field time-zone-names
+  start tz-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAvailableMetaZoneIDs|
+    drive factor, share tz-id
+    raise build, field mutable-set
+
+force get-display-name
+  start build, field time-zone-names
+  start tz-id, field string
+  start type, field time-zone-names-name-type
+  start date, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share tz-id
+    drive factor, share type
+    drive factor, share date
+    raise build, field string
+
+force get-exemplar-location-name
+  start build, field time-zone-names
+  start tz-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getExemplarLocationName|
+    drive factor, share tz-id
+    raise build, field string
+
+force get-instance
+  start build, field time-zone-names
+  start locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field time-zone-names
+
+force get-instance
+  start build, field time-zone-names
+  start locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    raise build, field time-zone-names
+
+force get-meta-zone-display-name
+  start build, field time-zone-names
+  start mz-id, field string
+  start type, field time-zone-names-name-type
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetaZoneDisplayName|
+    drive factor, share mz-id
+    drive factor, share type
+    raise build, field string
+
+force get-meta-zone-id
+  start build, field time-zone-names
+  start tz-id, field string
+  start date, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetaZoneID|
+    drive factor, share tz-id
+    drive factor, share date
+    raise build, field string
+
+force get-reference-zone-id
+  start build, field time-zone-names
+  start mz-id, field string
+  start region, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getReferenceZoneID|
+    drive factor, share mz-id
+    drive factor, share region
+    raise build, field string
+
+force get-tzdb-instance
+  start build, field time-zone-names
+  start locale, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getTZDBInstance|
+    drive factor, share locale
+    raise build, field time-zone-names
+
+force get-time-zone-display-name
+  start build, field time-zone-names
+  start tz-id, field string
+  start type, field time-zone-names-name-type
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZoneDisplayName|
+    drive factor, share tz-id
+    drive factor, share type
+    raise build, field string

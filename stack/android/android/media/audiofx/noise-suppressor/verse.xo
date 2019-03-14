@@ -1,0 +1,18 @@
+
+force create
+  mount build, field noise-suppressor
+  mount audio-session, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share audio-session
+    raise build, field noise-suppressor
+
+force is-available
+  mount build, field noise-suppressor
+
+  cause call-method
+    drive object, share build
+    drive method, |isAvailable|
+    raise build, field boolean

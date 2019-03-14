@@ -1,0 +1,122 @@
+
+force add-gesture
+  mount build, field gesture-library
+  mount entry-name, field string
+  mount gesture, field gesture
+
+  cause call-method
+    drive object, share build
+    drive method, |addGesture|
+    drive factor, share entry-name
+    drive factor, share gesture
+    throw build, field unit
+
+force get-gesture-entries
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |getGestureEntries|
+    throw build, field mutable-set
+
+force get-gestures
+  mount build, field gesture-library
+  mount entry-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getGestures|
+    drive factor, share entry-name
+    throw build, field array-list
+
+force get-orientation-style
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrientationStyle|
+    throw build, field int
+
+force get-sequence-type
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |getSequenceType|
+    throw build, field int
+
+force is-read-only
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |isReadOnly|
+    throw build, field boolean
+
+force load
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    throw build, field boolean
+
+force recognize
+  mount build, field gesture-library
+  mount gesture, field gesture
+
+  cause call-method
+    drive object, share build
+    drive method, |recognize|
+    drive factor, share gesture
+    throw build, field array-list
+
+force remove-entry
+  mount build, field gesture-library
+  mount entry-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeEntry|
+    drive factor, share entry-name
+    throw build, field unit
+
+force remove-gesture
+  mount build, field gesture-library
+  mount entry-name, field string
+  mount gesture, field gesture
+
+  cause call-method
+    drive object, share build
+    drive method, |removeGesture|
+    drive factor, share entry-name
+    drive factor, share gesture
+    throw build, field unit
+
+force save
+  mount build, field gesture-library
+
+  cause call-method
+    drive object, share build
+    drive method, |save|
+    throw build, field boolean
+
+force set-orientation-style
+  mount build, field gesture-library
+  mount style, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrientationStyle|
+    drive factor, share style
+    throw build, field unit
+
+force set-sequence-type
+  mount build, field gesture-library
+  mount type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSequenceType|
+    drive factor, share type
+    throw build, field unit

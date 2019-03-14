@@ -1,0 +1,378 @@
+
+force get-flag-cancel-current
+  start build, field pending-intent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_CANCEL_CURRENT|
+    throw build, field int
+
+force get-flag-immutable
+  start build, field pending-intent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_IMMUTABLE|
+    throw build, field int
+
+force get-flag-no-create
+  start build, field pending-intent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_NO_CREATE|
+    throw build, field int
+
+force get-flag-one-shot
+  start build, field pending-intent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_ONE_SHOT|
+    throw build, field int
+
+force get-flag-update-current
+  start build, field pending-intent
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_UPDATE_CURRENT|
+    throw build, field int
+
+force cancel
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    throw build, field unit
+
+force describe-contents
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  start build, field pending-intent
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-activities
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intents, field array-intent
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivities|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intents
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-activities
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intents, field array-intent
+  start flags, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivities|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intents
+    drive factor, share flags
+    drive factor, share options
+    throw build, field pending-intent
+
+force get-activity
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intent, field intent
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivity|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intent
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-activity
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intent, field intent
+  start flags, field int
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivity|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intent
+    drive factor, share flags
+    drive factor, share options
+    throw build, field pending-intent
+
+force get-broadcast
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intent, field intent
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getBroadcast|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intent
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-creator-package
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorPackage|
+    throw build, field string
+
+force get-creator-uid
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorUid|
+    throw build, field int
+
+force get-creator-user-handle
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorUserHandle|
+    throw build, field user-handle
+
+force get-foreground-service
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intent, field intent
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getForegroundService|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intent
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-intent-sender
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntentSender|
+    throw build, field intent-sender
+
+force get-service
+  start build, field pending-intent
+  start context, field context
+  start request-code, field int
+  start intent, field intent
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getService|
+    drive factor, share context
+    drive factor, share request-code
+    drive factor, share intent
+    drive factor, share flags
+    throw build, field pending-intent
+
+force get-target-package
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetPackage|
+    throw build, field string
+
+force hash-code
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force read-pending-intent-or-null-from-parcel
+  start build, field pending-intent
+  start in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readPendingIntentOrNullFromParcel|
+    drive factor, share in
+    throw build, field pending-intent
+
+force send
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share code
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start context, field context
+  start code, field int
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start code, field int
+  start on-finished, field pending-intent-on-finished
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share code
+    drive factor, share on-finished
+    drive factor, share handler
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start context, field context
+  start code, field int
+  start intent, field intent
+  start on-finished, field pending-intent-on-finished
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    drive factor, share on-finished
+    drive factor, share handler
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start context, field context
+  start code, field int
+  start intent, field intent
+  start on-finished, field pending-intent-on-finished
+  start handler, field handler
+  start required-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    drive factor, share on-finished
+    drive factor, share handler
+    drive factor, share required-permission
+    throw build, field unit
+
+force send
+  start build, field pending-intent
+  start context, field context
+  start code, field int
+  start intent, field intent
+  start on-finished, field pending-intent-on-finished
+  start handler, field handler
+  start required-permission, field string
+  start options, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    drive factor, share on-finished
+    drive factor, share handler
+    drive factor, share required-permission
+    drive factor, share options
+    throw build, field unit
+
+force to-string
+  start build, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-pending-intent-or-null-to-parcel
+  start build, field pending-intent
+  start sender, field pending-intent
+  start out, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |writePendingIntentOrNullToParcel|
+    drive factor, share sender
+    drive factor, share out
+    throw build, field unit
+
+force write-to-parcel
+  start build, field pending-intent
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,56 @@
+
+force dump
+  mount build, field state-set
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share states
+    throw build, field string
+
+force is-wild-card
+  mount build, field state-set
+  mount state-set-or-spec, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |isWildCard|
+    drive factor, share state-set-or-spec
+    throw build, field boolean
+
+force state-set-matches
+  mount build, field state-set
+  mount state-spec, field int-array
+  mount state-set, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |stateSetMatches|
+    drive factor, share state-spec
+    drive factor, share state-set
+    throw build, field boolean
+
+force state-set-matches
+  mount build, field state-set
+  mount state-spec, field int-array
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stateSetMatches|
+    drive factor, share state-spec
+    drive factor, share state
+    throw build, field boolean
+
+force trim-state-set
+  mount build, field state-set
+  mount states, field int-array
+  mount new-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |trimStateSet|
+    drive factor, share states
+    drive factor, share new-size
+    throw build, field int-array

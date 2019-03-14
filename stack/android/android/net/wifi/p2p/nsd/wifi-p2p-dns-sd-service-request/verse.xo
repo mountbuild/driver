@@ -1,0 +1,30 @@
+
+force new-instance
+  mount build, field wifi-p2p-dns-sd-service-request
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    throw build, field wifi-p2p-dns-sd-service-request
+
+force new-instance
+  mount build, field wifi-p2p-dns-sd-service-request
+  mount service-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share service-type
+    throw build, field wifi-p2p-dns-sd-service-request
+
+force new-instance
+  mount build, field wifi-p2p-dns-sd-service-request
+  mount instance-name, field string
+  mount service-type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newInstance|
+    drive factor, share instance-name
+    drive factor, share service-type
+    throw build, field wifi-p2p-dns-sd-service-request

@@ -1,0 +1,336 @@
+
+force build-video-view
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |VideoView|
+    drive factor, share context
+    throw build, field video-view
+
+force build-video-view
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |VideoView|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field video-view
+
+force build-video-view
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |VideoView|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field video-view
+
+force build-video-view
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |VideoView|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field video-view
+
+force add-subtitle-source
+  mount build, field video-view
+  mount is, field input-stream
+  mount format, field media-format
+
+  cause call-method
+    drive object, share build
+    drive method, |addSubtitleSource|
+    drive factor, share is
+    drive factor, share format
+    throw build, field unit
+
+force can-pause
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |canPause|
+    throw build, field boolean
+
+force can-seek-backward
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |canSeekBackward|
+    throw build, field boolean
+
+force can-seek-forward
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |canSeekForward|
+    throw build, field boolean
+
+force draw
+  mount build, field video-view
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    throw build, field unit
+
+force get-accessibility-class-name
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force get-audio-session-id
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioSessionId|
+    throw build, field int
+
+force get-buffer-percentage
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getBufferPercentage|
+    throw build, field int
+
+force get-current-position
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentPosition|
+    throw build, field int
+
+force get-duration
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuration|
+    throw build, field int
+
+force is-playing
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |isPlaying|
+    throw build, field boolean
+
+force on-key-down
+  mount build, field video-view
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share key-code
+    drive factor, share event
+    throw build, field boolean
+
+force on-touch-event
+  mount build, field video-view
+  mount ev, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTouchEvent|
+    drive factor, share ev
+    throw build, field boolean
+
+force on-trackball-event
+  mount build, field video-view
+  mount ev, field motion-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrackballEvent|
+    drive factor, share ev
+    throw build, field boolean
+
+force pause
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+    throw build, field unit
+
+force resolve-adjusted-size
+  mount build, field video-view
+  mount desired-size, field int
+  mount measure-spec, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resolveAdjustedSize|
+    drive factor, share desired-size
+    drive factor, share measure-spec
+    throw build, field int
+
+force resume
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    throw build, field unit
+
+force seek-to
+  mount build, field video-view
+  mount msec, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |seekTo|
+    drive factor, share msec
+    throw build, field unit
+
+force set-audio-attributes
+  mount build, field video-view
+  mount attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioAttributes|
+    drive factor, share attributes
+    throw build, field unit
+
+force set-audio-focus-request
+  mount build, field video-view
+  mount focus-gain, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioFocusRequest|
+    drive factor, share focus-gain
+    throw build, field unit
+
+force set-media-controller
+  mount build, field video-view
+  mount controller, field media-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |setMediaController|
+    drive factor, share controller
+    throw build, field unit
+
+force set-on-completion-listener
+  mount build, field video-view
+  mount l, field media-player-on-completion-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnCompletionListener|
+    drive factor, share l
+    throw build, field unit
+
+force set-on-error-listener
+  mount build, field video-view
+  mount l, field media-player-on-error-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnErrorListener|
+    drive factor, share l
+    throw build, field unit
+
+force set-on-info-listener
+  mount build, field video-view
+  mount l, field media-player-on-info-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnInfoListener|
+    drive factor, share l
+    throw build, field unit
+
+force set-on-prepared-listener
+  mount build, field video-view
+  mount l, field media-player-on-prepared-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnPreparedListener|
+    drive factor, share l
+    throw build, field unit
+
+force set-video-path
+  mount build, field video-view
+  mount path, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoPath|
+    drive factor, share path
+    throw build, field unit
+
+force set-video-uri
+  mount build, field video-view
+  mount uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoURI|
+    drive factor, share uri
+    throw build, field unit
+
+force set-video-uri
+  mount build, field video-view
+  mount uri, field uri
+  mount headers, field mutable-map-string
+  mount string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoURI|
+    drive factor, share uri
+    drive factor, share headers
+    drive factor, share string
+    throw build, field unit
+
+force start
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    throw build, field unit
+
+force stop-playback
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |stopPlayback|
+    throw build, field unit
+
+force suspend
+  mount build, field video-view
+
+  cause call-method
+    drive object, share build
+    drive method, |suspend|
+    throw build, field unit

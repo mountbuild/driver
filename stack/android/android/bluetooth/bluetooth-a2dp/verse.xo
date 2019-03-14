@@ -1,0 +1,78 @@
+
+force get-action-connection-state-changed
+  mount build, field bluetooth-a2dp
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CONNECTION_STATE_CHANGED|
+    throw build, field string
+
+force get-action-playing-state-changed
+  mount build, field bluetooth-a2dp
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PLAYING_STATE_CHANGED|
+    throw build, field string
+
+force get-state-not-playing
+  mount build, field bluetooth-a2dp
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_NOT_PLAYING|
+    throw build, field int
+
+force get-state-playing
+  mount build, field bluetooth-a2dp
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_PLAYING|
+    throw build, field int
+
+force finalize
+  mount build, field bluetooth-a2dp
+
+  cause call-method
+    drive object, share build
+    drive method, |finalize|
+    throw build, field unit
+
+force get-connected-devices
+  mount build, field bluetooth-a2dp
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectedDevices|
+    throw build, field mutable-list
+
+force get-connection-state
+  mount build, field bluetooth-a2dp
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionState|
+    drive factor, share device
+    throw build, field int
+
+force get-devices-matching-connection-states
+  mount build, field bluetooth-a2dp
+  mount states, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevicesMatchingConnectionStates|
+    drive factor, share states
+    throw build, field mutable-list
+
+force is-a2dp-playing
+  mount build, field bluetooth-a2dp
+  mount device, field bluetooth-device
+
+  cause call-method
+    drive object, share build
+    drive method, |isA2dpPlaying|
+    drive factor, share device
+    throw build, field boolean

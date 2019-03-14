@@ -1,0 +1,176 @@
+
+force get-interval-best
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_BEST|
+    throw build, field int
+
+force get-interval-daily
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_DAILY|
+    throw build, field int
+
+force get-interval-monthly
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_MONTHLY|
+    throw build, field int
+
+force get-interval-weekly
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_WEEKLY|
+    throw build, field int
+
+force get-interval-yearly
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |INTERVAL_YEARLY|
+    throw build, field int
+
+force get-standby-bucket-active
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDBY_BUCKET_ACTIVE|
+    throw build, field int
+
+force get-standby-bucket-frequent
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDBY_BUCKET_FREQUENT|
+    throw build, field int
+
+force get-standby-bucket-rare
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDBY_BUCKET_RARE|
+    throw build, field int
+
+force get-standby-bucket-restricted
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDBY_BUCKET_RESTRICTED|
+    throw build, field int
+
+force get-standby-bucket-working-set
+  start build, field usage-stats-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |STANDBY_BUCKET_WORKING_SET|
+    throw build, field int
+
+force get-app-standby-bucket
+  start build, field usage-stats-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAppStandbyBucket|
+    throw build, field int
+
+force is-app-inactive
+  start build, field usage-stats-manager
+  start package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isAppInactive|
+    drive factor, share package-name
+    throw build, field boolean
+
+force query-and-aggregate-usage-stats
+  start build, field usage-stats-manager
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryAndAggregateUsageStats|
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field mutable-map
+
+force query-configurations
+  start build, field usage-stats-manager
+  start interval-type, field int
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryConfigurations|
+    drive factor, share interval-type
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field mutable-list
+
+force query-event-stats
+  start build, field usage-stats-manager
+  start interval-type, field int
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryEventStats|
+    drive factor, share interval-type
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field mutable-list
+
+force query-events
+  start build, field usage-stats-manager
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryEvents|
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field usage-events
+
+force query-events-for-self
+  start build, field usage-stats-manager
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryEventsForSelf|
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field usage-events
+
+force query-usage-stats
+  start build, field usage-stats-manager
+  start interval-type, field int
+  start begin-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryUsageStats|
+    drive factor, share interval-type
+    drive factor, share begin-time
+    drive factor, share end-time
+    throw build, field mutable-list

@@ -1,0 +1,72 @@
+
+force build-future-task
+  mount callable, field callable-v
+
+  cause invoke-constructor
+    drive constructor, |FutureTask|
+    drive factor, share callable
+    throw build, field future-task
+
+force build-future-task
+  mount runnable, field runnable
+  mount result, field v
+
+  cause invoke-constructor
+    drive constructor, |FutureTask|
+    drive factor, share runnable
+    drive factor, share result
+    throw build, field future-task
+
+force cancel
+  mount build, field future-task
+  mount may-interrupt-if-running, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |cancel|
+    drive factor, share may-interrupt-if-running
+    throw build, field boolean
+
+force get
+  mount build, field future-task
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field v
+
+force get
+  mount build, field future-task
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field v
+
+force is-cancelled
+  mount build, field future-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isCancelled|
+    throw build, field boolean
+
+force is-done
+  mount build, field future-task
+
+  cause call-method
+    drive object, share build
+    drive method, |isDone|
+    throw build, field boolean
+
+force run
+  mount build, field future-task
+
+  cause call-method
+    drive object, share build
+    drive method, |run|
+    throw build, field unit

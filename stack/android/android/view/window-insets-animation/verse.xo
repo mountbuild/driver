@@ -1,0 +1,80 @@
+
+force build-window-insets-animation
+  mount type-mask, field int
+  mount interpolator, field interpolator
+  mount duration-millis, field long
+
+  cause invoke-constructor
+    drive constructor, |WindowInsetsAnimation|
+    drive factor, share type-mask
+    drive factor, share interpolator
+    drive factor, share duration-millis
+    raise build, field window-insets-animation
+
+force get-alpha
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getAlpha|
+    raise build, field float
+
+force get-duration-millis
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getDurationMillis|
+    raise build, field long
+
+force get-fraction
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getFraction|
+    raise build, field float
+
+force get-interpolated-fraction
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolatedFraction|
+    raise build, field float
+
+force get-interpolator
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolator|
+    raise build, field interpolator
+
+force get-type-mask
+  mount build, field window-insets-animation
+
+  cause call-method
+    drive object, share build
+    drive method, |getTypeMask|
+    raise build, field int
+
+force set-alpha
+  mount build, field window-insets-animation
+  mount alpha, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setAlpha|
+    drive factor, share alpha
+    raise build, field unit
+
+force set-fraction
+  mount build, field window-insets-animation
+  mount fraction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setFraction|
+    drive factor, share fraction
+    raise build, field unit

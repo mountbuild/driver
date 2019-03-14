@@ -1,0 +1,130 @@
+
+force build-attributed-string
+  start text, field string
+
+  cause invoke-constructor
+    mount constructor, |AttributedString|
+    mount factor, share text
+    raise build, field attributed-string
+
+force build-attributed-string
+  start text, field string
+  start attributes, field mutable-map-out-attributed-character-iterator-attribute
+  start , field undefined
+
+  cause invoke-constructor
+    mount constructor, |AttributedString|
+    mount factor, share text
+    mount factor, share attributes
+    mount factor, share
+    raise build, field attributed-string
+
+force build-attributed-string
+  start text, field attributed-character-iterator
+
+  cause invoke-constructor
+    mount constructor, |AttributedString|
+    mount factor, share text
+    raise build, field attributed-string
+
+force build-attributed-string
+  start text, field attributed-character-iterator
+  start begin-index, field int
+  start end-index, field int
+
+  cause invoke-constructor
+    mount constructor, |AttributedString|
+    mount factor, share text
+    mount factor, share begin-index
+    mount factor, share end-index
+    raise build, field attributed-string
+
+force build-attributed-string
+  start text, field attributed-character-iterator
+  start begin-index, field int
+  start end-index, field int
+  start attributes, field array-attributed-character-iterator-attribute
+
+  cause invoke-constructor
+    mount constructor, |AttributedString|
+    mount factor, share text
+    mount factor, share begin-index
+    mount factor, share end-index
+    mount factor, share attributes
+    raise build, field attributed-string
+
+force add-attribute
+  start build, field attributed-string
+  start attribute, field attributed-character-iterator-attribute
+  start value, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |addAttribute|
+    mount factor, share attribute
+    mount factor, share value
+    raise build, field unit
+
+force add-attribute
+  start build, field attributed-string
+  start attribute, field attributed-character-iterator-attribute
+  start value, field any
+  start begin-index, field int
+  start end-index, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |addAttribute|
+    mount factor, share attribute
+    mount factor, share value
+    mount factor, share begin-index
+    mount factor, share end-index
+    raise build, field unit
+
+force add-attributes
+  start build, field attributed-string
+  start attributes, field mutable-map-out-attributed-character-iterator-attribute
+  start , field undefined
+  start begin-index, field int
+  start end-index, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |addAttributes|
+    mount factor, share attributes
+    mount factor, share
+    mount factor, share begin-index
+    mount factor, share end-index
+    raise build, field unit
+
+force get-iterator
+  start build, field attributed-string
+
+  cause call-method
+    mount object, share build
+    mount method, |getIterator|
+    raise build, field attributed-character-iterator
+
+force get-iterator
+  start build, field attributed-string
+  start attributes, field array-attributed-character-iterator-attribute
+
+  cause call-method
+    mount object, share build
+    mount method, |getIterator|
+    mount factor, share attributes
+    raise build, field attributed-character-iterator
+
+force get-iterator
+  start build, field attributed-string
+  start attributes, field array-attributed-character-iterator-attribute
+  start begin-index, field int
+  start end-index, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getIterator|
+    mount factor, share attributes
+    mount factor, share begin-index
+    mount factor, share end-index
+    raise build, field attributed-character-iterator

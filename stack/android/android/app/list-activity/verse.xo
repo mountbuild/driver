@@ -1,0 +1,65 @@
+
+force build-list-activity
+  cause invoke-constructor
+    drive constructor, |ListActivity|
+    throw build, field list-activity
+
+force get-list-adapter
+  mount build, field list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getListAdapter|
+    throw build, field list-adapter
+
+force get-list-view
+  mount build, field list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getListView|
+    throw build, field list-view
+
+force get-selected-item-id
+  mount build, field list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedItemId|
+    throw build, field long
+
+force get-selected-item-position
+  mount build, field list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedItemPosition|
+    throw build, field int
+
+force on-content-changed
+  mount build, field list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onContentChanged|
+    throw build, field unit
+
+force set-list-adapter
+  mount build, field list-activity
+  mount adapter, field list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |setListAdapter|
+    drive factor, share adapter
+    throw build, field unit
+
+force set-selection
+  mount build, field list-activity
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelection|
+    drive factor, share position
+    throw build, field unit

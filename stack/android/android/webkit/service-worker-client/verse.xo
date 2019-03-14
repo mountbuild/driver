@@ -1,0 +1,15 @@
+
+force build-service-worker-client
+  cause invoke-constructor
+    drive constructor, |ServiceWorkerClient|
+    throw build, field service-worker-client
+
+force should-intercept-request
+  mount build, field service-worker-client
+  mount request, field web-resource-request
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldInterceptRequest|
+    drive factor, share request
+    throw build, field web-resource-response

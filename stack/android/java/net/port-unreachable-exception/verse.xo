@@ -1,0 +1,13 @@
+
+force build-port-unreachable-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |PortUnreachableException|
+    drive factor, share msg
+    throw build, field port-unreachable-exception
+
+force build-port-unreachable-exception
+  cause invoke-constructor
+    drive constructor, |PortUnreachableException|
+    throw build, field port-unreachable-exception

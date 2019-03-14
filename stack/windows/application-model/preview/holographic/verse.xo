@@ -1,0 +1,66 @@
+
+force build-holographic-application-preview
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview|
+
+force is-current-view-presented-on-holographic-display
+  start build, field windows-applicationmodel-preview-holographic-holographicapplicationpreview
+
+  cause call-method
+    drive object, share build
+    drive method, |IsCurrentViewPresentedOnHolographicDisplay|
+
+force is-holographic-activation
+  start build, field windows-applicationmodel-preview-holographic-holographicapplicationpreview
+  start activated-event-args, field windows-applicationmodel-activation-iactivatedeventargs
+
+  cause call-method
+    drive object, share build
+    drive method, |IsHolographicActivation|
+    drive factor, share activated-event-args
+
+force build-holographic-keyboard-placement-override-preview
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview|
+
+force get-for-current-view
+  start build, field windows-applicationmodel-preview-holographic-holographickeyboardplacementoverridepreview
+
+  cause call-method
+    drive object, share build
+    drive method, |GetForCurrentView|
+
+force reset-placement-override
+  start build, field windows-applicationmodel-preview-holographic-holographickeyboardplacementoverridepreview
+
+  cause call-method
+    drive object, share build
+    drive method, |ResetPlacementOverride|
+
+force set-placement-override
+  start build, field windows-applicationmodel-preview-holographic-holographickeyboardplacementoverridepreview
+  start coordinate-system, field windows-perception-spatial-spatialcoordinatesystem
+  start top-center-position, field windows-foundation-numerics-vector3
+  start normal, field windows-foundation-numerics-vector3
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPlacementOverride|
+    drive factor, share coordinate-system
+    drive factor, share top-center-position
+    drive factor, share normal
+
+force set-placement-override
+  start build, field windows-applicationmodel-preview-holographic-holographickeyboardplacementoverridepreview
+  start coordinate-system, field windows-perception-spatial-spatialcoordinatesystem
+  start top-center-position, field windows-foundation-numerics-vector3
+  start normal, field windows-foundation-numerics-vector3
+  start max-size, field windows-foundation-numerics-vector2
+
+  cause call-method
+    drive object, share build
+    drive method, |SetPlacementOverride|
+    drive factor, share coordinate-system
+    drive factor, share top-center-position
+    drive factor, share normal
+    drive factor, share max-size

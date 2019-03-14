@@ -1,0 +1,83 @@
+
+force build-midi-receiver
+  cause invoke-constructor
+    drive constructor, |MidiReceiver|
+    raise build, field midi-receiver
+
+force build-midi-receiver
+  start max-message-size, field int
+
+  cause invoke-constructor
+    drive constructor, |MidiReceiver|
+    drive factor, share max-message-size
+    raise build, field midi-receiver
+
+force flush
+  start build, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    raise build, field unit
+
+force get-max-message-size
+  start build, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxMessageSize|
+    raise build, field int
+
+force on-flush
+  start build, field midi-receiver
+
+  cause call-method
+    drive object, share build
+    drive method, |onFlush|
+    raise build, field unit
+
+force on-send
+  start build, field midi-receiver
+  start msg, field byte-array
+  start offset, field int
+  start count, field int
+  start timestamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onSend|
+    drive factor, share msg
+    drive factor, share offset
+    drive factor, share count
+    drive factor, share timestamp
+    raise build, field unit
+
+force send
+  start build, field midi-receiver
+  start msg, field byte-array
+  start offset, field int
+  start count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share msg
+    drive factor, share offset
+    drive factor, share count
+    raise build, field unit
+
+force send
+  start build, field midi-receiver
+  start msg, field byte-array
+  start offset, field int
+  start count, field int
+  start timestamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor, share msg
+    drive factor, share offset
+    drive factor, share count
+    drive factor, share timestamp
+    raise build, field unit

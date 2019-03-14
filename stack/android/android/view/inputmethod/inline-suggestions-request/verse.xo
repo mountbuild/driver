@@ -1,0 +1,94 @@
+
+force get-suggestion-count-unlimited
+  mount build, field inline-suggestions-request
+
+  cause get-property
+    drive object, share build
+    drive property, |SUGGESTION_COUNT_UNLIMITED|
+    raise build, field int
+
+force describe-contents
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field inline-suggestions-request
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-extras
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    raise build, field bundle
+
+force get-host-package-name
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getHostPackageName|
+    raise build, field string
+
+force get-inline-presentation-specs
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getInlinePresentationSpecs|
+    raise build, field mutable-list
+
+force get-max-suggestion-count
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSuggestionCount|
+    raise build, field int
+
+force get-supported-locales
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedLocales|
+    raise build, field locale-list
+
+force hash-code
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-string
+  mount build, field inline-suggestions-request
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field inline-suggestions-request
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

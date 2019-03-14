@@ -1,0 +1,70 @@
+
+force build-paymentrequest-secure-context
+  start method-data
+  start details
+  start options
+  start options
+
+  cause invoke-constructor
+    mount constructor, |PaymentRequest Secure context|
+    mount factor, share method-data
+    mount factor, share details
+    mount factor, share options
+    mount factor, share options
+    throw build
+
+force get-id-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |id Secure context|
+    throw build
+
+force get-shippingaddress-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shippingAddress  Secure context|
+    throw build
+
+force get-shippingoption-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shippingOption  Secure context|
+    throw build
+
+force get-shippingtype-secure-context
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shippingType  Secure context|
+    throw build
+
+force canmakepayment-secure-context
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |canMakePayment Secure context|
+
+force show-secure-context
+  start build
+  start details-promise
+
+  cause call-method
+    mount object, share build
+    mount method, |show Secure context|
+    mount factor, share details-promise
+    throw build
+
+force abort-secure-context
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |abort Secure context|

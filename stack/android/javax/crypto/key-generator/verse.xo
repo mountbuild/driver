@@ -1,0 +1,112 @@
+
+force generate-key
+  start build, field key-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |generateKey|
+    throw build, field secret-key
+
+force get-algorithm
+  start build, field key-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-instance
+  start build, field key-generator
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field key-generator
+
+force get-instance
+  start build, field key-generator
+  start algorithm, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-generator
+
+force get-instance
+  start build, field key-generator
+  start algorithm, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field key-generator
+
+force get-provider
+  start build, field key-generator
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  start build, field key-generator
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field key-generator
+  start params, field algorithm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share params
+    throw build, field unit
+
+force init
+  start build, field key-generator
+  start params, field algorithm-parameter-spec
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share params
+    mount factor, share random
+    throw build, field unit
+
+force init
+  start build, field key-generator
+  start keysize, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share keysize
+    throw build, field unit
+
+force init
+  start build, field key-generator
+  start keysize, field int
+  start random, field secure-random
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share keysize
+    mount factor, share random
+    throw build, field unit

@@ -1,0 +1,59 @@
+
+force get-flag-personal-info
+  mount build, field permission-group-info
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_PERSONAL_INFO|
+    throw build, field int
+
+force build-permission-group-info
+  cause invoke-constructor
+    drive constructor, |PermissionGroupInfo|
+    throw build, field permission-group-info
+
+force build-permission-group-info
+  mount orig, field permission-group-info
+
+  cause invoke-constructor
+    drive constructor, |PermissionGroupInfo|
+    drive factor, share orig
+    throw build, field permission-group-info
+
+force describe-contents
+  mount build, field permission-group-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force load-description
+  mount build, field permission-group-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadDescription|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force to-string
+  mount build, field permission-group-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field permission-group-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

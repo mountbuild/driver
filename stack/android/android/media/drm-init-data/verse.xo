@@ -1,0 +1,28 @@
+
+force get
+  start build, field drm-init-data
+  start scheme-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share scheme-uuid
+    raise build, field drm-init-data-scheme-init-data
+
+force get-scheme-init-data-at
+  start build, field drm-init-data
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSchemeInitDataAt|
+    drive factor, share index
+    raise build, field drm-init-data-scheme-init-data
+
+force get-scheme-init-data-count
+  start build, field drm-init-data
+
+  cause call-method
+    drive object, share build
+    drive method, |getSchemeInitDataCount|
+    raise build, field int

@@ -1,0 +1,2898 @@
+
+force build-async-causality-tracer
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.AsyncCausalityTracer|
+
+force trace-operation-completion
+  start build, field windows-foundation-diagnostics-asynccausalitytracer
+  start trace-level, field windows-foundation-diagnostics-causalitytracelevel
+  start source, field windows-foundation-diagnostics-causalitysource
+  start platform-id, field system-guid
+  start operation-id, field system-uint64
+  start status, field windows-foundation-asyncstatus
+
+  cause call-method
+    drive object, share build
+    drive method, |TraceOperationCompletion|
+    drive factor, share trace-level
+    drive factor, share source
+    drive factor, share platform-id
+    drive factor, share operation-id
+    drive factor, share status
+
+force trace-operation-creation
+  start build, field windows-foundation-diagnostics-asynccausalitytracer
+  start trace-level, field windows-foundation-diagnostics-causalitytracelevel
+  start source, field windows-foundation-diagnostics-causalitysource
+  start platform-id, field system-guid
+  start operation-id, field system-uint64
+  start operation-name, field system-string
+  start related-context, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |TraceOperationCreation|
+    drive factor, share trace-level
+    drive factor, share source
+    drive factor, share platform-id
+    drive factor, share operation-id
+    drive factor, share operation-name
+    drive factor, share related-context
+
+force trace-operation-relation
+  start build, field windows-foundation-diagnostics-asynccausalitytracer
+  start trace-level, field windows-foundation-diagnostics-causalitytracelevel
+  start source, field windows-foundation-diagnostics-causalitysource
+  start platform-id, field system-guid
+  start operation-id, field system-uint64
+  start relation, field windows-foundation-diagnostics-causalityrelation
+
+  cause call-method
+    drive object, share build
+    drive method, |TraceOperationRelation|
+    drive factor, share trace-level
+    drive factor, share source
+    drive factor, share platform-id
+    drive factor, share operation-id
+    drive factor, share relation
+
+force trace-synchronous-work-completion
+  start build, field windows-foundation-diagnostics-asynccausalitytracer
+  start trace-level, field windows-foundation-diagnostics-causalitytracelevel
+  start source, field windows-foundation-diagnostics-causalitysource
+  start work, field windows-foundation-diagnostics-causalitysynchronouswork
+
+  cause call-method
+    drive object, share build
+    drive method, |TraceSynchronousWorkCompletion|
+    drive factor, share trace-level
+    drive factor, share source
+    drive factor, share work
+
+force trace-synchronous-work-start
+  start build, field windows-foundation-diagnostics-asynccausalitytracer
+  start trace-level, field windows-foundation-diagnostics-causalitytracelevel
+  start source, field windows-foundation-diagnostics-causalitysource
+  start platform-id, field system-guid
+  start operation-id, field system-uint64
+  start work, field windows-foundation-diagnostics-causalitysynchronouswork
+
+  cause call-method
+    drive object, share build
+    drive method, |TraceSynchronousWorkStart|
+    drive factor, share trace-level
+    drive factor, share source
+    drive factor, share platform-id
+    drive factor, share operation-id
+    drive factor, share work
+
+force get-causality-relation
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.CausalityRelation|
+
+force get-causality-source
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.CausalitySource|
+
+force get-causality-synchronous-work
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.CausalitySynchronousWork|
+
+force get-causality-trace-level
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.CausalityTraceLevel|
+
+force build-error-details
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.ErrorDetails|
+
+force create-from-h-result-async
+  start build, field windows-foundation-diagnostics-errordetails
+  start error-code, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFromHResultAsync|
+    drive factor, share error-code
+
+force get-description
+  start build, field windows-foundation-diagnostics-errordetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Description|
+
+force set-description
+  start build, field windows-foundation-diagnostics-errordetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Description|
+    drive factor, share value
+
+force get-help-uri
+  start build, field windows-foundation-diagnostics-errordetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |HelpUri|
+
+force set-help-uri
+  start build, field windows-foundation-diagnostics-errordetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |HelpUri|
+    drive factor, share value
+
+force get-long-description
+  start build, field windows-foundation-diagnostics-errordetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LongDescription|
+
+force set-long-description
+  start build, field windows-foundation-diagnostics-errordetails
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LongDescription|
+    drive factor, share value
+
+force get-error-options
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.ErrorOptions|
+
+force build-file-logging-session
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.FileLoggingSession|
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-fileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+  start max-level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+    drive factor, share max-level
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-fileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+
+force close
+  start build, field windows-foundation-diagnostics-fileloggingsession
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force close-and-save-to-file-async
+  start build, field windows-foundation-diagnostics-fileloggingsession
+
+  cause call-method
+    drive object, share build
+    drive method, |CloseAndSaveToFileAsync|
+
+force ctor
+  start build, field windows-foundation-diagnostics-fileloggingsession
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+
+force get-name
+  start build, field windows-foundation-diagnostics-fileloggingsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-fileloggingsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force remove-logging-channel
+  start build, field windows-foundation-diagnostics-fileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveLoggingChannel|
+    drive factor, share logging-channel
+
+force get-error-options
+  start build, field windows-foundation-diagnostics-ierrorreportingsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetErrorOptions|
+
+force set-error-options
+  start build, field windows-foundation-diagnostics-ierrorreportingsettings
+  start value, field windows-foundation-diagnostics-erroroptions
+
+  cause call-method
+    drive object, share build
+    drive method, |SetErrorOptions|
+    drive factor, share value
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+  start max-level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+    drive factor, share max-level
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+
+force close-and-save-to-file-async
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+
+  cause call-method
+    drive object, share build
+    drive method, |CloseAndSaveToFileAsync|
+
+force get-name
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force remove-logging-channel
+  start build, field windows-foundation-diagnostics-ifileloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveLoggingChannel|
+    drive factor, share logging-channel
+
+force get-enabled
+  start build, field windows-foundation-diagnostics-iloggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+
+force set-enabled
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+    drive factor, share value
+
+force get-level
+  start build, field windows-foundation-diagnostics-iloggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Level|
+
+force set-level
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Level|
+    drive factor, share value
+
+force log-message
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start event-string, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogMessage|
+    drive factor, share event-string
+
+force log-message
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start event-string, field system-string
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogMessage|
+    drive factor, share event-string
+    drive factor, share level
+
+force log-value-pair
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start value1, field system-string
+  start value2, field system-int32
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogValuePair|
+    drive factor, share value1
+    drive factor, share value2
+    drive factor, share level
+
+force log-value-pair
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start value1, field system-string
+  start value2, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |LogValuePair|
+    drive factor, share value1
+    drive factor, share value2
+
+force get-name
+  start build, field windows-foundation-diagnostics-iloggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-iloggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-iloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+  start max-level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+    drive factor, share max-level
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-iloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+
+force get-name
+  start build, field windows-foundation-diagnostics-iloggingsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-iloggingsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force remove-logging-channel
+  start build, field windows-foundation-diagnostics-iloggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveLoggingChannel|
+    drive factor, share logging-channel
+
+force save-to-file-async
+  start build, field windows-foundation-diagnostics-iloggingsession
+  start folder, field windows-storage-istoragefolder
+  start file-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveToFileAsync|
+    drive factor, share folder
+    drive factor, share file-name
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start level, field windows-foundation-diagnostics-logginglevel
+  start keywords, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+    drive factor, share keywords
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-iloggingtarget
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+
+force log-event
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+
+force log-event
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+
+force log-event
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+
+force log-event
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force start-activity
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+
+force start-activity
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start start-event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+
+force start-activity
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+
+force start-activity
+  start build, field windows-foundation-diagnostics-iloggingtarget
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force build-log-file-generated-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs|
+
+force get-file
+  start build, field windows-foundation-diagnostics-logfilegeneratedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |File|
+
+force set-file
+  start build, field windows-foundation-diagnostics-logfilegeneratedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |File|
+    drive factor, share value
+
+force build-logging-activity
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingActivity|
+
+force get-channel
+  start build, field windows-foundation-diagnostics-loggingactivity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Channel|
+
+force set-channel
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Channel|
+    drive factor, share value
+
+force close
+  start build, field windows-foundation-diagnostics-loggingactivity
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-id
+  start build, field windows-foundation-diagnostics-loggingactivity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start level, field windows-foundation-diagnostics-logginglevel
+  start keywords, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+    drive factor, share keywords
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingactivity
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start activity-name, field system-string
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share activity-name
+    drive factor, share logging-channel
+    drive factor, share level
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start activity-name, field system-string
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share activity-name
+    drive factor, share logging-channel
+
+force get-name
+  start build, field windows-foundation-diagnostics-loggingactivity
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start start-event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force stop-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start stop-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |StopActivity|
+    drive factor, share stop-event-name
+    drive factor, share fields
+    drive factor, share options
+
+force stop-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start stop-event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |StopActivity|
+    drive factor, share stop-event-name
+
+force stop-activity
+  start build, field windows-foundation-diagnostics-loggingactivity
+  start stop-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |StopActivity|
+    drive factor, share stop-event-name
+    drive factor, share fields
+
+force build-logging-channel
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingChannel|
+
+force close
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-enabled
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+
+force set-enabled
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+    drive factor, share value
+
+force get-id
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start level, field windows-foundation-diagnostics-logginglevel
+  start keywords, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+    drive factor, share keywords
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+
+force is-enabled
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEnabled|
+    drive factor, share level
+
+force get-level
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Level|
+
+force set-level
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Level|
+    drive factor, share value
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+
+force log-event
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |LogEvent|
+    drive factor, share event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start name, field system-string
+  start options, field windows-foundation-diagnostics-loggingchanneloptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+    drive factor, share options
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start name, field system-string
+  start options, field windows-foundation-diagnostics-loggingchanneloptions
+  start id, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+    drive factor, share options
+    drive factor, share id
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+
+force log-message
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-string, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |LogMessage|
+    drive factor, share event-string
+
+force log-message
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start event-string, field system-string
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogMessage|
+    drive factor, share event-string
+    drive factor, share level
+
+force log-value-pair
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value1, field system-string
+  start value2, field system-int32
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |LogValuePair|
+    drive factor, share value1
+    drive factor, share value2
+    drive factor, share level
+
+force log-value-pair
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value1, field system-string
+  start value2, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |LogValuePair|
+    drive factor, share value1
+    drive factor, share value2
+
+force get-name
+  start build, field windows-foundation-diagnostics-loggingchannel
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start start-event-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+
+force start-activity
+  start build, field windows-foundation-diagnostics-loggingchannel
+  start start-event-name, field system-string
+  start fields, field windows-foundation-diagnostics-loggingfields
+  start level, field windows-foundation-diagnostics-logginglevel
+  start options, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |StartActivity|
+    drive factor, share start-event-name
+    drive factor, share fields
+    drive factor, share level
+    drive factor, share options
+
+force build-logging-channel-options
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingChannelOptions|
+
+force get-group
+  start build, field windows-foundation-diagnostics-loggingchanneloptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Group|
+
+force set-group
+  start build, field windows-foundation-diagnostics-loggingchanneloptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Group|
+    drive factor, share value
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingchanneloptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingchanneloptions
+  start group, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share group
+
+force get-logging-field-format
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.LoggingFieldFormat|
+
+force build-logging-fields
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingFields|
+
+force add-boolean
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBoolean|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-boolean
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBoolean|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-boolean
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBoolean|
+    drive factor, share name
+    drive factor, share value
+
+force add-boolean-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBooleanArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-boolean-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBooleanArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-boolean-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-boolean
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddBooleanArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-char16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16|
+    drive factor, share name
+    drive factor, share value
+
+force add-char16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-char16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-char16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-char16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-char16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-char
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddChar16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-date-time
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTime|
+    drive factor, share name
+    drive factor, share value
+
+force add-date-time
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTime|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-date-time
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTime|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-date-time-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTimeArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-date-time-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTimeArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-date-time-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDateTimeArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-double
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDouble|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-double
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDouble|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-double
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDouble|
+    drive factor, share name
+    drive factor, share value
+
+force add-double-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDoubleArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-double-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDoubleArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-double-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |AddDoubleArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-empty
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddEmpty|
+    drive factor, share name
+
+force add-empty
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddEmpty|
+    drive factor, share name
+    drive factor, share format
+    drive factor, share tags
+
+force add-empty
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddEmpty|
+    drive factor, share name
+    drive factor, share format
+
+force add-guid
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuid|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-guid
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuid|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-guid
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuid|
+    drive factor, share name
+    drive factor, share value
+
+force add-guid-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuidArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-guid-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuidArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-guid-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |AddGuidArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16|
+    drive factor, share name
+    drive factor, share value
+
+force add-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32|
+    drive factor, share name
+    drive factor, share value
+
+force add-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt32Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64|
+    drive factor, share name
+    drive factor, share value
+
+force add-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |AddInt64Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-point
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPoint|
+    drive factor, share name
+    drive factor, share value
+
+force add-point
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPoint|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-point
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPoint|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-point-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPointArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-point-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPointArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-point-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-point
+
+  cause call-method
+    drive object, share build
+    drive method, |AddPointArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-rect
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRect|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-rect
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRect|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-rect
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRect|
+    drive factor, share name
+    drive factor, share value
+
+force add-rect-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRectArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-rect-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRectArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-rect-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-rect
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddRectArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-single
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingle|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-single
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingle|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-single
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingle|
+    drive factor, share name
+    drive factor, share value
+
+force add-single-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingleArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-single-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingleArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-single-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-single
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSingleArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-size
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSize|
+    drive factor, share name
+    drive factor, share value
+
+force add-size
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSize|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-size
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSize|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-size-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSizeArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-size-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSizeArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-size-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-size
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddSizeArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-string
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddString|
+    drive factor, share name
+    drive factor, share value
+
+force add-string
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddString|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-string
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddString|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-string-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddStringArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-string-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddStringArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-string-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |AddStringArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-time-span
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpan|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-time-span
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpan|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-time-span
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpan|
+    drive factor, share name
+    drive factor, share value
+
+force add-time-span-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpanArray|
+    drive factor, share name
+    drive factor, share value
+
+force add-time-span-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpanArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-time-span-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field windows-foundation-timespan
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddTimeSpanArray|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int16
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int16-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint16
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt16Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int32
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int32-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint32
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt32Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int64
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int64-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-uint64
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt64Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int8
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int8
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force add-u-int8
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int8-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8Array|
+    drive factor, share name
+    drive factor, share value
+
+force add-u-int8-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+
+force add-u-int8-array
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start value, field system-byte
+  start format, field windows-foundation-diagnostics-loggingfieldformat
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |AddUInt8Array|
+    drive factor, share name
+    drive factor, share value
+    drive factor, share format
+    drive factor, share tags
+
+force begin-struct
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |BeginStruct|
+    drive factor, share name
+
+force begin-struct
+  start build, field windows-foundation-diagnostics-loggingfields
+  start name, field system-string
+  start tags, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |BeginStruct|
+    drive factor, share name
+    drive factor, share tags
+
+force clear
+  start build, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |Clear|
+
+force end-struct
+  start build, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |EndStruct|
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingfields
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-logging-level
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.LoggingLevel|
+
+force get-logging-opcode
+  cause get-object
+    drive aspect, |Windows.Foundation.Diagnostics.LoggingOpcode|
+
+force build-logging-options
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingOptions|
+
+force get-activity-id
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ActivityId|
+
+force set-activity-id
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ActivityId|
+    drive factor, share value
+
+force get-keywords
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Keywords|
+
+force set-keywords
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Keywords|
+    drive factor, share value
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start keywords, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share keywords
+
+force get-opcode
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Opcode|
+
+force set-opcode
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Opcode|
+    drive factor, share value
+
+force get-related-activity-id
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RelatedActivityId|
+
+force set-related-activity-id
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RelatedActivityId|
+    drive factor, share value
+
+force get-tags
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Tags|
+
+force set-tags
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Tags|
+    drive factor, share value
+
+force get-task
+  start build, field windows-foundation-diagnostics-loggingoptions
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Task|
+
+force set-task
+  start build, field windows-foundation-diagnostics-loggingoptions
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Task|
+    drive factor, share value
+
+force build-logging-session
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.LoggingSession|
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-loggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+  start max-level, field windows-foundation-diagnostics-logginglevel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+    drive factor, share max-level
+
+force add-logging-channel
+  start build, field windows-foundation-diagnostics-loggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |AddLoggingChannel|
+    drive factor, share logging-channel
+
+force close
+  start build, field windows-foundation-diagnostics-loggingsession
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force ctor
+  start build, field windows-foundation-diagnostics-loggingsession
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share name
+
+force get-name
+  start build, field windows-foundation-diagnostics-loggingsession
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-diagnostics-loggingsession
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force remove-logging-channel
+  start build, field windows-foundation-diagnostics-loggingsession
+  start logging-channel, field windows-foundation-diagnostics-iloggingchannel
+
+  cause call-method
+    drive object, share build
+    drive method, |RemoveLoggingChannel|
+    drive factor, share logging-channel
+
+force save-to-file-async
+  start build, field windows-foundation-diagnostics-loggingsession
+  start folder, field windows-storage-istoragefolder
+  start file-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveToFileAsync|
+    drive factor, share folder
+    drive factor, share file-name
+
+force build-runtime-broker-error-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings|
+
+force get-error-options
+  start build, field windows-foundation-diagnostics-runtimebrokererrorsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetErrorOptions|
+
+force ctor
+  start build, field windows-foundation-diagnostics-runtimebrokererrorsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force set-error-options
+  start build, field windows-foundation-diagnostics-runtimebrokererrorsettings
+  start value, field windows-foundation-diagnostics-erroroptions
+
+  cause call-method
+    drive object, share build
+    drive method, |SetErrorOptions|
+    drive factor, share value
+
+force build-tracing-status-changed-event-args
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs|
+
+force get-enabled
+  start build, field windows-foundation-diagnostics-tracingstatuschangedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+
+force set-enabled
+  start build, field windows-foundation-diagnostics-tracingstatuschangedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Enabled|
+    drive factor, share value
+
+force get-trace-level
+  start build, field windows-foundation-diagnostics-tracingstatuschangedeventargs
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TraceLevel|
+
+force set-trace-level
+  start build, field windows-foundation-diagnostics-tracingstatuschangedeventargs
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TraceLevel|
+    drive factor, share value

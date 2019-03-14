@@ -1,0 +1,124 @@
+
+force get-apply-strategy-ignore
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |APPLY_STRATEGY_IGNORE|
+    raise build, field int
+
+force get-apply-strategy-replace
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |APPLY_STRATEGY_REPLACE|
+    raise build, field int
+
+force get-status-different-text
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_DIFFERENT_TEXT|
+    raise build, field int
+
+force get-status-links-applied
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_LINKS_APPLIED|
+    raise build, field int
+
+force get-status-no-links-applied
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_NO_LINKS_APPLIED|
+    raise build, field int
+
+force get-status-no-links-found
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_NO_LINKS_FOUND|
+    raise build, field int
+
+force get-status-unsupported-character
+  mount build, field text-links
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_UNSUPPORTED_CHARACTER|
+    raise build, field int
+
+force apply
+  mount build, field text-links
+  mount text, field spannable
+  mount apply-strategy, field int
+  mount span-factory, field function-text-links-text-link
+  mount text-links-text-link-span, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    drive factor, share text
+    drive factor, share apply-strategy
+    drive factor, share span-factory
+    drive factor, share text-links-text-link-span
+    raise build, field int
+
+force describe-contents
+  mount build, field text-links
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-extras
+  mount build, field text-links
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    raise build, field bundle
+
+force get-links
+  mount build, field text-links
+
+  cause call-method
+    drive object, share build
+    drive method, |getLinks|
+    raise build, field mutable-collection
+
+force get-text
+  mount build, field text-links
+
+  cause call-method
+    drive object, share build
+    drive method, |getText|
+    raise build, field char-sequence
+
+force to-string
+  mount build, field text-links
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field text-links
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,136 @@
+
+force get-permission-read
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ|
+    throw build, field int
+
+force get-permission-read-encrypted
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ_ENCRYPTED|
+    throw build, field int
+
+force get-permission-read-encrypted-mitm
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ_ENCRYPTED_MITM|
+    throw build, field int
+
+force get-permission-write
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE|
+    throw build, field int
+
+force get-permission-write-encrypted
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_ENCRYPTED|
+    throw build, field int
+
+force get-permission-write-encrypted-mitm
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_ENCRYPTED_MITM|
+    throw build, field int
+
+force get-permission-write-signed
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_SIGNED|
+    throw build, field int
+
+force get-permission-write-signed-mitm
+  mount build, field bluetooth-gatt-descriptor
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_SIGNED_MITM|
+    throw build, field int
+
+force build-bluetooth-gatt-descriptor
+  mount uuid, field uuid
+  mount permissions, field int
+
+  cause invoke-constructor
+    drive constructor, |BluetoothGattDescriptor|
+    drive factor, share uuid
+    drive factor, share permissions
+    throw build, field bluetooth-gatt-descriptor
+
+force describe-contents
+  mount build, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-characteristic
+  mount build, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getCharacteristic|
+    throw build, field bluetooth-gatt-characteristic
+
+force get-permissions
+  mount build, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getPermissions|
+    throw build, field int
+
+force get-uuid
+  mount build, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getUuid|
+    throw build, field uuid
+
+force get-value
+  mount build, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field byte-array
+
+force set-value
+  mount build, field bluetooth-gatt-descriptor
+  mount value, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field bluetooth-gatt-descriptor
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

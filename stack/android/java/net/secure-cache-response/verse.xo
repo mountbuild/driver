@@ -1,0 +1,45 @@
+
+force build-secure-cache-response
+  cause invoke-constructor
+    drive constructor, |SecureCacheResponse|
+    throw build, field secure-cache-response
+
+force get-cipher-suite
+  mount build, field secure-cache-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getCipherSuite|
+    throw build, field string
+
+force get-local-certificate-chain
+  mount build, field secure-cache-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalCertificateChain|
+    throw build, field mutable-list
+
+force get-local-principal
+  mount build, field secure-cache-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalPrincipal|
+    throw build, field principal
+
+force get-peer-principal
+  mount build, field secure-cache-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerPrincipal|
+    throw build, field principal
+
+force get-server-certificate-chain
+  mount build, field secure-cache-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getServerCertificateChain|
+    throw build, field mutable-list

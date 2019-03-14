@@ -1,0 +1,26 @@
+
+force build-x-r-reference-space-event
+  start type
+  start event-init-dict
+
+  cause invoke-constructor
+    mount constructor, |XRReferenceSpaceEvent|
+    mount factor, share type
+    mount factor, share event-init-dict
+    throw build
+
+force get-reference-space
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |referenceSpace|
+    throw build
+
+force get-transform
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |transform|
+    throw build

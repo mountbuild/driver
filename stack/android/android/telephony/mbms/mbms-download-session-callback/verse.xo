@@ -1,0 +1,35 @@
+
+force build-mbms-download-session-callback
+  cause invoke-constructor
+    drive constructor, |MbmsDownloadSessionCallback|
+    throw build, field mbms-download-session-callback
+
+force on-error
+  mount build, field mbms-download-session-callback
+  mount error-code, field int
+  mount message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share error-code
+    drive factor, share message
+    throw build, field unit
+
+force on-file-services-updated
+  mount build, field mbms-download-session-callback
+  mount services, field mutable-list-file-service-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onFileServicesUpdated|
+    drive factor, share services
+    throw build, field unit
+
+force on-middleware-ready
+  mount build, field mbms-download-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onMiddlewareReady|
+    throw build, field unit

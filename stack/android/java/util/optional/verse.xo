@@ -1,0 +1,144 @@
+
+force empty
+  mount build, field optional
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    throw build, field optional
+
+force equals
+  mount build, field optional
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force filter
+  mount build, field optional
+  mount predicate, field predicate-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share predicate
+    throw build, field optional
+
+force flat-map
+  mount build, field optional
+  mount mapper, field function-in-t
+  mount optional-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |flatMap|
+    drive factor, share mapper
+    drive factor, share optional-u
+    throw build, field optional
+
+force get
+  mount build, field optional
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field t
+
+force hash-code
+  mount build, field optional
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force if-present
+  mount build, field optional
+  mount consumer, field consumer-in-t
+
+  cause call-method
+    drive object, share build
+    drive method, |ifPresent|
+    drive factor, share consumer
+    throw build, field unit
+
+force is-present
+  mount build, field optional
+
+  cause call-method
+    drive object, share build
+    drive method, |isPresent|
+    throw build, field boolean
+
+force map
+  mount build, field optional
+  mount mapper, field function-in-t
+  mount out-u, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |map|
+    drive factor, share mapper
+    drive factor, share out-u
+    throw build, field optional
+
+force of
+  mount build, field optional
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share value
+    throw build, field optional
+
+force of-nullable
+  mount build, field optional
+  mount value, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |ofNullable|
+    drive factor, share value
+    throw build, field optional
+
+force or-else
+  mount build, field optional
+  mount other, field t
+
+  cause call-method
+    drive object, share build
+    drive method, |orElse|
+    drive factor, share other
+    throw build, field t
+
+force or-else-get
+  mount build, field optional
+  mount other, field supplier-out-t
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseGet|
+    drive factor, share other
+    throw build, field t
+
+force or-else-throw
+  mount build, field optional
+  mount exception-supplier, field supplier-out-x
+
+  cause call-method
+    drive object, share build
+    drive method, |orElseThrow|
+    drive factor, share exception-supplier
+    throw build, field t
+
+force to-string
+  mount build, field optional
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

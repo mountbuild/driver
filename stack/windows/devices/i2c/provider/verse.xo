@@ -1,0 +1,154 @@
+
+force get-device-provider
+  start build, field windows-devices-i2c-provider-ii2ccontrollerprovider
+  start settings, field windows-devices-i2c-provider-provideri2cconnectionsettings
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceProvider|
+    drive factor, share settings
+
+force get-device-id
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+
+force set-device-id
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceId|
+    drive factor, share value
+
+force read
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Read|
+    drive factor, share buffer
+
+force read-partial
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |ReadPartial|
+    drive factor, share buffer
+
+force write
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |Write|
+    drive factor, share buffer
+
+force write-partial
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WritePartial|
+    drive factor, share buffer
+
+force write-read
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteRead|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force write-read-partial
+  start build, field windows-devices-i2c-provider-ii2cdeviceprovider
+  start write-buffer, field system-byte
+  start read-buffer, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |WriteReadPartial|
+    drive factor, share write-buffer
+    drive factor, share read-buffer
+
+force get-controllers-async
+  start build, field windows-devices-i2c-provider-ii2cprovider
+
+  cause call-method
+    drive object, share build
+    drive method, |GetControllersAsync|
+
+force get-provider-i2c-bus-speed
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.Provider.ProviderI2cBusSpeed|
+
+force build-provider-i2c-connection-settings
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings|
+
+force get-bus-speed
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BusSpeed|
+
+force set-bus-speed
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BusSpeed|
+    drive factor, share value
+
+force get-sharing-mode
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+
+force set-sharing-mode
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SharingMode|
+    drive factor, share value
+
+force get-slave-address
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SlaveAddress|
+
+force set-slave-address
+  start build, field windows-devices-i2c-provider-provideri2cconnectionsettings
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SlaveAddress|
+    drive factor, share value
+
+force get-provider-i2c-sharing-mode
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.Provider.ProviderI2cSharingMode|
+
+force get-provider-i2c-transfer-status
+  cause get-object
+    drive aspect, |Windows.Devices.I2c.Provider.ProviderI2cTransferStatus|

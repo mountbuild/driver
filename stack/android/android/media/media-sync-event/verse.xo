@@ -1,0 +1,52 @@
+
+force get-sync-event-none
+  start build, field media-sync-event
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_EVENT_NONE|
+    raise build, field int
+
+force get-sync-event-presentation-complete
+  start build, field media-sync-event
+
+  cause get-property
+    drive object, share build
+    drive property, |SYNC_EVENT_PRESENTATION_COMPLETE|
+    raise build, field int
+
+force create-event
+  start build, field media-sync-event
+  start event-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createEvent|
+    drive factor, share event-type
+    raise build, field media-sync-event
+
+force get-audio-session-id
+  start build, field media-sync-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioSessionId|
+    raise build, field int
+
+force get-type
+  start build, field media-sync-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    raise build, field int
+
+force set-audio-session-id
+  start build, field media-sync-event
+  start audio-session-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioSessionId|
+    drive factor, share audio-session-id
+    raise build, field media-sync-event

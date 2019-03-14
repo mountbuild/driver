@@ -1,0 +1,131 @@
+
+force build-expandable-list-activity
+  cause invoke-constructor
+    drive constructor, |ExpandableListActivity|
+    throw build, field expandable-list-activity
+
+force get-expandable-list-adapter
+  start build, field expandable-list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getExpandableListAdapter|
+    throw build, field expandable-list-adapter
+
+force get-expandable-list-view
+  start build, field expandable-list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getExpandableListView|
+    throw build, field expandable-list-view
+
+force get-selected-id
+  start build, field expandable-list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedId|
+    throw build, field long
+
+force get-selected-position
+  start build, field expandable-list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedPosition|
+    throw build, field long
+
+force on-child-click
+  start build, field expandable-list-activity
+  start parent, field expandable-list-view
+  start v, field view
+  start group-position, field int
+  start child-position, field int
+  start id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onChildClick|
+    drive factor, share parent
+    drive factor, share v
+    drive factor, share group-position
+    drive factor, share child-position
+    drive factor, share id
+    throw build, field boolean
+
+force on-content-changed
+  start build, field expandable-list-activity
+
+  cause call-method
+    drive object, share build
+    drive method, |onContentChanged|
+    throw build, field unit
+
+force on-create-context-menu
+  start build, field expandable-list-activity
+  start menu, field context-menu
+  start v, field view
+  start menu-info, field context-menu-context-menu-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreateContextMenu|
+    drive factor, share menu
+    drive factor, share v
+    drive factor, share menu-info
+    throw build, field unit
+
+force on-group-collapse
+  start build, field expandable-list-activity
+  start group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onGroupCollapse|
+    drive factor, share group-position
+    throw build, field unit
+
+force on-group-expand
+  start build, field expandable-list-activity
+  start group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onGroupExpand|
+    drive factor, share group-position
+    throw build, field unit
+
+force set-list-adapter
+  start build, field expandable-list-activity
+  start adapter, field expandable-list-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |setListAdapter|
+    drive factor, share adapter
+    throw build, field unit
+
+force set-selected-child
+  start build, field expandable-list-activity
+  start group-position, field int
+  start child-position, field int
+  start should-expand-group, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedChild|
+    drive factor, share group-position
+    drive factor, share child-position
+    drive factor, share should-expand-group
+    throw build, field boolean
+
+force set-selected-group
+  start build, field expandable-list-activity
+  start group-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSelectedGroup|
+    drive factor, share group-position
+    throw build, field unit

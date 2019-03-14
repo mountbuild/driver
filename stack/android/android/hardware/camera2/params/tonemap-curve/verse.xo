@@ -1,0 +1,122 @@
+
+force get-channel-blue
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_BLUE|
+    throw build, field int
+
+force get-channel-green
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_GREEN|
+    throw build, field int
+
+force get-channel-red
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |CHANNEL_RED|
+    throw build, field int
+
+force get-level-black
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |LEVEL_BLACK|
+    throw build, field float
+
+force get-level-white
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |LEVEL_WHITE|
+    throw build, field float
+
+force get-point-size
+  mount build, field tonemap-curve
+
+  cause get-property
+    drive object, share build
+    drive property, |POINT_SIZE|
+    throw build, field int
+
+force build-tonemap-curve
+  mount red, field float-array
+  mount green, field float-array
+  mount blue, field float-array
+
+  cause invoke-constructor
+    drive constructor, |TonemapCurve|
+    drive factor, share red
+    drive factor, share green
+    drive factor, share blue
+    throw build, field tonemap-curve
+
+force copy-color-curve
+  mount build, field tonemap-curve
+  mount color-channel, field int
+  mount destination, field float-array
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |copyColorCurve|
+    drive factor, share color-channel
+    drive factor, share destination
+    drive factor, share offset
+    throw build, field unit
+
+force equals
+  mount build, field tonemap-curve
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-point
+  mount build, field tonemap-curve
+  mount color-channel, field int
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPoint|
+    drive factor, share color-channel
+    drive factor, share index
+    throw build, field point-f
+
+force get-point-count
+  mount build, field tonemap-curve
+  mount color-channel, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPointCount|
+    drive factor, share color-channel
+    throw build, field int
+
+force hash-code
+  mount build, field tonemap-curve
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field tonemap-curve
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

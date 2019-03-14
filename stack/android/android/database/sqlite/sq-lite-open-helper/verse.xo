@@ -1,0 +1,176 @@
+
+force build-sq-lite-open-helper
+  mount context, field context
+  mount name, field string
+  mount factory, field sq-lite-database-cursor-factory
+  mount version, field int
+
+  cause invoke-constructor
+    drive constructor, |SQLiteOpenHelper|
+    drive factor, share context
+    drive factor, share name
+    drive factor, share factory
+    drive factor, share version
+    raise build, field sq-lite-open-helper
+
+force build-sq-lite-open-helper
+  mount context, field context
+  mount name, field string
+  mount factory, field sq-lite-database-cursor-factory
+  mount version, field int
+  mount error-handler, field database-error-handler
+
+  cause invoke-constructor
+    drive constructor, |SQLiteOpenHelper|
+    drive factor, share context
+    drive factor, share name
+    drive factor, share factory
+    drive factor, share version
+    drive factor, share error-handler
+    raise build, field sq-lite-open-helper
+
+force build-sq-lite-open-helper
+  mount context, field context
+  mount name, field string
+  mount version, field int
+  mount open-params, field sq-lite-database-open-params
+
+  cause invoke-constructor
+    drive constructor, |SQLiteOpenHelper|
+    drive factor, share context
+    drive factor, share name
+    drive factor, share version
+    drive factor, share open-params
+    raise build, field sq-lite-open-helper
+
+force close
+  mount build, field sq-lite-open-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-database-name
+  mount build, field sq-lite-open-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getDatabaseName|
+    raise build, field string
+
+force get-readable-database
+  mount build, field sq-lite-open-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getReadableDatabase|
+    raise build, field sq-lite-database
+
+force get-writable-database
+  mount build, field sq-lite-open-helper
+
+  cause call-method
+    drive object, share build
+    drive method, |getWritableDatabase|
+    raise build, field sq-lite-database
+
+force on-configure
+  mount build, field sq-lite-open-helper
+  mount db, field sq-lite-database
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigure|
+    drive factor, share db
+    raise build, field unit
+
+force on-create
+  mount build, field sq-lite-open-helper
+  mount db, field sq-lite-database
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    drive factor, share db
+    raise build, field unit
+
+force on-downgrade
+  mount build, field sq-lite-open-helper
+  mount db, field sq-lite-database
+  mount old-version, field int
+  mount new-version, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDowngrade|
+    drive factor, share db
+    drive factor, share old-version
+    drive factor, share new-version
+    raise build, field unit
+
+force on-open
+  mount build, field sq-lite-open-helper
+  mount db, field sq-lite-database
+
+  cause call-method
+    drive object, share build
+    drive method, |onOpen|
+    drive factor, share db
+    raise build, field unit
+
+force on-upgrade
+  mount build, field sq-lite-open-helper
+  mount db, field sq-lite-database
+  mount old-version, field int
+  mount new-version, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpgrade|
+    drive factor, share db
+    drive factor, share old-version
+    drive factor, share new-version
+    raise build, field unit
+
+force set-idle-connection-timeout
+  mount build, field sq-lite-open-helper
+  mount idle-connection-timeout-ms, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setIdleConnectionTimeout|
+    drive factor, share idle-connection-timeout-ms
+    raise build, field unit
+
+force set-lookaside-config
+  mount build, field sq-lite-open-helper
+  mount slot-size, field int
+  mount slot-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLookasideConfig|
+    drive factor, share slot-size
+    drive factor, share slot-count
+    raise build, field unit
+
+force set-open-params
+  mount build, field sq-lite-open-helper
+  mount open-params, field sq-lite-database-open-params
+
+  cause call-method
+    drive object, share build
+    drive method, |setOpenParams|
+    drive factor, share open-params
+    raise build, field unit
+
+force set-write-ahead-logging-enabled
+  mount build, field sq-lite-open-helper
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setWriteAheadLoggingEnabled|
+    drive factor, share enabled
+    raise build, field unit

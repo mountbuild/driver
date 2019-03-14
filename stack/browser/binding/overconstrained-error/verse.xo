@@ -1,0 +1,34 @@
+
+force build-overconstrained-error
+  start constraint
+  start message
+
+  cause invoke-constructor
+    mount constructor, |OverconstrainedError|
+    mount factor, share constraint
+    mount factor, share message
+    throw build
+
+force get-constraint
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |constraint|
+    throw build
+
+force get-message
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |message|
+    throw build
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build

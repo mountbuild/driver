@@ -1,0 +1,302 @@
+
+force get-action-initialize-programs
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_INITIALIZE_PROGRAMS|
+    raise build, field string
+
+force get-action-preview-program-added-to-watch-next
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT|
+    raise build, field string
+
+force get-action-preview-program-browsable-disabled
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PREVIEW_PROGRAM_BROWSABLE_DISABLED|
+    raise build, field string
+
+force get-action-request-channel-browsable
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_REQUEST_CHANNEL_BROWSABLE|
+    raise build, field string
+
+force get-action-watch-next-program-browsable-disabled
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED|
+    raise build, field string
+
+force get-authority
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTHORITY|
+    raise build, field string
+
+force get-extra-channel-id
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CHANNEL_ID|
+    raise build, field string
+
+force get-extra-preview-program-id
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PREVIEW_PROGRAM_ID|
+    raise build, field string
+
+force get-extra-watch-next-program-id
+  start build, field tv-contract
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_WATCH_NEXT_PROGRAM_ID|
+    raise build, field string
+
+force build-channel-logo-uri
+  start build, field tv-contract
+  start channel-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChannelLogoUri|
+    drive factor, share channel-id
+    raise build, field uri
+
+force build-channel-logo-uri
+  start build, field tv-contract
+  start channel-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChannelLogoUri|
+    drive factor, share channel-uri
+    raise build, field uri
+
+force build-channel-uri
+  start build, field tv-contract
+  start channel-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChannelUri|
+    drive factor, share channel-id
+    raise build, field uri
+
+force build-channel-uri-for-passthrough-input
+  start build, field tv-contract
+  start input-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChannelUriForPassthroughInput|
+    drive factor, share input-id
+    raise build, field uri
+
+force build-channels-uri-for-input
+  start build, field tv-contract
+  start input-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |buildChannelsUriForInput|
+    drive factor, share input-id
+    raise build, field uri
+
+force build-input-id
+  start build, field tv-contract
+  start name, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |buildInputId|
+    drive factor, share name
+    raise build, field string
+
+force build-preview-program-uri
+  start build, field tv-contract
+  start preview-program-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildPreviewProgramUri|
+    drive factor, share preview-program-id
+    raise build, field uri
+
+force build-preview-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildPreviewProgramsUriForChannel|
+    drive factor, share channel-id
+    raise build, field uri
+
+force build-preview-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |buildPreviewProgramsUriForChannel|
+    drive factor, share channel-uri
+    raise build, field uri
+
+force build-program-uri
+  start build, field tv-contract
+  start program-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildProgramUri|
+    drive factor, share program-id
+    raise build, field uri
+
+force build-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildProgramsUriForChannel|
+    drive factor, share channel-id
+    raise build, field uri
+
+force build-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |buildProgramsUriForChannel|
+    drive factor, share channel-uri
+    raise build, field uri
+
+force build-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-id, field long
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildProgramsUriForChannel|
+    drive factor, share channel-id
+    drive factor, share start-time
+    drive factor, share end-time
+    raise build, field uri
+
+force build-programs-uri-for-channel
+  start build, field tv-contract
+  start channel-uri, field uri
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildProgramsUriForChannel|
+    drive factor, share channel-uri
+    drive factor, share start-time
+    drive factor, share end-time
+    raise build, field uri
+
+force build-recorded-program-uri
+  start build, field tv-contract
+  start recorded-program-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildRecordedProgramUri|
+    drive factor, share recorded-program-id
+    raise build, field uri
+
+force build-watch-next-program-uri
+  start build, field tv-contract
+  start watch-next-program-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |buildWatchNextProgramUri|
+    drive factor, share watch-next-program-id
+    raise build, field uri
+
+force is-channel-uri
+  start build, field tv-contract
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isChannelUri|
+    drive factor, share uri
+    raise build, field boolean
+
+force is-channel-uri-for-passthrough-input
+  start build, field tv-contract
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isChannelUriForPassthroughInput|
+    drive factor, share uri
+    raise build, field boolean
+
+force is-channel-uri-for-tuner-input
+  start build, field tv-contract
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isChannelUriForTunerInput|
+    drive factor, share uri
+    raise build, field boolean
+
+force is-program-uri
+  start build, field tv-contract
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isProgramUri|
+    drive factor, share uri
+    raise build, field boolean
+
+force is-recorded-program-uri
+  start build, field tv-contract
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isRecordedProgramUri|
+    drive factor, share uri
+    raise build, field boolean
+
+force request-channel-browsable
+  start build, field tv-contract
+  start context, field context
+  start channel-id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |requestChannelBrowsable|
+    drive factor, share context
+    drive factor, share channel-id
+    raise build, field unit

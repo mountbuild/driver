@@ -1,0 +1,40 @@
+
+force get-type-ikev2-ipsec-psk
+  start build, field platform-vpn-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_IKEV2_IPSEC_PSK|
+    throw build, field int
+
+force get-type-ikev2-ipsec-rsa
+  start build, field platform-vpn-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_IKEV2_IPSEC_RSA|
+    throw build, field int
+
+force get-type-ikev2-ipsec-user-pass
+  start build, field platform-vpn-profile
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_IKEV2_IPSEC_USER_PASS|
+    throw build, field int
+
+force get-type
+  start build, field platform-vpn-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |getType|
+    throw build, field int
+
+force get-type-string
+  start build, field platform-vpn-profile
+
+  cause call-method
+    drive object, share build
+    drive method, |getTypeString|
+    throw build, field string

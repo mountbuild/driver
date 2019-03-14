@@ -1,0 +1,28 @@
+
+fetch ../../../javascript/binding
+  fetch /string
+    catch field string
+  fetch /function
+    catch field function
+
+force add-event-listener
+  start emitter
+  start event, field string
+  start handler, field function
+
+  cause call-method
+    mount object, share emitter
+    mount method, |on|
+    mount factor, share event
+    mount factor, share handler
+
+force remove-event-listener
+  start emitter
+  start event, field string
+  start handler, field function
+
+  cause call-method
+    mount object, share emitter
+    mount method, |off|
+    mount factor, share event
+    mount factor, share handler

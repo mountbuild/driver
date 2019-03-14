@@ -1,0 +1,157 @@
+
+force get-available
+  mount build, field wifi-p2p-device
+
+  cause get-property
+    drive object, share build
+    drive property, |AVAILABLE|
+    throw build, field int
+
+force get-connected
+  mount build, field wifi-p2p-device
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECTED|
+    throw build, field int
+
+force get-failed
+  mount build, field wifi-p2p-device
+
+  cause get-property
+    drive object, share build
+    drive property, |FAILED|
+    throw build, field int
+
+force get-invited
+  mount build, field wifi-p2p-device
+
+  cause get-property
+    drive object, share build
+    drive property, |INVITED|
+    throw build, field int
+
+force get-unavailable
+  mount build, field wifi-p2p-device
+
+  cause get-property
+    drive object, share build
+    drive property, |UNAVAILABLE|
+    throw build, field int
+
+force build-wifi-p2p-device
+  cause invoke-constructor
+    drive constructor, |WifiP2pDevice|
+    throw build, field wifi-p2p-device
+
+force build-wifi-p2p-device
+  mount source, field wifi-p2p-device
+
+  cause invoke-constructor
+    drive constructor, |WifiP2pDevice|
+    drive factor, share source
+    throw build, field wifi-p2p-device
+
+force describe-contents
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field wifi-p2p-device
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-wfd-info
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |getWfdInfo|
+    throw build, field wifi-p2p-wfd-info
+
+force hash-code
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-group-owner
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |isGroupOwner|
+    throw build, field boolean
+
+force is-service-discovery-capable
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |isServiceDiscoveryCapable|
+    throw build, field boolean
+
+force to-string
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force update
+  mount build, field wifi-p2p-device
+  mount device, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |update|
+    drive factor, share device
+    throw build, field unit
+
+force wps-display-supported
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |wpsDisplaySupported|
+    throw build, field boolean
+
+force wps-keypad-supported
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |wpsKeypadSupported|
+    throw build, field boolean
+
+force wps-pbc-supported
+  mount build, field wifi-p2p-device
+
+  cause call-method
+    drive object, share build
+    drive method, |wpsPbcSupported|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field wifi-p2p-device
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

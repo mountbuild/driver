@@ -1,0 +1,320 @@
+
+force get-all-ranges
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |ALL_RANGES|
+    raise build, field int
+
+force get-arabic
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |ARABIC|
+    raise build, field int
+
+force get-bengali
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |BENGALI|
+    raise build, field int
+
+force get-devanagari
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |DEVANAGARI|
+    raise build, field int
+
+force get-eastern-arabic
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |EASTERN_ARABIC|
+    raise build, field int
+
+force get-ethiopic
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |ETHIOPIC|
+    raise build, field int
+
+force get-european
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |EUROPEAN|
+    raise build, field int
+
+force get-gujarati
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |GUJARATI|
+    raise build, field int
+
+force get-gurmukhi
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |GURMUKHI|
+    raise build, field int
+
+force get-kannada
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |KANNADA|
+    raise build, field int
+
+force get-khmer
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |KHMER|
+    raise build, field int
+
+force get-lao
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |LAO|
+    raise build, field int
+
+force get-malayalam
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |MALAYALAM|
+    raise build, field int
+
+force get-mongolian
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |MONGOLIAN|
+    raise build, field int
+
+force get-myanmar
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |MYANMAR|
+    raise build, field int
+
+force get-oriya
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |ORIYA|
+    raise build, field int
+
+force get-tamil
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |TAMIL|
+    raise build, field int
+
+force get-telugu
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |TELUGU|
+    raise build, field int
+
+force get-thai
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |THAI|
+    raise build, field int
+
+force get-tibetan
+  mount build, field numeric-shaper
+
+  cause get-property
+    mount object, share build
+    mount property, |TIBETAN|
+    raise build, field int
+
+force equals
+  mount build, field numeric-shaper
+  mount other, field any
+
+  cause call-method
+    mount object, share build
+    mount method, |equals|
+    mount factor, share other
+    raise build, field boolean
+
+force get-contextual-shaper
+  mount build, field numeric-shaper
+  mount ranges, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getContextualShaper|
+    mount factor, share ranges
+    raise build, field numeric-shaper
+
+force get-contextual-shaper
+  mount build, field numeric-shaper
+  mount ranges, field mutable-set-numeric-shaper-range
+
+  cause call-method
+    mount object, share build
+    mount method, |getContextualShaper|
+    mount factor, share ranges
+    raise build, field numeric-shaper
+
+force get-contextual-shaper
+  mount build, field numeric-shaper
+  mount ranges, field int
+  mount default-context, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getContextualShaper|
+    mount factor, share ranges
+    mount factor, share default-context
+    raise build, field numeric-shaper
+
+force get-contextual-shaper
+  mount build, field numeric-shaper
+  mount ranges, field mutable-set-numeric-shaper-range
+  mount default-context, field numeric-shaper-range
+
+  cause call-method
+    mount object, share build
+    mount method, |getContextualShaper|
+    mount factor, share ranges
+    mount factor, share default-context
+    raise build, field numeric-shaper
+
+force get-range-set
+  mount build, field numeric-shaper
+
+  cause call-method
+    mount object, share build
+    mount method, |getRangeSet|
+    raise build, field mutable-set
+
+force get-ranges
+  mount build, field numeric-shaper
+
+  cause call-method
+    mount object, share build
+    mount method, |getRanges|
+    raise build, field int
+
+force get-shaper
+  mount build, field numeric-shaper
+  mount single-range, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |getShaper|
+    mount factor, share single-range
+    raise build, field numeric-shaper
+
+force get-shaper
+  mount build, field numeric-shaper
+  mount single-range, field numeric-shaper-range
+
+  cause call-method
+    mount object, share build
+    mount method, |getShaper|
+    mount factor, share single-range
+    raise build, field numeric-shaper
+
+force hash-code
+  mount build, field numeric-shaper
+
+  cause call-method
+    mount object, share build
+    mount method, |hashCode|
+    raise build, field int
+
+force is-contextual
+  mount build, field numeric-shaper
+
+  cause call-method
+    mount object, share build
+    mount method, |isContextual|
+    raise build, field boolean
+
+force shape
+  mount build, field numeric-shaper
+  mount text, field char-array
+  mount start, field int
+  mount count, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |shape|
+    mount factor, share text
+    mount factor, share start
+    mount factor, share count
+    raise build, field unit
+
+force shape
+  mount build, field numeric-shaper
+  mount text, field char-array
+  mount start, field int
+  mount count, field int
+  mount context, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |shape|
+    mount factor, share text
+    mount factor, share start
+    mount factor, share count
+    mount factor, share context
+    raise build, field unit
+
+force shape
+  mount build, field numeric-shaper
+  mount text, field char-array
+  mount start, field int
+  mount count, field int
+  mount context, field numeric-shaper-range
+
+  cause call-method
+    mount object, share build
+    mount method, |shape|
+    mount factor, share text
+    mount factor, share start
+    mount factor, share count
+    mount factor, share context
+    raise build, field unit
+
+force to-string
+  mount build, field numeric-shaper
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string

@@ -1,0 +1,36 @@
+
+force build-access-control-context
+  mount context, field array-protection-domain
+
+  cause invoke-constructor
+    mount constructor, |AccessControlContext|
+    mount factor, share context
+    throw build, field access-control-context
+
+force build-access-control-context
+  mount acc, field access-control-context
+  mount combiner, field domain-combiner
+
+  cause invoke-constructor
+    mount constructor, |AccessControlContext|
+    mount factor, share acc
+    mount factor, share combiner
+    throw build, field access-control-context
+
+force check-permission
+  mount build, field access-control-context
+  mount perm, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |checkPermission|
+    mount factor, share perm
+    throw build, field unit
+
+force get-domain-combiner
+  mount build, field access-control-context
+
+  cause call-method
+    mount object, share build
+    mount method, |getDomainCombiner|
+    throw build, field domain-combiner

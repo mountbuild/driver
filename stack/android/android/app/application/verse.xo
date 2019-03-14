@@ -1,0 +1,117 @@
+
+force build-application
+  cause invoke-constructor
+    drive constructor, |Application|
+    throw build, field application
+
+force get-process-name
+  start build, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |getProcessName|
+    throw build, field string
+
+force on-configuration-changed
+  start build, field application
+  start new-config, field configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |onConfigurationChanged|
+    drive factor, share new-config
+    throw build, field unit
+
+force on-create
+  start build, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    throw build, field unit
+
+force on-low-memory
+  start build, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |onLowMemory|
+    throw build, field unit
+
+force on-terminate
+  start build, field application
+
+  cause call-method
+    drive object, share build
+    drive method, |onTerminate|
+    throw build, field unit
+
+force on-trim-memory
+  start build, field application
+  start level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrimMemory|
+    drive factor, share level
+    throw build, field unit
+
+force register-activity-lifecycle-callbacks
+  start build, field application
+  start callback, field application-activity-lifecycle-callbacks
+
+  cause call-method
+    drive object, share build
+    drive method, |registerActivityLifecycleCallbacks|
+    drive factor, share callback
+    throw build, field unit
+
+force register-component-callbacks
+  start build, field application
+  start callback, field component-callbacks
+
+  cause call-method
+    drive object, share build
+    drive method, |registerComponentCallbacks|
+    drive factor, share callback
+    throw build, field unit
+
+force register-on-provide-assist-data-listener
+  start build, field application
+  start callback, field application-on-provide-assist-data-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |registerOnProvideAssistDataListener|
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-activity-lifecycle-callbacks
+  start build, field application
+  start callback, field application-activity-lifecycle-callbacks
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterActivityLifecycleCallbacks|
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-component-callbacks
+  start build, field application
+  start callback, field component-callbacks
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterComponentCallbacks|
+    drive factor, share callback
+    throw build, field unit
+
+force unregister-on-provide-assist-data-listener
+  start build, field application
+  start callback, field application-on-provide-assist-data-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterOnProvideAssistDataListener|
+    drive factor, share callback
+    throw build, field unit

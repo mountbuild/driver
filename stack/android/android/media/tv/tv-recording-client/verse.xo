@@ -1,0 +1,90 @@
+
+force build-tv-recording-client
+  start context, field context
+  start tag, field string
+  start callback, field tv-recording-client-recording-callback
+  start handler, field handler
+
+  cause invoke-constructor
+    drive constructor, |TvRecordingClient|
+    drive factor, share context
+    drive factor, share tag
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field tv-recording-client
+
+force release
+  start build, field tv-recording-client
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force send-app-private-command
+  start build, field tv-recording-client
+  start action, field string
+  start data, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAppPrivateCommand|
+    drive factor, share action
+    drive factor, share data
+    raise build, field unit
+
+force start-recording
+  start build, field tv-recording-client
+  start program-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecording|
+    drive factor, share program-uri
+    raise build, field unit
+
+force start-recording
+  start build, field tv-recording-client
+  start program-uri, field uri
+  start params, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |startRecording|
+    drive factor, share program-uri
+    drive factor, share params
+    raise build, field unit
+
+force stop-recording
+  start build, field tv-recording-client
+
+  cause call-method
+    drive object, share build
+    drive method, |stopRecording|
+    raise build, field unit
+
+force tune
+  start build, field tv-recording-client
+  start input-id, field string
+  start channel-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |tune|
+    drive factor, share input-id
+    drive factor, share channel-uri
+    raise build, field unit
+
+force tune
+  start build, field tv-recording-client
+  start input-id, field string
+  start channel-uri, field uri
+  start params, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |tune|
+    drive factor, share input-id
+    drive factor, share channel-uri
+    drive factor, share params
+    raise build, field unit

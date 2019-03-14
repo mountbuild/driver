@@ -1,0 +1,27 @@
+
+force build-rect-evaluator
+  cause invoke-constructor
+    drive constructor, |RectEvaluator|
+    throw build, field rect-evaluator
+
+force build-rect-evaluator
+  mount reuse-rect, field rect
+
+  cause invoke-constructor
+    drive constructor, |RectEvaluator|
+    drive factor, share reuse-rect
+    throw build, field rect-evaluator
+
+force evaluate
+  mount build, field rect-evaluator
+  mount fraction, field float
+  mount start-value, field rect
+  mount end-value, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |evaluate|
+    drive factor, share fraction
+    drive factor, share start-value
+    drive factor, share end-value
+    throw build, field rect

@@ -1,0 +1,144 @@
+
+force get-flag-mode-cool
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MODE_COOL|
+    raise build, field int
+
+force get-flag-mode-eco
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MODE_ECO|
+    raise build, field int
+
+force get-flag-mode-heat
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MODE_HEAT|
+    raise build, field int
+
+force get-flag-mode-heat-cool
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MODE_HEAT_COOL|
+    raise build, field int
+
+force get-flag-mode-off
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_MODE_OFF|
+    raise build, field int
+
+force get-mode-cool
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_COOL|
+    raise build, field int
+
+force get-mode-eco
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_ECO|
+    raise build, field int
+
+force get-mode-heat
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_HEAT|
+    raise build, field int
+
+force get-mode-heat-cool
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_HEAT_COOL|
+    raise build, field int
+
+force get-mode-off
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_OFF|
+    raise build, field int
+
+force get-mode-unknown
+  mount build, field temperature-control-template
+
+  cause get-property
+    drive object, share build
+    drive property, |MODE_UNKNOWN|
+    raise build, field int
+
+force build-temperature-control-template
+  mount template-id, field string
+  mount control-template, field control-template
+  mount current-mode, field int
+  mount current-active-mode, field int
+  mount modes-flag, field int
+
+  cause invoke-constructor
+    drive constructor, |TemperatureControlTemplate|
+    drive factor, share template-id
+    drive factor, share control-template
+    drive factor, share current-mode
+    drive factor, share current-active-mode
+    drive factor, share modes-flag
+    raise build, field temperature-control-template
+
+force get-current-active-mode
+  mount build, field temperature-control-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentActiveMode|
+    raise build, field int
+
+force get-current-mode
+  mount build, field temperature-control-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentMode|
+    raise build, field int
+
+force get-modes
+  mount build, field temperature-control-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getModes|
+    raise build, field int
+
+force get-template
+  mount build, field temperature-control-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplate|
+    raise build, field control-template
+
+force get-template-type
+  mount build, field temperature-control-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplateType|
+    raise build, field int

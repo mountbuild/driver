@@ -1,0 +1,74 @@
+
+force build-status-hints
+  mount label, field char-sequence
+  mount icon, field icon
+  mount extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |StatusHints|
+    drive factor, share label
+    drive factor, share icon
+    drive factor, share extras
+    throw build, field status-hints
+
+force describe-contents
+  mount build, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field status-hints
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-extras
+  mount build, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-icon
+  mount build, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |getIcon|
+    throw build, field icon
+
+force get-label
+  mount build, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field char-sequence
+
+force hash-code
+  mount build, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field status-hints
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

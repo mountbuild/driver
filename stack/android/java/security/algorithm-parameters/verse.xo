@@ -1,0 +1,118 @@
+
+force get-algorithm
+  mount build, field algorithm-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-encoded
+  mount build, field algorithm-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    throw build, field byte-array
+
+force get-encoded
+  mount build, field algorithm-parameters
+  mount format, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getEncoded|
+    mount factor, share format
+    throw build, field byte-array
+
+force get-instance
+  mount build, field algorithm-parameters
+  mount algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field algorithm-parameters
+
+force get-instance
+  mount build, field algorithm-parameters
+  mount algorithm, field string
+  mount provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field algorithm-parameters
+
+force get-instance
+  mount build, field algorithm-parameters
+  mount algorithm, field string
+  mount provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field algorithm-parameters
+
+force get-parameter-spec
+  mount build, field algorithm-parameters
+  mount param-spec, field class-t
+
+  cause call-method
+    mount object, share build
+    mount method, |getParameterSpec|
+    mount factor, share param-spec
+    throw build, field t
+
+force get-provider
+  mount build, field algorithm-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force init
+  mount build, field algorithm-parameters
+  mount param-spec, field algorithm-parameter-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share param-spec
+    throw build, field unit
+
+force init
+  mount build, field algorithm-parameters
+  mount params, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share params
+    throw build, field unit
+
+force init
+  mount build, field algorithm-parameters
+  mount params, field byte-array
+  mount format, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |init|
+    mount factor, share params
+    mount factor, share format
+    throw build, field unit
+
+force to-string
+  mount build, field algorithm-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

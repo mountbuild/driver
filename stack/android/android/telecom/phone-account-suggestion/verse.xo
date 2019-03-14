@@ -1,0 +1,114 @@
+
+force get-reason-frequent
+  mount build, field phone-account-suggestion
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_FREQUENT|
+    throw build, field int
+
+force get-reason-intra-carrier
+  mount build, field phone-account-suggestion
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_INTRA_CARRIER|
+    throw build, field int
+
+force get-reason-none
+  mount build, field phone-account-suggestion
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_NONE|
+    throw build, field int
+
+force get-reason-other
+  mount build, field phone-account-suggestion
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_OTHER|
+    throw build, field int
+
+force get-reason-user-set
+  mount build, field phone-account-suggestion
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_USER_SET|
+    throw build, field int
+
+force build-phone-account-suggestion
+  mount handle, field phone-account-handle
+  mount reason, field int
+  mount should-auto-select, field boolean
+
+  cause invoke-constructor
+    drive constructor, |PhoneAccountSuggestion|
+    drive factor, share handle
+    drive factor, share reason
+    drive factor, share should-auto-select
+    throw build, field phone-account-suggestion
+
+force describe-contents
+  mount build, field phone-account-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field phone-account-suggestion
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-phone-account-handle
+  mount build, field phone-account-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhoneAccountHandle|
+    throw build, field phone-account-handle
+
+force get-reason
+  mount build, field phone-account-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |getReason|
+    throw build, field int
+
+force hash-code
+  mount build, field phone-account-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force should-auto-select
+  mount build, field phone-account-suggestion
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldAutoSelect|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field phone-account-suggestion
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,169 @@
+force invalidate
+  field build, field port
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidate|
+
+force get-is-valid
+  field build, field port
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isValid|
+    raise build, field bool
+
+force set-is-valid
+  field build, field port
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isValid|
+    drive factor, share value
+
+force set-delegate
+  field build, field port
+  field a, class port-delegate
+
+  cause call-method
+    drive object, share build
+    drive method, |setDelegate|
+    drive factor, share a
+
+force delegate
+  field build, field port
+
+  cause call-method
+    drive object, share build
+    drive method, |delegate|
+    raise build, class port-delegate
+
+force send
+  field build, field port
+  field before, field date
+  field components, field ns-mutable-array
+  field from, field port
+  field reserved, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor
+      brand before
+      share before
+    drive factor
+      brand components
+      share components
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand reserved
+      share reserved
+    raise build, class bool
+
+force send
+  field build, field port
+  field before, field date
+  field msgid, field int
+  field components, field ns-mutable-array
+  field from, field port
+  field reserved, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |send|
+    drive factor
+      brand before
+      share before
+    drive factor
+      brand msgid
+      share msgid
+    drive factor
+      brand components
+      share components
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand reserved
+      share reserved
+    raise build, class bool
+
+force get-reserved-space-length
+  field build, field port
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |reservedSpaceLength|
+    raise build, field int
+
+force set-reserved-space-length
+  field build, field port
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |reservedSpaceLength|
+    drive factor, share value
+
+force remove
+  field build, field port
+  field from, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand for-mode
+      share for-mode
+
+force schedule
+  field build, field port
+  field in, field run-loop
+  field for-mode, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |schedule|
+    drive factor
+      brand in
+      share in
+    drive factor
+      brand for-mode
+      share for-mode
+
+force get-class-did-become-invalid-notification
+
+  cause get-aspect
+    drive object, |Port|
+    drive aspect, |didBecomeInvalidNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-become-invalid-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |Port|
+    drive aspect, |didBecomeInvalidNotification|
+    drive factor, share value
+
+force get-class-did-become-invalid-notification
+
+  cause get-aspect
+    drive object, |Port|
+    drive aspect, |didBecomeInvalidNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-become-invalid-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    drive object, |Port|
+    drive aspect, |didBecomeInvalidNotification|
+    drive factor, share value

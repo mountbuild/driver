@@ -1,0 +1,62 @@
+
+force begin-async-section
+  mount build, field trace
+  mount method-name, field string
+  mount cookie, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |beginAsyncSection|
+    drive factor, share method-name
+    drive factor, share cookie
+    raise build, field unit
+
+force begin-section
+  mount build, field trace
+  mount section-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |beginSection|
+    drive factor, share section-name
+    raise build, field unit
+
+force end-async-section
+  mount build, field trace
+  mount method-name, field string
+  mount cookie, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |endAsyncSection|
+    drive factor, share method-name
+    drive factor, share cookie
+    raise build, field unit
+
+force end-section
+  mount build, field trace
+
+  cause call-method
+    drive object, share build
+    drive method, |endSection|
+    raise build, field unit
+
+force is-enabled
+  mount build, field trace
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    raise build, field boolean
+
+force set-counter
+  mount build, field trace
+  mount counter-name, field string
+  mount counter-value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setCounter|
+    drive factor, share counter-name
+    drive factor, share counter-value
+    raise build, field unit

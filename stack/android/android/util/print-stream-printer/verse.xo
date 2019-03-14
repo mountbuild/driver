@@ -1,0 +1,18 @@
+
+force build-print-stream-printer
+  mount pw, field print-stream
+
+  cause invoke-constructor
+    drive constructor, |PrintStreamPrinter|
+    drive factor, share pw
+    throw build, field print-stream-printer
+
+force println
+  mount build, field print-stream-printer
+  mount x, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit

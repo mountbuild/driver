@@ -1,0 +1,31 @@
+
+force build-key-management-exception
+  cause invoke-constructor
+    mount constructor, |KeyManagementException|
+    throw build, field key-management-exception
+
+force build-key-management-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |KeyManagementException|
+    mount factor, share msg
+    throw build, field key-management-exception
+
+force build-key-management-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |KeyManagementException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field key-management-exception
+
+force build-key-management-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |KeyManagementException|
+    mount factor, share cause
+    throw build, field key-management-exception

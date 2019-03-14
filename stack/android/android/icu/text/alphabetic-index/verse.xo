@@ -1,0 +1,204 @@
+
+force build-alphabetic-index
+  mount locale, field u-locale
+
+  cause invoke-constructor
+    drive constructor, |AlphabeticIndex|
+    drive factor, share locale
+    raise build, field alphabetic-index
+
+force build-alphabetic-index
+  mount locale, field locale
+
+  cause invoke-constructor
+    drive constructor, |AlphabeticIndex|
+    drive factor, share locale
+    raise build, field alphabetic-index
+
+force build-alphabetic-index
+  mount collator, field rule-based-collator
+
+  cause invoke-constructor
+    drive constructor, |AlphabeticIndex|
+    drive factor, share collator
+    raise build, field alphabetic-index
+
+force add-labels
+  mount build, field alphabetic-index
+  mount additions, field unicode-set
+
+  cause call-method
+    drive object, share build
+    drive method, |addLabels|
+    drive factor, share additions
+    raise build, field alphabetic-index
+
+force add-labels
+  mount build, field alphabetic-index
+  mount vararg-additions, field u-locale
+
+  cause call-method
+    drive object, share build
+    drive method, |addLabels|
+    drive factor, share vararg-additions
+    raise build, field alphabetic-index
+
+force add-labels
+  mount build, field alphabetic-index
+  mount vararg-additions, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |addLabels|
+    drive factor, share vararg-additions
+    raise build, field alphabetic-index
+
+force add-record
+  mount build, field alphabetic-index
+  mount name, field char-sequence
+  mount data, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |addRecord|
+    drive factor, share name
+    drive factor, share data
+    raise build, field alphabetic-index
+
+force build-immutable-index
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |buildImmutableIndex|
+    raise build, field alphabetic-index-immutable-index
+
+force clear-records
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |clearRecords|
+    raise build, field alphabetic-index
+
+force get-bucket-count
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getBucketCount|
+    raise build, field int
+
+force get-bucket-index
+  mount build, field alphabetic-index
+  mount name, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |getBucketIndex|
+    drive factor, share name
+    raise build, field int
+
+force get-bucket-labels
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getBucketLabels|
+    raise build, field mutable-list
+
+force get-collator
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getCollator|
+    raise build, field rule-based-collator
+
+force get-inflow-label
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getInflowLabel|
+    raise build, field string
+
+force get-max-label-count
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxLabelCount|
+    raise build, field int
+
+force get-overflow-label
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getOverflowLabel|
+    raise build, field string
+
+force get-record-count
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecordCount|
+    raise build, field int
+
+force get-underflow-label
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnderflowLabel|
+    raise build, field string
+
+force iterator
+  mount build, field alphabetic-index
+
+  cause call-method
+    drive object, share build
+    drive method, |iterator|
+    raise build, field mutable-iterator
+
+force set-inflow-label
+  mount build, field alphabetic-index
+  mount inflow-label, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setInflowLabel|
+    drive factor, share inflow-label
+    raise build, field alphabetic-index
+
+force set-max-label-count
+  mount build, field alphabetic-index
+  mount max-label-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxLabelCount|
+    drive factor, share max-label-count
+    raise build, field alphabetic-index
+
+force set-overflow-label
+  mount build, field alphabetic-index
+  mount overflow-label, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setOverflowLabel|
+    drive factor, share overflow-label
+    raise build, field alphabetic-index
+
+force set-underflow-label
+  mount build, field alphabetic-index
+  mount underflow-label, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setUnderflowLabel|
+    drive factor, share underflow-label
+    raise build, field alphabetic-index

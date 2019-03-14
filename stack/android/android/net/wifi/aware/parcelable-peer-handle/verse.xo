@@ -1,0 +1,28 @@
+
+force build-parcelable-peer-handle
+  mount peer-handle, field peer-handle
+
+  cause invoke-constructor
+    drive constructor, |ParcelablePeerHandle|
+    drive factor, share peer-handle
+    throw build, field parcelable-peer-handle
+
+force describe-contents
+  mount build, field parcelable-peer-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force write-to-parcel
+  mount build, field parcelable-peer-handle
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

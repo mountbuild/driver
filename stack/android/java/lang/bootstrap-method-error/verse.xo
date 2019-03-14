@@ -1,0 +1,31 @@
+
+force build-bootstrap-method-error
+  cause invoke-constructor
+    drive constructor, |BootstrapMethodError|
+    throw build, field bootstrap-method-error
+
+force build-bootstrap-method-error
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |BootstrapMethodError|
+    drive factor, share s
+    throw build, field bootstrap-method-error
+
+force build-bootstrap-method-error
+  mount s, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |BootstrapMethodError|
+    drive factor, share s
+    drive factor, share cause
+    throw build, field bootstrap-method-error
+
+force build-bootstrap-method-error
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |BootstrapMethodError|
+    drive factor, share cause
+    throw build, field bootstrap-method-error

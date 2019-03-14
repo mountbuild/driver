@@ -1,0 +1,67 @@
+
+force build-picture
+  cause invoke-constructor
+    drive constructor, |Picture|
+    raise build, field picture
+
+force build-picture
+  mount src, field picture
+
+  cause invoke-constructor
+    drive constructor, |Picture|
+    drive factor, share src
+    raise build, field picture
+
+force begin-recording
+  mount build, field picture
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |beginRecording|
+    drive factor, share width
+    drive factor, share height
+    raise build, field canvas
+
+force draw
+  mount build, field picture
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    raise build, field unit
+
+force end-recording
+  mount build, field picture
+
+  cause call-method
+    drive object, share build
+    drive method, |endRecording|
+    raise build, field unit
+
+force get-height
+  mount build, field picture
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-width
+  mount build, field picture
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    raise build, field int
+
+force requires-hardware-acceleration
+  mount build, field picture
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresHardwareAcceleration|
+    raise build, field boolean

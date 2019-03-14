@@ -1,0 +1,52 @@
+
+force build-xml-pull-parser-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |XmlPullParserException|
+    drive factor, share s
+    throw build, field xml-pull-parser-exception
+
+force build-xml-pull-parser-exception
+  mount msg, field string
+  mount parser, field xml-pull-parser
+  mount chain, field throwable
+
+  cause invoke-constructor
+    drive constructor, |XmlPullParserException|
+    drive factor, share msg
+    drive factor, share parser
+    drive factor, share chain
+    throw build, field xml-pull-parser-exception
+
+force get-column-number
+  mount build, field xml-pull-parser-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getColumnNumber|
+    throw build, field int
+
+force get-detail
+  mount build, field xml-pull-parser-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getDetail|
+    throw build, field throwable
+
+force get-line-number
+  mount build, field xml-pull-parser-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force print-stack-trace
+  mount build, field xml-pull-parser-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |printStackTrace|
+    throw build, field unit

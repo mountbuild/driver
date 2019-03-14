@@ -1,0 +1,147 @@
+
+force get-mediasync-error-audiotrack-fail
+  start build, field media-sync
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIASYNC_ERROR_AUDIOTRACK_FAIL|
+    raise build, field int
+
+force get-mediasync-error-surface-fail
+  start build, field media-sync
+
+  cause get-property
+    drive object, share build
+    drive property, |MEDIASYNC_ERROR_SURFACE_FAIL|
+    raise build, field int
+
+force build-media-sync
+  cause invoke-constructor
+    drive constructor, |MediaSync|
+    raise build, field media-sync
+
+force create-input-surface
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |createInputSurface|
+    raise build, field surface
+
+force flush
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    raise build, field unit
+
+force get-playback-params
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |getPlaybackParams|
+    raise build, field playback-params
+
+force get-sync-params
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |getSyncParams|
+    raise build, field sync-params
+
+force get-timestamp
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimestamp|
+    raise build, field media-timestamp
+
+force queue-audio
+  start build, field media-sync
+  start audio-data, field byte-buffer
+  start buffer-id, field int
+  start presentation-time-us, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queueAudio|
+    drive factor, share audio-data
+    drive factor, share buffer-id
+    drive factor, share presentation-time-us
+    raise build, field unit
+
+force release
+  start build, field media-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-audio-track
+  start build, field media-sync
+  start audio-track, field audio-track
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioTrack|
+    drive factor, share audio-track
+    raise build, field unit
+
+force set-callback
+  start build, field media-sync
+  start cb, field media-sync-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share cb
+    drive factor, share handler
+    raise build, field unit
+
+force set-on-error-listener
+  start build, field media-sync
+  start listener, field media-sync-on-error-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnErrorListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force set-playback-params
+  start build, field media-sync
+  start params, field playback-params
+
+  cause call-method
+    drive object, share build
+    drive method, |setPlaybackParams|
+    drive factor, share params
+    raise build, field unit
+
+force set-surface
+  start build, field media-sync
+  start surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setSurface|
+    drive factor, share surface
+    raise build, field unit
+
+force set-sync-params
+  start build, field media-sync
+  start params, field sync-params
+
+  cause call-method
+    drive object, share build
+    drive method, |setSyncParams|
+    drive factor, share params
+    raise build, field unit

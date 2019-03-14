@@ -1,0 +1,51 @@
+
+force build-delegated-admin-receiver
+  cause invoke-constructor
+    drive constructor, |DelegatedAdminReceiver|
+    throw build, field delegated-admin-receiver
+
+force on-choose-private-key-alias
+  start build, field delegated-admin-receiver
+  start context, field context
+  start intent, field intent
+  start uid, field int
+  start uri, field uri
+  start alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onChoosePrivateKeyAlias|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share uid
+    drive factor, share uri
+    drive factor, share alias
+    throw build, field string
+
+force on-network-logs-available
+  start build, field delegated-admin-receiver
+  start context, field context
+  start intent, field intent
+  start batch-token, field long
+  start network-logs-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onNetworkLogsAvailable|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share batch-token
+    drive factor, share network-logs-count
+    throw build, field unit
+
+force on-receive
+  start build, field delegated-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit

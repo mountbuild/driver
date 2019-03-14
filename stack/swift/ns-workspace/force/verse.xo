@@ -1,0 +1,1374 @@
+force get-class-shared
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |shared|
+    raise build, field ns-workspace
+
+force set-class-shared
+  field value, field ns-workspace
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |shared|
+    mount factor, share value
+
+force get-notification-center
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |notificationCenter|
+    raise build, field notification-center
+
+force set-notification-center
+  field build, field ns-workspace
+  field value, field notification-center
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |notificationCenter|
+    mount factor, share value
+
+force open
+  field build, field ns-workspace
+  field a, class url
+  field configuration, field ns-workspace-open-configuration
+  field completion-handler, field ns-running-application
+  field b, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share a
+    mount factor
+      brand configuration
+      share configuration
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share b
+    raise build, class void
+
+force open
+  field build, field ns-workspace
+  field a, class url
+  field with-application-at, field url
+  field configuration, field ns-workspace-open-configuration
+  field completion-handler, field ns-running-application
+  field b, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share a
+    mount factor
+      brand with-application-at
+      share with-application-at
+    mount factor
+      brand configuration
+      share configuration
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share b
+    raise build, class void
+
+force open
+  field build, field ns-workspace
+  field a, class url
+
+  cause call-method
+    mount object, share build
+    mount method, |open|
+    mount factor, share a
+    raise build, class bool
+
+force open-application
+  field build, field ns-workspace
+  field at, field url
+  field configuration, field ns-workspace-open-configuration
+  field completion-handler, field ns-running-application
+  field a, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |openApplication|
+    mount factor
+      brand at
+      share at
+    mount factor
+      brand configuration
+      share configuration
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share a
+    raise build, class void
+
+force hide-other-applications
+  field build, field ns-workspace
+
+  cause call-method
+    mount object, share build
+    mount method, |hideOtherApplications|
+
+force duplicate
+  field build, field ns-workspace
+  field a, class url
+  field completion-handler, field url
+  field b, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |duplicate|
+    mount factor, share a
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share b
+    raise build, class void
+
+force recycle
+  field build, field ns-workspace
+  field a, class url
+  field completion-handler, field url
+  field b, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |recycle|
+    mount factor, share a
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share b
+    raise build, class void
+
+force activate-file-viewer-selecting
+  field build, field ns-workspace
+  field a, class url
+
+  cause call-method
+    mount object, share build
+    mount method, |activateFileViewerSelecting|
+    mount factor, share a
+
+force select-file
+  field build, field ns-workspace
+  field a, class string
+  field in-file-viewer-rooted-at-path, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |selectFile|
+    mount factor, share a
+    mount factor
+      brand in-file-viewer-rooted-at-path
+      share in-file-viewer-rooted-at-path
+    raise build, class bool
+
+force type
+  field build, field ns-workspace
+  field of-file, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |type|
+    mount factor
+      brand of-file
+      share of-file
+    raise build, class string
+
+force localized-description
+  field build, field ns-workspace
+  field for-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |localizedDescription|
+    mount factor
+      brand for-type
+      share for-type
+    raise build, class string
+
+force preferred-filename-extension
+  field build, field ns-workspace
+  field for-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |preferredFilenameExtension|
+    mount factor
+      brand for-type
+      share for-type
+    raise build, class string
+
+force filename-extension
+  field build, field ns-workspace
+  field a, class string
+  field is-valid-for-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |filenameExtension|
+    mount factor, share a
+    mount factor
+      brand is-valid-for-type
+      share is-valid-for-type
+    raise build, class bool
+
+force type
+  field build, field ns-workspace
+  field a, class string
+  field conforms-to-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |type|
+    mount factor, share a
+    mount factor
+      brand conforms-to-type
+      share conforms-to-type
+    raise build, class bool
+
+force url-for-application
+  field build, field ns-workspace
+  field with-bundle-identifier, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |urlForApplication|
+    mount factor
+      brand with-bundle-identifier
+      share with-bundle-identifier
+    raise build, class url
+
+force get-info-for-file
+  field build, field ns-workspace
+  field a, class string
+  field application, field autoreleasing-unsafe-mutable-pointer-ns-string
+  field type, field autoreleasing-unsafe-mutable-pointer-ns-string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInfoForFile|
+    mount factor, share a
+    mount factor
+      brand application
+      share application
+    mount factor
+      brand type
+      share type
+    raise build, class bool
+
+force url-for-application
+  field build, field ns-workspace
+  field to-open, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |urlForApplication|
+    mount factor
+      brand to-open
+      share to-open
+    raise build, class url
+
+force get-file-system-info
+  field build, field ns-workspace
+  field for-path, field string
+  field is-removable, field unsafe-mutable-pointer-obj-c-bool
+  field is-writable, field unsafe-mutable-pointer-obj-c-bool
+  field is-unmountable, field unsafe-mutable-pointer-obj-c-bool
+  field description, field autoreleasing-unsafe-mutable-pointer-ns-string
+  field type, field autoreleasing-unsafe-mutable-pointer-ns-string
+
+  cause call-method
+    mount object, share build
+    mount method, |getFileSystemInfo|
+    mount factor
+      brand for-path
+      share for-path
+    mount factor
+      brand is-removable
+      share is-removable
+    mount factor
+      brand is-writable
+      share is-writable
+    mount factor
+      brand is-unmountable
+      share is-unmountable
+    mount factor
+      brand description
+      share description
+    mount factor
+      brand type
+      share type
+    raise build, class bool
+
+force is-file-package
+  field build, field ns-workspace
+  field at-path, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |isFilePackage|
+    mount factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force get-frontmost-application
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |frontmostApplication|
+    raise build, field ns-running-application
+
+force set-frontmost-application
+  field build, field ns-workspace
+  field value, field ns-running-application
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |frontmostApplication|
+    mount factor, share value
+
+force get-running-applications
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |runningApplications|
+    raise build, field ns-running-application
+
+force set-running-applications
+  field build, field ns-workspace
+  field value, field ns-running-application
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |runningApplications|
+    mount factor, share value
+
+force get-menu-bar-owning-application
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |menuBarOwningApplication|
+    raise build, field ns-running-application
+
+force set-menu-bar-owning-application
+  field build, field ns-workspace
+  field value, field ns-running-application
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |menuBarOwningApplication|
+    mount factor, share value
+
+force icon
+  field build, field ns-workspace
+  field for-file, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |icon|
+    mount factor
+      brand for-file
+      share for-file
+    raise build, class ns-image
+
+force icon
+  field build, field ns-workspace
+  field for-file-type, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |icon|
+    mount factor
+      brand for-file-type
+      share for-file-type
+    raise build, class ns-image
+
+force icon
+  field build, field ns-workspace
+  field for-files, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |icon|
+    mount factor
+      brand for-files
+      share for-files
+    raise build, class ns-image
+
+force set-icon
+  field build, field ns-workspace
+  field a, class ns-image
+  field for-file, field string
+  field options, field ns-workspace-icon-creation-options
+
+  cause call-method
+    mount object, share build
+    mount method, |setIcon|
+    mount factor, share a
+    mount factor
+      brand for-file
+      share for-file
+    mount factor
+      brand options
+      share options
+    raise build, class bool
+
+force unmount-and-eject-device
+  field build, field ns-workspace
+  field at-path, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |unmountAndEjectDevice|
+    mount factor
+      brand at-path
+      share at-path
+    raise build, class bool
+
+force unmount-and-eject-device
+  field build, field ns-workspace
+  field at, field url
+
+  cause call-method
+    mount object, share build
+    mount method, |unmountAndEjectDevice|
+    mount factor
+      brand at
+      share at
+
+force desktop-image-url
+  field build, field ns-workspace
+  field for, field ns-screen
+
+  cause call-method
+    mount object, share build
+    mount method, |desktopImageURL|
+    mount factor
+      brand for
+      share for
+    raise build, class url
+
+force set-desktop-image-url
+  field build, field ns-workspace
+  field a, class url
+  field for, field ns-screen
+  field options, field ns-workspace-desktop-image-option-key
+
+  cause call-method
+    mount object, share build
+    mount method, |setDesktopImageURL|
+    mount factor, share a
+    mount factor
+      brand for
+      share for
+    mount factor
+      brand options
+      share options
+
+force desktop-image-options
+  field build, field ns-workspace
+  field for, field ns-screen
+
+  cause call-method
+    mount object, share build
+    mount method, |desktopImageOptions|
+    mount factor
+      brand for
+      share for
+    raise build, class ns-workspace-desktop-image-option-key
+
+force show-search-results
+  field build, field ns-workspace
+  field for-query-string, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |showSearchResults|
+    mount factor
+      brand for-query-string
+      share for-query-string
+    raise build, class bool
+
+force get-file-labels
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileLabels|
+    raise build, field string
+
+force set-file-labels
+  field build, field ns-workspace
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileLabels|
+    mount factor, share value
+
+force get-file-label-colors
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileLabelColors|
+    raise build, field ns-color
+
+force set-file-label-colors
+  field build, field ns-workspace
+  field value, field ns-color
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |fileLabelColors|
+    mount factor, share value
+
+force note-file-system-changed
+  field build, field ns-workspace
+  field a, class string
+
+  cause call-method
+    mount object, share build
+    mount method, |noteFileSystemChanged|
+    mount factor, share a
+
+force extend-power-off
+  field build, field ns-workspace
+  field by, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |extendPowerOff|
+    mount factor
+      brand by
+      share by
+    raise build, class int
+
+force get-accessibility-display-should-differentiate-without-color
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldDifferentiateWithoutColor|
+    raise build, field bool
+
+force set-accessibility-display-should-differentiate-without-color
+  field build, field ns-workspace
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldDifferentiateWithoutColor|
+    mount factor, share value
+
+force get-accessibility-display-should-increase-contrast
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldIncreaseContrast|
+    raise build, field bool
+
+force set-accessibility-display-should-increase-contrast
+  field build, field ns-workspace
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldIncreaseContrast|
+    mount factor, share value
+
+force get-accessibility-display-should-reduce-transparency
+  field build, field ns-workspace
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldReduceTransparency|
+    raise build, field bool
+
+force set-accessibility-display-should-reduce-transparency
+  field build, field ns-workspace
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |accessibilityDisplayShouldReduceTransparency|
+    mount factor, share value
+
+force request-authorization
+  field build, field ns-workspace
+  field to, field ns-workspace-authorization-type
+  field completion-handler, field ns-workspace-authorization
+  field a, class error
+
+  cause call-method
+    mount object, share build
+    mount method, |requestAuthorization|
+    mount factor
+      brand to
+      share to
+    mount factor
+      brand completion-handler
+      share completion-handler
+    mount factor, share a
+    raise build, class void
+
+force get-class-will-launch-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willLaunchApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-launch-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willLaunchApplicationNotification|
+    mount factor, share value
+
+force get-class-will-launch-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willLaunchApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-launch-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willLaunchApplicationNotification|
+    mount factor, share value
+
+force get-class-did-launch-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didLaunchApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-launch-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didLaunchApplicationNotification|
+    mount factor, share value
+
+force get-class-did-launch-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didLaunchApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-launch-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didLaunchApplicationNotification|
+    mount factor, share value
+
+force get-class-did-terminate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didTerminateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-terminate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didTerminateApplicationNotification|
+    mount factor, share value
+
+force get-class-did-terminate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didTerminateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-terminate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didTerminateApplicationNotification|
+    mount factor, share value
+
+force get-class-session-did-become-active-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-session-did-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidBecomeActiveNotification|
+    mount factor, share value
+
+force get-class-session-did-become-active-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidBecomeActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-session-did-become-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidBecomeActiveNotification|
+    mount factor, share value
+
+force get-class-session-did-resign-active-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-session-did-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidResignActiveNotification|
+    mount factor, share value
+
+force get-class-session-did-resign-active-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidResignActiveNotification|
+    raise build, field ns-notification-name
+
+force set-class-session-did-resign-active-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |sessionDidResignActiveNotification|
+    mount factor, share value
+
+force get-class-did-hide-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didHideApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-hide-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didHideApplicationNotification|
+    mount factor, share value
+
+force get-class-did-hide-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didHideApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-hide-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didHideApplicationNotification|
+    mount factor, share value
+
+force get-class-did-unhide-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnhideApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unhide-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnhideApplicationNotification|
+    mount factor, share value
+
+force get-class-did-unhide-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnhideApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unhide-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnhideApplicationNotification|
+    mount factor, share value
+
+force get-class-did-activate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didActivateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-activate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didActivateApplicationNotification|
+    mount factor, share value
+
+force get-class-did-activate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didActivateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-activate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didActivateApplicationNotification|
+    mount factor, share value
+
+force get-class-did-deactivate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didDeactivateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-deactivate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didDeactivateApplicationNotification|
+    mount factor, share value
+
+force get-class-did-deactivate-application-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didDeactivateApplicationNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-deactivate-application-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didDeactivateApplicationNotification|
+    mount factor, share value
+
+force get-class-did-rename-volume-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didRenameVolumeNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-rename-volume-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didRenameVolumeNotification|
+    mount factor, share value
+
+force get-class-did-rename-volume-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didRenameVolumeNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-rename-volume-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didRenameVolumeNotification|
+    mount factor, share value
+
+force get-class-did-mount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didMountNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-mount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didMountNotification|
+    mount factor, share value
+
+force get-class-did-mount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didMountNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-mount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didMountNotification|
+    mount factor, share value
+
+force get-class-will-unmount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willUnmountNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-unmount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willUnmountNotification|
+    mount factor, share value
+
+force get-class-will-unmount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willUnmountNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-unmount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willUnmountNotification|
+    mount factor, share value
+
+force get-class-did-unmount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnmountNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unmount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnmountNotification|
+    mount factor, share value
+
+force get-class-did-unmount-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnmountNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-unmount-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didUnmountNotification|
+    mount factor, share value
+
+force get-class-did-change-file-labels-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didChangeFileLabelsNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-file-labels-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didChangeFileLabelsNotification|
+    mount factor, share value
+
+force get-class-did-change-file-labels-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didChangeFileLabelsNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-change-file-labels-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didChangeFileLabelsNotification|
+    mount factor, share value
+
+force get-class-active-space-did-change-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |activeSpaceDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-active-space-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |activeSpaceDidChangeNotification|
+    mount factor, share value
+
+force get-class-active-space-did-change-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |activeSpaceDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-active-space-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |activeSpaceDidChangeNotification|
+    mount factor, share value
+
+force get-class-did-wake-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didWakeNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-wake-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didWakeNotification|
+    mount factor, share value
+
+force get-class-did-wake-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didWakeNotification|
+    raise build, field ns-notification-name
+
+force set-class-did-wake-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |didWakeNotification|
+    mount factor, share value
+
+force get-class-will-power-off-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willPowerOffNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-power-off-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willPowerOffNotification|
+    mount factor, share value
+
+force get-class-will-power-off-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willPowerOffNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-power-off-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willPowerOffNotification|
+    mount factor, share value
+
+force get-class-will-sleep-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willSleepNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-sleep-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willSleepNotification|
+    mount factor, share value
+
+force get-class-will-sleep-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willSleepNotification|
+    raise build, field ns-notification-name
+
+force set-class-will-sleep-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |willSleepNotification|
+    mount factor, share value
+
+force get-class-screens-did-sleep-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidSleepNotification|
+    raise build, field ns-notification-name
+
+force set-class-screens-did-sleep-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidSleepNotification|
+    mount factor, share value
+
+force get-class-screens-did-sleep-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidSleepNotification|
+    raise build, field ns-notification-name
+
+force set-class-screens-did-sleep-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidSleepNotification|
+    mount factor, share value
+
+force get-class-screens-did-wake-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidWakeNotification|
+    raise build, field ns-notification-name
+
+force set-class-screens-did-wake-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidWakeNotification|
+    mount factor, share value
+
+force get-class-screens-did-wake-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidWakeNotification|
+    raise build, field ns-notification-name
+
+force set-class-screens-did-wake-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |screensDidWakeNotification|
+    mount factor, share value
+
+force get-class-accessibility-display-options-did-change-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |accessibilityDisplayOptionsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-accessibility-display-options-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |accessibilityDisplayOptionsDidChangeNotification|
+    mount factor, share value
+
+force get-class-accessibility-display-options-did-change-notification
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |accessibilityDisplayOptionsDidChangeNotification|
+    raise build, field ns-notification-name
+
+force set-class-accessibility-display-options-did-change-notification
+  field value, field ns-notification-name
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |accessibilityDisplayOptionsDidChangeNotification|
+    mount factor, share value
+
+force get-class-localized-volume-name-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |localizedVolumeNameUserInfoKey|
+    raise build, field string
+
+force set-class-localized-volume-name-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |localizedVolumeNameUserInfoKey|
+    mount factor, share value
+
+force get-class-localized-volume-name-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |localizedVolumeNameUserInfoKey|
+    raise build, field string
+
+force set-class-localized-volume-name-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |localizedVolumeNameUserInfoKey|
+    mount factor, share value
+
+force get-class-volume-url-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |volumeURLUserInfoKey|
+    raise build, field string
+
+force set-class-volume-url-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |volumeURLUserInfoKey|
+    mount factor, share value
+
+force get-class-volume-url-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |volumeURLUserInfoKey|
+    raise build, field string
+
+force set-class-volume-url-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |volumeURLUserInfoKey|
+    mount factor, share value
+
+force get-class-old-localized-volume-name-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldLocalizedVolumeNameUserInfoKey|
+    raise build, field string
+
+force set-class-old-localized-volume-name-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldLocalizedVolumeNameUserInfoKey|
+    mount factor, share value
+
+force get-class-old-localized-volume-name-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldLocalizedVolumeNameUserInfoKey|
+    raise build, field string
+
+force set-class-old-localized-volume-name-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldLocalizedVolumeNameUserInfoKey|
+    mount factor, share value
+
+force get-class-old-volume-url-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldVolumeURLUserInfoKey|
+    raise build, field string
+
+force set-class-old-volume-url-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldVolumeURLUserInfoKey|
+    mount factor, share value
+
+force get-class-old-volume-url-user-info-key
+
+  cause get-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldVolumeURLUserInfoKey|
+    raise build, field string
+
+force set-class-old-volume-url-user-info-key
+  field value, field string
+
+  cause set-aspect
+    mount object, |NSWorkspace|
+    mount aspect, |oldVolumeURLUserInfoKey|
+    mount factor, share value

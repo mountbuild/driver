@@ -1,0 +1,58 @@
+
+force build-account-authenticator-response
+  mount parcel, field parcel
+
+  cause invoke-constructor
+    drive constructor, |AccountAuthenticatorResponse|
+    drive factor, share parcel
+    throw build, field account-authenticator-response
+
+force describe-contents
+  mount build, field account-authenticator-response
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force on-error
+  mount build, field account-authenticator-response
+  mount error-code, field int
+  mount error-message, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onError|
+    drive factor, share error-code
+    drive factor, share error-message
+    throw build, field unit
+
+force on-request-continued
+  mount build, field account-authenticator-response
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestContinued|
+    throw build, field unit
+
+force on-result
+  mount build, field account-authenticator-response
+  mount result, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onResult|
+    drive factor, share result
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field account-authenticator-response
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

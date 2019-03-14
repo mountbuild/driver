@@ -1,0 +1,92 @@
+
+force get-extra-callback-type
+  mount build, field bluetooth-le-scanner
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_CALLBACK_TYPE|
+    throw build, field string
+
+force get-extra-error-code
+  mount build, field bluetooth-le-scanner
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_ERROR_CODE|
+    throw build, field string
+
+force get-extra-list-scan-result
+  mount build, field bluetooth-le-scanner
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LIST_SCAN_RESULT|
+    throw build, field string
+
+force flush-pending-scan-results
+  mount build, field bluetooth-le-scanner
+  mount callback, field scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |flushPendingScanResults|
+    drive factor, share callback
+    throw build, field unit
+
+force start-scan
+  mount build, field bluetooth-le-scanner
+  mount callback, field scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startScan|
+    drive factor, share callback
+    throw build, field unit
+
+force start-scan
+  mount build, field bluetooth-le-scanner
+  mount filters, field mutable-list-scan-filter
+  mount settings, field scan-settings
+  mount callback, field scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |startScan|
+    drive factor, share filters
+    drive factor, share settings
+    drive factor, share callback
+    throw build, field unit
+
+force start-scan
+  mount build, field bluetooth-le-scanner
+  mount filters, field mutable-list-scan-filter
+  mount settings, field scan-settings
+  mount callback-intent, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |startScan|
+    drive factor, share filters
+    drive factor, share settings
+    drive factor, share callback-intent
+    throw build, field int
+
+force stop-scan
+  mount build, field bluetooth-le-scanner
+  mount callback, field scan-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |stopScan|
+    drive factor, share callback
+    throw build, field unit
+
+force stop-scan
+  mount build, field bluetooth-le-scanner
+  mount callback-intent, field pending-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |stopScan|
+    drive factor, share callback-intent
+    throw build, field unit

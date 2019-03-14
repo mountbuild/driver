@@ -1,0 +1,100 @@
+
+force build-identity-scope
+  mount name, field string
+
+  cause invoke-constructor
+    mount constructor, |IdentityScope|
+    mount factor, share name
+    throw build, field identity-scope
+
+force build-identity-scope
+  mount name, field string
+  mount scope, field identity-scope
+
+  cause invoke-constructor
+    mount constructor, |IdentityScope|
+    mount factor, share name
+    mount factor, share scope
+    throw build, field identity-scope
+
+force add-identity
+  mount build, field identity-scope
+  mount identity, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |addIdentity|
+    mount factor, share identity
+    throw build, field unit
+
+force get-identity
+  mount build, field identity-scope
+  mount name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getIdentity|
+    mount factor, share name
+    throw build, field identity
+
+force get-identity
+  mount build, field identity-scope
+  mount principal, field principal
+
+  cause call-method
+    mount object, share build
+    mount method, |getIdentity|
+    mount factor, share principal
+    throw build, field identity
+
+force get-identity
+  mount build, field identity-scope
+  mount key, field public-key
+
+  cause call-method
+    mount object, share build
+    mount method, |getIdentity|
+    mount factor, share key
+    throw build, field identity
+
+force get-system-scope
+  mount build, field identity-scope
+
+  cause call-method
+    mount object, share build
+    mount method, |getSystemScope|
+    throw build, field identity-scope
+
+force identities
+  mount build, field identity-scope
+
+  cause call-method
+    mount object, share build
+    mount method, |identities|
+    throw build, field enumeration
+
+force remove-identity
+  mount build, field identity-scope
+  mount identity, field identity
+
+  cause call-method
+    mount object, share build
+    mount method, |removeIdentity|
+    mount factor, share identity
+    throw build, field unit
+
+force size
+  mount build, field identity-scope
+
+  cause call-method
+    mount object, share build
+    mount method, |size|
+    throw build, field int
+
+force to-string
+  mount build, field identity-scope
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

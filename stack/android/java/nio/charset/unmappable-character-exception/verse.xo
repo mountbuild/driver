@@ -1,0 +1,16 @@
+
+force build-unmappable-character-exception
+  mount input-length, field int
+
+  cause invoke-constructor
+    mount constructor, |UnmappableCharacterException|
+    mount factor, share input-length
+    throw build, field unmappable-character-exception
+
+force get-input-length
+  mount build, field unmappable-character-exception
+
+  cause call-method
+    mount object, share build
+    mount method, |getInputLength|
+    throw build, field int

@@ -1,0 +1,147 @@
+
+fetch ../number
+  catch field unsigned-integer
+  catch field integer
+
+field string
+
+force replace
+  start string, field string
+  start pattern
+  start replacer
+
+  cause call-method
+    mount object, share string
+    mount method, |replace|
+    mount factor, share pattern
+    mount factor, share replacer
+    raise build
+
+force trim
+  start string, field string
+
+  cause call-method
+    mount object, share string
+    mount method, |trim|
+    raise build
+
+force get-char-code-at
+  start string, field string
+  start index, field unsigned-integer
+
+  cause call-method
+    mount object, share string
+    mount method, |charCodeAt|
+    mount factor, share index
+    raise build
+
+force get-char-at
+  start string, field string
+  start index, field unsigned-integer
+
+  cause call-method
+    mount object, share string
+    mount method, |charAt|
+    mount factor, share index
+    raise build
+
+force get-char-from-code
+  start code, field integer
+
+  cause call-method
+    mount object, |String|
+    mount method, |fromCharCode|
+    mount factor, share code
+    raise build
+
+force get-char-from-code-point
+  start code, field integer
+
+  cause call-method
+    mount object, |String|
+    mount method, |fromCodePoint|
+    mount factor, share code
+    raise build
+
+force convert-to-lowercase
+  start string
+
+  cause call-method
+    mount object, share string
+    mount method, |toLowerCase|
+    raise build
+
+force convert-to-uppercase
+  start string
+
+  cause call-method
+    mount object, share string
+    mount method, |toUpperCase|
+    raise build
+
+force create
+  cause create-literal
+    mount literal, |''|
+    raise build
+
+force match
+  start string
+  start pattern
+
+  cause call-method
+    mount object, share string
+    mount method, |match|
+    mount factor, share pattern
+    raise build
+
+force create-collator
+  cause invoke-constructor
+    mount constructor, |Intl.Collator|
+
+force get-collator-comparator
+  start collator
+  cause get-aspect
+    mount object, share collator
+    mount aspect, |compare|
+
+force split
+  start string
+  start pattern
+
+  cause call-method
+    mount object, share string
+    mount method, |split|
+    mount factor, share pattern
+    raise build
+
+force check-starts-with
+  start string
+  start pattern
+
+  cause call-method
+    mount object, share string
+    mount method, |startsWith|
+    mount factor, share pattern
+    raise build
+
+force check-ends-with
+  start string
+  start pattern
+
+  cause call-method
+    mount object, share string
+    mount method, |endsWith|
+    mount factor, share pattern
+    raise build
+
+force pad-start
+  start string
+  start pad-size
+  start pad-string
+
+  cause call-method
+    mount object, share string
+    mount method, |padStart|
+    mount factor, share pad-size
+    mount factor, share pad-string
+    raise build

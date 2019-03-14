@@ -1,0 +1,258 @@
+
+force build-url
+  mount protocol, field string
+  mount host, field string
+  mount port, field int
+  mount file, field string
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share protocol
+    drive factor, share host
+    drive factor, share port
+    drive factor, share file
+    throw build, field url
+
+force build-url
+  mount protocol, field string
+  mount host, field string
+  mount file, field string
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share protocol
+    drive factor, share host
+    drive factor, share file
+    throw build, field url
+
+force build-url
+  mount protocol, field string
+  mount host, field string
+  mount port, field int
+  mount file, field string
+  mount handler, field url-stream-handler
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share protocol
+    drive factor, share host
+    drive factor, share port
+    drive factor, share file
+    drive factor, share handler
+    throw build, field url
+
+force build-url
+  mount spec, field string
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share spec
+    throw build, field url
+
+force build-url
+  mount context, field url
+  mount spec, field string
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share context
+    drive factor, share spec
+    throw build, field url
+
+force build-url
+  mount context, field url
+  mount spec, field string
+  mount handler, field url-stream-handler
+
+  cause invoke-constructor
+    drive constructor, |URL|
+    drive factor, share context
+    drive factor, share spec
+    drive factor, share handler
+    throw build, field url
+
+force equals
+  mount build, field url
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-authority
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getAuthority|
+    throw build, field string
+
+force get-content
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getContent|
+    throw build, field any
+
+force get-content
+  mount build, field url
+  mount classes, field array-class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |getContent|
+    drive factor, share classes
+    throw build, field any
+
+force get-default-port
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultPort|
+    throw build, field int
+
+force get-file
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getFile|
+    throw build, field string
+
+force get-host
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getHost|
+    throw build, field string
+
+force get-path
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getPath|
+    throw build, field string
+
+force get-port
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-protocol
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getProtocol|
+    throw build, field string
+
+force get-query
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuery|
+    throw build, field string
+
+force get-ref
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getRef|
+    throw build, field string
+
+force get-user-info
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |getUserInfo|
+    throw build, field string
+
+force hash-code
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force open-connection
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |openConnection|
+    throw build, field url-connection
+
+force open-connection
+  mount build, field url
+  mount proxy, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |openConnection|
+    drive factor, share proxy
+    throw build, field url-connection
+
+force open-stream
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |openStream|
+    throw build, field input-stream
+
+force same-file
+  mount build, field url
+  mount other, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |sameFile|
+    drive factor, share other
+    throw build, field boolean
+
+force set-url-stream-handler-factory
+  mount build, field url
+  mount fac, field url-stream-handler-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |setURLStreamHandlerFactory|
+    drive factor, share fac
+    throw build, field unit
+
+force to-external-form
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |toExternalForm|
+    throw build, field string
+
+force to-string
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force to-uri
+  mount build, field url
+
+  cause call-method
+    drive object, share build
+    drive method, |toURI|
+    throw build, field uri

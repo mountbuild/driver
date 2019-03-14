@@ -1,0 +1,49 @@
+
+force build-classic-app-manager
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Deployment.Preview.ClassicAppManager|
+
+force find-installed-app
+  start build, field windows-management-deployment-preview-classicappmanager
+  start app-uninstall-key, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindInstalledApp|
+    drive factor, share app-uninstall-key
+
+force build-installed-classic-app-info
+  cause invoke-constructor
+    drive constructor, |Windows.Management.Deployment.Preview.InstalledClassicAppInfo|
+
+force get-display-name
+  start build, field windows-management-deployment-preview-installedclassicappinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-management-deployment-preview-installedclassicappinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force get-display-version
+  start build, field windows-management-deployment-preview-installedclassicappinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayVersion|
+
+force set-display-version
+  start build, field windows-management-deployment-preview-installedclassicappinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayVersion|
+    drive factor, share value

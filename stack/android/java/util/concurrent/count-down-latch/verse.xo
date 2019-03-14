@@ -1,0 +1,52 @@
+
+force build-count-down-latch
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |CountDownLatch|
+    drive factor, share count
+    throw build, field count-down-latch
+
+force await
+  mount build, field count-down-latch
+
+  cause call-method
+    drive object, share build
+    drive method, |await|
+    throw build, field unit
+
+force await
+  mount build, field count-down-latch
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |await|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field boolean
+
+force count-down
+  mount build, field count-down-latch
+
+  cause call-method
+    drive object, share build
+    drive method, |countDown|
+    throw build, field unit
+
+force get-count
+  mount build, field count-down-latch
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    throw build, field long
+
+force to-string
+  mount build, field count-down-latch
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

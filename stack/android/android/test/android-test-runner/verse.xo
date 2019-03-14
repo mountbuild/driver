@@ -1,0 +1,151 @@
+
+force build-android-test-runner
+  cause invoke-constructor
+    drive constructor, |AndroidTestRunner|
+    raise build, field android-test-runner
+
+force add-test-listener
+  mount build, field android-test-runner
+  mount test-listener, field test-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addTestListener|
+    drive factor, share test-listener
+    raise build, field unit
+
+force clear-test-listeners
+  mount build, field android-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |clearTestListeners|
+    raise build, field unit
+
+force get-test-cases
+  mount build, field android-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getTestCases|
+    raise build, field mutable-list
+
+force get-test-class-name
+  mount build, field android-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getTestClassName|
+    raise build, field string
+
+force get-test-result
+  mount build, field android-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |getTestResult|
+    raise build, field test-result
+
+force run-test
+  mount build, field android-test-runner
+
+  cause call-method
+    drive object, share build
+    drive method, |runTest|
+    raise build, field unit
+
+force run-test
+  mount build, field android-test-runner
+  mount test-result, field test-result
+
+  cause call-method
+    drive object, share build
+    drive method, |runTest|
+    drive factor, share test-result
+    raise build, field unit
+
+force set-context
+  mount build, field android-test-runner
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |setContext|
+    drive factor, share context
+    raise build, field unit
+
+force set-instrumentaiton
+  mount build, field android-test-runner
+  mount instrumentation, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInstrumentaiton|
+    drive factor, share instrumentation
+    raise build, field unit
+
+force set-instrumentation
+  mount build, field android-test-runner
+  mount instrumentation, field instrumentation
+
+  cause call-method
+    drive object, share build
+    drive method, |setInstrumentation|
+    drive factor, share instrumentation
+    raise build, field unit
+
+force set-test
+  mount build, field android-test-runner
+  mount test, field test
+
+  cause call-method
+    drive object, share build
+    drive method, |setTest|
+    drive factor, share test
+    raise build, field unit
+
+force set-test-class-name
+  mount build, field android-test-runner
+  mount test-class-name, field string
+  mount test-method-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setTestClassName|
+    drive factor, share test-class-name
+    drive factor, share test-method-name
+    raise build, field unit
+
+force test-ended
+  mount build, field android-test-runner
+  mount test-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |testEnded|
+    drive factor, share test-name
+    raise build, field unit
+
+force test-failed
+  mount build, field android-test-runner
+  mount status, field int
+  mount test, field test
+  mount t, field throwable
+
+  cause call-method
+    drive object, share build
+    drive method, |testFailed|
+    drive factor, share status
+    drive factor, share test
+    drive factor, share t
+    raise build, field unit
+
+force test-started
+  mount build, field android-test-runner
+  mount test-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |testStarted|
+    drive factor, share test-name
+    raise build, field unit

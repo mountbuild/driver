@@ -1,0 +1,59 @@
+
+force build-effect
+  cause invoke-constructor
+    drive constructor, |Effect|
+    raise build, field effect
+
+force apply
+  start build, field effect
+  start input-tex-id, field int
+  start width, field int
+  start height, field int
+  start output-tex-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    drive factor, share input-tex-id
+    drive factor, share width
+    drive factor, share height
+    drive factor, share output-tex-id
+    raise build, field unit
+
+force get-name
+  start build, field effect
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force release
+  start build, field effect
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-parameter
+  start build, field effect
+  start parameter-key, field string
+  start value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameter|
+    drive factor, share parameter-key
+    drive factor, share value
+    raise build, field unit
+
+force set-update-listener
+  start build, field effect
+  start listener, field effect-update-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setUpdateListener|
+    drive factor, share listener
+    raise build, field unit

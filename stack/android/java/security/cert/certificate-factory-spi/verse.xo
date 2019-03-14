@@ -1,0 +1,85 @@
+
+force build-certificate-factory-spi
+  cause invoke-constructor
+    mount constructor, |CertificateFactorySpi|
+    throw build, field certificate-factory-spi
+
+force engine-generate-crl
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCRL|
+    mount factor, share in-stream
+    throw build, field crl
+
+force engine-generate-cr-ls
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCRLs|
+    mount factor, share in-stream
+    throw build, field mutable-collection
+
+force engine-generate-cert-path
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCertPath|
+    mount factor, share in-stream
+    throw build, field cert-path
+
+force engine-generate-cert-path
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+  mount encoding, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCertPath|
+    mount factor, share in-stream
+    mount factor, share encoding
+    throw build, field cert-path
+
+force engine-generate-cert-path
+  mount build, field certificate-factory-spi
+  mount certificates, field mutable-list-out-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCertPath|
+    mount factor, share certificates
+    throw build, field cert-path
+
+force engine-generate-certificate
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCertificate|
+    mount factor, share in-stream
+    throw build, field certificate
+
+force engine-generate-certificates
+  mount build, field certificate-factory-spi
+  mount in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGenerateCertificates|
+    mount factor, share in-stream
+    throw build, field mutable-collection
+
+force engine-get-cert-path-encodings
+  mount build, field certificate-factory-spi
+
+  cause call-method
+    mount object, share build
+    mount method, |engineGetCertPathEncodings|
+    throw build, field mutable-iterator

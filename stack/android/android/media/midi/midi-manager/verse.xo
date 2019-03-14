@@ -1,0 +1,58 @@
+
+force get-devices
+  start build, field midi-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getDevices|
+    raise build, field array
+
+force open-bluetooth-device
+  start build, field midi-manager
+  start bluetooth-device, field bluetooth-device
+  start listener, field midi-manager-on-device-opened-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openBluetoothDevice|
+    drive factor, share bluetooth-device
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force open-device
+  start build, field midi-manager
+  start device-info, field midi-device-info
+  start listener, field midi-manager-on-device-opened-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |openDevice|
+    drive factor, share device-info
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force register-device-callback
+  start build, field midi-manager
+  start callback, field midi-manager-device-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerDeviceCallback|
+    drive factor, share callback
+    drive factor, share handler
+    raise build, field unit
+
+force unregister-device-callback
+  start build, field midi-manager
+  start callback, field midi-manager-device-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterDeviceCallback|
+    drive factor, share callback
+    raise build, field unit

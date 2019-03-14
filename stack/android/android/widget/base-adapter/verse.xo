@@ -1,0 +1,125 @@
+
+force build-base-adapter
+  cause invoke-constructor
+    drive constructor, |BaseAdapter|
+    throw build, field base-adapter
+
+force are-all-items-enabled
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |areAllItemsEnabled|
+    throw build, field boolean
+
+force get-autofill-options
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getAutofillOptions|
+    throw build, field array
+
+force get-drop-down-view
+  mount build, field base-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getDropDownView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-item-view-type
+  mount build, field base-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemViewType|
+    drive factor, share position
+    throw build, field int
+
+force get-view-type-count
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getViewTypeCount|
+    throw build, field int
+
+force has-stable-ids
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |hasStableIds|
+    throw build, field boolean
+
+force is-empty
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force is-enabled
+  mount build, field base-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    drive factor, share position
+    throw build, field boolean
+
+force notify-data-set-changed
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDataSetChanged|
+    throw build, field unit
+
+force notify-data-set-invalidated
+  mount build, field base-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDataSetInvalidated|
+    throw build, field unit
+
+force register-data-set-observer
+  mount build, field base-adapter
+  mount observer, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |registerDataSetObserver|
+    drive factor, share observer
+    throw build, field unit
+
+force set-autofill-options
+  mount build, field base-adapter
+  mount vararg-options, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setAutofillOptions|
+    drive factor, share vararg-options
+    throw build, field unit
+
+force unregister-data-set-observer
+  mount build, field base-adapter
+  mount observer, field data-set-observer
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterDataSetObserver|
+    drive factor, share observer
+    throw build, field unit

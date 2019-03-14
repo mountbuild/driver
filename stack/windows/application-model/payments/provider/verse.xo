@@ -1,0 +1,196 @@
+
+force build-payment-app-can-make-payment-trigger-details
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails|
+
+force report-can-make-payment-result
+  mount build, field windows-applicationmodel-payments-provider-paymentappcanmakepaymenttriggerdetails
+  mount value, field windows-applicationmodel-payments-paymentcanmakepaymentresult
+
+  cause call-method
+    drive object, share build
+    drive method, |ReportCanMakePaymentResult|
+    drive factor, share value
+
+force get-request
+  mount build, field windows-applicationmodel-payments-provider-paymentappcanmakepaymenttriggerdetails
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Request|
+
+force set-request
+  mount build, field windows-applicationmodel-payments-provider-paymentappcanmakepaymenttriggerdetails
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Request|
+    drive factor, share value
+
+force build-payment-app-manager
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Payments.Provider.PaymentAppManager|
+
+force get-current
+  mount build, field windows-applicationmodel-payments-provider-paymentappmanager
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Current|
+
+force set-current
+  mount build, field windows-applicationmodel-payments-provider-paymentappmanager
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Current|
+    drive factor, share value
+
+force register-async
+  mount build, field windows-applicationmodel-payments-provider-paymentappmanager
+  mount supported-payment-method-ids, field windows-foundation-collections-iiterable-system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |RegisterAsync|
+    drive factor, share supported-payment-method-ids
+
+force unregister-async
+  mount build, field windows-applicationmodel-payments-provider-paymentappmanager
+
+  cause call-method
+    drive object, share build
+    drive method, |UnregisterAsync|
+
+force build-payment-transaction
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Payments.Provider.PaymentTransaction|
+
+force accept-async
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount payment-token, field windows-applicationmodel-payments-paymenttoken
+
+  cause call-method
+    drive object, share build
+    drive method, |AcceptAsync|
+    drive factor, share payment-token
+
+force from-id-async
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share id
+
+force get-payer-email
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PayerEmail|
+
+force set-payer-email
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PayerEmail|
+    drive factor, share value
+
+force get-payer-name
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PayerName|
+
+force set-payer-name
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PayerName|
+    drive factor, share value
+
+force get-payer-phone-number
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PayerPhoneNumber|
+
+force set-payer-phone-number
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PayerPhoneNumber|
+    drive factor, share value
+
+force get-payment-request
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PaymentRequest|
+
+force set-payment-request
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PaymentRequest|
+    drive factor, share value
+
+force reject
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+
+  cause call-method
+    drive object, share build
+    drive method, |Reject|
+
+force update-selected-shipping-option-async
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount selected-shipping-option, field windows-applicationmodel-payments-paymentshippingoption
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateSelectedShippingOptionAsync|
+    drive factor, share selected-shipping-option
+
+force update-shipping-address-async
+  mount build, field windows-applicationmodel-payments-provider-paymenttransaction
+  mount shipping-address, field windows-applicationmodel-payments-paymentaddress
+
+  cause call-method
+    drive object, share build
+    drive method, |UpdateShippingAddressAsync|
+    drive factor, share shipping-address
+
+force build-payment-transaction-accept-result
+  cause invoke-constructor
+    drive constructor, |Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult|
+
+force get-status
+  mount build, field windows-applicationmodel-payments-provider-paymenttransactionacceptresult
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  mount build, field windows-applicationmodel-payments-provider-paymenttransactionacceptresult
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value

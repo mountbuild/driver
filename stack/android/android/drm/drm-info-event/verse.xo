@@ -1,0 +1,76 @@
+
+force get-type-account-already-registered
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ACCOUNT_ALREADY_REGISTERED|
+    throw build, field int
+
+force get-type-already-registered-by-another-account
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ALREADY_REGISTERED_BY_ANOTHER_ACCOUNT|
+    throw build, field int
+
+force get-type-remove-rights
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_REMOVE_RIGHTS|
+    throw build, field int
+
+force get-type-rights-installed
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_INSTALLED|
+    throw build, field int
+
+force get-type-rights-removed
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_REMOVED|
+    throw build, field int
+
+force get-type-wait-for-rights
+  mount build, field drm-info-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_WAIT_FOR_RIGHTS|
+    throw build, field int
+
+force build-drm-info-event
+  mount unique-id, field int
+  mount type, field int
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmInfoEvent|
+    drive factor, share unique-id
+    drive factor, share type
+    drive factor, share message
+    throw build, field drm-info-event
+
+force build-drm-info-event
+  mount unique-id, field int
+  mount type, field int
+  mount message, field string
+  mount attributes, field hash-map-string
+  mount any, field undefined
+
+  cause invoke-constructor
+    drive constructor, |DrmInfoEvent|
+    drive factor, share unique-id
+    drive factor, share type
+    drive factor, share message
+    drive factor, share attributes
+    drive factor, share any
+    throw build, field drm-info-event

@@ -1,0 +1,31 @@
+
+force build-certificate-exception
+  cause invoke-constructor
+    mount constructor, |CertificateException|
+    throw build, field certificate-exception
+
+force build-certificate-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |CertificateException|
+    mount factor, share msg
+    throw build, field certificate-exception
+
+force build-certificate-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertificateException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field certificate-exception
+
+force build-certificate-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |CertificateException|
+    mount factor, share cause
+    throw build, field certificate-exception

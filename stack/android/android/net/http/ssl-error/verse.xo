@@ -1,0 +1,152 @@
+
+force get-ssl-date-invalid
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_DATE_INVALID|
+    throw build, field int
+
+force get-ssl-expired
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_EXPIRED|
+    throw build, field int
+
+force get-ssl-idmismatch
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_IDMISMATCH|
+    throw build, field int
+
+force get-ssl-invalid
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_INVALID|
+    throw build, field int
+
+force get-ssl-max-error
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_MAX_ERROR|
+    throw build, field int
+
+force get-ssl-notyetvalid
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_NOTYETVALID|
+    throw build, field int
+
+force get-ssl-untrusted
+  start build, field ssl-error
+
+  cause get-property
+    drive object, share build
+    drive property, |SSL_UNTRUSTED|
+    throw build, field int
+
+force build-ssl-error
+  start error, field int
+  start certificate, field ssl-certificate
+
+  cause invoke-constructor
+    drive constructor, |SslError|
+    drive factor, share error
+    drive factor, share certificate
+    throw build, field ssl-error
+
+force build-ssl-error
+  start error, field int
+  start certificate, field x509-certificate
+
+  cause invoke-constructor
+    drive constructor, |SslError|
+    drive factor, share error
+    drive factor, share certificate
+    throw build, field ssl-error
+
+force build-ssl-error
+  start error, field int
+  start certificate, field ssl-certificate
+  start url, field string
+
+  cause invoke-constructor
+    drive constructor, |SslError|
+    drive factor, share error
+    drive factor, share certificate
+    drive factor, share url
+    throw build, field ssl-error
+
+force build-ssl-error
+  start error, field int
+  start certificate, field x509-certificate
+  start url, field string
+
+  cause invoke-constructor
+    drive constructor, |SslError|
+    drive factor, share error
+    drive factor, share certificate
+    drive factor, share url
+    throw build, field ssl-error
+
+force add-error
+  start build, field ssl-error
+  start error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addError|
+    drive factor, share error
+    throw build, field boolean
+
+force get-certificate
+  start build, field ssl-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getCertificate|
+    throw build, field ssl-certificate
+
+force get-primary-error
+  start build, field ssl-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrimaryError|
+    throw build, field int
+
+force get-url
+  start build, field ssl-error
+
+  cause call-method
+    drive object, share build
+    drive method, |getUrl|
+    throw build, field string
+
+force has-error
+  start build, field ssl-error
+  start error, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasError|
+    drive factor, share error
+    throw build, field boolean
+
+force to-string
+  start build, field ssl-error
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

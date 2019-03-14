@@ -1,0 +1,164 @@
+
+force build-list-preference
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |ListPreference|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field list-preference
+
+force build-list-preference
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |ListPreference|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field list-preference
+
+force build-list-preference
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ListPreference|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field list-preference
+
+force build-list-preference
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ListPreference|
+    drive factor, share context
+    throw build, field list-preference
+
+force find-index-of-value
+  mount build, field list-preference
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |findIndexOfValue|
+    drive factor, share value
+    throw build, field int
+
+force get-entries
+  mount build, field list-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntries|
+    throw build, field array
+
+force get-entry
+  mount build, field list-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntry|
+    throw build, field char-sequence
+
+force get-entry-values
+  mount build, field list-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getEntryValues|
+    throw build, field array
+
+force get-summary
+  mount build, field list-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getSummary|
+    throw build, field char-sequence
+
+force get-value
+  mount build, field list-preference
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field string
+
+force set-entries
+  mount build, field list-preference
+  mount entries, field array-char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntries|
+    drive factor, share entries
+    throw build, field unit
+
+force set-entries
+  mount build, field list-preference
+  mount entries-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntries|
+    drive factor, share entries-res-id
+    throw build, field unit
+
+force set-entry-values
+  mount build, field list-preference
+  mount entry-values, field array-char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntryValues|
+    drive factor, share entry-values
+    throw build, field unit
+
+force set-entry-values
+  mount build, field list-preference
+  mount entry-values-res-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setEntryValues|
+    drive factor, share entry-values-res-id
+    throw build, field unit
+
+force set-summary
+  mount build, field list-preference
+  mount summary, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setSummary|
+    drive factor, share summary
+    throw build, field unit
+
+force set-value
+  mount build, field list-preference
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    throw build, field unit
+
+force set-value-index
+  mount build, field list-preference
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setValueIndex|
+    drive factor, share index
+    throw build, field unit

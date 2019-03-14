@@ -1,0 +1,188 @@
+
+force get-flag-content-controls
+  mount build, field accessibility-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_CONTENT_CONTROLS|
+    raise build, field int
+
+force get-flag-content-icons
+  mount build, field accessibility-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_CONTENT_ICONS|
+    raise build, field int
+
+force get-flag-content-text
+  mount build, field accessibility-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_CONTENT_TEXT|
+    raise build, field int
+
+force add-accessibility-request-preparer
+  mount build, field accessibility-manager
+  mount preparer, field accessibility-request-preparer
+
+  cause call-method
+    drive object, share build
+    drive method, |addAccessibilityRequestPreparer|
+    drive factor, share preparer
+    raise build, field unit
+
+force add-accessibility-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-accessibility-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addAccessibilityStateChangeListener|
+    drive factor, share listener
+    raise build, field boolean
+
+force add-accessibility-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-accessibility-state-change-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addAccessibilityStateChangeListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force add-touch-exploration-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-touch-exploration-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addTouchExplorationStateChangeListener|
+    drive factor, share listener
+    raise build, field boolean
+
+force add-touch-exploration-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-touch-exploration-state-change-listener
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |addTouchExplorationStateChangeListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force get-accessibility-service-list
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityServiceList|
+    raise build, field mutable-list
+
+force get-enabled-accessibility-service-list
+  mount build, field accessibility-manager
+  mount feedback-type-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getEnabledAccessibilityServiceList|
+    drive factor, share feedback-type-flags
+    raise build, field mutable-list
+
+force get-installed-accessibility-service-list
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstalledAccessibilityServiceList|
+    raise build, field mutable-list
+
+force get-recommended-timeout-millis
+  mount build, field accessibility-manager
+  mount original-timeout, field int
+  mount ui-content-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRecommendedTimeoutMillis|
+    drive factor, share original-timeout
+    drive factor, share ui-content-flags
+    raise build, field int
+
+force interrupt
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |interrupt|
+    raise build, field unit
+
+force is-accessibility-button-supported
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isAccessibilityButtonSupported|
+    raise build, field boolean
+
+force is-enabled
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    raise build, field boolean
+
+force is-touch-exploration-enabled
+  mount build, field accessibility-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isTouchExplorationEnabled|
+    raise build, field boolean
+
+force remove-accessibility-request-preparer
+  mount build, field accessibility-manager
+  mount preparer, field accessibility-request-preparer
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAccessibilityRequestPreparer|
+    drive factor, share preparer
+    raise build, field unit
+
+force remove-accessibility-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-accessibility-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAccessibilityStateChangeListener|
+    drive factor, share listener
+    raise build, field boolean
+
+force remove-touch-exploration-state-change-listener
+  mount build, field accessibility-manager
+  mount listener, field accessibility-manager-touch-exploration-state-change-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeTouchExplorationStateChangeListener|
+    drive factor, share listener
+    raise build, field boolean
+
+force send-accessibility-event
+  mount build, field accessibility-manager
+  mount event, field accessibility-event
+
+  cause call-method
+    drive object, share build
+    drive method, |sendAccessibilityEvent|
+    drive factor, share event
+    raise build, field unit

@@ -1,0 +1,437 @@
+force colorize
+  field build, field ns-bitmap-image-rep
+  field by-mapping-gray, field cg-float
+  field to, field ns-color
+  field black-mapping, field ns-color
+  field white-mapping, field ns-color
+
+  cause call-method
+    drive object, share build
+    drive method, |colorize|
+    drive factor
+      brand by-mapping-gray
+      share by-mapping-gray
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand black-mapping
+      share black-mapping
+    drive factor
+      brand white-mapping
+      share white-mapping
+
+force get-bitmap-format
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bitmapFormat|
+    raise build, field ns-bitmap-image-rep-format
+
+force set-bitmap-format
+  field build, field ns-bitmap-image-rep
+  field value, field ns-bitmap-image-rep-format
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bitmapFormat|
+    drive factor, share value
+
+force get-bits-per-pixel
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bitsPerPixel|
+    raise build, field int
+
+force set-bits-per-pixel
+  field build, field ns-bitmap-image-rep
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bitsPerPixel|
+    drive factor, share value
+
+force get-bytes-per-plane
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bytesPerPlane|
+    raise build, field int
+
+force set-bytes-per-plane
+  field build, field ns-bitmap-image-rep
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bytesPerPlane|
+    drive factor, share value
+
+force get-bytes-per-row
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bytesPerRow|
+    raise build, field int
+
+force set-bytes-per-row
+  field build, field ns-bitmap-image-rep
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bytesPerRow|
+    drive factor, share value
+
+force get-is-planar
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isPlanar|
+    raise build, field bool
+
+force set-is-planar
+  field build, field ns-bitmap-image-rep
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isPlanar|
+    drive factor, share value
+
+force get-number-of-planes
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |numberOfPlanes|
+    raise build, field int
+
+force set-number-of-planes
+  field build, field ns-bitmap-image-rep
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |numberOfPlanes|
+    drive factor, share value
+
+force get-samples-per-pixel
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |samplesPerPixel|
+    raise build, field int
+
+force set-samples-per-pixel
+  field build, field ns-bitmap-image-rep
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |samplesPerPixel|
+    drive factor, share value
+
+force get-bitmap-data
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |bitmapData|
+    raise build, field unsafe-mutable-pointer-u-int8
+
+force set-bitmap-data
+  field build, field ns-bitmap-image-rep
+  field value, field unsafe-mutable-pointer-u-int8
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |bitmapData|
+    drive factor, share value
+
+force get-bitmap-data-planes
+  field build, field ns-bitmap-image-rep
+  field a, class unsafe-mutable-pointer-unsafe-mutable-pointer-u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |getBitmapDataPlanes|
+    drive factor, share a
+
+force get-tiff-representation
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |tiffRepresentation|
+    raise build, field data
+
+force set-tiff-representation
+  field build, field ns-bitmap-image-rep
+  field value, field data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |tiffRepresentation|
+    drive factor, share value
+
+force tiff-representation
+  field build, field ns-bitmap-image-rep
+  field using, field ns-bitmap-image-rep-tiff-compression
+  field factor, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |tiffRepresentation|
+    drive factor
+      brand using
+      share using
+    drive factor
+      brand factor
+      share factor
+    raise build, class data
+
+force ns-draw-bitmap
+  field build, field ns-bitmap-image-rep
+  field a, class ns-rect
+  field b, class int
+  field c, class int
+  field d, class int
+  field e, class int
+  field f, class int
+  field g, class int
+  field h, class bool
+  field i, class bool
+  field j, class ns-color-space-name
+  field k, class unsafe-pointer-unsafe-pointer-u-int8
+
+  cause call-method
+    drive object, share build
+    drive method, |NSDrawBitmap|
+    drive factor, share a
+    drive factor, share b
+    drive factor, share c
+    drive factor, share d
+    drive factor, share e
+    drive factor, share f
+    drive factor, share g
+    drive factor, share h
+    drive factor, share i
+    drive factor, share j
+    drive factor, share k
+
+force can-be-compressed
+  field build, field ns-bitmap-image-rep
+  field using, field ns-bitmap-image-rep-tiff-compression
+
+  cause call-method
+    drive object, share build
+    drive method, |canBeCompressed|
+    drive factor
+      brand using
+      share using
+    raise build, class bool
+
+force set-compression
+  field build, field ns-bitmap-image-rep
+  field a, class ns-bitmap-image-rep-tiff-compression
+  field factor, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setCompression|
+    drive factor, share a
+    drive factor
+      brand factor
+      share factor
+
+force get-compression
+  field build, field ns-bitmap-image-rep
+  field a, class unsafe-mutable-pointer-ns-bitmap-image-rep-tiff-compression
+  field factor, field unsafe-mutable-pointer-float
+
+  cause call-method
+    drive object, share build
+    drive method, |getCompression|
+    drive factor, share a
+    drive factor
+      brand factor
+      share factor
+
+force set-property
+  field build, field ns-bitmap-image-rep
+  field a, class ns-bitmap-image-rep-property-key
+  field with-value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |setProperty|
+    drive factor, share a
+    drive factor
+      brand with-value
+      share with-value
+
+force value
+  field build, field ns-bitmap-image-rep
+  field for-property, field ns-bitmap-image-rep-property-key
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor
+      brand for-property
+      share for-property
+    raise build, class any
+
+force incremental-load
+  field build, field ns-bitmap-image-rep
+  field from, field data
+  field complete, field bool
+
+  cause call-method
+    drive object, share build
+    drive method, |incrementalLoad|
+    drive factor
+      brand from
+      share from
+    drive factor
+      brand complete
+      share complete
+    raise build, class int
+
+force set-color
+  field build, field ns-bitmap-image-rep
+  field a, class ns-color
+  field at-x, field int
+  field y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setColor|
+    drive factor, share a
+    drive factor
+      brand at-x
+      share at-x
+    drive factor
+      brand y
+      share y
+
+force color-at
+  field build, field ns-bitmap-image-rep
+  field x, field int
+  field y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |colorAt|
+    drive factor
+      brand x
+      share x
+    drive factor
+      brand y
+      share y
+    raise build, class ns-color
+
+force set-pixel
+  field build, field ns-bitmap-image-rep
+  field a, class unsafe-mutable-pointer-int
+  field at-x, field int
+  field y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPixel|
+    drive factor, share a
+    drive factor
+      brand at-x
+      share at-x
+    drive factor
+      brand y
+      share y
+
+force get-pixel
+  field build, field ns-bitmap-image-rep
+  field a, class unsafe-mutable-pointer-int
+  field at-x, field int
+  field y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPixel|
+    drive factor, share a
+    drive factor
+      brand at-x
+      share at-x
+    drive factor
+      brand y
+      share y
+
+force get-cg-image
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |cgImage|
+    raise build, field cg-image
+
+force set-cg-image
+  field build, field ns-bitmap-image-rep
+  field value, field cg-image
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |cgImage|
+    drive factor, share value
+
+force converting
+  field build, field ns-bitmap-image-rep
+  field to, field ns-color-space
+  field rendering-intent, field ns-color-rendering-intent
+
+  cause call-method
+    drive object, share build
+    drive method, |converting|
+    drive factor
+      brand to
+      share to
+    drive factor
+      brand rendering-intent
+      share rendering-intent
+    raise build, class ns-bitmap-image-rep
+
+force retagging
+  field build, field ns-bitmap-image-rep
+  field with, field ns-color-space
+
+  cause call-method
+    drive object, share build
+    drive method, |retagging|
+    drive factor
+      brand with
+      share with
+    raise build, class ns-bitmap-image-rep
+
+force get-color-space
+  field build, field ns-bitmap-image-rep
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |colorSpace|
+    raise build, field ns-color-space
+
+force set-color-space
+  field build, field ns-bitmap-image-rep
+  field value, field ns-color-space
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |colorSpace|
+    drive factor, share value

@@ -1,0 +1,57 @@
+
+force build-operation-application-exception
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    throw build, field operation-application-exception
+
+force build-operation-application-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    drive factor, share message
+    throw build, field operation-application-exception
+
+force build-operation-application-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field operation-application-exception
+
+force build-operation-application-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    drive factor, share cause
+    throw build, field operation-application-exception
+
+force build-operation-application-exception
+  mount num-successful-yield-points, field int
+
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    drive factor, share num-successful-yield-points
+    throw build, field operation-application-exception
+
+force build-operation-application-exception
+  mount message, field string
+  mount num-successful-yield-points, field int
+
+  cause invoke-constructor
+    drive constructor, |OperationApplicationException|
+    drive factor, share message
+    drive factor, share num-successful-yield-points
+    throw build, field operation-application-exception
+
+force get-num-successful-yield-points
+  mount build, field operation-application-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumSuccessfulYieldPoints|
+    throw build, field int

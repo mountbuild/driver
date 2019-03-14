@@ -1,0 +1,36 @@
+force lock
+  field build, field ns-lock
+  field before, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |lock|
+    drive factor
+      brand before
+      share before
+    raise build, class bool
+
+force try
+  field build, field ns-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |try|
+    raise build, class bool
+
+force get-name
+  field build, field ns-lock
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |name|
+    raise build, field string
+
+force set-name
+  field build, field ns-lock
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |name|
+    drive factor, share value

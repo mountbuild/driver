@@ -1,0 +1,36 @@
+
+force build-struct-stat-vfs
+  mount f-bsize, field long
+  mount f-frsize, field long
+  mount f-blocks, field long
+  mount f-bfree, field long
+  mount f-bavail, field long
+  mount f-files, field long
+  mount f-ffree, field long
+  mount f-favail, field long
+  mount f-fsid, field long
+  mount f-flag, field long
+  mount f-namemax, field long
+
+  cause invoke-constructor
+    drive constructor, |StructStatVfs|
+    drive factor, share f-bsize
+    drive factor, share f-frsize
+    drive factor, share f-blocks
+    drive factor, share f-bfree
+    drive factor, share f-bavail
+    drive factor, share f-files
+    drive factor, share f-ffree
+    drive factor, share f-favail
+    drive factor, share f-fsid
+    drive factor, share f-flag
+    drive factor, share f-namemax
+    raise build, field struct-stat-vfs
+
+force to-string
+  mount build, field struct-stat-vfs
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

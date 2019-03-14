@@ -1,0 +1,36 @@
+
+force get-current-frame
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentFrame|
+    throw build
+
+force get-current-time
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentTime|
+    throw build
+
+force get-sample-rate
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sampleRate|
+    throw build
+
+force register-processor
+  start build
+  start name
+  start processor-ctor
+
+  cause call-method
+    mount object, share build
+    mount method, |registerProcessor|
+    mount factor, share name
+    mount factor, share processor-ctor
+    throw build

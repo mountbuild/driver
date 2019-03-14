@@ -1,0 +1,31 @@
+
+force build-invalid-key-exception
+  cause invoke-constructor
+    mount constructor, |InvalidKeyException|
+    throw build, field invalid-key-exception
+
+force build-invalid-key-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    mount constructor, |InvalidKeyException|
+    mount factor, share msg
+    throw build, field invalid-key-exception
+
+force build-invalid-key-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |InvalidKeyException|
+    mount factor, share message
+    mount factor, share cause
+    throw build, field invalid-key-exception
+
+force build-invalid-key-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    mount constructor, |InvalidKeyException|
+    mount factor, share cause
+    throw build, field invalid-key-exception

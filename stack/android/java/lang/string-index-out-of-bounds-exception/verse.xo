@@ -1,0 +1,21 @@
+
+force build-string-index-out-of-bounds-exception
+  cause invoke-constructor
+    drive constructor, |StringIndexOutOfBoundsException|
+    throw build, field string-index-out-of-bounds-exception
+
+force build-string-index-out-of-bounds-exception
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |StringIndexOutOfBoundsException|
+    drive factor, share s
+    throw build, field string-index-out-of-bounds-exception
+
+force build-string-index-out-of-bounds-exception
+  mount index, field int
+
+  cause invoke-constructor
+    drive constructor, |StringIndexOutOfBoundsException|
+    drive factor, share index
+    throw build, field string-index-out-of-bounds-exception

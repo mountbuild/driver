@@ -1,0 +1,52 @@
+
+force build-measure
+  mount number, field number
+  mount unit, field measure-unit
+
+  cause invoke-constructor
+    drive constructor, |Measure|
+    drive factor, share number
+    drive factor, share unit
+    raise build, field measure
+
+force equals
+  mount build, field measure
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force get-number
+  mount build, field measure
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumber|
+    raise build, field number
+
+force get-unit
+  mount build, field measure
+
+  cause call-method
+    drive object, share build
+    drive method, |getUnit|
+    raise build, field measure-unit
+
+force hash-code
+  mount build, field measure
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force to-string
+  mount build, field measure
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

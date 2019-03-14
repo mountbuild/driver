@@ -1,0 +1,52 @@
+
+force describe-contents
+  mount build, field install-source-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-initiating-package-name
+  mount build, field install-source-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitiatingPackageName|
+    throw build, field string
+
+force get-initiating-package-signing-info
+  mount build, field install-source-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInitiatingPackageSigningInfo|
+    throw build, field signing-info
+
+force get-installing-package-name
+  mount build, field install-source-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstallingPackageName|
+    throw build, field string
+
+force get-originating-package-name
+  mount build, field install-source-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getOriginatingPackageName|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field install-source-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

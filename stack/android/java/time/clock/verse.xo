@@ -1,0 +1,134 @@
+
+force equals
+  mount build, field clock
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force fixed
+  mount build, field clock
+  mount fixed-instant, field instant
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |fixed|
+    drive factor, share fixed-instant
+    drive factor, share zone
+    throw build, field clock
+
+force get-zone
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |getZone|
+    throw build, field zone-id
+
+force hash-code
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force instant
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |instant|
+    throw build, field instant
+
+force millis
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |millis|
+    throw build, field long
+
+force offset
+  mount build, field clock
+  mount base-clock, field clock
+  mount offset-duration, field duration
+
+  cause call-method
+    drive object, share build
+    drive method, |offset|
+    drive factor, share base-clock
+    drive factor, share offset-duration
+    throw build, field clock
+
+force system
+  mount build, field clock
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |system|
+    drive factor, share zone
+    throw build, field clock
+
+force system-default-zone
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |systemDefaultZone|
+    throw build, field clock
+
+force system-utc
+  mount build, field clock
+
+  cause call-method
+    drive object, share build
+    drive method, |systemUTC|
+    throw build, field clock
+
+force tick
+  mount build, field clock
+  mount base-clock, field clock
+  mount tick-duration, field duration
+
+  cause call-method
+    drive object, share build
+    drive method, |tick|
+    drive factor, share base-clock
+    drive factor, share tick-duration
+    throw build, field clock
+
+force tick-minutes
+  mount build, field clock
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |tickMinutes|
+    drive factor, share zone
+    throw build, field clock
+
+force tick-seconds
+  mount build, field clock
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |tickSeconds|
+    drive factor, share zone
+    throw build, field clock
+
+force with-zone
+  mount build, field clock
+  mount zone, field zone-id
+
+  cause call-method
+    drive object, share build
+    drive method, |withZone|
+    drive factor, share zone
+    throw build, field clock

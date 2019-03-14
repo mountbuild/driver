@@ -1,0 +1,85 @@
+
+force build-object
+  cause invoke-constructor
+    drive constructor, |Object|
+    throw build, field object
+
+force equals
+  mount build, field object
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-class
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |getClass|
+    throw build, field class
+
+force hash-code
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force notify
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |notify|
+    throw build, field unit
+
+force notify-all
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyAll|
+    throw build, field unit
+
+force to-string
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force wait
+  mount build, field object
+  mount timeout, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |wait|
+    drive factor, share timeout
+    throw build, field unit
+
+force wait
+  mount build, field object
+  mount timeout, field long
+  mount nanos, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |wait|
+    drive factor, share timeout
+    drive factor, share nanos
+    throw build, field unit
+
+force wait
+  mount build, field object
+
+  cause call-method
+    drive object, share build
+    drive method, |wait|
+    throw build, field unit

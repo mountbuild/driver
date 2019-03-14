@@ -1,0 +1,113 @@
+
+force get-binary-string-encoding
+  cause get-object
+    drive aspect, |Windows.Security.Cryptography.BinaryStringEncoding|
+
+force build-cryptographic-buffer
+  cause invoke-constructor
+    drive constructor, |Windows.Security.Cryptography.CryptographicBuffer|
+
+force compare
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start object1, field windows-storage-streams-ibuffer
+  start object2, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |Compare|
+    drive factor, share object1
+    drive factor, share object2
+
+force convert-binary-to-string
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start encoding, field windows-security-cryptography-binarystringencoding
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertBinaryToString|
+    drive factor, share encoding
+    drive factor, share buffer
+
+force convert-string-to-binary
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start value, field system-string
+  start encoding, field windows-security-cryptography-binarystringencoding
+
+  cause call-method
+    drive object, share build
+    drive method, |ConvertStringToBinary|
+    drive factor, share value
+    drive factor, share encoding
+
+force copy-to-byte-array
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start buffer, field windows-storage-streams-ibuffer
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CopyToByteArray|
+    drive factor, share buffer
+    drive factor, share value
+
+force create-from-byte-array
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateFromByteArray|
+    drive factor, share value
+
+force decode-from-base64-string
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |DecodeFromBase64String|
+    drive factor, share value
+
+force decode-from-hex-string
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |DecodeFromHexString|
+    drive factor, share value
+
+force encode-to-base64-string
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |EncodeToBase64String|
+    drive factor, share buffer
+
+force encode-to-hex-string
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |EncodeToHexString|
+    drive factor, share buffer
+
+force generate-random
+  start build, field windows-security-cryptography-cryptographicbuffer
+  start length, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GenerateRandom|
+    drive factor, share length
+
+force generate-random-number
+  start build, field windows-security-cryptography-cryptographicbuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |GenerateRandomNumber|

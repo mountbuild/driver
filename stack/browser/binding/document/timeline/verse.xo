@@ -1,0 +1,25 @@
+
+force build-document-timeline
+  start options
+
+  cause invoke-constructor
+    mount constructor, |DocumentTimeline|
+    mount factor, share options
+    throw build
+
+force get-current-time
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |currentTime|
+    throw build
+
+force set-current-time
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |currentTime|
+    mount factor, share value

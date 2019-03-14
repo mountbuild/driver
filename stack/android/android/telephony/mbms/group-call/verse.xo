@@ -1,0 +1,100 @@
+
+force get-reason-by-user-request
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_BY_USER_REQUEST|
+    throw build, field int
+
+force get-reason-frequency-conflict
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_FREQUENCY_CONFLICT|
+    throw build, field int
+
+force get-reason-left-mbms-broadcast-area
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_LEFT_MBMS_BROADCAST_AREA|
+    throw build, field int
+
+force get-reason-none
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_NONE|
+    throw build, field int
+
+force get-reason-not-connected-to-homecarrier-lte
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_NOT_CONNECTED_TO_HOMECARRIER_LTE|
+    throw build, field int
+
+force get-reason-out-of-memory
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |REASON_OUT_OF_MEMORY|
+    throw build, field int
+
+force get-state-stalled
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_STALLED|
+    throw build, field int
+
+force get-state-started
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_STARTED|
+    throw build, field int
+
+force get-state-stopped
+  mount build, field group-call
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_STOPPED|
+    throw build, field int
+
+force close
+  mount build, field group-call
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force get-tmgi
+  mount build, field group-call
+
+  cause call-method
+    drive object, share build
+    drive method, |getTmgi|
+    throw build, field long
+
+force update-group-call
+  mount build, field group-call
+  mount sai-list, field mutable-list-int
+  mount frequency-list, field mutable-list-int
+
+  cause call-method
+    drive object, share build
+    drive method, |updateGroupCall|
+    drive factor, share sai-list
+    drive factor, share frequency-list
+    throw build, field unit

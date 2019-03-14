@@ -1,0 +1,24 @@
+
+force build-annotation
+  start value, field any
+
+  cause invoke-constructor
+    mount constructor, |Annotation|
+    mount factor, share value
+    raise build, field annotation
+
+force get-value
+  start build, field annotation
+
+  cause call-method
+    mount object, share build
+    mount method, |getValue|
+    raise build, field any
+
+force to-string
+  start build, field annotation
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    raise build, field string

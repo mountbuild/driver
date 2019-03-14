@@ -1,0 +1,68 @@
+
+force build-math-context
+  mount precision, field int
+
+  cause invoke-constructor
+    drive constructor, |MathContext|
+    drive factor, share precision
+    throw build, field math-context
+
+force build-math-context
+  mount precision, field int
+  mount rounding-mode, field rounding-mode
+
+  cause invoke-constructor
+    drive constructor, |MathContext|
+    drive factor, share precision
+    drive factor, share rounding-mode
+    throw build, field math-context
+
+force build-math-context
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |MathContext|
+    drive factor, share s
+    throw build, field math-context
+
+force equals
+  mount build, field math-context
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-precision
+  mount build, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrecision|
+    throw build, field int
+
+force get-rounding-mode
+  mount build, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoundingMode|
+    throw build, field rounding-mode
+
+force hash-code
+  mount build, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field math-context
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

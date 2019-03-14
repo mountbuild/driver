@@ -1,0 +1,164 @@
+
+force build-simple-adapter
+  mount context, field context
+  mount data, field mutable-list-out-mutable-map-string
+  mount , field undefined
+  mount resource, field int
+  mount from, field array-string
+  mount to, field int-array
+
+  cause invoke-constructor
+    drive constructor, |SimpleAdapter|
+    drive factor, share context
+    drive factor, share data
+    drive factor, share
+    drive factor, share resource
+    drive factor, share from
+    drive factor, share to
+    throw build, field simple-adapter
+
+force get-count
+  mount build, field simple-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getCount|
+    throw build, field int
+
+force get-drop-down-view
+  mount build, field simple-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getDropDownView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-drop-down-view-theme
+  mount build, field simple-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getDropDownViewTheme|
+    throw build, field resources-theme
+
+force get-filter
+  mount build, field simple-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getFilter|
+    throw build, field filter
+
+force get-item
+  mount build, field simple-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItem|
+    drive factor, share position
+    throw build, field any
+
+force get-item-id
+  mount build, field simple-adapter
+  mount position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getItemId|
+    drive factor, share position
+    throw build, field long
+
+force get-view
+  mount build, field simple-adapter
+  mount position, field int
+  mount convert-view, field view
+  mount parent, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getView|
+    drive factor, share position
+    drive factor, share convert-view
+    drive factor, share parent
+    throw build, field view
+
+force get-view-binder
+  mount build, field simple-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getViewBinder|
+    throw build, field simple-adapter-view-binder
+
+force set-drop-down-view-resource
+  mount build, field simple-adapter
+  mount resource, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDropDownViewResource|
+    drive factor, share resource
+    throw build, field unit
+
+force set-drop-down-view-theme
+  mount build, field simple-adapter
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |setDropDownViewTheme|
+    drive factor, share theme
+    throw build, field unit
+
+force set-view-binder
+  mount build, field simple-adapter
+  mount view-binder, field simple-adapter-view-binder
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewBinder|
+    drive factor, share view-binder
+    throw build, field unit
+
+force set-view-image
+  mount build, field simple-adapter
+  mount v, field image-view
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewImage|
+    drive factor, share v
+    drive factor, share value
+    throw build, field unit
+
+force set-view-image
+  mount build, field simple-adapter
+  mount v, field image-view
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewImage|
+    drive factor, share v
+    drive factor, share value
+    throw build, field unit
+
+force set-view-text
+  mount build, field simple-adapter
+  mount v, field text-view
+  mount text, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setViewText|
+    drive factor, share v
+    drive factor, share text
+    throw build, field unit

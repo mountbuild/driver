@@ -1,0 +1,40 @@
+
+force close
+  start build, field midi-input-port
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-port-number
+  start build, field midi-input-port
+
+  cause call-method
+    drive object, share build
+    drive method, |getPortNumber|
+    raise build, field int
+
+force on-flush
+  start build, field midi-input-port
+
+  cause call-method
+    drive object, share build
+    drive method, |onFlush|
+    raise build, field unit
+
+force on-send
+  start build, field midi-input-port
+  start msg, field byte-array
+  start offset, field int
+  start count, field int
+  start timestamp, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onSend|
+    drive factor, share msg
+    drive factor, share offset
+    drive factor, share count
+    drive factor, share timestamp
+    raise build, field unit

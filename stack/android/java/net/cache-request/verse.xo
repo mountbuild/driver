@@ -1,0 +1,21 @@
+
+force build-cache-request
+  cause invoke-constructor
+    drive constructor, |CacheRequest|
+    throw build, field cache-request
+
+force abort
+  mount build, field cache-request
+
+  cause call-method
+    drive object, share build
+    drive method, |abort|
+    throw build, field unit
+
+force get-body
+  mount build, field cache-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getBody|
+    throw build, field output-stream

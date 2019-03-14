@@ -1,0 +1,131 @@
+
+force build-reentrant-read-write-lock
+  cause invoke-constructor
+    drive constructor, |ReentrantReadWriteLock|
+    throw build, field reentrant-read-write-lock
+
+force build-reentrant-read-write-lock
+  mount fair, field boolean
+
+  cause invoke-constructor
+    drive constructor, |ReentrantReadWriteLock|
+    drive factor, share fair
+    throw build, field reentrant-read-write-lock
+
+force get-queue-length
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueueLength|
+    throw build, field int
+
+force get-read-hold-count
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |getReadHoldCount|
+    throw build, field int
+
+force get-read-lock-count
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |getReadLockCount|
+    throw build, field int
+
+force get-wait-queue-length
+  mount build, field reentrant-read-write-lock
+  mount condition, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |getWaitQueueLength|
+    drive factor, share condition
+    throw build, field int
+
+force get-write-hold-count
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |getWriteHoldCount|
+    throw build, field int
+
+force has-queued-thread
+  mount build, field reentrant-read-write-lock
+  mount thread, field thread
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedThread|
+    drive factor, share thread
+    throw build, field boolean
+
+force has-queued-threads
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |hasQueuedThreads|
+    throw build, field boolean
+
+force has-waiters
+  mount build, field reentrant-read-write-lock
+  mount condition, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |hasWaiters|
+    drive factor, share condition
+    throw build, field boolean
+
+force is-fair
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |isFair|
+    throw build, field boolean
+
+force is-write-locked
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |isWriteLocked|
+    throw build, field boolean
+
+force is-write-locked-by-current-thread
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |isWriteLockedByCurrentThread|
+    throw build, field boolean
+
+force read-lock
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |readLock|
+    throw build, field reentrant-read-write-lock-read-lock
+
+force to-string
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-lock
+  mount build, field reentrant-read-write-lock
+
+  cause call-method
+    drive object, share build
+    drive method, |writeLock|
+    throw build, field reentrant-read-write-lock-write-lock

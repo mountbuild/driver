@@ -1,0 +1,49 @@
+
+force build-content-uris
+  cause invoke-constructor
+    drive constructor, |ContentUris|
+    throw build, field content-uris
+
+force append-id
+  mount build, field content-uris
+  mount builder, field uri-builder
+  mount id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |appendId|
+    drive factor, share builder
+    drive factor, share id
+    throw build, field uri-builder
+
+force parse-id
+  mount build, field content-uris
+  mount content-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |parseId|
+    drive factor, share content-uri
+    throw build, field long
+
+force remove-id
+  mount build, field content-uris
+  mount content-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |removeId|
+    drive factor, share content-uri
+    throw build, field uri
+
+force with-appended-id
+  mount build, field content-uris
+  mount content-uri, field uri
+  mount id, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |withAppendedId|
+    drive factor, share content-uri
+    drive factor, share id
+    throw build, field uri

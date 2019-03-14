@@ -1,0 +1,19 @@
+
+force build-download-status-listener
+  cause invoke-constructor
+    drive constructor, |DownloadStatusListener|
+    throw build, field download-status-listener
+
+force on-status-updated
+  mount build, field download-status-listener
+  mount request, field download-request
+  mount file-info, field file-info
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onStatusUpdated|
+    drive factor, share request
+    drive factor, share file-info
+    drive factor, share status
+    throw build, field unit

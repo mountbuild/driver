@@ -1,0 +1,74 @@
+
+force add-to
+  mount build, field chrono-unit
+  mount temporal, field r
+  mount amount, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |addTo|
+    drive factor, share temporal
+    drive factor, share amount
+    throw build, field r
+
+force between
+  mount build, field chrono-unit
+  mount temporal1-inclusive, field temporal
+  mount temporal2-exclusive, field temporal
+
+  cause call-method
+    drive object, share build
+    drive method, |between|
+    drive factor, share temporal1-inclusive
+    drive factor, share temporal2-exclusive
+    throw build, field long
+
+force get-duration
+  mount build, field chrono-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuration|
+    throw build, field duration
+
+force is-date-based
+  mount build, field chrono-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |isDateBased|
+    throw build, field boolean
+
+force is-duration-estimated
+  mount build, field chrono-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |isDurationEstimated|
+    throw build, field boolean
+
+force is-supported-by
+  mount build, field chrono-unit
+  mount temporal, field temporal
+
+  cause call-method
+    drive object, share build
+    drive method, |isSupportedBy|
+    drive factor, share temporal
+    throw build, field boolean
+
+force is-time-based
+  mount build, field chrono-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |isTimeBased|
+    throw build, field boolean
+
+force to-string
+  mount build, field chrono-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

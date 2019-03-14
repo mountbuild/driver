@@ -1,0 +1,41 @@
+
+force get-status-code-fail
+  mount build, field ranging-result-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_CODE_FAIL|
+    throw build, field int
+
+force get-status-code-fail-rtt-not-available
+  mount build, field ranging-result-callback
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_CODE_FAIL_RTT_NOT_AVAILABLE|
+    throw build, field int
+
+force build-ranging-result-callback
+  cause invoke-constructor
+    drive constructor, |RangingResultCallback|
+    throw build, field ranging-result-callback
+
+force on-ranging-failure
+  mount build, field ranging-result-callback
+  mount code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onRangingFailure|
+    drive factor, share code
+    throw build, field unit
+
+force on-ranging-results
+  mount build, field ranging-result-callback
+  mount results, field mutable-list-ranging-result
+
+  cause call-method
+    drive object, share build
+    drive method, |onRangingResults|
+    drive factor, share results
+    throw build, field unit

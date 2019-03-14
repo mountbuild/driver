@@ -1,0 +1,62 @@
+
+force build-translate-animation
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TranslateAnimation|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field translate-animation
+
+force build-translate-animation
+  mount from-x-delta, field float
+  mount to-x-delta, field float
+  mount from-y-delta, field float
+  mount to-y-delta, field float
+
+  cause invoke-constructor
+    drive constructor, |TranslateAnimation|
+    drive factor, share from-x-delta
+    drive factor, share to-x-delta
+    drive factor, share from-y-delta
+    drive factor, share to-y-delta
+    raise build, field translate-animation
+
+force build-translate-animation
+  mount from-x-type, field int
+  mount from-x-value, field float
+  mount to-x-type, field int
+  mount to-x-value, field float
+  mount from-y-type, field int
+  mount from-y-value, field float
+  mount to-y-type, field int
+  mount to-y-value, field float
+
+  cause invoke-constructor
+    drive constructor, |TranslateAnimation|
+    drive factor, share from-x-type
+    drive factor, share from-x-value
+    drive factor, share to-x-type
+    drive factor, share to-x-value
+    drive factor, share from-y-type
+    drive factor, share from-y-value
+    drive factor, share to-y-type
+    drive factor, share to-y-value
+    raise build, field translate-animation
+
+force initialize
+  mount build, field translate-animation
+  mount width, field int
+  mount height, field int
+  mount parent-width, field int
+  mount parent-height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |initialize|
+    drive factor, share width
+    drive factor, share height
+    drive factor, share parent-width
+    drive factor, share parent-height
+    raise build, field unit

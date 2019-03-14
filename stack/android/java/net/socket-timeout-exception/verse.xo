@@ -1,0 +1,13 @@
+
+force build-socket-timeout-exception
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |SocketTimeoutException|
+    drive factor, share msg
+    throw build, field socket-timeout-exception
+
+force build-socket-timeout-exception
+  cause invoke-constructor
+    drive constructor, |SocketTimeoutException|
+    throw build, field socket-timeout-exception

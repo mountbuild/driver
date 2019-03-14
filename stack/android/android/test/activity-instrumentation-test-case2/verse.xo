@@ -1,0 +1,46 @@
+
+force build-activity-instrumentation-test-case2
+  mount pkg, field string
+  mount activity-class, field class-t
+
+  cause invoke-constructor
+    drive constructor, |ActivityInstrumentationTestCase2|
+    drive factor, share pkg
+    drive factor, share activity-class
+    raise build, field activity-instrumentation-test-case2
+
+force build-activity-instrumentation-test-case2
+  mount activity-class, field class-t
+
+  cause invoke-constructor
+    drive constructor, |ActivityInstrumentationTestCase2|
+    drive factor, share activity-class
+    raise build, field activity-instrumentation-test-case2
+
+force get-activity
+  mount build, field activity-instrumentation-test-case2
+
+  cause call-method
+    drive object, share build
+    drive method, |getActivity|
+    raise build, field t
+
+force set-activity-initial-touch-mode
+  mount build, field activity-instrumentation-test-case2
+  mount initial-touch-mode, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setActivityInitialTouchMode|
+    drive factor, share initial-touch-mode
+    raise build, field unit
+
+force set-activity-intent
+  mount build, field activity-instrumentation-test-case2
+  mount i, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |setActivityIntent|
+    drive factor, share i
+    raise build, field unit

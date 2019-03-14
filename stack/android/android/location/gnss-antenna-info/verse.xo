@@ -1,0 +1,60 @@
+
+force describe-contents
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-carrier-frequency-m-hz
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCarrierFrequencyMHz|
+    raise build, field double
+
+force get-phase-center-offset
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhaseCenterOffset|
+    raise build, field gnss-antenna-info-phase-center-offset
+
+force get-phase-center-variation-corrections
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhaseCenterVariationCorrections|
+    raise build, field gnss-antenna-info-spherical-corrections
+
+force get-signal-gain-corrections
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getSignalGainCorrections|
+    raise build, field gnss-antenna-info-spherical-corrections
+
+force to-string
+  mount build, field gnss-antenna-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field gnss-antenna-info
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

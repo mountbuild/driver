@@ -1,0 +1,200 @@
+
+force build-sip-audio-call
+  start context, field context
+  start local-profile, field sip-profile
+
+  cause invoke-constructor
+    drive constructor, |SipAudioCall|
+    drive factor, share context
+    drive factor, share local-profile
+    throw build, field sip-audio-call
+
+force answer-call
+  start build, field sip-audio-call
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |answerCall|
+    drive factor, share timeout
+    throw build, field unit
+
+force attach-call
+  start build, field sip-audio-call
+  start session, field sip-session
+  start session-description, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |attachCall|
+    drive factor, share session
+    drive factor, share session-description
+    throw build, field unit
+
+force close
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force continue-call
+  start build, field sip-audio-call
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |continueCall|
+    drive factor, share timeout
+    throw build, field unit
+
+force end-call
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |endCall|
+    throw build, field unit
+
+force get-local-profile
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocalProfile|
+    throw build, field sip-profile
+
+force get-peer-profile
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |getPeerProfile|
+    throw build, field sip-profile
+
+force get-state
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force hold-call
+  start build, field sip-audio-call
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |holdCall|
+    drive factor, share timeout
+    throw build, field unit
+
+force is-in-call
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |isInCall|
+    throw build, field boolean
+
+force is-muted
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |isMuted|
+    throw build, field boolean
+
+force is-on-hold
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |isOnHold|
+    throw build, field boolean
+
+force make-call
+  start build, field sip-audio-call
+  start peer-profile, field sip-profile
+  start sip-session, field sip-session
+  start timeout, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |makeCall|
+    drive factor, share peer-profile
+    drive factor, share sip-session
+    drive factor, share timeout
+    throw build, field unit
+
+force send-dtmf
+  start build, field sip-audio-call
+  start code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDtmf|
+    drive factor, share code
+    throw build, field unit
+
+force send-dtmf
+  start build, field sip-audio-call
+  start code, field int
+  start result, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |sendDtmf|
+    drive factor, share code
+    drive factor, share result
+    throw build, field unit
+
+force set-listener
+  start build, field sip-audio-call
+  start listener, field sip-audio-call-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setListener|
+    drive factor, share listener
+    throw build, field unit
+
+force set-listener
+  start build, field sip-audio-call
+  start listener, field sip-audio-call-listener
+  start callback-immediately, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setListener|
+    drive factor, share listener
+    drive factor, share callback-immediately
+    throw build, field unit
+
+force set-speaker-mode
+  start build, field sip-audio-call
+  start speaker-mode, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpeakerMode|
+    drive factor, share speaker-mode
+    throw build, field unit
+
+force start-audio
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |startAudio|
+    throw build, field unit
+
+force toggle-mute
+  start build, field sip-audio-call
+
+  cause call-method
+    drive object, share build
+    drive method, |toggleMute|
+    throw build, field unit

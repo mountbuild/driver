@@ -1,0 +1,42 @@
+
+force build-custom-xaml-resource-loader
+  cause invoke-constructor
+    drive constructor, |Windows.UI.Xaml.Resources.CustomXamlResourceLoader|
+
+force get-current
+  mount build, field windows-ui-xaml-resources-customxamlresourceloader
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Current|
+
+force set-current
+  mount build, field windows-ui-xaml-resources-customxamlresourceloader
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Current|
+    drive factor, share value
+
+force ctor
+  mount build, field windows-ui-xaml-resources-customxamlresourceloader
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force get-resource
+  mount build, field windows-ui-xaml-resources-customxamlresourceloader
+  mount resource-id, field system-string
+  mount object-type, field system-string
+  mount property-name, field system-string
+  mount property-type, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResource|
+    drive factor, share resource-id
+    drive factor, share object-type
+    drive factor, share property-name
+    drive factor, share property-type

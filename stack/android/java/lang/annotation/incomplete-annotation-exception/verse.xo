@@ -1,0 +1,26 @@
+
+force build-incomplete-annotation-exception
+  mount annotation-type, field class-out-annotation
+  mount element-name, field string
+
+  cause invoke-constructor
+    drive constructor, |IncompleteAnnotationException|
+    drive factor, share annotation-type
+    drive factor, share element-name
+    throw build, field incomplete-annotation-exception
+
+force annotation-type
+  mount build, field incomplete-annotation-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |annotationType|
+    throw build, field class
+
+force element-name
+  mount build, field incomplete-annotation-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |elementName|
+    throw build, field string

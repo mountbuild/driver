@@ -1,0 +1,38 @@
+
+force describe-contents
+  start build, field usage-events
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-next-event
+  start build, field usage-events
+  start event-out, field usage-events-event
+
+  cause call-method
+    drive object, share build
+    drive method, |getNextEvent|
+    drive factor, share event-out
+    throw build, field boolean
+
+force has-next-event
+  start build, field usage-events
+
+  cause call-method
+    drive object, share build
+    drive method, |hasNextEvent|
+    throw build, field boolean
+
+force write-to-parcel
+  start build, field usage-events
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

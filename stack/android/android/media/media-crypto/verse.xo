@@ -1,0 +1,48 @@
+
+force build-media-crypto
+  start uuid, field uuid
+  start session-id, field byte-array
+
+  cause invoke-constructor
+    drive constructor, |MediaCrypto|
+    drive factor, share uuid
+    drive factor, share session-id
+    raise build, field media-crypto
+
+force is-crypto-scheme-supported
+  start build, field media-crypto
+  start uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |isCryptoSchemeSupported|
+    drive factor, share uuid
+    raise build, field boolean
+
+force release
+  start build, field media-crypto
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force requires-secure-decoder-component
+  start build, field media-crypto
+  start mime, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |requiresSecureDecoderComponent|
+    drive factor, share mime
+    raise build, field boolean
+
+force set-media-drm-session
+  start build, field media-crypto
+  start session-id, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setMediaDrmSession|
+    drive factor, share session-id
+    raise build, field unit

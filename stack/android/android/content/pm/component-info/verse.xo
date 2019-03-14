@@ -1,0 +1,57 @@
+
+force build-component-info
+  cause invoke-constructor
+    drive constructor, |ComponentInfo|
+    throw build, field component-info
+
+force build-component-info
+  mount orig, field component-info
+
+  cause invoke-constructor
+    drive constructor, |ComponentInfo|
+    drive factor, share orig
+    throw build, field component-info
+
+force get-banner-resource
+  mount build, field component-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getBannerResource|
+    throw build, field int
+
+force get-icon-resource
+  mount build, field component-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconResource|
+    throw build, field int
+
+force get-logo-resource
+  mount build, field component-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLogoResource|
+    throw build, field int
+
+force is-enabled
+  mount build, field component-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field component-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

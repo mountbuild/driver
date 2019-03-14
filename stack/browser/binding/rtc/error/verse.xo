@@ -1,0 +1,52 @@
+
+force build-rtc-error
+  start tones
+  start duration
+  start inter-tone-gap
+
+  cause invoke-constructor
+    mount constructor, |RTCError|
+    mount factor, share tones
+    mount factor, share duration
+    mount factor, share inter-tone-gap
+    throw build
+
+force get-error-detail
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |errorDetail|
+    throw build
+
+force get-received-alert
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |receivedAlert|
+    throw build
+
+force get-sctp-cause-code
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sctpCauseCode|
+    throw build
+
+force get-sdp-line-number
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sdpLineNumber|
+    throw build
+
+force get-sent-alert
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sentAlert|
+    throw build

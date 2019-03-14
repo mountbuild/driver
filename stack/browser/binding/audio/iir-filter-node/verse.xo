@@ -1,0 +1,24 @@
+
+force build-iir-filter-node
+  start context
+  start options
+
+  cause invoke-constructor
+    mount constructor, |IIRFilterNode|
+    mount factor, share context
+    mount factor, share options
+    throw build
+
+force get-frequency-response
+  start build
+  start frequency-array
+  start mag-response-output
+  start phase-response-output
+
+  cause call-method
+    mount object, share build
+    mount method, |getFrequencyResponse|
+    mount factor, share frequency-array
+    mount factor, share mag-response-output
+    mount factor, share phase-response-output
+    throw build

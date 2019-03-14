@@ -1,0 +1,215 @@
+
+force get-domain-name-type
+  cause get-object
+    drive aspect, |Windows.Networking.DomainNameType|
+
+force build-endpoint-pair
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.EndpointPair|
+
+force ctor
+  start build, field windows-networking-endpointpair
+  start local-host-name, field windows-networking-hostname
+  start local-service-name, field system-string
+  start remote-host-name, field windows-networking-hostname
+  start remote-service-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share local-host-name
+    drive factor, share local-service-name
+    drive factor, share remote-host-name
+    drive factor, share remote-service-name
+
+force get-local-host-name
+  start build, field windows-networking-endpointpair
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LocalHostName|
+
+force set-local-host-name
+  start build, field windows-networking-endpointpair
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LocalHostName|
+    drive factor, share value
+
+force get-local-service-name
+  start build, field windows-networking-endpointpair
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LocalServiceName|
+
+force set-local-service-name
+  start build, field windows-networking-endpointpair
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LocalServiceName|
+    drive factor, share value
+
+force get-remote-host-name
+  start build, field windows-networking-endpointpair
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemoteHostName|
+
+force set-remote-host-name
+  start build, field windows-networking-endpointpair
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemoteHostName|
+    drive factor, share value
+
+force get-remote-service-name
+  start build, field windows-networking-endpointpair
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RemoteServiceName|
+
+force set-remote-service-name
+  start build, field windows-networking-endpointpair
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RemoteServiceName|
+    drive factor, share value
+
+force build-host-name
+  cause invoke-constructor
+    drive constructor, |Windows.Networking.HostName|
+
+force get-canonical-name
+  start build, field windows-networking-hostname
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CanonicalName|
+
+force set-canonical-name
+  start build, field windows-networking-hostname
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CanonicalName|
+    drive factor, share value
+
+force compare
+  start build, field windows-networking-hostname
+  start value1, field system-string
+  start value2, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |Compare|
+    drive factor, share value1
+    drive factor, share value2
+
+force get-display-name
+  start build, field windows-networking-hostname
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+
+force set-display-name
+  start build, field windows-networking-hostname
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayName|
+    drive factor, share value
+
+force ctor
+  start build, field windows-networking-hostname
+  start host-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share host-name
+
+force get-i-p-information
+  start build, field windows-networking-hostname
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IPInformation|
+
+force set-i-p-information
+  start build, field windows-networking-hostname
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IPInformation|
+    drive factor, share value
+
+force is-equal
+  start build, field windows-networking-hostname
+  start host-name, field windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |IsEqual|
+    drive factor, share host-name
+
+force get-raw-name
+  start build, field windows-networking-hostname
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RawName|
+
+force set-raw-name
+  start build, field windows-networking-hostname
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RawName|
+    drive factor, share value
+
+force to-string
+  start build, field windows-networking-hostname
+
+  cause call-method
+    drive object, share build
+    drive method, |ToString|
+
+force get-type
+  start build, field windows-networking-hostname
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-networking-hostname
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-host-name-sort-options
+  cause get-object
+    drive aspect, |Windows.Networking.HostNameSortOptions|
+
+force get-host-name-type
+  cause get-object
+    drive aspect, |Windows.Networking.HostNameType|

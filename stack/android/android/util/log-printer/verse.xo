@@ -1,0 +1,20 @@
+
+force build-log-printer
+  mount priority, field int
+  mount tag, field string
+
+  cause invoke-constructor
+    drive constructor, |LogPrinter|
+    drive factor, share priority
+    drive factor, share tag
+    throw build, field log-printer
+
+force println
+  mount build, field log-printer
+  mount x, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |println|
+    drive factor, share x
+    throw build, field unit

@@ -1,0 +1,127 @@
+
+force build-printer-discovery-session
+  cause invoke-constructor
+    drive constructor, |PrinterDiscoverySession|
+    throw build, field printer-discovery-session
+
+force add-printers
+  mount build, field printer-discovery-session
+  mount printers, field mutable-list-printer-info
+
+  cause call-method
+    drive object, share build
+    drive method, |addPrinters|
+    drive factor, share printers
+    throw build, field unit
+
+force get-printers
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrinters|
+    throw build, field mutable-list
+
+force get-tracked-printers
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |getTrackedPrinters|
+    throw build, field mutable-list
+
+force is-destroyed
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isDestroyed|
+    throw build, field boolean
+
+force is-printer-discovery-started
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |isPrinterDiscoveryStarted|
+    throw build, field boolean
+
+force on-destroy
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    throw build, field unit
+
+force on-request-custom-printer-icon
+  mount build, field printer-discovery-session
+  mount printer-id, field printer-id
+  mount cancellation-signal, field cancellation-signal
+  mount callback, field custom-printer-icon-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onRequestCustomPrinterIcon|
+    drive factor, share printer-id
+    drive factor, share cancellation-signal
+    drive factor, share callback
+    throw build, field unit
+
+force on-start-printer-discovery
+  mount build, field printer-discovery-session
+  mount priority-list, field mutable-list-printer-id
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartPrinterDiscovery|
+    drive factor, share priority-list
+    throw build, field unit
+
+force on-start-printer-state-tracking
+  mount build, field printer-discovery-session
+  mount printer-id, field printer-id
+
+  cause call-method
+    drive object, share build
+    drive method, |onStartPrinterStateTracking|
+    drive factor, share printer-id
+    throw build, field unit
+
+force on-stop-printer-discovery
+  mount build, field printer-discovery-session
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopPrinterDiscovery|
+    throw build, field unit
+
+force on-stop-printer-state-tracking
+  mount build, field printer-discovery-session
+  mount printer-id, field printer-id
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopPrinterStateTracking|
+    drive factor, share printer-id
+    throw build, field unit
+
+force on-validate-printers
+  mount build, field printer-discovery-session
+  mount printer-ids, field mutable-list-printer-id
+
+  cause call-method
+    drive object, share build
+    drive method, |onValidatePrinters|
+    drive factor, share printer-ids
+    throw build, field unit
+
+force remove-printers
+  mount build, field printer-discovery-session
+  mount printer-ids, field mutable-list-printer-id
+
+  cause call-method
+    drive object, share build
+    drive method, |removePrinters|
+    drive factor, share printer-ids
+    throw build, field unit

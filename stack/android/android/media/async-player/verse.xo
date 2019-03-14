@@ -1,0 +1,48 @@
+
+force build-async-player
+  mount tag, field string
+
+  cause invoke-constructor
+    drive constructor, |AsyncPlayer|
+    drive factor, share tag
+    raise build, field async-player
+
+force play
+  mount build, field async-player
+  mount context, field context
+  mount uri, field uri
+  mount looping, field boolean
+  mount stream, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    drive factor, share context
+    drive factor, share uri
+    drive factor, share looping
+    drive factor, share stream
+    raise build, field unit
+
+force play
+  mount build, field async-player
+  mount context, field context
+  mount uri, field uri
+  mount looping, field boolean
+  mount attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    drive factor, share context
+    drive factor, share uri
+    drive factor, share looping
+    drive factor, share attributes
+    raise build, field unit
+
+force stop
+  mount build, field async-player
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit

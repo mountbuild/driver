@@ -1,0 +1,122 @@
+
+force build-game-service
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.System.UserProfile.GameServices.Core.GameService|
+
+force get-authentication-status
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAuthenticationStatus|
+
+force get-gamer-profile-async
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetGamerProfileAsync|
+
+force get-installed-game-items-async
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInstalledGameItemsAsync|
+
+force get-partner-token-async
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start audience-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPartnerTokenAsync|
+    drive factor, share audience-uri
+
+force get-privileges-async
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPrivilegesAsync|
+
+force grant-achievement
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start achievement-id, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GrantAchievement|
+    drive factor, share achievement-id
+
+force grant-avatar-award
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start avatar-award-id, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GrantAvatarAward|
+    drive factor, share avatar-award-id
+
+force notify-partner-token-expired
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start audience-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |NotifyPartnerTokenExpired|
+    drive factor, share audience-uri
+
+force post-result
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start game-variant, field system-uint32
+  start score-kind, field windows-phone-system-userprofile-gameservices-core-gameservicescorekind
+  start score-value, field system-int64
+  start game-outcome, field windows-phone-system-userprofile-gameservices-core-gameservicegameoutcome
+  start buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |PostResult|
+    drive factor, share game-variant
+    drive factor, share score-kind
+    drive factor, share score-value
+    drive factor, share game-outcome
+    drive factor, share buffer
+
+force get-service-uri
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ServiceUri|
+
+force set-service-uri
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ServiceUri|
+    drive factor, share value
+
+force get-game-service-game-outcome
+  cause get-object
+    drive aspect, |Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome|
+
+force build-game-service-property-collection
+  cause invoke-constructor
+    drive constructor, |Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection|
+
+force get-property-async
+  start build, field windows-phone-system-userprofile-gameservices-core-gameservicepropertycollection
+  start property-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPropertyAsync|
+    drive factor, share property-name
+
+force get-game-service-score-kind
+  cause get-object
+    drive aspect, |Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind|

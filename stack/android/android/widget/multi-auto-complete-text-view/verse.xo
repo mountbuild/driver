@@ -1,0 +1,78 @@
+
+force build-multi-auto-complete-text-view
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |MultiAutoCompleteTextView|
+    drive factor, share context
+    throw build, field multi-auto-complete-text-view
+
+force build-multi-auto-complete-text-view
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |MultiAutoCompleteTextView|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field multi-auto-complete-text-view
+
+force build-multi-auto-complete-text-view
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |MultiAutoCompleteTextView|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field multi-auto-complete-text-view
+
+force build-multi-auto-complete-text-view
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |MultiAutoCompleteTextView|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field multi-auto-complete-text-view
+
+force enough-to-filter
+  mount build, field multi-auto-complete-text-view
+
+  cause call-method
+    drive object, share build
+    drive method, |enoughToFilter|
+    throw build, field boolean
+
+force get-accessibility-class-name
+  mount build, field multi-auto-complete-text-view
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force perform-validation
+  mount build, field multi-auto-complete-text-view
+
+  cause call-method
+    drive object, share build
+    drive method, |performValidation|
+    throw build, field unit
+
+force set-tokenizer
+  mount build, field multi-auto-complete-text-view
+  mount t, field multi-auto-complete-text-view-tokenizer
+
+  cause call-method
+    drive object, share build
+    drive method, |setTokenizer|
+    drive factor, share t
+    throw build, field unit

@@ -1,0 +1,58 @@
+
+force build-scale-drawable
+  mount drawable, field drawable
+  mount gravity, field int
+  mount scale-width, field float
+  mount scale-height, field float
+
+  cause invoke-constructor
+    drive constructor, |ScaleDrawable|
+    drive factor, share drawable
+    drive factor, share gravity
+    drive factor, share scale-width
+    drive factor, share scale-height
+    raise build, field scale-drawable
+
+force apply-theme
+  mount build, field scale-drawable
+  mount t, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |applyTheme|
+    drive factor, share t
+    raise build, field unit
+
+force draw
+  mount build, field scale-drawable
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    raise build, field unit
+
+force get-opacity
+  mount build, field scale-drawable
+
+  cause call-method
+    drive object, share build
+    drive method, |getOpacity|
+    raise build, field int
+
+force inflate
+  mount build, field scale-drawable
+  mount r, field resources
+  mount parser, field xml-pull-parser
+  mount attrs, field attribute-set
+  mount theme, field resources-theme
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share r
+    drive factor, share parser
+    drive factor, share attrs
+    drive factor, share theme
+    raise build, field unit

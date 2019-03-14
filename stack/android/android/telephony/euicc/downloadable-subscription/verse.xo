@@ -1,0 +1,46 @@
+
+force describe-contents
+  mount build, field downloadable-subscription
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force for-activation-code
+  mount build, field downloadable-subscription
+  mount encoded-activation-code, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |forActivationCode|
+    drive factor, share encoded-activation-code
+    throw build, field downloadable-subscription
+
+force get-confirmation-code
+  mount build, field downloadable-subscription
+
+  cause call-method
+    drive object, share build
+    drive method, |getConfirmationCode|
+    throw build, field string
+
+force get-encoded-activation-code
+  mount build, field downloadable-subscription
+
+  cause call-method
+    drive object, share build
+    drive method, |getEncodedActivationCode|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field downloadable-subscription
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

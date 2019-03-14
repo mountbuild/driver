@@ -1,0 +1,16 @@
+
+force build-stateless-template
+  mount template-id, field string
+
+  cause invoke-constructor
+    drive constructor, |StatelessTemplate|
+    drive factor, share template-id
+    raise build, field stateless-template
+
+force get-template-type
+  mount build, field stateless-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplateType|
+    raise build, field int

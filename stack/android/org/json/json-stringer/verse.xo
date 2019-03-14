@@ -1,0 +1,95 @@
+
+force build-json-stringer
+  cause invoke-constructor
+    drive constructor, |JSONStringer|
+    throw build, field json-stringer
+
+force array
+  mount build, field json-stringer
+
+  cause call-method
+    drive object, share build
+    drive method, |array|
+    throw build, field json-stringer
+
+force end-array
+  mount build, field json-stringer
+
+  cause call-method
+    drive object, share build
+    drive method, |endArray|
+    throw build, field json-stringer
+
+force end-object
+  mount build, field json-stringer
+
+  cause call-method
+    drive object, share build
+    drive method, |endObject|
+    throw build, field json-stringer
+
+force key
+  mount build, field json-stringer
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |key|
+    drive factor, share name
+    throw build, field json-stringer
+
+force object
+  mount build, field json-stringer
+
+  cause call-method
+    drive object, share build
+    drive method, |object|
+    throw build, field json-stringer
+
+force to-string
+  mount build, field json-stringer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force value
+  mount build, field json-stringer
+  mount value, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor, share value
+    throw build, field json-stringer
+
+force value
+  mount build, field json-stringer
+  mount value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor, share value
+    throw build, field json-stringer
+
+force value
+  mount build, field json-stringer
+  mount value, field double
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor, share value
+    throw build, field json-stringer
+
+force value
+  mount build, field json-stringer
+  mount value, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor, share value
+    throw build, field json-stringer

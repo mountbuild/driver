@@ -1,0 +1,206 @@
+
+force build-component-name
+  mount pkg, field string
+  mount cls, field string
+
+  cause invoke-constructor
+    drive constructor, |ComponentName|
+    drive factor, share pkg
+    drive factor, share cls
+    throw build, field component-name
+
+force build-component-name
+  mount pkg, field context
+  mount cls, field string
+
+  cause invoke-constructor
+    drive constructor, |ComponentName|
+    drive factor, share pkg
+    drive factor, share cls
+    throw build, field component-name
+
+force build-component-name
+  mount pkg, field context
+  mount cls, field class
+
+  cause invoke-constructor
+    drive constructor, |ComponentName|
+    drive factor, share pkg
+    drive factor, share cls
+    throw build, field component-name
+
+force build-component-name
+  mount in, field parcel
+
+  cause invoke-constructor
+    drive constructor, |ComponentName|
+    drive factor, share in
+    throw build, field component-name
+
+force clone
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field component-name
+
+force compare-to
+  mount build, field component-name
+  mount other, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |compareTo|
+    drive factor, share other
+    throw build, field int
+
+force create-relative
+  mount build, field component-name
+  mount pkg, field string
+  mount cls, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createRelative|
+    drive factor, share pkg
+    drive factor, share cls
+    throw build, field component-name
+
+force create-relative
+  mount build, field component-name
+  mount pkg, field context
+  mount cls, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createRelative|
+    drive factor, share pkg
+    drive factor, share cls
+    throw build, field component-name
+
+force describe-contents
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field component-name
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force flatten-to-short-string
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |flattenToShortString|
+    throw build, field string
+
+force flatten-to-string
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |flattenToString|
+    throw build, field string
+
+force get-class-name
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getClassName|
+    throw build, field string
+
+force get-package-name
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getPackageName|
+    throw build, field string
+
+force get-short-class-name
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getShortClassName|
+    throw build, field string
+
+force hash-code
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force read-from-parcel
+  mount build, field component-name
+  mount in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readFromParcel|
+    drive factor, share in
+    throw build, field component-name
+
+force to-short-string
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |toShortString|
+    throw build, field string
+
+force to-string
+  mount build, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force unflatten-from-string
+  mount build, field component-name
+  mount str, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |unflattenFromString|
+    drive factor, share str
+    throw build, field component-name
+
+force write-to-parcel
+  mount build, field component-name
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field component-name
+  mount c, field component-name
+  mount out, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share c
+    drive factor, share out
+    throw build, field unit

@@ -1,0 +1,39 @@
+
+force build-formatter
+  cause invoke-constructor
+    drive constructor, |Formatter|
+    raise build, field formatter
+
+force format-file-size
+  mount build, field formatter
+  mount context, field context
+  mount size-bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |formatFileSize|
+    drive factor, share context
+    drive factor, share size-bytes
+    raise build, field string
+
+force format-ip-address
+  mount build, field formatter
+  mount ipv4-address, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formatIpAddress|
+    drive factor, share ipv4-address
+    raise build, field string
+
+force format-short-file-size
+  mount build, field formatter
+  mount context, field context
+  mount size-bytes, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |formatShortFileSize|
+    drive factor, share context
+    drive factor, share size-bytes
+    raise build, field string

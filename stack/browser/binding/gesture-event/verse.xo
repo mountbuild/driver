@@ -1,0 +1,33 @@
+
+force build-gesture-event
+  start id
+
+  cause invoke-constructor
+    mount constructor, |GestureEvent|
+    mount factor, share id
+    throw build
+
+force get-rotation
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rotation|
+    throw build
+
+force get-scale
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |scale|
+    throw build
+
+force init-gesture-event
+  start build
+  start id
+
+  cause call-method
+    mount object, share build
+    mount method, |initGestureEvent|
+    mount factor, share id

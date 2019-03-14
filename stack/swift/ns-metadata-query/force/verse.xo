@@ -1,0 +1,400 @@
+force get-search-scopes
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |searchScopes|
+    raise build, field any
+
+force set-search-scopes
+  field build, field ns-metadata-query
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |searchScopes|
+    drive factor, share value
+
+force get-predicate
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |predicate|
+    raise build, field ns-predicate
+
+force set-predicate
+  field build, field ns-metadata-query
+  field value, field ns-predicate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |predicate|
+    drive factor, share value
+
+force get-sort-descriptors
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |sortDescriptors|
+    raise build, field ns-sort-descriptor
+
+force set-sort-descriptors
+  field build, field ns-metadata-query
+  field value, field ns-sort-descriptor
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |sortDescriptors|
+    drive factor, share value
+
+force get-value-list-attributes
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |valueListAttributes|
+    raise build, field string
+
+force set-value-list-attributes
+  field build, field ns-metadata-query
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |valueListAttributes|
+    drive factor, share value
+
+force get-grouping-attributes
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |groupingAttributes|
+    raise build, field string
+
+force set-grouping-attributes
+  field build, field ns-metadata-query
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |groupingAttributes|
+    drive factor, share value
+
+force get-notification-batching-interval
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |notificationBatchingInterval|
+    raise build, field time-interval
+
+force set-notification-batching-interval
+  field build, field ns-metadata-query
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |notificationBatchingInterval|
+    drive factor, share value
+
+force get-delegate
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    raise build, field ns-metadata-query-delegate
+
+force set-delegate
+  field build, field ns-metadata-query
+  field value, field ns-metadata-query-delegate
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |delegate|
+    drive factor, share value
+
+force get-search-items
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |searchItems|
+    raise build, field any
+
+force set-search-items
+  field build, field ns-metadata-query
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |searchItems|
+    drive factor, share value
+
+force get-is-started
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isStarted|
+    raise build, field bool
+
+force set-is-started
+  field build, field ns-metadata-query
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isStarted|
+    drive factor, share value
+
+force start
+  field build, field ns-metadata-query
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, class bool
+
+force get-is-gathering
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isGathering|
+    raise build, field bool
+
+force set-is-gathering
+  field build, field ns-metadata-query
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isGathering|
+    drive factor, share value
+
+force get-is-stopped
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isStopped|
+    raise build, field bool
+
+force set-is-stopped
+  field build, field ns-metadata-query
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isStopped|
+    drive factor, share value
+
+force stop
+  field build, field ns-metadata-query
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+
+force get-results
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |results|
+    raise build, field any
+
+force set-results
+  field build, field ns-metadata-query
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |results|
+    drive factor, share value
+
+force get-result-count
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |resultCount|
+    raise build, field int
+
+force set-result-count
+  field build, field ns-metadata-query
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |resultCount|
+    drive factor, share value
+
+force result
+  field build, field ns-metadata-query
+  field at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |result|
+    drive factor
+      brand at
+      share at
+    raise build, class any
+
+force index
+  field build, field ns-metadata-query
+  field of-result, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |index|
+    drive factor
+      brand of-result
+      share of-result
+    raise build, class int
+
+force get-grouped-results
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |groupedResults|
+    raise build, field ns-metadata-query-result-group
+
+force set-grouped-results
+  field build, field ns-metadata-query
+  field value, field ns-metadata-query-result-group
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |groupedResults|
+    drive factor, share value
+
+force get-value-lists
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |valueLists|
+    raise build, field string
+
+force set-value-lists
+  field build, field ns-metadata-query
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |valueLists|
+    drive factor, share value
+
+force value
+  field build, field ns-metadata-query
+  field of-attribute, field string
+  field for-result-at, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |value|
+    drive factor
+      brand of-attribute
+      share of-attribute
+    drive factor
+      brand for-result-at
+      share for-result-at
+    raise build, class any
+
+force enable-updates
+  field build, field ns-metadata-query
+
+  cause call-method
+    drive object, share build
+    drive method, |enableUpdates|
+
+force disable-updates
+  field build, field ns-metadata-query
+
+  cause call-method
+    drive object, share build
+    drive method, |disableUpdates|
+
+force get-operation-queue
+  field build, field ns-metadata-query
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |operationQueue|
+    raise build, field operation-queue
+
+force set-operation-queue
+  field build, field ns-metadata-query
+  field value, field operation-queue
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |operationQueue|
+    drive factor, share value
+
+force get-static-ns-metadata-query-did-finish-gathering
+
+  cause get-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidFinishGathering|
+    raise build, field NSNotification.Name
+
+force set-static-ns-metadata-query-did-finish-gathering
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidFinishGathering|
+    drive factor, share value
+
+force get-static-ns-metadata-query-did-start-gathering
+
+  cause get-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidStartGathering|
+    raise build, field NSNotification.Name
+
+force set-static-ns-metadata-query-did-start-gathering
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidStartGathering|
+    drive factor, share value
+
+force get-static-ns-metadata-query-did-update
+
+  cause get-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidUpdate|
+    raise build, field NSNotification.Name
+
+force set-static-ns-metadata-query-did-update
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryDidUpdate|
+    drive factor, share value
+
+force get-static-ns-metadata-query-gathering-progress
+
+  cause get-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryGatheringProgress|
+    raise build, field NSNotification.Name
+
+force set-static-ns-metadata-query-gathering-progress
+  field value, field NSNotification.Name
+
+  cause set-aspect
+    drive object, |NSMetadataQuery|
+    drive aspect, |NSMetadataQueryGatheringProgress|
+    drive factor, share value

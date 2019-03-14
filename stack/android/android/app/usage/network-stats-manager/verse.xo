@@ -1,0 +1,168 @@
+
+force query-details
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |queryDetails|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    throw build, field network-stats
+
+force query-details-for-uid
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+  start uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queryDetailsForUid|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    drive factor, share uid
+    throw build, field network-stats
+
+force query-details-for-uid-tag
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+  start uid, field int
+  start tag, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queryDetailsForUidTag|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    drive factor, share uid
+    drive factor, share tag
+    throw build, field network-stats
+
+force query-details-for-uid-tag-state
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+  start uid, field int
+  start tag, field int
+  start state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queryDetailsForUidTagState|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    drive factor, share uid
+    drive factor, share tag
+    drive factor, share state
+    throw build, field network-stats
+
+force query-summary
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |querySummary|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    throw build, field network-stats
+
+force query-summary-for-device
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |querySummaryForDevice|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    throw build, field network-stats-bucket
+
+force query-summary-for-user
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start start-time, field long
+  start end-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |querySummaryForUser|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share start-time
+    drive factor, share end-time
+    throw build, field network-stats-bucket
+
+force register-usage-callback
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start threshold-bytes, field long
+  start callback, field network-stats-manager-usage-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerUsageCallback|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share threshold-bytes
+    drive factor, share callback
+    throw build, field unit
+
+force register-usage-callback
+  start build, field network-stats-manager
+  start network-type, field int
+  start subscriber-id, field string
+  start threshold-bytes, field long
+  start callback, field network-stats-manager-usage-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerUsageCallback|
+    drive factor, share network-type
+    drive factor, share subscriber-id
+    drive factor, share threshold-bytes
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force unregister-usage-callback
+  start build, field network-stats-manager
+  start callback, field network-stats-manager-usage-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterUsageCallback|
+    drive factor, share callback
+    throw build, field unit

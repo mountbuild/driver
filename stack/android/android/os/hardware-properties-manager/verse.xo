@@ -1,0 +1,100 @@
+
+force get-device-temperature-battery
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TEMPERATURE_BATTERY|
+    raise build, field int
+
+force get-device-temperature-cpu
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TEMPERATURE_CPU|
+    raise build, field int
+
+force get-device-temperature-gpu
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TEMPERATURE_GPU|
+    raise build, field int
+
+force get-device-temperature-skin
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TEMPERATURE_SKIN|
+    raise build, field int
+
+force get-temperature-current
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPERATURE_CURRENT|
+    raise build, field int
+
+force get-temperature-shutdown
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPERATURE_SHUTDOWN|
+    raise build, field int
+
+force get-temperature-throttling
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPERATURE_THROTTLING|
+    raise build, field int
+
+force get-temperature-throttling-below-vr-min
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TEMPERATURE_THROTTLING_BELOW_VR_MIN|
+    raise build, field int
+
+force get-undefined-temperature
+  mount build, field hardware-properties-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |UNDEFINED_TEMPERATURE|
+    raise build, field float
+
+force get-cpu-usages
+  mount build, field hardware-properties-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCpuUsages|
+    raise build, field array
+
+force get-device-temperatures
+  mount build, field hardware-properties-manager
+  mount type, field int
+  mount source, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceTemperatures|
+    drive factor, share type
+    drive factor, share source
+    raise build, field float-array
+
+force get-fan-speeds
+  mount build, field hardware-properties-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getFanSpeeds|
+    raise build, field float-array

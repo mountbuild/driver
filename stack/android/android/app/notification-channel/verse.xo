@@ -1,0 +1,370 @@
+
+force get-default-channel-id
+  start build, field notification-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |DEFAULT_CHANNEL_ID|
+    throw build, field string
+
+force build-notification-channel
+  start id, field string
+  start name, field char-sequence
+  start importance, field int
+
+  cause invoke-constructor
+    drive constructor, |NotificationChannel|
+    drive factor, share id
+    drive factor, share name
+    drive factor, share importance
+    throw build, field notification-channel
+
+force can-bubble
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |canBubble|
+    throw build, field boolean
+
+force can-bypass-dnd
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |canBypassDnd|
+    throw build, field boolean
+
+force can-show-badge
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |canShowBadge|
+    throw build, field boolean
+
+force describe-contents
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force enable-lights
+  start build, field notification-channel
+  start lights, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enableLights|
+    drive factor, share lights
+    throw build, field unit
+
+force enable-vibration
+  start build, field notification-channel
+  start vibration, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enableVibration|
+    drive factor, share vibration
+    throw build, field unit
+
+force equals
+  start build, field notification-channel
+  start other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-audio-attributes
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getAudioAttributes|
+    throw build, field audio-attributes
+
+force get-conversation-id
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getConversationId|
+    throw build, field string
+
+force get-description
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field string
+
+force get-group
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getGroup|
+    throw build, field string
+
+force get-id
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force get-importance
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getImportance|
+    throw build, field int
+
+force get-light-color
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getLightColor|
+    throw build, field int
+
+force get-lockscreen-visibility
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getLockscreenVisibility|
+    throw build, field int
+
+force get-name
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    throw build, field char-sequence
+
+force get-parent-channel-id
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getParentChannelId|
+    throw build, field string
+
+force get-sound
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getSound|
+    throw build, field uri
+
+force get-vibration-pattern
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |getVibrationPattern|
+    throw build, field long-array
+
+force has-user-set-importance
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |hasUserSetImportance|
+    throw build, field boolean
+
+force has-user-set-sound
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |hasUserSetSound|
+    throw build, field boolean
+
+force hash-code
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-important-conversation
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |isImportantConversation|
+    throw build, field boolean
+
+force set-allow-bubbles
+  start build, field notification-channel
+  start allow-bubbles, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAllowBubbles|
+    drive factor, share allow-bubbles
+    throw build, field unit
+
+force set-bypass-dnd
+  start build, field notification-channel
+  start bypass-dnd, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setBypassDnd|
+    drive factor, share bypass-dnd
+    throw build, field unit
+
+force set-conversation-id
+  start build, field notification-channel
+  start parent-channel-id, field string
+  start conversation-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setConversationId|
+    drive factor, share parent-channel-id
+    drive factor, share conversation-id
+    throw build, field unit
+
+force set-description
+  start build, field notification-channel
+  start description, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setDescription|
+    drive factor, share description
+    throw build, field unit
+
+force set-group
+  start build, field notification-channel
+  start group-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setGroup|
+    drive factor, share group-id
+    throw build, field unit
+
+force set-importance
+  start build, field notification-channel
+  start importance, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setImportance|
+    drive factor, share importance
+    throw build, field unit
+
+force set-light-color
+  start build, field notification-channel
+  start argb, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLightColor|
+    drive factor, share argb
+    throw build, field unit
+
+force set-lockscreen-visibility
+  start build, field notification-channel
+  start lockscreen-visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLockscreenVisibility|
+    drive factor, share lockscreen-visibility
+    throw build, field unit
+
+force set-name
+  start build, field notification-channel
+  start name, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setName|
+    drive factor, share name
+    throw build, field unit
+
+force set-show-badge
+  start build, field notification-channel
+  start show-badge, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setShowBadge|
+    drive factor, share show-badge
+    throw build, field unit
+
+force set-sound
+  start build, field notification-channel
+  start sound, field uri
+  start audio-attributes, field audio-attributes
+
+  cause call-method
+    drive object, share build
+    drive method, |setSound|
+    drive factor, share sound
+    drive factor, share audio-attributes
+    throw build, field unit
+
+force set-vibration-pattern
+  start build, field notification-channel
+  start vibration-pattern, field long-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setVibrationPattern|
+    drive factor, share vibration-pattern
+    throw build, field unit
+
+force should-show-lights
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldShowLights|
+    throw build, field boolean
+
+force should-vibrate
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |shouldVibrate|
+    throw build, field boolean
+
+force to-string
+  start build, field notification-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  start build, field notification-channel
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

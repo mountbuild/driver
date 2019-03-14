@@ -1,0 +1,98 @@
+force get-delegate
+  field build, field ns-speech-recognizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    raise build, field ns-speech-recognizer-delegate
+
+force set-delegate
+  field build, field ns-speech-recognizer
+  field value, field ns-speech-recognizer-delegate
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    mount factor, share value
+
+force get-commands
+  field build, field ns-speech-recognizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |commands|
+    raise build, field string
+
+force set-commands
+  field build, field ns-speech-recognizer
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |commands|
+    mount factor, share value
+
+force get-displayed-commands-title
+  field build, field ns-speech-recognizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |displayedCommandsTitle|
+    raise build, field string
+
+force set-displayed-commands-title
+  field build, field ns-speech-recognizer
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |displayedCommandsTitle|
+    mount factor, share value
+
+force get-listens-in-foreground-only
+  field build, field ns-speech-recognizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |listensInForegroundOnly|
+    raise build, field bool
+
+force set-listens-in-foreground-only
+  field build, field ns-speech-recognizer
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |listensInForegroundOnly|
+    mount factor, share value
+
+force get-blocks-other-recognizers
+  field build, field ns-speech-recognizer
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |blocksOtherRecognizers|
+    raise build, field bool
+
+force set-blocks-other-recognizers
+  field build, field ns-speech-recognizer
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |blocksOtherRecognizers|
+    mount factor, share value
+
+force start-listening
+  field build, field ns-speech-recognizer
+
+  cause call-method
+    mount object, share build
+    mount method, |startListening|
+
+force stop-listening
+  field build, field ns-speech-recognizer
+
+  cause call-method
+    mount object, share build
+    mount method, |stopListening|

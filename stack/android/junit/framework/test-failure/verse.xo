@@ -1,0 +1,58 @@
+
+force build-test-failure
+  start failed-test, field test
+  start thrown-exception, field throwable
+
+  cause invoke-constructor
+    drive constructor, |TestFailure|
+    drive factor, share failed-test
+    drive factor, share thrown-exception
+    throw build, field test-failure
+
+force exception-message
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |exceptionMessage|
+    throw build, field string
+
+force failed-test
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |failedTest|
+    throw build, field test
+
+force is-failure
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |isFailure|
+    throw build, field boolean
+
+force thrown-exception
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |thrownException|
+    throw build, field throwable
+
+force to-string
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force trace
+  start build, field test-failure
+
+  cause call-method
+    drive object, share build
+    drive method, |trace|
+    throw build, field string

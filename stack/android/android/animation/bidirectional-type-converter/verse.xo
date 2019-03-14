@@ -1,0 +1,28 @@
+
+force build-bidirectional-type-converter
+  mount from-class, field class-t
+  mount to-class, field class-v
+
+  cause invoke-constructor
+    drive constructor, |BidirectionalTypeConverter|
+    drive factor, share from-class
+    drive factor, share to-class
+    throw build, field bidirectional-type-converter
+
+force convert-back
+  mount build, field bidirectional-type-converter
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |convertBack|
+    drive factor, share value
+    throw build, field t
+
+force invert
+  mount build, field bidirectional-type-converter
+
+  cause call-method
+    drive object, share build
+    drive method, |invert|
+    throw build, field bidirectional-type-converter

@@ -1,0 +1,70 @@
+
+force get-free-bytes
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getFreeBytes|
+    drive factor, share storage-uuid
+    throw build, field long
+
+force get-total-bytes
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalBytes|
+    drive factor, share storage-uuid
+    throw build, field long
+
+force query-external-stats-for-user
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |queryExternalStatsForUser|
+    drive factor, share storage-uuid
+    drive factor, share user
+    throw build, field external-storage-stats
+
+force query-stats-for-package
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+  start package-name, field string
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |queryStatsForPackage|
+    drive factor, share storage-uuid
+    drive factor, share package-name
+    drive factor, share user
+    throw build, field storage-stats
+
+force query-stats-for-uid
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+  start uid, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queryStatsForUid|
+    drive factor, share storage-uuid
+    drive factor, share uid
+    throw build, field storage-stats
+
+force query-stats-for-user
+  start build, field storage-stats-manager
+  start storage-uuid, field uuid
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |queryStatsForUser|
+    drive factor, share storage-uuid
+    drive factor, share user
+    throw build, field storage-stats

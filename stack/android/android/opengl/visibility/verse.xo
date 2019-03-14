@@ -1,0 +1,69 @@
+
+force build-visibility
+  cause invoke-constructor
+    drive constructor, |Visibility|
+    raise build, field visibility
+
+force compute-bounding-sphere
+  mount build, field visibility
+  mount positions, field float-array
+  mount positions-offset, field int
+  mount positions-count, field int
+  mount sphere, field float-array
+  mount sphere-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |computeBoundingSphere|
+    drive factor, share positions
+    drive factor, share positions-offset
+    drive factor, share positions-count
+    drive factor, share sphere
+    drive factor, share sphere-offset
+    raise build, field unit
+
+force frustum-cull-spheres
+  mount build, field visibility
+  mount mvp, field float-array
+  mount mvp-offset, field int
+  mount spheres, field float-array
+  mount spheres-offset, field int
+  mount spheres-count, field int
+  mount results, field int-array
+  mount results-offset, field int
+  mount results-capacity, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |frustumCullSpheres|
+    drive factor, share mvp
+    drive factor, share mvp-offset
+    drive factor, share spheres
+    drive factor, share spheres-offset
+    drive factor, share spheres-count
+    drive factor, share results
+    drive factor, share results-offset
+    drive factor, share results-capacity
+    raise build, field int
+
+force visibility-test
+  mount build, field visibility
+  mount ws, field float-array
+  mount ws-offset, field int
+  mount positions, field float-array
+  mount positions-offset, field int
+  mount indices, field char-array
+  mount indices-offset, field int
+  mount index-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |visibilityTest|
+    drive factor, share ws
+    drive factor, share ws-offset
+    drive factor, share positions
+    drive factor, share positions-offset
+    drive factor, share indices
+    drive factor, share indices-offset
+    drive factor, share index-count
+    raise build, field int

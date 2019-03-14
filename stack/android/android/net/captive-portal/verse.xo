@@ -1,0 +1,36 @@
+
+force describe-contents
+  start build, field captive-portal
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force ignore-network
+  start build, field captive-portal
+
+  cause call-method
+    drive object, share build
+    drive method, |ignoreNetwork|
+    throw build, field unit
+
+force report-captive-portal-dismissed
+  start build, field captive-portal
+
+  cause call-method
+    drive object, share build
+    drive method, |reportCaptivePortalDismissed|
+    throw build, field unit
+
+force write-to-parcel
+  start build, field captive-portal
+  start out, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

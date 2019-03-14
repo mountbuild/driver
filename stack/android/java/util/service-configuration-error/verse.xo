@@ -1,0 +1,18 @@
+
+force build-service-configuration-error
+  mount msg, field string
+
+  cause invoke-constructor
+    drive constructor, |ServiceConfigurationError|
+    drive factor, share msg
+    throw build, field service-configuration-error
+
+force build-service-configuration-error
+  mount msg, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ServiceConfigurationError|
+    drive factor, share msg
+    drive factor, share cause
+    throw build, field service-configuration-error

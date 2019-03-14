@@ -1,0 +1,62 @@
+
+force build-locus-id
+  mount id, field string
+
+  cause invoke-constructor
+    drive constructor, |LocusId|
+    drive factor, share id
+    throw build, field locus-id
+
+force describe-contents
+  mount build, field locus-id
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field locus-id
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-id
+  mount build, field locus-id
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field string
+
+force hash-code
+  mount build, field locus-id
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field locus-id
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field locus-id
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

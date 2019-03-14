@@ -1,0 +1,64 @@
+
+force build-gateway-info
+  mount package-name, field string
+  mount gateway-uri, field uri
+  mount original-address, field uri
+
+  cause invoke-constructor
+    drive constructor, |GatewayInfo|
+    drive factor, share package-name
+    drive factor, share gateway-uri
+    drive factor, share original-address
+    throw build, field gateway-info
+
+force describe-contents
+  mount build, field gateway-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-gateway-address
+  mount build, field gateway-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getGatewayAddress|
+    throw build, field uri
+
+force get-gateway-provider-package-name
+  mount build, field gateway-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getGatewayProviderPackageName|
+    throw build, field string
+
+force get-original-address
+  mount build, field gateway-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getOriginalAddress|
+    throw build, field uri
+
+force is-empty
+  mount build, field gateway-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field gateway-info
+  mount destination, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share destination
+    drive factor, share flags
+    throw build, field unit

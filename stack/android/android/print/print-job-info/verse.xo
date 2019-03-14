@@ -1,0 +1,178 @@
+
+force get-state-blocked
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_BLOCKED|
+    throw build, field int
+
+force get-state-canceled
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CANCELED|
+    throw build, field int
+
+force get-state-completed
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_COMPLETED|
+    throw build, field int
+
+force get-state-created
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_CREATED|
+    throw build, field int
+
+force get-state-failed
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_FAILED|
+    throw build, field int
+
+force get-state-queued
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_QUEUED|
+    throw build, field int
+
+force get-state-started
+  mount build, field print-job-info
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_STARTED|
+    throw build, field int
+
+force describe-contents
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-advanced-int-option
+  mount build, field print-job-info
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdvancedIntOption|
+    drive factor, share key
+    throw build, field int
+
+force get-advanced-string-option
+  mount build, field print-job-info
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdvancedStringOption|
+    drive factor, share key
+    throw build, field string
+
+force get-attributes
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getAttributes|
+    throw build, field print-attributes
+
+force get-copies
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCopies|
+    throw build, field int
+
+force get-creation-time
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreationTime|
+    throw build, field long
+
+force get-id
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getId|
+    throw build, field print-job-id
+
+force get-label
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getLabel|
+    throw build, field string
+
+force get-pages
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPages|
+    throw build, field array
+
+force get-printer-id
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getPrinterId|
+    throw build, field printer-id
+
+force get-state
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force has-advanced-option
+  mount build, field print-job-info
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |hasAdvancedOption|
+    drive factor, share key
+    throw build, field boolean
+
+force to-string
+  mount build, field print-job-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field print-job-info
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    throw build, field unit

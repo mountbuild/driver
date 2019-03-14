@@ -1,0 +1,452 @@
+
+force get-connect-time-not-specified
+  mount build, field conference
+
+  cause get-property
+    drive object, share build
+    drive property, |CONNECT_TIME_NOT_SPECIFIED|
+    throw build, field long
+
+force build-conference
+  mount phone-account, field phone-account-handle
+
+  cause invoke-constructor
+    drive constructor, |Conference|
+    drive factor, share phone-account
+    throw build, field conference
+
+force add-connection
+  mount build, field conference
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |addConnection|
+    drive factor, share connection
+    throw build, field boolean
+
+force destroy
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |destroy|
+    throw build, field unit
+
+force get-call-audio-state
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getCallAudioState|
+    throw build, field call-audio-state
+
+force get-conferenceable-connections
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConferenceableConnections|
+    throw build, field mutable-list
+
+force get-connection-capabilities
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionCapabilities|
+    throw build, field int
+
+force get-connection-properties
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionProperties|
+    throw build, field int
+
+force get-connection-start-elapsed-realtime-millis
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionStartElapsedRealtimeMillis|
+    throw build, field long
+
+force get-connection-time
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionTime|
+    throw build, field long
+
+force get-connections
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnections|
+    throw build, field mutable-list
+
+force get-disconnect-cause
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisconnectCause|
+    throw build, field disconnect-cause
+
+force get-extras
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtras|
+    throw build, field bundle
+
+force get-phone-account-handle
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getPhoneAccountHandle|
+    throw build, field phone-account-handle
+
+force get-state
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getState|
+    throw build, field int
+
+force get-status-hints
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getStatusHints|
+    throw build, field status-hints
+
+force get-video-provider
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoProvider|
+    throw build, field connection-video-provider
+
+force get-video-state
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |getVideoState|
+    throw build, field int
+
+force on-call-audio-state-changed
+  mount build, field conference
+  mount state, field call-audio-state
+
+  cause call-method
+    drive object, share build
+    drive method, |onCallAudioStateChanged|
+    drive factor, share state
+    throw build, field unit
+
+force on-connection-added
+  mount build, field conference
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnectionAdded|
+    drive factor, share connection
+    throw build, field unit
+
+force on-disconnect
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisconnect|
+    throw build, field unit
+
+force on-extras-changed
+  mount build, field conference
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onExtrasChanged|
+    drive factor, share extras
+    throw build, field unit
+
+force on-hold
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onHold|
+    throw build, field unit
+
+force on-merge
+  mount build, field conference
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |onMerge|
+    drive factor, share connection
+    throw build, field unit
+
+force on-merge
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onMerge|
+    throw build, field unit
+
+force on-play-dtmf-tone
+  mount build, field conference
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |onPlayDtmfTone|
+    drive factor, share c
+    throw build, field unit
+
+force on-separate
+  mount build, field conference
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |onSeparate|
+    drive factor, share connection
+    throw build, field unit
+
+force on-stop-dtmf-tone
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onStopDtmfTone|
+    throw build, field unit
+
+force on-swap
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onSwap|
+    throw build, field unit
+
+force on-unhold
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnhold|
+    throw build, field unit
+
+force put-extras
+  mount build, field conference
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |putExtras|
+    drive factor, share extras
+    throw build, field unit
+
+force remove-connection
+  mount build, field conference
+  mount connection, field connection
+
+  cause call-method
+    drive object, share build
+    drive method, |removeConnection|
+    drive factor, share connection
+    throw build, field unit
+
+force remove-extras
+  mount build, field conference
+  mount keys, field mutable-list-string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeExtras|
+    drive factor, share keys
+    throw build, field unit
+
+force remove-extras
+  mount build, field conference
+  mount vararg-keys, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |removeExtras|
+    drive factor, share vararg-keys
+    throw build, field unit
+
+force send-conference-event
+  mount build, field conference
+  mount event, field string
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |sendConferenceEvent|
+    drive factor, share event
+    drive factor, share extras
+    throw build, field unit
+
+force set-active
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |setActive|
+    throw build, field unit
+
+force set-conferenceable-connections
+  mount build, field conference
+  mount conferenceable-connections, field mutable-list-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |setConferenceableConnections|
+    drive factor, share conferenceable-connections
+    throw build, field unit
+
+force set-connection-capabilities
+  mount build, field conference
+  mount connection-capabilities, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setConnectionCapabilities|
+    drive factor, share connection-capabilities
+    throw build, field unit
+
+force set-connection-properties
+  mount build, field conference
+  mount connection-properties, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setConnectionProperties|
+    drive factor, share connection-properties
+    throw build, field unit
+
+force set-connection-start-elapsed-real-time
+  mount build, field conference
+  mount connection-start-elapsed-real-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setConnectionStartElapsedRealTime|
+    drive factor, share connection-start-elapsed-real-time
+    throw build, field unit
+
+force set-connection-start-elapsed-realtime-millis
+  mount build, field conference
+  mount connection-start-elapsed-real-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setConnectionStartElapsedRealtimeMillis|
+    drive factor, share connection-start-elapsed-real-time
+    throw build, field unit
+
+force set-connection-time
+  mount build, field conference
+  mount connection-time-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |setConnectionTime|
+    drive factor, share connection-time-millis
+    throw build, field unit
+
+force set-dialing
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |setDialing|
+    throw build, field unit
+
+force set-disconnected
+  mount build, field conference
+  mount disconnect-cause, field disconnect-cause
+
+  cause call-method
+    drive object, share build
+    drive method, |setDisconnected|
+    drive factor, share disconnect-cause
+    throw build, field unit
+
+force set-extras
+  mount build, field conference
+  mount extras, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setExtras|
+    drive factor, share extras
+    throw build, field unit
+
+force set-on-hold
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnHold|
+    throw build, field unit
+
+force set-status-hints
+  mount build, field conference
+  mount status-hints, field status-hints
+
+  cause call-method
+    drive object, share build
+    drive method, |setStatusHints|
+    drive factor, share status-hints
+    throw build, field unit
+
+force set-video-provider
+  mount build, field conference
+  mount c, field connection
+  mount video-provider, field connection-video-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoProvider|
+    drive factor, share c
+    drive factor, share video-provider
+    throw build, field unit
+
+force set-video-state
+  mount build, field conference
+  mount c, field connection
+  mount video-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoState|
+    drive factor, share c
+    drive factor, share video-state
+    throw build, field unit
+
+force to-string
+  mount build, field conference
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

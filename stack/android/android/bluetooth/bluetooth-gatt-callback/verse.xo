@@ -1,0 +1,171 @@
+
+force build-bluetooth-gatt-callback
+  cause invoke-constructor
+    drive constructor, |BluetoothGattCallback|
+    throw build, field bluetooth-gatt-callback
+
+force on-characteristic-changed
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount characteristic, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |onCharacteristicChanged|
+    drive factor, share gatt
+    drive factor, share characteristic
+    throw build, field unit
+
+force on-characteristic-read
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount characteristic, field bluetooth-gatt-characteristic
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onCharacteristicRead|
+    drive factor, share gatt
+    drive factor, share characteristic
+    drive factor, share status
+    throw build, field unit
+
+force on-characteristic-write
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount characteristic, field bluetooth-gatt-characteristic
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onCharacteristicWrite|
+    drive factor, share gatt
+    drive factor, share characteristic
+    drive factor, share status
+    throw build, field unit
+
+force on-connection-state-change
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount status, field int
+  mount new-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnectionStateChange|
+    drive factor, share gatt
+    drive factor, share status
+    drive factor, share new-state
+    throw build, field unit
+
+force on-descriptor-read
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount descriptor, field bluetooth-gatt-descriptor
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDescriptorRead|
+    drive factor, share gatt
+    drive factor, share descriptor
+    drive factor, share status
+    throw build, field unit
+
+force on-descriptor-write
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount descriptor, field bluetooth-gatt-descriptor
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onDescriptorWrite|
+    drive factor, share gatt
+    drive factor, share descriptor
+    drive factor, share status
+    throw build, field unit
+
+force on-mtu-changed
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount mtu, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMtuChanged|
+    drive factor, share gatt
+    drive factor, share mtu
+    drive factor, share status
+    throw build, field unit
+
+force on-phy-read
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount tx-phy, field int
+  mount rx-phy, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPhyRead|
+    drive factor, share gatt
+    drive factor, share tx-phy
+    drive factor, share rx-phy
+    drive factor, share status
+    throw build, field unit
+
+force on-phy-update
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount tx-phy, field int
+  mount rx-phy, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPhyUpdate|
+    drive factor, share gatt
+    drive factor, share tx-phy
+    drive factor, share rx-phy
+    drive factor, share status
+    throw build, field unit
+
+force on-read-remote-rssi
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount rssi, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onReadRemoteRssi|
+    drive factor, share gatt
+    drive factor, share rssi
+    drive factor, share status
+    throw build, field unit
+
+force on-reliable-write-completed
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onReliableWriteCompleted|
+    drive factor, share gatt
+    drive factor, share status
+    throw build, field unit
+
+force on-services-discovered
+  mount build, field bluetooth-gatt-callback
+  mount gatt, field bluetooth-gatt
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onServicesDiscovered|
+    drive factor, share gatt
+    drive factor, share status
+    throw build, field unit

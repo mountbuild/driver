@@ -1,0 +1,31 @@
+
+force build-internal-error
+  cause invoke-constructor
+    drive constructor, |InternalError|
+    throw build, field internal-error
+
+force build-internal-error
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |InternalError|
+    drive factor, share message
+    throw build, field internal-error
+
+force build-internal-error
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |InternalError|
+    drive factor, share message
+    drive factor, share cause
+    throw build, field internal-error
+
+force build-internal-error
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |InternalError|
+    drive factor, share cause
+    throw build, field internal-error

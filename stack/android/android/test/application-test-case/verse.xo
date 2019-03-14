@@ -1,0 +1,32 @@
+
+force build-application-test-case
+  mount application-class, field class-t
+
+  cause invoke-constructor
+    drive constructor, |ApplicationTestCase|
+    drive factor, share application-class
+    raise build, field application-test-case
+
+force get-application
+  mount build, field application-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getApplication|
+    raise build, field t
+
+force get-system-context
+  mount build, field application-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemContext|
+    raise build, field context
+
+force test-application-test-case-set-up-properly
+  mount build, field application-test-case
+
+  cause call-method
+    drive object, share build
+    drive method, |testApplicationTestCaseSetUpProperly|
+    raise build, field unit

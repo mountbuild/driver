@@ -1,0 +1,66 @@
+
+force build-font-request
+  mount provider-authority, field string
+  mount provider-package, field string
+  mount query, field string
+
+  cause invoke-constructor
+    drive constructor, |FontRequest|
+    drive factor, share provider-authority
+    drive factor, share provider-package
+    drive factor, share query
+    raise build, field font-request
+
+force build-font-request
+  mount provider-authority, field string
+  mount provider-package, field string
+  mount query, field string
+  mount certificates, field mutable-list-mutable-list-byte-array
+
+  cause invoke-constructor
+    drive constructor, |FontRequest|
+    drive factor, share provider-authority
+    drive factor, share provider-package
+    drive factor, share query
+    drive factor, share certificates
+    raise build, field font-request
+
+force get-certificates
+  mount build, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getCertificates|
+    raise build, field mutable-list
+
+force get-provider-authority
+  mount build, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getProviderAuthority|
+    raise build, field string
+
+force get-provider-package
+  mount build, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getProviderPackage|
+    raise build, field string
+
+force get-query
+  mount build, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuery|
+    raise build, field string
+
+force to-string
+  mount build, field font-request
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

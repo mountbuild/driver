@@ -1,0 +1,28 @@
+
+force build-subject-domain-combiner
+  start subject, field subject
+
+  cause invoke-constructor
+    mount constructor, |SubjectDomainCombiner|
+    mount factor, share subject
+    throw build, field subject-domain-combiner
+
+force combine
+  start build, field subject-domain-combiner
+  start current-domains, field array-protection-domain
+  start assigned-domains, field array-protection-domain
+
+  cause call-method
+    mount object, share build
+    mount method, |combine|
+    mount factor, share current-domains
+    mount factor, share assigned-domains
+    throw build, field array
+
+force get-subject
+  start build, field subject-domain-combiner
+
+  cause call-method
+    mount object, share build
+    mount method, |getSubject|
+    throw build, field subject

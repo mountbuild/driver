@@ -1,0 +1,33 @@
+
+force build-all-permission
+  cause invoke-constructor
+    mount constructor, |AllPermission|
+    throw build, field all-permission
+
+force build-all-permission
+  mount name, field string
+  mount actions, field string
+
+  cause invoke-constructor
+    mount constructor, |AllPermission|
+    mount factor, share name
+    mount factor, share actions
+    throw build, field all-permission
+
+force get-actions
+  mount build, field all-permission
+
+  cause call-method
+    mount object, share build
+    mount method, |getActions|
+    throw build, field string
+
+force implies
+  mount build, field all-permission
+  mount p, field permission
+
+  cause call-method
+    mount object, share build
+    mount method, |implies|
+    mount factor, share p
+    throw build, field boolean

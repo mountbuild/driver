@@ -1,0 +1,34 @@
+
+force dynamic-invoker
+  mount build, field call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |dynamicInvoker|
+    throw build, field method-handle
+
+force get-target
+  mount build, field call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |getTarget|
+    throw build, field method-handle
+
+force set-target
+  mount build, field call-site
+  mount new-target, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |setTarget|
+    drive factor, share new-target
+    throw build, field unit
+
+force type
+  mount build, field call-site
+
+  cause call-method
+    drive object, share build
+    drive method, |type|
+    throw build, field method-type

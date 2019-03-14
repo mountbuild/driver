@@ -1,0 +1,35 @@
+
+force build-xml-formatter
+  cause invoke-constructor
+    drive constructor, |XMLFormatter|
+    throw build, field xml-formatter
+
+force format
+  mount build, field xml-formatter
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share record
+    throw build, field string
+
+force get-head
+  mount build, field xml-formatter
+  mount h, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |getHead|
+    drive factor, share h
+    throw build, field string
+
+force get-tail
+  mount build, field xml-formatter
+  mount h, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |getTail|
+    drive factor, share h
+    throw build, field string

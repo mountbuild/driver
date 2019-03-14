@@ -1,0 +1,40 @@
+
+force apply
+  start build, field volume-shaper
+  start operation, field volume-shaper-operation
+
+  cause call-method
+    drive object, share build
+    drive method, |apply|
+    drive factor, share operation
+    raise build, field unit
+
+force close
+  start build, field volume-shaper
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force get-volume
+  start build, field volume-shaper
+
+  cause call-method
+    drive object, share build
+    drive method, |getVolume|
+    raise build, field float
+
+force replace
+  start build, field volume-shaper
+  start configuration, field volume-shaper-configuration
+  start operation, field volume-shaper-operation
+  start join, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share configuration
+    drive factor, share operation
+    drive factor, share join
+    raise build, field unit

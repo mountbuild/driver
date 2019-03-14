@@ -1,0 +1,363 @@
+
+force build-matrix
+  cause invoke-constructor
+    drive constructor, |Matrix|
+    raise build, field matrix
+
+force frustum-m
+  mount build, field matrix
+  mount m, field float-array
+  mount offset, field int
+  mount left, field float
+  mount right, field float
+  mount bottom, field float
+  mount top, field float
+  mount near, field float
+  mount far, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |frustumM|
+    drive factor, share m
+    drive factor, share offset
+    drive factor, share left
+    drive factor, share right
+    drive factor, share bottom
+    drive factor, share top
+    drive factor, share near
+    drive factor, share far
+    raise build, field unit
+
+force invert-m
+  mount build, field matrix
+  mount m-inv, field float-array
+  mount m-inv-offset, field int
+  mount m, field float-array
+  mount m-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |invertM|
+    drive factor, share m-inv
+    drive factor, share m-inv-offset
+    drive factor, share m
+    drive factor, share m-offset
+    raise build, field boolean
+
+force length
+  mount build, field matrix
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |length|
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field float
+
+force multiply-mm
+  mount build, field matrix
+  mount result, field float-array
+  mount result-offset, field int
+  mount lhs, field float-array
+  mount lhs-offset, field int
+  mount rhs, field float-array
+  mount rhs-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |multiplyMM|
+    drive factor, share result
+    drive factor, share result-offset
+    drive factor, share lhs
+    drive factor, share lhs-offset
+    drive factor, share rhs
+    drive factor, share rhs-offset
+    raise build, field unit
+
+force multiply-mv
+  mount build, field matrix
+  mount result-vec, field float-array
+  mount result-vec-offset, field int
+  mount lhs-mat, field float-array
+  mount lhs-mat-offset, field int
+  mount rhs-vec, field float-array
+  mount rhs-vec-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |multiplyMV|
+    drive factor, share result-vec
+    drive factor, share result-vec-offset
+    drive factor, share lhs-mat
+    drive factor, share lhs-mat-offset
+    drive factor, share rhs-vec
+    drive factor, share rhs-vec-offset
+    raise build, field unit
+
+force ortho-m
+  mount build, field matrix
+  mount m, field float-array
+  mount m-offset, field int
+  mount left, field float
+  mount right, field float
+  mount bottom, field float
+  mount top, field float
+  mount near, field float
+  mount far, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |orthoM|
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share left
+    drive factor, share right
+    drive factor, share bottom
+    drive factor, share top
+    drive factor, share near
+    drive factor, share far
+    raise build, field unit
+
+force perspective-m
+  mount build, field matrix
+  mount m, field float-array
+  mount offset, field int
+  mount fovy, field float
+  mount aspect, field float
+  mount z-near, field float
+  mount z-far, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |perspectiveM|
+    drive factor, share m
+    drive factor, share offset
+    drive factor, share fovy
+    drive factor, share aspect
+    drive factor, share z-near
+    drive factor, share z-far
+    raise build, field unit
+
+force rotate-m
+  mount build, field matrix
+  mount rm, field float-array
+  mount rm-offset, field int
+  mount m, field float-array
+  mount m-offset, field int
+  mount a, field float
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |rotateM|
+    drive factor, share rm
+    drive factor, share rm-offset
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share a
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force rotate-m
+  mount build, field matrix
+  mount m, field float-array
+  mount m-offset, field int
+  mount a, field float
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |rotateM|
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share a
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force scale-m
+  mount build, field matrix
+  mount sm, field float-array
+  mount sm-offset, field int
+  mount m, field float-array
+  mount m-offset, field int
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |scaleM|
+    drive factor, share sm
+    drive factor, share sm-offset
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force scale-m
+  mount build, field matrix
+  mount m, field float-array
+  mount m-offset, field int
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |scaleM|
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force set-identity-m
+  mount build, field matrix
+  mount sm, field float-array
+  mount sm-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setIdentityM|
+    drive factor, share sm
+    drive factor, share sm-offset
+    raise build, field unit
+
+force set-look-at-m
+  mount build, field matrix
+  mount rm, field float-array
+  mount rm-offset, field int
+  mount eye-x, field float
+  mount eye-y, field float
+  mount eye-z, field float
+  mount center-x, field float
+  mount center-y, field float
+  mount center-z, field float
+  mount up-x, field float
+  mount up-y, field float
+  mount up-z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setLookAtM|
+    drive factor, share rm
+    drive factor, share rm-offset
+    drive factor, share eye-x
+    drive factor, share eye-y
+    drive factor, share eye-z
+    drive factor, share center-x
+    drive factor, share center-y
+    drive factor, share center-z
+    drive factor, share up-x
+    drive factor, share up-y
+    drive factor, share up-z
+    raise build, field unit
+
+force set-rotate-euler-m
+  mount build, field matrix
+  mount rm, field float-array
+  mount rm-offset, field int
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotateEulerM|
+    drive factor, share rm
+    drive factor, share rm-offset
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force set-rotate-m
+  mount build, field matrix
+  mount rm, field float-array
+  mount rm-offset, field int
+  mount a, field float
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotateM|
+    drive factor, share rm
+    drive factor, share rm-offset
+    drive factor, share a
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force translate-m
+  mount build, field matrix
+  mount tm, field float-array
+  mount tm-offset, field int
+  mount m, field float-array
+  mount m-offset, field int
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |translateM|
+    drive factor, share tm
+    drive factor, share tm-offset
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force translate-m
+  mount build, field matrix
+  mount m, field float-array
+  mount m-offset, field int
+  mount x, field float
+  mount y, field float
+  mount z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |translateM|
+    drive factor, share m
+    drive factor, share m-offset
+    drive factor, share x
+    drive factor, share y
+    drive factor, share z
+    raise build, field unit
+
+force transpose-m
+  mount build, field matrix
+  mount m-trans, field float-array
+  mount m-trans-offset, field int
+  mount m, field float-array
+  mount m-offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |transposeM|
+    drive factor, share m-trans
+    drive factor, share m-trans-offset
+    drive factor, share m
+    drive factor, share m-offset
+    raise build, field unit

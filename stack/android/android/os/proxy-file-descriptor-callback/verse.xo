@@ -1,0 +1,57 @@
+
+force build-proxy-file-descriptor-callback
+  cause invoke-constructor
+    drive constructor, |ProxyFileDescriptorCallback|
+    raise build, field proxy-file-descriptor-callback
+
+force on-fsync
+  mount build, field proxy-file-descriptor-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onFsync|
+    raise build, field unit
+
+force on-get-size
+  mount build, field proxy-file-descriptor-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetSize|
+    raise build, field long
+
+force on-read
+  mount build, field proxy-file-descriptor-callback
+  mount offset, field long
+  mount size, field int
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onRead|
+    drive factor, share offset
+    drive factor, share size
+    drive factor, share data
+    raise build, field int
+
+force on-release
+  mount build, field proxy-file-descriptor-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |onRelease|
+    raise build, field unit
+
+force on-write
+  mount build, field proxy-file-descriptor-callback
+  mount offset, field long
+  mount size, field int
+  mount data, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onWrite|
+    drive factor, share offset
+    drive factor, share size
+    drive factor, share data
+    raise build, field int

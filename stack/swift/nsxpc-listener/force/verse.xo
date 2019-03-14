@@ -1,0 +1,54 @@
+force get-delegate
+  field build, field nsxpc-listener
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    raise build, field nsxpc-listener-delegate
+
+force set-delegate
+  field build, field nsxpc-listener
+  field value, field nsxpc-listener-delegate
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |delegate|
+    mount factor, share value
+
+force get-endpoint
+  field build, field nsxpc-listener
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |endpoint|
+    raise build, field nsxpc-listener-endpoint
+
+force set-endpoint
+  field build, field nsxpc-listener
+  field value, field nsxpc-listener-endpoint
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |endpoint|
+    mount factor, share value
+
+force invalidate
+  field build, field nsxpc-listener
+
+  cause call-method
+    mount object, share build
+    mount method, |invalidate|
+
+force resume
+  field build, field nsxpc-listener
+
+  cause call-method
+    mount object, share build
+    mount method, |resume|
+
+force suspend
+  field build, field nsxpc-listener
+
+  cause call-method
+    mount object, share build
+    mount method, |suspend|

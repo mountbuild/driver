@@ -1,0 +1,616 @@
+
+force build-render-node
+  mount name, field string
+
+  cause invoke-constructor
+    drive constructor, |RenderNode|
+    drive factor, share name
+    raise build, field render-node
+
+force begin-recording
+  mount build, field render-node
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |beginRecording|
+    drive factor, share width
+    drive factor, share height
+    raise build, field recording-canvas
+
+force begin-recording
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |beginRecording|
+    raise build, field recording-canvas
+
+force compute-approximate-memory-usage
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |computeApproximateMemoryUsage|
+    raise build, field long
+
+force discard-display-list
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |discardDisplayList|
+    raise build, field unit
+
+force end-recording
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |endRecording|
+    raise build, field unit
+
+force get-alpha
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getAlpha|
+    raise build, field float
+
+force get-ambient-shadow-color
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getAmbientShadowColor|
+    raise build, field int
+
+force get-bottom
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getBottom|
+    raise build, field int
+
+force get-camera-distance
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getCameraDistance|
+    raise build, field float
+
+force get-clip-to-bounds
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getClipToBounds|
+    raise build, field boolean
+
+force get-clip-to-outline
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getClipToOutline|
+    raise build, field boolean
+
+force get-elevation
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getElevation|
+    raise build, field float
+
+force get-height
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getHeight|
+    raise build, field int
+
+force get-inverse-matrix
+  mount build, field render-node
+  mount out-matrix, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |getInverseMatrix|
+    drive factor, share out-matrix
+    raise build, field unit
+
+force get-left
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getLeft|
+    raise build, field int
+
+force get-matrix
+  mount build, field render-node
+  mount out-matrix, field matrix
+
+  cause call-method
+    drive object, share build
+    drive method, |getMatrix|
+    drive factor, share out-matrix
+    raise build, field unit
+
+force get-pivot-x
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getPivotX|
+    raise build, field float
+
+force get-pivot-y
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getPivotY|
+    raise build, field float
+
+force get-right
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getRight|
+    raise build, field int
+
+force get-rotation-x
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getRotationX|
+    raise build, field float
+
+force get-rotation-y
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getRotationY|
+    raise build, field float
+
+force get-rotation-z
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getRotationZ|
+    raise build, field float
+
+force get-scale-x
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getScaleX|
+    raise build, field float
+
+force get-scale-y
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getScaleY|
+    raise build, field float
+
+force get-spot-shadow-color
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpotShadowColor|
+    raise build, field int
+
+force get-top
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getTop|
+    raise build, field int
+
+force get-translation-x
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getTranslationX|
+    raise build, field float
+
+force get-translation-y
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getTranslationY|
+    raise build, field float
+
+force get-translation-z
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getTranslationZ|
+    raise build, field float
+
+force get-unique-id
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getUniqueId|
+    raise build, field long
+
+force get-use-compositing-layer
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getUseCompositingLayer|
+    raise build, field boolean
+
+force get-width
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    raise build, field int
+
+force has-display-list
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |hasDisplayList|
+    raise build, field boolean
+
+force has-identity-matrix
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |hasIdentityMatrix|
+    raise build, field boolean
+
+force has-overlapping-rendering
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |hasOverlappingRendering|
+    raise build, field boolean
+
+force has-shadow
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |hasShadow|
+    raise build, field boolean
+
+force is-force-dark-allowed
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |isForceDarkAllowed|
+    raise build, field boolean
+
+force is-pivot-explicitly-set
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |isPivotExplicitlySet|
+    raise build, field boolean
+
+force offset-left-and-right
+  mount build, field render-node
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |offsetLeftAndRight|
+    drive factor, share offset
+    raise build, field boolean
+
+force offset-top-and-bottom
+  mount build, field render-node
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |offsetTopAndBottom|
+    drive factor, share offset
+    raise build, field boolean
+
+force reset-pivot
+  mount build, field render-node
+
+  cause call-method
+    drive object, share build
+    drive method, |resetPivot|
+    raise build, field boolean
+
+force set-alpha
+  mount build, field render-node
+  mount alpha, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setAlpha|
+    drive factor, share alpha
+    raise build, field boolean
+
+force set-ambient-shadow-color
+  mount build, field render-node
+  mount color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setAmbientShadowColor|
+    drive factor, share color
+    raise build, field boolean
+
+force set-camera-distance
+  mount build, field render-node
+  mount distance, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setCameraDistance|
+    drive factor, share distance
+    raise build, field boolean
+
+force set-clip-rect
+  mount build, field render-node
+  mount rect, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setClipRect|
+    drive factor, share rect
+    raise build, field boolean
+
+force set-clip-to-bounds
+  mount build, field render-node
+  mount clip-to-bounds, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setClipToBounds|
+    drive factor, share clip-to-bounds
+    raise build, field boolean
+
+force set-clip-to-outline
+  mount build, field render-node
+  mount clip-to-outline, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setClipToOutline|
+    drive factor, share clip-to-outline
+    raise build, field boolean
+
+force set-elevation
+  mount build, field render-node
+  mount lift, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setElevation|
+    drive factor, share lift
+    raise build, field boolean
+
+force set-force-dark-allowed
+  mount build, field render-node
+  mount allow, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setForceDarkAllowed|
+    drive factor, share allow
+    raise build, field boolean
+
+force set-has-overlapping-rendering
+  mount build, field render-node
+  mount has-overlapping-rendering, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setHasOverlappingRendering|
+    drive factor, share has-overlapping-rendering
+    raise build, field boolean
+
+force set-outline
+  mount build, field render-node
+  mount outline, field outline
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutline|
+    drive factor, share outline
+    raise build, field boolean
+
+force set-pivot-x
+  mount build, field render-node
+  mount pivot-x, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPivotX|
+    drive factor, share pivot-x
+    raise build, field boolean
+
+force set-pivot-y
+  mount build, field render-node
+  mount pivot-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setPivotY|
+    drive factor, share pivot-y
+    raise build, field boolean
+
+force set-position
+  mount build, field render-node
+  mount left, field int
+  mount top, field int
+  mount right, field int
+  mount bottom, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPosition|
+    drive factor, share left
+    drive factor, share top
+    drive factor, share right
+    drive factor, share bottom
+    raise build, field boolean
+
+force set-position
+  mount build, field render-node
+  mount position, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |setPosition|
+    drive factor, share position
+    raise build, field boolean
+
+force set-project-backwards
+  mount build, field render-node
+  mount should-project, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setProjectBackwards|
+    drive factor, share should-project
+    raise build, field boolean
+
+force set-projection-receiver
+  mount build, field render-node
+  mount should-recieve, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setProjectionReceiver|
+    drive factor, share should-recieve
+    raise build, field boolean
+
+force set-rotation-x
+  mount build, field render-node
+  mount rotation-x, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotationX|
+    drive factor, share rotation-x
+    raise build, field boolean
+
+force set-rotation-y
+  mount build, field render-node
+  mount rotation-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotationY|
+    drive factor, share rotation-y
+    raise build, field boolean
+
+force set-rotation-z
+  mount build, field render-node
+  mount rotation, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRotationZ|
+    drive factor, share rotation
+    raise build, field boolean
+
+force set-scale-x
+  mount build, field render-node
+  mount scale-x, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setScaleX|
+    drive factor, share scale-x
+    raise build, field boolean
+
+force set-scale-y
+  mount build, field render-node
+  mount scale-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setScaleY|
+    drive factor, share scale-y
+    raise build, field boolean
+
+force set-spot-shadow-color
+  mount build, field render-node
+  mount color, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpotShadowColor|
+    drive factor, share color
+    raise build, field boolean
+
+force set-translation-x
+  mount build, field render-node
+  mount translation-x, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTranslationX|
+    drive factor, share translation-x
+    raise build, field boolean
+
+force set-translation-y
+  mount build, field render-node
+  mount translation-y, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTranslationY|
+    drive factor, share translation-y
+    raise build, field boolean
+
+force set-translation-z
+  mount build, field render-node
+  mount translation-z, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setTranslationZ|
+    drive factor, share translation-z
+    raise build, field boolean
+
+force set-use-compositing-layer
+  mount build, field render-node
+  mount force-to-layer, field boolean
+  mount paint, field paint
+
+  cause call-method
+    drive object, share build
+    drive method, |setUseCompositingLayer|
+    drive factor, share force-to-layer
+    drive factor, share paint
+    raise build, field boolean

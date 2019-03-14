@@ -1,0 +1,173 @@
+
+force build-inflater
+  mount nowrap, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Inflater|
+    drive factor, share nowrap
+    throw build, field inflater
+
+force build-inflater
+  cause invoke-constructor
+    drive constructor, |Inflater|
+    throw build, field inflater
+
+force end
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |end|
+    throw build, field unit
+
+force finished
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |finished|
+    throw build, field boolean
+
+force get-adler
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getAdler|
+    throw build, field int
+
+force get-bytes-read
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytesRead|
+    throw build, field long
+
+force get-bytes-written
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getBytesWritten|
+    throw build, field long
+
+force get-remaining
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getRemaining|
+    throw build, field int
+
+force get-total-in
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalIn|
+    throw build, field int
+
+force get-total-out
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |getTotalOut|
+    throw build, field int
+
+force inflate
+  mount build, field inflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force inflate
+  mount build, field inflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    drive factor, share b
+    throw build, field int
+
+force needs-dictionary
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |needsDictionary|
+    throw build, field boolean
+
+force needs-input
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |needsInput|
+    throw build, field boolean
+
+force reset
+  mount build, field inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force set-dictionary
+  mount build, field inflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDictionary|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force set-dictionary
+  mount build, field inflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setDictionary|
+    drive factor, share b
+    throw build, field unit
+
+force set-input
+  mount build, field inflater
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field unit
+
+force set-input
+  mount build, field inflater
+  mount b, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setInput|
+    drive factor, share b
+    throw build, field unit

@@ -1,0 +1,210 @@
+
+force build-sound-pool
+  start max-streams, field int
+  start stream-type, field int
+  start src-quality, field int
+
+  cause invoke-constructor
+    drive constructor, |SoundPool|
+    drive factor, share max-streams
+    drive factor, share stream-type
+    drive factor, share src-quality
+    raise build, field sound-pool
+
+force auto-pause
+  start build, field sound-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |autoPause|
+    raise build, field unit
+
+force auto-resume
+  start build, field sound-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |autoResume|
+    raise build, field unit
+
+force load
+  start build, field sound-pool
+  start path, field string
+  start priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share path
+    drive factor, share priority
+    raise build, field int
+
+force load
+  start build, field sound-pool
+  start context, field context
+  start res-id, field int
+  start priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share context
+    drive factor, share res-id
+    drive factor, share priority
+    raise build, field int
+
+force load
+  start build, field sound-pool
+  start afd, field asset-file-descriptor
+  start priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share afd
+    drive factor, share priority
+    raise build, field int
+
+force load
+  start build, field sound-pool
+  start fd, field file-descriptor
+  start offset, field long
+  start length, field long
+  start priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |load|
+    drive factor, share fd
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share priority
+    raise build, field int
+
+force pause
+  start build, field sound-pool
+  start stream-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |pause|
+    drive factor, share stream-id
+    raise build, field unit
+
+force play
+  start build, field sound-pool
+  start sound-id, field int
+  start left-volume, field float
+  start right-volume, field float
+  start priority, field int
+  start loop, field int
+  start rate, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |play|
+    drive factor, share sound-id
+    drive factor, share left-volume
+    drive factor, share right-volume
+    drive factor, share priority
+    drive factor, share loop
+    drive factor, share rate
+    raise build, field int
+
+force release
+  start build, field sound-pool
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force resume
+  start build, field sound-pool
+  start stream-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |resume|
+    drive factor, share stream-id
+    raise build, field unit
+
+force set-loop
+  start build, field sound-pool
+  start stream-id, field int
+  start loop, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLoop|
+    drive factor, share stream-id
+    drive factor, share loop
+    raise build, field unit
+
+force set-on-load-complete-listener
+  start build, field sound-pool
+  start listener, field sound-pool-on-load-complete-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnLoadCompleteListener|
+    drive factor, share listener
+    raise build, field unit
+
+force set-priority
+  start build, field sound-pool
+  start stream-id, field int
+  start priority, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPriority|
+    drive factor, share stream-id
+    drive factor, share priority
+    raise build, field unit
+
+force set-rate
+  start build, field sound-pool
+  start stream-id, field int
+  start rate, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setRate|
+    drive factor, share stream-id
+    drive factor, share rate
+    raise build, field unit
+
+force set-volume
+  start build, field sound-pool
+  start stream-id, field int
+  start left-volume, field float
+  start right-volume, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setVolume|
+    drive factor, share stream-id
+    drive factor, share left-volume
+    drive factor, share right-volume
+    raise build, field unit
+
+force stop
+  start build, field sound-pool
+  start stream-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    drive factor, share stream-id
+    raise build, field unit
+
+force unload
+  start build, field sound-pool
+  start sound-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |unload|
+    drive factor, share sound-id
+    raise build, field boolean

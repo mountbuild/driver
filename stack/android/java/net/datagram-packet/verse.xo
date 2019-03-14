@@ -1,0 +1,190 @@
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share offset
+    drive factor, share length
+    throw build, field datagram-packet
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount length, field int
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share length
+    throw build, field datagram-packet
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount address, field inet-address
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share address
+    drive factor, share port
+    throw build, field datagram-packet
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount address, field socket-address
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share address
+    throw build, field datagram-packet
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount length, field int
+  mount address, field inet-address
+  mount port, field int
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share length
+    drive factor, share address
+    drive factor, share port
+    throw build, field datagram-packet
+
+force build-datagram-packet
+  mount buf, field byte-array
+  mount length, field int
+  mount address, field socket-address
+
+  cause invoke-constructor
+    drive constructor, |DatagramPacket|
+    drive factor, share buf
+    drive factor, share length
+    drive factor, share address
+    throw build, field datagram-packet
+
+force get-address
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getAddress|
+    throw build, field inet-address
+
+force get-data
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getData|
+    throw build, field byte-array
+
+force get-length
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getLength|
+    throw build, field int
+
+force get-offset
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    throw build, field int
+
+force get-port
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getPort|
+    throw build, field int
+
+force get-socket-address
+  mount build, field datagram-packet
+
+  cause call-method
+    drive object, share build
+    drive method, |getSocketAddress|
+    throw build, field socket-address
+
+force set-address
+  mount build, field datagram-packet
+  mount iaddr, field inet-address
+
+  cause call-method
+    drive object, share build
+    drive method, |setAddress|
+    drive factor, share iaddr
+    throw build, field unit
+
+force set-data
+  mount build, field datagram-packet
+  mount buf, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setData|
+    drive factor, share buf
+    drive factor, share offset
+    drive factor, share length
+    throw build, field unit
+
+force set-data
+  mount build, field datagram-packet
+  mount buf, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setData|
+    drive factor, share buf
+    throw build, field unit
+
+force set-length
+  mount build, field datagram-packet
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLength|
+    drive factor, share length
+    throw build, field unit
+
+force set-port
+  mount build, field datagram-packet
+  mount iport, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setPort|
+    drive factor, share iport
+    throw build, field unit
+
+force set-socket-address
+  mount build, field datagram-packet
+  mount address, field socket-address
+
+  cause call-method
+    drive object, share build
+    drive method, |setSocketAddress|
+    drive factor, share address
+    throw build, field unit

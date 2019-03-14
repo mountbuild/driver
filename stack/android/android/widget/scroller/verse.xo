@@ -1,0 +1,234 @@
+
+force build-scroller
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |Scroller|
+    drive factor, share context
+    throw build, field scroller
+
+force build-scroller
+  mount context, field context
+  mount interpolator, field interpolator
+
+  cause invoke-constructor
+    drive constructor, |Scroller|
+    drive factor, share context
+    drive factor, share interpolator
+    throw build, field scroller
+
+force build-scroller
+  mount context, field context
+  mount interpolator, field interpolator
+  mount flywheel, field boolean
+
+  cause invoke-constructor
+    drive constructor, |Scroller|
+    drive factor, share context
+    drive factor, share interpolator
+    drive factor, share flywheel
+    throw build, field scroller
+
+force abort-animation
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |abortAnimation|
+    throw build, field unit
+
+force compute-scroll-offset
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |computeScrollOffset|
+    throw build, field boolean
+
+force extend-duration
+  mount build, field scroller
+  mount extend, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |extendDuration|
+    drive factor, share extend
+    throw build, field unit
+
+force fling
+  mount build, field scroller
+  mount start-x, field int
+  mount start-y, field int
+  mount velocity-x, field int
+  mount velocity-y, field int
+  mount min-x, field int
+  mount max-x, field int
+  mount min-y, field int
+  mount max-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |fling|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share velocity-x
+    drive factor, share velocity-y
+    drive factor, share min-x
+    drive factor, share max-x
+    drive factor, share min-y
+    drive factor, share max-y
+    throw build, field unit
+
+force force-finished
+  mount build, field scroller
+  mount finished, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |forceFinished|
+    drive factor, share finished
+    throw build, field unit
+
+force get-curr-velocity
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrVelocity|
+    throw build, field float
+
+force get-curr-x
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrX|
+    throw build, field int
+
+force get-curr-y
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrY|
+    throw build, field int
+
+force get-duration
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getDuration|
+    throw build, field int
+
+force get-final-x
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getFinalX|
+    throw build, field int
+
+force get-final-y
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getFinalY|
+    throw build, field int
+
+force get-start-x
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartX|
+    throw build, field int
+
+force get-start-y
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |getStartY|
+    throw build, field int
+
+force is-finished
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |isFinished|
+    throw build, field boolean
+
+force set-final-x
+  mount build, field scroller
+  mount new-x, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFinalX|
+    drive factor, share new-x
+    throw build, field unit
+
+force set-final-y
+  mount build, field scroller
+  mount new-y, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFinalY|
+    drive factor, share new-y
+    throw build, field unit
+
+force set-friction
+  mount build, field scroller
+  mount friction, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |setFriction|
+    drive factor, share friction
+    throw build, field unit
+
+force start-scroll
+  mount build, field scroller
+  mount start-x, field int
+  mount start-y, field int
+  mount dx, field int
+  mount dy, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startScroll|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share dx
+    drive factor, share dy
+    throw build, field unit
+
+force start-scroll
+  mount build, field scroller
+  mount start-x, field int
+  mount start-y, field int
+  mount dx, field int
+  mount dy, field int
+  mount duration, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |startScroll|
+    drive factor, share start-x
+    drive factor, share start-y
+    drive factor, share dx
+    drive factor, share dy
+    drive factor, share duration
+    throw build, field unit
+
+force time-passed
+  mount build, field scroller
+
+  cause call-method
+    drive object, share build
+    drive method, |timePassed|
+    throw build, field int

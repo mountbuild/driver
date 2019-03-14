@@ -1,0 +1,354 @@
+
+force get-action-ringtone-picker
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_RINGTONE_PICKER|
+    raise build, field string
+
+force get-extra-ringtone-default-uri
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_DEFAULT_URI|
+    raise build, field string
+
+force get-extra-ringtone-existing-uri
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_EXISTING_URI|
+    raise build, field string
+
+force get-extra-ringtone-include-drm
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_INCLUDE_DRM|
+    raise build, field string
+
+force get-extra-ringtone-picked-uri
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_PICKED_URI|
+    raise build, field string
+
+force get-extra-ringtone-show-default
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_SHOW_DEFAULT|
+    raise build, field string
+
+force get-extra-ringtone-show-silent
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_SHOW_SILENT|
+    raise build, field string
+
+force get-extra-ringtone-title
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_TITLE|
+    raise build, field string
+
+force get-extra-ringtone-type
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_RINGTONE_TYPE|
+    raise build, field string
+
+force get-id-column-index
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ID_COLUMN_INDEX|
+    raise build, field int
+
+force get-title-column-index
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TITLE_COLUMN_INDEX|
+    raise build, field int
+
+force get-type-alarm
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ALARM|
+    raise build, field int
+
+force get-type-all
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ALL|
+    raise build, field int
+
+force get-type-notification
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NOTIFICATION|
+    raise build, field int
+
+force get-type-ringtone
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RINGTONE|
+    raise build, field int
+
+force get-uri-column-index
+  start build, field ringtone-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |URI_COLUMN_INDEX|
+    raise build, field int
+
+force build-ringtone-manager
+  start activity, field activity
+
+  cause invoke-constructor
+    drive constructor, |RingtoneManager|
+    drive factor, share activity
+    raise build, field ringtone-manager
+
+force build-ringtone-manager
+  start context, field context
+
+  cause invoke-constructor
+    drive constructor, |RingtoneManager|
+    drive factor, share context
+    raise build, field ringtone-manager
+
+force get-actual-default-ringtone-uri
+  start build, field ringtone-manager
+  start context, field context
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getActualDefaultRingtoneUri|
+    drive factor, share context
+    drive factor, share type
+    raise build, field uri
+
+force get-cursor
+  start build, field ringtone-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCursor|
+    raise build, field cursor
+
+force get-default-type
+  start build, field ringtone-manager
+  start default-ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultType|
+    drive factor, share default-ringtone-uri
+    raise build, field int
+
+force get-default-uri
+  start build, field ringtone-manager
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultUri|
+    drive factor, share type
+    raise build, field uri
+
+force get-include-drm
+  start build, field ringtone-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getIncludeDrm|
+    raise build, field boolean
+
+force get-ringtone
+  start build, field ringtone-manager
+  start position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRingtone|
+    drive factor, share position
+    raise build, field ringtone
+
+force get-ringtone
+  start build, field ringtone-manager
+  start context, field context
+  start ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRingtone|
+    drive factor, share context
+    drive factor, share ringtone-uri
+    raise build, field ringtone
+
+force get-ringtone-position
+  start build, field ringtone-manager
+  start ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |getRingtonePosition|
+    drive factor, share ringtone-uri
+    raise build, field int
+
+force get-ringtone-uri
+  start build, field ringtone-manager
+  start position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRingtoneUri|
+    drive factor, share position
+    raise build, field uri
+
+force get-stop-previous-ringtone
+  start build, field ringtone-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getStopPreviousRingtone|
+    raise build, field boolean
+
+force get-valid-ringtone-uri
+  start build, field ringtone-manager
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidRingtoneUri|
+    drive factor, share context
+    raise build, field uri
+
+force has-haptic-channels
+  start build, field ringtone-manager
+  start position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasHapticChannels|
+    drive factor, share position
+    raise build, field boolean
+
+force has-haptic-channels
+  start build, field ringtone-manager
+  start ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |hasHapticChannels|
+    drive factor, share ringtone-uri
+    raise build, field boolean
+
+force infer-stream-type
+  start build, field ringtone-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |inferStreamType|
+    raise build, field int
+
+force is-default
+  start build, field ringtone-manager
+  start ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |isDefault|
+    drive factor, share ringtone-uri
+    raise build, field boolean
+
+force open-default-ringtone-uri
+  start build, field ringtone-manager
+  start context, field context
+  start uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |openDefaultRingtoneUri|
+    drive factor, share context
+    drive factor, share uri
+    raise build, field asset-file-descriptor
+
+force set-actual-default-ringtone-uri
+  start build, field ringtone-manager
+  start context, field context
+  start type, field int
+  start ringtone-uri, field uri
+
+  cause call-method
+    drive object, share build
+    drive method, |setActualDefaultRingtoneUri|
+    drive factor, share context
+    drive factor, share type
+    drive factor, share ringtone-uri
+    raise build, field unit
+
+force set-include-drm
+  start build, field ringtone-manager
+  start include-drm, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setIncludeDrm|
+    drive factor, share include-drm
+    raise build, field unit
+
+force set-stop-previous-ringtone
+  start build, field ringtone-manager
+  start stop-previous-ringtone, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setStopPreviousRingtone|
+    drive factor, share stop-previous-ringtone
+    raise build, field unit
+
+force set-type
+  start build, field ringtone-manager
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setType|
+    drive factor, share type
+    raise build, field unit
+
+force stop-previous-ringtone
+  start build, field ringtone-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |stopPreviousRingtone|
+    raise build, field unit

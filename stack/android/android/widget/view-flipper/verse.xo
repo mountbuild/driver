@@ -1,0 +1,86 @@
+
+force build-view-flipper
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ViewFlipper|
+    drive factor, share context
+    throw build, field view-flipper
+
+force build-view-flipper
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ViewFlipper|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field view-flipper
+
+force get-accessibility-class-name
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |getAccessibilityClassName|
+    throw build, field char-sequence
+
+force get-flip-interval
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |getFlipInterval|
+    throw build, field int
+
+force is-auto-start
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |isAutoStart|
+    throw build, field boolean
+
+force is-flipping
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |isFlipping|
+    throw build, field boolean
+
+force set-auto-start
+  mount build, field view-flipper
+  mount auto-start, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAutoStart|
+    drive factor, share auto-start
+    throw build, field unit
+
+force set-flip-interval
+  mount build, field view-flipper
+  mount milliseconds, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setFlipInterval|
+    drive factor, share milliseconds
+    throw build, field unit
+
+force start-flipping
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |startFlipping|
+    throw build, field unit
+
+force stop-flipping
+  mount build, field view-flipper
+
+  cause call-method
+    drive object, share build
+    drive method, |stopFlipping|
+    throw build, field unit

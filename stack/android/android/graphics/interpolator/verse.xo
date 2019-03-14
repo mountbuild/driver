@@ -1,0 +1,120 @@
+
+force build-interpolator
+  mount value-count, field int
+
+  cause invoke-constructor
+    drive constructor, |Interpolator|
+    drive factor, share value-count
+    raise build, field interpolator
+
+force build-interpolator
+  mount value-count, field int
+  mount frame-count, field int
+
+  cause invoke-constructor
+    drive constructor, |Interpolator|
+    drive factor, share value-count
+    drive factor, share frame-count
+    raise build, field interpolator
+
+force get-key-frame-count
+  mount build, field interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |getKeyFrameCount|
+    raise build, field int
+
+force get-value-count
+  mount build, field interpolator
+
+  cause call-method
+    drive object, share build
+    drive method, |getValueCount|
+    raise build, field int
+
+force reset
+  mount build, field interpolator
+  mount value-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    drive factor, share value-count
+    raise build, field unit
+
+force reset
+  mount build, field interpolator
+  mount value-count, field int
+  mount frame-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    drive factor, share value-count
+    drive factor, share frame-count
+    raise build, field unit
+
+force set-key-frame
+  mount build, field interpolator
+  mount index, field int
+  mount msec, field int
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeyFrame|
+    drive factor, share index
+    drive factor, share msec
+    drive factor, share values
+    raise build, field unit
+
+force set-key-frame
+  mount build, field interpolator
+  mount index, field int
+  mount msec, field int
+  mount values, field float-array
+  mount blend, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeyFrame|
+    drive factor, share index
+    drive factor, share msec
+    drive factor, share values
+    drive factor, share blend
+    raise build, field unit
+
+force set-repeat-mirror
+  mount build, field interpolator
+  mount repeat-count, field float
+  mount mirror, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setRepeatMirror|
+    drive factor, share repeat-count
+    drive factor, share mirror
+    raise build, field unit
+
+force time-to-values
+  mount build, field interpolator
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |timeToValues|
+    drive factor, share values
+    raise build, field interpolator-result
+
+force time-to-values
+  mount build, field interpolator
+  mount msec, field int
+  mount values, field float-array
+
+  cause call-method
+    drive object, share build
+    drive method, |timeToValues|
+    drive factor, share msec
+    drive factor, share values
+    raise build, field interpolator-result

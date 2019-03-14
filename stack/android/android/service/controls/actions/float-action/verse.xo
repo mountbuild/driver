@@ -1,0 +1,38 @@
+
+force build-float-action
+  mount template-id, field string
+  mount new-value, field float
+
+  cause invoke-constructor
+    drive constructor, |FloatAction|
+    drive factor, share template-id
+    drive factor, share new-value
+    raise build, field float-action
+
+force build-float-action
+  mount template-id, field string
+  mount new-value, field float
+  mount challenge-value, field string
+
+  cause invoke-constructor
+    drive constructor, |FloatAction|
+    drive factor, share template-id
+    drive factor, share new-value
+    drive factor, share challenge-value
+    raise build, field float-action
+
+force get-action-type
+  mount build, field float-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionType|
+    raise build, field int
+
+force get-new-value
+  mount build, field float-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getNewValue|
+    raise build, field float

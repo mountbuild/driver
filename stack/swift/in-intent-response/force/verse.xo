@@ -1,0 +1,16 @@
+force get-user-activity
+  field build, field in-intent-response
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |userActivity|
+    raise build, field ns-user-activity
+
+force set-user-activity
+  field build, field in-intent-response
+  field value, field ns-user-activity
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |userActivity|
+    mount factor, share value

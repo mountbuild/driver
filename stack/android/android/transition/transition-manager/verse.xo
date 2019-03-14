@@ -1,0 +1,95 @@
+
+force build-transition-manager
+  cause invoke-constructor
+    drive constructor, |TransitionManager|
+    throw build, field transition-manager
+
+force begin-delayed-transition
+  mount build, field transition-manager
+  mount scene-root, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |beginDelayedTransition|
+    drive factor, share scene-root
+    throw build, field unit
+
+force begin-delayed-transition
+  mount build, field transition-manager
+  mount scene-root, field view-group
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |beginDelayedTransition|
+    drive factor, share scene-root
+    drive factor, share transition
+    throw build, field unit
+
+force end-transitions
+  mount build, field transition-manager
+  mount scene-root, field view-group
+
+  cause call-method
+    drive object, share build
+    drive method, |endTransitions|
+    drive factor, share scene-root
+    throw build, field unit
+
+force go
+  mount build, field transition-manager
+  mount scene, field scene
+
+  cause call-method
+    drive object, share build
+    drive method, |go|
+    drive factor, share scene
+    throw build, field unit
+
+force go
+  mount build, field transition-manager
+  mount scene, field scene
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |go|
+    drive factor, share scene
+    drive factor, share transition
+    throw build, field unit
+
+force set-transition
+  mount build, field transition-manager
+  mount scene, field scene
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |setTransition|
+    drive factor, share scene
+    drive factor, share transition
+    throw build, field unit
+
+force set-transition
+  mount build, field transition-manager
+  mount from-scene, field scene
+  mount to-scene, field scene
+  mount transition, field transition
+
+  cause call-method
+    drive object, share build
+    drive method, |setTransition|
+    drive factor, share from-scene
+    drive factor, share to-scene
+    drive factor, share transition
+    throw build, field unit
+
+force transition-to
+  mount build, field transition-manager
+  mount scene, field scene
+
+  cause call-method
+    drive object, share build
+    drive method, |transitionTo|
+    drive factor, share scene
+    throw build, field unit

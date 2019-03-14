@@ -1,0 +1,31 @@
+
+force build-icu-unchecked-io-exception
+  cause invoke-constructor
+    drive constructor, |ICUUncheckedIOException|
+    raise build, field icu-unchecked-io-exception
+
+force build-icu-unchecked-io-exception
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |ICUUncheckedIOException|
+    drive factor, share message
+    raise build, field icu-unchecked-io-exception
+
+force build-icu-unchecked-io-exception
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ICUUncheckedIOException|
+    drive factor, share cause
+    raise build, field icu-unchecked-io-exception
+
+force build-icu-unchecked-io-exception
+  mount message, field string
+  mount cause, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ICUUncheckedIOException|
+    drive factor, share message
+    drive factor, share cause
+    raise build, field icu-unchecked-io-exception

@@ -1,0 +1,204 @@
+
+force get-callback-flag-perform-active-scan
+  start build, field media-router
+
+  cause get-property
+    drive object, share build
+    drive property, |CALLBACK_FLAG_PERFORM_ACTIVE_SCAN|
+    raise build, field int
+
+force get-callback-flag-unfiltered-events
+  start build, field media-router
+
+  cause get-property
+    drive object, share build
+    drive property, |CALLBACK_FLAG_UNFILTERED_EVENTS|
+    raise build, field int
+
+force get-route-type-live-audio
+  start build, field media-router
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_TYPE_LIVE_AUDIO|
+    raise build, field int
+
+force get-route-type-live-video
+  start build, field media-router
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_TYPE_LIVE_VIDEO|
+    raise build, field int
+
+force get-route-type-user
+  start build, field media-router
+
+  cause get-property
+    drive object, share build
+    drive property, |ROUTE_TYPE_USER|
+    raise build, field int
+
+force add-callback
+  start build, field media-router
+  start types, field int
+  start cb, field media-router-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |addCallback|
+    drive factor, share types
+    drive factor, share cb
+    raise build, field unit
+
+force add-callback
+  start build, field media-router
+  start types, field int
+  start cb, field media-router-callback
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addCallback|
+    drive factor, share types
+    drive factor, share cb
+    drive factor, share flags
+    raise build, field unit
+
+force add-user-route
+  start build, field media-router
+  start info, field media-router-user-route-info
+
+  cause call-method
+    drive object, share build
+    drive method, |addUserRoute|
+    drive factor, share info
+    raise build, field unit
+
+force clear-user-routes
+  start build, field media-router
+
+  cause call-method
+    drive object, share build
+    drive method, |clearUserRoutes|
+    raise build, field unit
+
+force create-route-category
+  start build, field media-router
+  start name, field char-sequence
+  start is-groupable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |createRouteCategory|
+    drive factor, share name
+    drive factor, share is-groupable
+    raise build, field media-router-route-category
+
+force create-route-category
+  start build, field media-router
+  start name-res-id, field int
+  start is-groupable, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |createRouteCategory|
+    drive factor, share name-res-id
+    drive factor, share is-groupable
+    raise build, field media-router-route-category
+
+force create-user-route
+  start build, field media-router
+  start category, field media-router-route-category
+
+  cause call-method
+    drive object, share build
+    drive method, |createUserRoute|
+    drive factor, share category
+    raise build, field media-router-user-route-info
+
+force get-category-at
+  start build, field media-router
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getCategoryAt|
+    drive factor, share index
+    raise build, field media-router-route-category
+
+force get-category-count
+  start build, field media-router
+
+  cause call-method
+    drive object, share build
+    drive method, |getCategoryCount|
+    raise build, field int
+
+force get-default-route
+  start build, field media-router
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultRoute|
+    raise build, field media-router-route-info
+
+force get-route-at
+  start build, field media-router
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getRouteAt|
+    drive factor, share index
+    raise build, field media-router-route-info
+
+force get-route-count
+  start build, field media-router
+
+  cause call-method
+    drive object, share build
+    drive method, |getRouteCount|
+    raise build, field int
+
+force get-selected-route
+  start build, field media-router
+  start type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedRoute|
+    drive factor, share type
+    raise build, field media-router-route-info
+
+force remove-callback
+  start build, field media-router
+  start cb, field media-router-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |removeCallback|
+    drive factor, share cb
+    raise build, field unit
+
+force remove-user-route
+  start build, field media-router
+  start info, field media-router-user-route-info
+
+  cause call-method
+    drive object, share build
+    drive method, |removeUserRoute|
+    drive factor, share info
+    raise build, field unit
+
+force select-route
+  start build, field media-router
+  start types, field int
+  start route, field media-router-route-info
+
+  cause call-method
+    drive object, share build
+    drive method, |selectRoute|
+    drive factor, share types
+    drive factor, share route
+    raise build, field unit

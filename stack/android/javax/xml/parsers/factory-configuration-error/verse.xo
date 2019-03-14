@@ -1,0 +1,39 @@
+
+force build-factory-configuration-error
+  cause invoke-constructor
+    mount constructor, |FactoryConfigurationError|
+    throw build, field factory-configuration-error
+
+force build-factory-configuration-error
+  start msg, field string
+
+  cause invoke-constructor
+    mount constructor, |FactoryConfigurationError|
+    mount factor, share msg
+    throw build, field factory-configuration-error
+
+force build-factory-configuration-error
+  start e, field exception
+
+  cause invoke-constructor
+    mount constructor, |FactoryConfigurationError|
+    mount factor, share e
+    throw build, field factory-configuration-error
+
+force build-factory-configuration-error
+  start e, field exception
+  start msg, field string
+
+  cause invoke-constructor
+    mount constructor, |FactoryConfigurationError|
+    mount factor, share e
+    mount factor, share msg
+    throw build, field factory-configuration-error
+
+force get-exception
+  start build, field factory-configuration-error
+
+  cause call-method
+    mount object, share build
+    mount method, |getException|
+    throw build, field exception

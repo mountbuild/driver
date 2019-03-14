@@ -1,0 +1,192 @@
+
+force get-flag-relevant-always
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_RELEVANT_ALWAYS|
+    raise build, field int
+
+force get-flag-relevant-now
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |FLAG_RELEVANT_NOW|
+    raise build, field int
+
+force get-scheme
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |SCHEME|
+    raise build, field string
+
+force get-state-error
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_ERROR|
+    raise build, field int
+
+force get-state-false
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_FALSE|
+    raise build, field int
+
+force get-state-true
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_TRUE|
+    raise build, field int
+
+force get-state-unknown
+  mount build, field condition
+
+  cause get-property
+    drive object, share build
+    drive property, |STATE_UNKNOWN|
+    raise build, field int
+
+force build-condition
+  mount id, field uri
+  mount summary, field string
+  mount state, field int
+
+  cause invoke-constructor
+    drive constructor, |Condition|
+    drive factor, share id
+    drive factor, share summary
+    drive factor, share state
+    raise build, field condition
+
+force build-condition
+  mount id, field uri
+  mount summary, field string
+  mount line1, field string
+  mount line2, field string
+  mount icon, field int
+  mount state, field int
+  mount flags, field int
+
+  cause invoke-constructor
+    drive constructor, |Condition|
+    drive factor, share id
+    drive factor, share summary
+    drive factor, share line1
+    drive factor, share line2
+    drive factor, share icon
+    drive factor, share state
+    drive factor, share flags
+    raise build, field condition
+
+force build-condition
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |Condition|
+    drive factor, share source
+    raise build, field condition
+
+force copy
+  mount build, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |copy|
+    raise build, field condition
+
+force describe-contents
+  mount build, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force equals
+  mount build, field condition
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    raise build, field boolean
+
+force hash-code
+  mount build, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    raise build, field int
+
+force is-valid-id
+  mount build, field condition
+  mount id, field uri
+  mount pkg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isValidId|
+    drive factor, share id
+    drive factor, share pkg
+    raise build, field boolean
+
+force new-id
+  mount build, field condition
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |newId|
+    drive factor, share context
+    raise build, field uri-builder
+
+force relevance-to-string
+  mount build, field condition
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |relevanceToString|
+    drive factor, share flags
+    raise build, field string
+
+force state-to-string
+  mount build, field condition
+  mount state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stateToString|
+    drive factor, share state
+    raise build, field string
+
+force to-string
+  mount build, field condition
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field condition
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

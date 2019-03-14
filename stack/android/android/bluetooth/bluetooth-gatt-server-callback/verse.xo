@@ -1,0 +1,177 @@
+
+force build-bluetooth-gatt-server-callback
+  cause invoke-constructor
+    drive constructor, |BluetoothGattServerCallback|
+    throw build, field bluetooth-gatt-server-callback
+
+force on-characteristic-read-request
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount request-id, field int
+  mount offset, field int
+  mount characteristic, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |onCharacteristicReadRequest|
+    drive factor, share device
+    drive factor, share request-id
+    drive factor, share offset
+    drive factor, share characteristic
+    throw build, field unit
+
+force on-characteristic-write-request
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount request-id, field int
+  mount characteristic, field bluetooth-gatt-characteristic
+  mount prepared-write, field boolean
+  mount response-needed, field boolean
+  mount offset, field int
+  mount value, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onCharacteristicWriteRequest|
+    drive factor, share device
+    drive factor, share request-id
+    drive factor, share characteristic
+    drive factor, share prepared-write
+    drive factor, share response-needed
+    drive factor, share offset
+    drive factor, share value
+    throw build, field unit
+
+force on-connection-state-change
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount status, field int
+  mount new-state, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onConnectionStateChange|
+    drive factor, share device
+    drive factor, share status
+    drive factor, share new-state
+    throw build, field unit
+
+force on-descriptor-read-request
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount request-id, field int
+  mount offset, field int
+  mount descriptor, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |onDescriptorReadRequest|
+    drive factor, share device
+    drive factor, share request-id
+    drive factor, share offset
+    drive factor, share descriptor
+    throw build, field unit
+
+force on-descriptor-write-request
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount request-id, field int
+  mount descriptor, field bluetooth-gatt-descriptor
+  mount prepared-write, field boolean
+  mount response-needed, field boolean
+  mount offset, field int
+  mount value, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |onDescriptorWriteRequest|
+    drive factor, share device
+    drive factor, share request-id
+    drive factor, share descriptor
+    drive factor, share prepared-write
+    drive factor, share response-needed
+    drive factor, share offset
+    drive factor, share value
+    throw build, field unit
+
+force on-execute-write
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount request-id, field int
+  mount execute, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onExecuteWrite|
+    drive factor, share device
+    drive factor, share request-id
+    drive factor, share execute
+    throw build, field unit
+
+force on-mtu-changed
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount mtu, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMtuChanged|
+    drive factor, share device
+    drive factor, share mtu
+    throw build, field unit
+
+force on-notification-sent
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onNotificationSent|
+    drive factor, share device
+    drive factor, share status
+    throw build, field unit
+
+force on-phy-read
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount tx-phy, field int
+  mount rx-phy, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPhyRead|
+    drive factor, share device
+    drive factor, share tx-phy
+    drive factor, share rx-phy
+    drive factor, share status
+    throw build, field unit
+
+force on-phy-update
+  mount build, field bluetooth-gatt-server-callback
+  mount device, field bluetooth-device
+  mount tx-phy, field int
+  mount rx-phy, field int
+  mount status, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onPhyUpdate|
+    drive factor, share device
+    drive factor, share tx-phy
+    drive factor, share rx-phy
+    drive factor, share status
+    throw build, field unit
+
+force on-service-added
+  mount build, field bluetooth-gatt-server-callback
+  mount status, field int
+  mount service, field bluetooth-gatt-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onServiceAdded|
+    drive factor, share status
+    drive factor, share service
+    throw build, field unit

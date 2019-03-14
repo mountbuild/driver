@@ -1,0 +1,84 @@
+
+force build-input-binding
+  mount conn, field input-connection
+  mount conn-token, field i-binder
+  mount uid, field int
+  mount pid, field int
+
+  cause invoke-constructor
+    drive constructor, |InputBinding|
+    drive factor, share conn
+    drive factor, share conn-token
+    drive factor, share uid
+    drive factor, share pid
+    throw build, field input-binding
+
+force build-input-binding
+  mount conn, field input-connection
+  mount binding, field input-binding
+
+  cause invoke-constructor
+    drive constructor, |InputBinding|
+    drive factor, share conn
+    drive factor, share binding
+    throw build, field input-binding
+
+force describe-contents
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-connection
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnection|
+    throw build, field input-connection
+
+force get-connection-token
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |getConnectionToken|
+    throw build, field i-binder
+
+force get-pid
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |getPid|
+    throw build, field int
+
+force get-uid
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |getUid|
+    throw build, field int
+
+force to-string
+  mount build, field input-binding
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field input-binding
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

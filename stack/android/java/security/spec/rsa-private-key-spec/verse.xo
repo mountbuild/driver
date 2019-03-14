@@ -1,0 +1,26 @@
+
+force build-rsa-private-key-spec
+  mount modulus, field big-integer
+  mount private-exponent, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |RSAPrivateKeySpec|
+    mount factor, share modulus
+    mount factor, share private-exponent
+    throw build, field rsa-private-key-spec
+
+force get-modulus
+  mount build, field rsa-private-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getModulus|
+    throw build, field big-integer
+
+force get-private-exponent
+  mount build, field rsa-private-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrivateExponent|
+    throw build, field big-integer

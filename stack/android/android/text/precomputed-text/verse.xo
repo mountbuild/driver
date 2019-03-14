@@ -1,0 +1,188 @@
+
+force create
+  mount build, field precomputed-text
+  mount text, field char-sequence
+  mount params, field precomputed-text-params
+
+  cause call-method
+    drive object, share build
+    drive method, |create|
+    drive factor, share text
+    drive factor, share params
+    raise build, field precomputed-text
+
+force get
+  mount build, field precomputed-text
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share index
+    raise build, field char
+
+force get-bounds
+  mount build, field precomputed-text
+  mount start, field int
+  mount end, field int
+  mount bounds, field rect
+
+  cause call-method
+    drive object, share build
+    drive method, |getBounds|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share bounds
+    raise build, field unit
+
+force get-paragraph-count
+  mount build, field precomputed-text
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphCount|
+    raise build, field int
+
+force get-paragraph-end
+  mount build, field precomputed-text
+  mount para-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphEnd|
+    drive factor, share para-index
+    raise build, field int
+
+force get-paragraph-start
+  mount build, field precomputed-text
+  mount para-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getParagraphStart|
+    drive factor, share para-index
+    raise build, field int
+
+force get-params
+  mount build, field precomputed-text
+
+  cause call-method
+    drive object, share build
+    drive method, |getParams|
+    raise build, field precomputed-text-params
+
+force get-span-end
+  mount build, field precomputed-text
+  mount tag, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanEnd|
+    drive factor, share tag
+    raise build, field int
+
+force get-span-flags
+  mount build, field precomputed-text
+  mount tag, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanFlags|
+    drive factor, share tag
+    raise build, field int
+
+force get-span-start
+  mount build, field precomputed-text
+  mount tag, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpanStart|
+    drive factor, share tag
+    raise build, field int
+
+force get-spans
+  mount build, field precomputed-text
+  mount start, field int
+  mount end, field int
+  mount type, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getSpans|
+    drive factor, share start
+    drive factor, share end
+    drive factor, share type
+    raise build, field array
+
+force get-width
+  mount build, field precomputed-text
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getWidth|
+    drive factor, share start
+    drive factor, share end
+    raise build, field float
+
+force next-span-transition
+  mount build, field precomputed-text
+  mount start, field int
+  mount limit, field int
+  mount type, field class-any
+
+  cause call-method
+    drive object, share build
+    drive method, |nextSpanTransition|
+    drive factor, share start
+    drive factor, share limit
+    drive factor, share type
+    raise build, field int
+
+force remove-span
+  mount build, field precomputed-text
+  mount what, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSpan|
+    drive factor, share what
+    raise build, field unit
+
+force set-span
+  mount build, field precomputed-text
+  mount what, field any
+  mount start, field int
+  mount end, field int
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSpan|
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    drive factor, share flags
+    raise build, field unit
+
+force sub-sequence
+  mount build, field precomputed-text
+  mount start-index, field int
+  mount end-index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |subSequence|
+    drive factor, share start-index
+    drive factor, share end-index
+    raise build, field char-sequence
+
+force to-string
+  mount build, field precomputed-text
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string

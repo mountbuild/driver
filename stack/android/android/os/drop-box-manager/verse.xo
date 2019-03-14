@@ -1,0 +1,118 @@
+
+force get-action-dropbox-entry-added
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DROPBOX_ENTRY_ADDED|
+    raise build, field string
+
+force get-extra-dropped-count
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_DROPPED_COUNT|
+    raise build, field string
+
+force get-extra-tag
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_TAG|
+    raise build, field string
+
+force get-extra-time
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_TIME|
+    raise build, field string
+
+force get-is-empty
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |IS_EMPTY|
+    raise build, field int
+
+force get-is-gzipped
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |IS_GZIPPED|
+    raise build, field int
+
+force get-is-text
+  mount build, field drop-box-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |IS_TEXT|
+    raise build, field int
+
+force add-data
+  mount build, field drop-box-manager
+  mount tag, field string
+  mount data, field byte-array
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addData|
+    drive factor, share tag
+    drive factor, share data
+    drive factor, share flags
+    raise build, field unit
+
+force add-file
+  mount build, field drop-box-manager
+  mount tag, field string
+  mount file, field file
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addFile|
+    drive factor, share tag
+    drive factor, share file
+    drive factor, share flags
+    raise build, field unit
+
+force add-text
+  mount build, field drop-box-manager
+  mount tag, field string
+  mount data, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |addText|
+    drive factor, share tag
+    drive factor, share data
+    raise build, field unit
+
+force get-next-entry
+  mount build, field drop-box-manager
+  mount tag, field string
+  mount msec, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |getNextEntry|
+    drive factor, share tag
+    drive factor, share msec
+    raise build, field drop-box-manager-entry
+
+force is-tag-enabled
+  mount build, field drop-box-manager
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isTagEnabled|
+    drive factor, share tag
+    raise build, field boolean

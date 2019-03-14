@@ -1,0 +1,79 @@
+
+force build-loader-manager
+  cause invoke-constructor
+    drive constructor, |LoaderManager|
+    throw build, field loader-manager
+
+force destroy-loader
+  start build, field loader-manager
+  start id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |destroyLoader|
+    drive factor, share id
+    throw build, field unit
+
+force dump
+  start build, field loader-manager
+  start prefix, field string
+  start fd, field file-descriptor
+  start writer, field print-writer
+  start args, field array-string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share prefix
+    drive factor, share fd
+    drive factor, share writer
+    drive factor, share args
+    throw build, field unit
+
+force enable-debug-logging
+  start build, field loader-manager
+  start enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |enableDebugLogging|
+    drive factor, share enabled
+    throw build, field unit
+
+force get-loader
+  start build, field loader-manager
+  start id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getLoader|
+    drive factor, share id
+    throw build, field loader
+
+force init-loader
+  start build, field loader-manager
+  start id, field int
+  start args, field bundle
+  start callback, field loader-manager-loader-callbacks-d
+
+  cause call-method
+    drive object, share build
+    drive method, |initLoader|
+    drive factor, share id
+    drive factor, share args
+    drive factor, share callback
+    throw build, field loader
+
+force restart-loader
+  start build, field loader-manager
+  start id, field int
+  start args, field bundle
+  start callback, field loader-manager-loader-callbacks-d
+
+  cause call-method
+    drive object, share build
+    drive method, |restartLoader|
+    drive factor, share id
+    drive factor, share args
+    drive factor, share callback
+    throw build, field loader

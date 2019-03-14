@@ -1,0 +1,313 @@
+
+force build-hash-map
+  mount initial-capacity, field int
+  mount load-factor, field float
+
+  cause invoke-constructor
+    drive constructor, |HashMap|
+    drive factor, share initial-capacity
+    drive factor, share load-factor
+    throw build, field hash-map
+
+force build-hash-map
+  mount initial-capacity, field int
+
+  cause invoke-constructor
+    drive constructor, |HashMap|
+    drive factor, share initial-capacity
+    throw build, field hash-map
+
+force build-hash-map
+  cause invoke-constructor
+    drive constructor, |HashMap|
+    throw build, field hash-map
+
+force build-hash-map
+  mount m, field mutable-map-out-k
+  mount out-v, field undefined
+
+  cause invoke-constructor
+    drive constructor, |HashMap|
+    drive factor, share m
+    drive factor, share out-v
+    throw build, field hash-map
+
+force clear
+  mount build, field hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clear|
+    throw build, field unit
+
+force clone
+  mount build, field hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field any
+
+force compute
+  mount build, field hash-map
+  mount key, field k
+  mount remapping-function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |compute|
+    drive factor, share key
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force compute-if-absent
+  mount build, field hash-map
+  mount key, field k
+  mount mapping-function, field function-in-k
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |computeIfAbsent|
+    drive factor, share key
+    drive factor, share mapping-function
+    drive factor, share out-v
+    throw build, field v
+
+force compute-if-present
+  mount build, field hash-map
+  mount key, field k
+  mount remapping-function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |computeIfPresent|
+    drive factor, share key
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force contains-key
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-key
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |containsKey|
+    drive factor, share key
+    throw build, field boolean
+
+force contains-value
+  mount build, field hash-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force contains-value
+  mount build, field hash-map
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |containsValue|
+    drive factor, share value
+    throw build, field boolean
+
+force for-each
+  mount build, field hash-map
+  mount action, field bi-consumer-in-k
+  mount in-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |forEach|
+    drive factor, share action
+    drive factor, share in-v
+    throw build, field unit
+
+force get
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force get
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share key
+    throw build, field v
+
+force get-or-default
+  mount build, field hash-map
+  mount key, field k
+  mount default-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |getOrDefault|
+    drive factor, share key
+    drive factor, share default-value
+    throw build, field v
+
+force is-empty
+  mount build, field hash-map
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmpty|
+    throw build, field boolean
+
+force merge
+  mount build, field hash-map
+  mount key, field k
+  mount value, field v
+  mount remapping-function, field bi-function-in-v
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |merge|
+    drive factor, share key
+    drive factor, share value
+    drive factor, share remapping-function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field v
+
+force put
+  mount build, field hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force put-all
+  mount build, field hash-map
+  mount from, field map-out-k
+  mount v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |putAll|
+    drive factor, share from
+    drive factor, share v
+    throw build, field unit
+
+force put-if-absent
+  mount build, field hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |putIfAbsent|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force remove
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force remove
+  mount build, field hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    drive factor, share value
+    throw build, field boolean
+
+force remove
+  mount build, field hash-map
+  mount key, field k
+
+  cause call-method
+    drive object, share build
+    drive method, |remove|
+    drive factor, share key
+    throw build, field v
+
+force replace
+  mount build, field hash-map
+  mount key, field k
+  mount old-value, field v
+  mount new-value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share key
+    drive factor, share old-value
+    drive factor, share new-value
+    throw build, field boolean
+
+force replace
+  mount build, field hash-map
+  mount key, field k
+  mount value, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |replace|
+    drive factor, share key
+    drive factor, share value
+    throw build, field v
+
+force replace-all
+  mount build, field hash-map
+  mount function, field bi-function-in-k
+  mount in-v, field undefined
+  mount out-v, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceAll|
+    drive factor, share function
+    drive factor, share in-v
+    drive factor, share out-v
+    throw build, field unit

@@ -1,0 +1,92 @@
+
+force build-atomic-markable-reference
+  mount initial-ref, field v
+  mount initial-mark, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AtomicMarkableReference|
+    drive factor, share initial-ref
+    drive factor, share initial-mark
+    throw build, field atomic-markable-reference
+
+force attempt-mark
+  mount build, field atomic-markable-reference
+  mount expected-reference, field v
+  mount new-mark, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |attemptMark|
+    drive factor, share expected-reference
+    drive factor, share new-mark
+    throw build, field boolean
+
+force compare-and-set
+  mount build, field atomic-markable-reference
+  mount expected-reference, field v
+  mount new-reference, field v
+  mount expected-mark, field boolean
+  mount new-mark, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSet|
+    drive factor, share expected-reference
+    drive factor, share new-reference
+    drive factor, share expected-mark
+    drive factor, share new-mark
+    throw build, field boolean
+
+force get
+  mount build, field atomic-markable-reference
+  mount mark-holder, field boolean-array
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share mark-holder
+    throw build, field v
+
+force get-reference
+  mount build, field atomic-markable-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |getReference|
+    throw build, field v
+
+force is-marked
+  mount build, field atomic-markable-reference
+
+  cause call-method
+    drive object, share build
+    drive method, |isMarked|
+    throw build, field boolean
+
+force set
+  mount build, field atomic-markable-reference
+  mount new-reference, field v
+  mount new-mark, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share new-reference
+    drive factor, share new-mark
+    throw build, field unit
+
+force weak-compare-and-set
+  mount build, field atomic-markable-reference
+  mount expected-reference, field v
+  mount new-reference, field v
+  mount expected-mark, field boolean
+  mount new-mark, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |weakCompareAndSet|
+    drive factor, share expected-reference
+    drive factor, share new-reference
+    drive factor, share expected-mark
+    drive factor, share new-mark
+    throw build, field boolean

@@ -1,0 +1,77 @@
+
+force build-audio-buffer
+  start options
+
+  cause invoke-constructor
+    mount constructor, |AudioBuffer|
+    mount factor, share options
+    throw build
+
+force get-sample-rate
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sampleRate|
+    throw build
+
+force get-length
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |length|
+    throw build
+
+force get-duration
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |duration|
+    throw build
+
+force get-number-of-channels
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |numberOfChannels|
+    throw build
+
+force get-channel-data
+  start build
+  start channel
+
+  cause call-method
+    mount object, share build
+    mount method, |getChannelData|
+    mount factor, share channel
+    throw build
+
+force copy-from-channel
+  start build
+  start destination
+  start channel-number
+  start start-in-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |copyFromChannel|
+    mount factor, share destination
+    mount factor, share channel-number
+    mount factor, share start-in-channel
+    throw build
+
+force copy-to-channel
+  start build
+  start source
+  start channel-number
+  start start-in-channel
+
+  cause call-method
+    mount object, share build
+    mount method, |copyToChannel|
+    mount factor, share source
+    mount factor, share channel-number
+    mount factor, share start-in-channel

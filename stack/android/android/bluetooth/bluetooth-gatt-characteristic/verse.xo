@@ -1,0 +1,426 @@
+
+force get-format-float
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_FLOAT|
+    throw build, field int
+
+force get-format-sfloat
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_SFLOAT|
+    throw build, field int
+
+force get-format-sint16
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_SINT16|
+    throw build, field int
+
+force get-format-sint32
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_SINT32|
+    throw build, field int
+
+force get-format-sint8
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_SINT8|
+    throw build, field int
+
+force get-format-uint16
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_UINT16|
+    throw build, field int
+
+force get-format-uint32
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_UINT32|
+    throw build, field int
+
+force get-format-uint8
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_UINT8|
+    throw build, field int
+
+force get-permission-read
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ|
+    throw build, field int
+
+force get-permission-read-encrypted
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ_ENCRYPTED|
+    throw build, field int
+
+force get-permission-read-encrypted-mitm
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_READ_ENCRYPTED_MITM|
+    throw build, field int
+
+force get-permission-write
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE|
+    throw build, field int
+
+force get-permission-write-encrypted
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_ENCRYPTED|
+    throw build, field int
+
+force get-permission-write-encrypted-mitm
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_ENCRYPTED_MITM|
+    throw build, field int
+
+force get-permission-write-signed
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_SIGNED|
+    throw build, field int
+
+force get-permission-write-signed-mitm
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PERMISSION_WRITE_SIGNED_MITM|
+    throw build, field int
+
+force get-property-broadcast
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_BROADCAST|
+    throw build, field int
+
+force get-property-extended-props
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_EXTENDED_PROPS|
+    throw build, field int
+
+force get-property-indicate
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_INDICATE|
+    throw build, field int
+
+force get-property-notify
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_NOTIFY|
+    throw build, field int
+
+force get-property-read
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_READ|
+    throw build, field int
+
+force get-property-signed-write
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_SIGNED_WRITE|
+    throw build, field int
+
+force get-property-write
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_WRITE|
+    throw build, field int
+
+force get-property-write-no-response
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |PROPERTY_WRITE_NO_RESPONSE|
+    throw build, field int
+
+force get-write-type-default
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |WRITE_TYPE_DEFAULT|
+    throw build, field int
+
+force get-write-type-no-response
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |WRITE_TYPE_NO_RESPONSE|
+    throw build, field int
+
+force get-write-type-signed
+  mount build, field bluetooth-gatt-characteristic
+
+  cause get-property
+    drive object, share build
+    drive property, |WRITE_TYPE_SIGNED|
+    throw build, field int
+
+force build-bluetooth-gatt-characteristic
+  mount uuid, field uuid
+  mount properties, field int
+  mount permissions, field int
+
+  cause invoke-constructor
+    drive constructor, |BluetoothGattCharacteristic|
+    drive factor, share uuid
+    drive factor, share properties
+    drive factor, share permissions
+    throw build, field bluetooth-gatt-characteristic
+
+force add-descriptor
+  mount build, field bluetooth-gatt-characteristic
+  mount descriptor, field bluetooth-gatt-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |addDescriptor|
+    drive factor, share descriptor
+    throw build, field boolean
+
+force describe-contents
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-descriptor
+  mount build, field bluetooth-gatt-characteristic
+  mount uuid, field uuid
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescriptor|
+    drive factor, share uuid
+    throw build, field bluetooth-gatt-descriptor
+
+force get-descriptors
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescriptors|
+    throw build, field mutable-list
+
+force get-float-value
+  mount build, field bluetooth-gatt-characteristic
+  mount format-type, field int
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getFloatValue|
+    drive factor, share format-type
+    drive factor, share offset
+    throw build, field float
+
+force get-instance-id
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstanceId|
+    throw build, field int
+
+force get-int-value
+  mount build, field bluetooth-gatt-characteristic
+  mount format-type, field int
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getIntValue|
+    drive factor, share format-type
+    drive factor, share offset
+    throw build, field int
+
+force get-permissions
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getPermissions|
+    throw build, field int
+
+force get-properties
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getProperties|
+    throw build, field int
+
+force get-service
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getService|
+    throw build, field bluetooth-gatt-service
+
+force get-string-value
+  mount build, field bluetooth-gatt-characteristic
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getStringValue|
+    drive factor, share offset
+    throw build, field string
+
+force get-uuid
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getUuid|
+    throw build, field uuid
+
+force get-value
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getValue|
+    throw build, field byte-array
+
+force get-write-type
+  mount build, field bluetooth-gatt-characteristic
+
+  cause call-method
+    drive object, share build
+    drive method, |getWriteType|
+    throw build, field int
+
+force set-value
+  mount build, field bluetooth-gatt-characteristic
+  mount value, field byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    throw build, field boolean
+
+force set-value
+  mount build, field bluetooth-gatt-characteristic
+  mount value, field int
+  mount format-type, field int
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    drive factor, share format-type
+    drive factor, share offset
+    throw build, field boolean
+
+force set-value
+  mount build, field bluetooth-gatt-characteristic
+  mount mantissa, field int
+  mount exponent, field int
+  mount format-type, field int
+  mount offset, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share mantissa
+    drive factor, share exponent
+    drive factor, share format-type
+    drive factor, share offset
+    throw build, field boolean
+
+force set-value
+  mount build, field bluetooth-gatt-characteristic
+  mount value, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setValue|
+    drive factor, share value
+    throw build, field boolean
+
+force set-write-type
+  mount build, field bluetooth-gatt-characteristic
+  mount write-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setWriteType|
+    drive factor, share write-type
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field bluetooth-gatt-characteristic
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

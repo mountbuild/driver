@@ -1,0 +1,43 @@
+
+force build-tracing-controller
+  cause invoke-constructor
+    drive constructor, |TracingController|
+    throw build, field tracing-controller
+
+force get-instance
+  mount build, field tracing-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    throw build, field tracing-controller
+
+force is-tracing
+  mount build, field tracing-controller
+
+  cause call-method
+    drive object, share build
+    drive method, |isTracing|
+    throw build, field boolean
+
+force start
+  mount build, field tracing-controller
+  mount tracing-config, field tracing-config
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    drive factor, share tracing-config
+    throw build, field unit
+
+force stop
+  mount build, field tracing-controller
+  mount output-stream, field output-stream
+  mount executor, field executor
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    drive factor, share output-stream
+    drive factor, share executor
+    throw build, field boolean

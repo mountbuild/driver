@@ -1,0 +1,80 @@
+
+force get-name
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |name|
+    throw build
+
+force get-version
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |version|
+    throw build
+
+force get-object-store-names
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |objectStoreNames|
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+
+force create-mutable-file
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |createMutableFile|
+
+force create-object-store
+  start build
+  start name
+  start optional-parameters
+
+  cause call-method
+    mount object, share build
+    mount method, |createObjectStore|
+    mount factor, share name
+    mount factor, share optional-parameters
+
+force delete-object-store
+  start build
+  start name
+
+  cause call-method
+    mount object, share build
+    mount method, |deleteObjectStore|
+    mount factor, share name
+
+force transaction
+  start build
+  start store-names
+  start store-names
+  start store-names
+  start store-names
+  start mode
+  start mode
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |transaction|
+    mount factor, share store-names
+    mount factor, share store-names
+    mount factor, share store-names
+    mount factor, share store-names
+    mount factor, share mode
+    mount factor, share mode
+    mount factor, share options
+    throw build

@@ -1,0 +1,182 @@
+
+force get-key-has-set-default-values
+  mount build, field preference-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |KEY_HAS_SET_DEFAULT_VALUES|
+    throw build, field string
+
+force get-metadata-key-preferences
+  mount build, field preference-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |METADATA_KEY_PREFERENCES|
+    throw build, field string
+
+force create-preference-screen
+  mount build, field preference-manager
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |createPreferenceScreen|
+    drive factor, share context
+    throw build, field preference-screen
+
+force find-preference
+  mount build, field preference-manager
+  mount key, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |findPreference|
+    drive factor, share key
+    throw build, field preference
+
+force get-default-shared-preferences
+  mount build, field preference-manager
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultSharedPreferences|
+    drive factor, share context
+    throw build, field shared-preferences
+
+force get-default-shared-preferences-name
+  mount build, field preference-manager
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultSharedPreferencesName|
+    drive factor, share context
+    throw build, field string
+
+force get-preference-data-store
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferenceDataStore|
+    throw build, field preference-data-store
+
+force get-shared-preferences
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getSharedPreferences|
+    throw build, field shared-preferences
+
+force get-shared-preferences-mode
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getSharedPreferencesMode|
+    throw build, field int
+
+force get-shared-preferences-name
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getSharedPreferencesName|
+    throw build, field string
+
+force is-storage-default
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isStorageDefault|
+    throw build, field boolean
+
+force is-storage-device-protected
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isStorageDeviceProtected|
+    throw build, field boolean
+
+force set-default-values
+  mount build, field preference-manager
+  mount context, field context
+  mount res-id, field int
+  mount read-again, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultValues|
+    drive factor, share context
+    drive factor, share res-id
+    drive factor, share read-again
+    throw build, field unit
+
+force set-default-values
+  mount build, field preference-manager
+  mount context, field context
+  mount shared-preferences-name, field string
+  mount shared-preferences-mode, field int
+  mount res-id, field int
+  mount read-again, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setDefaultValues|
+    drive factor, share context
+    drive factor, share shared-preferences-name
+    drive factor, share shared-preferences-mode
+    drive factor, share res-id
+    drive factor, share read-again
+    throw build, field unit
+
+force set-preference-data-store
+  mount build, field preference-manager
+  mount data-store, field preference-data-store
+
+  cause call-method
+    drive object, share build
+    drive method, |setPreferenceDataStore|
+    drive factor, share data-store
+    throw build, field unit
+
+force set-shared-preferences-mode
+  mount build, field preference-manager
+  mount shared-preferences-mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSharedPreferencesMode|
+    drive factor, share shared-preferences-mode
+    throw build, field unit
+
+force set-shared-preferences-name
+  mount build, field preference-manager
+  mount shared-preferences-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setSharedPreferencesName|
+    drive factor, share shared-preferences-name
+    throw build, field unit
+
+force set-storage-default
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |setStorageDefault|
+    throw build, field unit
+
+force set-storage-device-protected
+  mount build, field preference-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |setStorageDeviceProtected|
+    throw build, field unit

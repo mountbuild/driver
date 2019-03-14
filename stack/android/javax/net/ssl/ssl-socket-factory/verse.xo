@@ -1,0 +1,45 @@
+
+force build-ssl-socket-factory
+  cause invoke-constructor
+    mount constructor, |SSLSocketFactory|
+    throw build, field ssl-socket-factory
+
+force create-socket
+  start build, field ssl-socket-factory
+  start s, field socket
+  start host, field string
+  start port, field int
+  start auto-close, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |createSocket|
+    mount factor, share s
+    mount factor, share host
+    mount factor, share port
+    mount factor, share auto-close
+    throw build, field socket
+
+force get-default
+  start build, field ssl-socket-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefault|
+    throw build, field socket-factory
+
+force get-default-cipher-suites
+  start build, field ssl-socket-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getDefaultCipherSuites|
+    throw build, field array
+
+force get-supported-cipher-suites
+  start build, field ssl-socket-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getSupportedCipherSuites|
+    throw build, field array

@@ -1,0 +1,77 @@
+
+force get-service-interface
+  mount build, field call-redirection-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    throw build, field string
+
+force build-call-redirection-service
+  cause invoke-constructor
+    drive constructor, |CallRedirectionService|
+    throw build, field call-redirection-service
+
+force cancel-call
+  mount build, field call-redirection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |cancelCall|
+    throw build, field unit
+
+force on-bind
+  mount build, field call-redirection-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    throw build, field i-binder
+
+force on-place-call
+  mount build, field call-redirection-service
+  mount handle, field uri
+  mount initial-phone-account, field phone-account-handle
+  mount allow-interactive-response, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onPlaceCall|
+    drive factor, share handle
+    drive factor, share initial-phone-account
+    drive factor, share allow-interactive-response
+    throw build, field unit
+
+force on-unbind
+  mount build, field call-redirection-service
+  mount intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onUnbind|
+    drive factor, share intent
+    throw build, field boolean
+
+force place-call-unmodified
+  mount build, field call-redirection-service
+
+  cause call-method
+    drive object, share build
+    drive method, |placeCallUnmodified|
+    throw build, field unit
+
+force redirect-call
+  mount build, field call-redirection-service
+  mount gateway-uri, field uri
+  mount target-phone-account, field phone-account-handle
+  mount confirm-first, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |redirectCall|
+    drive factor, share gateway-uri
+    drive factor, share target-phone-account
+    drive factor, share confirm-first
+    throw build, field unit

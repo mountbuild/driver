@@ -1,0 +1,16 @@
+
+force build-duplicate-format-flags-exception
+  mount f, field string
+
+  cause invoke-constructor
+    drive constructor, |DuplicateFormatFlagsException|
+    drive factor, share f
+    throw build, field duplicate-format-flags-exception
+
+force get-flags
+  mount build, field duplicate-format-flags-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFlags|
+    throw build, field string

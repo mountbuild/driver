@@ -1,0 +1,113 @@
+
+force build-home-sp
+  cause invoke-constructor
+    drive constructor, |HomeSp|
+    throw build, field home-sp
+
+force build-home-sp
+  mount source, field home-sp
+
+  cause invoke-constructor
+    drive constructor, |HomeSp|
+    drive factor, share source
+    throw build, field home-sp
+
+force describe-contents
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field home-sp
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-fqdn
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |getFqdn|
+    throw build, field string
+
+force get-friendly-name
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |getFriendlyName|
+    throw build, field string
+
+force get-roaming-consortium-ois
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |getRoamingConsortiumOis|
+    throw build, field long-array
+
+force hash-code
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force set-fqdn
+  mount build, field home-sp
+  mount fqdn, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setFqdn|
+    drive factor, share fqdn
+    throw build, field unit
+
+force set-friendly-name
+  mount build, field home-sp
+  mount friendly-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setFriendlyName|
+    drive factor, share friendly-name
+    throw build, field unit
+
+force set-roaming-consortium-ois
+  mount build, field home-sp
+  mount roaming-consortium-ois, field long-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setRoamingConsortiumOis|
+    drive factor, share roaming-consortium-ois
+    throw build, field unit
+
+force to-string
+  mount build, field home-sp
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field home-sp
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

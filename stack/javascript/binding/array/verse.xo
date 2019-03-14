@@ -1,0 +1,109 @@
+
+fetch ..
+  fetch /number
+    catch field integer
+
+field array
+
+force get-index-of
+  start array, field array
+  start index, field integer
+  cause call-method
+    mount object, share array
+    mount method, |indexOf|
+    mount factor, share index
+    raise build
+
+force create
+  cause create-literal
+    mount literal, |[]|
+    raise build
+
+force create-uint8
+  start value
+  cause invoke-constructor
+    mount constructor, |Uint8Array|
+    mount factor, share value
+    raise build
+
+force create-uint16
+  start value
+  cause invoke-constructor
+    mount constructor, |Uint16Array|
+    mount factor, share value
+    raise build
+
+force create-uint32
+  start value
+  cause invoke-constructor
+    mount constructor, |Uint32Array|
+    mount factor, share value
+    raise build
+
+force create-float32
+  start value
+  cause invoke-constructor
+    mount constructor, |Float32Array|
+    mount factor, share value
+    raise build
+
+force push
+  start array, field array
+  start value
+
+  cause call-method
+    mount object, share array
+    mount method, |push|
+    mount factor, share value
+
+force pop
+  start array, field array
+
+  cause call-method
+    mount object, share array
+    mount method, |pop|
+    raise build
+
+force shift
+  start array, field array
+
+  cause call-method
+    mount object, share array
+    mount method, |shift|
+    raise build
+
+force unshift
+  start array, field array
+  start value
+
+  cause call-method
+    mount object, share array
+    mount method, |unshift|
+    mount factor, share value
+
+force store
+  start array, field array
+  start index, field integer
+  start value
+
+  cause set-dynamic-aspect
+    mount object, share array
+    mount aspect, share index
+    mount factor, share value
+
+force fetch
+  start array, field array
+  start index, field integer
+
+  cause get-dynamic-aspect
+    mount object, share array
+    mount aspect, share index
+    raise build
+
+force get-length
+  start array, field array
+
+  cause get-aspect
+    mount object, share array
+    mount aspect, |length|
+    raise build

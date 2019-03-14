@@ -1,0 +1,48 @@
+
+force get-instance
+  start build, field compact-decimal-format
+  start locale, field u-locale
+  start style, field compact-decimal-format-compact-style
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    drive factor, share style
+    raise build, field compact-decimal-format
+
+force get-instance
+  start build, field compact-decimal-format
+  start locale, field locale
+  start style, field compact-decimal-format-compact-style
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share locale
+    drive factor, share style
+    raise build, field compact-decimal-format
+
+force parse
+  start build, field compact-decimal-format
+  start text, field string
+  start parse-position, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parse|
+    drive factor, share text
+    drive factor, share parse-position
+    raise build, field number
+
+force parse-currency
+  start build, field compact-decimal-format
+  start text, field char-sequence
+  start parse-position, field parse-position
+
+  cause call-method
+    drive object, share build
+    drive method, |parseCurrency|
+    drive factor, share text
+    drive factor, share parse-position
+    raise build, field currency-amount

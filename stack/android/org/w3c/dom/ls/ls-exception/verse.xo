@@ -1,0 +1,26 @@
+
+force get-parse-err
+  mount build, field ls-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |PARSE_ERR|
+    throw build, field short
+
+force get-serialize-err
+  mount build, field ls-exception
+
+  cause get-property
+    drive object, share build
+    drive property, |SERIALIZE_ERR|
+    throw build, field short
+
+force build-ls-exception
+  mount code, field short
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |LSException|
+    drive factor, share code
+    drive factor, share message
+    throw build, field ls-exception

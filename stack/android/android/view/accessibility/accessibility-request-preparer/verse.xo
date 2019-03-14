@@ -1,0 +1,42 @@
+
+force get-request-type-extra-data
+  mount build, field accessibility-request-preparer
+
+  cause get-property
+    drive object, share build
+    drive property, |REQUEST_TYPE_EXTRA_DATA|
+    raise build, field int
+
+force build-accessibility-request-preparer
+  mount view, field view
+  mount request-types, field int
+
+  cause invoke-constructor
+    drive constructor, |AccessibilityRequestPreparer|
+    drive factor, share view
+    drive factor, share request-types
+    raise build, field accessibility-request-preparer
+
+force get-view
+  mount build, field accessibility-request-preparer
+
+  cause call-method
+    drive object, share build
+    drive method, |getView|
+    raise build, field view
+
+force on-prepare-extra-data
+  mount build, field accessibility-request-preparer
+  mount virtual-view-id, field int
+  mount extra-data-key, field string
+  mount args, field bundle
+  mount preparation-finished-message, field message
+
+  cause call-method
+    drive object, share build
+    drive method, |onPrepareExtraData|
+    drive factor, share virtual-view-id
+    drive factor, share extra-data-key
+    drive factor, share args
+    drive factor, share preparation-finished-message
+    raise build, field unit

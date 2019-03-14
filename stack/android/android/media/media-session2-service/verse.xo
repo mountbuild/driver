@@ -1,0 +1,87 @@
+
+force get-service-interface
+  start build, field media-session2-service
+
+  cause get-property
+    drive object, share build
+    drive property, |SERVICE_INTERFACE|
+    raise build, field string
+
+force build-media-session2-service
+  cause invoke-constructor
+    drive constructor, |MediaSession2Service|
+    raise build, field media-session2-service
+
+force add-session
+  start build, field media-session2-service
+  start session, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |addSession|
+    drive factor, share session
+    raise build, field unit
+
+force get-sessions
+  start build, field media-session2-service
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessions|
+    raise build, field mutable-list
+
+force on-bind
+  start build, field media-session2-service
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBind|
+    drive factor, share intent
+    raise build, field i-binder
+
+force on-create
+  start build, field media-session2-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onCreate|
+    raise build, field unit
+
+force on-destroy
+  start build, field media-session2-service
+
+  cause call-method
+    drive object, share build
+    drive method, |onDestroy|
+    raise build, field unit
+
+force on-get-session
+  start build, field media-session2-service
+  start controller-info, field media-session2-controller-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onGetSession|
+    drive factor, share controller-info
+    raise build, field media-session2
+
+force on-update-notification
+  start build, field media-session2-service
+  start session, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |onUpdateNotification|
+    drive factor, share session
+    raise build, field media-session2-service-media-notification
+
+force remove-session
+  start build, field media-session2-service
+  start session, field media-session2
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSession|
+    drive factor, share session
+    raise build, field unit

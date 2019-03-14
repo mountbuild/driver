@@ -1,0 +1,82 @@
+
+force generate-secret
+  start build, field secret-key-factory
+  start key-spec, field key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |generateSecret|
+    mount factor, share key-spec
+    throw build, field secret-key
+
+force get-algorithm
+  start build, field secret-key-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getAlgorithm|
+    throw build, field string
+
+force get-instance
+  start build, field secret-key-factory
+  start algorithm, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    throw build, field secret-key-factory
+
+force get-instance
+  start build, field secret-key-factory
+  start algorithm, field string
+  start provider, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field secret-key-factory
+
+force get-instance
+  start build, field secret-key-factory
+  start algorithm, field string
+  start provider, field provider
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share algorithm
+    mount factor, share provider
+    throw build, field secret-key-factory
+
+force get-key-spec
+  start build, field secret-key-factory
+  start key, field secret-key
+  start key-spec, field class
+
+  cause call-method
+    mount object, share build
+    mount method, |getKeySpec|
+    mount factor, share key
+    mount factor, share key-spec
+    throw build, field key-spec
+
+force get-provider
+  start build, field secret-key-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |getProvider|
+    throw build, field provider
+
+force translate-key
+  start build, field secret-key-factory
+  start key, field secret-key
+
+  cause call-method
+    mount object, share build
+    mount method, |translateKey|
+    mount factor, share key
+    throw build, field secret-key

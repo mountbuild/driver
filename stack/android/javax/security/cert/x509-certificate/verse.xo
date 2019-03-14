@@ -1,0 +1,115 @@
+
+force build-x509-certificate
+  cause invoke-constructor
+    mount constructor, |X509Certificate|
+    throw build, field x509-certificate
+
+force check-validity
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |checkValidity|
+    throw build, field unit
+
+force check-validity
+  start build, field x509-certificate
+  start date, field date
+
+  cause call-method
+    mount object, share build
+    mount method, |checkValidity|
+    mount factor, share date
+    throw build, field unit
+
+force get-instance
+  start build, field x509-certificate
+  start in-stream, field input-stream
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share in-stream
+    throw build, field x509-certificate
+
+force get-instance
+  start build, field x509-certificate
+  start cert-data, field byte-array
+
+  cause call-method
+    mount object, share build
+    mount method, |getInstance|
+    mount factor, share cert-data
+    throw build, field x509-certificate
+
+force get-issuer-dn
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getIssuerDN|
+    throw build, field principal
+
+force get-not-after
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getNotAfter|
+    throw build, field date
+
+force get-not-before
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getNotBefore|
+    throw build, field date
+
+force get-serial-number
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getSerialNumber|
+    throw build, field big-integer
+
+force get-sig-alg-name
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgName|
+    throw build, field string
+
+force get-sig-alg-oid
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgOID|
+    throw build, field string
+
+force get-sig-alg-params
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getSigAlgParams|
+    throw build, field byte-array
+
+force get-subject-dn
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getSubjectDN|
+    throw build, field principal
+
+force get-version
+  start build, field x509-certificate
+
+  cause call-method
+    mount object, share build
+    mount method, |getVersion|
+    throw build, field int

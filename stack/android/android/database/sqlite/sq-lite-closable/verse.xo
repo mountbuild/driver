@@ -1,0 +1,37 @@
+
+force build-sq-lite-closable
+  cause invoke-constructor
+    drive constructor, |SQLiteClosable|
+    raise build, field sq-lite-closable
+
+force acquire-reference
+  mount build, field sq-lite-closable
+
+  cause call-method
+    drive object, share build
+    drive method, |acquireReference|
+    raise build, field unit
+
+force close
+  mount build, field sq-lite-closable
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    raise build, field unit
+
+force release-reference
+  mount build, field sq-lite-closable
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseReference|
+    raise build, field unit
+
+force release-reference-from-container
+  mount build, field sq-lite-closable
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseReferenceFromContainer|
+    raise build, field unit

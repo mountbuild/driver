@@ -1,0 +1,246 @@
+
+force get-authentication-result-type-biometric
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTHENTICATION_RESULT_TYPE_BIOMETRIC|
+    throw build, field int
+
+force get-authentication-result-type-device-credential
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |AUTHENTICATION_RESULT_TYPE_DEVICE_CREDENTIAL|
+    throw build, field int
+
+force get-biometric-acquired-good
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_GOOD|
+    throw build, field int
+
+force get-biometric-acquired-imager-dirty
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_IMAGER_DIRTY|
+    throw build, field int
+
+force get-biometric-acquired-insufficient
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_INSUFFICIENT|
+    throw build, field int
+
+force get-biometric-acquired-partial
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_PARTIAL|
+    throw build, field int
+
+force get-biometric-acquired-too-fast
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_TOO_FAST|
+    throw build, field int
+
+force get-biometric-acquired-too-slow
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ACQUIRED_TOO_SLOW|
+    throw build, field int
+
+force get-biometric-error-canceled
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_CANCELED|
+    throw build, field int
+
+force get-biometric-error-hw-not-present
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_HW_NOT_PRESENT|
+    throw build, field int
+
+force get-biometric-error-hw-unavailable
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_HW_UNAVAILABLE|
+    throw build, field int
+
+force get-biometric-error-lockout
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_LOCKOUT|
+    throw build, field int
+
+force get-biometric-error-lockout-permanent
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_LOCKOUT_PERMANENT|
+    throw build, field int
+
+force get-biometric-error-no-biometrics
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_NO_BIOMETRICS|
+    throw build, field int
+
+force get-biometric-error-no-device-credential
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_NO_DEVICE_CREDENTIAL|
+    throw build, field int
+
+force get-biometric-error-no-space
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_NO_SPACE|
+    throw build, field int
+
+force get-biometric-error-security-update-required
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED|
+    throw build, field int
+
+force get-biometric-error-timeout
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_TIMEOUT|
+    throw build, field int
+
+force get-biometric-error-unable-to-process
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_UNABLE_TO_PROCESS|
+    throw build, field int
+
+force get-biometric-error-user-canceled
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_USER_CANCELED|
+    throw build, field int
+
+force get-biometric-error-vendor
+  mount build, field biometric-prompt
+
+  cause get-property
+    drive object, share build
+    drive property, |BIOMETRIC_ERROR_VENDOR|
+    throw build, field int
+
+force authenticate
+  mount build, field biometric-prompt
+  mount crypto, field biometric-prompt-crypto-object
+  mount cancel, field cancellation-signal
+  mount executor, field executor
+  mount callback, field biometric-prompt-authentication-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |authenticate|
+    drive factor, share crypto
+    drive factor, share cancel
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force authenticate
+  mount build, field biometric-prompt
+  mount cancel, field cancellation-signal
+  mount executor, field executor
+  mount callback, field biometric-prompt-authentication-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |authenticate|
+    drive factor, share cancel
+    drive factor, share executor
+    drive factor, share callback
+    throw build, field unit
+
+force get-allowed-authenticators
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllowedAuthenticators|
+    throw build, field int
+
+force get-description
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |getDescription|
+    throw build, field char-sequence
+
+force get-negative-button-text
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |getNegativeButtonText|
+    throw build, field char-sequence
+
+force get-subtitle
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |getSubtitle|
+    throw build, field char-sequence
+
+force get-title
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |getTitle|
+    throw build, field char-sequence
+
+force is-confirmation-required
+  mount build, field biometric-prompt
+
+  cause call-method
+    drive object, share build
+    drive method, |isConfirmationRequired|
+    throw build, field boolean

@@ -1,0 +1,40 @@
+
+force get-quota
+  start build, field backup-data-output
+
+  cause call-method
+    drive object, share build
+    drive method, |getQuota|
+    throw build, field long
+
+force get-transport-flags
+  start build, field backup-data-output
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransportFlags|
+    throw build, field int
+
+force write-entity-data
+  start build, field backup-data-output
+  start data, field byte-array
+  start size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEntityData|
+    drive factor, share data
+    drive factor, share size
+    throw build, field int
+
+force write-entity-header
+  start build, field backup-data-output
+  start key, field string
+  start data-size, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeEntityHeader|
+    drive factor, share key
+    drive factor, share data-size
+    throw build, field int

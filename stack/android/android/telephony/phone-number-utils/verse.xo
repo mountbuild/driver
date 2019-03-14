@@ -1,0 +1,575 @@
+
+force get-bcd-extended-type-called-party
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |BCD_EXTENDED_TYPE_CALLED_PARTY|
+    throw build, field int
+
+force get-bcd-extended-type-ef-adn
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |BCD_EXTENDED_TYPE_EF_ADN|
+    throw build, field int
+
+force get-format-japan
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_JAPAN|
+    throw build, field int
+
+force get-format-nanp
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_NANP|
+    throw build, field int
+
+force get-format-unknown
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |FORMAT_UNKNOWN|
+    throw build, field int
+
+force get-pause
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |PAUSE|
+    throw build, field char
+
+force get-toa-international
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |TOA_International|
+    throw build, field int
+
+force get-toa-unknown
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |TOA_Unknown|
+    throw build, field int
+
+force get-wait
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |WAIT|
+    throw build, field char
+
+force get-wild
+  mount build, field phone-number-utils
+
+  cause get-property
+    drive object, share build
+    drive property, |WILD|
+    throw build, field char
+
+force build-phone-number-utils
+  cause invoke-constructor
+    drive constructor, |PhoneNumberUtils|
+    throw build, field phone-number-utils
+
+force add-tts-span
+  mount build, field phone-number-utils
+  mount s, field spannable
+  mount start, field int
+  mount end-exclusive, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |addTtsSpan|
+    drive factor, share s
+    drive factor, share start
+    drive factor, share end-exclusive
+    throw build, field unit
+
+force called-party-bcd-fragment-to-string
+  mount build, field phone-number-utils
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |calledPartyBCDFragmentToString|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    throw build, field string
+
+force called-party-bcd-fragment-to-string
+  mount build, field phone-number-utils
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount bcd-ext-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |calledPartyBCDFragmentToString|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share bcd-ext-type
+    throw build, field string
+
+force called-party-bcd-to-string
+  mount build, field phone-number-utils
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |calledPartyBCDToString|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    throw build, field string
+
+force called-party-bcd-to-string
+  mount build, field phone-number-utils
+  mount bytes, field byte-array
+  mount offset, field int
+  mount length, field int
+  mount bcd-ext-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |calledPartyBCDToString|
+    drive factor, share bytes
+    drive factor, share offset
+    drive factor, share length
+    drive factor, share bcd-ext-type
+    throw build, field string
+
+force compare
+  mount build, field phone-number-utils
+  mount a, field string
+  mount b, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share a
+    drive factor, share b
+    throw build, field boolean
+
+force compare
+  mount build, field phone-number-utils
+  mount context, field context
+  mount a, field string
+  mount b, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |compare|
+    drive factor, share context
+    drive factor, share a
+    drive factor, share b
+    throw build, field boolean
+
+force convert-keypad-letters-to-digits
+  mount build, field phone-number-utils
+  mount input, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |convertKeypadLettersToDigits|
+    drive factor, share input
+    throw build, field string
+
+force create-tts-span
+  mount build, field phone-number-utils
+  mount phone-number-string, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createTtsSpan|
+    drive factor, share phone-number-string
+    throw build, field tts-span
+
+force create-tts-spannable
+  mount build, field phone-number-utils
+  mount phone-number, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |createTtsSpannable|
+    drive factor, share phone-number
+    throw build, field char-sequence
+
+force extract-network-portion
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |extractNetworkPortion|
+    drive factor, share phone-number
+    throw build, field string
+
+force extract-post-dial-portion
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |extractPostDialPortion|
+    drive factor, share phone-number
+    throw build, field string
+
+force format-japanese-number
+  mount build, field phone-number-utils
+  mount text, field editable
+
+  cause call-method
+    drive object, share build
+    drive method, |formatJapaneseNumber|
+    drive factor, share text
+    throw build, field unit
+
+force format-nanp-number
+  mount build, field phone-number-utils
+  mount text, field editable
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNanpNumber|
+    drive factor, share text
+    throw build, field unit
+
+force format-number
+  mount build, field phone-number-utils
+  mount source, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumber|
+    drive factor, share source
+    throw build, field string
+
+force format-number
+  mount build, field phone-number-utils
+  mount text, field editable
+  mount default-formatting-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumber|
+    drive factor, share text
+    drive factor, share default-formatting-type
+    throw build, field unit
+
+force format-number
+  mount build, field phone-number-utils
+  mount phone-number, field string
+  mount default-country-iso, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumber|
+    drive factor, share phone-number
+    drive factor, share default-country-iso
+    throw build, field string
+
+force format-number
+  mount build, field phone-number-utils
+  mount phone-number, field string
+  mount phone-number-e164, field string
+  mount default-country-iso, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumber|
+    drive factor, share phone-number
+    drive factor, share phone-number-e164
+    drive factor, share default-country-iso
+    throw build, field string
+
+force format-number-to-e164
+  mount build, field phone-number-utils
+  mount phone-number, field string
+  mount default-country-iso, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumberToE164|
+    drive factor, share phone-number
+    drive factor, share default-country-iso
+    throw build, field string
+
+force format-number-to-rfc3966
+  mount build, field phone-number-utils
+  mount phone-number, field string
+  mount default-country-iso, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |formatNumberToRFC3966|
+    drive factor, share phone-number
+    drive factor, share default-country-iso
+    throw build, field string
+
+force get-format-type-for-locale
+  mount build, field phone-number-utils
+  mount locale, field locale
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormatTypeForLocale|
+    drive factor, share locale
+    throw build, field int
+
+force get-number-from-intent
+  mount build, field phone-number-utils
+  mount intent, field intent
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getNumberFromIntent|
+    drive factor, share intent
+    drive factor, share context
+    throw build, field string
+
+force get-stripped-reversed
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getStrippedReversed|
+    drive factor, share phone-number
+    throw build, field string
+
+force is12-key
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |is12Key|
+    drive factor, share c
+    throw build, field boolean
+
+force is-dialable
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isDialable|
+    drive factor, share c
+    throw build, field boolean
+
+force is-emergency-number
+  mount build, field phone-number-utils
+  mount number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isEmergencyNumber|
+    drive factor, share number
+    throw build, field boolean
+
+force is-global-phone-number
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isGlobalPhoneNumber|
+    drive factor, share phone-number
+    throw build, field boolean
+
+force is-iso-digit
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isISODigit|
+    drive factor, share c
+    throw build, field boolean
+
+force is-local-emergency-number
+  mount build, field phone-number-utils
+  mount context, field context
+  mount number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isLocalEmergencyNumber|
+    drive factor, share context
+    drive factor, share number
+    throw build, field boolean
+
+force is-non-separator
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isNonSeparator|
+    drive factor, share c
+    throw build, field boolean
+
+force is-really-dialable
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isReallyDialable|
+    drive factor, share c
+    throw build, field boolean
+
+force is-starts-post-dial
+  mount build, field phone-number-utils
+  mount c, field char
+
+  cause call-method
+    drive object, share build
+    drive method, |isStartsPostDial|
+    drive factor, share c
+    throw build, field boolean
+
+force is-voice-mail-number
+  mount build, field phone-number-utils
+  mount number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isVoiceMailNumber|
+    drive factor, share number
+    throw build, field boolean
+
+force is-well-formed-sms-address
+  mount build, field phone-number-utils
+  mount address, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isWellFormedSmsAddress|
+    drive factor, share address
+    throw build, field boolean
+
+force network-portion-to-called-party-bcd
+  mount build, field phone-number-utils
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |networkPortionToCalledPartyBCD|
+    drive factor, share s
+    throw build, field byte-array
+
+force network-portion-to-called-party-bcd-with-length
+  mount build, field phone-number-utils
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |networkPortionToCalledPartyBCDWithLength|
+    drive factor, share s
+    throw build, field byte-array
+
+force normalize-number
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |normalizeNumber|
+    drive factor, share phone-number
+    throw build, field string
+
+force number-to-called-party-bcd
+  mount build, field phone-number-utils
+  mount number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |numberToCalledPartyBCD|
+    drive factor, share number
+    throw build, field byte-array
+
+force number-to-called-party-bcd
+  mount build, field phone-number-utils
+  mount number, field string
+  mount bcd-ext-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |numberToCalledPartyBCD|
+    drive factor, share number
+    drive factor, share bcd-ext-type
+    throw build, field byte-array
+
+force replace-unicode-digits
+  mount build, field phone-number-utils
+  mount number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |replaceUnicodeDigits|
+    drive factor, share number
+    throw build, field string
+
+force string-from-string-and-toa
+  mount build, field phone-number-utils
+  mount s, field string
+  mount toa, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |stringFromStringAndTOA|
+    drive factor, share s
+    drive factor, share toa
+    throw build, field string
+
+force strip-separators
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |stripSeparators|
+    drive factor, share phone-number
+    throw build, field string
+
+force to-caller-id-min-match
+  mount build, field phone-number-utils
+  mount phone-number, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toCallerIDMinMatch|
+    drive factor, share phone-number
+    throw build, field string
+
+force toa-from-string
+  mount build, field phone-number-utils
+  mount s, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |toaFromString|
+    drive factor, share s
+    throw build, field int

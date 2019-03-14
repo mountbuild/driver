@@ -1,0 +1,34 @@
+
+force build-toggle-template
+  mount template-id, field string
+  mount button, field control-button
+
+  cause invoke-constructor
+    drive constructor, |ToggleTemplate|
+    drive factor, share template-id
+    drive factor, share button
+    raise build, field toggle-template
+
+force get-content-description
+  mount build, field toggle-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getContentDescription|
+    raise build, field char-sequence
+
+force get-template-type
+  mount build, field toggle-template
+
+  cause call-method
+    drive object, share build
+    drive method, |getTemplateType|
+    raise build, field int
+
+force is-checked
+  mount build, field toggle-template
+
+  cause call-method
+    drive object, share build
+    drive method, |isChecked|
+    raise build, field boolean

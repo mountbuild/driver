@@ -1,0 +1,180 @@
+force get-width
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |width|
+    raise build, field cg-float
+
+force set-width
+  field build, field cg-size
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |width|
+    drive factor, share value
+
+force get-height
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |height|
+    raise build, field cg-float
+
+force set-height
+  field build, field cg-size
+  field value, field cg-float
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |height|
+    drive factor, share value
+
+force get-static-zero
+  cause get aspect
+    drive object, |CGSize|
+    drive aspect, |zero|
+    raise build, class cg-size
+
+force set static zero
+  field value, field cg-size
+
+  cause set aspect
+    drive object, |CGSize|
+    drive aspect, |zero|
+    drive factor, share value
+
+force applying
+  field build, field cg-size
+  field a, class cg-affine-transform
+
+  cause call-method
+    drive object, share build
+    drive method, |applying|
+    drive factor, share a
+    raise build, class cg-size
+
+force get-dictionary-representation
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |dictionaryRepresentation|
+    raise build, field cf-dictionary
+
+force set-dictionary-representation
+  field build, field cg-size
+  field value, field cf-dictionary
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |dictionaryRepresentation|
+    drive factor, share value
+
+force get-debug-description
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    raise build, field string
+
+force set-debug-description
+  field build, field cg-size
+  field value, field string
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |debugDescription|
+    drive factor, share value
+
+force get-custom-mirror
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    raise build, field mirror
+
+force set-custom-mirror
+  field build, field cg-size
+  field value, field mirror
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customMirror|
+    drive factor, share value
+
+force get-custom-playground-quick-look
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    raise build, field playground-quick-look
+
+force set-custom-playground-quick-look
+  field build, field cg-size
+  field value, field playground-quick-look
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |customPlaygroundQuickLook|
+    drive factor, share value
+
+force equal-to
+  field build, field cg-size
+  field a, class cg-size
+
+  cause call-method
+    drive object, share build
+    drive method, |equalTo|
+    drive factor, share a
+    raise build, class bool
+
+force get-animatable-data
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |animatableData|
+    raise build, field cg-size-animatable-data
+
+force set-animatable-data
+  field build, field cg-size
+  field value, field cg-size-animatable-data
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |animatableData|
+    drive factor, share value
+
+force get-hash-value
+  field build, field cg-size
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    raise build, field int
+
+force set-hash-value
+  field build, field cg-size
+  field value, field int
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hashValue|
+    drive factor, share value
+
+force encode
+  field build, field cg-size
+  field to, field encoder
+
+  cause call-method
+    drive object, share build
+    drive method, |encode|
+    drive factor
+      brand to
+      share to

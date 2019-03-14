@@ -1,0 +1,13 @@
+
+force build-aead-bad-tag-exception
+  cause invoke-constructor
+    mount constructor, |AEADBadTagException|
+    throw build, field aead-bad-tag-exception
+
+force build-aead-bad-tag-exception
+  start msg, field string
+
+  cause invoke-constructor
+    mount constructor, |AEADBadTagException|
+    mount factor, share msg
+    throw build, field aead-bad-tag-exception

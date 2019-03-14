@@ -1,0 +1,92 @@
+
+force get-type-acquire-drm-info-failed
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_ACQUIRE_DRM_INFO_FAILED|
+    throw build, field int
+
+force get-type-not-supported
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NOT_SUPPORTED|
+    throw build, field int
+
+force get-type-no-internet-connection
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_NO_INTERNET_CONNECTION|
+    throw build, field int
+
+force get-type-out-of-memory
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_OUT_OF_MEMORY|
+    throw build, field int
+
+force get-type-process-drm-info-failed
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_PROCESS_DRM_INFO_FAILED|
+    throw build, field int
+
+force get-type-remove-all-rights-failed
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_REMOVE_ALL_RIGHTS_FAILED|
+    throw build, field int
+
+force get-type-rights-not-installed
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_NOT_INSTALLED|
+    throw build, field int
+
+force get-type-rights-renewal-not-allowed
+  mount build, field drm-error-event
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_RIGHTS_RENEWAL_NOT_ALLOWED|
+    throw build, field int
+
+force build-drm-error-event
+  mount unique-id, field int
+  mount type, field int
+  mount message, field string
+
+  cause invoke-constructor
+    drive constructor, |DrmErrorEvent|
+    drive factor, share unique-id
+    drive factor, share type
+    drive factor, share message
+    throw build, field drm-error-event
+
+force build-drm-error-event
+  mount unique-id, field int
+  mount type, field int
+  mount message, field string
+  mount attributes, field hash-map-string
+  mount any, field undefined
+
+  cause invoke-constructor
+    drive constructor, |DrmErrorEvent|
+    drive factor, share unique-id
+    drive factor, share type
+    drive factor, share message
+    drive factor, share attributes
+    drive factor, share any
+    throw build, field drm-error-event

@@ -1,0 +1,51 @@
+
+force build-event-target
+  cause invoke-constructor
+    mount constructor, |EventTarget|
+    throw build
+
+force add-event-listener
+  start build
+  start type
+  start listener
+  start options
+  start use-capture
+  start use-capture
+  start wants-untrusted
+
+  cause call-method
+    mount object, share build
+    mount method, |addEventListener|
+    mount factor, share type
+    mount factor, share listener
+    mount factor, share options
+    mount factor, share use-capture
+    mount factor, share use-capture
+    mount factor, share wants-untrusted
+    throw build
+
+force remove-event-listener
+  start build
+  start type
+  start listener
+  start options
+  start use-capture
+  start use-capture
+
+  cause call-method
+    mount object, share build
+    mount method, |removeEventListener|
+    mount factor, share type
+    mount factor, share listener
+    mount factor, share options
+    mount factor, share use-capture
+    mount factor, share use-capture
+    throw build
+
+force dispatch-event
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |dispatchEvent|
+    throw build

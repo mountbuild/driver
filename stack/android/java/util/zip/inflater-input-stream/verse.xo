@@ -1,0 +1,104 @@
+
+force build-inflater-input-stream
+  mount in, field input-stream
+  mount inf, field inflater
+  mount size, field int
+
+  cause invoke-constructor
+    drive constructor, |InflaterInputStream|
+    drive factor, share in
+    drive factor, share inf
+    drive factor, share size
+    throw build, field inflater-input-stream
+
+force build-inflater-input-stream
+  mount in, field input-stream
+  mount inf, field inflater
+
+  cause invoke-constructor
+    drive constructor, |InflaterInputStream|
+    drive factor, share in
+    drive factor, share inf
+    throw build, field inflater-input-stream
+
+force build-inflater-input-stream
+  mount in, field input-stream
+
+  cause invoke-constructor
+    drive constructor, |InflaterInputStream|
+    drive factor, share in
+    throw build, field inflater-input-stream
+
+force available
+  mount build, field inflater-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |available|
+    throw build, field int
+
+force close
+  mount build, field inflater-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force mark
+  mount build, field inflater-input-stream
+  mount readlimit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mark|
+    drive factor, share readlimit
+    throw build, field unit
+
+force mark-supported
+  mount build, field inflater-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |markSupported|
+    throw build, field boolean
+
+force read
+  mount build, field inflater-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field inflater-input-stream
+  mount b, field byte-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share b
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force reset
+  mount build, field inflater-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force skip
+  mount build, field inflater-input-stream
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

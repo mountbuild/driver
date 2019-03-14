@@ -1,0 +1,41 @@
+
+force build-instrumentation-info
+  cause invoke-constructor
+    drive constructor, |InstrumentationInfo|
+    throw build, field instrumentation-info
+
+force build-instrumentation-info
+  mount orig, field instrumentation-info
+
+  cause invoke-constructor
+    drive constructor, |InstrumentationInfo|
+    drive factor, share orig
+    throw build, field instrumentation-info
+
+force describe-contents
+  mount build, field instrumentation-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field instrumentation-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field instrumentation-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

@@ -1,0 +1,146 @@
+
+force build-view-stub
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |ViewStub|
+    drive factor, share context
+    raise build, field view-stub
+
+force build-view-stub
+  mount context, field context
+  mount layout-resource, field int
+
+  cause invoke-constructor
+    drive constructor, |ViewStub|
+    drive factor, share context
+    drive factor, share layout-resource
+    raise build, field view-stub
+
+force build-view-stub
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |ViewStub|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field view-stub
+
+force build-view-stub
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |ViewStub|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    raise build, field view-stub
+
+force build-view-stub
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |ViewStub|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    raise build, field view-stub
+
+force draw
+  mount build, field view-stub
+  mount canvas, field canvas
+
+  cause call-method
+    drive object, share build
+    drive method, |draw|
+    drive factor, share canvas
+    raise build, field unit
+
+force get-inflated-id
+  mount build, field view-stub
+
+  cause call-method
+    drive object, share build
+    drive method, |getInflatedId|
+    raise build, field int
+
+force get-layout-inflater
+  mount build, field view-stub
+
+  cause call-method
+    drive object, share build
+    drive method, |getLayoutInflater|
+    raise build, field layout-inflater
+
+force get-layout-resource
+  mount build, field view-stub
+
+  cause call-method
+    drive object, share build
+    drive method, |getLayoutResource|
+    raise build, field int
+
+force inflate
+  mount build, field view-stub
+
+  cause call-method
+    drive object, share build
+    drive method, |inflate|
+    raise build, field view
+
+force set-inflated-id
+  mount build, field view-stub
+  mount inflated-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setInflatedId|
+    drive factor, share inflated-id
+    raise build, field unit
+
+force set-layout-inflater
+  mount build, field view-stub
+  mount inflater, field layout-inflater
+
+  cause call-method
+    drive object, share build
+    drive method, |setLayoutInflater|
+    drive factor, share inflater
+    raise build, field unit
+
+force set-layout-resource
+  mount build, field view-stub
+  mount layout-resource, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLayoutResource|
+    drive factor, share layout-resource
+    raise build, field unit
+
+force set-on-inflate-listener
+  mount build, field view-stub
+  mount inflate-listener, field view-stub-on-inflate-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnInflateListener|
+    drive factor, share inflate-listener
+    raise build, field unit
+
+force set-visibility
+  mount build, field view-stub
+  mount visibility, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVisibility|
+    drive factor, share visibility
+    raise build, field unit

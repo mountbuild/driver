@@ -1,0 +1,54 @@
+
+force get-controller
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |controller|
+    throw build
+
+force get-ready
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |ready|
+    throw build
+
+force register
+  start build
+  start script-url
+  start options
+
+  cause call-method
+    mount object, share build
+    mount method, |register|
+    mount factor, share script-url
+    mount factor, share options
+    throw build
+
+force get-registration
+  start build
+  start scope
+
+  cause call-method
+    mount object, share build
+    mount method, |getRegistration|
+    mount factor, share scope
+    throw build
+
+force get-registrations
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |getRegistrations|
+    throw build
+
+force start-messages
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |startMessages|
+    throw build

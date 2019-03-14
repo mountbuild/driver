@@ -1,0 +1,126 @@
+
+force as-collector
+  mount build, field method-handle
+  mount array-type, field class
+  mount array-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |asCollector|
+    drive factor, share array-type
+    drive factor, share array-length
+    throw build, field method-handle
+
+force as-fixed-arity
+  mount build, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |asFixedArity|
+    throw build, field method-handle
+
+force as-spreader
+  mount build, field method-handle
+  mount array-type, field class
+  mount array-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |asSpreader|
+    drive factor, share array-type
+    drive factor, share array-length
+    throw build, field method-handle
+
+force as-type
+  mount build, field method-handle
+  mount new-type, field method-type
+
+  cause call-method
+    drive object, share build
+    drive method, |asType|
+    drive factor, share new-type
+    throw build, field method-handle
+
+force as-varargs-collector
+  mount build, field method-handle
+  mount array-type, field class
+
+  cause call-method
+    drive object, share build
+    drive method, |asVarargsCollector|
+    drive factor, share array-type
+    throw build, field method-handle
+
+force bind-to
+  mount build, field method-handle
+  mount x, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |bindTo|
+    drive factor, share x
+    throw build, field method-handle
+
+force invoke
+  mount build, field method-handle
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |invoke|
+    drive factor, share vararg-args
+    throw build, field any
+
+force invoke-exact
+  mount build, field method-handle
+  mount vararg-args, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeExact|
+    drive factor, share vararg-args
+    throw build, field any
+
+force invoke-with-arguments
+  mount build, field method-handle
+  mount vararg-arguments, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeWithArguments|
+    drive factor, share vararg-arguments
+    throw build, field any
+
+force invoke-with-arguments
+  mount build, field method-handle
+  mount arguments, field mutable-list
+
+  cause call-method
+    drive object, share build
+    drive method, |invokeWithArguments|
+    drive factor, share arguments
+    throw build, field any
+
+force is-varargs-collector
+  mount build, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |isVarargsCollector|
+    throw build, field boolean
+
+force to-string
+  mount build, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force type
+  mount build, field method-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |type|
+    throw build, field method-type

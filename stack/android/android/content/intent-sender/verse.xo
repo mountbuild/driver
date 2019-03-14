@@ -1,0 +1,138 @@
+
+force describe-contents
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field intent-sender
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-creator-package
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorPackage|
+    throw build, field string
+
+force get-creator-uid
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorUid|
+    throw build, field int
+
+force get-creator-user-handle
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |getCreatorUserHandle|
+    throw build, field user-handle
+
+force get-target-package
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetPackage|
+    throw build, field string
+
+force hash-code
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force read-intent-sender-or-null-from-parcel
+  mount build, field intent-sender
+  mount in, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |readIntentSenderOrNullFromParcel|
+    drive factor, share in
+    throw build, field intent-sender
+
+force send-intent
+  mount build, field intent-sender
+  mount context, field context
+  mount code, field int
+  mount intent, field intent
+  mount on-finished, field intent-sender-on-finished
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |sendIntent|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    drive factor, share on-finished
+    drive factor, share handler
+    throw build, field unit
+
+force send-intent
+  mount build, field intent-sender
+  mount context, field context
+  mount code, field int
+  mount intent, field intent
+  mount on-finished, field intent-sender-on-finished
+  mount handler, field handler
+  mount required-permission, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |sendIntent|
+    drive factor, share context
+    drive factor, share code
+    drive factor, share intent
+    drive factor, share on-finished
+    drive factor, share handler
+    drive factor, share required-permission
+    throw build, field unit
+
+force to-string
+  mount build, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-intent-sender-or-null-to-parcel
+  mount build, field intent-sender
+  mount sender, field intent-sender
+  mount out, field parcel
+
+  cause call-method
+    drive object, share build
+    drive method, |writeIntentSenderOrNullToParcel|
+    drive factor, share sender
+    drive factor, share out
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field intent-sender
+  mount out, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share out
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,73 @@
+
+force get-gl-es-version-undefined
+  mount build, field configuration-info
+
+  cause get-property
+    drive object, share build
+    drive property, |GL_ES_VERSION_UNDEFINED|
+    throw build, field int
+
+force get-input-feature-five-way-nav
+  mount build, field configuration-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INPUT_FEATURE_FIVE_WAY_NAV|
+    throw build, field int
+
+force get-input-feature-hard-keyboard
+  mount build, field configuration-info
+
+  cause get-property
+    drive object, share build
+    drive property, |INPUT_FEATURE_HARD_KEYBOARD|
+    throw build, field int
+
+force build-configuration-info
+  cause invoke-constructor
+    drive constructor, |ConfigurationInfo|
+    throw build, field configuration-info
+
+force build-configuration-info
+  mount orig, field configuration-info
+
+  cause invoke-constructor
+    drive constructor, |ConfigurationInfo|
+    drive factor, share orig
+    throw build, field configuration-info
+
+force describe-contents
+  mount build, field configuration-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-gl-es-version
+  mount build, field configuration-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getGlEsVersion|
+    throw build, field string
+
+force to-string
+  mount build, field configuration-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field configuration-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

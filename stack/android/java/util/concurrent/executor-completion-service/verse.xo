@@ -1,0 +1,68 @@
+
+force build-executor-completion-service
+  mount executor, field executor
+
+  cause invoke-constructor
+    drive constructor, |ExecutorCompletionService|
+    drive factor, share executor
+    throw build, field executor-completion-service
+
+force build-executor-completion-service
+  mount executor, field executor
+  mount completion-queue, field blocking-queue-future-v
+
+  cause invoke-constructor
+    drive constructor, |ExecutorCompletionService|
+    drive factor, share executor
+    drive factor, share completion-queue
+    throw build, field executor-completion-service
+
+force poll
+  mount build, field executor-completion-service
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    throw build, field future
+
+force poll
+  mount build, field executor-completion-service
+  mount timeout, field long
+  mount unit, field time-unit
+
+  cause call-method
+    drive object, share build
+    drive method, |poll|
+    drive factor, share timeout
+    drive factor, share unit
+    throw build, field future
+
+force submit
+  mount build, field executor-completion-service
+  mount task, field callable-v
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    throw build, field future
+
+force submit
+  mount build, field executor-completion-service
+  mount task, field runnable
+  mount result, field v
+
+  cause call-method
+    drive object, share build
+    drive method, |submit|
+    drive factor, share task
+    drive factor, share result
+    throw build, field future
+
+force take
+  mount build, field executor-completion-service
+
+  cause call-method
+    drive object, share build
+    drive method, |take|
+    throw build, field future

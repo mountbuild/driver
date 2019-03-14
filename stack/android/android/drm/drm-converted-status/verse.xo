@@ -1,0 +1,36 @@
+
+force get-status-error
+  mount build, field drm-converted-status
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_ERROR|
+    throw build, field int
+
+force get-status-inputdata-error
+  mount build, field drm-converted-status
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_INPUTDATA_ERROR|
+    throw build, field int
+
+force get-status-ok
+  mount build, field drm-converted-status
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_OK|
+    throw build, field int
+
+force build-drm-converted-status
+  mount status-code, field int
+  mount converted-data, field byte-array
+  mount offset, field int
+
+  cause invoke-constructor
+    drive constructor, |DrmConvertedStatus|
+    drive factor, share status-code
+    drive factor, share converted-data
+    drive factor, share offset
+    throw build, field drm-converted-status

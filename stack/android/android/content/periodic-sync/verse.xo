@@ -1,0 +1,52 @@
+
+force build-periodic-sync
+  mount account, field account
+  mount authority, field string
+  mount extras, field bundle
+  mount period-in-seconds, field long
+
+  cause invoke-constructor
+    drive constructor, |PeriodicSync|
+    drive factor, share account
+    drive factor, share authority
+    drive factor, share extras
+    drive factor, share period-in-seconds
+    throw build, field periodic-sync
+
+force describe-contents
+  mount build, field periodic-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field periodic-sync
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force to-string
+  mount build, field periodic-sync
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field periodic-sync
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

@@ -1,0 +1,46 @@
+
+force build-get-wallet-cards-response
+  mount wallet-cards, field mutable-list-wallet-card
+  mount selected-index, field int
+
+  cause invoke-constructor
+    drive constructor, |GetWalletCardsResponse|
+    drive factor, share wallet-cards
+    drive factor, share selected-index
+    raise build, field get-wallet-cards-response
+
+force describe-contents
+  mount build, field get-wallet-cards-response
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-selected-index
+  mount build, field get-wallet-cards-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getSelectedIndex|
+    raise build, field int
+
+force get-wallet-cards
+  mount build, field get-wallet-cards-response
+
+  cause call-method
+    drive object, share build
+    drive method, |getWalletCards|
+    raise build, field mutable-list
+
+force write-to-parcel
+  mount build, field get-wallet-cards-response
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

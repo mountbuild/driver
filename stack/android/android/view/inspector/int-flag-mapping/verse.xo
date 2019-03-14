@@ -1,0 +1,29 @@
+
+force build-int-flag-mapping
+  cause invoke-constructor
+    drive constructor, |IntFlagMapping|
+    raise build, field int-flag-mapping
+
+force add
+  mount build, field int-flag-mapping
+  mount mask, field int
+  mount target, field int
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |add|
+    drive factor, share mask
+    drive factor, share target
+    drive factor, share name
+    raise build, field unit
+
+force get
+  mount build, field int-flag-mapping
+  mount value, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share value
+    raise build, field mutable-set

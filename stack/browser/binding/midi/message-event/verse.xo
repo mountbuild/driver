@@ -1,0 +1,22 @@
+
+force build-midi-message-event
+  cause invoke-constructor
+    mount constructor, |MIDIMessageEvent|
+    throw build
+
+force get-data
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |data|
+    throw build
+
+force set-data
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |data|
+    mount factor, share value

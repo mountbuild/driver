@@ -1,0 +1,40 @@
+
+force build-cross-process-cursor-wrapper
+  mount cursor, field cursor
+
+  cause invoke-constructor
+    drive constructor, |CrossProcessCursorWrapper|
+    drive factor, share cursor
+    raise build, field cross-process-cursor-wrapper
+
+force fill-window
+  mount build, field cross-process-cursor-wrapper
+  mount position, field int
+  mount window, field cursor-window
+
+  cause call-method
+    drive object, share build
+    drive method, |fillWindow|
+    drive factor, share position
+    drive factor, share window
+    raise build, field unit
+
+force get-window
+  mount build, field cross-process-cursor-wrapper
+
+  cause call-method
+    drive object, share build
+    drive method, |getWindow|
+    raise build, field cursor-window
+
+force on-move
+  mount build, field cross-process-cursor-wrapper
+  mount old-position, field int
+  mount new-position, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onMove|
+    drive factor, share old-position
+    drive factor, share new-position
+    raise build, field boolean

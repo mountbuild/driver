@@ -1,0 +1,76 @@
+
+force close
+  mount build, field resources-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force empty
+  mount build, field resources-provider
+  mount assets-provider, field assets-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |empty|
+    drive factor, share assets-provider
+    throw build, field resources-provider
+
+force load-from-apk
+  mount build, field resources-provider
+  mount file-descriptor, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromApk|
+    drive factor, share file-descriptor
+    throw build, field resources-provider
+
+force load-from-apk
+  mount build, field resources-provider
+  mount file-descriptor, field parcel-file-descriptor
+  mount assets-provider, field assets-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromApk|
+    drive factor, share file-descriptor
+    drive factor, share assets-provider
+    throw build, field resources-provider
+
+force load-from-directory
+  mount build, field resources-provider
+  mount path, field string
+  mount assets-provider, field assets-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromDirectory|
+    drive factor, share path
+    drive factor, share assets-provider
+    throw build, field resources-provider
+
+force load-from-split
+  mount build, field resources-provider
+  mount context, field context
+  mount split-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromSplit|
+    drive factor, share context
+    drive factor, share split-name
+    throw build, field resources-provider
+
+force load-from-table
+  mount build, field resources-provider
+  mount file-descriptor, field parcel-file-descriptor
+  mount assets-provider, field assets-provider
+
+  cause call-method
+    drive object, share build
+    drive method, |loadFromTable|
+    drive factor, share file-descriptor
+    drive factor, share assets-provider
+    throw build, field resources-provider

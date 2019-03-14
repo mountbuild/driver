@@ -1,0 +1,26 @@
+
+force build-invocation-target-exception
+  mount target, field throwable
+
+  cause invoke-constructor
+    drive constructor, |InvocationTargetException|
+    drive factor, share target
+    throw build, field invocation-target-exception
+
+force build-invocation-target-exception
+  mount target, field throwable
+  mount s, field string
+
+  cause invoke-constructor
+    drive constructor, |InvocationTargetException|
+    drive factor, share target
+    drive factor, share s
+    throw build, field invocation-target-exception
+
+force get-target-exception
+  mount build, field invocation-target-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getTargetException|
+    throw build, field throwable

@@ -1,0 +1,36 @@
+
+force build-date-value-sanitizer
+  mount date-format, field date-format
+
+  cause invoke-constructor
+    drive constructor, |DateValueSanitizer|
+    drive factor, share date-format
+    raise build, field date-value-sanitizer
+
+force describe-contents
+  mount build, field date-value-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force to-string
+  mount build, field date-value-sanitizer
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    raise build, field string
+
+force write-to-parcel
+  mount build, field date-value-sanitizer
+  mount parcel, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share parcel
+    drive factor, share flags
+    raise build, field unit

@@ -1,0 +1,249 @@
+force get-color-attachments
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |colorAttachments|
+    raise build, field mtl-render-pass-color-attachment-descriptor-array
+
+force set-color-attachments
+  field build, field mtl-render-pass-descriptor
+  field value, field mtl-render-pass-color-attachment-descriptor-array
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |colorAttachments|
+    mount factor, share value
+
+force get-depth-attachment
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |depthAttachment|
+    raise build, field mtl-render-pass-depth-attachment-descriptor
+
+force set-depth-attachment
+  field build, field mtl-render-pass-descriptor
+  field value, field mtl-render-pass-depth-attachment-descriptor
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |depthAttachment|
+    mount factor, share value
+
+force get-stencil-attachment
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |stencilAttachment|
+    raise build, field mtl-render-pass-stencil-attachment-descriptor
+
+force set-stencil-attachment
+  field build, field mtl-render-pass-descriptor
+  field value, field mtl-render-pass-stencil-attachment-descriptor
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |stencilAttachment|
+    mount factor, share value
+
+force get-visibility-result-buffer
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |visibilityResultBuffer|
+    raise build, field mtl-buffer
+
+force set-visibility-result-buffer
+  field build, field mtl-render-pass-descriptor
+  field value, field mtl-buffer
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |visibilityResultBuffer|
+    mount factor, share value
+
+force get-render-target-array-length
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |renderTargetArrayLength|
+    raise build, field int
+
+force set-render-target-array-length
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |renderTargetArrayLength|
+    mount factor, share value
+
+force get-render-target-width
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |renderTargetWidth|
+    raise build, field int
+
+force set-render-target-width
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |renderTargetWidth|
+    mount factor, share value
+
+force get-render-target-height
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |renderTargetHeight|
+    raise build, field int
+
+force set-render-target-height
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |renderTargetHeight|
+    mount factor, share value
+
+force mtl-sample-position-make
+  field build, field mtl-render-pass-descriptor
+  field a, class float
+  field b, class float
+
+  cause call-method
+    mount object, share build
+    mount method, |MTLSamplePositionMake|
+    mount factor, share a
+    mount factor, share b
+    raise build, class mtl-sample-position
+
+force set-sample-positions
+  field build, field mtl-render-pass-descriptor
+  field a, class mtl-sample-position
+
+  cause call-method
+    mount object, share build
+    mount method, |setSamplePositions|
+    mount factor, share a
+
+force get-sample-positions
+  field build, field mtl-render-pass-descriptor
+
+  cause call-method
+    mount object, share build
+    mount method, |getSamplePositions|
+    raise build, class mtl-sample-position
+
+force get-imageblock-sample-length
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |imageblockSampleLength|
+    raise build, field int
+
+force set-imageblock-sample-length
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |imageblockSampleLength|
+    mount factor, share value
+
+force get-threadgroup-memory-length
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |threadgroupMemoryLength|
+    raise build, field int
+
+force set-threadgroup-memory-length
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |threadgroupMemoryLength|
+    mount factor, share value
+
+force get-tile-width
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tileWidth|
+    raise build, field int
+
+force set-tile-width
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |tileWidth|
+    mount factor, share value
+
+force get-tile-height
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |tileHeight|
+    raise build, field int
+
+force set-tile-height
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |tileHeight|
+    mount factor, share value
+
+force get-default-raster-sample-count
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |defaultRasterSampleCount|
+    raise build, field int
+
+force set-default-raster-sample-count
+  field build, field mtl-render-pass-descriptor
+  field value, field int
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |defaultRasterSampleCount|
+    mount factor, share value
+
+force get-rasterization-rate-map
+  field build, field mtl-render-pass-descriptor
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |rasterizationRateMap|
+    raise build, field mtl-rasterization-rate-map
+
+force set-rasterization-rate-map
+  field build, field mtl-render-pass-descriptor
+  field value, field mtl-rasterization-rate-map
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |rasterizationRateMap|
+    mount factor, share value

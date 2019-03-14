@@ -1,0 +1,25 @@
+
+force build-audio-device-callback
+  cause invoke-constructor
+    drive constructor, |AudioDeviceCallback|
+    raise build, field audio-device-callback
+
+force on-audio-devices-added
+  start build, field audio-device-callback
+  start added-devices, field array-audio-device-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onAudioDevicesAdded|
+    drive factor, share added-devices
+    raise build, field unit
+
+force on-audio-devices-removed
+  start build, field audio-device-callback
+  start removed-devices, field array-audio-device-info
+
+  cause call-method
+    drive object, share build
+    drive method, |onAudioDevicesRemoved|
+    drive factor, share removed-devices
+    raise build, field unit

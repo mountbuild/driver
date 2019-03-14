@@ -1,0 +1,44 @@
+
+force build-signer
+  mount name, field string
+
+  cause invoke-constructor
+    mount constructor, |Signer|
+    mount factor, share name
+    throw build, field signer
+
+force build-signer
+  mount name, field string
+  mount scope, field identity-scope
+
+  cause invoke-constructor
+    mount constructor, |Signer|
+    mount factor, share name
+    mount factor, share scope
+    throw build, field signer
+
+force get-private-key
+  mount build, field signer
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrivateKey|
+    throw build, field private-key
+
+force set-key-pair
+  mount build, field signer
+  mount pair, field key-pair
+
+  cause call-method
+    mount object, share build
+    mount method, |setKeyPair|
+    mount factor, share pair
+    throw build, field unit
+
+force to-string
+  mount build, field signer
+
+  cause call-method
+    mount object, share build
+    mount method, |toString|
+    throw build, field string

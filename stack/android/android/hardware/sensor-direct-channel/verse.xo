@@ -1,0 +1,76 @@
+
+force get-rate-fast
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |RATE_FAST|
+    throw build, field int
+
+force get-rate-normal
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |RATE_NORMAL|
+    throw build, field int
+
+force get-rate-stop
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |RATE_STOP|
+    throw build, field int
+
+force get-rate-very-fast
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |RATE_VERY_FAST|
+    throw build, field int
+
+force get-type-hardware-buffer
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_HARDWARE_BUFFER|
+    throw build, field int
+
+force get-type-memory-file
+  mount build, field sensor-direct-channel
+
+  cause get-property
+    drive object, share build
+    drive property, |TYPE_MEMORY_FILE|
+    throw build, field int
+
+force close
+  mount build, field sensor-direct-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force configure
+  mount build, field sensor-direct-channel
+  mount sensor, field sensor
+  mount rate-level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |configure|
+    drive factor, share sensor
+    drive factor, share rate-level
+    throw build, field int
+
+force is-open
+  mount build, field sensor-direct-channel
+
+  cause call-method
+    drive object, share build
+    drive method, |isOpen|
+    throw build, field boolean

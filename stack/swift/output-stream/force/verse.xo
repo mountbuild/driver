@@ -1,0 +1,30 @@
+force get-has-space-available
+  field build, field output-stream
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |hasSpaceAvailable|
+    raise build, field bool
+
+force set-has-space-available
+  field build, field output-stream
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |hasSpaceAvailable|
+    drive factor, share value
+
+force write
+  field build, field output-stream
+  field a, class unsafe-pointer-u-int8
+  field max-length, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |write|
+    drive factor, share a
+    drive factor
+      brand max-length
+      share max-length
+    raise build, class int

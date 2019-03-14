@@ -1,0 +1,113 @@
+
+force build-date-format
+  cause invoke-constructor
+    drive constructor, |DateFormat|
+    raise build, field date-format
+
+force format
+  mount build, field date-format
+  mount in-format, field char-sequence
+  mount in-time-in-millis, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share in-format
+    drive factor, share in-time-in-millis
+    raise build, field char-sequence
+
+force format
+  mount build, field date-format
+  mount in-format, field char-sequence
+  mount in-date, field date
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share in-format
+    drive factor, share in-date
+    raise build, field char-sequence
+
+force format
+  mount build, field date-format
+  mount in-format, field char-sequence
+  mount in-date, field calendar
+
+  cause call-method
+    drive object, share build
+    drive method, |format|
+    drive factor, share in-format
+    drive factor, share in-date
+    raise build, field char-sequence
+
+force get-best-date-time-pattern
+  mount build, field date-format
+  mount locale, field locale
+  mount skeleton, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getBestDateTimePattern|
+    drive factor, share locale
+    drive factor, share skeleton
+    raise build, field string
+
+force get-date-format
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDateFormat|
+    drive factor, share context
+    raise build, field date-format
+
+force get-date-format-order
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getDateFormatOrder|
+    drive factor, share context
+    raise build, field char-array
+
+force get-long-date-format
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getLongDateFormat|
+    drive factor, share context
+    raise build, field date-format
+
+force get-medium-date-format
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getMediumDateFormat|
+    drive factor, share context
+    raise build, field date-format
+
+force get-time-format
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeFormat|
+    drive factor, share context
+    raise build, field date-format
+
+force is24-hour-format
+  mount build, field date-format
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |is24HourFormat|
+    drive factor, share context
+    raise build, field boolean

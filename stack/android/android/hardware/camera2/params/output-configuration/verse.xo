@@ -1,0 +1,144 @@
+
+force get-surface-group-id-none
+  mount build, field output-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SURFACE_GROUP_ID_NONE|
+    throw build, field int
+
+force build-output-configuration
+  mount surface, field surface
+
+  cause invoke-constructor
+    drive constructor, |OutputConfiguration|
+    drive factor, share surface
+    throw build, field output-configuration
+
+force build-output-configuration
+  mount surface-group-id, field int
+  mount surface, field surface
+
+  cause invoke-constructor
+    drive constructor, |OutputConfiguration|
+    drive factor, share surface-group-id
+    drive factor, share surface
+    throw build, field output-configuration
+
+force build-output-configuration
+  mount surface-size, field size
+  mount klass, field class-t
+
+  cause invoke-constructor
+    drive constructor, |OutputConfiguration|
+    drive factor, share surface-size
+    drive factor, share klass
+    throw build, field output-configuration
+
+force add-surface
+  mount build, field output-configuration
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |addSurface|
+    drive factor, share surface
+    throw build, field unit
+
+force describe-contents
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force enable-surface-sharing
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |enableSurfaceSharing|
+    throw build, field unit
+
+force equals
+  mount build, field output-configuration
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-max-shared-surface-count
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxSharedSurfaceCount|
+    throw build, field int
+
+force get-surface
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurface|
+    throw build, field surface
+
+force get-surface-group-id
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurfaceGroupId|
+    throw build, field int
+
+force get-surfaces
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurfaces|
+    throw build, field mutable-list
+
+force hash-code
+  mount build, field output-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force remove-surface
+  mount build, field output-configuration
+  mount surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |removeSurface|
+    drive factor, share surface
+    throw build, field unit
+
+force set-physical-camera-id
+  mount build, field output-configuration
+  mount physical-camera-id, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setPhysicalCameraId|
+    drive factor, share physical-camera-id
+    throw build, field unit
+
+force write-to-parcel
+  mount build, field output-configuration
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

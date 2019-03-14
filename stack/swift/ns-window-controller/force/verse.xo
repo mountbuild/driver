@@ -1,0 +1,260 @@
+force load-window
+  field build, field ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |loadWindow|
+
+force show-window
+  field build, field ns-window-controller
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |showWindow|
+    mount factor, share a
+
+force get-is-window-loaded
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |isWindowLoaded|
+    raise build, field bool
+
+force set-is-window-loaded
+  field build, field ns-window-controller
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |isWindowLoaded|
+    mount factor, share value
+
+force get-window
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |window|
+    raise build, field ns-window
+
+force set-window
+  field build, field ns-window-controller
+  field value, field ns-window
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |window|
+    mount factor, share value
+
+force window-did-load
+  field build, field ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |windowDidLoad|
+
+force window-will-load
+  field build, field ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |windowWillLoad|
+
+force get-document
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |document|
+    raise build, field any-object
+
+force set-document
+  field build, field ns-window-controller
+  field value, field any-object
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |document|
+    mount factor, share value
+
+force set-document-edited
+  field build, field ns-window-controller
+  field a, class bool
+
+  cause call-method
+    mount object, share build
+    mount method, |setDocumentEdited|
+    mount factor, share a
+
+force close
+  field build, field ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+
+force get-should-close-document
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shouldCloseDocument|
+    raise build, field bool
+
+force set-should-close-document
+  field build, field ns-window-controller
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |shouldCloseDocument|
+    mount factor, share value
+
+force get-owner
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |owner|
+    raise build, field any-object
+
+force set-owner
+  field build, field ns-window-controller
+  field value, field any-object
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |owner|
+    mount factor, share value
+
+force get-storyboard
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |storyboard|
+    raise build, field ns-storyboard
+
+force set-storyboard
+  field build, field ns-window-controller
+  field value, field ns-storyboard
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |storyboard|
+    mount factor, share value
+
+force get-window-nib-name
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowNibName|
+    raise build, field ns-nib-name
+
+force set-window-nib-name
+  field build, field ns-window-controller
+  field value, field ns-nib-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowNibName|
+    mount factor, share value
+
+force get-window-nib-path
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowNibPath|
+    raise build, field string
+
+force set-window-nib-path
+  field build, field ns-window-controller
+  field value, field string
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowNibPath|
+    mount factor, share value
+
+force get-should-cascade-windows
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |shouldCascadeWindows|
+    raise build, field bool
+
+force set-should-cascade-windows
+  field build, field ns-window-controller
+  field value, field bool
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |shouldCascadeWindows|
+    mount factor, share value
+
+force get-window-frame-autosave-name
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |windowFrameAutosaveName|
+    raise build, field ns-window-frame-autosave-name
+
+force set-window-frame-autosave-name
+  field build, field ns-window-controller
+  field value, field ns-window-frame-autosave-name
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |windowFrameAutosaveName|
+    mount factor, share value
+
+force synchronize-window-title-with-document-name
+  field build, field ns-window-controller
+
+  cause call-method
+    mount object, share build
+    mount method, |synchronizeWindowTitleWithDocumentName|
+
+force window-title
+  field build, field ns-window-controller
+  field for-document-display-name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |windowTitle|
+    mount factor
+      brand for-document-display-name
+      share for-document-display-name
+    raise build, class string
+
+force get-content-view-controller
+  field build, field ns-window-controller
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |contentViewController|
+    raise build, field ns-view-controller
+
+force set-content-view-controller
+  field build, field ns-window-controller
+  field value, field ns-view-controller
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |contentViewController|
+    mount factor, share value
+
+force dismiss-controller
+  field build, field ns-window-controller
+  field a, class any
+
+  cause call-method
+    mount object, share build
+    mount method, |dismissController|
+    mount factor, share a

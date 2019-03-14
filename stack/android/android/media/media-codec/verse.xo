@@ -1,0 +1,612 @@
+
+force get-buffer-flag-codec-config
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_FLAG_CODEC_CONFIG|
+    raise build, field int
+
+force get-buffer-flag-end-of-stream
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_FLAG_END_OF_STREAM|
+    raise build, field int
+
+force get-buffer-flag-key-frame
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_FLAG_KEY_FRAME|
+    raise build, field int
+
+force get-buffer-flag-partial-frame
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_FLAG_PARTIAL_FRAME|
+    raise build, field int
+
+force get-buffer-flag-sync-frame
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |BUFFER_FLAG_SYNC_FRAME|
+    raise build, field int
+
+force get-configure-flag-encode
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIGURE_FLAG_ENCODE|
+    raise build, field int
+
+force get-configure-flag-use-block-model
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |CONFIGURE_FLAG_USE_BLOCK_MODEL|
+    raise build, field int
+
+force get-crypto-mode-aes-cbc
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |CRYPTO_MODE_AES_CBC|
+    raise build, field int
+
+force get-crypto-mode-aes-ctr
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |CRYPTO_MODE_AES_CTR|
+    raise build, field int
+
+force get-crypto-mode-unencrypted
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |CRYPTO_MODE_UNENCRYPTED|
+    raise build, field int
+
+force get-info-output-buffers-changed
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |INFO_OUTPUT_BUFFERS_CHANGED|
+    raise build, field int
+
+force get-info-output-format-changed
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |INFO_OUTPUT_FORMAT_CHANGED|
+    raise build, field int
+
+force get-info-try-again-later
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |INFO_TRY_AGAIN_LATER|
+    raise build, field int
+
+force get-parameter-key-hdr10-plus-info
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_HDR10_PLUS_INFO|
+    raise build, field string
+
+force get-parameter-key-low-latency
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_LOW_LATENCY|
+    raise build, field string
+
+force get-parameter-key-offset-time
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_OFFSET_TIME|
+    raise build, field string
+
+force get-parameter-key-request-sync-frame
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_REQUEST_SYNC_FRAME|
+    raise build, field string
+
+force get-parameter-key-suspend
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_SUSPEND|
+    raise build, field string
+
+force get-parameter-key-suspend-time
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_SUSPEND_TIME|
+    raise build, field string
+
+force get-parameter-key-video-bitrate
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |PARAMETER_KEY_VIDEO_BITRATE|
+    raise build, field string
+
+force get-video-scaling-mode-scale-to-fit
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |VIDEO_SCALING_MODE_SCALE_TO_FIT|
+    raise build, field int
+
+force get-video-scaling-mode-scale-to-fit-with-cropping
+  start build, field media-codec
+
+  cause get-property
+    drive object, share build
+    drive property, |VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING|
+    raise build, field int
+
+force configure
+  start build, field media-codec
+  start format, field media-format
+  start surface, field surface
+  start crypto, field media-crypto
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |configure|
+    drive factor, share format
+    drive factor, share surface
+    drive factor, share crypto
+    drive factor, share flags
+    raise build, field unit
+
+force configure
+  start build, field media-codec
+  start format, field media-format
+  start surface, field surface
+  start flags, field int
+  start descrambler, field media-descrambler
+
+  cause call-method
+    drive object, share build
+    drive method, |configure|
+    drive factor, share format
+    drive factor, share surface
+    drive factor, share flags
+    drive factor, share descrambler
+    raise build, field unit
+
+force create-by-codec-name
+  start build, field media-codec
+  start name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createByCodecName|
+    drive factor, share name
+    raise build, field media-codec
+
+force create-decoder-by-type
+  start build, field media-codec
+  start type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createDecoderByType|
+    drive factor, share type
+    raise build, field media-codec
+
+force create-encoder-by-type
+  start build, field media-codec
+  start type, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |createEncoderByType|
+    drive factor, share type
+    raise build, field media-codec
+
+force create-input-surface
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |createInputSurface|
+    raise build, field surface
+
+force create-persistent-input-surface
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |createPersistentInputSurface|
+    raise build, field surface
+
+force dequeue-input-buffer
+  start build, field media-codec
+  start timeout-us, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |dequeueInputBuffer|
+    drive factor, share timeout-us
+    raise build, field int
+
+force dequeue-output-buffer
+  start build, field media-codec
+  start info, field media-codec-buffer-info
+  start timeout-us, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |dequeueOutputBuffer|
+    drive factor, share info
+    drive factor, share timeout-us
+    raise build, field int
+
+force flush
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    raise build, field unit
+
+force get-canonical-name
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getCanonicalName|
+    raise build, field string
+
+force get-codec-info
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getCodecInfo|
+    raise build, field media-codec-info
+
+force get-input-buffer
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputBuffer|
+    drive factor, share index
+    raise build, field byte-buffer
+
+force get-input-buffers
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputBuffers|
+    raise build, field array
+
+force get-input-format
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputFormat|
+    raise build, field media-format
+
+force get-input-image
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputImage|
+    drive factor, share index
+    raise build, field image
+
+force get-metrics
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getMetrics|
+    raise build, field persistable-bundle
+
+force get-name
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getName|
+    raise build, field string
+
+force get-output-buffer
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputBuffer|
+    drive factor, share index
+    raise build, field byte-buffer
+
+force get-output-buffers
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputBuffers|
+    raise build, field array
+
+force get-output-format
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputFormat|
+    raise build, field media-format
+
+force get-output-format
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputFormat|
+    drive factor, share index
+    raise build, field media-format
+
+force get-output-frame
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputFrame|
+    drive factor, share index
+    raise build, field media-codec-output-frame
+
+force get-output-image
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getOutputImage|
+    drive factor, share index
+    raise build, field image
+
+force get-queue-request
+  start build, field media-codec
+  start index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getQueueRequest|
+    drive factor, share index
+    raise build, field media-codec-queue-request
+
+force map-hardware-buffer
+  start build, field media-codec
+  start hardware-buffer, field hardware-buffer
+
+  cause call-method
+    drive object, share build
+    drive method, |mapHardwareBuffer|
+    drive factor, share hardware-buffer
+    raise build, field image
+
+force queue-input-buffer
+  start build, field media-codec
+  start index, field int
+  start offset, field int
+  start size, field int
+  start presentation-time-us, field long
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queueInputBuffer|
+    drive factor, share index
+    drive factor, share offset
+    drive factor, share size
+    drive factor, share presentation-time-us
+    drive factor, share flags
+    raise build, field unit
+
+force queue-secure-input-buffer
+  start build, field media-codec
+  start index, field int
+  start offset, field int
+  start info, field media-codec-crypto-info
+  start presentation-time-us, field long
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |queueSecureInputBuffer|
+    drive factor, share index
+    drive factor, share offset
+    drive factor, share info
+    drive factor, share presentation-time-us
+    drive factor, share flags
+    raise build, field unit
+
+force release
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force release-output-buffer
+  start build, field media-codec
+  start index, field int
+  start render, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseOutputBuffer|
+    drive factor, share index
+    drive factor, share render
+    raise build, field unit
+
+force release-output-buffer
+  start build, field media-codec
+  start index, field int
+  start render-timestamp-ns, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |releaseOutputBuffer|
+    drive factor, share index
+    drive factor, share render-timestamp-ns
+    raise build, field unit
+
+force reset
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    raise build, field unit
+
+force set-audio-presentation
+  start build, field media-codec
+  start presentation, field audio-presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |setAudioPresentation|
+    drive factor, share presentation
+    raise build, field unit
+
+force set-callback
+  start build, field media-codec
+  start cb, field media-codec-callback
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share cb
+    drive factor, share handler
+    raise build, field unit
+
+force set-callback
+  start build, field media-codec
+  start cb, field media-codec-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |setCallback|
+    drive factor, share cb
+    raise build, field unit
+
+force set-input-surface
+  start build, field media-codec
+  start surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setInputSurface|
+    drive factor, share surface
+    raise build, field unit
+
+force set-on-frame-rendered-listener
+  start build, field media-codec
+  start listener, field media-codec-on-frame-rendered-listener
+  start handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |setOnFrameRenderedListener|
+    drive factor, share listener
+    drive factor, share handler
+    raise build, field unit
+
+force set-output-surface
+  start build, field media-codec
+  start surface, field surface
+
+  cause call-method
+    drive object, share build
+    drive method, |setOutputSurface|
+    drive factor, share surface
+    raise build, field unit
+
+force set-parameters
+  start build, field media-codec
+  start params, field bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |setParameters|
+    drive factor, share params
+    raise build, field unit
+
+force set-video-scaling-mode
+  start build, field media-codec
+  start mode, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setVideoScalingMode|
+    drive factor, share mode
+    raise build, field unit
+
+force signal-end-of-input-stream
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |signalEndOfInputStream|
+    raise build, field unit
+
+force start
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |start|
+    raise build, field unit
+
+force stop
+  start build, field media-codec
+
+  cause call-method
+    drive object, share build
+    drive method, |stop|
+    raise build, field unit

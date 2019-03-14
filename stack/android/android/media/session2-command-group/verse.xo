@@ -1,0 +1,48 @@
+
+force describe-contents
+  start build, field session2-command-group
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    raise build, field int
+
+force get-commands
+  start build, field session2-command-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getCommands|
+    raise build, field mutable-set
+
+force has-command
+  start build, field session2-command-group
+  start command, field session2-command
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCommand|
+    drive factor, share command
+    raise build, field boolean
+
+force has-command
+  start build, field session2-command-group
+  start command-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |hasCommand|
+    drive factor, share command-code
+    raise build, field boolean
+
+force write-to-parcel
+  start build, field session2-command-group
+  start dest, field parcel
+  start flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    raise build, field unit

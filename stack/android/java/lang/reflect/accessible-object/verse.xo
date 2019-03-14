@@ -1,0 +1,96 @@
+
+force get-annotation
+  mount build, field accessible-object
+  mount annotation-class, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnnotation|
+    drive factor, share annotation-class
+    throw build, field t
+
+force get-annotations
+  mount build, field accessible-object
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnnotations|
+    throw build, field array
+
+force get-annotations-by-type
+  mount build, field accessible-object
+  mount annotation-class, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getAnnotationsByType|
+    drive factor, share annotation-class
+    throw build, field array
+
+force get-declared-annotation
+  mount build, field accessible-object
+  mount annotation-class, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaredAnnotation|
+    drive factor, share annotation-class
+    throw build, field t
+
+force get-declared-annotations
+  mount build, field accessible-object
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaredAnnotations|
+    throw build, field array
+
+force get-declared-annotations-by-type
+  mount build, field accessible-object
+  mount annotation-class, field class-t
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeclaredAnnotationsByType|
+    drive factor, share annotation-class
+    throw build, field array
+
+force is-accessible
+  mount build, field accessible-object
+
+  cause call-method
+    drive object, share build
+    drive method, |isAccessible|
+    throw build, field boolean
+
+force is-annotation-present
+  mount build, field accessible-object
+  mount annotation-class, field class-out-annotation
+
+  cause call-method
+    drive object, share build
+    drive method, |isAnnotationPresent|
+    drive factor, share annotation-class
+    throw build, field boolean
+
+force set-accessible
+  mount build, field accessible-object
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccessible|
+    drive factor, share flag
+    throw build, field unit
+
+force set-accessible
+  mount build, field accessible-object
+  mount array, field array-accessible-object
+  mount flag, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setAccessible|
+    drive factor, share array
+    drive factor, share flag
+    throw build, field unit

@@ -1,0 +1,86 @@
+
+force disable-service
+  mount build, field nfc-f-card-emulation
+  mount activity, field activity
+
+  cause call-method
+    drive object, share build
+    drive method, |disableService|
+    drive factor, share activity
+    throw build, field boolean
+
+force enable-service
+  mount build, field nfc-f-card-emulation
+  mount activity, field activity
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |enableService|
+    drive factor, share activity
+    drive factor, share service
+    throw build, field boolean
+
+force get-instance
+  mount build, field nfc-f-card-emulation
+  mount adapter, field nfc-adapter
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share adapter
+    throw build, field nfc-f-card-emulation
+
+force get-nfcid2-for-service
+  mount build, field nfc-f-card-emulation
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getNfcid2ForService|
+    drive factor, share service
+    throw build, field string
+
+force get-system-code-for-service
+  mount build, field nfc-f-card-emulation
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |getSystemCodeForService|
+    drive factor, share service
+    throw build, field string
+
+force register-system-code-for-service
+  mount build, field nfc-f-card-emulation
+  mount service, field component-name
+  mount system-code, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |registerSystemCodeForService|
+    drive factor, share service
+    drive factor, share system-code
+    throw build, field boolean
+
+force set-nfcid2-for-service
+  mount build, field nfc-f-card-emulation
+  mount service, field component-name
+  mount nfcid2, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setNfcid2ForService|
+    drive factor, share service
+    drive factor, share nfcid2
+    throw build, field boolean
+
+force unregister-system-code-for-service
+  mount build, field nfc-f-card-emulation
+  mount service, field component-name
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterSystemCodeForService|
+    drive factor, share service
+    throw build, field boolean

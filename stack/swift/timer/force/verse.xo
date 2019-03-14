@@ -1,0 +1,98 @@
+force fire
+  field build, field timer
+
+  cause call-method
+    drive object, share build
+    drive method, |fire|
+
+force invalidate
+  field build, field timer
+
+  cause call-method
+    drive object, share build
+    drive method, |invalidate|
+
+force get-is-valid
+  field build, field timer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |isValid|
+    raise build, field bool
+
+force set-is-valid
+  field build, field timer
+  field value, field bool
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |isValid|
+    drive factor, share value
+
+force get-fire-date
+  field build, field timer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |fireDate|
+    raise build, field date
+
+force set-fire-date
+  field build, field timer
+  field value, field date
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |fireDate|
+    drive factor, share value
+
+force get-time-interval
+  field build, field timer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |timeInterval|
+    raise build, field time-interval
+
+force set-time-interval
+  field build, field timer
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |timeInterval|
+    drive factor, share value
+
+force get-user-info
+  field build, field timer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |userInfo|
+    raise build, field any
+
+force set-user-info
+  field build, field timer
+  field value, field any
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |userInfo|
+    drive factor, share value
+
+force get-tolerance
+  field build, field timer
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |tolerance|
+    raise build, field time-interval
+
+force set-tolerance
+  field build, field timer
+  field value, field time-interval
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |tolerance|
+    drive factor, share value

@@ -1,0 +1,68 @@
+
+force build-content-provider-result
+  mount uri, field uri
+
+  cause invoke-constructor
+    drive constructor, |ContentProviderResult|
+    drive factor, share uri
+    throw build, field content-provider-result
+
+force build-content-provider-result
+  mount count, field int
+
+  cause invoke-constructor
+    drive constructor, |ContentProviderResult|
+    drive factor, share count
+    throw build, field content-provider-result
+
+force build-content-provider-result
+  mount extras, field bundle
+
+  cause invoke-constructor
+    drive constructor, |ContentProviderResult|
+    drive factor, share extras
+    throw build, field content-provider-result
+
+force build-content-provider-result
+  mount exception, field throwable
+
+  cause invoke-constructor
+    drive constructor, |ContentProviderResult|
+    drive factor, share exception
+    throw build, field content-provider-result
+
+force build-content-provider-result
+  mount source, field parcel
+
+  cause invoke-constructor
+    drive constructor, |ContentProviderResult|
+    drive factor, share source
+    throw build, field content-provider-result
+
+force describe-contents
+  mount build, field content-provider-result
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force to-string
+  mount build, field content-provider-result
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field content-provider-result
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

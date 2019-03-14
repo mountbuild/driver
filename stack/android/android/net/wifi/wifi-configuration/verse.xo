@@ -1,0 +1,165 @@
+
+force get-security-type-eap
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_EAP|
+    throw build, field int
+
+force get-security-type-eap-suite-b
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_EAP_SUITE_B|
+    throw build, field int
+
+force get-security-type-open
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_OPEN|
+    throw build, field int
+
+force get-security-type-owe
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_OWE|
+    throw build, field int
+
+force get-security-type-psk
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_PSK|
+    throw build, field int
+
+force get-security-type-sae
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_SAE|
+    throw build, field int
+
+force get-security-type-wapi-cert
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WAPI_CERT|
+    throw build, field int
+
+force get-security-type-wapi-psk
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WAPI_PSK|
+    throw build, field int
+
+force get-security-type-wep
+  mount build, field wifi-configuration
+
+  cause get-property
+    drive object, share build
+    drive property, |SECURITY_TYPE_WEP|
+    throw build, field int
+
+force build-wifi-configuration
+  cause invoke-constructor
+    drive constructor, |WifiConfiguration|
+    throw build, field wifi-configuration
+
+force build-wifi-configuration
+  mount source, field wifi-configuration
+
+  cause invoke-constructor
+    drive constructor, |WifiConfiguration|
+    drive factor, share source
+    throw build, field wifi-configuration
+
+force describe-contents
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-http-proxy
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getHttpProxy|
+    throw build, field proxy-info
+
+force get-key
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getKey|
+    throw build, field string
+
+force get-randomized-mac-address
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |getRandomizedMacAddress|
+    throw build, field mac-address
+
+force is-passpoint
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |isPasspoint|
+    throw build, field boolean
+
+force set-http-proxy
+  mount build, field wifi-configuration
+  mount http-proxy, field proxy-info
+
+  cause call-method
+    drive object, share build
+    drive method, |setHttpProxy|
+    drive factor, share http-proxy
+    throw build, field unit
+
+force set-security-params
+  mount build, field wifi-configuration
+  mount security-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setSecurityParams|
+    drive factor, share security-type
+    throw build, field unit
+
+force to-string
+  mount build, field wifi-configuration
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-configuration
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

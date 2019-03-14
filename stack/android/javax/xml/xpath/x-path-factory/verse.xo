@@ -1,0 +1,108 @@
+
+force get-default-object-model-uri
+  start build, field x-path-factory
+
+  cause get-property
+    mount object, share build
+    mount property, |DEFAULT_OBJECT_MODEL_URI|
+    throw build, field string
+
+force get-default-property-name
+  start build, field x-path-factory
+
+  cause get-property
+    mount object, share build
+    mount property, |DEFAULT_PROPERTY_NAME|
+    throw build, field string
+
+force get-feature
+  start build, field x-path-factory
+  start name, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |getFeature|
+    mount factor, share name
+    throw build, field boolean
+
+force is-object-model-supported
+  start build, field x-path-factory
+  start object-model, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |isObjectModelSupported|
+    mount factor, share object-model
+    throw build, field boolean
+
+force new-instance
+  start build, field x-path-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    throw build, field x-path-factory
+
+force new-instance
+  start build, field x-path-factory
+  start uri, field string
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share uri
+    throw build, field x-path-factory
+
+force new-instance
+  start build, field x-path-factory
+  start uri, field string
+  start factory-class-name, field string
+  start class-loader, field class-loader
+
+  cause call-method
+    mount object, share build
+    mount method, |newInstance|
+    mount factor, share uri
+    mount factor, share factory-class-name
+    mount factor, share class-loader
+    throw build, field x-path-factory
+
+force new-x-path
+  start build, field x-path-factory
+
+  cause call-method
+    mount object, share build
+    mount method, |newXPath|
+    throw build, field x-path
+
+force set-feature
+  start build, field x-path-factory
+  start name, field string
+  start value, field boolean
+
+  cause call-method
+    mount object, share build
+    mount method, |setFeature|
+    mount factor, share name
+    mount factor, share value
+    throw build, field unit
+
+force set-x-path-function-resolver
+  start build, field x-path-factory
+  start resolver, field x-path-function-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |setXPathFunctionResolver|
+    mount factor, share resolver
+    throw build, field unit
+
+force set-x-path-variable-resolver
+  start build, field x-path-factory
+  start resolver, field x-path-variable-resolver
+
+  cause call-method
+    mount object, share build
+    mount method, |setXPathVariableResolver|
+    mount factor, share resolver
+    throw build, field unit

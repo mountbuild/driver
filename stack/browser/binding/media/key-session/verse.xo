@@ -1,0 +1,73 @@
+
+force get-closed
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |closed|
+    throw build
+
+force get-expiration
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |expiration|
+    throw build
+
+force get-key-statuses
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |keyStatuses|
+    throw build
+
+force get-session-id
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |sessionId|
+    throw build
+
+force close
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |close|
+    throw build
+
+force generate-request
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |generateRequest|
+
+force load
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |load|
+    throw build
+
+force remove
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |remove|
+    throw build
+
+force update
+  start build
+  start response
+
+  cause call-method
+    mount object, share build
+    mount method, |update|
+    mount factor, share response
+    throw build

@@ -1,0 +1,181 @@
+
+force get-device-type-primary-sink
+  mount build, field wifi-p2p-wfd-info
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TYPE_PRIMARY_SINK|
+    throw build, field int
+
+force get-device-type-secondary-sink
+  mount build, field wifi-p2p-wfd-info
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TYPE_SECONDARY_SINK|
+    throw build, field int
+
+force get-device-type-source-or-primary-sink
+  mount build, field wifi-p2p-wfd-info
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TYPE_SOURCE_OR_PRIMARY_SINK|
+    throw build, field int
+
+force get-device-type-wfd-source
+  mount build, field wifi-p2p-wfd-info
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_TYPE_WFD_SOURCE|
+    throw build, field int
+
+force build-wifi-p2p-wfd-info
+  cause invoke-constructor
+    drive constructor, |WifiP2pWfdInfo|
+    throw build, field wifi-p2p-wfd-info
+
+force build-wifi-p2p-wfd-info
+  mount source, field wifi-p2p-wfd-info
+
+  cause invoke-constructor
+    drive constructor, |WifiP2pWfdInfo|
+    drive factor, share source
+    throw build, field wifi-p2p-wfd-info
+
+force describe-contents
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force get-control-port
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getControlPort|
+    throw build, field int
+
+force get-device-type
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDeviceType|
+    throw build, field int
+
+force get-max-throughput
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getMaxThroughput|
+    throw build, field int
+
+force is-content-protection-supported
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isContentProtectionSupported|
+    throw build, field boolean
+
+force is-enabled
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isEnabled|
+    throw build, field boolean
+
+force is-session-available
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isSessionAvailable|
+    throw build, field boolean
+
+force set-content-protection-supported
+  mount build, field wifi-p2p-wfd-info
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setContentProtectionSupported|
+    drive factor, share enabled
+    throw build, field unit
+
+force set-control-port
+  mount build, field wifi-p2p-wfd-info
+  mount port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setControlPort|
+    drive factor, share port
+    throw build, field unit
+
+force set-device-type
+  mount build, field wifi-p2p-wfd-info
+  mount device-type, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setDeviceType|
+    drive factor, share device-type
+    throw build, field boolean
+
+force set-enabled
+  mount build, field wifi-p2p-wfd-info
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setEnabled|
+    drive factor, share enabled
+    throw build, field unit
+
+force set-max-throughput
+  mount build, field wifi-p2p-wfd-info
+  mount max-throughput, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setMaxThroughput|
+    drive factor, share max-throughput
+    throw build, field unit
+
+force set-session-available
+  mount build, field wifi-p2p-wfd-info
+  mount enabled, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setSessionAvailable|
+    drive factor, share enabled
+    throw build, field unit
+
+force to-string
+  mount build, field wifi-p2p-wfd-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field wifi-p2p-wfd-info
+  mount dest, field parcel
+  mount flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share flags
+    throw build, field unit

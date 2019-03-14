@@ -1,0 +1,33 @@
+
+force build-overshoot-interpolator
+  cause invoke-constructor
+    drive constructor, |OvershootInterpolator|
+    raise build, field overshoot-interpolator
+
+force build-overshoot-interpolator
+  mount tension, field float
+
+  cause invoke-constructor
+    drive constructor, |OvershootInterpolator|
+    drive factor, share tension
+    raise build, field overshoot-interpolator
+
+force build-overshoot-interpolator
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |OvershootInterpolator|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field overshoot-interpolator
+
+force get-interpolation
+  mount build, field overshoot-interpolator
+  mount t, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolation|
+    drive factor, share t
+    raise build, field float

@@ -1,0 +1,62 @@
+
+force build-presentation
+  start outer-context, field context
+  start display, field display
+
+  cause invoke-constructor
+    drive constructor, |Presentation|
+    drive factor, share outer-context
+    drive factor, share display
+    throw build, field presentation
+
+force build-presentation
+  start outer-context, field context
+  start display, field display
+  start theme, field int
+
+  cause invoke-constructor
+    drive constructor, |Presentation|
+    drive factor, share outer-context
+    drive factor, share display
+    drive factor, share theme
+    throw build, field presentation
+
+force get-display
+  start build, field presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplay|
+    throw build, field display
+
+force get-resources
+  start build, field presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |getResources|
+    throw build, field resources
+
+force on-display-changed
+  start build, field presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisplayChanged|
+    throw build, field unit
+
+force on-display-removed
+  start build, field presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisplayRemoved|
+    throw build, field unit
+
+force show
+  start build, field presentation
+
+  cause call-method
+    drive object, share build
+    drive method, |show|
+    throw build, field unit

@@ -1,0 +1,33 @@
+
+force build-state-list-animator
+  cause invoke-constructor
+    drive constructor, |StateListAnimator|
+    throw build, field state-list-animator
+
+force add-state
+  mount build, field state-list-animator
+  mount specs, field int-array
+  mount animator, field animator
+
+  cause call-method
+    drive object, share build
+    drive method, |addState|
+    drive factor, share specs
+    drive factor, share animator
+    throw build, field unit
+
+force clone
+  mount build, field state-list-animator
+
+  cause call-method
+    drive object, share build
+    drive method, |clone|
+    throw build, field state-list-animator
+
+force jump-to-current-state
+  mount build, field state-list-animator
+
+  cause call-method
+    drive object, share build
+    drive method, |jumpToCurrentState|
+    throw build, field unit

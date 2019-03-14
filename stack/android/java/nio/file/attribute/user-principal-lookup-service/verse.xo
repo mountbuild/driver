@@ -1,0 +1,20 @@
+
+force lookup-principal-by-group-name
+  mount build, field user-principal-lookup-service
+  mount group, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |lookupPrincipalByGroupName|
+    drive factor, share group
+    throw build, field group-principal
+
+force lookup-principal-by-name
+  mount build, field user-principal-lookup-service
+  mount name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |lookupPrincipalByName|
+    drive factor, share name
+    throw build, field user-principal

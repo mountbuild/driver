@@ -1,0 +1,1529 @@
+
+force get-async-status
+  cause get-object
+    drive aspect, |Windows.Foundation.AsyncStatus|
+
+force build-deferral
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Deferral|
+
+force close
+  start build, field windows-foundation-deferral
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force complete
+  start build, field windows-foundation-deferral
+
+  cause call-method
+    drive object, share build
+    drive method, |Complete|
+
+force ctor
+  start build, field windows-foundation-deferral
+  start handler, field windows-foundation-deferralcompletedhandler
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share handler
+
+force build-guid-helper
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.GuidHelper|
+
+force create-new-guid
+  start build, field windows-foundation-guidhelper
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateNewGuid|
+
+force get-empty
+  start build, field windows-foundation-guidhelper
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Empty|
+
+force set-empty
+  start build, field windows-foundation-guidhelper
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Empty|
+    drive factor, share value
+
+force equals
+  start build, field windows-foundation-guidhelper
+  start target, field system-guid
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |Equals|
+    drive factor, share target
+    drive factor, share value
+
+force get-completed
+  start build, field windows-foundation-iasyncaction
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-foundation-iasyncaction
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-results
+  start build, field windows-foundation-iasyncaction
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-completed
+  start build, field windows-foundation-iasyncactionwithprogress-1
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-foundation-iasyncactionwithprogress-1
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-results
+  start build, field windows-foundation-iasyncactionwithprogress-1
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-progress
+  start build, field windows-foundation-iasyncactionwithprogress-1
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Progress|
+
+force set-progress
+  start build, field windows-foundation-iasyncactionwithprogress-1
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Progress|
+    drive factor, share value
+
+force cancel
+  start build, field windows-foundation-iasyncinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |Cancel|
+
+force close
+  start build, field windows-foundation-iasyncinfo
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-error-code
+  start build, field windows-foundation-iasyncinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+
+force set-error-code
+  start build, field windows-foundation-iasyncinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ErrorCode|
+    drive factor, share value
+
+force get-id
+  start build, field windows-foundation-iasyncinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Id|
+
+force set-id
+  start build, field windows-foundation-iasyncinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Id|
+    drive factor, share value
+
+force get-status
+  start build, field windows-foundation-iasyncinfo
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Status|
+
+force set-status
+  start build, field windows-foundation-iasyncinfo
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Status|
+    drive factor, share value
+
+force get-completed
+  start build, field windows-foundation-iasyncoperation-1
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-foundation-iasyncoperation-1
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-results
+  start build, field windows-foundation-iasyncoperation-1
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-completed
+  start build, field windows-foundation-iasyncoperationwithprogress-2
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Completed|
+
+force set-completed
+  start build, field windows-foundation-iasyncoperationwithprogress-2
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Completed|
+    drive factor, share value
+
+force get-results
+  start build, field windows-foundation-iasyncoperationwithprogress-2
+
+  cause call-method
+    drive object, share build
+    drive method, |GetResults|
+
+force get-progress
+  start build, field windows-foundation-iasyncoperationwithprogress-2
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Progress|
+
+force set-progress
+  start build, field windows-foundation-iasyncoperationwithprogress-2
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Progress|
+    drive factor, share value
+
+force close
+  start build, field windows-foundation-iclosable
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force get-activation-factory
+  start build, field windows-foundation-igetactivationfactory
+  start activatable-class-id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetActivationFactory|
+    drive factor, share activatable-class-id
+
+force create-reference
+  start build, field windows-foundation-imemorybuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateReference|
+
+force get-capacity
+  start build, field windows-foundation-imemorybufferreference
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Capacity|
+
+force set-capacity
+  start build, field windows-foundation-imemorybufferreference
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Capacity|
+    drive factor, share value
+
+force get-boolean
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetBoolean|
+
+force get-boolean-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |GetBooleanArray|
+    drive factor, share value
+
+force get-char16
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetChar16|
+
+force get-char16-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |GetChar16Array|
+    drive factor, share value
+
+force get-date-time
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDateTime|
+
+force get-date-time-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDateTimeArray|
+    drive factor, share value
+
+force get-double
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDouble|
+
+force get-double-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDoubleArray|
+    drive factor, share value
+
+force get-guid
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetGuid|
+
+force get-guid-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |GetGuidArray|
+    drive factor, share value
+
+force get-inspectable-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInspectableArray|
+    drive factor, share value
+
+force get-int16
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt16|
+
+force get-int16-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt16Array|
+    drive factor, share value
+
+force get-int32
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt32|
+
+force get-int32-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt32Array|
+    drive factor, share value
+
+force get-int64
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt64|
+
+force get-int64-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |GetInt64Array|
+    drive factor, share value
+
+force get-point
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPoint|
+
+force get-point-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field windows-foundation-point
+
+  cause call-method
+    drive object, share build
+    drive method, |GetPointArray|
+    drive factor, share value
+
+force get-rect
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetRect|
+
+force get-rect-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |GetRectArray|
+    drive factor, share value
+
+force get-single
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSingle|
+
+force get-single-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-single
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSingleArray|
+    drive factor, share value
+
+force get-size
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSize|
+
+force get-size-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |GetSizeArray|
+    drive factor, share value
+
+force get-string
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetString|
+
+force get-string-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetStringArray|
+    drive factor, share value
+
+force get-time-span
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTimeSpan|
+
+force get-time-span-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |GetTimeSpanArray|
+    drive factor, share value
+
+force get-u-int16
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt16|
+
+force get-u-int16-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt16Array|
+    drive factor, share value
+
+force get-u-int32
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt32|
+
+force get-u-int32-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt32Array|
+    drive factor, share value
+
+force get-u-int64
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt64|
+
+force get-u-int64-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt64Array|
+    drive factor, share value
+
+force get-u-int8
+  start build, field windows-foundation-ipropertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt8|
+
+force get-u-int8-array
+  start build, field windows-foundation-ipropertyvalue
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |GetUInt8Array|
+    drive factor, share value
+
+force get-is-numeric-scalar
+  start build, field windows-foundation-ipropertyvalue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsNumericScalar|
+
+force set-is-numeric-scalar
+  start build, field windows-foundation-ipropertyvalue
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsNumericScalar|
+    drive factor, share value
+
+force get-type
+  start build, field windows-foundation-ipropertyvalue
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Type|
+
+force set-type
+  start build, field windows-foundation-ipropertyvalue
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Type|
+    drive factor, share value
+
+force get-value
+  start build, field windows-foundation-ireference-1
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-foundation-ireference-1
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force get-value
+  start build, field windows-foundation-ireferencearray-1
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-foundation-ireferencearray-1
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force to-string
+  start build, field windows-foundation-istringable
+
+  cause call-method
+    drive object, share build
+    drive method, |ToString|
+
+force get-name
+  start build, field windows-foundation-iwwwformurldecoderentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-iwwwformurldecoderentry
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-value
+  start build, field windows-foundation-iwwwformurldecoderentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-foundation-iwwwformurldecoderentry
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value
+
+force build-memory-buffer
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.MemoryBuffer|
+
+force close
+  start build, field windows-foundation-memorybuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |Close|
+
+force create-reference
+  start build, field windows-foundation-memorybuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateReference|
+
+force ctor
+  start build, field windows-foundation-memorybuffer
+  start capacity, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share capacity
+
+force get-property-type
+  cause get-object
+    drive aspect, |Windows.Foundation.PropertyType|
+
+force build-property-value
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.PropertyValue|
+
+force create-boolean
+  start build, field windows-foundation-propertyvalue
+  start value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateBoolean|
+    drive factor, share value
+
+force create-boolean-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateBooleanArray|
+    drive factor, share value
+
+force create-char16
+  start build, field windows-foundation-propertyvalue
+  start value, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateChar16|
+    drive factor, share value
+
+force create-char16-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-char
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateChar16Array|
+    drive factor, share value
+
+force create-date-time
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateDateTime|
+    drive factor, share value
+
+force create-date-time-array
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-datetime
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateDateTimeArray|
+    drive factor, share value
+
+force create-double
+  start build, field windows-foundation-propertyvalue
+  start value, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateDouble|
+    drive factor, share value
+
+force create-double-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-double
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateDoubleArray|
+    drive factor, share value
+
+force create-empty
+  start build, field windows-foundation-propertyvalue
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateEmpty|
+
+force create-guid
+  start build, field windows-foundation-propertyvalue
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateGuid|
+    drive factor, share value
+
+force create-guid-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateGuidArray|
+    drive factor, share value
+
+force create-inspectable
+  start build, field windows-foundation-propertyvalue
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInspectable|
+    drive factor, share value
+
+force create-inspectable-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-object
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInspectableArray|
+    drive factor, share value
+
+force create-int16
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt16|
+    drive factor, share value
+
+force create-int16-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int16
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt16Array|
+    drive factor, share value
+
+force create-int32
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt32|
+    drive factor, share value
+
+force create-int32-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt32Array|
+    drive factor, share value
+
+force create-int64
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt64|
+    drive factor, share value
+
+force create-int64-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-int64
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateInt64Array|
+    drive factor, share value
+
+force create-point
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-point
+
+  cause call-method
+    drive object, share build
+    drive method, |CreatePoint|
+    drive factor, share value
+
+force create-point-array
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-point
+
+  cause call-method
+    drive object, share build
+    drive method, |CreatePointArray|
+    drive factor, share value
+
+force create-rect
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateRect|
+    drive factor, share value
+
+force create-rect-array
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-rect
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateRectArray|
+    drive factor, share value
+
+force create-single
+  start build, field windows-foundation-propertyvalue
+  start value, field system-single
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateSingle|
+    drive factor, share value
+
+force create-single-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-single
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateSingleArray|
+    drive factor, share value
+
+force create-size
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateSize|
+    drive factor, share value
+
+force create-size-array
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-size
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateSizeArray|
+    drive factor, share value
+
+force create-string
+  start build, field windows-foundation-propertyvalue
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateString|
+    drive factor, share value
+
+force create-string-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateStringArray|
+    drive factor, share value
+
+force create-time-span
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateTimeSpan|
+    drive factor, share value
+
+force create-time-span-array
+  start build, field windows-foundation-propertyvalue
+  start value, field windows-foundation-timespan
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateTimeSpanArray|
+    drive factor, share value
+
+force create-u-int16
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt16|
+    drive factor, share value
+
+force create-u-int16-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint16
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt16Array|
+    drive factor, share value
+
+force create-u-int32
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt32|
+    drive factor, share value
+
+force create-u-int32-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt32Array|
+    drive factor, share value
+
+force create-u-int64
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt64|
+    drive factor, share value
+
+force create-u-int64-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-uint64
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt64Array|
+    drive factor, share value
+
+force create-u-int8
+  start build, field windows-foundation-propertyvalue
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt8|
+    drive factor, share value
+
+force create-u-int8-array
+  start build, field windows-foundation-propertyvalue
+  start value, field system-byte
+
+  cause call-method
+    drive object, share build
+    drive method, |CreateUInt8Array|
+    drive factor, share value
+
+force build-uri
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.Uri|
+
+force get-absolute-canonical-uri
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AbsoluteCanonicalUri|
+
+force set-absolute-canonical-uri
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AbsoluteCanonicalUri|
+    drive factor, share value
+
+force get-absolute-uri
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AbsoluteUri|
+
+force set-absolute-uri
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AbsoluteUri|
+    drive factor, share value
+
+force combine-uri
+  start build, field windows-foundation-uri
+  start relative-uri, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |CombineUri|
+    drive factor, share relative-uri
+
+force get-display-iri
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayIri|
+
+force set-display-iri
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayIri|
+    drive factor, share value
+
+force get-display-uri
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayUri|
+
+force set-display-uri
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayUri|
+    drive factor, share value
+
+force get-domain
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Domain|
+
+force set-domain
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Domain|
+    drive factor, share value
+
+force equals
+  start build, field windows-foundation-uri
+  start p-uri, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |Equals|
+    drive factor, share p-uri
+
+force escape-component
+  start build, field windows-foundation-uri
+  start to-escape, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |EscapeComponent|
+    drive factor, share to-escape
+
+force get-extension
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Extension|
+
+force set-extension
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Extension|
+    drive factor, share value
+
+force get-fragment
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Fragment|
+
+force set-fragment
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Fragment|
+    drive factor, share value
+
+force get-host
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Host|
+
+force set-host
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Host|
+    drive factor, share value
+
+force get-password
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Password|
+
+force set-password
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Password|
+    drive factor, share value
+
+force get-path
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Path|
+
+force set-path
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Path|
+    drive factor, share value
+
+force get-port
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Port|
+
+force set-port
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Port|
+    drive factor, share value
+
+force get-query
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Query|
+
+force set-query
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Query|
+    drive factor, share value
+
+force get-query-parsed
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |QueryParsed|
+
+force set-query-parsed
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |QueryParsed|
+    drive factor, share value
+
+force get-raw-uri
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RawUri|
+
+force set-raw-uri
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RawUri|
+    drive factor, share value
+
+force get-scheme-name
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |SchemeName|
+
+force set-scheme-name
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |SchemeName|
+    drive factor, share value
+
+force get-suspicious
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Suspicious|
+
+force set-suspicious
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Suspicious|
+    drive factor, share value
+
+force to-string
+  start build, field windows-foundation-uri
+
+  cause call-method
+    drive object, share build
+    drive method, |ToString|
+
+force unescape-component
+  start build, field windows-foundation-uri
+  start to-unescape, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |UnescapeComponent|
+    drive factor, share to-unescape
+
+force ctor
+  start build, field windows-foundation-uri
+  start base-uri, field system-string
+  start relative-uri, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share base-uri
+    drive factor, share relative-uri
+
+force ctor
+  start build, field windows-foundation-uri
+  start uri, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share uri
+
+force get-user-name
+  start build, field windows-foundation-uri
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |UserName|
+
+force set-user-name
+  start build, field windows-foundation-uri
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |UserName|
+    drive factor, share value
+
+force build-www-form-url-decoder
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.WwwFormUrlDecoder|
+
+force first
+  start build, field windows-foundation-wwwformurldecoder
+
+  cause call-method
+    drive object, share build
+    drive method, |First|
+
+force get-at
+  start build, field windows-foundation-wwwformurldecoder
+  start index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |GetAt|
+    drive factor, share index
+
+force get-first-value-by-name
+  start build, field windows-foundation-wwwformurldecoder
+  start name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |GetFirstValueByName|
+    drive factor, share name
+
+force get-many
+  start build, field windows-foundation-wwwformurldecoder
+  start start-index, field system-uint32
+  start items, field windows-foundation-iwwwformurldecoderentry
+
+  cause call-method
+    drive object, share build
+    drive method, |GetMany|
+    drive factor, share start-index
+    drive factor, share items
+
+force index-of
+  start build, field windows-foundation-wwwformurldecoder
+  start value, field windows-foundation-iwwwformurldecoderentry
+  start index, field system-uint32
+
+  cause call-method
+    drive object, share build
+    drive method, |IndexOf|
+    drive factor, share value
+    drive factor, share index
+
+force get-size
+  start build, field windows-foundation-wwwformurldecoder
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Size|
+
+force set-size
+  start build, field windows-foundation-wwwformurldecoder
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Size|
+    drive factor, share value
+
+force ctor
+  start build, field windows-foundation-wwwformurldecoder
+  start query, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share query
+
+force build-www-form-url-decoder-entry
+  cause invoke-constructor
+    drive constructor, |Windows.Foundation.WwwFormUrlDecoderEntry|
+
+force get-name
+  start build, field windows-foundation-wwwformurldecoderentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Name|
+
+force set-name
+  start build, field windows-foundation-wwwformurldecoderentry
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Name|
+    drive factor, share value
+
+force get-value
+  start build, field windows-foundation-wwwformurldecoderentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Value|
+
+force set-value
+  start build, field windows-foundation-wwwformurldecoderentry
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Value|
+    drive factor, share value

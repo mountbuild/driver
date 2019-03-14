@@ -1,0 +1,124 @@
+
+force build-text-clock
+  mount context, field context
+
+  cause invoke-constructor
+    drive constructor, |TextClock|
+    drive factor, share context
+    throw build, field text-clock
+
+force build-text-clock
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |TextClock|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field text-clock
+
+force build-text-clock
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |TextClock|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field text-clock
+
+force build-text-clock
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |TextClock|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field text-clock
+
+force get-format12-hour
+  mount build, field text-clock
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormat12Hour|
+    throw build, field char-sequence
+
+force get-format24-hour
+  mount build, field text-clock
+
+  cause call-method
+    drive object, share build
+    drive method, |getFormat24Hour|
+    throw build, field char-sequence
+
+force get-time-zone
+  mount build, field text-clock
+
+  cause call-method
+    drive object, share build
+    drive method, |getTimeZone|
+    throw build, field string
+
+force is24-hour-mode-enabled
+  mount build, field text-clock
+
+  cause call-method
+    drive object, share build
+    drive method, |is24HourModeEnabled|
+    throw build, field boolean
+
+force on-visibility-aggregated
+  mount build, field text-clock
+  mount is-visible, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |onVisibilityAggregated|
+    drive factor, share is-visible
+    throw build, field unit
+
+force refresh-time
+  mount build, field text-clock
+
+  cause call-method
+    drive object, share build
+    drive method, |refreshTime|
+    throw build, field unit
+
+force set-format12-hour
+  mount build, field text-clock
+  mount format, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setFormat12Hour|
+    drive factor, share format
+    throw build, field unit
+
+force set-format24-hour
+  mount build, field text-clock
+  mount format, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |setFormat24Hour|
+    drive factor, share format
+    throw build, field unit
+
+force set-time-zone
+  mount build, field text-clock
+  mount time-zone, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setTimeZone|
+    drive factor, share time-zone
+    throw build, field unit

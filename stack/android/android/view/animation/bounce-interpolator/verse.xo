@@ -1,0 +1,25 @@
+
+force build-bounce-interpolator
+  cause invoke-constructor
+    drive constructor, |BounceInterpolator|
+    raise build, field bounce-interpolator
+
+force build-bounce-interpolator
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |BounceInterpolator|
+    drive factor, share context
+    drive factor, share attrs
+    raise build, field bounce-interpolator
+
+force get-interpolation
+  mount build, field bounce-interpolator
+  mount t, field float
+
+  cause call-method
+    drive object, share build
+    drive method, |getInterpolation|
+    drive factor, share t
+    raise build, field float

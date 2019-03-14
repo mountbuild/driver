@@ -1,0 +1,52 @@
+
+force build-proxy
+  mount type, field proxy-type
+  mount sa, field socket-address
+
+  cause invoke-constructor
+    drive constructor, |Proxy|
+    drive factor, share type
+    drive factor, share sa
+    throw build, field proxy
+
+force address
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |address|
+    throw build, field socket-address
+
+force equals
+  mount build, field proxy
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force hash-code
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force to-string
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force type
+  mount build, field proxy
+
+  cause call-method
+    drive object, share build
+    drive method, |type|
+    throw build, field proxy-type

@@ -1,0 +1,326 @@
+
+force get-action-session-committed
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SESSION_COMMITTED|
+    throw build, field string
+
+force get-action-session-details
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SESSION_DETAILS|
+    throw build, field string
+
+force get-action-session-updated
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_SESSION_UPDATED|
+    throw build, field string
+
+force get-extra-other-package-name
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_OTHER_PACKAGE_NAME|
+    throw build, field string
+
+force get-extra-package-name
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_PACKAGE_NAME|
+    throw build, field string
+
+force get-extra-session
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SESSION|
+    throw build, field string
+
+force get-extra-session-id
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_SESSION_ID|
+    throw build, field string
+
+force get-extra-status
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_STATUS|
+    throw build, field string
+
+force get-extra-status-message
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_STATUS_MESSAGE|
+    throw build, field string
+
+force get-extra-storage-path
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_STORAGE_PATH|
+    throw build, field string
+
+force get-status-failure
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE|
+    throw build, field int
+
+force get-status-failure-aborted
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_ABORTED|
+    throw build, field int
+
+force get-status-failure-blocked
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_BLOCKED|
+    throw build, field int
+
+force get-status-failure-conflict
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_CONFLICT|
+    throw build, field int
+
+force get-status-failure-incompatible
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_INCOMPATIBLE|
+    throw build, field int
+
+force get-status-failure-invalid
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_INVALID|
+    throw build, field int
+
+force get-status-failure-storage
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_FAILURE_STORAGE|
+    throw build, field int
+
+force get-status-pending-user-action
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_PENDING_USER_ACTION|
+    throw build, field int
+
+force get-status-success
+  mount build, field package-installer
+
+  cause get-property
+    drive object, share build
+    drive property, |STATUS_SUCCESS|
+    throw build, field int
+
+force abandon-session
+  mount build, field package-installer
+  mount session-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |abandonSession|
+    drive factor, share session-id
+    throw build, field unit
+
+force create-session
+  mount build, field package-installer
+  mount params, field package-installer-session-params
+
+  cause call-method
+    drive object, share build
+    drive method, |createSession|
+    drive factor, share params
+    throw build, field int
+
+force get-active-staged-session
+  mount build, field package-installer
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveStagedSession|
+    throw build, field package-installer-session-info
+
+force get-active-staged-sessions
+  mount build, field package-installer
+
+  cause call-method
+    drive object, share build
+    drive method, |getActiveStagedSessions|
+    throw build, field mutable-list
+
+force get-all-sessions
+  mount build, field package-installer
+
+  cause call-method
+    drive object, share build
+    drive method, |getAllSessions|
+    throw build, field mutable-list
+
+force get-my-sessions
+  mount build, field package-installer
+
+  cause call-method
+    drive object, share build
+    drive method, |getMySessions|
+    throw build, field mutable-list
+
+force get-session-info
+  mount build, field package-installer
+  mount session-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getSessionInfo|
+    drive factor, share session-id
+    throw build, field package-installer-session-info
+
+force get-staged-sessions
+  mount build, field package-installer
+
+  cause call-method
+    drive object, share build
+    drive method, |getStagedSessions|
+    throw build, field mutable-list
+
+force install-existing-package
+  mount build, field package-installer
+  mount package-name, field string
+  mount install-reason, field int
+  mount status-receiver, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |installExistingPackage|
+    drive factor, share package-name
+    drive factor, share install-reason
+    drive factor, share status-receiver
+    throw build, field unit
+
+force open-session
+  mount build, field package-installer
+  mount session-id, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |openSession|
+    drive factor, share session-id
+    throw build, field package-installer-session
+
+force register-session-callback
+  mount build, field package-installer
+  mount callback, field package-installer-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |registerSessionCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force register-session-callback
+  mount build, field package-installer
+  mount callback, field package-installer-session-callback
+  mount handler, field handler
+
+  cause call-method
+    drive object, share build
+    drive method, |registerSessionCallback|
+    drive factor, share callback
+    drive factor, share handler
+    throw build, field unit
+
+force uninstall
+  mount build, field package-installer
+  mount package-name, field string
+  mount status-receiver, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |uninstall|
+    drive factor, share package-name
+    drive factor, share status-receiver
+    throw build, field unit
+
+force uninstall
+  mount build, field package-installer
+  mount versioned-package, field versioned-package
+  mount status-receiver, field intent-sender
+
+  cause call-method
+    drive object, share build
+    drive method, |uninstall|
+    drive factor, share versioned-package
+    drive factor, share status-receiver
+    throw build, field unit
+
+force unregister-session-callback
+  mount build, field package-installer
+  mount callback, field package-installer-session-callback
+
+  cause call-method
+    drive object, share build
+    drive method, |unregisterSessionCallback|
+    drive factor, share callback
+    throw build, field unit
+
+force update-session-app-icon
+  mount build, field package-installer
+  mount session-id, field int
+  mount app-icon, field bitmap
+
+  cause call-method
+    drive object, share build
+    drive method, |updateSessionAppIcon|
+    drive factor, share session-id
+    drive factor, share app-icon
+    throw build, field unit
+
+force update-session-app-label
+  mount build, field package-installer
+  mount session-id, field int
+  mount app-label, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |updateSessionAppLabel|
+    drive factor, share session-id
+    drive factor, share app-label
+    throw build, field unit

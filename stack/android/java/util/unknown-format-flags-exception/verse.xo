@@ -1,0 +1,16 @@
+
+force build-unknown-format-flags-exception
+  mount f, field string
+
+  cause invoke-constructor
+    drive constructor, |UnknownFormatFlagsException|
+    drive factor, share f
+    throw build, field unknown-format-flags-exception
+
+force get-flags
+  mount build, field unknown-format-flags-exception
+
+  cause call-method
+    drive object, share build
+    drive method, |getFlags|
+    throw build, field string

@@ -1,0 +1,112 @@
+
+force close
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force delete
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |delete|
+    throw build, field unit
+
+force flush
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |flush|
+    throw build, field unit
+
+force get
+  start build, field http-response-cache
+  start uri, field uri
+  start request-method, field string
+  start request-headers, field mutable-map-string
+  start mutable-list-string, field undefined
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    drive factor, share uri
+    drive factor, share request-method
+    drive factor, share request-headers
+    drive factor, share mutable-list-string
+    throw build, field cache-response
+
+force get-hit-count
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getHitCount|
+    throw build, field int
+
+force get-installed
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstalled|
+    throw build, field http-response-cache
+
+force get-network-count
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getNetworkCount|
+    throw build, field int
+
+force get-request-count
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getRequestCount|
+    throw build, field int
+
+force install
+  start build, field http-response-cache
+  start directory, field file
+  start max-size, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |install|
+    drive factor, share directory
+    drive factor, share max-size
+    throw build, field http-response-cache
+
+force max-size
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |maxSize|
+    throw build, field long
+
+force put
+  start build, field http-response-cache
+  start uri, field uri
+  start url-connection, field url-connection
+
+  cause call-method
+    drive object, share build
+    drive method, |put|
+    drive factor, share uri
+    drive factor, share url-connection
+    throw build, field cache-request
+
+force size
+  start build, field http-response-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |size|
+    throw build, field long

@@ -1,0 +1,15 @@
+
+force build-trigger-event-listener
+  cause invoke-constructor
+    drive constructor, |TriggerEventListener|
+    throw build, field trigger-event-listener
+
+force on-trigger
+  mount build, field trigger-event-listener
+  mount event, field trigger-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onTrigger|
+    drive factor, share event
+    throw build, field unit

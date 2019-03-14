@@ -1,0 +1,44 @@
+
+force build-file-backup-helper
+  start context, field context
+  start vararg-files, field string
+
+  cause invoke-constructor
+    drive constructor, |FileBackupHelper|
+    drive factor, share context
+    drive factor, share vararg-files
+    throw build, field file-backup-helper
+
+force perform-backup
+  start build, field file-backup-helper
+  start old-state, field parcel-file-descriptor
+  start data, field backup-data-output
+  start new-state, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |performBackup|
+    drive factor, share old-state
+    drive factor, share data
+    drive factor, share new-state
+    throw build, field unit
+
+force restore-entity
+  start build, field file-backup-helper
+  start data, field backup-data-input-stream
+
+  cause call-method
+    drive object, share build
+    drive method, |restoreEntity|
+    drive factor, share data
+    throw build, field unit
+
+force write-new-state-description
+  start build, field file-backup-helper
+  start fd, field parcel-file-descriptor
+
+  cause call-method
+    drive object, share build
+    drive method, |writeNewStateDescription|
+    drive factor, share fd
+    throw build, field unit

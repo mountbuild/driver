@@ -1,0 +1,83 @@
+
+force build-atomic-boolean
+  mount initial-value, field boolean
+
+  cause invoke-constructor
+    drive constructor, |AtomicBoolean|
+    drive factor, share initial-value
+    throw build, field atomic-boolean
+
+force build-atomic-boolean
+  cause invoke-constructor
+    drive constructor, |AtomicBoolean|
+    throw build, field atomic-boolean
+
+force compare-and-set
+  mount build, field atomic-boolean
+  mount expect, field boolean
+  mount update, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |compareAndSet|
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean
+
+force get
+  mount build, field atomic-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |get|
+    throw build, field boolean
+
+force get-and-set
+  mount build, field atomic-boolean
+  mount new-value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |getAndSet|
+    drive factor, share new-value
+    throw build, field boolean
+
+force lazy-set
+  mount build, field atomic-boolean
+  mount new-value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |lazySet|
+    drive factor, share new-value
+    throw build, field unit
+
+force set
+  mount build, field atomic-boolean
+  mount new-value, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |set|
+    drive factor, share new-value
+    throw build, field unit
+
+force to-string
+  mount build, field atomic-boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force weak-compare-and-set
+  mount build, field atomic-boolean
+  mount expect, field boolean
+  mount update, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |weakCompareAndSet|
+    drive factor, share expect
+    drive factor, share update
+    throw build, field boolean

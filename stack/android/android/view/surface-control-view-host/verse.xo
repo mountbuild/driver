@@ -1,0 +1,62 @@
+
+force build-surface-control-view-host
+  mount context, field context
+  mount display, field display
+  mount host-token, field i-binder
+
+  cause invoke-constructor
+    drive constructor, |SurfaceControlViewHost|
+    drive factor, share context
+    drive factor, share display
+    drive factor, share host-token
+    raise build, field surface-control-view-host
+
+force get-surface-package
+  mount build, field surface-control-view-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getSurfacePackage|
+    raise build, field surface-control-view-host-surface-package
+
+force get-view
+  mount build, field surface-control-view-host
+
+  cause call-method
+    drive object, share build
+    drive method, |getView|
+    raise build, field view
+
+force relayout
+  mount build, field surface-control-view-host
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |relayout|
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit
+
+force release
+  mount build, field surface-control-view-host
+
+  cause call-method
+    drive object, share build
+    drive method, |release|
+    raise build, field unit
+
+force set-view
+  mount build, field surface-control-view-host
+  mount view, field view
+  mount width, field int
+  mount height, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setView|
+    drive factor, share view
+    drive factor, share width
+    drive factor, share height
+    raise build, field unit

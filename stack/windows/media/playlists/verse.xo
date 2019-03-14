@@ -1,0 +1,75 @@
+
+force build-playlist
+  cause invoke-constructor
+    drive constructor, |Windows.Media.Playlists.Playlist|
+
+force get-files
+  start build, field windows-media-playlists-playlist
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Files|
+
+force set-files
+  start build, field windows-media-playlists-playlist
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Files|
+    drive factor, share value
+
+force load-async
+  start build, field windows-media-playlists-playlist
+  start file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |LoadAsync|
+    drive factor, share file
+
+force ctor
+  start build, field windows-media-playlists-playlist
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+
+force save-as-async
+  start build, field windows-media-playlists-playlist
+  start save-location, field windows-storage-istoragefolder
+  start desired-name, field system-string
+  start option, field windows-storage-namecollisionoption
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsAsync|
+    drive factor, share save-location
+    drive factor, share desired-name
+    drive factor, share option
+
+force save-as-async
+  start build, field windows-media-playlists-playlist
+  start save-location, field windows-storage-istoragefolder
+  start desired-name, field system-string
+  start option, field windows-storage-namecollisionoption
+  start playlist-format, field windows-media-playlists-playlistformat
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsAsync|
+    drive factor, share save-location
+    drive factor, share desired-name
+    drive factor, share option
+    drive factor, share playlist-format
+
+force save-async
+  start build, field windows-media-playlists-playlist
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsync|
+
+force get-playlist-format
+  cause get-object
+    drive aspect, |Windows.Media.Playlists.PlaylistFormat|

@@ -1,0 +1,46 @@
+
+force get-des-ede-key-len
+  start build, field de-sede-key-spec
+
+  cause get-property
+    mount object, share build
+    mount property, |DES_EDE_KEY_LEN|
+    throw build, field int
+
+force build-de-sede-key-spec
+  start key, field byte-array
+
+  cause invoke-constructor
+    mount constructor, |DESedeKeySpec|
+    mount factor, share key
+    throw build, field de-sede-key-spec
+
+force build-de-sede-key-spec
+  start key, field byte-array
+  start offset, field int
+
+  cause invoke-constructor
+    mount constructor, |DESedeKeySpec|
+    mount factor, share key
+    mount factor, share offset
+    throw build, field de-sede-key-spec
+
+force get-key
+  start build, field de-sede-key-spec
+
+  cause call-method
+    mount object, share build
+    mount method, |getKey|
+    throw build, field byte-array
+
+force is-parity-adjusted
+  start build, field de-sede-key-spec
+  start key, field byte-array
+  start offset, field int
+
+  cause call-method
+    mount object, share build
+    mount method, |isParityAdjusted|
+    mount factor, share key
+    mount factor, share offset
+    throw build, field boolean

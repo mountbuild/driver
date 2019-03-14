@@ -1,0 +1,130 @@
+
+force build-preference-group
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+  mount def-style-res, field int
+
+  cause invoke-constructor
+    drive constructor, |PreferenceGroup|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    drive factor, share def-style-res
+    throw build, field preference-group
+
+force build-preference-group
+  mount context, field context
+  mount attrs, field attribute-set
+  mount def-style-attr, field int
+
+  cause invoke-constructor
+    drive constructor, |PreferenceGroup|
+    drive factor, share context
+    drive factor, share attrs
+    drive factor, share def-style-attr
+    throw build, field preference-group
+
+force build-preference-group
+  mount context, field context
+  mount attrs, field attribute-set
+
+  cause invoke-constructor
+    drive constructor, |PreferenceGroup|
+    drive factor, share context
+    drive factor, share attrs
+    throw build, field preference-group
+
+force add-item-from-inflater
+  mount build, field preference-group
+  mount preference, field preference
+
+  cause call-method
+    drive object, share build
+    drive method, |addItemFromInflater|
+    drive factor, share preference
+    throw build, field unit
+
+force add-preference
+  mount build, field preference-group
+  mount preference, field preference
+
+  cause call-method
+    drive object, share build
+    drive method, |addPreference|
+    drive factor, share preference
+    throw build, field boolean
+
+force find-preference
+  mount build, field preference-group
+  mount key, field char-sequence
+
+  cause call-method
+    drive object, share build
+    drive method, |findPreference|
+    drive factor, share key
+    throw build, field preference
+
+force get-preference
+  mount build, field preference-group
+  mount index, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreference|
+    drive factor, share index
+    throw build, field preference
+
+force get-preference-count
+  mount build, field preference-group
+
+  cause call-method
+    drive object, share build
+    drive method, |getPreferenceCount|
+    throw build, field int
+
+force is-ordering-as-added
+  mount build, field preference-group
+
+  cause call-method
+    drive object, share build
+    drive method, |isOrderingAsAdded|
+    throw build, field boolean
+
+force notify-dependency-change
+  mount build, field preference-group
+  mount disable-dependents, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |notifyDependencyChange|
+    drive factor, share disable-dependents
+    throw build, field unit
+
+force remove-all
+  mount build, field preference-group
+
+  cause call-method
+    drive object, share build
+    drive method, |removeAll|
+    throw build, field unit
+
+force remove-preference
+  mount build, field preference-group
+  mount preference, field preference
+
+  cause call-method
+    drive object, share build
+    drive method, |removePreference|
+    drive factor, share preference
+    throw build, field boolean
+
+force set-ordering-as-added
+  mount build, field preference-group
+  mount ordering-as-added, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setOrderingAsAdded|
+    drive factor, share ordering-as-added
+    throw build, field unit

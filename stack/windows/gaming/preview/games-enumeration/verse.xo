@@ -1,0 +1,478 @@
+
+force build-game-list
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Preview.GamesEnumeration.GameList|
+
+force find-all-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelist
+  mount package-family-name, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAllAsync|
+    drive factor, share package-family-name
+
+force find-all-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelist
+
+  cause call-method
+    drive object, share build
+    drive method, |FindAllAsync|
+
+force merge-entries-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelist
+  mount left, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount right, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |MergeEntriesAsync|
+    drive factor, share left
+    drive factor, share right
+
+force unmerge-entry-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelist
+  mount merged-entry, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |UnmergeEntryAsync|
+    drive factor, share merged-entry
+
+force get-game-list-category
+  cause get-object
+    drive aspect, |Windows.Gaming.Preview.GamesEnumeration.GameListCategory|
+
+force build-game-list-entry
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Preview.GamesEnumeration.GameListEntry|
+
+force get-category
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force get-display-info
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+
+force set-display-info
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+    drive factor, share value
+
+force get-game-mode-configuration
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |GameModeConfiguration|
+
+force set-game-mode-configuration
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |GameModeConfiguration|
+    drive factor, share value
+
+force get-launchable-state
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LaunchableState|
+
+force set-launchable-state
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LaunchableState|
+    drive factor, share value
+
+force launch-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |LaunchAsync|
+
+force get-launcher-executable
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LauncherExecutable|
+
+force set-launcher-executable
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LauncherExecutable|
+    drive factor, share value
+
+force get-launch-parameters
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |LaunchParameters|
+
+force set-launch-parameters
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |LaunchParameters|
+    drive factor, share value
+
+force get-properties
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force set-category-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value, field windows-gaming-preview-gamesenumeration-gamelistcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |SetCategoryAsync|
+    drive factor, share value
+
+force set-launcher-executable-file-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount executable-file, field windows-storage-istoragefile
+
+  cause call-method
+    drive object, share build
+    drive method, |SetLauncherExecutableFileAsync|
+    drive factor, share executable-file
+
+force set-launcher-executable-file-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount executable-file, field windows-storage-istoragefile
+  mount launch-params, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetLauncherExecutableFileAsync|
+    drive factor, share executable-file
+    drive factor, share launch-params
+
+force set-title-id-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount id, field system-string
+
+  cause call-method
+    drive object, share build
+    drive method, |SetTitleIdAsync|
+    drive factor, share id
+
+force get-title-id
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |TitleId|
+
+force set-title-id
+  mount build, field windows-gaming-preview-gamesenumeration-gamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |TitleId|
+    drive factor, share value
+
+force get-game-list-entry-launchable-state
+  cause get-object
+    drive aspect, |Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState|
+
+force build-game-mode-configuration
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration|
+
+force get-affinitize-to-exclusive-cpus
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AffinitizeToExclusiveCpus|
+
+force set-affinitize-to-exclusive-cpus
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AffinitizeToExclusiveCpus|
+    drive factor, share value
+
+force get-cpu-exclusivity-mask-high
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CpuExclusivityMaskHigh|
+
+force set-cpu-exclusivity-mask-high
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CpuExclusivityMaskHigh|
+    drive factor, share value
+
+force get-cpu-exclusivity-mask-low
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |CpuExclusivityMaskLow|
+
+force set-cpu-exclusivity-mask-low
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |CpuExclusivityMaskLow|
+    drive factor, share value
+
+force get-is-enabled
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |IsEnabled|
+
+force set-is-enabled
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |IsEnabled|
+    drive factor, share value
+
+force get-max-cpu-count
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |MaxCpuCount|
+
+force set-max-cpu-count
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |MaxCpuCount|
+    drive factor, share value
+
+force get-percent-gpu-memory-allocated-to-game
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PercentGpuMemoryAllocatedToGame|
+
+force set-percent-gpu-memory-allocated-to-game
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PercentGpuMemoryAllocatedToGame|
+    drive factor, share value
+
+force get-percent-gpu-memory-allocated-to-system-compositor
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PercentGpuMemoryAllocatedToSystemCompositor|
+
+force set-percent-gpu-memory-allocated-to-system-compositor
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PercentGpuMemoryAllocatedToSystemCompositor|
+    drive factor, share value
+
+force get-percent-gpu-time-allocated-to-game
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |PercentGpuTimeAllocatedToGame|
+
+force set-percent-gpu-time-allocated-to-game
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |PercentGpuTimeAllocatedToGame|
+    drive factor, share value
+
+force get-related-process-names
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |RelatedProcessNames|
+
+force set-related-process-names
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |RelatedProcessNames|
+    drive factor, share value
+
+force save-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsync|
+
+force build-game-mode-user-configuration
+  cause invoke-constructor
+    drive constructor, |Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration|
+
+force get-gaming-related-process-names
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeuserconfiguration
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |GamingRelatedProcessNames|
+
+force set-gaming-related-process-names
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeuserconfiguration
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |GamingRelatedProcessNames|
+    drive factor, share value
+
+force get-default
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeuserconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDefault|
+
+force save-async
+  mount build, field windows-gaming-preview-gamesenumeration-gamemodeuserconfiguration
+
+  cause call-method
+    drive object, share build
+    drive method, |SaveAsync|
+
+force get-category
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Category|
+
+force set-category
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Category|
+    drive factor, share value
+
+force get-display-info
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+
+force set-display-info
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DisplayInfo|
+    drive factor, share value
+
+force launch-async
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+
+  cause call-method
+    drive object, share build
+    drive method, |LaunchAsync|
+
+force get-properties
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Properties|
+
+force set-properties
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+  mount value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Properties|
+    drive factor, share value
+
+force set-category-async
+  mount build, field windows-gaming-preview-gamesenumeration-igamelistentry
+  mount value, field windows-gaming-preview-gamesenumeration-gamelistcategory
+
+  cause call-method
+    drive object, share build
+    drive method, |SetCategoryAsync|
+    drive factor, share value

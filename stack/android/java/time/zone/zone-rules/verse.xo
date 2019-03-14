@@ -1,0 +1,180 @@
+
+force equals
+  mount build, field zone-rules
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-daylight-savings
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |getDaylightSavings|
+    drive factor, share instant
+    throw build, field duration
+
+force get-offset
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share instant
+    throw build, field zone-offset
+
+force get-offset
+  mount build, field zone-rules
+  mount local-date-time, field local-date-time
+
+  cause call-method
+    drive object, share build
+    drive method, |getOffset|
+    drive factor, share local-date-time
+    throw build, field zone-offset
+
+force get-standard-offset
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |getStandardOffset|
+    drive factor, share instant
+    throw build, field zone-offset
+
+force get-transition
+  mount build, field zone-rules
+  mount local-date-time, field local-date-time
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransition|
+    drive factor, share local-date-time
+    throw build, field zone-offset-transition
+
+force get-transition-rules
+  mount build, field zone-rules
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitionRules|
+    throw build, field mutable-list
+
+force get-transitions
+  mount build, field zone-rules
+
+  cause call-method
+    drive object, share build
+    drive method, |getTransitions|
+    throw build, field mutable-list
+
+force get-valid-offsets
+  mount build, field zone-rules
+  mount local-date-time, field local-date-time
+
+  cause call-method
+    drive object, share build
+    drive method, |getValidOffsets|
+    drive factor, share local-date-time
+    throw build, field mutable-list
+
+force hash-code
+  mount build, field zone-rules
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-daylight-savings
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |isDaylightSavings|
+    drive factor, share instant
+    throw build, field boolean
+
+force is-fixed-offset
+  mount build, field zone-rules
+
+  cause call-method
+    drive object, share build
+    drive method, |isFixedOffset|
+    throw build, field boolean
+
+force is-valid-offset
+  mount build, field zone-rules
+  mount local-date-time, field local-date-time
+  mount offset, field zone-offset
+
+  cause call-method
+    drive object, share build
+    drive method, |isValidOffset|
+    drive factor, share local-date-time
+    drive factor, share offset
+    throw build, field boolean
+
+force next-transition
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |nextTransition|
+    drive factor, share instant
+    throw build, field zone-offset-transition
+
+force of
+  mount build, field zone-rules
+  mount base-standard-offset, field zone-offset
+  mount base-wall-offset, field zone-offset
+  mount standard-offset-transition-list, field mutable-list-zone-offset-transition
+  mount transition-list, field mutable-list-zone-offset-transition
+  mount last-rules, field mutable-list-zone-offset-transition-rule
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share base-standard-offset
+    drive factor, share base-wall-offset
+    drive factor, share standard-offset-transition-list
+    drive factor, share transition-list
+    drive factor, share last-rules
+    throw build, field zone-rules
+
+force of
+  mount build, field zone-rules
+  mount offset, field zone-offset
+
+  cause call-method
+    drive object, share build
+    drive method, |of|
+    drive factor, share offset
+    throw build, field zone-rules
+
+force previous-transition
+  mount build, field zone-rules
+  mount instant, field instant
+
+  cause call-method
+    drive object, share build
+    drive method, |previousTransition|
+    drive factor, share instant
+    throw build, field zone-offset-transition
+
+force to-string
+  mount build, field zone-rules
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string

@@ -1,0 +1,23 @@
+
+force build-console-handler
+  cause invoke-constructor
+    drive constructor, |ConsoleHandler|
+    throw build, field console-handler
+
+force close
+  mount build, field console-handler
+
+  cause call-method
+    drive object, share build
+    drive method, |close|
+    throw build, field unit
+
+force publish
+  mount build, field console-handler
+  mount record, field log-record
+
+  cause call-method
+    drive object, share build
+    drive method, |publish|
+    drive factor, share record
+    throw build, field unit

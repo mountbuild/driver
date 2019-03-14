@@ -1,0 +1,324 @@
+
+force get-acquire-causes-wakeup
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACQUIRE_CAUSES_WAKEUP|
+    raise build, field int
+
+force get-action-device-idle-mode-changed
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DEVICE_IDLE_MODE_CHANGED|
+    raise build, field string
+
+force get-action-power-save-mode-changed
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_POWER_SAVE_MODE_CHANGED|
+    raise build, field string
+
+force get-full-wake-lock
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |FULL_WAKE_LOCK|
+    raise build, field int
+
+force get-location-mode-all-disabled-when-screen-off
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF|
+    raise build, field int
+
+force get-location-mode-foreground-only
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCATION_MODE_FOREGROUND_ONLY|
+    raise build, field int
+
+force get-location-mode-gps-disabled-when-screen-off
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF|
+    raise build, field int
+
+force get-location-mode-no-change
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCATION_MODE_NO_CHANGE|
+    raise build, field int
+
+force get-location-mode-throttle-requests-when-screen-off
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF|
+    raise build, field int
+
+force get-on-after-release
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |ON_AFTER_RELEASE|
+    raise build, field int
+
+force get-partial-wake-lock
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |PARTIAL_WAKE_LOCK|
+    raise build, field int
+
+force get-proximity-screen-off-wake-lock
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |PROXIMITY_SCREEN_OFF_WAKE_LOCK|
+    raise build, field int
+
+force get-release-flag-wait-for-no-proximity
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |RELEASE_FLAG_WAIT_FOR_NO_PROXIMITY|
+    raise build, field int
+
+force get-screen-bright-wake-lock
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |SCREEN_BRIGHT_WAKE_LOCK|
+    raise build, field int
+
+force get-screen-dim-wake-lock
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |SCREEN_DIM_WAKE_LOCK|
+    raise build, field int
+
+force get-thermal-status-critical
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_CRITICAL|
+    raise build, field int
+
+force get-thermal-status-emergency
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_EMERGENCY|
+    raise build, field int
+
+force get-thermal-status-light
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_LIGHT|
+    raise build, field int
+
+force get-thermal-status-moderate
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_MODERATE|
+    raise build, field int
+
+force get-thermal-status-none
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_NONE|
+    raise build, field int
+
+force get-thermal-status-severe
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_SEVERE|
+    raise build, field int
+
+force get-thermal-status-shutdown
+  mount build, field power-manager
+
+  cause get-property
+    drive object, share build
+    drive property, |THERMAL_STATUS_SHUTDOWN|
+    raise build, field int
+
+force add-thermal-status-listener
+  mount build, field power-manager
+  mount listener, field power-manager-on-thermal-status-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addThermalStatusListener|
+    drive factor, share listener
+    raise build, field unit
+
+force add-thermal-status-listener
+  mount build, field power-manager
+  mount executor, field executor
+  mount listener, field power-manager-on-thermal-status-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |addThermalStatusListener|
+    drive factor, share executor
+    drive factor, share listener
+    raise build, field unit
+
+force get-current-thermal-status
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getCurrentThermalStatus|
+    raise build, field int
+
+force get-location-power-save-mode
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocationPowerSaveMode|
+    raise build, field int
+
+force get-thermal-headroom
+  mount build, field power-manager
+  mount forecast-seconds, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getThermalHeadroom|
+    drive factor, share forecast-seconds
+    raise build, field float
+
+force is-device-idle-mode
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isDeviceIdleMode|
+    raise build, field boolean
+
+force is-ignoring-battery-optimizations
+  mount build, field power-manager
+  mount package-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |isIgnoringBatteryOptimizations|
+    drive factor, share package-name
+    raise build, field boolean
+
+force is-interactive
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isInteractive|
+    raise build, field boolean
+
+force is-power-save-mode
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isPowerSaveMode|
+    raise build, field boolean
+
+force is-rebooting-userspace-supported
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isRebootingUserspaceSupported|
+    raise build, field boolean
+
+force is-screen-on
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isScreenOn|
+    raise build, field boolean
+
+force is-sustained-performance-mode-supported
+  mount build, field power-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |isSustainedPerformanceModeSupported|
+    raise build, field boolean
+
+force is-wake-lock-level-supported
+  mount build, field power-manager
+  mount level, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |isWakeLockLevelSupported|
+    drive factor, share level
+    raise build, field boolean
+
+force new-wake-lock
+  mount build, field power-manager
+  mount level-and-flags, field int
+  mount tag, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |newWakeLock|
+    drive factor, share level-and-flags
+    drive factor, share tag
+    raise build, field power-manager-wake-lock
+
+force reboot
+  mount build, field power-manager
+  mount reason, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |reboot|
+    drive factor, share reason
+    raise build, field unit
+
+force remove-thermal-status-listener
+  mount build, field power-manager
+  mount listener, field power-manager-on-thermal-status-changed-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |removeThermalStatusListener|
+    drive factor, share listener
+    raise build, field unit

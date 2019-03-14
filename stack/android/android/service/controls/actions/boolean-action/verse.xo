@@ -1,0 +1,38 @@
+
+force build-boolean-action
+  mount template-id, field string
+  mount new-state, field boolean
+
+  cause invoke-constructor
+    drive constructor, |BooleanAction|
+    drive factor, share template-id
+    drive factor, share new-state
+    raise build, field boolean-action
+
+force build-boolean-action
+  mount template-id, field string
+  mount new-state, field boolean
+  mount challenge-value, field string
+
+  cause invoke-constructor
+    drive constructor, |BooleanAction|
+    drive factor, share template-id
+    drive factor, share new-state
+    drive factor, share challenge-value
+    raise build, field boolean-action
+
+force get-action-type
+  mount build, field boolean-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getActionType|
+    raise build, field int
+
+force get-new-state
+  mount build, field boolean-action
+
+  cause call-method
+    drive object, share build
+    drive method, |getNewState|
+    raise build, field boolean

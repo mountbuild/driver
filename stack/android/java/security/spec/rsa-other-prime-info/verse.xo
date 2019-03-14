@@ -1,0 +1,36 @@
+
+force build-rsa-other-prime-info
+  mount prime, field big-integer
+  mount prime-exponent, field big-integer
+  mount crt-coefficient, field big-integer
+
+  cause invoke-constructor
+    mount constructor, |RSAOtherPrimeInfo|
+    mount factor, share prime
+    mount factor, share prime-exponent
+    mount factor, share crt-coefficient
+    throw build, field rsa-other-prime-info
+
+force get-crt-coefficient
+  mount build, field rsa-other-prime-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getCrtCoefficient|
+    throw build, field big-integer
+
+force get-exponent
+  mount build, field rsa-other-prime-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getExponent|
+    throw build, field big-integer
+
+force get-prime
+  mount build, field rsa-other-prime-info
+
+  cause call-method
+    mount object, share build
+    mount method, |getPrime|
+    throw build, field big-integer

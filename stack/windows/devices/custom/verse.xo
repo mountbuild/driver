@@ -1,0 +1,299 @@
+
+force build-custom-device
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Custom.CustomDevice|
+
+force from-id-async
+  start build, field windows-devices-custom-customdevice
+  start device-id, field system-string
+  start desired-access, field windows-devices-custom-deviceaccessmode
+  start sharing-mode, field windows-devices-custom-devicesharingmode
+
+  cause call-method
+    drive object, share build
+    drive method, |FromIdAsync|
+    drive factor, share device-id
+    drive factor, share desired-access
+    drive factor, share sharing-mode
+
+force get-device-selector
+  start build, field windows-devices-custom-customdevice
+  start class-guid, field system-guid
+
+  cause call-method
+    drive object, share build
+    drive method, |GetDeviceSelector|
+    drive factor, share class-guid
+
+force get-input-stream
+  start build, field windows-devices-custom-customdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |InputStream|
+
+force set-input-stream
+  start build, field windows-devices-custom-customdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |InputStream|
+    drive factor, share value
+
+force get-output-stream
+  start build, field windows-devices-custom-customdevice
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |OutputStream|
+
+force set-output-stream
+  start build, field windows-devices-custom-customdevice
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |OutputStream|
+    drive factor, share value
+
+force send-i-o-control-async
+  start build, field windows-devices-custom-customdevice
+  start io-control-code, field windows-devices-custom-iiocontrolcode
+  start input-buffer, field windows-storage-streams-ibuffer
+  start output-buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |SendIOControlAsync|
+    drive factor, share io-control-code
+    drive factor, share input-buffer
+    drive factor, share output-buffer
+
+force try-send-i-o-control-async
+  start build, field windows-devices-custom-customdevice
+  start io-control-code, field windows-devices-custom-iiocontrolcode
+  start input-buffer, field windows-storage-streams-ibuffer
+  start output-buffer, field windows-storage-streams-ibuffer
+
+  cause call-method
+    drive object, share build
+    drive method, |TrySendIOControlAsync|
+    drive factor, share io-control-code
+    drive factor, share input-buffer
+    drive factor, share output-buffer
+
+force get-device-access-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Custom.DeviceAccessMode|
+
+force get-device-sharing-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Custom.DeviceSharingMode|
+
+force get-access-mode
+  start build, field windows-devices-custom-iiocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AccessMode|
+
+force set-access-mode
+  start build, field windows-devices-custom-iiocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AccessMode|
+    drive factor, share value
+
+force get-buffering-method
+  start build, field windows-devices-custom-iiocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BufferingMethod|
+
+force set-buffering-method
+  start build, field windows-devices-custom-iiocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BufferingMethod|
+    drive factor, share value
+
+force get-control-code
+  start build, field windows-devices-custom-iiocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ControlCode|
+
+force set-control-code
+  start build, field windows-devices-custom-iiocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ControlCode|
+    drive factor, share value
+
+force get-device-type
+  start build, field windows-devices-custom-iiocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceType|
+
+force set-device-type
+  start build, field windows-devices-custom-iiocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceType|
+    drive factor, share value
+
+force get-function
+  start build, field windows-devices-custom-iiocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Function|
+
+force set-function
+  start build, field windows-devices-custom-iiocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Function|
+    drive factor, share value
+
+force get-i-o-control-access-mode
+  cause get-object
+    drive aspect, |Windows.Devices.Custom.IOControlAccessMode|
+
+force get-i-o-control-buffering-method
+  cause get-object
+    drive aspect, |Windows.Devices.Custom.IOControlBufferingMethod|
+
+force build-i-o-control-code
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Custom.IOControlCode|
+
+force get-access-mode
+  start build, field windows-devices-custom-iocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |AccessMode|
+
+force set-access-mode
+  start build, field windows-devices-custom-iocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |AccessMode|
+    drive factor, share value
+
+force get-buffering-method
+  start build, field windows-devices-custom-iocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |BufferingMethod|
+
+force set-buffering-method
+  start build, field windows-devices-custom-iocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |BufferingMethod|
+    drive factor, share value
+
+force get-control-code
+  start build, field windows-devices-custom-iocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |ControlCode|
+
+force set-control-code
+  start build, field windows-devices-custom-iocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |ControlCode|
+    drive factor, share value
+
+force get-device-type
+  start build, field windows-devices-custom-iocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |DeviceType|
+
+force set-device-type
+  start build, field windows-devices-custom-iocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |DeviceType|
+    drive factor, share value
+
+force get-function
+  start build, field windows-devices-custom-iocontrolcode
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Function|
+
+force set-function
+  start build, field windows-devices-custom-iocontrolcode
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Function|
+    drive factor, share value
+
+force ctor
+  start build, field windows-devices-custom-iocontrolcode
+  start device-type, field system-uint16
+  start function, field system-uint16
+  start access-mode, field windows-devices-custom-iocontrolaccessmode
+  start buffering-method, field windows-devices-custom-iocontrolbufferingmethod
+
+  cause call-method
+    drive object, share build
+    drive method, |#ctor|
+    drive factor, share device-type
+    drive factor, share function
+    drive factor, share access-mode
+    drive factor, share buffering-method
+
+force build-known-device-types
+  cause invoke-constructor
+    drive constructor, |Windows.Devices.Custom.KnownDeviceTypes|
+
+force get-unknown
+  start build, field windows-devices-custom-knowndevicetypes
+
+  cause get-aspect
+    drive object, share build
+    drive aspect, |Unknown|
+
+force set-unknown
+  start build, field windows-devices-custom-knowndevicetypes
+  start value
+
+  cause set-aspect
+    drive object, share build
+    drive aspect, |Unknown|
+    drive factor, share value

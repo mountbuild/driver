@@ -1,0 +1,111 @@
+
+force get-file-handle
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |fileHandle|
+    throw build
+
+force get-mode
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |mode|
+    throw build
+
+force get-active
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |active|
+    throw build
+
+force get-location
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |location|
+    throw build
+
+force set-location
+  start build
+  start value
+
+  cause set-aspect
+    mount object, share build
+    mount aspect, |location|
+    mount factor, share value
+
+force get-metadata
+  start build
+  start param
+
+  cause call-method
+    mount object, share build
+    mount method, |getMetadata|
+    mount factor, share param
+
+force read-as-array-buffer
+  start build
+  start size
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsArrayBuffer|
+    mount factor, share size
+
+force read-as-text
+  start build
+  start size
+  start encoding
+
+  cause call-method
+    mount object, share build
+    mount method, |readAsText|
+    mount factor, share size
+    mount factor, share encoding
+
+force write
+  start build
+  start data
+
+  cause call-method
+    mount object, share build
+    mount method, |write|
+    mount factor, share data
+
+force append
+  start build
+  start data
+
+  cause call-method
+    mount object, share build
+    mount method, |append|
+    mount factor, share data
+
+force truncate
+  start build
+  start start
+
+  cause call-method
+    mount object, share build
+    mount method, |truncate|
+    mount factor, share start
+
+force flush
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |flush|
+
+force abort
+  start build
+
+  cause call-method
+    mount object, share build
+    mount method, |abort|

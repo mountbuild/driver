@@ -1,0 +1,94 @@
+
+force build-line-number-reader
+  mount in, field reader
+
+  cause invoke-constructor
+    drive constructor, |LineNumberReader|
+    drive factor, share in
+    throw build, field line-number-reader
+
+force build-line-number-reader
+  mount in, field reader
+  mount sz, field int
+
+  cause invoke-constructor
+    drive constructor, |LineNumberReader|
+    drive factor, share in
+    drive factor, share sz
+    throw build, field line-number-reader
+
+force get-line-number
+  mount build, field line-number-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |getLineNumber|
+    throw build, field int
+
+force mark
+  mount build, field line-number-reader
+  mount read-ahead-limit, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |mark|
+    drive factor, share read-ahead-limit
+    throw build, field unit
+
+force read
+  mount build, field line-number-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    throw build, field int
+
+force read
+  mount build, field line-number-reader
+  mount cbuf, field char-array
+  mount off, field int
+  mount len, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |read|
+    drive factor, share cbuf
+    drive factor, share off
+    drive factor, share len
+    throw build, field int
+
+force read-line
+  mount build, field line-number-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |readLine|
+    throw build, field string
+
+force reset
+  mount build, field line-number-reader
+
+  cause call-method
+    drive object, share build
+    drive method, |reset|
+    throw build, field unit
+
+force set-line-number
+  mount build, field line-number-reader
+  mount line-number, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |setLineNumber|
+    drive factor, share line-number
+    throw build, field unit
+
+force skip
+  mount build, field line-number-reader
+  mount n, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |skip|
+    drive factor, share n
+    throw build, field long

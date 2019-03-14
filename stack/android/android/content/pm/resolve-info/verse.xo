@@ -1,0 +1,89 @@
+
+force build-resolve-info
+  cause invoke-constructor
+    drive constructor, |ResolveInfo|
+    throw build, field resolve-info
+
+force build-resolve-info
+  mount orig, field resolve-info
+
+  cause invoke-constructor
+    drive constructor, |ResolveInfo|
+    drive factor, share orig
+    throw build, field resolve-info
+
+force describe-contents
+  mount build, field resolve-info
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force dump
+  mount build, field resolve-info
+  mount pw, field printer
+  mount prefix, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |dump|
+    drive factor, share pw
+    drive factor, share prefix
+    throw build, field unit
+
+force get-icon-resource
+  mount build, field resolve-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconResource|
+    throw build, field int
+
+force is-cross-profile-intent-forwarder-activity
+  mount build, field resolve-info
+
+  cause call-method
+    drive object, share build
+    drive method, |isCrossProfileIntentForwarderActivity|
+    throw build, field boolean
+
+force load-icon
+  mount build, field resolve-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadIcon|
+    drive factor, share pm
+    throw build, field drawable
+
+force load-label
+  mount build, field resolve-info
+  mount pm, field package-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |loadLabel|
+    drive factor, share pm
+    throw build, field char-sequence
+
+force to-string
+  mount build, field resolve-info
+
+  cause call-method
+    drive object, share build
+    drive method, |toString|
+    throw build, field string
+
+force write-to-parcel
+  mount build, field resolve-info
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

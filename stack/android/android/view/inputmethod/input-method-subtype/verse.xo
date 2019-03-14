@@ -1,0 +1,186 @@
+
+force build-input-method-subtype
+  mount name-id, field int
+  mount icon-id, field int
+  mount locale, field string
+  mount mode, field string
+  mount extra-value, field string
+  mount is-auxiliary, field boolean
+  mount overrides-implicitly-enabled-subtype, field boolean
+
+  cause invoke-constructor
+    drive constructor, |InputMethodSubtype|
+    drive factor, share name-id
+    drive factor, share icon-id
+    drive factor, share locale
+    drive factor, share mode
+    drive factor, share extra-value
+    drive factor, share is-auxiliary
+    drive factor, share overrides-implicitly-enabled-subtype
+    throw build, field input-method-subtype
+
+force build-input-method-subtype
+  mount name-id, field int
+  mount icon-id, field int
+  mount locale, field string
+  mount mode, field string
+  mount extra-value, field string
+  mount is-auxiliary, field boolean
+  mount overrides-implicitly-enabled-subtype, field boolean
+  mount id, field int
+
+  cause invoke-constructor
+    drive constructor, |InputMethodSubtype|
+    drive factor, share name-id
+    drive factor, share icon-id
+    drive factor, share locale
+    drive factor, share mode
+    drive factor, share extra-value
+    drive factor, share is-auxiliary
+    drive factor, share overrides-implicitly-enabled-subtype
+    drive factor, share id
+    throw build, field input-method-subtype
+
+force contains-extra-value-key
+  mount build, field input-method-subtype
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |containsExtraValueKey|
+    drive factor, share key
+    throw build, field boolean
+
+force describe-contents
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |describeContents|
+    throw build, field int
+
+force equals
+  mount build, field input-method-subtype
+  mount other, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |equals|
+    drive factor, share other
+    throw build, field boolean
+
+force get-display-name
+  mount build, field input-method-subtype
+  mount context, field context
+  mount package-name, field string
+  mount app-info, field application-info
+
+  cause call-method
+    drive object, share build
+    drive method, |getDisplayName|
+    drive factor, share context
+    drive factor, share package-name
+    drive factor, share app-info
+    throw build, field char-sequence
+
+force get-extra-value
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtraValue|
+    throw build, field string
+
+force get-extra-value-of
+  mount build, field input-method-subtype
+  mount key, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getExtraValueOf|
+    drive factor, share key
+    throw build, field string
+
+force get-icon-res-id
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getIconResId|
+    throw build, field int
+
+force get-language-tag
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getLanguageTag|
+    throw build, field string
+
+force get-locale
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getLocale|
+    throw build, field string
+
+force get-mode
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getMode|
+    throw build, field string
+
+force get-name-res-id
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |getNameResId|
+    throw build, field int
+
+force hash-code
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |hashCode|
+    throw build, field int
+
+force is-ascii-capable
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |isAsciiCapable|
+    throw build, field boolean
+
+force is-auxiliary
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |isAuxiliary|
+    throw build, field boolean
+
+force overrides-implicitly-enabled-subtype
+  mount build, field input-method-subtype
+
+  cause call-method
+    drive object, share build
+    drive method, |overridesImplicitlyEnabledSubtype|
+    throw build, field boolean
+
+force write-to-parcel
+  mount build, field input-method-subtype
+  mount dest, field parcel
+  mount parcelable-flags, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |writeToParcel|
+    drive factor, share dest
+    drive factor, share parcelable-flags
+    throw build, field unit

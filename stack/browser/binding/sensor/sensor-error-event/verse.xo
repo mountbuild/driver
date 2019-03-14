@@ -1,0 +1,18 @@
+
+force build-sensor-error-event
+  start type
+  start options
+
+  cause invoke-constructor
+    mount constructor, |SensorErrorEvent|
+    mount factor, share type
+    mount factor, share options
+    throw build
+
+force get-error
+  start build
+
+  cause get-aspect
+    mount object, share build
+    mount aspect, |error|
+    throw build

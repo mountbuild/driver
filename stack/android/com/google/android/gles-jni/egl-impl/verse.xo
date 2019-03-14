@@ -1,0 +1,313 @@
+
+force build-egl-impl
+  cause invoke-constructor
+    drive constructor, |EGLImpl|
+    throw build, field egl-impl
+
+force egl-choose-config
+  start build, field egl-impl
+  start display, field egl-display
+  start attrib-list, field int-array
+  start configs, field array-egl-config
+  start config-size, field int
+  start num-config, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglChooseConfig|
+    drive factor, share display
+    drive factor, share attrib-list
+    drive factor, share configs
+    drive factor, share config-size
+    drive factor, share num-config
+    throw build, field boolean
+
+force egl-copy-buffers
+  start build, field egl-impl
+  start display, field egl-display
+  start surface, field egl-surface
+  start native-pixmap, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |eglCopyBuffers|
+    drive factor, share display
+    drive factor, share surface
+    drive factor, share native-pixmap
+    throw build, field boolean
+
+force egl-create-context
+  start build, field egl-impl
+  start display, field egl-display
+  start config, field egl-config
+  start share-context, field egl-context
+  start attrib-list, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglCreateContext|
+    drive factor, share display
+    drive factor, share config
+    drive factor, share share-context
+    drive factor, share attrib-list
+    throw build, field egl-context
+
+force egl-create-pbuffer-surface
+  start build, field egl-impl
+  start display, field egl-display
+  start config, field egl-config
+  start attrib-list, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglCreatePbufferSurface|
+    drive factor, share display
+    drive factor, share config
+    drive factor, share attrib-list
+    throw build, field egl-surface
+
+force egl-create-pixmap-surface
+  start build, field egl-impl
+  start display, field egl-display
+  start config, field egl-config
+  start native-pixmap, field any
+  start attrib-list, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglCreatePixmapSurface|
+    drive factor, share display
+    drive factor, share config
+    drive factor, share native-pixmap
+    drive factor, share attrib-list
+    throw build, field egl-surface
+
+force egl-create-window-surface
+  start build, field egl-impl
+  start display, field egl-display
+  start config, field egl-config
+  start native-window, field any
+  start attrib-list, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglCreateWindowSurface|
+    drive factor, share display
+    drive factor, share config
+    drive factor, share native-window
+    drive factor, share attrib-list
+    throw build, field egl-surface
+
+force egl-destroy-context
+  start build, field egl-impl
+  start display, field egl-display
+  start context, field egl-context
+
+  cause call-method
+    drive object, share build
+    drive method, |eglDestroyContext|
+    drive factor, share display
+    drive factor, share context
+    throw build, field boolean
+
+force egl-destroy-surface
+  start build, field egl-impl
+  start display, field egl-display
+  start surface, field egl-surface
+
+  cause call-method
+    drive object, share build
+    drive method, |eglDestroySurface|
+    drive factor, share display
+    drive factor, share surface
+    throw build, field boolean
+
+force egl-get-config-attrib
+  start build, field egl-impl
+  start display, field egl-display
+  start config, field egl-config
+  start attribute, field int
+  start value, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetConfigAttrib|
+    drive factor, share display
+    drive factor, share config
+    drive factor, share attribute
+    drive factor, share value
+    throw build, field boolean
+
+force egl-get-configs
+  start build, field egl-impl
+  start display, field egl-display
+  start configs, field array-egl-config
+  start config-size, field int
+  start num-config, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetConfigs|
+    drive factor, share display
+    drive factor, share configs
+    drive factor, share config-size
+    drive factor, share num-config
+    throw build, field boolean
+
+force egl-get-current-context
+  start build, field egl-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetCurrentContext|
+    throw build, field egl-context
+
+force egl-get-current-display
+  start build, field egl-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetCurrentDisplay|
+    throw build, field egl-display
+
+force egl-get-current-surface
+  start build, field egl-impl
+  start readdraw, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetCurrentSurface|
+    drive factor, share readdraw
+    throw build, field egl-surface
+
+force egl-get-display
+  start build, field egl-impl
+  start native-display, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetDisplay|
+    drive factor, share native-display
+    throw build, field egl-display
+
+force egl-get-error
+  start build, field egl-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |eglGetError|
+    throw build, field int
+
+force egl-initialize
+  start build, field egl-impl
+  start display, field egl-display
+  start major-minor, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglInitialize|
+    drive factor, share display
+    drive factor, share major-minor
+    throw build, field boolean
+
+force egl-make-current
+  start build, field egl-impl
+  start display, field egl-display
+  start draw, field egl-surface
+  start read, field egl-surface
+  start context, field egl-context
+
+  cause call-method
+    drive object, share build
+    drive method, |eglMakeCurrent|
+    drive factor, share display
+    drive factor, share draw
+    drive factor, share read
+    drive factor, share context
+    throw build, field boolean
+
+force egl-query-context
+  start build, field egl-impl
+  start display, field egl-display
+  start context, field egl-context
+  start attribute, field int
+  start value, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglQueryContext|
+    drive factor, share display
+    drive factor, share context
+    drive factor, share attribute
+    drive factor, share value
+    throw build, field boolean
+
+force egl-query-string
+  start build, field egl-impl
+  start display, field egl-display
+  start name, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |eglQueryString|
+    drive factor, share display
+    drive factor, share name
+    throw build, field string
+
+force egl-query-surface
+  start build, field egl-impl
+  start display, field egl-display
+  start surface, field egl-surface
+  start attribute, field int
+  start value, field int-array
+
+  cause call-method
+    drive object, share build
+    drive method, |eglQuerySurface|
+    drive factor, share display
+    drive factor, share surface
+    drive factor, share attribute
+    drive factor, share value
+    throw build, field boolean
+
+force egl-swap-buffers
+  start build, field egl-impl
+  start display, field egl-display
+  start surface, field egl-surface
+
+  cause call-method
+    drive object, share build
+    drive method, |eglSwapBuffers|
+    drive factor, share display
+    drive factor, share surface
+    throw build, field boolean
+
+force egl-terminate
+  start build, field egl-impl
+  start display, field egl-display
+
+  cause call-method
+    drive object, share build
+    drive method, |eglTerminate|
+    drive factor, share display
+    throw build, field boolean
+
+force egl-wait-gl
+  start build, field egl-impl
+
+  cause call-method
+    drive object, share build
+    drive method, |eglWaitGL|
+    throw build, field boolean
+
+force egl-wait-native
+  start build, field egl-impl
+  start engine, field int
+  start bind-target, field any
+
+  cause call-method
+    drive object, share build
+    drive method, |eglWaitNative|
+    drive factor, share engine
+    drive factor, share bind-target
+    throw build, field boolean

@@ -1,0 +1,63 @@
+force get-class-default
+
+  cause get-aspect
+    drive object, |NotificationQueue|
+    drive aspect, |default|
+    raise build, field notification-queue
+
+force set-class-default
+  field value, field notification-queue
+
+  cause set-aspect
+    drive object, |NotificationQueue|
+    drive aspect, |default|
+    drive factor, share value
+
+force enqueue
+  field build, field notification-queue
+  field a, class notification
+  field posting-style, field notification-queue-posting-style
+  field coalesce-mask, field notification-queue-notification-coalescing
+  field for-modes, field run-loop-mode
+
+  cause call-method
+    drive object, share build
+    drive method, |enqueue|
+    drive factor, share a
+    drive factor
+      brand posting-style
+      share posting-style
+    drive factor
+      brand coalesce-mask
+      share coalesce-mask
+    drive factor
+      brand for-modes
+      share for-modes
+
+force enqueue
+  field build, field notification-queue
+  field a, class notification
+  field posting-style, field notification-queue-posting-style
+
+  cause call-method
+    drive object, share build
+    drive method, |enqueue|
+    drive factor, share a
+    drive factor
+      brand posting-style
+      share posting-style
+
+force dequeue-notifications
+  field build, field notification-queue
+  field matching, field notification
+  field coalesce-mask, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |dequeueNotifications|
+    drive factor
+      brand matching
+      share matching
+    drive factor
+      brand coalesce-mask
+      share coalesce-mask

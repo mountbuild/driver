@@ -1,0 +1,41 @@
+
+force build-number-key-listener
+  cause invoke-constructor
+    drive constructor, |NumberKeyListener|
+    raise build, field number-key-listener
+
+force filter
+  mount build, field number-key-listener
+  mount source, field char-sequence
+  mount start, field int
+  mount end, field int
+  mount dest, field spanned
+  mount dstart, field int
+  mount dend, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |filter|
+    drive factor, share source
+    drive factor, share start
+    drive factor, share end
+    drive factor, share dest
+    drive factor, share dstart
+    drive factor, share dend
+    raise build, field char-sequence
+
+force on-key-down
+  mount build, field number-key-listener
+  mount view, field view
+  mount content, field editable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean

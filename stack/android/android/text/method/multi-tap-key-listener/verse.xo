@@ -1,0 +1,98 @@
+
+force build-multi-tap-key-listener
+  mount cap, field text-key-listener-capitalize
+  mount autotext, field boolean
+
+  cause invoke-constructor
+    drive constructor, |MultiTapKeyListener|
+    drive factor, share cap
+    drive factor, share autotext
+    raise build, field multi-tap-key-listener
+
+force get-input-type
+  mount build, field multi-tap-key-listener
+
+  cause call-method
+    drive object, share build
+    drive method, |getInputType|
+    raise build, field int
+
+force get-instance
+  mount build, field multi-tap-key-listener
+  mount autotext, field boolean
+  mount cap, field text-key-listener-capitalize
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share autotext
+    drive factor, share cap
+    raise build, field multi-tap-key-listener
+
+force on-key-down
+  mount build, field multi-tap-key-listener
+  mount view, field view
+  mount content, field editable
+  mount key-code, field int
+  mount event, field key-event
+
+  cause call-method
+    drive object, share build
+    drive method, |onKeyDown|
+    drive factor, share view
+    drive factor, share content
+    drive factor, share key-code
+    drive factor, share event
+    raise build, field boolean
+
+force on-span-added
+  mount build, field multi-tap-key-listener
+  mount s, field spannable
+  mount what, field any
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanAdded|
+    drive factor, share s
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    raise build, field unit
+
+force on-span-changed
+  mount build, field multi-tap-key-listener
+  mount buf, field spannable
+  mount what, field any
+  mount s, field int
+  mount e, field int
+  mount start, field int
+  mount stop, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanChanged|
+    drive factor, share buf
+    drive factor, share what
+    drive factor, share s
+    drive factor, share e
+    drive factor, share start
+    drive factor, share stop
+    raise build, field unit
+
+force on-span-removed
+  mount build, field multi-tap-key-listener
+  mount s, field spannable
+  mount what, field any
+  mount start, field int
+  mount end, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onSpanRemoved|
+    drive factor, share s
+    drive factor, share what
+    drive factor, share start
+    drive factor, share end
+    raise build, field unit

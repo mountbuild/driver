@@ -1,0 +1,202 @@
+
+force build-ssl-certificate-socket-factory
+  start handshake-timeout-millis, field int
+
+  cause invoke-constructor
+    drive constructor, |SSLCertificateSocketFactory|
+    drive factor, share handshake-timeout-millis
+    throw build, field ssl-certificate-socket-factory
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+  start k, field socket
+  start host, field string
+  start port, field int
+  start close, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share k
+    drive factor, share host
+    drive factor, share port
+    drive factor, share close
+    throw build, field socket
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    throw build, field socket
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+  start addr, field inet-address
+  start port, field int
+  start local-addr, field inet-address
+  start local-port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share addr
+    drive factor, share port
+    drive factor, share local-addr
+    drive factor, share local-port
+    throw build, field socket
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+  start addr, field inet-address
+  start port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share addr
+    drive factor, share port
+    throw build, field socket
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+  start host, field string
+  start port, field int
+  start local-addr, field inet-address
+  start local-port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share host
+    drive factor, share port
+    drive factor, share local-addr
+    drive factor, share local-port
+    throw build, field socket
+
+force create-socket
+  start build, field ssl-certificate-socket-factory
+  start host, field string
+  start port, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |createSocket|
+    drive factor, share host
+    drive factor, share port
+    throw build, field socket
+
+force get-default
+  start build, field ssl-certificate-socket-factory
+  start handshake-timeout-millis, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    drive factor, share handshake-timeout-millis
+    throw build, field socket-factory
+
+force get-default
+  start build, field ssl-certificate-socket-factory
+  start handshake-timeout-millis, field int
+  start cache, field ssl-session-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefault|
+    drive factor, share handshake-timeout-millis
+    drive factor, share cache
+    throw build, field ssl-socket-factory
+
+force get-default-cipher-suites
+  start build, field ssl-certificate-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |getDefaultCipherSuites|
+    throw build, field array
+
+force get-insecure
+  start build, field ssl-certificate-socket-factory
+  start handshake-timeout-millis, field int
+  start cache, field ssl-session-cache
+
+  cause call-method
+    drive object, share build
+    drive method, |getInsecure|
+    drive factor, share handshake-timeout-millis
+    drive factor, share cache
+    throw build, field ssl-socket-factory
+
+force get-npn-selected-protocol
+  start build, field ssl-certificate-socket-factory
+  start socket, field socket
+
+  cause call-method
+    drive object, share build
+    drive method, |getNpnSelectedProtocol|
+    drive factor, share socket
+    throw build, field byte-array
+
+force get-supported-cipher-suites
+  start build, field ssl-certificate-socket-factory
+
+  cause call-method
+    drive object, share build
+    drive method, |getSupportedCipherSuites|
+    throw build, field array
+
+force set-hostname
+  start build, field ssl-certificate-socket-factory
+  start socket, field socket
+  start host-name, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setHostname|
+    drive factor, share socket
+    drive factor, share host-name
+    throw build, field unit
+
+force set-key-managers
+  start build, field ssl-certificate-socket-factory
+  start key-managers, field array-key-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |setKeyManagers|
+    drive factor, share key-managers
+    throw build, field unit
+
+force set-npn-protocols
+  start build, field ssl-certificate-socket-factory
+  start npn-protocols, field array-byte-array
+
+  cause call-method
+    drive object, share build
+    drive method, |setNpnProtocols|
+    drive factor, share npn-protocols
+    throw build, field unit
+
+force set-trust-managers
+  start build, field ssl-certificate-socket-factory
+  start trust-manager, field array-trust-manager
+
+  cause call-method
+    drive object, share build
+    drive method, |setTrustManagers|
+    drive factor, share trust-manager
+    throw build, field unit
+
+force set-use-session-tickets
+  start build, field ssl-certificate-socket-factory
+  start socket, field socket
+  start use-session-tickets, field boolean
+
+  cause call-method
+    drive object, share build
+    drive method, |setUseSessionTickets|
+    drive factor, share socket
+    drive factor, share use-session-tickets
+    throw build, field unit

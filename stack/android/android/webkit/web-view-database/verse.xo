@@ -1,0 +1,91 @@
+
+force build-web-view-database
+  cause invoke-constructor
+    drive constructor, |WebViewDatabase|
+    throw build, field web-view-database
+
+force clear-form-data
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |clearFormData|
+    throw build, field unit
+
+force clear-http-auth-username-password
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |clearHttpAuthUsernamePassword|
+    throw build, field unit
+
+force clear-username-password
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |clearUsernamePassword|
+    throw build, field unit
+
+force get-http-auth-username-password
+  mount build, field web-view-database
+  mount host, field string
+  mount realm, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |getHttpAuthUsernamePassword|
+    drive factor, share host
+    drive factor, share realm
+    throw build, field array
+
+force get-instance
+  mount build, field web-view-database
+  mount context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getInstance|
+    drive factor, share context
+    throw build, field web-view-database
+
+force has-form-data
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |hasFormData|
+    throw build, field boolean
+
+force has-http-auth-username-password
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |hasHttpAuthUsernamePassword|
+    throw build, field boolean
+
+force has-username-password
+  mount build, field web-view-database
+
+  cause call-method
+    drive object, share build
+    drive method, |hasUsernamePassword|
+    throw build, field boolean
+
+force set-http-auth-username-password
+  mount build, field web-view-database
+  mount host, field string
+  mount realm, field string
+  mount username, field string
+  mount password, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |setHttpAuthUsernamePassword|
+    drive factor, share host
+    drive factor, share realm
+    drive factor, share username
+    drive factor, share password
+    throw build, field unit

@@ -1,0 +1,565 @@
+
+force get-action-choose-private-key-alias
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_CHOOSE_PRIVATE_KEY_ALIAS|
+    throw build, field string
+
+force get-action-device-admin-disabled
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DEVICE_ADMIN_DISABLED|
+    throw build, field string
+
+force get-action-device-admin-disable-requested
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DEVICE_ADMIN_DISABLE_REQUESTED|
+    throw build, field string
+
+force get-action-device-admin-enabled
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_DEVICE_ADMIN_ENABLED|
+    throw build, field string
+
+force get-action-lock-task-entering
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_LOCK_TASK_ENTERING|
+    throw build, field string
+
+force get-action-lock-task-exiting
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_LOCK_TASK_EXITING|
+    throw build, field string
+
+force get-action-network-logs-available
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_NETWORK_LOGS_AVAILABLE|
+    throw build, field string
+
+force get-action-password-changed
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PASSWORD_CHANGED|
+    throw build, field string
+
+force get-action-password-expiring
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PASSWORD_EXPIRING|
+    throw build, field string
+
+force get-action-password-failed
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PASSWORD_FAILED|
+    throw build, field string
+
+force get-action-password-succeeded
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PASSWORD_SUCCEEDED|
+    throw build, field string
+
+force get-action-profile-provisioning-complete
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |ACTION_PROFILE_PROVISIONING_COMPLETE|
+    throw build, field string
+
+force get-bugreport-failure-failed-completing
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |BUGREPORT_FAILURE_FAILED_COMPLETING|
+    throw build, field int
+
+force get-bugreport-failure-file-no-longer-available
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE|
+    throw build, field int
+
+force get-device-admin-meta-data
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |DEVICE_ADMIN_META_DATA|
+    throw build, field string
+
+force get-extra-disable-warning
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_DISABLE_WARNING|
+    throw build, field string
+
+force get-extra-lock-task-package
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_LOCK_TASK_PACKAGE|
+    throw build, field string
+
+force get-extra-transfer-ownership-admin-extras-bundle
+  start build, field device-admin-receiver
+
+  cause get-property
+    drive object, share build
+    drive property, |EXTRA_TRANSFER_OWNERSHIP_ADMIN_EXTRAS_BUNDLE|
+    throw build, field string
+
+force build-device-admin-receiver
+  cause invoke-constructor
+    drive constructor, |DeviceAdminReceiver|
+    throw build, field device-admin-receiver
+
+force get-manager
+  start build, field device-admin-receiver
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getManager|
+    drive factor, share context
+    throw build, field device-policy-manager
+
+force get-who
+  start build, field device-admin-receiver
+  start context, field context
+
+  cause call-method
+    drive object, share build
+    drive method, |getWho|
+    drive factor, share context
+    throw build, field component-name
+
+force on-bugreport-failed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start failure-code, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onBugreportFailed|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share failure-code
+    throw build, field unit
+
+force on-bugreport-shared
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start bugreport-hash, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onBugreportShared|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share bugreport-hash
+    throw build, field unit
+
+force on-bugreport-sharing-declined
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onBugreportSharingDeclined|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-choose-private-key-alias
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start uid, field int
+  start uri, field uri
+  start alias, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onChoosePrivateKeyAlias|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share uid
+    drive factor, share uri
+    drive factor, share alias
+    throw build, field string
+
+force on-disable-requested
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisableRequested|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field char-sequence
+
+force on-disabled
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onDisabled|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-enabled
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onEnabled|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-lock-task-mode-entering
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start pkg, field string
+
+  cause call-method
+    drive object, share build
+    drive method, |onLockTaskModeEntering|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share pkg
+    throw build, field unit
+
+force on-lock-task-mode-exiting
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onLockTaskModeExiting|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-network-logs-available
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start batch-token, field long
+  start network-logs-count, field int
+
+  cause call-method
+    drive object, share build
+    drive method, |onNetworkLogsAvailable|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share batch-token
+    drive factor, share network-logs-count
+    throw build, field unit
+
+force on-password-changed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordChanged|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-password-changed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordChanged|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share user
+    throw build, field unit
+
+force on-password-expiring
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordExpiring|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-password-expiring
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordExpiring|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share user
+    throw build, field unit
+
+force on-password-failed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordFailed|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-password-failed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordFailed|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share user
+    throw build, field unit
+
+force on-password-succeeded
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordSucceeded|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-password-succeeded
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onPasswordSucceeded|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share user
+    throw build, field unit
+
+force on-profile-provisioning-complete
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onProfileProvisioningComplete|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-ready-for-user-initialization
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReadyForUserInitialization|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-receive
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onReceive|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-security-logs-available
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+
+  cause call-method
+    drive object, share build
+    drive method, |onSecurityLogsAvailable|
+    drive factor, share context
+    drive factor, share intent
+    throw build, field unit
+
+force on-system-update-pending
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start received-time, field long
+
+  cause call-method
+    drive object, share build
+    drive method, |onSystemUpdatePending|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share received-time
+    throw build, field unit
+
+force on-transfer-affiliated-profile-ownership-complete
+  start build, field device-admin-receiver
+  start context, field context
+  start user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransferAffiliatedProfileOwnershipComplete|
+    drive factor, share context
+    drive factor, share user
+    throw build, field unit
+
+force on-transfer-ownership-complete
+  start build, field device-admin-receiver
+  start context, field context
+  start bundle, field persistable-bundle
+
+  cause call-method
+    drive object, share build
+    drive method, |onTransferOwnershipComplete|
+    drive factor, share context
+    drive factor, share bundle
+    throw build, field unit
+
+force on-user-added
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start added-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserAdded|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share added-user
+    throw build, field unit
+
+force on-user-removed
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start removed-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserRemoved|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share removed-user
+    throw build, field unit
+
+force on-user-started
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start started-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserStarted|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share started-user
+    throw build, field unit
+
+force on-user-stopped
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start stopped-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserStopped|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share stopped-user
+    throw build, field unit
+
+force on-user-switched
+  start build, field device-admin-receiver
+  start context, field context
+  start intent, field intent
+  start switched-user, field user-handle
+
+  cause call-method
+    drive object, share build
+    drive method, |onUserSwitched|
+    drive factor, share context
+    drive factor, share intent
+    drive factor, share switched-user
+    throw build, field unit
