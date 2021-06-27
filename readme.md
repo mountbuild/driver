@@ -8,10 +8,10 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/mountbuild/drive/blob/build/flash/verse.svg?raw=true' height='256'>
+  <img src='https://github.com/mountbuild/driver/blob/build/flash/verse.svg?raw=true' height='256'>
 </p>
 
-<h3 align='center'>drive</h3>
+<h3 align='center'>driver</h3>
 <p align='center'>
   XO Platform Drivers
 </p>
@@ -30,7 +30,7 @@
 
 ### Contribute
 
-Contributions are greatly welcomed. Identify the key painpoints in the customer onboarding flow, and help us map out the best solutions. See the [contributor's guide](https://github.com/mountbuild/drive/blob/build/contributing.md) for more info if you are just driveing out coding.
+Contributions are greatly welcomed. Identify the key painpoints in the customer onboarding flow, and help us map out the best solutions. See the [contributor's guide](https://github.com/mountbuild/.github/blob/build/contributing.md) for more info if you are just starting out coding.
 
 ### License
 
@@ -50,29 +50,7 @@ limitations under the License.
 
 ### Mount
 
-Drive is being developed by the folks at [Mount](https://mount.build), a California-based project for helping humanity master information and computation. Mount started off in the winter of 2008 as a spark of an idea, to forming a company 10 years later in the winter of 2018, to a seed of a project just beginning its development phases. Mount funds start's development. It is entirely bootstrapped by working full time and running [Etsy](https://etsy.com/shop/mountbuild) and [Amazon](https://www.amazon.com/s?rh=p_27%3AMount+Build) shops. Also find us on [Facebook](https://www.facebook.com/mountbuild), [Twitter](https://twitter.com/mountbuild), and [LinkedIn](https://www.linkedin.com/company/mountbuild). Check out our other GitHub projects as well!
-
-<br/>
-<br/>
-<br/>
-
-<p align='center'>
-  <a href='https://twitter.com/mountbuild'>
-    <img src='https://mount.build/slate/twitter.png' height='64' />
-  </a>　　　　
-  <a href='https://etsy.com/shop/mountbuild'>
-    <img src='https://mount.build/slate/etsy.png' height='64' />
-  </a>　　　　
-  <a href='https://github.com/mountbuild'>
-    <img src='https://mount.build/slate/github.png' height='64' />
-  </a>　　　
-  <a href='https://www.amazon.com/s?rh=p_27%3AMount+Build'>
-    <img src='https://mount.build/slate/amazon.png' height='64' />
-  </a>　　　　　
-  <a href='https://www.facebook.com/mountbuild'>
-    <img src='https://mount.build/slate/facebook.png' height='64' />
-  </a>
-</p>
+Drivers are being developed by the folks at [Mount](https://mount.build), a California-based project for helping humanity master information and computation. Mount started off in the winter of 2008 as a spark of an idea, to forming a company 10 years later in the winter of 2018, to a seed of a project just beginning its development phases. Mount funds driver's development. It is entirely bootstrapped by working full time and running [Etsy](https://etsy.com/shop/mountbuild) and [Amazon](https://www.amazon.com/s?rh=p_27%3AMount+Build) shops. Also find us on [Facebook](https://www.facebook.com/mountbuild), [Twitter](https://twitter.com/mountbuild), and [LinkedIn](https://www.linkedin.com/company/mountbuild). Check out our other GitHub projects as well!
 
 <br/>
 <br/>
